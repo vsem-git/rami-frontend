@@ -1,23 +1,32 @@
-import { useEffect, useState } from "react";
-import { CircleText } from "../components/CircleText";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { Screensaver } from "./Screensaver"
+import { AboutServices } from "./Surgery";
+import { useArrowScroll } from "../hooks/useArrowScroll";
 
-export default function Home({ scrollRef }: { scrollRef: React.RefObject<HTMLElement> }) {
-  const { scrollY } = useScroll({ target: scrollRef });
+interface HomeProps {
+  scrollRef: React.RefObject<HTMLElement>;
+}
+export const Home = ({ scrollRef }: HomeProps) => {
+  const vh = typeof window !== "undefined" ? window.innerHeight : 800;
 
-  const rotation = useTransform(scrollY, [0, 1000], [0, -220]);
-  const smoothRotation = useSpring(rotation, { stiffness: 50, damping: 20 });
+  // "якоря" для стрелочной прокрутки
+  const homeAnchor = useRef<HTMLDivElement | null>(null);
+  const surgeryAnchor = useRef<HTMLDivElement | null>(null);
+  const sections = [homeAnchor, surgeryAnchor];
 
+  useArrowScroll(sections, {
+    containerRef: scrollRef,
+    nextKeys: ["ArrowRight"],
+    prevKeys: ["ArrowLeft"],
+    throttleMs: 700,
+  });
   return (
-    <section className="fixed top-0 left-0 w-full h-screen z-10" >
-    <div className="h-screen w-full bg-white flex items-center justify-center">
-      <motion.div
-        style={{ rotate: smoothRotation }}
-        className="w-96 h-96 flex items-center justify-center"
-      >
-        <CircleText text="RAMICLINIC RESIDENCE " radius={150} />
-      </motion.div>
-    </div>
-    </section>
-  );
+    <>
+      <Screensaver scrollRef={scrollRef} />
+      <AboutServices scrollRef={scrollRef} />
+
+      <div ref={homeAnchor} style={{ height: vh }} />
+      <div ref={surgeryAnchor} style={{ height: vh }} />
+    </>
+  )
 }

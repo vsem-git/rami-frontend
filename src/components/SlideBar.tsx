@@ -1,8 +1,7 @@
-// import { motion, useAnimation, type Variants } from "framer-motion";
-import { motion, useAnimation, type Variants } from "framer-motion";
+import { motion, MotionValue, useAnimation, type Variants } from "framer-motion";
 import { useState } from "react";
 
-const menuItems = ["Titli", "О нас", "Услуги", "Резиденция", "Контакты"];
+const menuItems = ["TITLE", "КОМАНДА", "ДИНАСТИЯ", "ПОДГОТОВКА С ПЛАСТИЧЕСКОЙ ОПЕРАЦИЕЙ", "ПЛАСТИЧЕСКАЯ ХИРУРГИЯ", "КОСМЕТОЛОГИЯ", "РЕАБИЛИТАЦИЯ", "МЕДИЦИНСКИЙ ТУР", "БЛОГ"];
 
 // Анимация для букв
 const letterVariants: Variants = {
@@ -17,18 +16,21 @@ const letterVariants: Variants = {
     transition: { delay: i * 0.05, duration: 0.3 },
   }),
 };
+interface SlideBarProps {
+  textColor: MotionValue<string>;
+}
 
-export const SlideBar = () => {
+export const SlideBar: React.FC<SlideBarProps> = ({ textColor }) => {
   return (
     <nav className="fixed left-6 top-1/2 -translate-y-1/2 flex flex-col gap-[10px] z-40 px-[40px]">
       {menuItems.map((item, idx) => (
-        <MenuItem key={idx} label={item} />
+        <MenuItem key={idx} label={item} textColor={textColor}/>
       ))}
     </nav>
   );
 };
 
-function MenuItem({ label }: { label: string }) {
+function MenuItem({ label, textColor }: { label: string, textColor: MotionValue<string> }) {
   const controls = useAnimation(); // для полосы
   const [hovered, setHovered] = useState(false); // состояние наведения
 
@@ -54,7 +56,7 @@ function MenuItem({ label }: { label: string }) {
           animate={controls}
           initial={{ width: 32 }}
           className="bg-black rounded"
-          style={{ height: "1px", backgroundColor: "black" }}
+          style={{ height: "1px", backgroundColor: textColor, color: textColor }}
         />
       </div>
 
@@ -68,8 +70,9 @@ function MenuItem({ label }: { label: string }) {
             animate={hovered ? "visible" : "hidden"}
             variants={letterVariants}
             className="inline-block"
+            style={{ color: textColor }}
           >
-            {char}
+            {char === " " ? "\u00A0" : char}
           </motion.span>
         ))}
       </div>
