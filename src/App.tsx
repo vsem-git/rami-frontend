@@ -1,25 +1,37 @@
-import { Routes, Route, Link, Navigate } from "react-router-dom";
-import Home from "./pages/Home";
-import Surgery from "./pages/Surgery";
+import { Routes, Route, Navigate, } from "react-router-dom";
+import { Header } from "./components/Header";
+import { SlideBar } from "./components/SlideBar";
+import { useRef } from "react";
+import { useScroll, useTransform } from "framer-motion";
+import { Home } from "./pages/Home";
 
 export default function App() {
-    return (
-        <div className="min-h-dvh flex flex-col">
-            <header className="border-b px-4 py-3 flex gap-4">
-                <Link to="/" className="font-semibold hover:underline">Index</Link>
-                <Link to="/surgery" className="hover:underline">Surgery</Link>
-            </header>
+  const scrollRef = useRef<HTMLDivElement | null>(null);
 
-            <main className="flex-1 p-6">
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/surgery" element={<Surgery />} />
+  const { scrollY } = useScroll({ container: scrollRef });
 
-                    {/* Опционально: редирект/404 */}
-                    <Route path="/index" element={<Navigate to="/" replace />} />
-                    <Route path="*" element={<div>404 — Not Found</div>} />
-                </Routes>
-            </main>
-        </div>
-    );
+  // Порог = высота экрана → от 0 до vh
+  const vh = typeof window !== "undefined" ? window.innerHeight : 800;
+  const color = useTransform(scrollY, [0, vh - 500], ["#000000", "#ffffff"]);
+
+  return (
+    <div className="w-screen h-screen flex flex-col">
+      <Header textColor={color} />
+      <SlideBar textColor={color} />
+
+      <main
+        ref={scrollRef}
+        className="flex-1 overflow-y-auto h-screen scroll-smooth relative"
+      >
+        <Routes>
+          <Route path="/" element={<Home scrollRef={scrollRef} />} />
+          {/* <Route path="/surgery" element={<Surgery />} /> */}
+
+          {/* Опционально: редирект/404 */}
+          <Route path="/index" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<div>404 — Not Found</div>} />
+        </Routes>
+      </main>
+    </div>
+  );
 }
