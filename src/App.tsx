@@ -12,7 +12,7 @@ export default function App() {
 
   // Порог = высота экрана → от 0 до vh
   const vh = typeof window !== "undefined" ? window.innerHeight : 800;
-  const color = useTransform(scrollY, [0, vh - 500], ["#000000", "#ffffff"]);
+  const color = useTransform(scrollY, [0, vh], ["#000000", "#ffffff"]);
 
   return (
     <div className="w-screen h-screen flex flex-col">
