@@ -112,7 +112,7 @@ const Footer = () => {
                 </div>
             </div>
             <div
-                className="absolute inset-0 w-full h-dvh bg-[url('/footer.png')] bg-cover bg-center text-white flex flex-col"
+                className="absolute inset-0 w-full h-dvh bg-[url('/footer.webp')] bg-cover bg-center text-white flex flex-col"
                 ref={footerRef}
             >
                 <div className="flex-1 text-[36px] font-semibold h-full flex">

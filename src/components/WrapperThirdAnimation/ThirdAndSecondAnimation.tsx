@@ -113,7 +113,7 @@ const ThirdAndSecondAnimation = () => {
                         <div>
                             <div>
                                 <img
-                                    src="/card1.jpg"
+                                    src="/card1.webp"
                                     alt="card"
                                     width={776}
                                     height={436}
@@ -131,7 +131,7 @@ const ThirdAndSecondAnimation = () => {
                         <div>
                             <div>
                                 <img
-                                    src="/card2.png"
+                                    src="/card2.webp"
                                     alt="card"
                                     width={776}
                                     height={436}
@@ -151,7 +151,7 @@ const ThirdAndSecondAnimation = () => {
                         <div>
                             <div>
                                 <img
-                                    src="/card3.png"
+                                    src="/card3.webp"
                                     alt="card"
                                     width={776}
                                     height={436}

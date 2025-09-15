@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import NavBar from "./NavBar";
@@ -12,6 +12,7 @@ const Header = () => {
     const logoRef = useRef(null);
     const menuRef = useRef(null);
     const visitRef = useRef(null);
+    const navBarRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         gsap.set(headerRef.current, { opacity: 0 });
@@ -35,7 +36,7 @@ const Header = () => {
         });
 
         // Ensure menu and visit items are hidden initially
-        gsap.set([menuRef.current, visitRef.current], { opacity: 0, y: -100 });
+        gsap.set([menuRef.current, visitRef.current, navBarRef.current], { opacity: 0, y: -100 });
 
         tl.to(
             {},
@@ -55,7 +56,7 @@ const Header = () => {
 
         // Phase 3: Reveal other elements
         tl.to(
-            [menuRef.current, visitRef.current],
+            [menuRef.current, visitRef.current, navBarRef.current],
             {
                 opacity: 1,
                 y: 0,
@@ -149,7 +150,7 @@ const Header = () => {
                 >
                     ЗАПЛАНИРОВАТЬ ВИЗИТ
                 </div>
-                <NavBar color={headerColor} />
+                <NavBar color={headerColor} ref={navBarRef as React.RefObject<HTMLDivElement>} />
             </div>
         </>
     );

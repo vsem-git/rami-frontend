@@ -1,4 +1,4 @@
-const NavBar = ({ color }: { color: string }) => {
+const NavBar = ({ color, ref }: { color: string; ref: React.RefObject<HTMLDivElement> }) => {
     const wrapLetters = (text: string) => {
         return text.split("").map((char, index) => (
             <span
@@ -12,7 +12,7 @@ const NavBar = ({ color }: { color: string }) => {
     };
 
     return (
-        <nav className="fixed left-10 top-1/2 -translate-y-1/2 z-50 uppercase font-semibold flex flex-col space-y-4">
+        <nav ref={ref} className="fixed left-10 top-1/2 -translate-y-1/2 z-50 uppercase font-semibold flex flex-col space-y-4">
             <style>
                 {`
               .group:hover ~ span .letter {

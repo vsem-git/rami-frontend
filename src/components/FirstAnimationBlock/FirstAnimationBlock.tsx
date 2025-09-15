@@ -1,272 +1,271 @@
-import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import gsap from "gsap";
-import { useHeader } from "../HeaderContext";
+    import { useGSAP } from "@gsap/react";
+    import { useRef } from "react";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    import gsap from "gsap";
+    import { useHeader } from "../HeaderContext";
 
-gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger);
 
-const FirstAnimationBlock = () => {
-    const { setHeaderColor } = useHeader();
-    const containerRef = useRef(null);
-    const block1Ref = useRef(null);
-    const block1TextRef = useRef(null);
-    const block2Ref = useRef(null);
-    const block2TextRef = useRef(null);
-    const block2LogoRef = useRef(null);
-    const block3Ref = useRef(null);
-    const block3TextRef = useRef(null);
-    const block4Ref = useRef(null);
-    const block5Ref = useRef(null);
-    const block6Ref = useRef(null);
-    const block7Ref = useRef(null);
-    const block8Ref = useRef(null);
-    const block9Ref = useRef(null);
+    const FirstAnimationBlock = () => {
+        const { setHeaderColor } = useHeader();
+        const containerRef = useRef(null);
+        const block1Ref = useRef(null);
+        const block1TextRef = useRef(null);
+        const block2Ref = useRef(null);
+        const block2TextRef = useRef(null);
+        const block2LogoRef = useRef(null);
+        const block3Ref = useRef(null);
+        const block3TextRef = useRef(null);
+        const block4Ref = useRef(null);
+        const block5Ref = useRef(null);
+        const block6Ref = useRef(null);
+        const block7Ref = useRef(null);
+        const block8Ref = useRef(null);
+        const block9Ref = useRef(null);
 
-    useGSAP(() => {
-        gsap.set(block1TextRef.current, { opacity: 0 });
-        gsap.set(block2TextRef.current, { opacity: 0 });
-        gsap.set(block3TextRef.current, { opacity: 0 });
-        gsap.set(block2LogoRef.current, { x: "-100%" });
-        gsap.set(block5Ref.current, { opacity: 0 });
-        gsap.set(block6Ref.current, { opacity: 0 });
-        gsap.set(block4Ref.current, { y: "100%" });
-        gsap.set(block9Ref.current, { y: "100%" });
-
-        const headerTriggers = [
-            { ref: block1Ref, color: "#ffffff" },
-            { ref: block2Ref, color: "#000000" },
-            { ref: block3Ref, color: "#ffffff" },
-        ];
-
-        headerTriggers.forEach(({ ref, color }) => {
-            ScrollTrigger.create({
-                trigger: ref.current,
-                start: "top center",
-                end: "bottom center",
-                onEnter: () => setHeaderColor(color),
-                onEnterBack: () => setHeaderColor(color),
-            });
-        });
-
-        const tl = gsap.timeline({
-            scrollTrigger: {
+        useGSAP(() => {
+            gsap.set(block1TextRef.current, { opacity: 0 });
+            gsap.set(block2TextRef.current, { opacity: 0 });
+            gsap.set(block3TextRef.current, { opacity: 0 });
+            gsap.set(block2LogoRef.current, { x: "-100%" });
+            gsap.set(block5Ref.current, { opacity: 0 });
+            gsap.set(block6Ref.current, { opacity: 0 });
+            gsap.set(block4Ref.current, { y: "100%" });
+            gsap.set(block9Ref.current, { y: "100%" });
+        
+            const tl = gsap.timeline({
+              scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top top",
                 end: "+=2000%",
                 scrub: true,
                 pin: true,
-            },
-        });
-
-        tl.to(block1TextRef.current, { opacity: 1, duration: 1 });
-
-        tl.to(block1Ref.current, {
-            opacity: 0,
-            duration: 1,
-            onComplete: () => {
-                setHeaderColor("#000000");
-            },
-        });
-
-        tl.to(block2LogoRef.current, {
-            x: "0%",
-            duration: 1,
-            ease: "power2.out",
-        });
-
-        tl.to(block2TextRef.current, {
-            opacity: 1,
-            duration: 1,
-        });
-
-        tl.to(block2Ref.current, {
-            opacity: 0,
-            duration: 1,
-            onComplete: () => {
+              },
+            });
+        
+            tl.call(() => {
+                console.log("Первый блок: устанавливаю белый цвет");
                 setHeaderColor("#ffffff");
-            },
-        });
+              });
 
-        tl.to(block3TextRef.current, { opacity: 1, duration: 1 });
-
-        tl.to(block4Ref.current, {
-            y: "0%",
-            duration: 1,
-            ease: "power1.inOut",
-        });
-
-        tl.to(block3Ref.current, { opacity: 0, duration: 0 });
-
-        tl.to(block5Ref.current, { opacity: 1, duration: 0 });
-
-        tl.to(block6Ref.current, { opacity: 1, duration: 0 });
-
-        tl.to(block4Ref.current, {
-            x: "-100%",
-            duration: 2,
-            ease: "power2.in",
-        });
-
-        tl.to(block5Ref.current, {
-            x: "-100%",
-            duration: 2,
-            ease: "power2.in",
-        });
-        tl.to(block6Ref.current, {
-            x: "-100%",
-            duration: 2,
-            ease: "power3.in",
-        });
-        tl.to(block7Ref.current, {
-            x: "-100%",
-            duration: 2,
-            ease: "power3.in",
-        });
-        tl.to({}, { duration: 1 });
-        tl.to(block9Ref.current, {
-            y: "0%",
-            duration: 2,
-            ease: "power2.inOut",
-            onComplete: () => {
+            tl.to(block1TextRef.current, {
+              opacity: 1,
+              duration: 1,
+            });
+        
+            // Исчезновение первого блока
+            tl.to(block1Ref.current, {
+              opacity: 0,
+              duration: 1,
+            }).call(() => {
+                
+                setHeaderColor("#ffffff");
+                console.log("Обратный вызов");
+              }).call(() => {
+                console.log("Второй блок: устанавливаю черный цвет");
                 setHeaderColor("#000000");
-            },
-        });
-
-        ScrollTrigger.create({
-            trigger: block7Ref.current,
-            start: "top center",
-            end: "bottom center",
-            scrub: true,
-            onLeave: () => setHeaderColor("#000000"),
-            onLeaveBack: () => setHeaderColor("#ffffff"),
-        });
-    }, []);
-    return (
-        <div className="h-dvh relative" ref={containerRef}>
-            <div
-                className="absolute top-0 left-0 w-full h-full bg-[url('/1slide.jpg')] bg-cover bg-center flex justify-end items-end z-50"
-                ref={block1Ref}
-            >
-                <p
-                    className="text-white m-20 text-[21px] uppercase max-w-[480px] tracking-wider leading-8"
-                    ref={block1TextRef}
+              });
+        
+            // Появление второго блока (лого и текст) и установка черного цвета хедера
+            tl.to(block2LogoRef.current, {
+              x: "0%",
+              duration: 1,
+              ease: "power2.out",
+            });
+        
+            tl.to(block2TextRef.current, {
+              opacity: 1,
+              duration: 1,
+            });
+        
+            // Исчезновение второго блока
+            tl.to(block2Ref.current, {
+              opacity: 0,
+              duration: 1,
+            }).call(() => {
+                setHeaderColor("#000000");
+              }).call(() => {
+                setHeaderColor("#ffffff");
+              });
+        
+            // Остальные анимации без изменений
+            tl.to(block3TextRef.current, { opacity: 1, duration: 1 });
+        
+            tl.to(block4Ref.current, {
+              y: "0%",
+              duration: 1,
+              ease: "power1.inOut",
+            });
+        
+            tl.to(block3Ref.current, { opacity: 0, duration: 0 });
+        
+            tl.to(block5Ref.current, { opacity: 1, duration: 0 });
+        
+            tl.to(block6Ref.current, { opacity: 1, duration: 0 });
+        
+            tl.to(block4Ref.current, {
+              x: "-100%",
+              duration: 2,
+              ease: "power2.in",
+            });
+        
+            tl.to(block5Ref.current, {
+              x: "-100%",
+              duration: 2,
+              ease: "power2.in",
+            });
+        
+            tl.to(block6Ref.current, {
+              x: "-100%",
+              duration: 2,
+              ease: "power3.in",
+            });
+        
+            tl.to(block7Ref.current, {
+              x: "-100%",
+              duration: 2,
+              ease: "power3.in",
+            }).call(() => {
+                setHeaderColor("#ffffff");
+              }).call(() => {
+                setHeaderColor("#000000");
+              });
+        
+            tl.to({}, { duration: 1 });
+        
+            tl.to(block9Ref.current, {
+              y: "0%",
+              duration: 2,
+              ease: "power2.inOut",
+            }).call(() => {
+                setHeaderColor("#000000");
+              });
+          }, []);
+        return (
+            <div className="h-dvh relative" ref={containerRef}>
+                <div
+                    className="absolute top-0 left-0 w-full h-full bg-[url('/1slide.webp')] bg-cover bg-center flex justify-end items-end z-50"
+                    ref={block1Ref}
                 >
-                    <span className="font-bold">Новый проект</span> владельцев
-                    многопрофильной Клиники РАМИ Галины Резник и Мазена Хамуда –
-                    Клиника пластической хирургии и эстетической косметологии{" "}
-                    <span className="font-bold">RAMIСLINIC RESIDENCE</span>
-                </p>
-            </div>
-            <div
-                className="absolute top-0 left-0 w-full h-full bg-white flex justify-between items-end z-40"
-                ref={block2Ref}
-            >
-                <img
-                    src="/logo.svg"
-                    alt="logo"
-                    ref={block2LogoRef}
-                    className="max-h-[788px]"
-                />
-                <p
-                    className="text-black max-w-[720px] m-10 uppercase text-[21px]"
-                    ref={block2TextRef}
+                    <p
+                        className="text-white m-20 text-[21px] uppercase max-w-[480px] tracking-wider leading-8"
+                        ref={block1TextRef}
+                    >
+                        <span className="font-bold">Новый проект</span> владельцев
+                        многопрофильной Клиники РАМИ Галины Резник и Мазена Хамуда –
+                        Клиника пластической хирургии и эстетической косметологии{" "}
+                        <span className="font-bold">RAMIСLINIC RESIDENCE</span>
+                    </p>
+                </div>
+                <div
+                    className="absolute top-0 left-0 w-full h-full bg-white flex justify-between items-end z-40"
+                    ref={block2Ref}
                 >
-                    <span className="font-bold">RAMICLINIC RESIDENCE</span> —
-                    это клиника-резиденция высокотехнологичной пластической
-                    хирургии и эстетической косметологии для искушенных
-                    пациентов, склонных к поддержанию индивидуальной красоты и
-                    внешней привлекательности с гарантией эталонных стандартов
-                    безопасности в медицине, полной анонимностью, сервисом и
-                    приватностью, достойными первых лиц государств.
-                </p>
-            </div>
-            <div
-                className="absolute top-0 left-0 w-full h-full bg-[url('/2slide.png')] bg-cover bg-center flex justify-start items-center z-30"
-                ref={block3Ref}
-            >
-                <p
-                    className="text-white text-[21px] m-[200px] max-w-[560px] uppercase"
-                    ref={block3TextRef}
+                    <img
+                        src="/logo.svg"
+                        alt="logo"
+                        ref={block2LogoRef}
+                        className="max-h-[788px]"
+                    />
+                    <p
+                        className="text-black max-w-[720px] m-10 uppercase text-[21px]"
+                        ref={block2TextRef}
+                    >
+                        <span className="font-bold">RAMICLINIC RESIDENCE</span> —
+                        это клиника-резиденция высокотехнологичной пластической
+                        хирургии и эстетической косметологии для искушенных
+                        пациентов, склонных к поддержанию индивидуальной красоты и
+                        внешней привлекательности с гарантией эталонных стандартов
+                        безопасности в медицине, полной анонимностью, сервисом и
+                        приватностью, достойными первых лиц государств.
+                    </p>
+                </div>
+                <div
+                    className="absolute top-0 left-0 w-full h-full bg-[url('/2slide.webp')] bg-cover bg-center flex justify-start items-center z-30"
+                    ref={block3Ref}
                 >
-                    <span className="font-bold">Расположена</span> в живописной
-                    и престижной локации Санкт-Петербурга – в дельте Невы, на
-                    <span className="font-bold"> Крестовском острове</span>, в
-                    историческом особняке, окруженном старинным парком
-                </p>
-            </div>
-            <div
-                className="absolute top-0 left-0 w-full h-full bg-[url('/residence1.jpg')] bg-cover bg-center flex justify-center items-center z-50"
-                ref={block4Ref}
-            ></div>
-            <div
-                className="absolute top-0 left-0 w-full h-full bg-[url('/residence2.png')] bg-cover bg-center flex justify-center items-center z-40"
-                ref={block5Ref}
-            ></div>
-            <div
-                className="absolute top-0 left-0 w-full h-full bg-[url('/residence3.png')] bg-cover bg-center flex justify-center items-center z-30"
-                ref={block6Ref}
-            ></div>
-            <div
-                className="absolute top-0 left-0 w-full h-full bg-[url('/residence4.png')] bg-cover bg-center flex justify-center items-center z-20"
-                ref={block7Ref}
-            ></div>
-            <div
-                className="absolute top-0 left-0 w-full h-full bg-[url('/residence5.png')] bg-cover bg-center flex justify-center items-center z-10"
-                ref={block8Ref}
-            ></div>
-            <div
-                className="absolute top-0 left-0 w-full h-full bg-[url('/residence6.png')] bg-cover bg-center z-20"
-                ref={block9Ref}
-            >
-                <div className="relative w-full h-full flex justify-start pl-[200px] items-center">
-                    <div>
-                        <div className="text-[#1D1D1D99] text-[36px] uppercase mb-7">
-                            манифест искренности
+                    <p
+                        className="text-white text-[21px] m-[200px] max-w-[560px] uppercase"
+                        ref={block3TextRef}
+                    >
+                        <span className="font-bold">Расположена</span> в живописной
+                        и престижной локации Санкт-Петербурга – в дельте Невы, на
+                        <span className="font-bold"> Крестовском острове</span>, в
+                        историческом особняке, окруженном старинным парком
+                    </p>
+                </div>
+                <div
+                    className="absolute top-0 left-0 w-full h-full bg-[url('/residence1.webp')] bg-cover bg-center flex justify-center items-center z-50"
+                    ref={block4Ref}
+                ></div>
+                <div
+                    className="absolute top-0 left-0 w-full h-full bg-[url('/residence2.webp')] bg-cover bg-center flex justify-center items-center z-40"
+                    ref={block5Ref}
+                ></div>
+                <div
+                    className="absolute top-0 left-0 w-full h-full bg-[url('/residence3.webp')] bg-cover bg-center flex justify-center items-center z-30"
+                    ref={block6Ref}
+                ></div>
+                <div
+                    className="absolute top-0 left-0 w-full h-full bg-[url('/residence4.webp')] bg-cover bg-center flex justify-center items-center z-20"
+                    ref={block7Ref}
+                ></div>
+                <div
+                    className="absolute top-0 left-0 w-full h-full bg-[url('/residence5.webp')] bg-cover bg-center flex justify-center items-center z-10"
+                    ref={block8Ref}
+                ></div>
+                <div
+                    className="absolute top-0 left-0 w-full h-full bg-[url('/residence6.webp')] bg-cover bg-center z-20"
+                    ref={block9Ref}
+                >
+                    <div className="relative w-full h-full flex justify-start pl-[200px] items-center">
+                        <div>
+                            <div className="text-[#1D1D1D99] text-[36px] uppercase mb-7">
+                                манифест искренности
+                            </div>
+                            <div className="flex gap-6">
+                                <svg
+                                    width="80"
+                                    height="66"
+                                    viewBox="0 0 40 33"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M9.80645 33C7.91398 33 6.36559 32.6071 5.16129 31.8214C3.95699 31.0357 2.96774 30.0318 2.19355 28.8095C1.33333 27.3254 0.731183 25.7976 0.387096 24.2262C0.129032 22.5675 0 21.2143 0 20.1667C0 15.8889 1.07527 12.004 3.22581 8.51191C5.37634 5.01985 8.73118 2.18254 13.2903 0L14.4516 2.35715C11.7849 3.49207 9.46237 5.28175 7.48387 7.72619C5.5914 10.1706 4.64516 12.6587 4.64516 15.1905C4.64516 16.2381 4.77419 17.1548 5.03226 17.9405C6.4086 16.8056 8 16.2381 9.80645 16.2381C12.043 16.2381 13.9785 16.9802 15.6129 18.4643C17.2473 19.9484 18.0645 22 18.0645 24.6191C18.0645 27.0635 17.2473 29.0714 15.6129 30.6429C13.9785 32.2143 12.043 33 9.80645 33ZM31.7419 33C29.8495 33 28.3011 32.6071 27.0968 31.8214C25.8925 31.0357 24.9032 30.0318 24.129 28.8095C23.2688 27.3254 22.6667 25.7976 22.3226 24.2262C22.0645 22.5675 21.9355 21.2143 21.9355 20.1667C21.9355 15.8889 23.0108 12.004 25.1613 8.51191C27.3118 5.01985 30.6667 2.18254 35.2258 0L36.3871 2.35715C33.7204 3.49207 31.3979 5.28175 29.4194 7.72619C27.5269 10.1706 26.5806 12.6587 26.5806 15.1905C26.5806 16.2381 26.7097 17.1548 26.9677 17.9405C28.3441 16.8056 29.9355 16.2381 31.7419 16.2381C33.9785 16.2381 35.914 16.9802 37.5484 18.4643C39.1828 19.9484 40 22 40 24.6191C40 27.0635 39.1828 29.0714 37.5484 30.6429C35.914 32.2143 33.9785 33 31.7419 33Z"
+                                        fill="#691C32"
+                                    />
+                                </svg>
+                                <p className="max-w-[640px] mt-10 uppercase">
+                                    <span className="font-bold text-[#691C32] text-lg">
+                                        RAMICLINIC RESIDENCE
+                                    </span>{" "}
+                                    – проект, в котором, объединив накопленный опыт,
+                                    компетенции, энергию и знания наших талантливых
+                                    врачей, мы создали уникальную для России Клинику
+                                    пластической хирургии и косметологии, чтобы
+                                    внедрить и утвердить новые профессиональные
+                                    стандарты эстетической медицины и сервиса в
+                                    повседневную жизнь.
+                                </p>
+                            </div>
                         </div>
-                        <div className="flex gap-6">
-                            <svg
-                                width="80"
-                                height="66"
-                                viewBox="0 0 40 33"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M9.80645 33C7.91398 33 6.36559 32.6071 5.16129 31.8214C3.95699 31.0357 2.96774 30.0318 2.19355 28.8095C1.33333 27.3254 0.731183 25.7976 0.387096 24.2262C0.129032 22.5675 0 21.2143 0 20.1667C0 15.8889 1.07527 12.004 3.22581 8.51191C5.37634 5.01985 8.73118 2.18254 13.2903 0L14.4516 2.35715C11.7849 3.49207 9.46237 5.28175 7.48387 7.72619C5.5914 10.1706 4.64516 12.6587 4.64516 15.1905C4.64516 16.2381 4.77419 17.1548 5.03226 17.9405C6.4086 16.8056 8 16.2381 9.80645 16.2381C12.043 16.2381 13.9785 16.9802 15.6129 18.4643C17.2473 19.9484 18.0645 22 18.0645 24.6191C18.0645 27.0635 17.2473 29.0714 15.6129 30.6429C13.9785 32.2143 12.043 33 9.80645 33ZM31.7419 33C29.8495 33 28.3011 32.6071 27.0968 31.8214C25.8925 31.0357 24.9032 30.0318 24.129 28.8095C23.2688 27.3254 22.6667 25.7976 22.3226 24.2262C22.0645 22.5675 21.9355 21.2143 21.9355 20.1667C21.9355 15.8889 23.0108 12.004 25.1613 8.51191C27.3118 5.01985 30.6667 2.18254 35.2258 0L36.3871 2.35715C33.7204 3.49207 31.3979 5.28175 29.4194 7.72619C27.5269 10.1706 26.5806 12.6587 26.5806 15.1905C26.5806 16.2381 26.7097 17.1548 26.9677 17.9405C28.3441 16.8056 29.9355 16.2381 31.7419 16.2381C33.9785 16.2381 35.914 16.9802 37.5484 18.4643C39.1828 19.9484 40 22 40 24.6191C40 27.0635 39.1828 29.0714 37.5484 30.6429C35.914 32.2143 33.9785 33 31.7419 33Z"
-                                    fill="#691C32"
-                                />
-                            </svg>
-                            <p className="max-w-[640px] mt-10 uppercase">
-                                <span className="font-bold text-[#691C32] text-lg">
-                                    RAMICLINIC RESIDENCE
-                                </span>{" "}
-                                – проект, в котором, объединив накопленный опыт,
-                                компетенции, энергию и знания наших талантливых
-                                врачей, мы создали уникальную для России Клинику
-                                пластической хирургии и косметологии, чтобы
-                                внедрить и утвердить новые профессиональные
-                                стандарты эстетической медицины и сервиса в
-                                повседневную жизнь.
-                            </p>
+                        <div className="uppercase text-lg absolute bottom-4 text-white right-64">
+                            <p className="font-bold mb-1">Галина Резник</p>
+                            <p>Генеральный директор</p>
                         </div>
-                    </div>
-                    <div className="uppercase text-lg absolute bottom-4 text-white right-64">
-                        <p className="font-bold mb-1">Галина Резник</p>
-                        <p>Генеральный директор</p>
-                    </div>
-                    <div className="absolute top-32 right-8">
-                        <img
-                            src="/ceo_logo.png"
-                            alt=""
-                            width={228}
-                            height={218}
-                        />
+                        <div className="absolute top-32 right-8">
+                            <img
+                                src="/ceo_logo.png"
+                                alt=""
+                                width={228}
+                                height={218}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    );
-};
+        );
+    };
 
-export default FirstAnimationBlock;
+    export default FirstAnimationBlock;
