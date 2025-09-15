@@ -39,16 +39,14 @@ const FirstAnimationBlock = () => {
             },
         });
 
+
         tl.to(block2Ref.current, {
             y: "0%",
             duration: 1,
             ease: "power2.inOut",
-            onComplete: () => {
-                setHeaderColor("#ffffff");
-            },
         });
 
-        tl.to(block2ContendRef.current, {
+        tl.call(() => {setHeaderColor("#000000")}).call(() => {setHeaderColor("#ffffff")}).to(block2ContendRef.current, {
             autoAlpha: 1,
             duration: 0.1,
             ease: "power2.inOut",
@@ -58,11 +56,8 @@ const FirstAnimationBlock = () => {
             {},
             {
                 duration: 1,
-                onComplete: () => {
-                    setHeaderColor("#000000");
-                },
             }
-        );
+        ).call(() => {setHeaderColor("#ffffff")}).call(() => {setHeaderColor("#000000")});
     }, []);
     return (
         <div className="h-dvh relative" ref={containerRef}>
@@ -73,7 +68,7 @@ const FirstAnimationBlock = () => {
                 <img ref={block1LogoRef} src="/rotateicon.svg" alt="icon" />
             </div>
             <div
-                className="absolute top-0 left-0 w-full h-full bg-[url('/animationblock2.png')] bg-cover bg-center flex justify-between items-end z-50"
+                className="absolute top-0 left-0 w-full h-full bg-[url('/animationblock2.webp')] bg-cover bg-center flex justify-between items-end z-50"
                 ref={block2Ref}
             >
                 <div

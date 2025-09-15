@@ -103,7 +103,7 @@ const ThirdAnimationBlock = () => {
                                         key={i}
                                         className="h-[640px] w-[480px] relative group"
                                     >
-                                        <img src="/man.png" alt="man" />
+                                        <img src="/man.webp" alt="man" />
                                         <div className="absolute inset-0 w-full h-full bg-[url('/operation.jpg')] bg-cover bg-center saturate-0 opacity-0 transition-all group-hover:opacity-100 duration-1000"></div>
                                         <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-0 transition-all group-hover:opacity-100 duration-1000"></div>
                                         <div className="absolute inset-0 w-full h-full opacity-0 transition-all group-hover:opacity-100 duration-1000">

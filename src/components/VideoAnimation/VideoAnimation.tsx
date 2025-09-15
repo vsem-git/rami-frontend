@@ -21,6 +21,8 @@ const VideoAnimation = () => {
                 end: "bottom center",
                 onEnter: () => setHeaderColor(color),
                 onEnterBack: () => setHeaderColor(color),
+                onLeave: () => setHeaderColor("#000000"),
+                onLeaveBack: () => setHeaderColor("#000000"),
             });
         });
         const tl = gsap.timeline({
