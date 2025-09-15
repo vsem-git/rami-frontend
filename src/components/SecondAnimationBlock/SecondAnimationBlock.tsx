@@ -39,25 +39,35 @@ const FirstAnimationBlock = () => {
             },
         });
 
-
         tl.to(block2Ref.current, {
             y: "0%",
             duration: 1,
             ease: "power2.inOut",
         });
 
-        tl.call(() => {setHeaderColor("#000000")}).call(() => {setHeaderColor("#ffffff")}).to(block2ContendRef.current, {
-            autoAlpha: 1,
-            duration: 0.1,
-            ease: "power2.inOut",
-        });
+        tl.call(() => {
+            setHeaderColor("#000000");
+        })
+            .call(() => {
+                setHeaderColor("#ffffff");
+            })
+            .to(block2ContendRef.current, {
+                autoAlpha: 1,
+                duration: 0.1,
+                ease: "power2.inOut",
+            })
+            .call(() => {
+                setHeaderColor("#ffffff");
+            });
 
         tl.to(
             {},
             {
                 duration: 1,
             }
-        ).call(() => {setHeaderColor("#ffffff")}).call(() => {setHeaderColor("#000000")});
+        ).call(() => {
+            setHeaderColor("#000000");
+        });
     }, []);
     return (
         <div className="h-dvh relative" ref={containerRef}>
@@ -72,7 +82,7 @@ const FirstAnimationBlock = () => {
                 ref={block2Ref}
             >
                 <div
-                    className="relative h-full w-full grid grid-cols-3"
+                    className="relative h-full w-full grid grid-cols-3 bg-[#1D1D1D1A]"
                     ref={block2ContendRef}
                 >
                     <div className="relative flex flex-col justify-end items-center border-r border-[#FFFFFF33] group">
@@ -91,7 +101,7 @@ const FirstAnimationBlock = () => {
                                 />
                             </svg>
                         </div>
-                        <p className="uppercase font-light text-white text-2xl text-center mb-10">
+                        <p className="uppercase font-light text-white text-2xl text-center mb-10 px-20">
                             эталонная пластическая хирургия
                         </p>
                         <div className="absolute opacity-0 group-hover:opacity-100 transition-all duration-1000 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex flex-col justify-center items-center p-20 text-center">
@@ -126,7 +136,7 @@ const FirstAnimationBlock = () => {
                                 />
                             </svg>
                         </div>
-                        <p className="uppercase font-light text-white text-2xl text-center mb-10">
+                        <p className="uppercase font-light text-white text-2xl text-center mb-10 px-20">
                             эталонная пластическая хирургия
                         </p>
                         <div className="absolute opacity-0 group-hover:opacity-100 transition-all duration-1000 top-0 left-0 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex flex-col justify-center items-center p-20 text-center">
@@ -161,7 +171,7 @@ const FirstAnimationBlock = () => {
                                 />
                             </svg>
                         </div>
-                        <p className="uppercase font-light text-white text-2xl text-center mb-10">
+                        <p className="uppercase font-light text-white text-2xl text-center mb-10 px-20">
                             эталонная пластическая хирургия
                         </p>
                         <div className="absolute opacity-0 group-hover:opacity-100 transition-all duration-1000 top-0 left-0 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex flex-col justify-center items-center p-20 text-center">
