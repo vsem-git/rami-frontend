@@ -1,4 +1,10 @@
-const NavBar = ({ color, ref }: { color: string; ref: React.RefObject<HTMLDivElement> }) => {
+const NavBar = ({
+    color,
+    ref,
+}: {
+    color: string;
+    ref: React.RefObject<HTMLDivElement>;
+}) => {
     const wrapLetters = (text: string) => {
         return text.split("").map((char, index) => (
             <span
@@ -12,7 +18,10 @@ const NavBar = ({ color, ref }: { color: string; ref: React.RefObject<HTMLDivEle
     };
 
     return (
-        <nav ref={ref} className="fixed left-10 top-1/2 -translate-y-1/2 z-50 uppercase font-semibold flex flex-col space-y-4">
+        <nav
+            ref={ref}
+            className="navbarheader fixed left-10 top-1/2 -translate-y-1/2 z-50 uppercase font-semibold flex flex-col"
+        >
             <style>
                 {`
               .group:hover ~ span .letter {
@@ -32,11 +41,14 @@ const NavBar = ({ color, ref }: { color: string; ref: React.RefObject<HTMLDivEle
                 "Медицинский туризм",
                 "Блог",
             ].map((item, index) => (
-                <div key={index} className="flex items-center gap-4">
+                <div
+                    key={index}
+                    className="flex items-center gap-4 relative py-3"
+                >
                     <a href="#" className="relative group">
                         <div className="absolute -left-4 -right-4 -top-2 -bottom-2" />
                         <div
-                            className={`w-8 h-[1px] group-hover:w-10 transition-all duration-300`}
+                            className={`w-8 h-[2px] group-hover:w-10 transition-all duration-300`}
                             style={{
                                 backgroundColor: color,
                                 transition: "all 0.3s ease-in-out",
@@ -44,7 +56,7 @@ const NavBar = ({ color, ref }: { color: string; ref: React.RefObject<HTMLDivEle
                         />
                     </a>
                     <span
-                        className={`pointer-events-none select-none`}
+                        className={`pointer-events-none select-none absolute whitespace-nowrap left-[calc(100%_+_1.5rem)]`}
                         style={{
                             color: color,
                             transition: "all 0.3s ease-in-out",
