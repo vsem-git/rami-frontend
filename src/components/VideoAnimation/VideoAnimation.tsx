@@ -29,7 +29,7 @@ const VideoAnimation = () => {
             scrollTrigger: {
                 trigger: blockRef.current,
                 start: "top top",
-                end: "+=100%",
+                end: "+=150%",
                 scrub: true,
                 pin: true,
             },
@@ -39,18 +39,37 @@ const VideoAnimation = () => {
             opacity: 0,
             duration: 1,
         });
+
+        tl.to({}, { duration: 3 })
+            .to(".menuheader", { opacity: 1, y: 0, duration: 0.5 }, 4)
+            .to(".visitheader", { opacity: 1, y: 0, duration: 0.5 }, 4)
+            .to(".navbarheader", { opacity: 1, y: 0, duration: 0.5 }, 4);
+
+        tl.to({}, { duration: 1 });
+
+        tl.to(".logoheader", {
+            scale: 1,
+            x: 0,
+            y: 0,
+            duration: 5,
+            ease: "power2.out",
+        });
+
+        tl.to({}, { duration: 5 });
     });
 
     return (
-        <div ref={blockRef} className="max-h-dvh bg-white">
-            <video
-                ref={videoRef}
-                src="/заставка.mp4"
-                className="h-dvh w-[100vw] object-cover"
-                autoPlay
-                muted
-            />
-        </div>
+        <>
+            <div ref={blockRef} className="max-h-dvh bg-white mb-[100dvh]">
+                {/* <video
+                    ref={videoRef}
+                    src="/заставка.mp4"
+                    className="h-dvh w-[100vw] object-cover"
+                    autoPlay
+                    muted
+                /> */}
+            </div>
+        </>
     );
 };
 
