@@ -4,11 +4,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import NavBar from "./NavBar";
 import { useHeader } from "./HeaderContext";
 import { useGSAP } from "@gsap/react";
+import UnderlinedText from "./UnderlinedText/UnderlinedText";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Header = () => {
-    const { headerColor } = useHeader();
+    const { headerColor, navbarColor } = useHeader();
     const headerRef = useRef(null);
     const logoRef = useRef(null);
     const menuRef = useRef(null);
@@ -48,7 +49,7 @@ const Header = () => {
             y: -100, // Пиксели вместо процентов
         });
 
-        const tl = gsap.timeline({
+        /* const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: document.body,
                 start: "top top",
@@ -56,29 +57,26 @@ const Header = () => {
                 scrub: 1,
             },
         });
-        /* .to(header, { opacity: 1, duration: 1 }) */
-        /* tl.to({}, { duration: 3 })
+        tl.to({}, { duration: 3 })
             .to(menu, { opacity: 1, y: 0, duration: 0.5 }, 4)
             .to(visit, { opacity: 1, y: 0, duration: 0.5 }, 4)
             .to(navBar, { opacity: 1, y: 0, duration: 0.5 }, 4);
 
+        tl.to(header, { opacity: 1, duration: 1 });
+
         tl.to({}, { duration: 1 });
 
         tl.to(logo, { scale: 1, x: 0, y: 0, duration: 1, ease: "power2.out" }); */
-
-        return () => {
-            ScrollTrigger.getAll().forEach((st) => st.kill());
-        };
     }, []);
 
     return (
         <div
             ref={headerRef}
-            className="fixed top-0 left-0 right-0 z-40 py-[40px] px-[40px] grid grid-cols-3 justify-between items-center"
+            className="fixed top-0 left-0 right-0 z-40 py-[8px] sm:py-[12px] md:py-[20px] 2xl:py-[40px] md:px-[24px] sm:px-[16px] px-[16px] xl:px-[24px] 2xl:px-[40px] grid grid-cols-3 justify-between items-center"
         >
             <div
                 ref={menuRef}
-                className="menuheader item flex font-semibold gap-4 items-center h-fit"
+                className="menuheader item flex font-semibold gap-4 items-center h-fit group cursor-pointer"
                 style={{ transition: "none" }} // Отключаем CSS-переходы
             >
                 <div className="flex flex-col gap-1">
@@ -98,6 +96,7 @@ const Header = () => {
                     ></div>
                 </div>
                 <div
+                    className="theme hidden relative sm:block after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:transition-all after:duration-300 group-hover:after:w-full"
                     style={{
                         color: headerColor,
                         transition: "color 0.3s ease-in-out",
@@ -108,7 +107,7 @@ const Header = () => {
             </div>
             <div className="item-wrapper flex justify-center items-center relative h-[60px]">
                 <div
-                    className="logo logoheader w-[149px] h-[120px] absolute"
+                    className="logo logoheader w-[79px] h-[64px] 2xl:w-[149px] 2xl:h-[120px] absolute"
                     ref={logoRef}
                 >
                     <div className="relative">
@@ -117,7 +116,7 @@ const Header = () => {
                             width={1000}
                             height={1000}
                             alt="logo"
-                            className={`inset-0 absolute w-[149px] h-[120px] ${
+                            className={`inset-0 absolute w-[79px] h-[64px] 2xl:w-[149px] 2xl:h-[120px] ${
                                 headerColor === "#000000"
                                     ? "opacity-100"
                                     : "opacity-0"
@@ -129,7 +128,7 @@ const Header = () => {
                             width={1000}
                             height={1000}
                             alt="logo"
-                            className={`absolute inset-0 w-[149px] h-[120px] ${
+                            className={`absolute inset-0 w-[79px] h-[64px] 2xl:w-[149px] 2xl:h-[120px] ${
                                 headerColor === "#000000"
                                     ? "opacity-0"
                                     : "opacity-100"
@@ -141,17 +140,31 @@ const Header = () => {
             </div>
             <div
                 ref={visitRef}
-                className="item visitheader font-semibold flex justify-end"
+                className="item visitheader font-semibold justify-end hidden sm:flex cursor-pointer"
                 style={{
                     color: headerColor,
                     transition: "none", // Отключаем CSS-переходы
                 }}
             >
-                ЗАПЛАНИРОВАТЬ ВИЗИТ
+                <style>
+                    {`
+                        .theme *:after {
+                            background-color: ${headerColor};
+                        }
+                        
+                        .theme:after {
+                            background-color: ${headerColor};
+                        }
+                    `}
+                </style>
+                <UnderlinedText className="theme">
+                    ЗАПЛАНИРОВАТЬ ВИЗИТ
+                </UnderlinedText>
             </div>
             <NavBar
                 color={headerColor}
                 ref={navBarRef as React.RefObject<HTMLDivElement>}
+                navbarColor={navbarColor}
             />
         </div>
     );

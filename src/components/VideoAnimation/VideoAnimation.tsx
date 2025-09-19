@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const VideoAnimation = () => {
     const blockRef = useRef(null);
-    const videoRef = useRef<HTMLVideoElement>(null);
+    /* const videoRef = useRef<HTMLVideoElement>(null); */
     const { setHeaderColor } = useHeader();
 
     useGSAP(() => {
@@ -35,15 +35,15 @@ const VideoAnimation = () => {
             },
         });
 
-        tl.to(videoRef.current, {
+        /* tl.to(videoRef.current, {
             opacity: 0,
             duration: 1,
-        });
+        }); */
 
-        tl.to({}, { duration: 3 })
-            .to(".menuheader", { opacity: 1, y: 0, duration: 0.5 }, 4)
-            .to(".visitheader", { opacity: 1, y: 0, duration: 0.5 }, 4)
-            .to(".navbarheader", { opacity: 1, y: 0, duration: 0.5 }, 4);
+        tl.to({}, { duration: 1 })
+            .to(".menuheader", { opacity: 1, y: 0, duration: 2 }, 4)
+            .to(".visitheader", { opacity: 1, y: "-50%", duration: 2 }, 4)
+            .to(".navbarheader", { opacity: 1, y: 0, duration: 2 }, 4);
 
         tl.to({}, { duration: 1 });
 
@@ -56,6 +56,11 @@ const VideoAnimation = () => {
         });
 
         tl.to({}, { duration: 5 });
+        tl.call(() => {
+            setHeaderColor("#000000");
+        }).call(() => {
+            setHeaderColor("#ffffff");
+        });
     });
 
     return (
