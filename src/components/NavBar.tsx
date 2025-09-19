@@ -1,11 +1,17 @@
 const NavBar = ({
     color,
     ref,
+<<<<<<< HEAD
     navbarColor,
 }: {
     color: string;
     ref: React.RefObject<HTMLDivElement>;
     navbarColor: string;
+=======
+}: {
+    color: string;
+    ref: React.RefObject<HTMLDivElement>;
+>>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
 }) => {
     const wrapLetters = (text: string) => {
         return text.split("").map((char, index) => (
@@ -22,7 +28,11 @@ const NavBar = ({
     return (
         <nav
             ref={ref}
+<<<<<<< HEAD
             className="hidden md:flex navbarheader fixed left-10 top-1/2 -translate-y-1/2 z-50 uppercase font-semibold flex-col"
+=======
+            className="navbarheader fixed left-10 top-1/2 -translate-y-1/2 z-50 uppercase font-semibold flex flex-col"
+>>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
         >
             <style>
                 {`
@@ -50,7 +60,11 @@ const NavBar = ({
                     <a href="#" className="relative group">
                         <div className="absolute -left-4 -right-4 -top-2 -bottom-2" />
                         <div
+<<<<<<< HEAD
                             className={`w-8 h-[1px] group-hover:w-16 transition-all duration-300`}
+=======
+                            className={`w-8 h-[2px] group-hover:w-10 transition-all duration-300`}
+>>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
                             style={{
                                 backgroundColor: navbarColor || color,
                                 transition: "all 0.3s ease-in-out",
@@ -58,7 +72,11 @@ const NavBar = ({
                         />
                     </a>
                     <span
+<<<<<<< HEAD
                         className={`pointer-events-none select-none absolute whitespace-nowrap text-shadow-lg left-[calc(100%_+_1.5rem)]`}
+=======
+                        className={`pointer-events-none select-none absolute whitespace-nowrap left-[calc(100%_+_1.5rem)]`}
+>>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
                         style={{
                             color: navbarColor || color,
                             transition: "all 0.3s ease-in-out",

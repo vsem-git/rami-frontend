@@ -82,7 +82,11 @@ const FirstAnimationBlock = () => {
                 ref={block2Ref}
             >
                 <div
+<<<<<<< HEAD
                     className="relative h-full w-full flex flex-col justify-center md:grid grid-cols-3 bg-[#1D1D1D1A]"
+=======
+                    className="relative h-full w-full grid grid-cols-3 bg-[#1D1D1D1A]"
+>>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
                     ref={block2ContendRef}
                 >
                     <div className="max-h-[120px] h-full md:h-auto md:max-h-full relative flex flex-row-reverse md:flex-col justify-between md:justify-end items-center border-b border-r-0 md:border-r border-[#FFFFFF33] group px-4 md:px-0">
@@ -101,7 +105,11 @@ const FirstAnimationBlock = () => {
                                 />
                             </svg>
                         </div>
+<<<<<<< HEAD
                         <p className="uppercase font-light text-white text-[16px] md:text-[20px] 2xl:text-[28px] md:text-center md:mb-10 md:px-20">
+=======
+                        <p className="uppercase font-light text-white text-2xl text-center mb-10 px-20">
+>>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
                             эталонная пластическая хирургия
                         </p>
                         <div className="absolute opacity-0 group-hover:opacity-100 transition-all duration-1000 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex flex-col justify-center items-center md:p-20 text-center">
@@ -136,8 +144,13 @@ const FirstAnimationBlock = () => {
                                 />
                             </svg>
                         </div>
+<<<<<<< HEAD
                         <p className="uppercase font-light text-white text-[16px] md:text-[20px] 2xl:text-[28px] md:text-center md:mb-10 md:px-20">
                             инновационная косметология
+=======
+                        <p className="uppercase font-light text-white text-2xl text-center mb-10 px-20">
+                            эталонная пластическая хирургия
+>>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
                         </p>
                         <div className="absolute opacity-0 group-hover:opacity-100 transition-all duration-1000 top-0 left-0 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex flex-col justify-center items-center md:p-20 text-center">
                             <p className="text-[16px] md:text-[20px] 2xl:text-[28px] uppercase mb-6 leading-[130%] text-white font-light">
@@ -171,8 +184,13 @@ const FirstAnimationBlock = () => {
                                 />
                             </svg>
                         </div>
+<<<<<<< HEAD
                         <p className="uppercase font-light text-white text-[16px] md:text-[20px] 2xl:text-[28px] md:text-center md:mb-10 md:px-20">
                             реабилитация
+=======
+                        <p className="uppercase font-light text-white text-2xl text-center mb-10 px-20">
+                            эталонная пластическая хирургия
+>>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
                         </p>
                         <div className="absolute opacity-0 group-hover:opacity-100 transition-all duration-1000 top-0 left-0 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex flex-col justify-center items-center md:p-20 text-center">
                             <p className="text-[16px] md:text-[20px] 2xl:text-[28px] uppercase mb-6 leading-[130%] text-white font-light">
