@@ -1,9 +1,11 @@
 const NavBar = ({
     color,
     ref,
+    navbarColor,
 }: {
     color: string;
     ref: React.RefObject<HTMLDivElement>;
+    navbarColor: string;
 }) => {
     const wrapLetters = (text: string) => {
         return text.split("").map((char, index) => (
@@ -20,7 +22,7 @@ const NavBar = ({
     return (
         <nav
             ref={ref}
-            className="navbarheader fixed left-10 top-1/2 -translate-y-1/2 z-50 uppercase font-semibold flex flex-col"
+            className="hidden md:flex navbarheader fixed left-10 top-1/2 -translate-y-1/2 z-50 uppercase font-semibold flex-col"
         >
             <style>
                 {`
@@ -48,17 +50,17 @@ const NavBar = ({
                     <a href="#" className="relative group">
                         <div className="absolute -left-4 -right-4 -top-2 -bottom-2" />
                         <div
-                            className={`w-8 h-[2px] group-hover:w-10 transition-all duration-300`}
+                            className={`w-8 h-[1px] group-hover:w-16 transition-all duration-300`}
                             style={{
-                                backgroundColor: color,
+                                backgroundColor: navbarColor || color,
                                 transition: "all 0.3s ease-in-out",
                             }}
                         />
                     </a>
                     <span
-                        className={`pointer-events-none select-none absolute whitespace-nowrap left-[calc(100%_+_1.5rem)]`}
+                        className={`pointer-events-none select-none absolute whitespace-nowrap text-shadow-lg left-[calc(100%_+_1.5rem)]`}
                         style={{
-                            color: color,
+                            color: navbarColor || color,
                             transition: "all 0.3s ease-in-out",
                         }}
                     >

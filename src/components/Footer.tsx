@@ -61,13 +61,16 @@ const Footer = () => {
 
         tl.to({}, { duration: 1 });
 
-        tl.to(footerRef.current, {
-            y: "0%",
-            duration: 2,
-            onStart: () => {
+        tl.call(() => {
+            setHeaderColor("#000000");
+        })
+            .call(() => {
                 setHeaderColor("#ffffff");
-            },
-        });
+            })
+            .to(footerRef.current, {
+                y: "0%",
+                duration: 2,
+            });
     }, []);
     return (
         <footer className="h-dvh relative" ref={containerRef}>
@@ -112,39 +115,103 @@ const Footer = () => {
                 </div>
             </div>
             <div
-                className="absolute inset-0 w-full h-dvh bg-[url('/footer.webp')] bg-cover bg-center text-white flex flex-col"
+                className="absolute inset-0 w-full pt-20 sm:pt-0 h-dvh bg-[url('/footer.webp')] bg-cover bg-center text-white flex flex-col"
                 ref={footerRef}
             >
-                <div className="flex-1 text-[36px] font-semibold h-full flex">
+                <div className="flex-1 sm:text-[21px] flex-col sm:flex-row uppercase md:text-[28px] 2xl:text-[36px] font-semibold h-full flex">
                     <a
                         href="#"
-                        className="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180 border-l border-[#FFFFFF4D] leading-[150%] py-8 px-10"
+                        className="flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10"
                     >
-                        История
+                        <span className="relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full">
+                            История
+                        </span>
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="-translate-x-1 h-[32px] w-[32px] rotate-180 opacity-0 group-hover:opacity-100 transition-all"
+                        >
+                            <path
+                                d="M12 20.25V3.75M12 3.75L5.25 10.5M12 3.75L18.75 10.5"
+                                stroke="white"
+                                stroke-width="1.5"
+                            />
+                        </svg>
                     </a>
 
                     <a
                         href="#"
-                        className="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180 border-l border-[#FFFFFF4D] leading-[150%] py-8 px-10"
+                        className="flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10"
                     >
-                        Документы
+                        <span className="relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full">
+                            Документы
+                        </span>
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="-translate-x-1 h-[32px] w-[32px] rotate-180 opacity-0 group-hover:opacity-100 transition-all"
+                        >
+                            <path
+                                d="M12 20.25V3.75M12 3.75L5.25 10.5M12 3.75L18.75 10.5"
+                                stroke="white"
+                                stroke-width="1.5"
+                            />
+                        </svg>
                     </a>
 
                     <a
                         href="#"
-                        className="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180 border-l border-[#FFFFFF4D] leading-[150%] py-8 px-10"
+                        className="flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10"
                     >
-                        Лицензия
+                        <span className="relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full">
+                            Лицензия
+                        </span>
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="-translate-x-1 h-[32px] w-[32px] rotate-180 opacity-0 group-hover:opacity-100 transition-all"
+                        >
+                            <path
+                                d="M12 20.25V3.75M12 3.75L5.25 10.5M12 3.75L18.75 10.5"
+                                stroke="white"
+                                stroke-width="1.5"
+                            />
+                        </svg>
                     </a>
 
                     <a
                         href="#"
-                        className="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180 border-l border-[#FFFFFF4D] leading-[150%] py-8 px-10"
+                        className="flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10"
                     >
-                        Прайс
+                        <span className="relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full">
+                            Прайс
+                        </span>
+                        <svg
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="-translate-x-1 h-[32px] w-[32px] rotate-180 opacity-0 group-hover:opacity-100 transition-all"
+                        >
+                            <path
+                                d="M12 20.25V3.75M12 3.75L5.25 10.5M12 3.75L18.75 10.5"
+                                stroke="white"
+                                stroke-width="1.5"
+                            />
+                        </svg>
                     </a>
                 </div>
-                <div className="border-t border-[#FFFFFF4D] uppercase font-semibold flex justify-between py-8 px-10">
+                <div className="border-t text-xs 2xl:text-base border-[#FFFFFF4D] uppercase font-semibold flex md:flex-row flex-col gap-4 justify-between py-6 md:px-6 md:py-8 px-4 2xl:py-8 2xl:px-10">
                     <a href="#" className="text-[#FFFFFF80]">
                         ©2025. Рамиклиник резиденс
                     </a>

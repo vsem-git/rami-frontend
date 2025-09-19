@@ -5,13 +5,20 @@ const HeaderContext = createContext({
     setHeaderColor: (color: string) => {
         color;
     },
+    navbarColor: "",
+    setNavbarColor: (color: string) => {
+        color;
+    },
 });
 
 export const HeaderProvider = ({ children }: { children: React.ReactNode }) => {
     const [headerColor, setHeaderColor] = useState("#000000");
+    const [navbarColor, setNavbarColor] = useState("");
 
     return (
-        <HeaderContext.Provider value={{ headerColor, setHeaderColor }}>
+        <HeaderContext.Provider
+            value={{ headerColor, setHeaderColor, navbarColor, setNavbarColor }}
+        >
             {children}
         </HeaderContext.Provider>
     );
