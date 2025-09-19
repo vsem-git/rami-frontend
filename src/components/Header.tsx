@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import NavBar from "./NavBar";
@@ -155,6 +155,7 @@ const Header = () => {
                 </div>
                 <NavBar
                     color={headerColor}
+                    navbarColor={navbarColor}
                     ref={navBarRef as React.RefObject<HTMLDivElement>}
                 />
             </div>

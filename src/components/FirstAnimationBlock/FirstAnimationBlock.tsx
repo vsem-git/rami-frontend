@@ -7,11 +7,7 @@ import { useHeader } from "../HeaderContext";
 gsap.registerPlugin(ScrollTrigger);
 
 const FirstAnimationBlock = () => {
-<<<<<<< HEAD
     const { setHeaderColor, setNavbarColor } = useHeader();
-=======
-    const { setHeaderColor } = useHeader();
->>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
     const containerRef = useRef(null);
     const block1Ref = useRef(null);
     const block2Ref = useRef(null);
@@ -72,7 +68,6 @@ const FirstAnimationBlock = () => {
         // Исчезновение первого блока
         tl.to([block1Ref.current, ".firstblocktext"], {
             autoAlpha: 0,
-<<<<<<< HEAD
             duration: 0.5,
         })
             .call(() => {
@@ -83,15 +78,6 @@ const FirstAnimationBlock = () => {
             .call(() => {
                 setHeaderColor("#000000");
                 setNavbarColor("#ffffff");
-=======
-            duration: 1,
-        })
-            .call(() => {
-                setHeaderColor("#ffffff");
-            })
-            .call(() => {
-                setHeaderColor("#000000");
->>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
             });
 
         // Появление второго блока (лого и текст) и установка черного цвета хедера
@@ -108,17 +94,11 @@ const FirstAnimationBlock = () => {
 
         // Исчезновение второго блока
         tl.call(() => {
-<<<<<<< HEAD
             setNavbarColor("#ffffff");
             setHeaderColor("#000000");
         })
             .call(() => {
                 setNavbarColor("");
-=======
-            setHeaderColor("#000000");
-        })
-            .call(() => {
->>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
                 setHeaderColor("#ffffff");
             })
             .to(block2Ref.current, {
@@ -185,11 +165,7 @@ const FirstAnimationBlock = () => {
         });
     }, []);
     return (
-<<<<<<< HEAD
         <div className="min-h-dvh relative" ref={containerRef}>
-=======
-        <div className="h-dvh relative" ref={containerRef}>
->>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
             <div
                 className="absolute top-0 left-0 w-full h-full bg-[url('/1slide.webp')] bg-cover bg-center z-50"
                 ref={block1Ref}
@@ -197,28 +173,17 @@ const FirstAnimationBlock = () => {
                 <div className="relative h-full w-full flex justify-end items-end"></div>
             </div>
             <div
-<<<<<<< HEAD
                 className="absolute top-0 left-0 w-full min-h-full bg-white flex flex-col-reverse md:flex-row justify-between items-center md:items-end z-40"
-=======
-                className="absolute top-0 left-0 w-full h-full bg-white flex justify-between items-end z-40"
->>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
                 ref={block2Ref}
             >
                 <img
                     src="/logo.svg"
                     alt="logo"
                     ref={block2LogoRef}
-<<<<<<< HEAD
                     className=" max-w-[360px] sm:max-w-[400px] md:max-w-[570px] xl:max-w-[722px] 2xl:max-w-[1000px]"
                 />
                 <p
                     className="text-black mt-25 m-10 uppercase text-[13px] md:text-sm 2xl:text-[21px] 2xl:max-w-[720px] xl:max-w-[400px] md:max-w-[376px] sm:max-w-[400px] max-w-full"
-=======
-                    className="max-h-[788px]"
-                />
-                <p
-                    className="text-black max-w-[720px] m-10 uppercase text-[21px]"
->>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
                     ref={block2TextRef}
                 >
                     <span className="font-bold">RAMICLINIC RESIDENCE</span> —
@@ -234,21 +199,13 @@ const FirstAnimationBlock = () => {
                 className="absolute top-0 left-0 w-full h-full bg-[url('/2slide.webp')] bg-cover bg-center z-30"
                 ref={block3Ref}
             >
-<<<<<<< HEAD
                 <div className="relative h-full w-full flex justify-start items-start md:items-center">
-=======
-                <div className="relative h-full w-full flex justify-start items-center">
->>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
                     <div
                         className="absolute inset-0 bg-[#1D1D1D4D] blur-[300px]"
                         ref={block3BlurRef}
                     ></div>
                     <p
-<<<<<<< HEAD
                         className="text-white text-sm 2xl:text-[21px] ml-[24px] mt-[80px] sm:mt-[96px] md:ml-[120px] md:mt-0 xl:ml-[120px] 2xl:ml-[200px] max-w-[312px] sm:max-w-[288px] md:max-w-[360px] xl:max-w-[360px] 2xl:max-w-[560px] uppercase z-10"
-=======
-                        className="text-white text-[21px] m-[200px] max-w-[560px] uppercase z-10"
->>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
                         ref={block3TextRef}
                     >
                         <span className="font-bold">Расположена</span> в
@@ -280,21 +237,12 @@ const FirstAnimationBlock = () => {
                 ref={block8Ref}
             ></div>
             <div
-<<<<<<< HEAD
                 className="absolute top-0 left-0 w-full h-full bg-[url('/residence6.webp')] [background-position:80%_100%] [background-size:_206%] [background-repeat:no-repeat] bg-[#F9F7F8] sm:bg-cover md:[background-position-x:70%] md:bg-cover sm:bg-center z-20"
                 ref={block9Ref}
             >
                 <div className="relative w-full h-full flex justify-start pl-[16px] md:pl-[80px] xl:pl-[120px] 2xl:pl-[200px] items-start pt-[80px] sm:pt-[96px] md:pt-0 md:items-center">
                     <div>
                         <div className="text-[#1D1D1D99] text-[20px] md:text-[24px] 2xl:text-[36px] uppercase mb-7">
-=======
-                className="absolute top-0 left-0 w-full h-full bg-[url('/residence6.webp')] bg-cover bg-center z-20"
-                ref={block9Ref}
-            >
-                <div className="relative w-full h-full flex justify-start pl-[200px] items-center">
-                    <div>
-                        <div className="text-[#1D1D1D99] text-[36px] uppercase mb-7">
->>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
                             манифест искренности
                         </div>
                         <div className="flex gap-6">
@@ -304,23 +252,15 @@ const FirstAnimationBlock = () => {
                                 viewBox="0 0 40 33"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
-<<<<<<< HEAD
                                 className="2xl:w-[79px] w-[40px] h-[33px] 2xl:h-[64px]"
-=======
->>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
                             >
                                 <path
                                     d="M9.80645 33C7.91398 33 6.36559 32.6071 5.16129 31.8214C3.95699 31.0357 2.96774 30.0318 2.19355 28.8095C1.33333 27.3254 0.731183 25.7976 0.387096 24.2262C0.129032 22.5675 0 21.2143 0 20.1667C0 15.8889 1.07527 12.004 3.22581 8.51191C5.37634 5.01985 8.73118 2.18254 13.2903 0L14.4516 2.35715C11.7849 3.49207 9.46237 5.28175 7.48387 7.72619C5.5914 10.1706 4.64516 12.6587 4.64516 15.1905C4.64516 16.2381 4.77419 17.1548 5.03226 17.9405C6.4086 16.8056 8 16.2381 9.80645 16.2381C12.043 16.2381 13.9785 16.9802 15.6129 18.4643C17.2473 19.9484 18.0645 22 18.0645 24.6191C18.0645 27.0635 17.2473 29.0714 15.6129 30.6429C13.9785 32.2143 12.043 33 9.80645 33ZM31.7419 33C29.8495 33 28.3011 32.6071 27.0968 31.8214C25.8925 31.0357 24.9032 30.0318 24.129 28.8095C23.2688 27.3254 22.6667 25.7976 22.3226 24.2262C22.0645 22.5675 21.9355 21.2143 21.9355 20.1667C21.9355 15.8889 23.0108 12.004 25.1613 8.51191C27.3118 5.01985 30.6667 2.18254 35.2258 0L36.3871 2.35715C33.7204 3.49207 31.3979 5.28175 29.4194 7.72619C27.5269 10.1706 26.5806 12.6587 26.5806 15.1905C26.5806 16.2381 26.7097 17.1548 26.9677 17.9405C28.3441 16.8056 29.9355 16.2381 31.7419 16.2381C33.9785 16.2381 35.914 16.9802 37.5484 18.4643C39.1828 19.9484 40 22 40 24.6191C40 27.0635 39.1828 29.0714 37.5484 30.6429C35.914 32.2143 33.9785 33 31.7419 33Z"
                                     fill="#691C32"
                                 />
                             </svg>
-<<<<<<< HEAD
                             <p className="max-w-[264px] sm:max-w-[376px] 2xl:max-w-[640px] mt-0 sm:mt-5 2xl:mt-10 uppercase text-[11px] md:text-xs 2xl:text-lg">
                                 <span className="font-bold text-[#691C32]">
-=======
-                            <p className="max-w-[640px] mt-10 uppercase">
-                                <span className="font-bold text-[#691C32] text-lg">
->>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
                                     RAMICLINIC RESIDENCE
                                 </span>{" "}
                                 – проект, в котором, объединив накопленный опыт,
@@ -333,7 +273,6 @@ const FirstAnimationBlock = () => {
                             </p>
                         </div>
                     </div>
-<<<<<<< HEAD
                     <div className="uppercase absolute bottom-6 text-white right-6 md:right-[clamp(4.938rem,_-2.938rem_+_16.41vw,_16.75rem)]">
                         <p className="font-bold mb-1 text-sm 2xl:text-[21px]">
                             Галина Резник
@@ -343,22 +282,12 @@ const FirstAnimationBlock = () => {
                         </p>
                     </div>
                     <div className="absolute hidden sm:block sm:left-4 sm:bottom-6 md:bottom-auto md:left-auto md:top-32 md:right-8">
-=======
-                    <div className="uppercase text-lg absolute bottom-4 text-white right-64">
-                        <p className="font-bold mb-1">Галина Резник</p>
-                        <p>Генеральный директор</p>
-                    </div>
-                    <div className="absolute top-32 right-8">
->>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
                         <img
                             src="/ceo_logo.png"
                             alt=""
                             width={228}
                             height={218}
-<<<<<<< HEAD
                             className="w-[160px] h-[153px] 2xl:w-[228px] 2xl:h-[218px]"
-=======
->>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
                         />
                     </div>
                 </div>
