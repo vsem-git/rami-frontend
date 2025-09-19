@@ -9,7 +9,6 @@ const RootLayout = () => {
     return (
         <Preloader>
             <HeaderProvider>
-<<<<<<< HEAD
                 <div className="bgpattern1 fixed top-0 right-0 h-full hidden sm:block opacity-50 z-[0]">
                     <img src="/pattern1.svg" alt="teambg" />
                 </div>
@@ -31,7 +30,6 @@ const RootLayout = () => {
                         alt=""
                         className="h-fit"
                     />
-=======
                 <div className="bgpattern1 fixed top-0 right-0 h-full opacity-50 z-[0]">
                     <img src="/pattern1.svg" alt="teambg" />
                 </div>
@@ -41,7 +39,6 @@ const RootLayout = () => {
                 <div className="runningstroke fixed bottom-10 left-0 flex gap-8 z-[0]">
                     <img src="/runningstrokelogo.svg" alt="" />
                     <img src="/runningstrokelogo.svg" alt="" />
->>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
                 </div>
                 <Header />
                 <ScrollSmoother>
