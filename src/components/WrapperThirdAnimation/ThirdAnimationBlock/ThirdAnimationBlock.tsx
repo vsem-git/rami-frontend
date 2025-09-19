@@ -105,7 +105,11 @@ const ThirdAnimationBlock = () => {
             >
                 <div
                     ref={block1TextRef}
+<<<<<<< HEAD
                     className="flex absolute flex-col top-0 items-center text-center gap-6 pt-24 px-4 md:pt-48 pb-0 z-10"
+=======
+                    className="flex absolute flex-col top-0 items-center text-center gap-6 p-48 pb-0 z-10"
+>>>>>>> 2bc749acb85bb64ef425842cd79cebdb7a0972c1
                 >
                     <p className="text-xl md:text-2xl 2xl:text-4xl">
                         КОМАНДА <br />

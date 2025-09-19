@@ -61,6 +61,23 @@ const VideoAnimation = () => {
         }).call(() => {
             setHeaderColor("#ffffff");
         });
+
+        tl.to({}, { duration: 3 })
+            .to(".menuheader", { opacity: 1, y: 0, duration: 0.5 }, 4)
+            .to(".visitheader", { opacity: 1, y: 0, duration: 0.5 }, 4)
+            .to(".navbarheader", { opacity: 1, y: 0, duration: 0.5 }, 4);
+
+        tl.to({}, { duration: 1 });
+
+        tl.to(".logoheader", {
+            scale: 1,
+            x: 0,
+            y: 0,
+            duration: 5,
+            ease: "power2.out",
+        });
+
+        tl.to({}, { duration: 5 });
     });
 
     return (
