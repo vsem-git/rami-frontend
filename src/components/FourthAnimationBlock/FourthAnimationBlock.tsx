@@ -13,7 +13,19 @@ const FourthAnimationBlock = () => {
     const contentRef = useRef(null);
 
     useGSAP(() => {
-        gsap.set(bgRef.current, { y: "180px" });
+        const mm = gsap.matchMedia();
+
+        mm.add("(min-width: 1281px)", () => {
+            gsap.set(bgRef.current, { y: "180px" });
+        });
+
+        mm.add("(min-width: 767px)", () => {
+            gsap.set(bgRef.current, { y: "100px" });
+        });
+
+        mm.add("(max-width: 767px)", () => {
+            gsap.set(bgRef.current, { y: "100px" });
+        });
 
         const tl = gsap.timeline({
             scrollTrigger: {
@@ -28,13 +40,13 @@ const FourthAnimationBlock = () => {
         tl.addLabel("group1")
             .fromTo(
                 ".bgpattern1",
-                { xPercent: 100 },
+                { xPercent: 120 },
                 { xPercent: 0, duration: 1 },
                 "group1"
             )
             .fromTo(
                 ".bgpattern2",
-                { xPercent: -100 },
+                { xPercent: -120 },
                 { xPercent: 0, duration: 1 },
                 "group1"
             );
@@ -69,13 +81,13 @@ const FourthAnimationBlock = () => {
             .fromTo(
                 ".bgpattern1",
                 { xPercent: 0 },
-                { xPercent: 100, duration: 1 },
+                { xPercent: 120, duration: 1 },
                 "group3"
             )
             .fromTo(
                 ".bgpattern2",
                 { xPercent: 0 },
-                { xPercent: -100, duration: 1 },
+                { xPercent: -120, duration: 1 },
                 "group3"
             );
     }, []);
@@ -162,11 +174,11 @@ const FourthAnimationBlock = () => {
                                         <img src="/anchor.svg" alt="" />
                                     </div>
                                     <div className="flex flex-col">
-                                        <p className="text-xl md:text-[28px]">
+                                        <p className="text-xl md:text-[20px] 2xl:text-[28px]">
                                             {" "}
                                             10 МИНУТ{" "}
                                         </p>
-                                        <p className="text-xs md:text-base">
+                                        <p className="text-xs 2xl:text-base">
                                             {" "}
                                             ДО СТОЯНКИ ЯХТ{" "}
                                         </p>
@@ -177,23 +189,23 @@ const FourthAnimationBlock = () => {
                                         <img src="/pointer.svg" alt="" />
                                     </div>
                                     <div className="flex flex-col">
-                                        <p className="text-xl md:text-[28px]">
+                                        <p className="text-xl md:text-[20px] 2xl:text-[28px]">
                                             {" "}
                                             10 МИНУТ{" "}
                                         </p>
-                                        <p className="text-xs md:text-base">
+                                        <p className="text-xs 2xl:text-base">
                                             {" "}
                                             ОТ ЦЕНТРА{" "}
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                            <div className="uppercase text-xl md:text-[28px]">
+                            <div className="uppercase text-sm md:text-[20px] 2xl:text-[28px]">
                                 Санкт-Петербург, КРЕСТОВСКИЙ ПРОСПЕКТ, 4Б
                             </div>
                         </div>
                         <div className="flex justify-center">
-                            <button className="uppercase px-[32px] py-5 font-semibold bg-[#691C32] text-white cursor-pointer">
+                            <button className="uppercase px-[32px] md:text-[13px] 2xl:text-base py-5 font-semibold bg-[#691C32] text-white cursor-pointer">
                                 Построить маршрут
                             </button>
                         </div>

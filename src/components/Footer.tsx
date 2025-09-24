@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import { useHeader } from "./HeaderContext";
+import { usePopup } from "./PopupContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,7 +14,7 @@ const Footer = () => {
     const contactOpenRef = useRef(null);
     const contactContentRef = useRef(null);
     const footerRef = useRef(null);
-
+    const { openPopup } = usePopup();
     useGSAP(() => {
         const tl = gsap.timeline({
             scrollTrigger: {
@@ -27,11 +28,9 @@ const Footer = () => {
 
         gsap.set(footerRef.current, { y: "100%" });
 
-        gsap.set(contactRef.current, { scale: 0.5 });
-
         gsap.fromTo(
             ".bgpattern1",
-            { xPercent: 100 },
+            { xPercent: 120 },
             {
                 xPercent: 0,
                 scrollTrigger: {
@@ -46,7 +45,7 @@ const Footer = () => {
 
         gsap.fromTo(
             ".bgpattern2",
-            { xPercent: -100 },
+            { xPercent: -120 },
             {
                 xPercent: 0,
                 scrollTrigger: {
@@ -76,14 +75,17 @@ const Footer = () => {
         <footer className="h-dvh relative" ref={containerRef}>
             <div
                 ref={contactRef}
-                className="bg-rose-900 h-dvh w-full overflow-hidden group"
+                className={`bg-rose-900 h-dvh w-full overflow-hidden group scale-50`}
             >
                 <div
                     className="absolute top-0 left-0 w-full h-full z-0 bg-[#691C32]"
                     ref={contactOpenRef}
                 >
                     <div className="w-full h-full flex justify-center items-center relative cursor-pointer">
-                        <div className="bg-white p-12 rounded-full group-hover:bg-transparent group-hover:border group-hover:border-white transition-all">
+                        <div
+                            className="bg-white p-12 rounded-full group-hover:bg-transparent group-hover:border group-hover:border-white transition-all"
+                            onClick={() => openPopup()}
+                        >
                             <svg
                                 width="32"
                                 height="32"
@@ -99,7 +101,7 @@ const Footer = () => {
                                 />
                             </svg>
                         </div>
-                        <div className="absolute bottom-0 left-0 p-16 text-[32px] text-white uppercase font-semibold">
+                        <div className="absolute bottom-0 left-0 p-8 md:p-16 text-[24px] md:text-[32px] text-white uppercase font-semibold">
                             СВЯжитесь С НАМИ
                         </div>
                     </div>
@@ -126,7 +128,7 @@ const Footer = () => {
                         <span className="relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full">
                             История
                         </span>
-                        <svg
+                        {/* <svg
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
@@ -139,7 +141,7 @@ const Footer = () => {
                                 stroke="white"
                                 stroke-width="1.5"
                             />
-                        </svg>
+                        </svg> */}
                     </a>
 
                     <a
@@ -149,7 +151,7 @@ const Footer = () => {
                         <span className="relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full">
                             Документы
                         </span>
-                        <svg
+                        {/* <svg
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
@@ -162,7 +164,7 @@ const Footer = () => {
                                 stroke="white"
                                 stroke-width="1.5"
                             />
-                        </svg>
+                        </svg> */}
                     </a>
 
                     <a
@@ -172,7 +174,7 @@ const Footer = () => {
                         <span className="relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full">
                             Лицензия
                         </span>
-                        <svg
+                        {/* <svg
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
@@ -185,7 +187,7 @@ const Footer = () => {
                                 stroke="white"
                                 stroke-width="1.5"
                             />
-                        </svg>
+                        </svg> */}
                     </a>
 
                     <a
@@ -195,7 +197,7 @@ const Footer = () => {
                         <span className="relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full">
                             Прайс
                         </span>
-                        <svg
+                        {/* <svg
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
@@ -208,7 +210,7 @@ const Footer = () => {
                                 stroke="white"
                                 stroke-width="1.5"
                             />
-                        </svg>
+                        </svg> */}
                     </a>
                 </div>
                 <div className="border-t text-xs 2xl:text-base border-[#FFFFFF4D] uppercase font-semibold flex md:flex-row flex-col gap-4 justify-between py-6 md:px-6 md:py-8 px-4 2xl:py-8 2xl:px-10">

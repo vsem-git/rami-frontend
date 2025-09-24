@@ -11,23 +11,11 @@ const ThirdAndSecondAnimation = () => {
     const strokeContainerRef = useRef(null);
 
     useGSAP(() => {
-        gsap.set(".bgpattern1", { xPercent: 120 });
-        gsap.set(".bgpattern2", { xPercent: -120 });
-        gsap.set(".runningstroke", { opacity: 100, y: "150%", yPercent: 150 });
+        const mm = gsap.matchMedia();
+        /*  gsap.set(".bgpattern1", { xPercent: 120 });
+        gsap.set(".bgpattern2", { xPercent: -120 }); */
 
-        gsap.to(".runningstroke", {
-            yPercent: 10,
-            duration: 100,
-            ease: "power2.inOut",
-            scrollTrigger: {
-                trigger: strokeContainerRef.current,
-                start: "top 150%",
-                end: "top 60%",
-                scrub: true,
-            },
-        });
-
-        gsap.to(".runningstroke", {
+        /* gsap.to(".runningstroke", {
             x: "-100%",
             ease: "power2.inOut",
             scrollTrigger: {
@@ -36,70 +24,178 @@ const ThirdAndSecondAnimation = () => {
                 end: "bottom bottom",
                 scrub: true,
             },
+        }); */
+
+        gsap.fromTo(
+            ".bgpattern1",
+            { xPercent: 130 },
+            {
+                xPercent: 0,
+                opacity: 1,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top bottom", // когда верх элемента коснётся низа окна
+                    end: "top+=200 top", // через 200px после начала
+                    scrub: true,
+                },
+            }
+        );
+
+        gsap.fromTo(
+            ".bgpattern2",
+            { xPercent: -130 },
+            {
+                xPercent: 0,
+                opacity: 1,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top bottom", // когда верх элемента коснётся низа окна
+                    end: "top+=200 top", // через 200px после начала
+                    scrub: true,
+                },
+            }
+        );
+
+        gsap.fromTo(
+            ".runningstroke",
+            { yPercent: 150 },
+            {
+                yPercent: 0,
+                opacity: 1,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: strokeContainerRef.current,
+                    start: "top bottom",
+                    end: "top center",
+                    scrub: true,
+                },
+            }
+        );
+
+        gsap.fromTo(
+            ".runningstroke",
+            { xPercent: 0 },
+            {
+                xPercent: -100,
+                duration: 10,
+                scrollTrigger: {
+                    trigger: strokeContainerRef.current,
+                    start: "top bottom",
+                    end: "bottom -100%",
+                    scrub: true,
+                },
+            }
+        );
+
+        gsap.fromTo(
+            ".bgpattern1",
+            { xPercent: 0 },
+            {
+                xPercent: 130,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: strokeContainerRef.current,
+                    start: "top bottom", // когда верх элемента коснётся низа окна
+                    end: "top+=100 top", // через 200px после начала
+                    scrub: true,
+                },
+            }
+        );
+
+        gsap.fromTo(
+            ".bgpattern2",
+            { xPercent: 0 },
+            {
+                xPercent: -130,
+                duration: 10,
+                scrollTrigger: {
+                    trigger: strokeContainerRef.current,
+                    start: "top bottom", // когда верх элемента коснётся низа окна
+                    end: "top+=100 top", // через 200px после начала
+                    scrub: true,
+                },
+            }
+        );
+
+        mm.add("(min-width: 1281px)", () => {
+            gsap.to(".runningstroke", {
+                y: "-100dvh",
+                scrollTrigger: {
+                    trigger: strokeContainerRef.current,
+                    start: "bottom+=100 bottom", // начало за 200px до конца блока
+                    end: "bottom+=1200 bottom", // конец за 10px до конца блока
+                    scrub: true,
+                },
+            });
         });
 
-        gsap.to(".runningstroke", {
-            y: "-100dvh",
-            ease: "power2.in",
-            duration: 1,
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "bottom 200%",
-                end: "bottom bottom",
-                toggleActions: "play none none reverse",
-            },
+        mm.add("(min-width: 768px)", () => {
+            gsap.to(".runningstroke", {
+                y: "-100dvh",
+                scrollTrigger: {
+                    trigger: strokeContainerRef.current,
+                    start: "bottom+=100 bottom", // начало за 200px до конца блока
+                    end: "bottom+=800 bottom", // конец за 10px до конца блока
+                    scrub: true,
+                },
+            });
         });
 
-        const tl = gsap.timeline({
+        mm.add("(max-width: 767px)", () => {
+            gsap.to(".runningstroke", {
+                y: "-100dvh",
+                duration: 10,
+                scrollTrigger: {
+                    trigger: strokeContainerRef.current,
+                    start: "bottom-=100 bottom", // начало за 200px до конца блока
+                    end: "bottom+=850 bottom", // конец за 10px до конца блока
+                    scrub: true,
+                },
+            });
+        });
+
+        /* const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top bottom",
-                end: "bottom top",
+                end: "bottom+=700 bottom",
                 scrub: true,
             },
-        });
+        }); */
 
-        tl.to(
-            ".bgpattern1",
-            {
-                xPercent: 0,
-                opacity: 1,
-                duration: 2,
-                ease: "power2.inOut",
-            },
-            "<"
-        ).to(
-            ".bgpattern2",
-            {
-                xPercent: 0,
-                opacity: 1,
-                duration: 2,
-                ease: "power2.inOut",
-            },
-            "<"
-        );
+        /* tl.to({}, { duration: 30 });
 
-        tl.to({}, { duration: 3 });
+        tl.addLabel("group1")
+            .fromTo(
+                ".bgpattern1",
+                { xPercent: 120 },
+                { xPercent: 0, opacity: 1, duration: 10 },
+                "group1"
+            )
+            .fromTo(
+                ".bgpattern2",
+                { xPercent: -120 },
+                { xPercent: 0, opacity: 1, duration: 10 },
+                "group1"
+            );
 
-        tl.to(
-            ".bgpattern1",
-            {
-                xPercent: 120,
-                duration: 2,
-                ease: "power2.inOut",
-            },
-            "<"
-        ).to(
-            ".bgpattern2",
-            {
-                xPercent: -120,
-                duration: 2,
-                ease: "power2.inOut",
-            },
-            "<"
-        );
+        tl.to({}, { duration: 130 }); */
 
-        tl.to({}, { duration: 3 });
+        /* tl.addLabel("group2")
+            .fromTo(
+                ".bgpattern1",
+                { xPercent: 0 },
+                { xPercent: 130, duration: 10 },
+                "group2"
+            )
+            .fromTo(
+                ".bgpattern2",
+                { xPercent: 0 },
+                { xPercent: -130, duration: 10 },
+                "group2"
+            ); */
     });
     return (
         <div className="relative фыв" ref={containerRef}>
@@ -109,7 +205,7 @@ const ThirdAndSecondAnimation = () => {
                 ref={strokeContainerRef}
             >
                 <div className="h-[100px] 2xl:h-[500px]" />
-                <div className="flex flex-col md:flex-row justify-center px-4 md:px-[64px] xl:px-[80px] 2xl:px-[120px] md:gap-[32px] xl:gap-[80px] 2xl:gap-[128px]">
+                <div className="flex flex-col md:flex-row justify-center px-4 md:px-[64px] xl:px-[80px] 2xl:px-[120px] md:gap-[105px] xl:gap-[158px] 2xl:gap-[168px]">
                     <div className=" flex flex-col gap-[32px] sm:gap-[120px] md:gap-[160px] 2xl:gap-[260px]">
                         <div>
                             <div>
@@ -220,7 +316,7 @@ const ThirdAndSecondAnimation = () => {
                     </div>
                 </div>
 
-                <div className="h-[200px] xl:h-[100dvh]" />
+                <div className="h-[200px] xl:h-[10dvh]" />
             </div>
         </div>
     );

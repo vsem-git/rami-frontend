@@ -28,8 +28,8 @@ const VideoAnimation = () => {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: blockRef.current,
-                start: "top top",
-                end: "+=150%",
+                start: "top 80%",
+                end: "+=180%",
                 scrub: true,
                 pin: true,
             },
@@ -40,12 +40,16 @@ const VideoAnimation = () => {
             duration: 1,
         }); */
 
-        tl.to({}, { duration: 1 })
-            .to(".menuheader", { opacity: 1, y: 0, duration: 2 }, 4)
-            .to(".visitheader", { opacity: 1, y: "-50%", duration: 2 }, 4)
-            .to(".navbarheader", { opacity: 1, y: 0, duration: 2 }, 4);
+        tl.to(".menuheader", { opacity: 1, y: 0, duration: 2 }, 4)
+            .to(".visitheader", { opacity: 1, y: 0, duration: 2 }, 4)
+            .to(".navbarheader", { opacity: 1, y: 0, duration: 2 }, 4)
+            .to(".textheader", { opacity: 1, y: 0, duration: 2 }, 4);
 
-        tl.to({}, { duration: 1 });
+        tl.to({}, { duration: 3 });
+
+        tl.call(() => {
+            setHeaderColor("#000000");
+        });
 
         tl.to(".logoheader", {
             scale: 1,
@@ -53,9 +57,8 @@ const VideoAnimation = () => {
             y: 0,
             duration: 5,
             ease: "power2.out",
-        });
+        }).to(".textheader", { opacity: 0, duration: 2 });
 
-        tl.to({}, { duration: 5 });
         tl.call(() => {
             setHeaderColor("#000000");
         }).call(() => {

@@ -22,7 +22,7 @@ const NavBar = ({
     return (
         <nav
             ref={ref}
-            className="hidden md:flex navbarheader fixed left-10 top-1/2 -translate-y-1/2 z-50 uppercase font-semibold flex-col"
+            className="hidden md:flex navbarheader fixed left-4 md:left-6 xl:left-10 top-1/2 -translate-y-1/2 z-50 uppercase font-semibold flex-col"
         >
             <style>
                 {`
@@ -50,7 +50,7 @@ const NavBar = ({
                     <a href="#" className="relative group">
                         <div className="absolute -left-4 -right-4 -top-2 -bottom-2" />
                         <div
-                            className={`w-8 h-[1px] group-hover:w-16 transition-all duration-300`}
+                            className={`w-6 xl:w-8 h-[1px] group-hover:w-16 transition-all duration-300`}
                             style={{
                                 backgroundColor: navbarColor || color,
                                 transition: "all 0.3s ease-in-out",

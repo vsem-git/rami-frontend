@@ -183,14 +183,18 @@ const FirstAnimationBlock = () => {
                     className=" max-w-[360px] sm:max-w-[400px] md:max-w-[570px] xl:max-w-[722px] 2xl:max-w-[1000px]"
                 />
                 <p
-                    className="text-black mt-25 m-10 uppercase text-[13px] md:text-sm 2xl:text-[21px] 2xl:max-w-[720px] xl:max-w-[400px] md:max-w-[376px] sm:max-w-[400px] max-w-full"
+                    className="text-black mt-25 m-4 sm:m-10 uppercase text-[13px] md:text-sm 2xl:text-[21px] 2xl:max-w-[720px] md:max-w-[400px] sm:max-w-[400px] max-w-full"
                     ref={block2TextRef}
                 >
                     <span className="font-bold">RAMICLINIC RESIDENCE</span> —
-                    это клиника-резиденция высокотехнологичной пластической
-                    хирургии и эстетической косметологии для искушенных
-                    пациентов, склонных к поддержанию индивидуальной красоты и
-                    внешней привлекательности с гарантией эталонных стандартов
+                    это{" "}
+                    <span className="whitespace-nowrap">
+                        клиника-резиденция
+                    </span>{" "}
+                    высокотехнологичной пластической хирургии и эстетической
+                    косметологии для искушенных пациентов, склонных к
+                    поддержанию индивидуальной красоты и внешней
+                    привлекательности с гарантией эталонных стандартов
                     безопасности в медицине, полной анонимностью, сервисом и
                     приватностью, достойными первых лиц государств.
                 </p>
@@ -205,7 +209,7 @@ const FirstAnimationBlock = () => {
                         ref={block3BlurRef}
                     ></div>
                     <p
-                        className="text-white text-sm 2xl:text-[21px] ml-[24px] mt-[80px] sm:mt-[96px] md:ml-[120px] md:mt-0 xl:ml-[120px] 2xl:ml-[200px] max-w-[312px] sm:max-w-[288px] md:max-w-[360px] xl:max-w-[360px] 2xl:max-w-[560px] uppercase z-10"
+                        className="text-white text-sm 2xl:text-[21px] ml-[24px] mt-[90px] sm:mt-[96px] md:ml-[120px] md:mt-0 xl:ml-[120px] 2xl:ml-[200px] max-w-[312px] sm:max-w-[288px] md:max-w-[360px] xl:max-w-[360px] 2xl:max-w-[560px] uppercase z-10"
                         ref={block3TextRef}
                     >
                         <span className="font-bold">Расположена</span> в
@@ -240,9 +244,9 @@ const FirstAnimationBlock = () => {
                 className="absolute top-0 left-0 w-full h-full bg-[url('/residence6.webp')] [background-position:80%_100%] [background-size:_206%] [background-repeat:no-repeat] bg-[#F9F7F8] sm:bg-cover md:[background-position-x:70%] md:bg-cover sm:bg-center z-20"
                 ref={block9Ref}
             >
-                <div className="relative w-full h-full flex justify-start pl-[16px] md:pl-[80px] xl:pl-[120px] 2xl:pl-[200px] items-start pt-[80px] sm:pt-[96px] md:pt-0 md:items-center">
+                <div className="relative w-full h-full flex justify-start pl-[16px] md:pl-[80px] xl:pl-[120px] 2xl:pl-[200px] items-start pt-[90px] sm:pt-[96px] md:pt-0 md:items-center">
                     <div>
-                        <div className="text-[#1D1D1D99] text-[20px] md:text-[24px] 2xl:text-[36px] uppercase mb-7">
+                        <div className="text-[#1D1D1D99] text-[20px] md:text-[24px] xl:text-[36px] uppercase mb-7">
                             манифест искренности
                         </div>
                         <div className="flex gap-6">
@@ -259,7 +263,7 @@ const FirstAnimationBlock = () => {
                                     fill="#691C32"
                                 />
                             </svg>
-                            <p className="max-w-[264px] sm:max-w-[376px] 2xl:max-w-[640px] mt-0 sm:mt-5 2xl:mt-10 uppercase text-[11px] md:text-xs 2xl:text-lg">
+                            <p className="max-w-[264px] sm:max-w-[370px] xl:max-w-[640px] leading-[155%] mt-0 sm:mt-4 2xl:mt-10 uppercase text-[11px] md:text-xs xl:text-lg">
                                 <span className="font-bold text-[#691C32]">
                                     RAMICLINIC RESIDENCE
                                 </span>{" "}
