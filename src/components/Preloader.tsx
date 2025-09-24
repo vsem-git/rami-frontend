@@ -10,7 +10,7 @@ const Preloader = ({ children }: { children: React.ReactNode }) => {
         // Timer for minimum video duration of 6 seconds
         const timer = setTimeout(() => {
             setVideoDone(true);
-        }, 6000);
+        }, 8000);
 
         // Check for content loading
         const handleLoad = () => {

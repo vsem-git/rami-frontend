@@ -3,6 +3,10 @@
 
 @theme {
     --font-montserrat: "Montserrat", sans-serif;
+    --breakpoint-sm: 421px;
+    --breakpoint-md: 769px;
+    --breakpoint-lg: 1025px;
+    --breakpoint-xl: 1281px;
 }
 
 @layer base {
@@ -13,4 +17,8 @@
 
 body {
     font-family: var(--font-montserrat);
+}
+
+.teamswiper .swiper-wrapper {
+    margin-left: 16px;
 }

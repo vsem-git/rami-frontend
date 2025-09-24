@@ -2,7 +2,8 @@ import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper as SwiperComponent, SwiperSlide } from "swiper/react";
+import { Swiper } from "swiper";
 // @ts-ignore
 import "swiper/css/bundle";
 
@@ -42,27 +43,42 @@ const images = [
 gsap.registerPlugin(ScrollTrigger);
 
 const ThirdAnimationBlock = () => {
-    const containerRef = useRef(null);
-    const block1Ref = useRef(null);
-    const block1SwiperRef = useRef(null);
-    const block1TextRef = useRef(null);
+    const containerRef = useRef<HTMLDivElement | null>(null);
+    const block1Ref = useRef<HTMLDivElement | null>(null);
+    const swiperContainerRef = useRef<HTMLDivElement | null>(null);
+    const block1TextRef = useRef<HTMLDivElement | null>(null);
+    const swiperRef = useRef<Swiper | null>(null);
+    const isSwiperReady = useRef(false);
+    const tlRef = useRef<gsap.core.Timeline | null>(null); // To kill/recreate if needed
 
     useGSAP(() => {
-        gsap.set(".bgpattern1", { opacity: 0 });
+        const mm = gsap.matchMedia();
 
-        gsap.set(block1SwiperRef.current, {
-            y: "50%",
+        mm.add("(min-width: 768px)", () => {
+            // Desktop/Tablet: standard values
+            gsap.set(swiperContainerRef.current, { y: "60%" });
+            gsap.set(".teamswiper .swiper-wrapper", { x: "0%" });
         });
 
-        gsap.set(".teamswiper .swiper-wrapper", {
-            x: "-10%",
+        mm.add("(max-width: 767px)", () => {
+            // Mobile: smaller shift
+            gsap.set(swiperContainerRef.current, { y: "45%" });
+            gsap.set(".teamswiper .swiper-wrapper", { x: "0%" });
         });
+        // Initial setup only (no timeline yet)
+    }, []);
+
+    // Function to create timeline (called when ready)
+    const createTimeline = () => {
+        if (tlRef.current) {
+            tlRef.current.kill(); // Clean up if recreated
+        }
 
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top top",
-                end: "+=100%",
+                end: "+=300%",
                 scrub: true,
                 pin: true,
             },
@@ -77,26 +93,71 @@ const ThirdAnimationBlock = () => {
                 ease: "power2.inOut",
             },
             "<"
-        )
-            .to(
-                block1SwiperRef.current,
-                {
-                    y: "5%",
-                    duration: 1,
-                    ease: "power2.inOut",
-                },
-                "<"
-            )
-            .to(
-                ".teamswiper .swiper-wrapper",
-                {
-                    x: "0%",
-                    duration: 1,
-                    ease: "power2.inOut",
-                },
-                "<"
-            );
-    }, []);
+        ).to(
+            swiperContainerRef.current,
+            {
+                y: "5%",
+                duration: 1,
+                ease: "power2.inOut",
+            },
+            "<"
+        );
+
+        // Now calculate with real dimensions
+        const swiper = swiperRef.current;
+        if (!swiper || !swiper.wrapperEl || !swiperContainerRef.current) {
+            console.log("Swiper or container not ready for calculation");
+            return;
+        }
+
+        const wrapper = swiper.wrapperEl;
+        const container = swiperContainerRef.current;
+        const wrapperWidth = wrapper.scrollWidth;
+        const containerWidth = container.clientWidth;
+        const totalMovement = wrapperWidth - containerWidth; // Full reveal distance
+
+        console.log(`Wrapper Width: ${wrapperWidth}px`);
+        console.log(`Container Width: ${containerWidth}px`);
+        console.log(`Total Movement: ${totalMovement}px`);
+
+        tl.to(".teamswiper .swiper-wrapper", {
+            x: `-${totalMovement + 32}px`,
+            duration: 1,
+            ease: "power2.inOut",
+        });
+
+        tlRef.current = tl;
+    };
+
+    // Optional: Ensure images are loaded before calculating (if needed)
+    const ensureImagesLoaded = (swiper: Swiper) => {
+        const images = swiper.slides.flatMap((slide) =>
+            Array.from(slide.querySelectorAll("img"))
+        );
+        if (images.length === 0) {
+            createTimeline();
+            return;
+        }
+
+        let loadedCount = 0;
+        images.forEach((img) => {
+            if (img.complete) {
+                loadedCount++;
+            } else {
+                img.addEventListener("load", () => {
+                    loadedCount++;
+                    if (loadedCount === images.length) {
+                        createTimeline();
+                    }
+                });
+            }
+        });
+
+        if (loadedCount === images.length) {
+            createTimeline();
+        }
+    };
+
     return (
         <div className="h-dvh relative" ref={containerRef}>
             <div
@@ -120,13 +181,21 @@ const ThirdAnimationBlock = () => {
                         per conubia nostra, per inceptos himenaeos.
                     </p>
                 </div>
-                <div className="max-w-full z-10" ref={block1SwiperRef}>
-                    <Swiper
+                <div className="max-w-full z-10" ref={swiperContainerRef}>
+                    <SwiperComponent
                         slidesPerView={1.2}
                         spaceBetween={16}
+                        slidesOffsetBefore={20}
                         className="mySwiper h-full w-full teamswiper"
-                        loop={true}
-                        ref={block1SwiperRef}
+                        loop={false}
+                        onSwiper={(swiper) => {
+                            swiperRef.current = swiper;
+                            isSwiperReady.current = true;
+                            // Delay slightly for DOM settling, then ensure images and create TL
+                            setTimeout(() => {
+                                ensureImagesLoaded(swiper);
+                            }, 100);
+                        }}
                         breakpoints={{
                             768: {
                                 slidesPerView: 2.2,
@@ -185,7 +254,7 @@ const ThirdAnimationBlock = () => {
                                 </SwiperSlide>
                             );
                         })}
-                    </Swiper>
+                    </SwiperComponent>
                 </div>
             </div>
         </div>

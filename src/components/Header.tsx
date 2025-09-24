@@ -15,6 +15,7 @@ const Header = () => {
     const menuRef = useRef(null);
     const visitRef = useRef(null);
     const navBarRef = useRef<HTMLDivElement>(null);
+    const textRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
         const logo = logoRef.current;
@@ -34,17 +35,54 @@ const Header = () => {
             return;
         }
 
-        /* gsap.set(header, { opacity: 0 }); */
-        gsap.set(logo, {
-            scale: 3,
-            y: () =>
-                // @ts-ignore
-                (window.innerHeight - logo.offsetHeight * 3) / 2 -
-                // @ts-ignore
-                logo.offsetTop,
+        const mm = gsap.matchMedia();
+
+        mm.add("(min-width: 1px)", () => {
+            // Desktop/Tablet: standard values
+            gsap.set(logo, {
+                scale: 2.4,
+                y: () =>
+                    // @ts-ignore
+                    window.innerHeight / 2 - logo.offsetHeight / 1.5,
+            });
+        });
+
+        mm.add("(min-width: 401px)", () => {
+            // Desktop/Tablet: standard values
+            gsap.set(logo, {
+                scale: 3,
+                y: () =>
+                    // @ts-ignore
+                    window.innerHeight / 2 - logo.offsetHeight / 1.5,
+            });
+        });
+
+        mm.add("(min-width: 769px)", () => {
+            // Desktop/Tablet: standard values
+            gsap.set(logo, {
+                scale: 4,
+                y: () =>
+                    // @ts-ignore
+                    window.innerHeight / 2 - logo.offsetHeight / 1.5,
+            });
+        });
+
+        mm.add("(min-width: 1281px)", () => {
+            // Desktop/Tablet: standard values
+            gsap.set(logo, {
+                scale: 4.5,
+                y: () =>
+                    // @ts-ignore
+                    window.innerHeight / 2 - logo.offsetHeight / 1.5,
+            });
         });
 
         gsap.set([menu, visit, navBar], {
+            opacity: 0,
+            y: -100, // Пиксели вместо процентов
+        });
+
+        gsap.set(textRef.current, {
             opacity: 0,
             y: -100, // Пиксели вместо процентов
         });
@@ -72,7 +110,7 @@ const Header = () => {
     return (
         <div
             ref={headerRef}
-            className="fixed top-0 left-0 right-0 z-40 py-[8px] sm:py-[12px] md:py-[20px] 2xl:py-[40px] md:px-[24px] sm:px-[16px] px-[16px] xl:px-[24px] 2xl:px-[40px] grid grid-cols-3 justify-between items-center"
+            className="fixed top-0 left-0 right-0 z-40 py-[16px] md:py-[20px] xl:py-[40px] md:px-[24px] sm:px-[16px] px-[16px] xl:px-[40px] grid grid-cols-3 justify-between items-center"
         >
             <div
                 ref={menuRef}
@@ -96,7 +134,7 @@ const Header = () => {
                     ></div>
                 </div>
                 <div
-                    className="theme hidden relative sm:block after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:transition-all after:duration-300 group-hover:after:w-full"
+                    className="theme hidden text-[13px] xl:text-base relative sm:block after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:transition-all after:duration-300 group-hover:after:w-full"
                     style={{
                         color: headerColor,
                         transition: "color 0.3s ease-in-out",
@@ -107,16 +145,24 @@ const Header = () => {
             </div>
             <div className="item-wrapper flex justify-center items-center relative h-[60px]">
                 <div
-                    className="logo logoheader w-[79px] h-[64px] 2xl:w-[149px] 2xl:h-[120px] absolute"
+                    className="logo logoheader w-[100px] h-[81px] xl:w-[149px] xl:h-[120px] absolute"
                     ref={logoRef}
                 >
                     <div className="relative">
+                        <div
+                            className="absolute inset-0 w-[100px] h-[81px] xl:w-[149px] xl:h-[120px] bg-black/15 blur-[30px] z-0"
+                            style={
+                                headerColor === "#ffffff"
+                                    ? { opacity: 1 }
+                                    : { opacity: 0 }
+                            }
+                        ></div>
                         <img
                             src="/logo_black.png"
                             width={1000}
                             height={1000}
                             alt="logo"
-                            className={`inset-0 absolute w-[79px] h-[64px] 2xl:w-[149px] 2xl:h-[120px] ${
+                            className={`inset-0 absolute w-[100px] h-[81px] xl:w-[149px] z-1 xl:h-[120px] ${
                                 headerColor === "#000000"
                                     ? "opacity-100"
                                     : "opacity-0"
@@ -128,7 +174,7 @@ const Header = () => {
                             width={1000}
                             height={1000}
                             alt="logo"
-                            className={`absolute inset-0 w-[79px] h-[64px] 2xl:w-[149px] 2xl:h-[120px] ${
+                            className={`absolute inset-0 w-[100px] h-[81px] xl:w-[149px] xl:h-[120px] ${
                                 headerColor === "#000000"
                                     ? "opacity-0"
                                     : "opacity-100"
@@ -140,7 +186,7 @@ const Header = () => {
             </div>
             <div
                 ref={visitRef}
-                className="item visitheader font-semibold justify-end hidden sm:flex cursor-pointer"
+                className="item visitheader font-semibold justify-end hidden md:flex cursor-pointer text-[13px] xl:text-base"
                 style={{
                     color: headerColor,
                     transition: "none", // Отключаем CSS-переходы
@@ -160,6 +206,15 @@ const Header = () => {
                 <UnderlinedText className="theme">
                     ЗАПЛАНИРОВАТЬ ВИЗИТ
                 </UnderlinedText>
+            </div>
+            <div
+                className="uppercase fixed text-[15px] md:text-base xl:text-[24px] bottom-6 xl:bottom-10 text-center w-full px-4 textheader"
+                ref={textRef}
+            >
+                <div>клиника-резиденция пластический хирургии</div>
+                <button className="uppercase text-[13px] font-semibold mt-6 sm:hidden">
+                    ЗАПЛАНИРОВАТЬ ВИЗИТ
+                </button>
             </div>
             <NavBar
                 color={headerColor}
