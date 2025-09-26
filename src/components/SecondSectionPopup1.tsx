@@ -42,11 +42,15 @@ const SecondSectionPopup1 = () => {
                 </svg>
             </div>
             <div className="bg-[#691C32] w-full px-4 py-8 text-center">
-                <h2 className="text-white uppercase text-[20px] mb-4">TITLE</h2>
+                <h2 className="text-white uppercase text-[20px] mb-4">
+                    Эталонная <br />
+                    пластическая хирургия
+                </h2>
                 <p className="text-[#FFFFFF99] text-[11px] mb-8 max-w-[328px] uppercase">
-                    Worem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nunc vulputate libero et velit interdum, ac aliquet odio
-                    mattis
+                    RAMICLINIC RESIDENCE гордится экспертной командой врачей,
+                    опирающихся на международную практику и возрастающий
+                    авторитет русской школы пластической хирургии с уникальным
+                    эстетическим почерком.
                 </p>
                 <button className="text-[#691C32] bg-white uppercase py-5 w-full text-[13px] cursor-pointer">
                     Запланировать визит
