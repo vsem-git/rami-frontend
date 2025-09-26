@@ -36,6 +36,7 @@ export const PopupProvider: React.FC<PopupProviderProps> = ({ children }) => {
 
     const openPopup = (name: string) => {
         setPopups((prev) => ({ ...prev, [name]: true }));
+        console.log(popups);
     };
 
     const closePopup = (name: string) => {
