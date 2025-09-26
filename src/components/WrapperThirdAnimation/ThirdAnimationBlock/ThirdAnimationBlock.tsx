@@ -262,10 +262,10 @@ const ThirdAnimationBlock = () => {
                                     <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-0 transition-all group-hover:opacity-100 group-active:opacity-100 duration-1000"></div>
                                     <div className="absolute inset-0 w-full h-full opacity-0 transition-all group-hover:opacity-100 group-active:opacity-100 duration-1000">
                                         <div className="relative h-full w-full flex flex-col items-center text-center justify-end pb-5">
-                                            <button className="absolute top-0 right-0 m-2 p-6 text-[32px] bg-[#691C32] cursor-pointer">
+                                            <button className="absolute top-0 right-0 m-1 sm:m-2 p-4 md:p-5 2xl:p-8 text-[32px] bg-[#691C32] cursor-pointer">
                                                 <svg
-                                                    width="32"
-                                                    height="32"
+                                                    width="16"
+                                                    height="16"
                                                     viewBox="0 0 32 32"
                                                     fill="none"
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -278,10 +278,10 @@ const ThirdAnimationBlock = () => {
                                                     />
                                                 </svg>
                                             </button>
-                                            <p className="text-white mb-4 translate-y-full opacity-0 transition-all duration-1000 group-hover:translate-y-0 group-active:translate-y-0 group-hover:opacity-100 group-active:opacity-100">
+                                            <p className="text-white text-base md:text-[17px] 2xl:text-[24px] mb-2 2xl:mb-3 translate-y-full opacity-0 transition-all duration-1000 group-hover:translate-y-0 group-active:translate-y-0 group-hover:opacity-100 group-active:opacity-100">
                                                 Врач-косметолог
                                             </p>
-                                            <p className="uppercase text-[21px] leading-[120%] text-white translate-y-full opacity-0 transition-all duration-1000 group-hover:translate-y-0 group-active:translate-y-0 group-hover:opacity-100 group-active:opacity-100">
+                                            <p className="uppercase text-[13px] md:text-sm 2xl:text-[21px] leading-[120%] text-white translate-y-full opacity-0 transition-all duration-1000 group-hover:translate-y-0 group-active:translate-y-0 group-hover:opacity-100 group-active:opacity-100">
                                                 ВИноградов ИВАН Александрович
                                             </p>
                                         </div>

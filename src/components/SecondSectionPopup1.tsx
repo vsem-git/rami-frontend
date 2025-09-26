@@ -41,7 +41,7 @@ const SecondSectionPopup1 = () => {
                     />
                 </svg>
             </div>
-            <div className="bg-[#691C32] w-full px-4 py-8 text-center">
+            <div className="bg-[#691C32] w-full px-4 py-8 text-center flex flex-col items-center">
                 <h2 className="text-white uppercase text-[20px] mb-4">
                     Эталонная <br />
                     пластическая хирургия
