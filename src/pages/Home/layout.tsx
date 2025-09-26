@@ -7,6 +7,8 @@ import Preloader from "../../components/Preloader";
 import { PopupProvider } from "../../components/PopupContext";
 import ContactPopUp from "../../components/ContactPopUp";
 import SecondSectionPopup1 from "../../components/SecondSectionPopup1";
+import SecondSectionPopup2 from "../../components/SecondSectionPopup2";
+import SecondSectionPopup3 from "../../components/SecondSectionPopup3";
 
 const RootLayout = () => {
     return (
@@ -15,6 +17,8 @@ const RootLayout = () => {
                 <HeaderProvider>
                     <ContactPopUp />
                     <SecondSectionPopup1 />
+                    <SecondSectionPopup2 />
+                    <SecondSectionPopup3 />
                     <div className="bgpattern1 fixed top-0 right-0 h-full hidden sm:block opacity-50 z-[0]">
                         <img
                             src="/pattern1.svg"

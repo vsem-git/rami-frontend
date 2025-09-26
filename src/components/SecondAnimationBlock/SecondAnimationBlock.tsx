@@ -162,7 +162,8 @@ const FirstAnimationBlock = () => {
                         <div
                             className="absolute w-full h-full z-10 md:hidden"
                             onClick={() => {
-                                openPopup("secondsection1");
+                                openPopup("secondsection2");
+                                console.log("secondsection2");
                             }}
                         ></div>
                         <div className="absolute hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-1000 top-0 left-0 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex-col justify-center items-center md:p-20 text-center">
@@ -204,7 +205,8 @@ const FirstAnimationBlock = () => {
                         <div
                             className="absolute w-full h-full z-10 md:hidden"
                             onClick={() => {
-                                openPopup("secondsection1");
+                                openPopup("secondsection3");
+                                console.log("secondsection3");
                             }}
                         ></div>
                         <div className="absolute hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-1000 top-0 left-0 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex-col justify-center items-center md:p-20 text-center">

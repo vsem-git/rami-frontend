@@ -41,20 +41,39 @@ const ThirdAndSecondAnimation = () => {
             }
         ); */
 
-        gsap.fromTo(
-            ".logoheader",
-            { yPercent: -300 },
-            {
-                yPercent: 0,
-                duration: 1,
-                scrollTrigger: {
-                    trigger: strokeContainerRef.current,
-                    start: "bottom bottom",
-                    end: "bottom+=1000 bottom",
-                    scrub: true,
-                },
-            }
-        );
+        mm.add("(min-width: 1281px)", () => {
+            gsap.fromTo(
+                ".logoheader",
+                { yPercent: -300 },
+                {
+                    yPercent: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: strokeContainerRef.current,
+                        start: "bottom bottom",
+                        end: "bottom+=1000 bottom",
+                        scrub: true,
+                    },
+                }
+            );
+        });
+
+        mm.add("(max-width: 1280px)", () => {
+            gsap.fromTo(
+                ".logoheader",
+                { yPercent: -300 },
+                {
+                    yPercent: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: strokeContainerRef.current,
+                        start: "bottom bottom",
+                        end: "bottom+=500 bottom",
+                        scrub: true,
+                    },
+                }
+            );
+        });
 
         gsap.fromTo(
             ".bgpattern1",
