@@ -26,6 +26,36 @@ const ThirdAndSecondAnimation = () => {
             },
         }); */
 
+        /* gsap.fromTo(
+            ".logoheader",
+            { yPercent: 0 },
+            {
+                yPercent: -300,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top center",
+                    end: "center bottom",
+                    scrub: true,
+                },
+            }
+        ); */
+
+        gsap.fromTo(
+            ".logoheader",
+            { yPercent: -300 },
+            {
+                yPercent: 0,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: strokeContainerRef.current,
+                    start: "bottom bottom",
+                    end: "bottom+=1000 bottom",
+                    scrub: true,
+                },
+            }
+        );
+
         gsap.fromTo(
             ".bgpattern1",
             { xPercent: 130 },
@@ -119,21 +149,23 @@ const ThirdAndSecondAnimation = () => {
             }
         );
 
-        mm.add("(min-width: 1281px)", () => {
+        /* mm.add("(min-width: 1281px)", () => {
             gsap.to(".runningstroke", {
                 y: "-100dvh",
+                ease: "none",
                 scrollTrigger: {
                     trigger: strokeContainerRef.current,
                     start: "bottom+=100 bottom", // начало за 200px до конца блока
-                    end: "bottom+=1200 bottom", // конец за 10px до конца блока
+                    end: "bottom+=1400 bottom", // конец за 10px до конца блока
                     scrub: true,
                 },
             });
-        });
+        }); */
 
         mm.add("(min-width: 768px)", () => {
             gsap.to(".runningstroke", {
                 y: "-100dvh",
+                ease: "none",
                 scrollTrigger: {
                     trigger: strokeContainerRef.current,
                     start: "bottom+=100 bottom", // начало за 200px до конца блока
@@ -146,11 +178,12 @@ const ThirdAndSecondAnimation = () => {
         mm.add("(max-width: 767px)", () => {
             gsap.to(".runningstroke", {
                 y: "-100dvh",
+                ease: "none",
                 duration: 10,
                 scrollTrigger: {
                     trigger: strokeContainerRef.current,
                     start: "bottom-=100 bottom", // начало за 200px до конца блока
-                    end: "bottom+=850 bottom", // конец за 10px до конца блока
+                    end: "bottom+=650 bottom", // конец за 10px до конца блока
                     scrub: true,
                 },
             });
@@ -205,7 +238,7 @@ const ThirdAndSecondAnimation = () => {
                 ref={strokeContainerRef}
             >
                 <div className="h-[100px] 2xl:h-[500px]" />
-                <div className="flex flex-col md:flex-row justify-center px-4 md:px-[64px] xl:px-[80px] 2xl:px-[120px] md:gap-[105px] xl:gap-[158px] 2xl:gap-[168px]">
+                <div className="flex flex-col md:flex-row justify-center px-4 md:px-[64px] xl:px-[80px] 2xl:px-[120px] md:gap-[105px] xl:gap-[80px] 2xl:gap-[128px]">
                     <div className=" flex flex-col gap-[32px] sm:gap-[120px] md:gap-[160px] 2xl:gap-[260px]">
                         <div>
                             <div>
@@ -236,7 +269,7 @@ const ThirdAndSecondAnimation = () => {
                             </div>
                             <div className="flex justify-between pt-4 2xl:pt-6 text-[16px] 2xl:text-[24px] leading-[130%]">
                                 <span className="uppercase">
-                                    Изысканная среда обитания
+                                    Привелегированный сервис
                                 </span>
                                 <span className="text-[#1D1D1D80]">03</span>
                             </div>
@@ -253,7 +286,7 @@ const ThirdAndSecondAnimation = () => {
                             </div>
                             <div className="flex justify-between pt-4 2xl:pt-6 text-[16px] 2xl:text-[24px] leading-[130%]">
                                 <span className="uppercase">
-                                    Изысканная среда обитания
+                                    Умныые операционные
                                 </span>
                                 <span className="text-[#1D1D1D80]">02</span>
                             </div>
@@ -273,7 +306,7 @@ const ThirdAndSecondAnimation = () => {
                             </div>
                             <div className="flex justify-between pt-4 2xl:pt-6 text-[16px] 2xl:text-[24px] leading-[130%]">
                                 <span className="uppercase">
-                                    Изысканная среда обитания
+                                    Умные операционные
                                 </span>
                                 <span className="text-[#1D1D1D80]">02</span>
                             </div>
@@ -290,7 +323,7 @@ const ThirdAndSecondAnimation = () => {
                             </div>
                             <div className="flex justify-between pt-4 2xl:pt-6 text-[16px] 2xl:text-[24px] leading-[130%]">
                                 <span className="uppercase">
-                                    Изысканная среда обитания
+                                    Привелегированный сервис
                                 </span>
                                 <span className="text-[#1D1D1D80]">03</span>
                             </div>
@@ -307,9 +340,7 @@ const ThirdAndSecondAnimation = () => {
                                 />
                             </div>
                             <div className="flex justify-between pt-4 2xl:pt-6 text-[16px] 2xl:text-[24px] leading-[130%]">
-                                <span className="uppercase">
-                                    Изысканная среда обитания
-                                </span>
+                                <span className="uppercase">Безопасность</span>
                                 <span className="text-[#1D1D1D80]">04</span>
                             </div>
                         </div>

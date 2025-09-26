@@ -12,6 +12,68 @@ const VideoAnimation = () => {
     const { setHeaderColor } = useHeader();
 
     useGSAP(() => {
+        const mm = gsap.matchMedia();
+
+        mm.add("(min-width: 1px)", () => {
+            // Desktop/Tablet: standard values
+            gsap.set(".logoheader", {
+                scale: 2.4,
+                y: () =>
+                    // @ts-ignore
+                    window.window.innerHeight / 2 -
+                    // @ts-ignore
+                    document?.querySelector(".logoheader")?.offsetHeight / 2,
+            });
+        });
+
+        mm.add("(min-width: 401px)", () => {
+            // Desktop/Tablet: standard values
+            gsap.set(".logoheader", {
+                scale: 3,
+                y: () =>
+                    // @ts-ignore
+                    window.window.innerHeight / 2 -
+                    // @ts-ignore
+                    document?.querySelector(".logoheader")?.offsetHeight / 2,
+            });
+        });
+
+        mm.add("(min-width: 769px)", () => {
+            // Desktop/Tablet: standard values
+            gsap.set(".logoheader", {
+                scale: 4,
+                y: () =>
+                    // @ts-ignore
+                    window.window.innerHeight / 2 -
+                    // @ts-ignore
+                    document?.querySelector(".logoheader")?.offsetHeight / 2,
+            });
+        });
+
+        mm.add("(min-width: 1281px)", () => {
+            // Desktop/Tablet: standard values
+            gsap.set(".logoheader", {
+                scale: 4.5,
+                y: () =>
+                    // @ts-ignore
+                    window.window.innerHeight / 2 -
+                    // @ts-ignore
+                    document?.querySelector(".logoheader")?.offsetHeight / 2,
+            });
+        });
+
+        gsap.set(
+            [".menuheader", ".visitheader", ".navbarheader", ".textheader"],
+            {
+                opacity: 0,
+                y: -100, // Пиксели вместо процентов
+            }
+        );
+
+        gsap.set(".firstblocktext", {
+            opacity: 0,
+        });
+
         const headerTriggers = [{ ref: blockRef, color: "#000000" }];
 
         headerTriggers.forEach(({ ref, color }) => {
@@ -51,19 +113,26 @@ const VideoAnimation = () => {
             setHeaderColor("#000000");
         });
 
-        tl.to(".logoheader", {
-            scale: 1,
-            x: 0,
-            y: 0,
-            duration: 5,
-            ease: "power2.out",
-        }).to(".textheader", { opacity: 0, duration: 2 });
+        tl.to(
+            ".logoheader",
+            {
+                scale: 1,
+                x: 0,
+                y: 0,
+                duration: 5,
+                ease: "power2.out",
+            },
+            "<"
+        ).to(".textheader", { opacity: 0, y: "-20dvh", duration: 2 }, "<");
 
         tl.call(() => {
             setHeaderColor("#000000");
-        }).call(() => {
-            setHeaderColor("#ffffff");
-        });
+        })
+            .call(() => {
+                setHeaderColor("#ffffff");
+            })
+            .to(".textheader", { display: "block" })
+            .to(".textheader", { display: "none" });
     });
 
     return (

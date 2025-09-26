@@ -6,6 +6,7 @@ import { Swiper as SwiperComponent, SwiperSlide } from "swiper/react";
 import { Swiper } from "swiper";
 // @ts-ignore
 import "swiper/css/bundle";
+import { useHeader } from "../../HeaderContext";
 
 const images = [
     [
@@ -50,6 +51,7 @@ const ThirdAnimationBlock = () => {
     const swiperRef = useRef<Swiper | null>(null);
     const isSwiperReady = useRef(false);
     const tlRef = useRef<gsap.core.Timeline | null>(null); // To kill/recreate if needed
+    const { setHeaderColor } = useHeader();
 
     useGSAP(() => {
         const mm = gsap.matchMedia();
@@ -71,7 +73,7 @@ const ThirdAnimationBlock = () => {
     // Function to create timeline (called when ready)
     const createTimeline = () => {
         if (tlRef.current) {
-            tlRef.current.kill(); // Clean up if recreated
+            tlRef.current.kill(); // Убиваем старый timeline
         }
 
         const tl = gsap.timeline({
@@ -84,6 +86,24 @@ const ThirdAnimationBlock = () => {
             },
         });
 
+        tl.call(
+            () => {
+                setHeaderColor("#ffffff");
+            },
+            [],
+            "-=1.5"
+        );
+
+        tl.call(
+            () => {
+                setHeaderColor("#000000");
+            },
+            [],
+            "-=1.4"
+        );
+
+        tl.to({}, { duration: 1 });
+
         tl.to(
             block1TextRef.current,
             {
@@ -93,17 +113,29 @@ const ThirdAnimationBlock = () => {
                 ease: "power2.inOut",
             },
             "<"
-        ).to(
-            swiperContainerRef.current,
-            {
-                y: "5%",
-                duration: 1,
-                ease: "power2.inOut",
-            },
-            "<"
-        );
+        )
+            .to(
+                swiperContainerRef.current,
+                {
+                    y: "5%",
+                    duration: 1,
+                    ease: "power2.inOut",
+                },
+                "<"
+            )
+            .fromTo(
+                ".logoheader",
+                {
+                    yPercent: 0,
+                },
+                {
+                    yPercent: -300,
+                    duration: 1,
+                    ease: "power2.inOut",
+                },
+                "<"
+            );
 
-        // Now calculate with real dimensions
         const swiper = swiperRef.current;
         if (!swiper || !swiper.wrapperEl || !swiperContainerRef.current) {
             console.log("Swiper or container not ready for calculation");
@@ -114,17 +146,20 @@ const ThirdAnimationBlock = () => {
         const container = swiperContainerRef.current;
         const wrapperWidth = wrapper.scrollWidth;
         const containerWidth = container.clientWidth;
-        const totalMovement = wrapperWidth - containerWidth; // Full reveal distance
+        const totalMovement = wrapperWidth - containerWidth;
 
         console.log(`Wrapper Width: ${wrapperWidth}px`);
         console.log(`Container Width: ${containerWidth}px`);
         console.log(`Total Movement: ${totalMovement}px`);
 
-        tl.to(".teamswiper .swiper-wrapper", {
-            x: `-${totalMovement + 32}px`,
-            duration: 1,
-            ease: "power2.inOut",
-        });
+        // ✅ Применяем движение только если экран шире 768px
+        if (window.matchMedia("(min-width: 768px)").matches) {
+            tl.to(".teamswiper .swiper-wrapper", {
+                x: `-${totalMovement + 32}px`,
+                duration: 1,
+                ease: "power2.inOut",
+            });
+        }
 
         tlRef.current = tl;
     };

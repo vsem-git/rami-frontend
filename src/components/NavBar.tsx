@@ -1,3 +1,5 @@
+import { useHeader } from "./HeaderContext";
+
 const NavBar = ({
     color,
     ref,
@@ -7,6 +9,8 @@ const NavBar = ({
     ref: React.RefObject<HTMLDivElement>;
     navbarColor: string;
 }) => {
+    const { isNavBarVisible } = useHeader();
+
     const wrapLetters = (text: string) => {
         return text.split("").map((char, index) => (
             <span
@@ -22,7 +26,10 @@ const NavBar = ({
     return (
         <nav
             ref={ref}
-            className="hidden md:flex navbarheader fixed left-4 md:left-6 xl:left-10 top-1/2 -translate-y-1/2 z-50 uppercase font-semibold flex-col"
+            className={
+                "hidden md:flex navbarheader fixed left-4 md:left-6 2xl:left-10 top-1/2 -translate-y-1/2 z-50 uppercase font-semibold flex-col" +
+                (isNavBarVisible ? "" : " opacity-0 pointer-events-none")
+            }
         >
             <style>
                 {`
@@ -33,15 +40,12 @@ const NavBar = ({
             `}
             </style>
             {[
-                "Клиника",
-                "Команда",
-                "Династия",
-                "Подготовка к пластической операции",
-                "Пластическая хирургия",
-                "Косметология",
-                "Реабилитация",
-                "Медицинский туризм",
-                "Блог",
+                "О клинике",
+                "Манифест искренности",
+                "Направления услуг",
+                "Команда врачей",
+                "Удобства клиники",
+                "Расположение",
             ].map((item, index) => (
                 <div
                     key={index}
@@ -58,7 +62,7 @@ const NavBar = ({
                         />
                     </a>
                     <span
-                        className={`pointer-events-none select-none absolute whitespace-nowrap text-shadow-lg left-[calc(100%_+_1.5rem)]`}
+                        className={`pointer-events-none select-none absolute whitespace-nowrap left-[calc(100%_+_1.5rem)]`}
                         style={{
                             color: navbarColor || color,
                             transition: "all 0.3s ease-in-out",

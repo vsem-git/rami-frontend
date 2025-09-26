@@ -3,10 +3,12 @@ import { useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import { useHeader } from "../HeaderContext";
+import { usePopup } from "../PopupContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const FirstAnimationBlock = () => {
+    const { openPopup } = usePopup();
     const { setHeaderColor } = useHeader();
     const containerRef = useRef(null);
     const block1Ref = useRef(null);
@@ -43,31 +45,36 @@ const FirstAnimationBlock = () => {
             y: "0%",
             duration: 1,
             ease: "power2.inOut",
-        });
-
-        tl.call(() => {
-            setHeaderColor("#000000");
         })
-            .call(() => {
-                setHeaderColor("#ffffff");
-            })
-            .to(block2ContendRef.current, {
-                autoAlpha: 1,
-                duration: 0.1,
-                ease: "power2.inOut",
-            })
-            .call(() => {
-                setHeaderColor("#ffffff");
-            });
+            .call(
+                () => {
+                    setHeaderColor("#000000");
+                },
+                [],
+                "-=0.4"
+            )
+            .call(
+                () => {
+                    setHeaderColor("#ffffff");
+                },
+                [],
+                "-=0.3"
+            );
+
+        tl.to(block2ContendRef.current, {
+            autoAlpha: 1,
+            duration: 0.1,
+            ease: "power2.inOut",
+        }).call(() => {
+            setHeaderColor("#ffffff");
+        });
 
         tl.to(
             {},
             {
                 duration: 1,
             }
-        ).call(() => {
-            setHeaderColor("#000000");
-        });
+        );
     }, []);
     return (
         <div className="h-dvh relative" ref={containerRef}>
@@ -110,7 +117,13 @@ const FirstAnimationBlock = () => {
                             эталонная <br />
                             пластическая хирургия
                         </p>
-                        <div className="absolute opacity-0 group-hover:opacity-100 transition-all duration-1000 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex flex-col justify-center items-center md:p-20 text-center">
+                        <div
+                            className="absolute w-full h-full z-10 md:hidden"
+                            onClick={() => {
+                                openPopup("secondsection1");
+                            }}
+                        ></div>
+                        <div className="absolute hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-1000 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D]  flex-col justify-center items-center md:p-20 text-center">
                             <p className="text-[16px] md:text-[20px] 2xl:text-[28px] uppercase mb-6 leading-[130%] text-white font-light">
                                 Эталонная <br />
                                 пластическая хирургия
@@ -146,7 +159,13 @@ const FirstAnimationBlock = () => {
                         <p className="uppercase font-light text-white text-[16px] md:text-[20px] 2xl:text-[28px] md:text-center md:mb-10 md:px-20">
                             интеллектуальная косметология
                         </p>
-                        <div className="absolute opacity-0 group-hover:opacity-100 transition-all duration-1000 top-0 left-0 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex flex-col justify-center items-center md:p-20 text-center">
+                        <div
+                            className="absolute w-full h-full z-10 md:hidden"
+                            onClick={() => {
+                                openPopup("secondsection1");
+                            }}
+                        ></div>
+                        <div className="absolute hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-1000 top-0 left-0 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex-col justify-center items-center md:p-20 text-center">
                             <p className="text-[16px] md:text-[20px] 2xl:text-[28px] uppercase mb-6 leading-[130%] text-white font-light">
                                 интеллектуальная косметология
                             </p>
@@ -182,7 +201,13 @@ const FirstAnimationBlock = () => {
                         <p className="uppercase md:pb-[2ch] font-light text-white text-[16px] md:text-[20px] 2xl:text-[28px] md:text-center md:mb-10 md:px-20">
                             реабилитация
                         </p>
-                        <div className="absolute opacity-0 group-hover:opacity-100 transition-all duration-1000 top-0 left-0 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex flex-col justify-center items-center md:p-20 text-center">
+                        <div
+                            className="absolute w-full h-full z-10 md:hidden"
+                            onClick={() => {
+                                openPopup("secondsection1");
+                            }}
+                        ></div>
+                        <div className="absolute hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-1000 top-0 left-0 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex-col justify-center items-center md:p-20 text-center">
                             <p className="text-[16px] md:text-[20px] 2xl:text-[28px] uppercase mb-6 leading-[130%] text-white font-light">
                                 реабилитация
                             </p>

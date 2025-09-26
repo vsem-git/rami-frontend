@@ -15,16 +15,16 @@ const FourthAnimationBlock = () => {
     useGSAP(() => {
         const mm = gsap.matchMedia();
 
-        mm.add("(min-width: 1281px)", () => {
-            gsap.set(bgRef.current, { y: "180px" });
-        });
-
-        mm.add("(min-width: 767px)", () => {
-            gsap.set(bgRef.current, { y: "100px" });
-        });
-
         mm.add("(max-width: 767px)", () => {
-            gsap.set(bgRef.current, { y: "100px" });
+            gsap.set(bgRef.current, { y: 100 });
+        });
+
+        mm.add("(min-width: 768px) and (max-width: 1599px)", () => {
+            gsap.set(bgRef.current, { y: 100 });
+        });
+
+        mm.add("(min-width: 1600px)", () => {
+            gsap.set(bgRef.current, { y: 180 });
         });
 
         const tl = gsap.timeline({
@@ -57,12 +57,7 @@ const FourthAnimationBlock = () => {
                 { y: "-100px", opacity: 0, duration: 1 },
                 "group2"
             )
-            .fromTo(
-                bgRef.current,
-                { y: "180px", duration: 1 },
-                { y: "0px", duration: 1 },
-                "group2"
-            );
+            .to(bgRef.current, { y: "0px", duration: 1 }, "group2");
 
         // Вторая группа: следующие 4 анимации синхронно после первой
         tl.addLabel("group3", "+=0") // сразу после первой группы
@@ -94,7 +89,7 @@ const FourthAnimationBlock = () => {
 
     return (
         <>
-            <div className="flex flex-col items-center sm:hidden">
+            <div className="flex flex-col items-center md:hidden">
                 <div className="max-w-[320px] w-full text-[20px] uppercase inline-block text-center mb-10">
                     МЕжДУ парком,
                     <br /> заливом и городом
@@ -139,12 +134,12 @@ const FourthAnimationBlock = () => {
                     </button>
                 </div>
             </div>
-            <div className="hidden sm:block h-dvh relative" ref={containerRef}>
+            <div className="hidden md:block h-dvh relative" ref={containerRef}>
                 <div
                     ref={textContainerRef}
-                    className="w-full text-center py-[82px] sm:py-[120px] xl:py-[248px]"
+                    className="w-full text-center py-[82px] sm:py-[180px] 2xl:py-[248px]"
                 >
-                    <div className="max-w-[450px] text-[36px] uppercase inline-block text-center">
+                    <div className="md:max-w-[300px] 2xl:max-w-[450px] text-20px md:text-[24px] 2xl:text-[36px] uppercase inline-block text-center">
                         МЕжДУ парком, заливом и городом
                     </div>
                 </div>
