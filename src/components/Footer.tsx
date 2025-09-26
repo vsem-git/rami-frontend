@@ -98,7 +98,7 @@ const Footer = () => {
                 className={`w-full h-full flex justify-center items-center overflow-hidden`}
             >
                 <div
-                    className=" group max-w-[328px] max-h-[328px] mx-4 w-full h-full sm:max-w-[480px] sm:max-h-[270px] md:max-w-[560px] md:max-h-[315px] xl:max-w-[924px] xl:max-h-[520px] z-0 bg-[#691C32]"
+                    className=" group max-w-[328px] max-h-[328px] mx-4 w-full h-full sm:max-w-[480px] sm:max-h-[270px] md:max-w-[560px] md:max-h-[315px] 2xl:max-w-[924px] 2xl:max-h-[520px] z-0 bg-[#691C32]"
                     ref={contactOpenRef}
                 >
                     <div className="w-full h-full flex justify-center items-center relative cursor-pointer">

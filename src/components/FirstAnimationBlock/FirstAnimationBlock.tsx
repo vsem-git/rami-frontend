@@ -50,18 +50,25 @@ const FirstAnimationBlock = () => {
                 start: "top top",
                 end: "+=2000%",
                 scrub: true,
-                /* toggleActions: "play none none reverse", */
                 pin: true,
             },
         });
 
-        tl.call(() => {
-            setHeaderColor("#000000");
-        });
+        tl.to(
+            {},
+            {
+                duration: 0.01,
+                onStart: () => setHeaderColor("#000000"),
+            }
+        );
 
-        tl.call(() => {
-            setHeaderColor("#ffffff");
-        });
+        tl.to(
+            {},
+            {
+                duration: 0.01,
+                onStart: () => setHeaderColor("#ffffff"),
+            }
+        );
 
         tl.to({}, { duration: 1 }).call(() => {
             setHeaderColor("#ffffff");
@@ -150,30 +157,14 @@ const FirstAnimationBlock = () => {
             ease: "power3.in",
         });
 
-        tl.to({}, { duration: 1 }).call(() => {
-            setHeaderColor("#ffffff");
-        });
-
         tl.to(block9Ref.current, {
             y: "0%",
             duration: 2,
             ease: "power2.inOut",
         })
-            .call(
-                () => {
-                    setHeaderColor("#ffffff");
-                },
-                [],
-                "-=1.1"
-            )
-            .call(
-                () => {
-                    setHeaderColor("#000000");
-                },
-                [],
-                "-=1"
-            );
-    }, []);
+            .call(() => setHeaderColor("#ffffff"), [], "-=0.7")
+            .call(() => setHeaderColor("#000000"), [], "-=0.5");
+    });
     return (
         <div className="min-h-dvh relative overflow-hidden" ref={containerRef}>
             <div

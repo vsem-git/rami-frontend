@@ -201,7 +201,7 @@ const ThirdAnimationBlock = () => {
             >
                 <div
                     ref={block1TextRef}
-                    className="flex absolute flex-col top-0 items-center text-center gap-6 pt-24 px-4 md:pt-48 pb-0 z-10"
+                    className="flex absolute flex-col top-0 items-center text-center gap-6  pt-24 px-4 md:pt-48 pb-0 z-10"
                 >
                     <p className="text-xl md:text-2xl 2xl:text-4xl">
                         КОМАНДА <br />
@@ -210,10 +210,10 @@ const ThirdAnimationBlock = () => {
                         </span>
                     </p>
                     <p className="sm:max-w-[420px] 2xl:max-w-[560px] uppercase text-[11px] md:text-[12px] 2xl:text-[16px] w-full">
-                        Horem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nunc vulputate libero et velit interdum, ac aliquet odio
-                        mattis. Class aptent taciti sociosqu ad litora torquent
-                        per conubia nostra, per inceptos himenaeos.
+                        Ядро команды RAMICLINIC RESIDENCE – специалисты с
+                        многолетним опытом, которые стоят у истоков бренда РАМИ.
+                        Рядом с признанными мастерами – молодые амбициозные
+                        коллеги с новаторским складом ума.
                     </p>
                 </div>
                 <div className="max-w-full z-10" ref={swiperContainerRef}>
