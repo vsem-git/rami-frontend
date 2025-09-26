@@ -48,9 +48,11 @@ const FirstAnimationBlock = () => {
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top top",
-                end: "+=2000%",
-                scrub: true,
+                end: "+=1000%", // Test shorter
+                scrub: 1, // Smoother scrub
                 pin: true,
+                anticipatePin: 1,
+                fastScrollEnd: true,
             },
         });
 
@@ -76,7 +78,7 @@ const FirstAnimationBlock = () => {
 
         // Исчезновение первого блока
         tl.to([block1Ref.current, ".firstblocktext"], {
-            autoAlpha: 0,
+            opacity: 0,
             duration: 0.5,
         })
             .call(() => {
