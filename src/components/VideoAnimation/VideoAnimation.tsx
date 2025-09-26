@@ -65,7 +65,7 @@ const VideoAnimation = () => {
         gsap.set(
             [".menuheader", ".visitheader", ".navbarheader", ".textheader"],
             {
-                opacity: 0,
+                autoAlpha: 0,
                 y: -100, // Пиксели вместо процентов
             }
         );
@@ -102,10 +102,15 @@ const VideoAnimation = () => {
             duration: 1,
         }); */
 
-        tl.to(".menuheader", { opacity: 1, y: 0, duration: 2 }, 4)
-            .to(".visitheader", { opacity: 1, y: 0, duration: 2 }, 4)
-            .to(".navbarheader", { opacity: 1, y: 0, duration: 2 }, 4)
-            .to(".textheader", { opacity: 1, y: 0, duration: 2 }, 4);
+        tl.to(".menuheader", { autoAlpha: 1, y: 0, duration: 2 }, 4)
+            .to(".visitheader", { autoAlpha: 1, y: 0, duration: 2 }, 4)
+            .to(".navbarheader", { autoAlpha: 1, y: 0, duration: 2 }, 4)
+            .fromTo(
+                ".textheader",
+                { autoAlpha: 0 },
+                { autoAlpha: 1, y: 0, duration: 2 },
+                4
+            );
 
         tl.to({}, { duration: 3 });
 
@@ -123,14 +128,16 @@ const VideoAnimation = () => {
                 ease: "power2.out",
             },
             "<"
-        ).to(".textheader", { opacity: 0, y: "-20dvh", duration: 2 }, "<");
+        ).fromTo(
+            ".textheader",
+            { autoAlpha: 1, y: "0dvh" },
+            { autoAlpha: 0, y: "-20dvh", duration: 2 },
+            "<"
+        );
 
         tl.call(() => {
             setHeaderColor("#000000");
         })
-            .call(() => {
-                setHeaderColor("#ffffff");
-            })
             .to(".textheader", { display: "block" })
             .to(".textheader", { display: "none" });
     });

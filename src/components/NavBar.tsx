@@ -1,5 +1,3 @@
-import { useHeader } from "./HeaderContext";
-
 const NavBar = ({
     color,
     ref,
@@ -9,8 +7,6 @@ const NavBar = ({
     ref: React.RefObject<HTMLDivElement>;
     navbarColor: string;
 }) => {
-    const { isNavBarVisible } = useHeader();
-
     const wrapLetters = (text: string) => {
         return text.split("").map((char, index) => (
             <span
@@ -27,8 +23,7 @@ const NavBar = ({
         <nav
             ref={ref}
             className={
-                "hidden md:flex navbarheader fixed left-4 md:left-6 2xl:left-10 top-1/2 -translate-y-1/2 z-50 uppercase font-semibold flex-col" +
-                (isNavBarVisible ? "" : " opacity-0 pointer-events-none")
+                "hidden md:flex navbarheader opacity-0 fixed left-4 md:left-6 2xl:left-10 top-1/2 -translate-y-1/2 z-50 uppercase font-semibold flex-col"
             }
         >
             <style>
