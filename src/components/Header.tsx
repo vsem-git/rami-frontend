@@ -35,58 +35,6 @@ const Header = () => {
             return;
         }
 
-        const mm = gsap.matchMedia();
-
-        mm.add("(min-width: 1px)", () => {
-            // Desktop/Tablet: standard values
-            gsap.set(logo, {
-                scale: 2.4,
-                y: () =>
-                    // @ts-ignore
-                    window.innerHeight / 2 - logo.offsetHeight / 1.5,
-            });
-        });
-
-        mm.add("(min-width: 401px)", () => {
-            // Desktop/Tablet: standard values
-            gsap.set(logo, {
-                scale: 3,
-                y: () =>
-                    // @ts-ignore
-                    window.innerHeight / 2 - logo.offsetHeight / 1.5,
-            });
-        });
-
-        mm.add("(min-width: 769px)", () => {
-            // Desktop/Tablet: standard values
-            gsap.set(logo, {
-                scale: 4,
-                y: () =>
-                    // @ts-ignore
-                    window.innerHeight / 2 - logo.offsetHeight / 1.5,
-            });
-        });
-
-        mm.add("(min-width: 1281px)", () => {
-            // Desktop/Tablet: standard values
-            gsap.set(logo, {
-                scale: 4.5,
-                y: () =>
-                    // @ts-ignore
-                    window.innerHeight / 2 - logo.offsetHeight / 1.5,
-            });
-        });
-
-        gsap.set([menu, visit, navBar], {
-            opacity: 0,
-            y: -100, // Пиксели вместо процентов
-        });
-
-        gsap.set(textRef.current, {
-            opacity: 0,
-            y: -100, // Пиксели вместо процентов
-        });
-
         /* const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: document.body,
@@ -110,7 +58,7 @@ const Header = () => {
     return (
         <div
             ref={headerRef}
-            className="fixed top-0 left-0 right-0 z-40 py-[16px] md:py-[20px] xl:py-[40px] md:px-[24px] sm:px-[16px] px-[16px] xl:px-[40px] grid grid-cols-3 justify-between items-center"
+            className="fixed top-0 left-0 right-0 z-40 py-[16px] md:py-[20px] 2xl:py-[40px] md:px-[24px] sm:px-[16px] px-[16px] 2xl:px-[40px] grid grid-cols-3 justify-between items-center"
         >
             <div
                 ref={menuRef}
@@ -145,12 +93,12 @@ const Header = () => {
             </div>
             <div className="item-wrapper flex justify-center items-center relative h-[60px]">
                 <div
-                    className="logo logoheader w-[100px] h-[81px] xl:w-[149px] xl:h-[120px] absolute"
+                    className="logo logoheader w-[100px] h-[81px] 2xl:w-[149px] 2xl:h-[120px] absolute"
                     ref={logoRef}
                 >
                     <div className="relative">
                         <div
-                            className="absolute inset-0 w-[100px] h-[81px] xl:w-[149px] xl:h-[120px] bg-black/15 blur-[30px] z-0"
+                            className="absolute inset-0 w-[100px] h-[81px] 2xl:w-[149px] 2xl:h-[120px] bg-black/15 blur-[30px] z-0"
                             style={
                                 headerColor === "#ffffff"
                                     ? { opacity: 1 }
@@ -162,7 +110,7 @@ const Header = () => {
                             width={1000}
                             height={1000}
                             alt="logo"
-                            className={`inset-0 absolute w-[100px] h-[81px] xl:w-[149px] z-1 xl:h-[120px] ${
+                            className={`inset-0 absolute w-[100px] h-[81px] 2xl:w-[149px] z-1 2xl:h-[120px] ${
                                 headerColor === "#000000"
                                     ? "opacity-100"
                                     : "opacity-0"
@@ -174,7 +122,7 @@ const Header = () => {
                             width={1000}
                             height={1000}
                             alt="logo"
-                            className={`absolute inset-0 w-[100px] h-[81px] xl:w-[149px] xl:h-[120px] ${
+                            className={`absolute inset-0 w-[100px] h-[81px] 2xl:w-[149px] 2xl:h-[120px] ${
                                 headerColor === "#000000"
                                     ? "opacity-0"
                                     : "opacity-100"

@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom";
-import Header from "../components/Header";
-import ScrollSmoother from "../components/ScrollSmoother";
-import Footer from "../components/Footer";
-import { HeaderProvider } from "../components/HeaderContext";
-import Preloader from "../components/Preloader";
-import { PopupProvider } from "../components/PopupContext";
-import ContactPopUp from "../components/ContactPopUp";
+import Header from "../../components/Header";
+import ScrollSmoother from "../../components/ScrollSmoother";
+import Footer from "../../components/Footer";
+import { HeaderProvider } from "../../components/HeaderContext";
+import Preloader from "../../components/Preloader";
+import { PopupProvider } from "../../components/PopupContext";
+import ContactPopUp from "../../components/ContactPopUp";
+import SecondSectionPopup1 from "../../components/SecondSectionPopup1";
 
 const RootLayout = () => {
     return (
@@ -13,6 +14,7 @@ const RootLayout = () => {
             <PopupProvider>
                 <HeaderProvider>
                     <ContactPopUp />
+                    <SecondSectionPopup1 />
                     <div className="bgpattern1 fixed top-0 right-0 h-full hidden sm:block opacity-50 z-[0]">
                         <img
                             src="/pattern1.svg"
@@ -27,16 +29,16 @@ const RootLayout = () => {
                             className="h-full object-cover overflow-visible"
                         />
                     </div>
-                    <div className="runningstroke fixed bottom-10 left-0 flex gap-8 z-[0] h-fit object-fit opacity-0 overflow-visible">
+                    <div className="runningstroke fixed bottom-4 left-0 flex gap-8 z-[0] overflow-visible opacity-0">
                         <img
                             src="/runningstrokelogo.svg"
                             alt=""
-                            className="h-fit"
+                            className="h-[96px] w-auto md:h-[120px] 2xl:h-[160px] object-cover object-right shrink-0"
                         />
                         <img
                             src="/runningstrokelogo.svg"
                             alt=""
-                            className="h-fit"
+                            className="h-[96px] w-auto md:h-[120px] 2xl:h-[160px] object-cover object-left shrink-0"
                         />
                     </div>
                     <Header />

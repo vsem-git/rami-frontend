@@ -7,7 +7,7 @@ import { useHeader } from "../HeaderContext";
 gsap.registerPlugin(ScrollTrigger);
 
 const FirstAnimationBlock = () => {
-    const { setHeaderColor, setNavbarColor } = useHeader();
+    const { setHeaderColor } = useHeader();
     const containerRef = useRef(null);
     const block1Ref = useRef(null);
     const block2Ref = useRef(null);
@@ -63,7 +63,9 @@ const FirstAnimationBlock = () => {
             setHeaderColor("#ffffff");
         });
 
-        tl.to({}, { duration: 1 });
+        tl.to({}, { duration: 1 }).call(() => {
+            setHeaderColor("#ffffff");
+        });
 
         // Исчезновение первого блока
         tl.to([block1Ref.current, ".firstblocktext"], {
@@ -72,12 +74,12 @@ const FirstAnimationBlock = () => {
         })
             .call(() => {
                 setHeaderColor("#ffffff");
-                console.log("Ставлю навбар");
-                setNavbarColor("");
+                /* console.log("Ставлю навбар"); */
+                /* setNavbarColor(""); */
             })
             .call(() => {
                 setHeaderColor("#000000");
-                setNavbarColor("#ffffff");
+                /* setNavbarColor("#ffffff"); */
             });
 
         // Появление второго блока (лого и текст) и установка черного цвета хедера
@@ -94,11 +96,11 @@ const FirstAnimationBlock = () => {
 
         // Исчезновение второго блока
         tl.call(() => {
-            setNavbarColor("#ffffff");
+            /* setNavbarColor("#ffffff"); */
             setHeaderColor("#000000");
         })
             .call(() => {
-                setNavbarColor("");
+                /* setNavbarColor(""); */
                 setHeaderColor("#ffffff");
             })
             .to(block2Ref.current, {
@@ -148,29 +150,40 @@ const FirstAnimationBlock = () => {
             ease: "power3.in",
         });
 
-        tl.to({}, { duration: 1 })
-            .call(() => {
-                setHeaderColor("#ffffff");
-            })
-            .call(() => {
-                setHeaderColor("#000000");
-            });
+        tl.to({}, { duration: 1 }).call(() => {
+            setHeaderColor("#ffffff");
+        });
 
         tl.to(block9Ref.current, {
             y: "0%",
             duration: 2,
             ease: "power2.inOut",
-        }).call(() => {
-            setHeaderColor("#000000");
-        });
+        })
+            .call(
+                () => {
+                    setHeaderColor("#ffffff");
+                },
+                [],
+                "-=1.1"
+            )
+            .call(
+                () => {
+                    setHeaderColor("#000000");
+                },
+                [],
+                "-=1"
+            );
     }, []);
     return (
-        <div className="min-h-dvh relative" ref={containerRef}>
+        <div className="min-h-dvh relative overflow-hidden" ref={containerRef}>
             <div
                 className="absolute top-0 left-0 w-full h-full bg-[url('/1slide.webp')] bg-cover bg-center z-50"
                 ref={block1Ref}
             >
-                <div className="relative h-full w-full flex justify-end items-end"></div>
+                <div className="relative h-full w-full flex justify-end items-end overflow-hidden">
+                    <div className="absolute w-[600px] h-[600px] -bottom-0 -right-10 bg-[#1D1D1D9D] blur-[250px] hidden md:block" />
+                    <div className="absolute w-full md:w-[600px] h-[200px] md:h-[600px] right-0 md:-right-20 -bottom-10 md:-top-30 bg-[#1D1D1D9D] blur-[20px] md:blur-[250px]" />
+                </div>
             </div>
             <div
                 className="absolute top-0 left-0 w-full min-h-full bg-white flex flex-col-reverse md:flex-row justify-between items-center md:items-end z-40"
@@ -180,23 +193,25 @@ const FirstAnimationBlock = () => {
                     src="/logo.svg"
                     alt="logo"
                     ref={block2LogoRef}
-                    className=" max-w-[360px] sm:max-w-[400px] md:max-w-[570px] xl:max-w-[722px] 2xl:max-w-[1000px]"
+                    className=" max-w-[360px] sm:max-w-[400px] md:max-w-[570px] xl:max-w-[782px] 2xl:max-w-[1000px]"
                 />
                 <p
-                    className="text-black mt-25 m-4 sm:m-10 uppercase text-[13px] md:text-sm 2xl:text-[21px] 2xl:max-w-[720px] md:max-w-[400px] sm:max-w-[400px] max-w-full"
+                    className="text-black mt-25 m-4 sm:m-10 sm:mt-25 uppercase text-[13px] md:text-sm 2xl:text-[21px] 2xl:max-w-[720px] md:max-w-[400px] sm:max-w-[400px] max-w-full"
                     ref={block2TextRef}
                 >
-                    <span className="font-bold">RAMICLINIC RESIDENCE</span> —
-                    это{" "}
+                    <span className="font-bold leading-8">
+                        RAMICLINIC RESIDENCE
+                    </span>{" "}
+                    —
                     <span className="whitespace-nowrap">
-                        клиника-резиденция
+                        это клиника-резиденция
                     </span>{" "}
                     высокотехнологичной пластической хирургии и эстетической
                     косметологии для искушенных пациентов, склонных к
                     поддержанию индивидуальной красоты и внешней
                     привлекательности с гарантией эталонных стандартов
                     безопасности в медицине, полной анонимностью, сервисом и
-                    приватностью, достойными первых лиц государств.
+                    приватностью, достойными первых лиц государств
                 </p>
             </div>
             <div
@@ -204,12 +219,10 @@ const FirstAnimationBlock = () => {
                 ref={block3Ref}
             >
                 <div className="relative h-full w-full flex justify-start items-start md:items-center">
-                    <div
-                        className="absolute inset-0 bg-[#1D1D1D4D] blur-[300px]"
-                        ref={block3BlurRef}
-                    ></div>
+                    <div className="absolute w-[600px] h-[600px] top-1/2 -translate-y-1/2 left-20 bg-[#1D1D1D]/50 blur-[250px] hidden md:block" />
+                    <div className="absolute w-full md:w-[600px] h-[250px] md:h-[600px] right-0 md:-right-30 top-0 md:-top-40 bg-[#1D1D1D9D] blur-[80px] md:blur-[200px]" />
                     <p
-                        className="text-white text-sm 2xl:text-[21px] ml-[24px] mt-[90px] sm:mt-[96px] md:ml-[120px] md:mt-0 xl:ml-[120px] 2xl:ml-[200px] max-w-[312px] sm:max-w-[288px] md:max-w-[360px] xl:max-w-[360px] 2xl:max-w-[560px] uppercase z-10"
+                        className="text-white text-sm 2xl:text-[21px] ml-[24px] mt-[110px] sm:mt-[96px] md:ml-[120px] md:mt-0 xl:ml-[120px] 2xl:ml-[200px] max-w-[312px] sm:max-w-[288px] md:max-w-[360px] xl:max-w-[360px] 2xl:max-w-[560px] uppercase z-10"
                         ref={block3TextRef}
                     >
                         <span className="font-bold">Расположена</span> в
@@ -241,12 +254,12 @@ const FirstAnimationBlock = () => {
                 ref={block8Ref}
             ></div>
             <div
-                className="absolute top-0 left-0 w-full h-full bg-[url('/residence6.webp')] [background-position:80%_100%] [background-size:_206%] [background-repeat:no-repeat] bg-[#F9F7F8] sm:bg-cover md:[background-position-x:70%] md:bg-cover sm:bg-center z-20"
+                className="absolute top-0 left-0 w-full h-full bg-[url('/residence6.webp')] [background-position:80%_100%] [background-size:_196%] [background-repeat:no-repeat] bg-[#F9F7F8] md::bg-cover md:[background-position-x:70%] md:bg-cover md:bg-center z-20"
                 ref={block9Ref}
             >
-                <div className="relative w-full h-full flex justify-start pl-[16px] md:pl-[80px] xl:pl-[120px] 2xl:pl-[200px] items-start pt-[90px] sm:pt-[96px] md:pt-0 md:items-center">
+                <div className="relative w-full h-full flex justify-start pl-[16px] md:pl-[80px] xl:pl-[120px] 2xl:pl-[200px] items-start pt-[110px] sm:pt-[110px] md:pt-0 md:items-center">
                     <div>
-                        <div className="text-[#1D1D1D99] text-[20px] md:text-[24px] xl:text-[36px] uppercase mb-7">
+                        <div className="text-[#1D1D1D99] text-[20px] md:text-[24px] 2xl:text-[36px] uppercase mb-7">
                             манифест искренности
                         </div>
                         <div className="flex gap-6">
@@ -263,7 +276,7 @@ const FirstAnimationBlock = () => {
                                     fill="#691C32"
                                 />
                             </svg>
-                            <p className="max-w-[264px] sm:max-w-[370px] xl:max-w-[640px] leading-[155%] mt-0 sm:mt-4 2xl:mt-10 uppercase text-[11px] md:text-xs xl:text-lg">
+                            <p className="max-w-[264px] sm:max-w-[376px] 2xl:max-w-[640px] leading-[155%] mt-0 sm:mt-4 2xl:mt-10 uppercase text-[11px] md:text-xs 2xl:text-lg">
                                 <span className="font-bold text-[#691C32]">
                                     RAMICLINIC RESIDENCE
                                 </span>{" "}
@@ -273,7 +286,7 @@ const FirstAnimationBlock = () => {
                                 пластической хирургии и косметологии, чтобы
                                 внедрить и утвердить новые профессиональные
                                 стандарты эстетической медицины и сервиса в
-                                повседневную жизнь.
+                                повседневную жизнь
                             </p>
                         </div>
                     </div>

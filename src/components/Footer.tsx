@@ -58,38 +58,59 @@ const Footer = () => {
             }
         );
 
-        tl.to({}, { duration: 1 });
+        tl.to({}, { duration: 1 })
 
-        tl.call(() => {
-            setHeaderColor("#000000");
-        })
-            .call(() => {
-                setHeaderColor("#ffffff");
-            })
+            .call(
+                () => {
+                    setHeaderColor("#000000");
+                },
+                [],
+                "-=0"
+            )
+
             .to(footerRef.current, {
                 y: "0%",
                 duration: 2,
-            });
+            })
+
+            .call(
+                () => {
+                    setHeaderColor("#ffffff");
+                },
+                [],
+                "-=1"
+            )
+            .fromTo(
+                ".navbarheader",
+                { opacity: 1, pointerEvents: "auto" },
+                {
+                    opacity: 0,
+                    pointerEvents: "none",
+                    duration: 1,
+                },
+                "-=2"
+            );
     }, []);
     return (
         <footer className="h-dvh relative" ref={containerRef}>
             <div
                 ref={contactRef}
-                className={`bg-rose-900 h-dvh w-full overflow-hidden group scale-50`}
+                className={`w-full h-full flex justify-center items-center overflow-hidden`}
             >
                 <div
-                    className="absolute top-0 left-0 w-full h-full z-0 bg-[#691C32]"
+                    className=" group max-w-[328px] max-h-[328px] mx-4 w-full h-full sm:max-w-[480px] sm:max-h-[270px] md:max-w-[560px] md:max-h-[315px] xl:max-w-[924px] xl:max-h-[520px] z-0 bg-[#691C32]"
                     ref={contactOpenRef}
                 >
                     <div className="w-full h-full flex justify-center items-center relative cursor-pointer">
                         <div
-                            className="bg-white p-12 rounded-full group-hover:bg-transparent group-hover:border group-hover:border-white transition-all"
-                            onClick={() => openPopup()}
+                            className="bg-white p-3 2xl:p-6 rounded-full group-hover:bg-transparent group-hover:border group-hover:border-white transition-all"
+                            onClick={() => openPopup("contact")}
                         >
                             <svg
                                 width="32"
                                 height="32"
                                 viewBox="0 0 32 32"
+                                className="h-[24px] w-[24px] 2xl:h-[32px] 2xl:w-[32px]"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
                             >
@@ -101,8 +122,10 @@ const Footer = () => {
                                 />
                             </svg>
                         </div>
-                        <div className="absolute bottom-0 left-0 p-8 md:p-16 text-[24px] md:text-[32px] text-white uppercase font-semibold">
-                            СВЯжитесь С НАМИ
+                        <div className="absolute bottom-0 left-0  p-4 2xl:p-6 text-[11px] md:text-[13px] 2xl:text-[16px] text-white uppercase font-semibold">
+                            <span className="relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:bg-[#ffffff] after:w-0 after:transition-all after:duration-300 group-hover:after:w-full">
+                                СВЯжитесь С НАМИ
+                            </span>
                         </div>
                     </div>
                 </div>
