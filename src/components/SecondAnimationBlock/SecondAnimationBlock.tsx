@@ -113,7 +113,7 @@ const FirstAnimationBlock = () => {
                                 />
                             </svg>
                         </div>
-                        <p className="uppercase font-light text-white text-[16px] md:text-[20px] 2xl:text-[28px] md:text-center md:mb-10 md:px-15 2xl:px-20">
+                        <p className="uppercase text-white text-[16px] md:text-[20px] 2xl:text-[28px] md:text-center md:mb-10 md:px-15 2xl:px-20">
                             эталонная <br />
                             пластическая хирургия
                         </p>
@@ -123,19 +123,19 @@ const FirstAnimationBlock = () => {
                                 openPopup("secondsection1");
                             }}
                         ></div>
-                        <div className="absolute hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-1000 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D]  flex-col justify-center items-center md:p-20 text-center">
-                            <p className="text-[16px] md:text-[20px] 2xl:text-[28px] uppercase mb-6 leading-[130%] text-white font-light">
+                        <div className="absolute hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-1000 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D]  flex-col justify-center items-center md:p-6 2xl:p-20 text-center">
+                            <p className="text-[20px] 2xl:text-[28px] uppercase mb-4 2xl:mb-6 leading-[130%] text-white">
                                 Эталонная <br />
                                 пластическая хирургия
                             </p>
-                            <p className="mb-12 text-[#FFFFFF99] leading-[155%] uppercase font-extralight">
+                            <p className="mb-8 2xl:mb-12 text-[#FFFFFF99] leading-[155%] uppercase font-extralight text-sm 2xl:text-base">
                                 RAMICLINIC RESIDENCE гордится экспертной
                                 командой врачей, опирающихся на международную
                                 практику и возрастающий авторитет русской школы
                                 пластической хирургии с уникальным эстетическим
                                 почерком.
                             </p>
-                            <button className="text-[#691C32] bg-white font-semibold px-8 py-5 uppercase cursor-pointer">
+                            <button className="text-[#691C32] bg-white font-semibold px-8 py-5 uppercase cursor-pointer text-sm 2xl:text-base">
                                 Запланировать визит
                             </button>
                         </div>
@@ -156,7 +156,7 @@ const FirstAnimationBlock = () => {
                                 />
                             </svg>
                         </div>
-                        <p className="uppercase font-light text-white text-[16px] md:text-[20px] 2xl:text-[28px] md:text-center md:mb-10 md:px-20">
+                        <p className="uppercase text-white text-[16px] md:text-[20px] 2xl:text-[28px] md:text-center md:mb-10 md:px-20">
                             интеллектуальная косметология
                         </p>
                         <div
@@ -166,11 +166,11 @@ const FirstAnimationBlock = () => {
                                 console.log("secondsection2");
                             }}
                         ></div>
-                        <div className="absolute hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-1000 top-0 left-0 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex-col justify-center items-center md:p-20 text-center">
-                            <p className="text-[16px] md:text-[20px] 2xl:text-[28px] uppercase mb-6 leading-[130%] text-white font-light">
+                        <div className="absolute hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-1000 top-0 left-0 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex-col justify-center items-center md:p-6 2xl:p-20 text-center">
+                            <p className="text-[20px] 2xl:text-[28px] uppercase mb-4 2xl:mb-6 leading-[130%] text-white">
                                 интеллектуальная косметология
                             </p>
-                            <p className="mb-12 text-[#FFFFFF99] leading-[155%] uppercase font-extralight">
+                            <p className="mb-8 2xl:mb-12 text-[#FFFFFF99] leading-[155%] uppercase font-extralight text-sm 2xl:text-base">
                                 Опытные врачи-косметологи, высокотехнологичный
                                 парк инновационного оборудования, достижения в
                                 сфере антиэйдж, биохакинга и регенеративной
@@ -178,7 +178,7 @@ const FirstAnimationBlock = () => {
                                 складываются блестящие эстетические результаты
                                 пациентов.
                             </p>
-                            <button className="text-[#691C32] bg-white font-semibold px-8 py-5 uppercase cursor-pointer">
+                            <button className="text-[#691C32] bg-white font-semibold px-8 py-5 uppercase cursor-pointer text-sm 2xl:text-base">
                                 Запланировать визит
                             </button>
                         </div>
@@ -199,7 +199,7 @@ const FirstAnimationBlock = () => {
                                 />
                             </svg>
                         </div>
-                        <p className="uppercase md:pb-[2ch] font-light text-white text-[16px] md:text-[20px] 2xl:text-[28px] md:text-center md:mb-10 md:px-20">
+                        <p className="uppercase md:pb-[2ch] text-white text-[16px] md:text-[20px] 2xl:text-[28px] md:text-center md:mb-10 md:px-20">
                             реабилитация
                         </p>
                         <div
@@ -209,11 +209,11 @@ const FirstAnimationBlock = () => {
                                 console.log("secondsection3");
                             }}
                         ></div>
-                        <div className="absolute hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-1000 top-0 left-0 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex-col justify-center items-center md:p-20 text-center">
-                            <p className="text-[16px] md:text-[20px] 2xl:text-[28px] uppercase mb-6 leading-[130%] text-white font-light">
+                        <div className="absolute hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-1000 top-0 left-0 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex-col justify-center items-center md:p-6 2xl:p-20 text-center">
+                            <p className="text-[20px] 2xl:text-[28px] uppercase mb-4 2xl:mb-6 leading-[130%] text-white">
                                 реабилитация
                             </p>
-                            <p className="mb-12 text-[#FFFFFF99] leading-[155%] uppercase font-extralight">
+                            <p className="mb-8 2xl:mb-12 text-[#FFFFFF99] leading-[155%] uppercase font-extralight text-sm 2xl:text-base">
                                 Работа на результат начинается задолго до
                                 операционной. Для каждого пациента оформляется
                                 генетический паспорт кожи с целью
@@ -221,7 +221,7 @@ const FirstAnimationBlock = () => {
                                 периода, разрабатывается индивидуальный план
                                 восстановительных косметологических процедур.
                             </p>
-                            <button className="text-[#691C32] bg-white font-semibold px-8 py-5 uppercase cursor-pointer">
+                            <button className="text-[#691C32] bg-white font-semibold px-8 py-5 uppercase cursor-pointer text-sm 2xl:text-base">
                                 Запланировать визит
                             </button>
                         </div>

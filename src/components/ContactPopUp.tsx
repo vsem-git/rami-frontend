@@ -56,11 +56,12 @@ const ContactPopUp = () => {
                 </div>
 
                 {/* Описание */}
+                {/* 
                 <p className="leading-[155%] text-[#FFFFFFBF] uppercase max-w-[560px] text-sm 2xl:text-base mb-10">
                     Horem ipsum dolor sit amet, consectetur adipiscing elit.
                     Nunc vulputate libero et velit interdum, ac aliquet odio
                     mattis.
-                </p>
+                </p> */}
 
                 {/* Форма */}
                 <form>
