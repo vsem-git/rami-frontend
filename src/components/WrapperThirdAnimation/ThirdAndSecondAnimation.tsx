@@ -50,7 +50,7 @@ const ThirdAndSecondAnimation = () => {
                     duration: 1,
                     scrollTrigger: {
                         trigger: strokeContainerRef.current,
-                        start: "bottom bottom",
+                        start: "bottom+=800 bottom",
                         end: "bottom+=1000 bottom",
                         scrub: true,
                     },

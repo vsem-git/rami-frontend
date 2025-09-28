@@ -10,14 +10,14 @@ import { useHeader } from "../../HeaderContext";
 
 const images = [
     [
-        "/swiper1.png",
-        "/swiper1_over.jpg",
+        "/swiper2.webp",
+        "/swiper2_over.webp",
         "Маммолог",
         "Телишевский Антон Валентинович",
     ],
     [
-        "/swiper2.webp",
-        "/swiper2_over.webp",
+        "/swiper1.png",
+        "/swiper1_over.jpg",
         "Маммолог",
         "Телишевский Антон Валентинович",
     ],
@@ -113,17 +113,16 @@ const ThirdAnimationBlock = () => {
                 ease: "power2.inOut",
             },
             "<"
-        )
-            .to(
-                swiperContainerRef.current,
-                {
-                    y: "5%",
-                    duration: 1,
-                    ease: "power2.inOut",
-                },
-                "<"
-            )
-            .fromTo(
+        ).to(
+            swiperContainerRef.current,
+            {
+                y: "5%",
+                duration: 1,
+                ease: "power2.inOut",
+            },
+            "<"
+        );
+        /* .fromTo(
                 ".logoheader",
                 {
                     yPercent: 0,
@@ -134,7 +133,7 @@ const ThirdAnimationBlock = () => {
                     ease: "power2.inOut",
                 },
                 "<"
-            );
+            ); */
 
         const swiper = swiperRef.current;
         if (!swiper || !swiper.wrapperEl || !swiperContainerRef.current) {
@@ -213,7 +212,7 @@ const ThirdAnimationBlock = () => {
                         Ядро команды RAMICLINIC RESIDENCE – специалисты с
                         многолетним опытом, которые стоят у истоков бренда РАМИ.
                         Рядом с признанными мастерами – молодые амбициозные
-                        коллеги с новаторским складом ума.
+                        коллеги с новаторским складом ума
                     </p>
                 </div>
                 <div className="max-w-full z-10" ref={swiperContainerRef}>
@@ -278,7 +277,7 @@ const ThirdAnimationBlock = () => {
                                                     />
                                                 </svg>
                                             </button>
-                                            <p className="text-white text-base md:text-[17px] 2xl:text-[24px] mb-2 2xl:mb-3 translate-y-full opacity-0 transition-all duration-1000 group-hover:translate-y-0 group-active:translate-y-0 group-hover:opacity-100 group-active:opacity-100">
+                                            <p className="text-white font-medium text-[11px] md:text-[12px] 2xl:text-[18px] mb-2 uppercase xl:mb-3 translate-y-full opacity-0 transition-all duration-1000 group-hover:translate-y-0 group-active:translate-y-0 group-hover:opacity-100 group-active:opacity-100">
                                                 Врач-косметолог
                                             </p>
                                             <p className="uppercase text-[13px] md:text-sm 2xl:text-[21px] leading-[120%] text-white translate-y-full opacity-0 transition-all duration-1000 group-hover:translate-y-0 group-active:translate-y-0 group-hover:opacity-100 group-active:opacity-100">
