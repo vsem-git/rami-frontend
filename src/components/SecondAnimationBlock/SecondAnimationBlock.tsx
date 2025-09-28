@@ -11,26 +11,44 @@ const FirstAnimationBlock = () => {
     const { openPopup } = usePopup();
     const { setHeaderColor } = useHeader();
     const containerRef = useRef(null);
-    const block1Ref = useRef(null);
+    /* const block1Ref = useRef(null); */
     const block2Ref = useRef(null);
-    const block1LogoRef = useRef(null);
+    /* const block1LogoRef = useRef(null); */
     const block2ContendRef = useRef(null);
 
     useGSAP(() => {
-        gsap.set(block2Ref.current, { y: "100%" });
+        /* gsap.set(block2Ref.current, { y: "100%" }); */
         gsap.set(block2ContendRef.current, { autoAlpha: 0 });
+
+        gsap.fromTo(
+            ".logoheader",
+            {
+                yPercent: 0,
+            },
+            {
+                yPercent: -300,
+                duration: 1,
+                ease: "power2.inOut",
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top center",
+                    end: "top top",
+                    scrub: true,
+                },
+            }
+        );
 
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top top",
-                end: "+=300%",
+                end: "+=150%",
                 scrub: true,
                 pin: true,
             },
         });
 
-        gsap.to(block1LogoRef.current, {
+        /* gsap.to(block1LogoRef.current, {
             rotation: 360, // Поворот на 360 градусов
             ease: "linear", // Линейная анимация для равномерного вращения
             scrollTrigger: {
@@ -39,9 +57,9 @@ const FirstAnimationBlock = () => {
                 end: "+=500%", // Конец анимации, когда низ блока в 20% окна
                 scrub: true, // Анимация синхронизируется с прокруткой
             },
-        });
+        }); */
 
-        tl.to(block2Ref.current, {
+        /* tl.to(block2Ref.current, {
             y: "0%",
             duration: 1,
             ease: "power2.inOut",
@@ -60,13 +78,25 @@ const FirstAnimationBlock = () => {
                 [],
                 "-=0.3"
             );
+            */
+        tl.call(
+            () => {
+                setHeaderColor("#000000");
+            },
+            [],
+            "-=0.5"
+        ).call(
+            () => {
+                setHeaderColor("#ffffff");
+            },
+            [],
+            "-=0.2"
+        );
 
         tl.to(block2ContendRef.current, {
             autoAlpha: 1,
-            duration: 0.1,
+            duration: 0.5,
             ease: "power2.inOut",
-        }).call(() => {
-            setHeaderColor("#ffffff");
         });
 
         tl.to(
@@ -78,7 +108,7 @@ const FirstAnimationBlock = () => {
     }, []);
     return (
         <div className="h-dvh relative" ref={containerRef}>
-            <div
+            {/* <div
                 className="absolute top-0 px-10 left-0 w-full h-full bg-white bg-cover bg-center flex justify-center items-center z-0"
                 ref={block1Ref}
             >
@@ -88,7 +118,7 @@ const FirstAnimationBlock = () => {
                     className="scale-[0.7] 2xl:scale-[0.8]"
                     alt="icon"
                 />
-            </div>
+            </div> */}
             <div
                 className="absolute top-0 left-0 w-full h-dvh bg-[url('/animationblock2.webp')] bg-cover bg-center flex justify-between items-end z-50"
                 ref={block2Ref}
@@ -133,7 +163,7 @@ const FirstAnimationBlock = () => {
                                 командой врачей, опирающихся на международную
                                 практику и возрастающий авторитет русской школы
                                 пластической хирургии с уникальным эстетическим
-                                почерком.
+                                почерком
                             </p>
                             <button className="text-[#691C32] bg-white font-semibold px-8 py-5 uppercase cursor-pointer text-sm 2xl:text-base">
                                 Запланировать визит
@@ -176,7 +206,7 @@ const FirstAnimationBlock = () => {
                                 сфере антиэйдж, биохакинга и регенеративной
                                 медицины – вот составляющие успеха, из которых
                                 складываются блестящие эстетические результаты
-                                пациентов.
+                                пациентов
                             </p>
                             <button className="text-[#691C32] bg-white font-semibold px-8 py-5 uppercase cursor-pointer text-sm 2xl:text-base">
                                 Запланировать визит
@@ -219,7 +249,7 @@ const FirstAnimationBlock = () => {
                                 генетический паспорт кожи с целью
                                 детализированного прогноза послеоперационного
                                 периода, разрабатывается индивидуальный план
-                                восстановительных косметологических процедур.
+                                восстановительных косметологических процедур
                             </p>
                             <button className="text-[#691C32] bg-white font-semibold px-8 py-5 uppercase cursor-pointer text-sm 2xl:text-base">
                                 Запланировать визит
