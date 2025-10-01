@@ -27,6 +27,7 @@ const AnimationBlock = () => {
             ],
             {
                 opacity: 0,
+                filter: "blur(10px)",
             }
         );
 
@@ -34,7 +35,7 @@ const AnimationBlock = () => {
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top top",
-                end: "+=100%",
+                end: "+=1000%",
                 scrub: 1,
                 pin: true,
                 anticipatePin: 1,
@@ -42,12 +43,23 @@ const AnimationBlock = () => {
             },
         });
 
-        tl.to(firstText.current, {
-            opacity: 1,
-            scale: 1,
-            duration: 1,
-            ease: "none",
-        });
+        tl.fromTo(
+            firstText.current,
+            {
+                opacity: 0,
+                duration: 1,
+                ease: "none",
+            },
+            {
+                opacity: 1,
+                scale: 1,
+                filter: "blur(0px)",
+                duration: 1,
+                ease: "none",
+            }
+        );
+
+        tl.to({}, { duration: 1, ease: "none" });
 
         tl.fromTo(
             runningStroke.current,
@@ -60,16 +72,119 @@ const AnimationBlock = () => {
                 opacity: 0,
                 duration: 1,
                 ease: "none",
-            },
-            "<"
-        ).to(
-            imageRef.current,
+            }
+        )
+            .to(
+                imageRef.current,
+                {
+                    height: "145%",
+                    duration: 2,
+                    ease: "none",
+                },
+                "<"
+            )
+            .fromTo(
+                firstText.current,
+                {
+                    opacity: 1,
+                },
+                {
+                    opacity: 0,
+                    y: -20,
+                    duration: 1,
+                    ease: "none",
+                },
+                "<"
+            );
+
+        tl.fromTo(
+            secondText.current,
             {
-                height: "135%",
-                duration: 2,
+                opacity: 0,
                 ease: "none",
             },
-            "<"
+            {
+                opacity: 1,
+                scale: 1,
+                duration: 1,
+                filter: "blur(0px)",
+                ease: "none",
+            }
+        );
+
+        tl.to({}, { duration: 2, ease: "none" });
+
+        tl.fromTo(
+            secondText.current,
+            {
+                opacity: 1,
+            },
+            {
+                opacity: 0,
+                y: -20,
+                duration: 1,
+                ease: "none",
+            }
+        );
+
+        tl.fromTo(
+            thirdText.current,
+            {
+                opacity: 0,
+                ease: "none",
+            },
+            {
+                opacity: 1,
+                scale: 1,
+                duration: 1,
+                filter: "blur(0px)",
+                ease: "none",
+            }
+        );
+
+        tl.to({}, { duration: 2, ease: "none" });
+
+        tl.fromTo(
+            thirdText.current,
+            {
+                opacity: 1,
+            },
+            {
+                opacity: 0,
+                y: -20,
+                duration: 1,
+                ease: "none",
+            }
+        );
+
+        tl.fromTo(
+            fourthText.current,
+            {
+                opacity: 0,
+                ease: "none",
+            },
+            {
+                opacity: 1,
+                scale: 1,
+                duration: 1,
+                filter: "blur(0px)",
+                ease: "none",
+            }
+        );
+
+        tl.to({}, { duration: 2, ease: "none" });
+
+        tl.fromTo(
+            fourthText.current,
+            {
+                opacity: 1,
+            },
+            {
+                opacity: 0,
+                y: -20,
+                duration: 1,
+                ease: "none",
+            }
         );
     });
 
@@ -78,6 +193,9 @@ const AnimationBlock = () => {
             ref={containerRef}
             className="overflow-hidden relative min-h-dvh text-white  bg-[#080808] before:z-[-1] before:absolute before:h-dvh before:bottom-0 before:left-20 before:w-[calc(90%)] "
         >
+            <div className="absolute inset-0">
+                <Hair className="absolute bottom-[540px] left-[455px]" />
+            </div>
             <div className="absolute z-[-1] h-dvh w-full bg-[#080808]">
                 <img
                     src="/plasticbg.jpg"
