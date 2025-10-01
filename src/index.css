@@ -1,25 +1,25 @@
-@import "tailwindcss";
-@import "./fonts.css";
+@import 'tailwindcss';
+@import './fonts.css';
 
 @theme {
-    --font-montserrat: "Montserrat", sans-serif;
-    --breakpoint-sm: 421px;
-    --breakpoint-md: 769px;
-    --breakpoint-lg: 1025px;
-    --breakpoint-xl: 1281px;
-    --breakpoint-2xl: 1600px;
+	--font-montserrat: 'Montserrat', sans-serif;
+	--breakpoint-sm: 421px;
+	--breakpoint-md: 769px;
+	--breakpoint-lg: 1025px;
+	--breakpoint-xl: 1281px;
+	--breakpoint-2xl: 1600px;
 }
 
 @layer base {
-    html {
-        font-family: var(--font-montserrat);
-    }
+	html {
+		font-family: var(--font-montserrat);
+	}
 }
 
 body {
-    font-family: var(--font-montserrat);
+	font-family: var(--font-montserrat);
 }
 
 .teamswiper .swiper-wrapper {
-    margin-left: 16px;
+	margin-left: 16px;
 }
