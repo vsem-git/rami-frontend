@@ -1,14 +1,16 @@
 import VideoAnimation from "../../components/VideoAnimation/VideoAnimation";
-import FirstAnimationBlock from "../../components/FirstAnimationBlock/FirstAnimationBlock";
+/* import FirstAnimationBlock from "../../components/FirstAnimationBlock/FirstAnimationBlock"; */
 import SecondAnimationBlock from "../../components/SecondAnimationBlock/SecondAnimationBlock";
 import ThirdAndSecondAnimation from "../../components/WrapperThirdAnimation/ThirdAndSecondAnimation";
 import FourthAnimationBlock from "../../components/FourthAnimationBlock/FourthAnimationBlock";
+import RebornFirstAnimationBlock from "../../components/RebornFirstAnimationBlock/RebornFirstAnimationBlock";
 
 const Home = () => {
     return (
         <>
             <VideoAnimation />
-            <FirstAnimationBlock />
+            {/* <FirstAnimationBlock /> */}
+            <RebornFirstAnimationBlock />
             <SecondAnimationBlock />
             <ThirdAndSecondAnimation />
             <FourthAnimationBlock />
