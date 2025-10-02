@@ -13,9 +13,15 @@ export const useCosmetologyAnimation = (
 	contentRef3: RefObject<HTMLDivElement | null>,
 	contentRef4: RefObject<HTMLDivElement | null>,
 	contentRef5: RefObject<HTMLDivElement | null>,
-	contentRef6: RefObject<HTMLDivElement | null>
+	contentRef6: RefObject<HTMLDivElement | null>,
+	isMobile?: boolean // Добавляем параметр isMobile
 ) => {
 	useEffect(() => {
+		// Если мобильное устройство - полностью отключаем анимации
+		if (isMobile || window.innerWidth <= 768) {
+			return // Просто выходим из хука, ничего не анимируем
+		}
+
 		const textElement = textRef.current
 		const sectionElement = sectionRef.current
 		const backgroundElement = backgroundRef.current
@@ -36,37 +42,16 @@ export const useCosmetologyAnimation = (
 		)
 			return
 
-		const isMobile = window.innerWidth <= 768
-
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: sectionElement,
 				start: 'top top',
-				end: isMobile ? '+=300%' : '+=1000%',
+				end: '+=1000%',
 				scrub: 2,
 				pin: true,
 				markers: false,
 			},
 		})
-
-		if (isMobile) {
-			tl.fromTo(
-				backgroundElement,
-				{ scale: 1, opacity: 1 },
-				{ scale: 1.2, opacity: 0, duration: 3, ease: 'power2.out' },
-				0
-			)
-
-			tl.to(
-				textElement,
-				{ opacity: 0, y: -100, duration: 2, ease: 'power2.inOut' },
-				0.5
-			)
-			return () => {
-				tl.kill()
-				ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-			}
-		}
 
 		gsap.set(textElement, {
 			x: '180vw',
@@ -177,5 +162,6 @@ export const useCosmetologyAnimation = (
 		contentRef4,
 		contentRef5,
 		contentRef6,
+		isMobile,
 	])
 }

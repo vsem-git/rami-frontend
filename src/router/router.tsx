@@ -5,6 +5,7 @@ import Plastic from '../pages/Plastic/Plastic'
 import PlasticLayout from '../pages/Plastic/layout'
 import { Antiage } from '../pages/antiage/Antiage'
 import { Cosmetology } from '../pages/cosmetology/Cosmetology'
+import CosmetologyLayout from '../pages/cosmetology/layout'
 const router = createBrowserRouter([
 	{
 		path: '/ыйы',
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
 	},
 	{
 		path: '/',
-		element: <Cosmetology />,
+		element: <CosmetologyLayout />,
 		children: [
 			{
 				index: true,

@@ -79,7 +79,7 @@ export const Cosmetology = () => {
 						className='
     text-[64px]/[125%] font-normal uppercase whitespace-nowrap
     text-white mix-blend-difference
-    absolute top-[2rem] right-0
+    absolute top-[5.5rem] right-0
     sm:top-auto sm:bottom-[-5rem]
     pointer-events-none
     z-20
