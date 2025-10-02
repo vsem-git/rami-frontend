@@ -1,6 +1,16 @@
-const Grud = (props: React.HTMLAttributes<HTMLDivElement>) => {
+import { usePopup } from "../../PopupContext";
+
+const Grud = ({
+    className,
+    ...props
+}: React.HTMLAttributes<HTMLDivElement>) => {
+    const { openPopup } = usePopup();
     return (
-        <div {...props}>
+        <div
+            onClick={() => openPopup("breastpopup")}
+            {...props}
+            className={`group cursor-pointer ${className}`}
+        >
             <div className="flex items-start gap-2">
                 <div className="flex gap-1 items-center">
                     <svg
@@ -17,7 +27,9 @@ const Grud = (props: React.HTMLAttributes<HTMLDivElement>) => {
                             stroke-width="1.5"
                         />
                     </svg>
-                    <span className="font-semibold">ГРУДЬ</span>
+                    <span className="font-semibold text-xs 2xl:text-base after:absolute relative after:left-0 after:bottom-0 after:h-[1px] after:bg-white after:w-0 after:transition-all after:duration-300 group-hover:after:w-full">
+                        ГРУДЬ
+                    </span>
                 </div>
                 <svg
                     width="181"
@@ -25,7 +37,7 @@ const Grud = (props: React.HTMLAttributes<HTMLDivElement>) => {
                     viewBox="0 0 181 44"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="-mt-8"
+                    className="-mt-8 2xl:max-w-[180px] max-w-[103px]"
                 >
                     <path
                         d="M180 1L142 43H0"
