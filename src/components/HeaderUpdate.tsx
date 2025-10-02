@@ -88,6 +88,7 @@ const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
 								headerColor === '#ffffff' ? { opacity: 1 } : { opacity: 0 }
 							}
 						></div>
+						
 						<img
 							src='/logo_white.webp'
 							width={1000}
@@ -96,6 +97,7 @@ const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
 							className={`absolute inset-0 w-[100px] h-[81px] 2xl:w-[149px] 2xl:h-[120px]`}
 							style={{ transition: 'opacity 0.3s ease-in-out' }}
 						/>
+
 					</div>
 				</div>
 			</div>
