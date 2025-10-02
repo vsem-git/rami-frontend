@@ -15,7 +15,9 @@ const LayoutContent = () => {
 			{!isOpen('contact') && <HeaderUpdate />}
 			<ScrollSmoother>
 				<Outlet />
-				<FooterUpdate />
+				<div className='block md:hidden'>
+					<FooterUpdate />
+				</div>
 			</ScrollSmoother>
 		</>
 	)
