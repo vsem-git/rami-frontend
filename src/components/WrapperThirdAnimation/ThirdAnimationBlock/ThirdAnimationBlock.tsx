@@ -296,22 +296,40 @@ const ThirdAnimationBlock = () => {
                                         );
                                     }}
                                 >
-                                    <img src={el[0] as string} alt="man" />
+                                    <img
+                                        src={el[0] as string}
+                                        alt="man"
+                                        style={{ scale: i === 1 ? 0.85 : 1 }}
+                                    />
                                     {/* вместо div с backgroundImage */}
                                     <video
                                         className={`absolute inset-0 w-full h-full object-cover saturate-0 opacity-0 transition-all group-hover:opacity-100 duration-1000 ${
-                                            activeSlide === i ? "opacity-100" : ""
+                                            activeSlide === i
+                                                ? "opacity-100"
+                                                : ""
                                         }`}
                                         playsInline
                                         muted
                                         loop
                                         autoPlay
                                         preload="metadata"
-                                        poster={el[0] as string}  // ваш статичный webp как постер
+                                        poster={el[0] as string} // ваш статичный webp как постер
                                     >
                                         {/* порядок важен: сначала webm, потом mp4 */}
-                                        <source src={(el[1] as string).replace(".gif", ".webm")} type="video/webm" />
-                                        <source src={(el[1] as string).replace(".gif", ".mp4")}  type="video/mp4" />
+                                        <source
+                                            src={(el[1] as string).replace(
+                                                ".gif",
+                                                ".webm"
+                                            )}
+                                            type="video/webm"
+                                        />
+                                        <source
+                                            src={(el[1] as string).replace(
+                                                ".gif",
+                                                ".mp4"
+                                            )}
+                                            type="video/mp4"
+                                        />
                                         {/* опционально: animated webp как самый последний запасной */}
                                         {/* <img src={(el[1] as string).replace(".gif", ".webp")} alt="" /> */}
                                     </video>
