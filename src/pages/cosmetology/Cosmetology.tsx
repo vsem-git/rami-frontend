@@ -149,7 +149,7 @@ export const Cosmetology = () => {
 					ref={textRef}
 					className='
             text-[96px]/[125%] xl:text-[160px]/[125%] font-normal uppercase whitespace-nowrap
-            absolute bottom-0 right-0
+            absolute -bottom-5 right-0
             text-white mix-blend-difference
           '
 				>

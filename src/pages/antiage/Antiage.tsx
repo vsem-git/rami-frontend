@@ -13,6 +13,12 @@ export const Antiage = () => {
 	const sectionRef = useRef<HTMLDivElement>(null)
 	const backgroundRef = useRef<HTMLDivElement>(null)
 	const leftTextRef = useRef<HTMLHeadingElement>(null)
+
+	const geneticPassportRef = useRef<HTMLHeadingElement>(null)
+	const hormonesRef = useRef<HTMLHeadingElement>(null)
+	const regenerativeMedicineRef = useRef<HTMLHeadingElement>(null)
+	const cellularRejuvenationRef = useRef<HTMLHeadingElement>(null) // Новый реф
+
 	const contentRefs = useRef<Array<React.RefObject<HTMLDivElement | null>>>(
 		ANTIAGE.map(() => useRef<HTMLDivElement | null>(null))
 	).current
@@ -37,6 +43,10 @@ export const Antiage = () => {
 		sectionRef,
 		backgroundRef,
 		leftTextRef,
+		geneticPassportRef,
+		hormonesRef,
+		regenerativeMedicineRef,
+		cellularRejuvenationRef, // Передаем новый реф
 		...contentRefs
 	)
 
@@ -48,7 +58,7 @@ export const Antiage = () => {
 	return (
 		<div
 			ref={sectionRef}
-			className='w-full h-auto md:h-screen relative overflow-hidden bg-[#1D1D1D] md:bg-[#0c0807]'
+			className='w-full h-auto md:h-[110vh] relative overflow-hidden'
 		>
 			<div className='w-full h-[720px] sm:h-[640px] relative md:hidden bg-[#0c0807]'>
 				{isMobile && (
@@ -95,12 +105,63 @@ export const Antiage = () => {
 				ref={leftTextRef}
 				className='
 					hidden md:block text-[96px]/[125%] font-normal uppercase whitespace-nowrap
-					absolute top-0 left-0
+					absolute top-[6rem] left-0
 					text-[#1D1D1D4D] 
 				'
 			>
 				Антиэйдж
 			</h2>
+
+			<h3
+				ref={geneticPassportRef}
+				className='
+					hidden md:block text-[40px]/[125%] font-normal uppercase whitespace-nowrap
+					absolute top-[50%] left-10
+					text-[#FFFFFF99] 
+					opacity-0 -translate-x-20
+				'
+			>
+				Генетический <br />
+				паспорт
+			</h3>
+
+			<h3
+				ref={hormonesRef}
+				className='
+					hidden md:block text-[64px]/[125%] font-normal uppercase whitespace-nowrap
+					absolute top-[25%] left-[33.5%]
+					text-[#FFFFFF4D] 
+					opacity-0 scale-50
+				'
+			>
+				гормоны
+			</h3>
+
+			<h3
+				ref={regenerativeMedicineRef}
+				className='
+					hidden md:block text-[32px]/[125%] font-normal uppercase whitespace-nowrap
+					absolute top-[70%] left-10
+					text-[#FFFFFFBF] 
+					opacity-0 -translate-x-20
+				'
+			>
+				Регенеративная <br />
+				Медицина
+			</h3>
+
+			<h3
+				ref={cellularRejuvenationRef}
+				className='
+					hidden md:block text-[28px]/[125%] font-normal uppercase whitespace-nowrap
+					absolute bottom-[11%] left-[21%]
+					text-[#FFFFFFBF] 
+					opacity-0 -translate-x-20
+				'
+			>
+				клеточное <br />
+				омоложение
+			</h3>
 
 			<div className='flex flex-col items-end gap-[120px] my-[120px]'>
 				{remainingBlocks.map((item, index) => (
@@ -135,7 +196,7 @@ export const Antiage = () => {
 					ref={textRef}
 					className='
 						text-[96px]/[125%] xl:text-[160px]/[125%] font-normal uppercase whitespace-nowrap
-						absolute bottom-0 right-0
+						absolute bottom-[5rem] right-0
 						text-white mix-blend-difference
 					'
 				>

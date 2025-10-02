@@ -3,19 +3,29 @@ import ContactPopUp from '../../components/ContactPopUp'
 import FooterUpdate from '../../components/FooterUpdate'
 import { HeaderProvider } from '../../components/HeaderContext'
 import HeaderUpdate from '../../components/HeaderUpdate'
-import { PopupProvider } from '../../components/PopupContext'
+import { PopupProvider, usePopup } from '../../components/PopupContext'
 import ScrollSmoother from '../../components/ScrollSmoother'
+
+const LayoutContent = () => {
+	const { isOpen } = usePopup()
+
+	return (
+		<>
+			<ContactPopUp />
+			{!isOpen('contact') && <HeaderUpdate />}
+			<ScrollSmoother>
+				<Outlet />
+				<FooterUpdate />
+			</ScrollSmoother>
+		</>
+	)
+}
 
 const Layout = () => {
 	return (
 		<PopupProvider>
 			<HeaderProvider>
-				<ContactPopUp />
-				<HeaderUpdate />
-				<ScrollSmoother>
-					<Outlet />
-					<FooterUpdate />
-				</ScrollSmoother>
+				<LayoutContent />
 			</HeaderProvider>
 		</PopupProvider>
 	)

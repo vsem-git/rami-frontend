@@ -9,6 +9,10 @@ export const useAntiageAnimation = (
 	sectionRef: RefObject<HTMLElement | null>,
 	backgroundRef: RefObject<HTMLDivElement | null>,
 	leftTextRef: RefObject<HTMLHeadingElement | null>,
+	geneticPassportRef: RefObject<HTMLHeadingElement | null>,
+	hormonesRef: RefObject<HTMLHeadingElement | null>,
+	regenerativeMedicineRef: RefObject<HTMLHeadingElement | null>,
+	cellularRejuvenationRef: RefObject<HTMLHeadingElement | null>,
 	...contentRefs: RefObject<HTMLDivElement | null>[]
 ) => {
 	useEffect(() => {
@@ -16,6 +20,10 @@ export const useAntiageAnimation = (
 		const sectionElement = sectionRef.current
 		const backgroundElement = backgroundRef.current
 		const leftTextElement = leftTextRef.current
+		const geneticPassportElement = geneticPassportRef.current
+		const hormonesElement = hormonesRef.current
+		const regenerativeMedicineElement = regenerativeMedicineRef.current
+		const cellularRejuvenationElement = cellularRejuvenationRef.current
 		const contentElements = contentRefs.map(ref => ref.current)
 
 		if (
@@ -23,6 +31,10 @@ export const useAntiageAnimation = (
 			!sectionElement ||
 			!backgroundElement ||
 			!leftTextElement ||
+			!geneticPassportElement ||
+			!hormonesElement ||
+			!regenerativeMedicineElement ||
+			!cellularRejuvenationElement ||
 			contentElements.some(el => !el)
 		)
 			return
@@ -73,6 +85,27 @@ export const useAntiageAnimation = (
 			y: 0,
 		})
 
+		gsap.set(geneticPassportElement, {
+			opacity: 0,
+			x: -80,
+		})
+
+		gsap.set(hormonesElement, {
+			opacity: 0,
+			scale: 0.5,
+			filter: 'blur(10px)',
+		})
+
+		gsap.set(regenerativeMedicineElement, {
+			opacity: 0,
+			x: -80,
+		})
+
+		gsap.set(cellularRejuvenationElement, {
+			opacity: 0,
+			x: -80,
+		})
+
 		contentElements.forEach(element => {
 			if (element) {
 				gsap.set(element, {
@@ -108,6 +141,8 @@ export const useAntiageAnimation = (
 		const blockStayDuration = 2
 		const blockDisappearDuration = 1.5
 
+		let backgroundDownStartTime = 0
+
 		contentElements.forEach((element, index) => {
 			if (!element) return
 
@@ -128,13 +163,69 @@ export const useAntiageAnimation = (
 				startTime
 			)
 
+			if (index === 2) {
+				tl.to(
+					geneticPassportElement,
+					{
+						opacity: 1,
+						x: 0,
+						duration: 2,
+						ease: 'power2.out',
+					},
+					startTime + blockAppearDuration
+				)
+			}
+
+			if (index === 3) {
+				tl.to(
+					hormonesElement,
+					{
+						opacity: 1,
+						scale: 1,
+						filter: 'blur(0px)',
+						duration: 2.5,
+						ease: 'back.out(1.7)',
+					},
+					startTime
+				)
+			}
+
+			if (index === 4) {
+				tl.to(
+					regenerativeMedicineElement,
+					{
+						opacity: 1,
+						x: 0,
+						duration: 2,
+						ease: 'power2.out',
+					},
+					startTime
+				)
+			}
+
+			if (index === 6) {
+				tl.to(
+					cellularRejuvenationElement,
+					{
+						opacity: 1,
+						x: 0,
+						duration: 2,
+						ease: 'power2.out',
+					},
+					startTime
+				)
+
+				backgroundDownStartTime =
+					startTime + blockAppearDuration + blockStayDuration
+			}
+
 			if (index === 0) {
 				tl.to(
 					backgroundElement,
 					{
 						scale: 1.7,
 						x: '-25%',
-						y: '8vh',
+						y: '15vh',
 						duration: 4,
 						ease: 'power2.out',
 					},
@@ -185,9 +276,51 @@ export const useAntiageAnimation = (
 			}
 		})
 
+		if (backgroundDownStartTime > 0) {
+			tl.to(
+				backgroundElement,
+				{
+					y: '0vh',
+					scale: 1,
+					x: '-25%',
+
+					duration: 8,
+					ease: 'power2.inOut',
+				},
+				backgroundDownStartTime
+			)
+		}
+
+		const slowRiseStartTime = 40
+
+		tl.to(
+			[
+				cellularRejuvenationElement,
+				geneticPassportElement,
+				hormonesElement,
+				regenerativeMedicineElement,
+			],
+			{
+				y: '-9vh',
+				duration: 50,
+				ease: 'power1.inOut',
+			},
+			slowRiseStartTime
+		)
+
 		return () => {
 			tl.kill()
 			ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 		}
-	}, [textRef, sectionRef, backgroundRef, leftTextRef, ...contentRefs])
+	}, [
+		textRef,
+		sectionRef,
+		backgroundRef,
+		leftTextRef,
+		geneticPassportRef,
+		hormonesRef,
+		regenerativeMedicineRef,
+		cellularRejuvenationRef,
+		...contentRefs,
+	])
 }
