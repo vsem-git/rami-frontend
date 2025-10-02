@@ -11,7 +11,7 @@ import AntiageLayout from '../pages/antiage/layout'
 
 const router = createBrowserRouter([
 	{
-		path: '/ыйы',
+		path: '/',
 		element: <RootLayout />,
 		children: [
 			{
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
 		],
 	},
 	{
-		path: '/',
+		path: '/сosmetology',
 		element: <CosmetologyLayout />,
 		children: [
 			{
