@@ -1,9 +1,16 @@
+import { usePopup } from "../../PopupContext";
+
 const Grud = ({
     className,
     ...props
 }: React.HTMLAttributes<HTMLDivElement>) => {
+    const { openPopup } = usePopup();
     return (
-        <div {...props} className={`group ${className}`}>
+        <div
+            onClick={() => openPopup("breastpopup")}
+            {...props}
+            className={`group cursor-pointer ${className}`}
+        >
             <div className="flex items-start gap-2">
                 <div className="flex gap-1 items-center">
                     <svg

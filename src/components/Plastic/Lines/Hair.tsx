@@ -1,9 +1,16 @@
+import { usePopup } from "../../PopupContext";
+
 const Hair = ({
     className,
     ...props
 }: React.HTMLAttributes<HTMLDivElement>) => {
+    const { openPopup } = usePopup();
     return (
-        <div {...props} className={`group ${className}`}>
+        <div
+            onClick={() => openPopup("hairpopup")}
+            {...props}
+            className={`group ${className}`}
+        >
             <div className="flex items-start gap-2">
                 <svg
                     width="153"
