@@ -77,7 +77,10 @@ const AnimationBlock = () => {
             .to(
                 imageRef.current,
                 {
-                    height: "145%",
+                    /* scale: 1.2,
+                    bottom: "8%", */
+                    left: "-4%",
+                    width: "120%",
                     duration: 2,
                     ease: "none",
                 },
@@ -193,16 +196,14 @@ const AnimationBlock = () => {
             ref={containerRef}
             className="overflow-hidden relative min-h-dvh text-white  bg-[#080808] before:z-[-1] before:absolute before:h-dvh before:bottom-0 before:left-20 before:w-[calc(90%)] "
         >
-            <div className="absolute inset-0">
-                <Hair className="absolute bottom-[540px] left-[455px]" />
-            </div>
             <div className="absolute z-[-1] h-dvh w-full bg-[#080808]">
-                <img
-                    src="/plasticbg.jpg"
-                    className="absolute bottom-0 left-0 aspect-[4096/2777] h-[120%] object-cover object-bottom"
-                    alt=""
+                <div
                     ref={imageRef}
-                />
+                    className="absolute bottom-0 left-0 w-[100%] aspect-[4096/2777] bg-[url('/plasticbg.jpg')] bg-no-repeat bg-contain bg-bottom"
+                >
+                    <Hair className="absolute bottom-[47%] left-[27.5%] z-50" />
+                    <Correction className="absolute bottom-[47%] left-[0%] z-50" />
+                </div>
             </div>
             <div
                 className="absolute top-[132px] left-0 w-full overflow-hidden"

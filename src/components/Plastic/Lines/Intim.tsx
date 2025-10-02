@@ -17,7 +17,9 @@ const Intim = (props: React.HTMLAttributes<HTMLDivElement>) => {
                             stroke-width="1.5"
                         />
                     </svg>
-                    <span className="font-semibold">ИНТИМНАЯ ПЛАСТИКА</span>
+                    <span className="font-semibold xl:text-xs 2xl:text-base">
+                        ИНТИМНАЯ ПЛАСТИКА
+                    </span>
                 </div>
                 <svg
                     width="181"

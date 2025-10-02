@@ -17,7 +17,9 @@ const Plastic = (props: React.HTMLAttributes<HTMLDivElement>) => {
                 </svg>
 
                 <div className="flex gap-1 items-center mt-10">
-                    <span className="font-semibold">ПЛАСТИКА ЛИЦА</span>
+                    <span className="font-semibold xl:text-xs 2xl:text-base">
+                        ПЛАСТИКА ЛИЦА
+                    </span>
                     <svg
                         width="16"
                         height="17"
