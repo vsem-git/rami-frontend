@@ -9,7 +9,7 @@ const Body = ({
         <div
             onClick={() => openPopup("bodypopup")}
             {...props}
-            className={`group ${className}`}
+            className={`group cursor-pointer ${className}`}
         >
             <div className="flex items-start gap-2">
                 <svg

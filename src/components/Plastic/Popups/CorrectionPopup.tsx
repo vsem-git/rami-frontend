@@ -7,16 +7,13 @@ const Correctionpopup = () => {
 
     return (
         <div
-            className="fixed flex flex-col sm:flex-row justify-end inset-0 bg-[#1D1D1D80] h-dvh w-full overflow-hidden group z-50 transition-all duration-1000"
-            style={{
-                transform: isOpen(popupName)
-                    ? "translateX(0)"
-                    : "translateX(100%)",
-                opacity: isOpen(popupName) ? 1 : 0,
-                pointerEvents: isOpen(popupName) ? "auto" : "none",
-            }}
+            className={`fixed flex flex-col sm:flex-row justify-end inset-0 bg-[#1D1D1D80] h-dvh w-full overflow-hidden group z-50 transition-all duration-1000 ${
+                isOpen(popupName)
+                    ? "translate-y-0 md:translate-x-0 opacity-100 pointer-events-auto"
+                    : "translate-y-full md:translate-x-full md:translate-y-0 opacity-0 pointer-events-none"
+            }`}
         >
-            <div className="w-full flex justify-center sm:justify-end sm:items-center mr-4">
+            <div className="w-full flex justify-center sm:justify-end sm:items-center mr-4 mb-4">
                 <svg
                     width="48"
                     height="48"
@@ -54,7 +51,7 @@ const Correctionpopup = () => {
                     красоты.
                 </p>
                 <button
-                    onClick={() => openPopup("contactpopup")}
+                    onClick={() => openPopup("contact")}
                     className="text-[#691C32] hover:outline hover:outline-white hover:bg-transparent hover:text-white transition-all duration-300 bg-white uppercase py-5 px-8 text-[12px] 2xl:text-base cursor-pointer w-full sm:w-fit font-semibold"
                 >
                     Запланировать визит

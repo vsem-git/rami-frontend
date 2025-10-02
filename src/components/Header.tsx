@@ -59,7 +59,7 @@ const Header = () => {
     return (
         <div
             ref={headerRef}
-            className="fixed top-0 left-0 right-0 z-[9999] py-[16px] md:py-[20px] 2xl:py-[40px] md:px-[24px] sm:px-[16px] px-[16px] 2xl:px-[40px] grid grid-cols-3 justify-between items-center"
+            className="fixed top-0 left-0 right-0 z-[50] py-[16px] md:py-[20px] 2xl:py-[40px] md:px-[24px] sm:px-[16px] px-[16px] 2xl:px-[40px] grid grid-cols-3 justify-between items-center"
         >
             <div
                 ref={menuRef}

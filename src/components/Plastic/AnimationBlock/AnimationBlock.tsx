@@ -7,8 +7,11 @@ import Plastic from "../Lines/Plastic";
 import Grud from "../Lines/Grud";
 import Intim from "../Lines/Intim";
 import Body from "../Lines/Body";
+import { usePopup } from "../../PopupContext";
 
 const AnimationBlock = () => {
+    const { openPopup } = usePopup();
+
     const containerRef = useRef(null);
     const runningStroke = useRef(null);
     const imageRef = useRef(null);
@@ -339,7 +342,10 @@ const AnimationBlock = () => {
                     Услуги пластической хирургии
                 </p>
                 <div className=" border-t border-[#FFFFFF26]">
-                    <div className="py-4 flex justify-between items-center border-b border-[#FFFFFF26]">
+                    <div
+                        onClick={() => openPopup("hairpopup")}
+                        className="py-4 flex justify-between items-center border-b border-[#FFFFFF26]"
+                    >
                         <div className="font-semibold">Пересадка волос</div>
                         <svg
                             width="16"
@@ -356,7 +362,10 @@ const AnimationBlock = () => {
                             />
                         </svg>
                     </div>
-                    <div className="py-4 flex justify-between items-center border-b border-[#FFFFFF26]">
+                    <div
+                        onClick={() => openPopup("correctionpopup")}
+                        className="py-4 flex justify-between items-center border-b border-[#FFFFFF26]"
+                    >
                         <div className="font-semibold">
                             Коррекция шрамов и рубцов
                         </div>
@@ -375,7 +384,10 @@ const AnimationBlock = () => {
                             />
                         </svg>
                     </div>
-                    <div className="py-4 flex justify-between items-center border-b border-[#FFFFFF26]">
+                    <div
+                        onClick={() => openPopup("plasticpopup")}
+                        className="py-4 flex justify-between items-center border-b border-[#FFFFFF26]"
+                    >
                         <div className="font-semibold">пластика лица</div>
                         <svg
                             width="16"
@@ -392,7 +404,10 @@ const AnimationBlock = () => {
                             />
                         </svg>
                     </div>
-                    <div className="py-4 flex justify-between items-center border-b border-[#FFFFFF26]">
+                    <div
+                        onClick={() => openPopup("breastpopup")}
+                        className="py-4 flex justify-between items-center border-b border-[#FFFFFF26]"
+                    >
                         <div className="font-semibold">Грудь</div>
                         <svg
                             width="16"
@@ -409,7 +424,10 @@ const AnimationBlock = () => {
                             />
                         </svg>
                     </div>
-                    <div className="py-4 flex justify-between items-center border-b border-[#FFFFFF26]">
+                    <div
+                        onClick={() => openPopup("intimpopup")}
+                        className="py-4 flex justify-between items-center border-b border-[#FFFFFF26]"
+                    >
                         <div className="font-semibold">Интимная пластика</div>
                         <svg
                             width="16"
@@ -426,7 +444,10 @@ const AnimationBlock = () => {
                             />
                         </svg>
                     </div>
-                    <div className="py-4 flex justify-between items-center border-b border-[#FFFFFF26]">
+                    <div
+                        onClick={() => openPopup("bodypopup")}
+                        className="py-4 flex justify-between items-center border-b border-[#FFFFFF26]"
+                    >
                         <div className="font-semibold">Тело</div>
                         <svg
                             width="16"
