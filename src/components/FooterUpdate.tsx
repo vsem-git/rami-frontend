@@ -89,7 +89,7 @@ const FooterUpdate = () => {
 	return (
 		<>
 			<footer className='h-screen relative' ref={containerRef}>
-				<div className="absolute inset-0 w-full pt-20 sm:pt-0 h-dvh bg-[url('/footer.webp')] bg-cover bg-center text-white flex flex-col">
+				<div className="relative inset-0 w-full pt-20 sm:pt-0 h-dvh bg-[url('/footer.webp')] bg-cover bg-center text-white flex flex-col">
 					<div className='flex-1 sm:text-[21px] flex-col sm:flex-row uppercase md:text-[28px] 2xl:text-[36px] font-semibold h-full flex'>
 						<a
 							href='#'
