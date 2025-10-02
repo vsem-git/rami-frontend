@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import ContactPopUp from '../../components/ContactPopUp'
-import Footer from '../../components/Footer'
+import FooterUpdate from '../../components/FooterUpdate'
 import { HeaderProvider } from '../../components/HeaderContext'
 import HeaderUpdate from '../../components/HeaderUpdate'
 import { PopupProvider } from '../../components/PopupContext'
@@ -14,7 +14,7 @@ const Layout = () => {
 				<HeaderUpdate />
 				<ScrollSmoother>
 					<Outlet />
-					<Footer />
+					<FooterUpdate />
 				</ScrollSmoother>
 			</HeaderProvider>
 		</PopupProvider>
