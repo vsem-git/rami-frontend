@@ -9,7 +9,7 @@ export const COSMETOLOGY = [
 					косметологии RAMICLINIC RESIDENCE от обычной клиники эстетической
 					медицины.
 				</p>
-				<button className='w-full sm:w-[211px] md:w-[289px] h-[56px] md:h-[64px] flex items-center justify-center px-8 py-6 bg-white border-none text-[#691C32] text-xs md:text-base font-semibold uppercase cursor-pointer hover:bg-gray-100 transition-colors duration-300 whitespace-nowrap mt-8'>
+				<button className='w-full sm:w-[211px] md:w-[289px] h-[56px] md:h-[64px] flex items-center justify-center px-8 py-6 bg-white border border-transparent text-[#691C32] text-xs md:text-base font-semibold uppercase cursor-pointer hover:bg-transparent hover:border-white hover:text-white transition-colors duration-300 whitespace-nowrap mt-8'>
 					Запланировать визит
 				</button>
 			</>
@@ -76,7 +76,7 @@ export const COSMETOLOGY = [
 					процессов и внешних изменений обладает редкий на сегодняшний день в
 					России антиэйдж-специалист.
 				</p>
-				<button className='w-[211px] md:w-[289px] h-[56px] md:h-[64px] flex items-center justify-center px-8 py-6 bg-white border-none text-[#691C32] text-xs md:text-base font-semibold uppercase cursor-pointer hover:bg-gray-100 transition-colors duration-300 whitespace-nowrap'>
+				<button className='w-[211px] md:w-[289px] h-[56px] md:h-[64px] flex items-center justify-center px-8 py-6 bg-white border border-transparent text-[#691C32] text-xs md:text-base font-semibold uppercase cursor-pointer hover:bg-transparent hover:border-white hover:text-white transition-colors duration-300 whitespace-nowrapp relative z-20'>
 					Запланировать визит
 				</button>
 			</>
