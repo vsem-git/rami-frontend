@@ -96,7 +96,7 @@ const FourthAnimationBlock = () => {
                 </div>
                 <div className="relative">
                     <img
-                        src="/map.png"
+                        src="/map.webp"
                         alt="map"
                         className="w-full aspect-square object-cover"
                     />
@@ -146,7 +146,7 @@ const FourthAnimationBlock = () => {
                 <div ref={mapContainerRef} className="min-h-[500px] ку">
                     <div
                         ref={bgRef}
-                        className="absolute top-0 left-0 w-full h-full bg-[url('/map.png')] bg-cover bg-center flex justify-between items-end"
+                        className="absolute top-0 left-0 w-full h-full bg-[url('/map.webp')] bg-cover bg-center flex justify-between items-end"
                     >
                         <div className="relative h-full w-full flex justify-center items-center">
                             <img src="/pin.svg" alt="pin" />

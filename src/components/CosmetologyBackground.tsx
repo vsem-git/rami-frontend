@@ -6,7 +6,7 @@ export const CosmetologyBackground = forwardRef<HTMLDivElement>((_, ref) => {
 			ref={ref}
 			className='
         w-full h-[640px] relative overflow-hidden
-        bg-[url("/cosmetology-screen/beef4aba2d32319ab3ff30157c877b883ffce82b.jpg")]
+        bg-[url("/cosmetology-screen/beef4aba2d32319ab3ff30157c877b883ffce82b.webp")]
         bg-no-repeat bg-cover 
         bg-[center_top]
         md:bg-[-10rem_8rem] xl:bg-[-10rem_0%]

@@ -9,6 +9,7 @@ import UnderlinedText from "./UnderlinedText/UnderlinedText";
 gsap.registerPlugin(ScrollTrigger);
 
 const Header = () => {
+    const pathname = window.location.pathname;
     const { headerColor, navbarColor } = useHeader();
     const headerRef = useRef(null);
     const logoRef = useRef(null);
@@ -58,7 +59,7 @@ const Header = () => {
     return (
         <div
             ref={headerRef}
-            className="fixed top-0 left-0 right-0 z-[9999] py-[16px] md:py-[20px] 2xl:py-[40px] md:px-[24px] sm:px-[16px] px-[16px] 2xl:px-[40px] grid grid-cols-3 justify-between items-center"
+            className="fixed top-0 left-0 right-0 z-[50] py-[16px] md:py-[20px] 2xl:py-[40px] md:px-[24px] sm:px-[16px] px-[16px] 2xl:px-[40px] grid grid-cols-3 justify-between items-center"
         >
             <div
                 ref={menuRef}
@@ -106,7 +107,7 @@ const Header = () => {
                             }
                         ></div>
                         <img
-                            src="/logo_black.png"
+                            src="/logo_black.webp"
                             width={1000}
                             height={1000}
                             alt="logo"
@@ -118,7 +119,7 @@ const Header = () => {
                             style={{ transition: "opacity 0.3s ease-in-out" }}
                         />
                         <img
-                            src="/logo_white.png"
+                            src="/logo_white.webp"
                             width={1000}
                             height={1000}
                             alt="logo"
@@ -156,7 +157,9 @@ const Header = () => {
                 </UnderlinedText>
             </div>
             <div
-                className="uppercase fixed text-[15px] md:text-base xl:text-[24px] bottom-6 xl:bottom-10 text-center w-full px-4 textheader"
+                className={`uppercase fixed text-[15px] md:text-base xl:text-[24px] bottom-6 xl:bottom-10 text-center w-full px-4 textheader ${
+                    pathname === "/" ? "" : "hidden"
+                }`}
                 ref={textRef}
             >
                 <div>клиника-резиденция пластический хирургии</div>

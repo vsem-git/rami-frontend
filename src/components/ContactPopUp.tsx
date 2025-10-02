@@ -9,7 +9,7 @@ const ContactPopUp = () => {
 
     return (
         <div
-            className="fixed inset-0 bg-[#691C32] h-dvh w-full overflow-hidden group z-50 md:grid grid-cols-2 transition-all duration-1000"
+            className="fixed inset-0 bg-[#691C32] h-dvh w-full overflow-hidden group z-[999] md:grid grid-cols-2 transition-all duration-1000"
             style={{
                 scale: isOpen(popupName) ? 1 : 0.5,
                 opacity: isOpen(popupName) ? 1 : 0,
@@ -18,7 +18,7 @@ const ContactPopUp = () => {
         >
             <div className="max-h-full overflow-hidden md:block hidden">
                 <img
-                    src="/contact.png"
+                    src="/contact.webp"
                     alt="contact"
                     className="object-cover max-h-full w-full object-center h-full"
                 />
