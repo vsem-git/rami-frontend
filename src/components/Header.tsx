@@ -9,6 +9,7 @@ import UnderlinedText from "./UnderlinedText/UnderlinedText";
 gsap.registerPlugin(ScrollTrigger);
 
 const Header = () => {
+    const pathname = window.location.pathname;
     const { headerColor, navbarColor } = useHeader();
     const headerRef = useRef(null);
     const logoRef = useRef(null);
@@ -156,7 +157,9 @@ const Header = () => {
                 </UnderlinedText>
             </div>
             <div
-                className="uppercase fixed text-[15px] md:text-base xl:text-[24px] bottom-6 xl:bottom-10 text-center w-full px-4 textheader"
+                className={`uppercase fixed text-[15px] md:text-base xl:text-[24px] bottom-6 xl:bottom-10 text-center w-full px-4 textheader ${
+                    pathname === "/" ? "" : "hidden"
+                }`}
                 ref={textRef}
             >
                 <div>клиника-резиденция пластический хирургии</div>

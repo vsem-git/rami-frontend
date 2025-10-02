@@ -1,7 +1,10 @@
-const Correction = (props: React.HTMLAttributes<HTMLDivElement>) => {
+const Correction = ({
+    className,
+    ...props
+}: React.HTMLAttributes<HTMLDivElement>) => {
     return (
-        <div {...props}>
-            <div className="flex items-start gap-2">
+        <div {...props} className={`group ${className}`}>
+            <div className="flex flex-col xl:flex-row items-start gap-2">
                 <div className="flex gap-1 items-center">
                     <svg
                         width="16"
@@ -17,18 +20,37 @@ const Correction = (props: React.HTMLAttributes<HTMLDivElement>) => {
                             stroke-width="1.5"
                         />
                     </svg>
-                    <span className="font-semibold xl:text-xs 2xl:text-base">
-                        КОРРЕКЦИЯ ШРАМОВ
-                        <br /> И РУБЦОВ
+                    <span className="font-semibold text-xs 2xl:text-base">
+                        <p className="after:absolute relative after:left-0 after:bottom-0 after:h-[1px] after:bg-white after:w-0 after:transition-all after:duration-300 group-hover:after:w-full">
+                            КОРРЕКЦИЯ ШРАМОВ
+                        </p>
+                        <p className="after:absolute relative after:left-0 after:bottom-0 after:h-[1px] after:bg-white after:w-0 after:transition-all after:duration-300 group-hover:after:w-[9ch]">
+                            И РУБЦОВ
+                        </p>
                     </span>
                 </div>
+                <svg
+                    width="116"
+                    height="32"
+                    viewBox="0 0 116 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="xl:hidden translate-x-1/2"
+                >
+                    <path
+                        d="M1 1L30.9479 31H116"
+                        stroke="white"
+                        stroke-opacity="0.5"
+                    />
+                </svg>
+
                 <svg
                     width="193"
                     height="52"
                     viewBox="0 0 193 52"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="mt-3"
+                    className="hidden xl:block mt-3 2xl:max-w-[192px] max-w-[115px]"
                 >
                     <path
                         d="M192 51L142 1H0"
