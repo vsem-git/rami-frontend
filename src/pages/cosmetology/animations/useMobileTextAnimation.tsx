@@ -22,7 +22,7 @@ export const useMobileTextAnimation = (
 		const tl = gsap.timeline({
 			onComplete: () => {
 				gsap.set(textElement, {
-					y: '-100%',
+					y: '-130vw',
 					x: '0%',
 				})
 			},
