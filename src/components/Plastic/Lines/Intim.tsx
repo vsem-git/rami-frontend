@@ -1,9 +1,16 @@
+import { usePopup } from "../../PopupContext";
+
 const Intim = ({
     className,
     ...props
 }: React.HTMLAttributes<HTMLDivElement>) => {
+    const { openPopup } = usePopup();
     return (
-        <div {...props} className={`group ${className}`}>
+        <div
+            onClick={() => openPopup("intimpopup")}
+            {...props}
+            className={`group ${className}`}
+        >
             <div className="flex items-start gap-2">
                 <div className="flex gap-1 items-center">
                     <svg
