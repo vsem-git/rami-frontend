@@ -9,7 +9,7 @@ const Intim = ({
         <div
             onClick={() => openPopup("intimpopup")}
             {...props}
-            className={`group ${className}`}
+            className={`group cursor-pointer ${className}`}
         >
             <div className="flex items-start gap-2">
                 <div className="flex gap-1 items-center">

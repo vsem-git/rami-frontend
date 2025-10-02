@@ -9,7 +9,7 @@ const Correction = ({
         <div
             onClick={() => openPopup("breastpopup")}
             {...props}
-            className={`group ${className}`}
+            className={`group cursor-pointer ${className}`}
         >
             <div className="flex flex-col xl:flex-row items-start gap-2">
                 <div className="flex gap-1 items-center">
