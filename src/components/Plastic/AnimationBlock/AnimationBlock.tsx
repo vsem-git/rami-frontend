@@ -278,7 +278,7 @@ const AnimationBlock = () => {
             <div className="absolute z-[-1] h-dvh w-full bg-[#080808]">
                 <div
                     ref={imageRef}
-                    className="absolute bottom-0 left-0 w-[100%] aspect-[4096/2777] bg-[url('/plasticbg.jpg')] [background-position:15%_bottom] bg-no-repeat bg-cover min-h-dvh md:bg-contain sm:bg-bottom"
+                    className="absolute bottom-0 left-0 w-[100%] aspect-[4096/2777] bg-[url('/plasticbg.webp')] [background-position:15%_bottom] bg-no-repeat bg-cover min-h-dvh md:bg-contain sm:bg-bottom"
                 >
                     <div className="absolute inset-0 bg-black/30"></div>
                     <div className="md:hidden absolute bottom-4 left-4 flex items-center w-fit gap-3">

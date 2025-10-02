@@ -92,7 +92,7 @@ export const Cosmetology = () => {
 				<div
 					className="
             absolute w-full h-full will-change-transform
-            bg-[url('/cosmetology-screen/beef4aba2d32319ab3ff30157c877b883ffce82b.jpg')]
+            bg-[url('/cosmetology-screen/beef4aba2d32319ab3ff30157c877b883ffce82b.webp')]
             bg-no-repeat bg-cover scale-[1] sm:scale-[1.4]
             bg-[-17rem_0rem] sm:bg-[-13rem_8rem]
           "
@@ -109,7 +109,7 @@ export const Cosmetology = () => {
 				ref={backgroundRef}
 				className="
           hidden md:block absolute w-full h-full will-change-transform
-          bg-[url('/cosmetology-screen/beef4aba2d32319ab3ff30157c877b883ffce82b.jpg')]
+          bg-[url('/cosmetology-screen/beef4aba2d32319ab3ff30157c877b883ffce82b.webp')]
           bg-no-repeat bg-cover
           scale-[1.4] md:scale-[1] bg-[-13rem_8rem] md:bg-[-10rem_8rem] xl:bg-[-10rem_0%]
         "

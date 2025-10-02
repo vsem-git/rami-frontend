@@ -30,7 +30,7 @@ const images = [
         "Антон Валентинович",
     ],
     [
-        "/swiper1.png",
+        "/swiper1.webp",
         "/tarasenko.gif",
         ["КАНДИДАТ МЕДИЦИНСКИХ НАУК", "ПЛАСТИЧЕСКИЙ ХИРУРГ"],
         "Тарасенко",
@@ -297,18 +297,25 @@ const ThirdAnimationBlock = () => {
                                     }}
                                 >
                                     <img src={el[0] as string} alt="man" />
-                                    <div
-                                        style={{
-                                            backgroundImage: `url(${
-                                                el[1] as string
-                                            })`,
-                                        }}
-                                        className={`absolute inset-0 w-full h-full bg-cover bg-center saturate-0 opacity-0 transition-all group-hover:opacity-100 duration-1000 ${
-                                            activeSlide === i
-                                                ? "opacity-100"
-                                                : ""
+                                    {/* вместо div с backgroundImage */}
+                                    <video
+                                        className={`absolute inset-0 w-full h-full object-cover saturate-0 opacity-0 transition-all group-hover:opacity-100 duration-1000 ${
+                                            activeSlide === i ? "opacity-100" : ""
                                         }`}
-                                    ></div>
+                                        playsInline
+                                        muted
+                                        loop
+                                        autoPlay
+                                        preload="metadata"
+                                        poster={el[0] as string}  // ваш статичный webp как постер
+                                    >
+                                        {/* порядок важен: сначала webm, потом mp4 */}
+                                        <source src={(el[1] as string).replace(".gif", ".webm")} type="video/webm" />
+                                        <source src={(el[1] as string).replace(".gif", ".mp4")}  type="video/mp4" />
+                                        {/* опционально: animated webp как самый последний запасной */}
+                                        {/* <img src={(el[1] as string).replace(".gif", ".webp")} alt="" /> */}
+                                    </video>
+
                                     <div
                                         className={`absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-0 transition-all group-hover:opacity-100 duration-1000 ${
                                             activeSlide === i

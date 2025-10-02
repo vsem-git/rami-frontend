@@ -18,7 +18,7 @@ const ContactPopUp = () => {
         >
             <div className="max-h-full overflow-hidden md:block hidden">
                 <img
-                    src="/contact.png"
+                    src="/contact.webp"
                     alt="contact"
                     className="object-cover max-h-full w-full object-center h-full"
                 />
