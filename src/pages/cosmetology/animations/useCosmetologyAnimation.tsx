@@ -14,12 +14,11 @@ export const useCosmetologyAnimation = (
 	contentRef4: RefObject<HTMLDivElement | null>,
 	contentRef5: RefObject<HTMLDivElement | null>,
 	contentRef6: RefObject<HTMLDivElement | null>,
-	isMobile?: boolean // Добавляем параметр isMobile
+	isMobile?: boolean 
 ) => {
 	useEffect(() => {
-		// Если мобильное устройство - полностью отключаем анимации
 		if (isMobile || window.innerWidth <= 768) {
-			return // Просто выходим из хука, ничего не анимируем
+			return 
 		}
 
 		const textElement = textRef.current
