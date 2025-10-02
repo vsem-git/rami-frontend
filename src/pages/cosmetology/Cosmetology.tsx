@@ -10,6 +10,7 @@ interface CosmetologyItem {
 
 export const Cosmetology = () => {
 	const textRef = useRef<HTMLHeadingElement>(null)
+	const textRefMobile = useRef<HTMLHeadingElement>(null)
 	const sectionRef = useRef<HTMLDivElement>(null)
 	const backgroundRef = useRef<HTMLDivElement>(null)
 	const contentRef1 = useRef<HTMLDivElement>(null)
@@ -46,7 +47,7 @@ export const Cosmetology = () => {
 		contentRef6
 	)
 
-	useMobileTextAnimation(textRef, isMobile)
+	useMobileTextAnimation(textRefMobile, isMobile)
 
 	const contentRefs = [
 		contentRef1,
@@ -75,7 +76,7 @@ export const Cosmetology = () => {
 			<div className='w-full h-[720px] sm:h-[640px] relative md:hidden bg-[#0c0807]'>
 				{isMobile && (
 					<h1
-						ref={textRef}
+						ref={textRefMobile}
 						className='
     text-[64px]/[125%] font-normal uppercase whitespace-nowrap
     text-white mix-blend-difference
