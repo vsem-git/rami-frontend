@@ -102,14 +102,14 @@ const VideoAnimation = () => {
             duration: 1,
         }); */
 
-        tl.to(".menuheader", { autoAlpha: 1, y: 0, duration: 2 }, 4)
-            .to(".visitheader", { autoAlpha: 1, y: 0, duration: 2 }, 4)
-            .to(".navbarheader", { autoAlpha: 1, y: 0, duration: 2 }, 4)
+        tl.to(".menuheader", { autoAlpha: 1, y: 0, duration: 2 }, 0)
+            .to(".visitheader", { autoAlpha: 1, y: 0, duration: 2 }, "<")
+            .to(".navbarheader", { autoAlpha: 1, y: 0, duration: 2 }, "<")
             .fromTo(
                 ".textheader",
                 { autoAlpha: 0 },
                 { autoAlpha: 1, y: 0, duration: 2 },
-                4
+                "<"
             );
 
         tl.to({}, { duration: 3 });
