@@ -1,5 +1,7 @@
+"use client";
+
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import { Swiper as SwiperComponent, SwiperSlide } from "swiper/react";
@@ -11,33 +13,53 @@ import { useHeader } from "../../HeaderContext";
 const images = [
     [
         "/swiper2.webp",
-        "/swiper2_over.webp",
-        "Маммолог",
-        "Телишевский Антон Валентинович",
-    ],
-    [
-        "/swiper1.png",
-        "/swiper1_over.jpg",
-        "Маммолог",
-        "Телишевский Антон Валентинович",
+        "/serb.gif",
+        ["ГЛАВНЫЙ ВРАЧ", "Пластический хирург", "ВРАЧ ВЫСШЕЙ КАТЕГОРИИ"],
+        "Серб",
+        "Ирина Анатольевна",
     ],
     [
         "/swiper3.webp",
-        "/swiper3_over.webp",
-        "Маммолог",
-        "Телишевский Антон Валентинович",
+        "/telishevskiy.gif",
+        [
+            "ЗАМЕСТИТЕЛЬ ГЛАВНОГО ВРАЧА ПО МЕДИЦИНСКОЙ ЧАСТИ",
+            "РЕКОНСТРУКТИВНО-ПЛАСТИЧЕСКИЙ ХИРУРГ",
+            "ОНКОЛОГ-МАММОЛОГ",
+        ],
+        "Телишевский",
+        "Антон Валентинович",
     ],
     [
-        "/swiper4.webp",
-        "/swiper1_over.jpg",
-        "Маммолог",
-        "Телишевский Антон Валентинович",
+        "/swiper1.png",
+        "/tarasenko.gif",
+        ["КАНДИДАТ МЕДИЦИНСКИХ НАУК", "ПЛАСТИЧЕСКИЙ ХИРУРГ"],
+        "Тарасенко",
+        "Василий Сергеевич",
     ],
     [
         "/swiper5.webp",
-        "/swiper2_over.webp",
-        "Маммолог",
-        "Телишевский Антон Валентинович",
+        "/hrustaleva.gif",
+        [
+            "ДОКТОР МЕДИЦИНСКИХ НАУК",
+            "ПЛАСТИЧЕСКИЙ ХИРУРГ",
+            "ЗАВЕДУЮЩАЯ КАФЕДРОЙ ПЛАСТИЧЕСКОЙ ХИРУРГИИ ПСПбГМУ ИМ. АК. ПАВЛОВА",
+        ],
+        "Хрусталева",
+        "Ирина Эдуардовна",
+    ],
+    [
+        "/kardov.webp",
+        "/kardov.gif",
+        ["ПЛАСТИЧЕСКИЙ ХИРУРГ"],
+        "Кардов",
+        "Хазрит Музаринович",
+    ],
+    [
+        "/swiper4.webp",
+        "/rami.gif",
+        ["ЗАМЕСТИТЕЛЬ ОПЕРАЦИОННОГО ДИРЕКТОРА", "ПЛАСТИЧЕСКИЙ ХИРУРГ"],
+        "Хамуд",
+        "Рами",
     ],
 ];
 
@@ -52,6 +74,22 @@ const ThirdAnimationBlock = () => {
     const isSwiperReady = useRef(false);
     const tlRef = useRef<gsap.core.Timeline | null>(null); // To kill/recreate if needed
     const { setHeaderColor } = useHeader();
+    const [activeSlide, setActiveSlide] = useState<number | null>(null);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        console.log(activeSlide);
+    }, [activeSlide]);
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(max-width: 767px)");
+        setIsMobile(mediaQuery.matches);
+
+        const handleChange = () => setIsMobile(mediaQuery.matches);
+        mediaQuery.addEventListener("change", handleChange);
+
+        return () => mediaQuery.removeEventListener("change", handleChange);
+    }, []);
 
     useGSAP(() => {
         const mm = gsap.matchMedia();
@@ -249,17 +287,42 @@ const ThirdAnimationBlock = () => {
                             return (
                                 <SwiperSlide
                                     key={i}
-                                    className="h-[640px] w-[480px] relative group"
+                                    className="h-[640px] w-[480px] relative group aspect-[390/520] bg-[linear-gradient(90deg,rgba(116,117,112,1)0%,rgba(166,167,164,1)50%,rgba(116,117,112,1)100%)]"
+                                    onTouchStart={() => {}}
+                                    onClick={() => {
+                                        if (!isMobile) return;
+                                        setActiveSlide((prev) =>
+                                            prev === i ? null : i
+                                        );
+                                    }}
                                 >
-                                    <img src={el[0]} alt="man" />
+                                    <img src={el[0] as string} alt="man" />
                                     <div
                                         style={{
-                                            backgroundImage: `url(${el[1]})`,
+                                            backgroundImage: `url(${
+                                                el[1] as string
+                                            })`,
                                         }}
-                                        className="absolute inset-0 w-full h-full bg-cover bg-center saturate-0 opacity-0 transition-all group-hover:opacity-100 group-active:opacity-100 duration-1000"
+                                        className={`absolute inset-0 w-full h-full bg-cover bg-center saturate-0 opacity-0 transition-all group-hover:opacity-100 duration-1000 ${
+                                            activeSlide === i
+                                                ? "opacity-100"
+                                                : ""
+                                        }`}
                                     ></div>
-                                    <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-0 transition-all group-hover:opacity-100 group-active:opacity-100 duration-1000"></div>
-                                    <div className="absolute inset-0 w-full h-full opacity-0 transition-all group-hover:opacity-100 group-active:opacity-100 duration-1000">
+                                    <div
+                                        className={`absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-0 transition-all group-hover:opacity-100 duration-1000 ${
+                                            activeSlide === i
+                                                ? "opacity-100"
+                                                : ""
+                                        }`}
+                                    ></div>
+                                    <div
+                                        className={`absolute inset-0 w-full h-full opacity-0 transition-all group-hover:opacity-100 duration-1000 ${
+                                            activeSlide === i
+                                                ? "opacity-100"
+                                                : ""
+                                        }`}
+                                    >
                                         <div className="relative h-full w-full flex flex-col items-center text-center justify-end pb-5">
                                             <button className="absolute top-0 right-0 m-1 sm:m-2 p-4 md:p-5 2xl:p-8 text-[32px] bg-[#691C32] cursor-pointer">
                                                 <svg
@@ -277,12 +340,42 @@ const ThirdAnimationBlock = () => {
                                                     />
                                                 </svg>
                                             </button>
-                                            <p className="text-white font-medium text-[11px] md:text-[12px] 2xl:text-[18px] mb-2 uppercase xl:mb-3 translate-y-full opacity-0 transition-all duration-1000 group-hover:translate-y-0 group-active:translate-y-0 group-hover:opacity-100 group-active:opacity-100">
-                                                Врач-косметолог
+                                            <p
+                                                className={`uppercase text-[13px] md:text-sm mt-1 2xl:text-[21px] leading-[120%] mb-4 text-white translate-y-full opacity-0 transition-all duration-1000 group-hover:translate-y-0 group-hover:opacity-100 ${
+                                                    activeSlide === i
+                                                        ? "opacity-100 !translate-y-0"
+                                                        : ""
+                                                }`}
+                                            >
+                                                <span className="text-xl md:text-2xl 2xl:text-4xl">
+                                                    {el[3]}
+                                                </span>
+                                                <br />
+                                                <span>{el[4]}</span>
                                             </p>
-                                            <p className="uppercase text-[13px] md:text-sm 2xl:text-[21px] leading-[120%] text-white translate-y-full opacity-0 transition-all duration-1000 group-hover:translate-y-0 group-active:translate-y-0 group-hover:opacity-100 group-active:opacity-100">
-                                                ВИноградов ИВАН Александрович
-                                            </p>
+                                            <>
+                                                {Array.isArray(el[2]) &&
+                                                    el[2].map(
+                                                        (
+                                                            item: string,
+                                                            idx: number
+                                                        ) => {
+                                                            return (
+                                                                <p
+                                                                    key={idx}
+                                                                    className={`text-white font-medium text-[11px] md:text-[12px] 2xl:text-[18px] mb-1 uppercase xl:mb-2 translate-y-full opacity-0 transition-all duration-1000 group-hover:translate-y-0 group-hover:opacity-100 ${
+                                                                        activeSlide ===
+                                                                        i
+                                                                            ? "opacity-100 !translate-y-0"
+                                                                            : ""
+                                                                    }`}
+                                                                >
+                                                                    {item}
+                                                                </p>
+                                                            );
+                                                        }
+                                                    )}
+                                            </>
                                         </div>
                                     </div>
                                 </SwiperSlide>

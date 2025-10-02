@@ -3,12 +3,12 @@ import Header from "../../components/Header";
 import ScrollSmoother from "../../components/ScrollSmoother";
 import Footer from "../../components/Footer";
 import { HeaderProvider } from "../../components/HeaderContext";
-import Preloader from "../../components/Preloader";
 import { PopupProvider } from "../../components/PopupContext";
 import ContactPopUp from "../../components/ContactPopUp";
 import SecondSectionPopup1 from "../../components/SecondSectionPopup1";
 import SecondSectionPopup2 from "../../components/SecondSectionPopup2";
 import SecondSectionPopup3 from "../../components/SecondSectionPopup3";
+import Preloader from "../../components/Preloader";
 
 const RootLayout = () => {
     return (
