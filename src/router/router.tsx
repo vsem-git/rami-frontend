@@ -31,7 +31,7 @@ const router = createBrowserRouter([
 		],
 	},
 	{
-		path: '/сosmetology',
+		path: '/cosmetology',
 		element: <CosmetologyLayout />,
 		children: [
 			{

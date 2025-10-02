@@ -89,7 +89,7 @@ const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
 							}
 						></div>
 						<img
-							src='/logo_white.png'
+							src='/logo_white.webp'
 							width={1000}
 							height={1000}
 							alt='logo'
