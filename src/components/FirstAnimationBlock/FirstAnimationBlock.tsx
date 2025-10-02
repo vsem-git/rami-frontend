@@ -192,7 +192,7 @@ const FirstAnimationBlock = () => {
                     className="text-black mt-25 m-4 sm:m-10 sm:mt-25 uppercase text-[13px] md:text-sm 2xl:text-[21px] 2xl:max-w-[720px] md:max-w-[400px] sm:max-w-[400px] max-w-full"
                     ref={block2TextRef}
                 >
-                    <span className="font-bold leading-9">
+                    <span className="mb-8 text-[20px] md:text-[24px] 2xl:text-[36px]">
                         RAMICLINIC RESIDENCE
                     </span>
                     <br />
