@@ -17,7 +17,9 @@ const Hair = (props: React.HTMLAttributes<HTMLDivElement>) => {
                     />
                 </svg>
                 <div className="flex gap-1 items-center">
-                    <span className="font-semibold">ПЕРЕСАДКА ВОЛОС</span>
+                    <span className="font-semibold xl:text-xs 2xl:text-base">
+                        ПЕРЕСАДКА ВОЛОС
+                    </span>
                     <svg
                         width="16"
                         height="17"
