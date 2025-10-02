@@ -278,7 +278,7 @@ const AnimationBlock = () => {
             <div className="absolute z-[-1] h-dvh w-full bg-[#080808]">
                 <div
                     ref={imageRef}
-                    className="absolute bottom-0 left-0 w-[100%] aspect-[4096/2777] bg-[url('/plasticbg.webp')] [background-position:15%_bottom] bg-no-repeat bg-cover min-h-dvh md:bg-contain sm:bg-bottom"
+                    className="absolute -bottom-10 left-0 w-[100%] aspect-[4096/2777] bg-[url('/plasticbg.webp')] [background-position:15%_bottom] bg-no-repeat bg-cover min-h-dvh md:bg-contain sm:bg-bottom"
                 >
                     <div className="absolute inset-0 bg-black/30"></div>
                     <div className="md:hidden absolute bottom-4 left-4 flex items-center w-fit gap-3">
@@ -308,7 +308,7 @@ const AnimationBlock = () => {
                 </div>
             </div>
             <div
-                className="absolute bottom-[80px] sm:bottom-auto sm:top-[96px] md:top-[132px] left-0 w-full overflow-hidden"
+                className="absolute bottom-[80px] sm:bottom-auto sm:top-[96px] md:top-[122px] left-0 w-full overflow-hidden"
                 ref={runningStroke}
             >
                 <div className="marquee flex whitespace-nowrap text-[64px] md:text-[96px] 2xl:text-[130px] mix-blend-difference">
@@ -320,7 +320,7 @@ const AnimationBlock = () => {
             </div>
             <div
                 ref={firstText}
-                className="absolute scale-50 text-xs 2xl:text-lg opacity-0 h-full right-0 z-10 flex flex-col gap-4 xl:p-[80px] 2xl:p-[115px] uppercase justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
+                className="absolute scale-50 text-xs 2xl:text-lg opacity-0 h-full right-0 z-10 flex flex-col gap-4 xl:p-[80px] 2xl:p-[115px] uppercase justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] md:px-[32px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
             >
                 <p className="mt-30">
                     Пластический хирург – как скульптор – кончиками пальцев,
