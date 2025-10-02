@@ -7,7 +7,7 @@ import { Antiage } from '../pages/antiage/Antiage'
 import { Cosmetology } from '../pages/cosmetology/Cosmetology'
 const router = createBrowserRouter([
 	{
-		path: '/',
+		path: '/ыйы',
 		element: <RootLayout />,
 		children: [
 			{
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
 		],
 	},
 	{
-		path: '/cosmetology',
+		path: '/',
 		element: <Cosmetology />,
 		children: [
 			{
