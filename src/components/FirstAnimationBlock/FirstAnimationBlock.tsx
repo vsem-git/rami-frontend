@@ -294,7 +294,7 @@ const FirstAnimationBlock = () => {
                     </div>
                     <div className="absolute hidden sm:block sm:left-4 sm:bottom-6 md:bottom-auto md:left-auto md:top-32 md:right-8">
                         <img
-                            src="/ceo_logo.png"
+                            src="/ceo_logo.webp"
                             alt=""
                             width={228}
                             height={218}

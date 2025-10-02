@@ -107,7 +107,7 @@ const Header = () => {
                             }
                         ></div>
                         <img
-                            src="/logo_black.png"
+                            src="/logo_black.webp"
                             width={1000}
                             height={1000}
                             alt="logo"
@@ -119,7 +119,7 @@ const Header = () => {
                             style={{ transition: "opacity 0.3s ease-in-out" }}
                         />
                         <img
-                            src="/logo_white.png"
+                            src="/logo_white.webp"
                             width={1000}
                             height={1000}
                             alt="logo"
