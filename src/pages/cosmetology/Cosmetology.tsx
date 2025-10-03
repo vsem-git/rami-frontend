@@ -117,7 +117,7 @@ export const Cosmetology = () => {
 					hidden md:block absolute w-full h-full will-change-transform
 					bg-[url('/cosmetology-screen/beef4aba2d32319ab3ff30157c877b883ffce82b.webp')]
 					bg-no-repeat bg-cover
-					scale-[1.4] md:scale-[1] bg-[-13rem_8rem] md:bg-[-10rem_8rem] xl:bg-[-10rem_0%]
+					scale-[1.4] md:scale-[1] bg-[-13rem_8rem] md:bg-[-22rem_8rem] lg:bg-[-10rem_8rem] xl:bg-[-10rem_0%]
 				"
 			/>
 

@@ -12,7 +12,7 @@ import DoctorLayout from '../pages/doctor/layout'
 
 const router = createBrowserRouter([
 	{
-		path: '/',
+		path: '/цв',
 		element: <RootLayout />,
 		children: [
 			{
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
 		],
 	},
 	{
-		path: '/cosmetology',
+		path: '/',
 		element: <CosmetologyLayout />,
 		children: [
 			{
