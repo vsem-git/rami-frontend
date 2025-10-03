@@ -5,7 +5,7 @@ const ContactButton = () => {
 
 	return (
 		<button
-			className='w-full sm:w-[211px] md:w-[289px] h-[56px] md:h-[64px] flex items-center justify-center px-8 py-6 bg-white border border-transparent text-[#691C32] text-xs md:text-base font-semibold uppercase cursor-pointer hover:bg-transparent hover:border-white hover:text-white transition-colors duration-300 whitespace-nowrap mt-8'
+			className='w-full sm:w-[211px] md:w-[289px] whitespace-nowrap h-[56px] md:h-[64px] flex items-center justify-center px-8 py-6 bg-white border border-transparent text-[#691C32] text-xs md:text-base font-semibold uppercase cursor-pointer hover:bg-transparent hover:border-white hover:text-white transition-colors duration-300  mt-8'
 			onClick={() => openPopup('contact')}
 		>
 			Запланировать визит
@@ -18,7 +18,7 @@ const ContactButtonSecond = () => {
 
 	return (
 		<button
-			className='w-[211px] md:w-[289px] h-[56px] md:h-[64px] flex items-center justify-center px-8 py-6 bg-white border border-transparent text-[#691C32] text-xs md:text-base font-semibold uppercase cursor-pointer hover:bg-transparent hover:border-white hover:text-white transition-colors duration-300 whitespace-nowrapp relative z-20'
+			className='w-[211px] md:w-[289px] h-[56px] md:h-[64px] whitespace-nowrap flex items-center justify-center px-8 py-6 bg-white border border-transparent text-[#691C32] text-xs md:text-base font-semibold uppercase cursor-pointer hover:bg-transparent hover:border-white hover:text-white transition-colors duration-300  relative z-20'
 			onClick={() => openPopup('contact')}
 		>
 			Запланировать визит
@@ -96,11 +96,10 @@ export const COSMETOLOGY = [
 		content: (
 			<>
 				<p className='text-sm xl:text-[21px]/[155%] text-white uppercase font-normal max-w-[400px] xl:max-w-[580px]'>
-					Устранение дефицитов в организме и гормональных нарушений – важные
-					составляющие преображения, которые решают те же вопросы красоты и
-					молодости, но изнутри. Таким глубоким пониманием связи внутренних
-					процессов и внешних изменений обладает редкий на сегодняшний день в
-					России антиэйдж-специалист.
+					Только такой подход позволяет достичь предельной результативности всех
+					процессов, которые ежесекундно протекают в Клинике: омоложение
+					внешности, эффективная подготовка к пластической операции, быстрое
+					восстановление после нее.
 				</p>
 				<ContactButtonSecond />
 			</>

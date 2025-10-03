@@ -4,10 +4,11 @@ import RootLayout from '../pages/Home/layout'
 import Plastic from '../pages/Plastic/Plastic'
 import PlasticLayout from '../pages/Plastic/layout'
 import { Antiage } from '../pages/antiage/Antiage'
+import AntiageLayout from '../pages/antiage/layout'
 import { Cosmetology } from '../pages/cosmetology/Cosmetology'
 import CosmetologyLayout from '../pages/cosmetology/layout'
-import AntiageLayout from '../pages/antiage/layout'
-
+import { Doctor } from '../pages/doctok/Doctor'
+import DoctorLayout from '../pages/doctok/layout'
 
 const router = createBrowserRouter([
 	{
@@ -47,6 +48,16 @@ const router = createBrowserRouter([
 			{
 				index: true,
 				element: <Antiage />,
+			},
+		],
+	},
+	{
+		path: '/doctor',
+		element: <DoctorLayout />,
+		children: [
+			{
+				index: true,
+				element: <Doctor />,
 			},
 		],
 	},
