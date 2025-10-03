@@ -14,16 +14,16 @@ export const useCosmetologyAnimation = (
 	contentRef4: RefObject<HTMLDivElement | null>,
 	contentRef5: RefObject<HTMLDivElement | null>,
 	contentRef6: RefObject<HTMLDivElement | null>,
-	isMobile?: boolean 
+	isMobile?: boolean
 ) => {
 	useEffect(() => {
 		if (isMobile || window.innerWidth <= 768) {
-			return 
+			return
 		}
 
-		const textElement = textRef.current
 		const sectionElement = sectionRef.current
 		const backgroundElement = backgroundRef.current
+		const textElement = textRef.current
 		const contentElements = [
 			contentRef1.current,
 			contentRef2.current,
@@ -34,27 +34,31 @@ export const useCosmetologyAnimation = (
 		]
 
 		if (
-			!textElement ||
 			!sectionElement ||
 			!backgroundElement ||
+			!textElement ||
 			contentElements.some(el => !el)
 		)
 			return
+
+		gsap.set(textElement, {
+			y: '0%',
+			opacity: 1,
+		})
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: sectionElement,
 				start: 'top top',
 				end: '+=1000%',
-				scrub: 2,
+				scrub: 1,
 				pin: true,
 				markers: false,
+				anticipatePin: 1,
+				fastScrollEnd: true,
 			},
 		})
 
-		gsap.set(textElement, {
-			x: '180vw',
-		})
 
 		contentElements.forEach(element => {
 			if (element) {
@@ -63,29 +67,11 @@ export const useCosmetologyAnimation = (
 					scale: 0.4,
 					filter: 'blur(30px)',
 					y: 0,
+					x: 0,
+					transformOrigin: 'center center',
 				})
 			}
 		})
-
-		tl.to(
-			textElement,
-			{
-				x: '-1vw',
-				duration: 9,
-				ease: 'power2.inOut',
-			},
-			0
-		)
-
-		tl.to(
-			textElement,
-			{
-				y: '-140vw',
-				duration: 4,
-				ease: 'power2.inOut',
-			},
-			10.5
-		)
 
 		tl.fromTo(
 			backgroundElement,
@@ -118,6 +104,7 @@ export const useCosmetologyAnimation = (
 					opacity: 1,
 					scale: 1,
 					filter: 'blur(0px)',
+					y: 0,
 					duration: blockAppearDuration,
 					ease: 'power2.out',
 				},
@@ -128,17 +115,31 @@ export const useCosmetologyAnimation = (
 				element,
 				{
 					opacity: 1,
+					y: 0,
 					duration: blockStayDuration,
 					ease: 'none',
 				},
 				startTime + blockAppearDuration
 			)
 
+			if (index === 1) { 
+				tl.to(
+					textElement,
+					{
+						opacity: 0,
+						duration: blockDisappearDuration,
+						ease: 'power2.inOut',
+					},
+					startTime + blockAppearDuration
+				)
+			}
+
 			if (index < contentElements.length - 1) {
 				tl.to(
 					element,
 					{
 						opacity: 0,
+						y: 0,
 						duration: blockDisappearDuration,
 						ease: 'power2.inOut',
 					},
