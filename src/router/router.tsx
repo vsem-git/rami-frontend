@@ -7,8 +7,8 @@ import { Antiage } from '../pages/antiage/Antiage'
 import AntiageLayout from '../pages/antiage/layout'
 import { Cosmetology } from '../pages/cosmetology/Cosmetology'
 import CosmetologyLayout from '../pages/cosmetology/layout'
-import { Doctor } from '../pages/doctok/Doctor'
-import DoctorLayout from '../pages/doctok/layout'
+import { Doctor } from '../pages/doctor/Doctor'
+import DoctorLayout from '../pages/doctor/layout'
 
 const router = createBrowserRouter([
 	{

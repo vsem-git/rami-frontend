@@ -44,7 +44,8 @@ export const Cosmetology = () => {
 		contentRef3,
 		contentRef4,
 		contentRef5,
-		contentRef6
+		contentRef6,
+		isMobile
 	)
 
 	useMobileTextAnimation(textRefMobile, isMobile)
@@ -78,13 +79,13 @@ export const Cosmetology = () => {
 					<h1
 						ref={textRefMobile}
 						className='
-    text-[64px]/[125%] font-normal uppercase whitespace-nowrap
-    text-white mix-blend-difference
-    absolute top-[5.5rem] right-0
-    sm:top-auto sm:bottom-[-5rem]
-    pointer-events-none
-    z-20
-  '
+							text-[64px]/[125%] font-normal uppercase whitespace-nowrap
+							text-white mix-blend-difference
+							absolute top-[5.5rem] right-0
+							sm:top-auto sm:bottom-[-5rem]
+							pointer-events-none
+							z-20
+						'
 					>
 						ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ
 					</h1>
@@ -92,16 +93,20 @@ export const Cosmetology = () => {
 
 				<div
 					className="
-            absolute w-full h-full will-change-transform
-            bg-[url('/cosmetology-screen/beef4aba2d32319ab3ff30157c877b883ffce82b.webp')]
-            bg-no-repeat bg-cover scale-[1] sm:scale-[1.4]
-            bg-[-17rem_0rem] sm:bg-[-13rem_8rem]
-          "
+						absolute w-full h-full will-change-transform
+						bg-[url('/cosmetology-screen/beef4aba2d32319ab3ff30157c877b883ffce82b.webp')]
+						bg-no-repeat bg-cover scale-[1] sm:scale-[1.4]
+						bg-[-17rem_0rem] sm:bg-[-13rem_8rem]
+					"
 				/>
 
-				<div className='relative z-10 h-full flex items-end sm:items-center justify-end px-4 py-8'>
+				<div className='relative z-10 h-full flex flex-col items-end justify-end sm:justify-center pb-8 px-4 gap-16'>
 					{isMobile && (
-						<div className='space-y-6 text-white'>{firstBlock.content}</div>
+						<>
+							<div className='space-y-6 text-white mt-24'>
+								{firstBlock.content}
+							</div>
+						</>
 					)}
 				</div>
 			</div>
@@ -109,24 +114,39 @@ export const Cosmetology = () => {
 			<div
 				ref={backgroundRef}
 				className="
-          hidden md:block absolute w-full h-full will-change-transform
-          bg-[url('/cosmetology-screen/beef4aba2d32319ab3ff30157c877b883ffce82b.webp')]
-          bg-no-repeat bg-cover
-          scale-[1.4] md:scale-[1] bg-[-13rem_8rem] md:bg-[-10rem_8rem] xl:bg-[-10rem_0%]
-        "
+					hidden md:block absolute w-full h-full will-change-transform
+					bg-[url('/cosmetology-screen/beef4aba2d32319ab3ff30157c877b883ffce82b.webp')]
+					bg-no-repeat bg-cover
+					scale-[1.4] md:scale-[1] bg-[-13rem_8rem] md:bg-[-10rem_8rem] xl:bg-[-10rem_0%]
+				"
 			/>
 
-			<div className='flex flex-col items-end gap-[120px] my-[120px]'>
+			<div className='hidden md:flex items-center justify-end h-full w-full pr-8 xl:pr-20 2xl:pr-[110px]'>
+				<div className='relative w-full max-w-[580px]'>
+					{!isMobile && (
+						<div
+							ref={contentRef1}
+							className='absolute -right-4 lg:right-8 top-[-131px]'
+						>
+							{firstBlock.content}
+						</div>
+					)}
+
+					{contentData.map(item => (
+						<div
+							key={item.id}
+							ref={item.ref}
+							className='absolute -right-4 lg:right-8 top-[-131px]'
+						>
+							{item.content}
+						</div>
+					))}
+				</div>
+			</div>
+
+			<div className='md:hidden flex flex-col items-end gap-16 my-16 px-4'>
 				{contentData.map(item => (
-					<div
-						key={item.id}
-						ref={item.ref}
-						className={`
-              space-y-10
-              md:absolute md:bottom-0 md:right-8 lg:right-20 2xl:right-[110px] md:top-[35%]
-              relative mt-10 px-4 md:px-0
-            `}
-					>
+					<div key={item.id} className='space-y-6 text-white'>
 						{item.content}
 					</div>
 				))}
@@ -134,27 +154,16 @@ export const Cosmetology = () => {
 
 			{!isMobile && (
 				<div
-					ref={contentRef1}
-					className={`
-            md:absolute md:bottom-0 md:right-8 lg:right-20 2xl:right-[110px] md:top-[35%]
-            relative mt-10 px-4 md:px-0
-          `}
-				>
-					{firstBlock.content}
-				</div>
-			)}
-
-			{!isMobile && (
-				<h1
+					className="absolute -bottom-5 right-0 w-full overflow-hidden mix-blend-difference text-white"
 					ref={textRef}
-					className='
-            text-[96px]/[125%] xl:text-[160px]/[125%] font-normal uppercase whitespace-nowrap
-            absolute -bottom-5 right-0
-            text-white mix-blend-difference
-          '
 				>
-					ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ
-				</h1>
+					<div className="marquee flex whitespace-nowrap text-[96px]/[125%] xl:text-[160px]/[125%] font-normal uppercase mix-blend-difference">
+						<span className="px-8">ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ</span>
+						<span className="px-8">ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ</span>
+						<span className="px-8">ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ</span>
+						<span className="px-8">ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ</span>
+					</div>
+				</div>
 			)}
 		</div>
 	)
