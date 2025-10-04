@@ -16,6 +16,12 @@ export const useCardsAnimation = (
 
 		if (!section || cards.length === 0) return
 
+		if (window.innerWidth <= 768) {
+			gsap.set(cards, { opacity: 1, y: 0 })
+			ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+			return
+		}
+
 		gsap.set(cards, { opacity: 0, y: 50 })
 
 		const durationPerCard = 0.5
@@ -25,7 +31,7 @@ export const useCardsAnimation = (
 			scrollTrigger: {
 				trigger: section,
 				start: 'top top',
-				end: `+=${totalDuration * window.innerHeight}`, 
+				end: `+=${totalDuration * window.innerHeight}`,
 				scrub: true,
 				pin: true,
 				anticipatePin: 1,
@@ -42,7 +48,7 @@ export const useCardsAnimation = (
 					duration: durationPerCard,
 					ease: 'power3.out',
 				},
-				i * durationPerCard 
+				i * durationPerCard
 			)
 		})
 

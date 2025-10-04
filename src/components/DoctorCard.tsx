@@ -11,7 +11,7 @@ export const DoctorCard = forwardRef<HTMLDivElement, DoctorCardProps>(
 		return (
 			<div
 				ref={ref}
-				className={`w-full h-[608px] bg-no-repeat bg-cover cursor-pointer relative group overflow-hidden ${className}`}
+				className={`w-full h-[309px] sm:h-[428px] md:h-[309px] lg:h-[405px] xl:h-[608px] bg-no-repeat bg-cover cursor-pointer relative group overflow-hidden ${className}`}
 				style={{ backgroundImage: `url(${imageUrl})` }}
 			>
 				<div className='absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500 flex items-end p-6'>

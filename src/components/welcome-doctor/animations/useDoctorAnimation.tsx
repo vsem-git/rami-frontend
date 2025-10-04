@@ -41,14 +41,14 @@ export const useDoctorAnimation = (
 		})
 
 		gsap.set(doctorContentElement, {
-			y: '100vh',
+			y: '90vh',
 			opacity: 0,
 		})
 
 		tl.to(
 			defaultContentElement,
 			{
-				y: '-100vh',
+				y: '-90vh',
 				duration: 6,
 				ease: 'power2.inOut',
 			},

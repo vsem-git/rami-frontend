@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { DOCTOR } from '../../shared/data/doctor'
 import { useDoctorAnimation } from './animations/useDoctorAnimation'
 
-const WelcomeDoctor = () => {
+export const WelcomeDoctor = () => {
 	const sectionRef = useRef<HTMLElement>(null)
 	const backgroundRef = useRef<HTMLDivElement>(null)
 	const defaultContentRef = useRef<HTMLDivElement>(null)
@@ -15,18 +15,29 @@ const WelcomeDoctor = () => {
 		doctorContentRef
 	)
 	return (
-		<section ref={sectionRef} className='relative h-screen overflow-hidden'>
-			<div
-				ref={backgroundRef}
-				className='absolute inset-0 bg-cover bg-center'
-				style={{
-					backgroundImage: 'url(/doctor-screen/bg.jpg)',
-					backgroundPosition: '50% 10%',
-				}}
-			/>
+		<section
+			ref={sectionRef}
+			className='relative h-auto md:h-screen overflow-hidden'
+		>
+			<div className='w-full h-[370px] md:h-auto'>
+				<div
+					ref={backgroundRef}
+					className='relative w-full h-full md:absolute inset-0 bg-cover bg-center bg-[url("/doctor-screen/bg1.png")] md:bg-[url("/doctor-screen/bg.jpg")] flex items-end justify-center'
+					style={{
+						backgroundPosition: '50% 10%',
+					}}
+				>
+					<div
+						className='block md:hidden w-[299px] h-[299px] bg-cover bg-center bg-[url("/doctor-screen/serb1.png")]'
+						style={{
+							backgroundPosition: '50% 10%',
+						}}
+					/>
+				</div>
+			</div>
 
 			<div
-				className='absolute inset-0 z-10'
+				className='absolute inset-0 z-10 hidden md:block'
 				style={{
 					background:
 						'linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, rgba(29, 29, 29, 0.5) 50%, rgba(29, 29, 29, 0.5) 100%)',
@@ -35,25 +46,29 @@ const WelcomeDoctor = () => {
 
 			<div
 				ref={defaultContentRef}
-				className='relative z-20 min-h-screen flex flex-col justify-end p-10 border-b border-[#FFFFFF4D] pb-10 text-white'
+				className='relative z-20 min-h-auto md:min-h-screen flex flex-col justify-end  p-6 xl:p-10 border-none md:border-b border-[#FFFFFF4D] pb-10 text-[#1D1D1D] md:text-white mt-12 md:mt-0'
 			>
-				<h1 className='text-[88px]/[114%] font-normal uppercase mb-10'>
+				<h1 className='text-2xl/[125%] md:text-[44px]/[125%]  xl:text-[88px]/[114%] font-normal uppercase mb-6 xl:mb-10'>
 					Серб Ирина
 					<br />
 					Анатольевна
 				</h1>
-				<div className='flex items-center'>
-					<h3 className='text-[21px]/[155%] font-normal uppercase'>
+				<div className='flex items-center whitespace-nowrap'>
+					<h3 className='hidden xl:block text-[21px]/[155%] font-normal uppercase'>
 						Главный врач RAMICLINIC RESIDENCE
 					</h3>
 
-					<div className='w-1.5 h-1.5 bg-white rounded-full mx-16' />
-					<ul className='flex items-center'>
-						<li className='flex items-center text-[21px]/[155%] font-normal uppercase cursor-pointer'>
-							пластический хирург
-							<div className='w-1.5 h-1.5 bg-white rounded-full mx-16' />
+					<ul className='w-full flex flex-col xl:flex-row items-start xl:items-center gap-1 xl:gap-0 '>
+						<li className='w-full md:w-auto flex xl:hidden items-center text-sm/[155%] xl:text-[21px]/[155%] font-normal uppercase cursor-pointer border-t border-[#1D1D1D1A] md:border-none py-2 md:py-0'>
+							<div className='w-1.5 h-1.5 bg-white rounded-full mr-4 lg:mx-4 xl:mx-16 hidden md:block' />
+							Главный врач RAMICLINIC RESIDENCE
 						</li>
-						<li className='flex items-center text-[21px]/[155%] font-normal uppercase cursor-pointer'>
+						<li className='w-full md:w-auto flex items-center text-sm/[155%] xl:text-[21px]/[155%] font-normal uppercase cursor-pointer border-t border-[#1D1D1D1A] md:border-none py-2 md:py-0'>
+							<div className='w-1.5 h-1.5 bg-white rounded-full mr-4 lg:mx-4 xl:mx-16 hidden md:block' />
+							пластический хирург
+						</li>
+						<li className='w-full md:w-auto flex items-center text-sm/[155%] xl:text-[21px]/[155%] font-normal uppercase cursor-pointer border-y border-[#1D1D1D1A] md:border-none py-2 md:py-0'>
+							<div className='w-1.5 h-1.5 bg-white rounded-full mr-4 lg:mx-4 xl:mx-16 hidden md:block' />
 							врач высшей категории
 						</li>
 					</ul>
@@ -62,12 +77,12 @@ const WelcomeDoctor = () => {
 
 			<div
 				ref={doctorContentRef}
-				className='absolute inset-0 z-30 flex items-center justify-center p-10'
+				className='relative md:absolute inset-0 z-30 flex items-center justify-center p-6 xl:p-10'
 			>
-				<div className='w-full flex justify-end'>{DOCTOR[0].content}</div>
+				<div className='w-full flex justify-start md:justify-end'>
+					{DOCTOR[0].content}
+				</div>
 			</div>
 		</section>
 	)
 }
-
-export default WelcomeDoctor

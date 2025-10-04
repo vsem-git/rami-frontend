@@ -15,9 +15,9 @@ export const DoctorCardsSection = () => {
 	return (
 		<section
 			ref={cardsSectionRef}
-			className='w-full h-screen flex justify-center items-center px-10'
+			className='w-full h-auto md:h-screen flex justify-center items-center px-4 md:px-10'
 		>
-			<div className='w-full grid grid-cols-3 gap-2'>
+			<div className='w-full grid grid-cols-1 md:grid-cols-3 gap-2'>
 				<DoctorCard
 					ref={card1Ref}
 					imageUrl='/doctor-screen/card1.jpg'
