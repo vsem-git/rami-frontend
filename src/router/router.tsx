@@ -42,7 +42,7 @@ const router = createBrowserRouter([
 		],
 	},
 	{
-		path: '/antiage',
+		path: '/anti-age',
 		element: <AntiageLayout />,
 		children: [
 			{
