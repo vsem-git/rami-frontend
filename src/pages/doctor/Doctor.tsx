@@ -1,6 +1,7 @@
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useEffect, useRef } from 'react'
+import { DoctorAge } from '../../components/DoctorAge/DoctorAge'
 import { DoctorCardsSection } from '../../components/DoctorCardsSection/DoctorCardsSection'
 import { DoctorGallery } from '../../components/DoctorGallery/DoctorGallery'
 import WelcomeDoctor from '../../components/welcome-doctor/WelcomeDoctor'
@@ -52,13 +53,14 @@ export const Doctor = () => {
 							всему окружению. Красота – это не просто слово. Это обещание
 							счастья! Это сила, способная изменить мир к лучшему.
 						</p>
-						<button className='text-base font-semibold uppercase text-[#1D1D1D]'>
+						<button className='text-base font-semibold uppercase text-[#1D1D1D] cursor-pointer'>
 							ЧИТАТЬ СТАТЬЮ ПОЛНОСТЬЮ
 						</button>
 					</div>
 				</div>
 			</section>
 			<DoctorGallery />
+			<DoctorAge />
 
 			<div className='w-full h-screen px-10'>
 				<video
