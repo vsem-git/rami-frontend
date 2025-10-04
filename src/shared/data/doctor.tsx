@@ -3,7 +3,7 @@ export const DOCTOR = [
 		id: 1,
 		content: (
 			<>
-				<p className='text-[36px]/[125%] text-white font-normal uppercase max-w-[920px]'>
+				<p className='text-xl/[125%] md:ext-2xl/[125%] xl:text-[36px]/[125%] text-[#1D1D1D] md:text-white font-normal uppercase w-full md:max-w-[616px] xl:max-w-[920px]'>
 					Профессионал со стажем работы в специальности 29 лет, блестящий
 					специалист в области пластической хирургии, известный далеко за
 					пределами России. Виртуозный мастер хирургической коррекции возрастных
