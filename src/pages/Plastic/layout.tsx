@@ -10,6 +10,7 @@ import HairPopup from "../../components/Plastic/Popups/HairPopup";
 import IntimPopup from "../../components/Plastic/Popups/IntimPopup";
 import PlasticPopup from "../../components/Plastic/Popups/PlasticPopup";
 import CorrectionPopup from "../../components/Plastic/Popups/CorrectionPopup";
+import SeeServices from "../../components/Plastic/SeeServices";
 
 const Layout = () => {
     return (
@@ -21,6 +22,10 @@ const Layout = () => {
             <ContactPopUp />
             <BreastPopup />
             <BodyPopup />
+            <div className="fixed md:hidden md:-bottom-10 left-0 w-[100%] aspect-[4096/2777] bg-[url('/plasticbg.webp')] [background-position:15%_bottom] bg-no-repeat bg-cover min-h-dvh md:bg-contain md:bg-bottom">
+                <div className="absolute inset-0 bg-black/30"></div>
+            </div>
+            <SeeServices />
             <HeaderProvider>
                 <Header />
                 <ScrollSmoother>

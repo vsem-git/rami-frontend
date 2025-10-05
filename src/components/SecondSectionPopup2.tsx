@@ -9,14 +9,18 @@ const SecondSectionPopup2 = () => {
         <div
             className="fixed flex flex-col justify-end inset-0 bg-[#1D1D1D80] h-dvh w-full overflow-hidden group z-50 transition-all duration-1000"
             style={{
-                transform: isOpen(popupName)
-                    ? "translateY(0)"
-                    : "translateY(100vh)",
                 opacity: isOpen(popupName) ? 1 : 0,
                 pointerEvents: isOpen(popupName) ? "auto" : "none",
             }}
         >
-            <div className="w-full flex justify-center mb-4">
+            <div
+                className="w-full transition-all duration-1000 flex justify-center mb-4"
+                style={{
+                    transform: isOpen(popupName)
+                        ? "translateY(0)"
+                        : "translateY(100vh)",
+                }}
+            >
                 <svg
                     width="48"
                     height="48"
@@ -41,7 +45,14 @@ const SecondSectionPopup2 = () => {
                     />
                 </svg>
             </div>
-            <div className="bg-[#691C32] w-full px-4 py-8 text-center flex flex-col items-center">
+            <div
+                className="bg-[#691C32] transition-all duration-1000 w-full px-4 py-8 text-center flex flex-col items-center"
+                style={{
+                    transform: isOpen(popupName)
+                        ? "translateY(0)"
+                        : "translateY(100vh)",
+                }}
+            >
                 <h2 className="text-white uppercase text-[20px] mb-4">
                     интеллектуальная косметология
                 </h2>

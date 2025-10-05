@@ -9,11 +9,17 @@ const Intimpopup = () => {
         <div
             className={`fixed flex flex-col sm:flex-row justify-end inset-0 bg-[#1D1D1D80] h-dvh w-full overflow-hidden group z-50 transition-all duration-1000 ${
                 isOpen(popupName)
-                    ? "translate-y-0 md:translate-x-0 opacity-100 pointer-events-auto"
-                    : "translate-y-full md:translate-x-full md:translate-y-0 opacity-0 pointer-events-none"
+                    ? "opacity-100 pointer-events-auto"
+                    : "opacity-0 pointer-events-none"
             }`}
         >
-            <div className="w-full flex justify-center sm:justify-end sm:items-center mr-4 mb-4">
+            <div
+                className={`w-full flex justify-center transition-all duration-1000 sm:justify-end sm:items-center mr-4 mb-4 ${
+                    isOpen(popupName)
+                        ? "translate-y-0 md:translate-x-0"
+                        : "translate-y-full md:translate-y-0 md:translate-x-full"
+                }`}
+            >
                 <svg
                     width="48"
                     height="48"
@@ -39,7 +45,13 @@ const Intimpopup = () => {
                     />
                 </svg>
             </div>
-            <div className="bg-[#691C32]  text-center sm:text-left sm:max-w-[384px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px] w-full justify-center  px-8 xl:px-20 2xl:px-[120px] py-8 flex flex-col">
+            <div
+                className={`bg-[#691C32] transition-all duration-1000 text-center sm:text-left sm:max-w-[384px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px] w-full justify-center  px-8 xl:px-20 2xl:px-[120px] py-8 flex flex-col ${
+                    isOpen(popupName)
+                        ? "translate-y-0 md:translate-x-0"
+                        : "translate-y-full md:translate-y-0 md:translate-x-full"
+                }`}
+            >
                 <h2 className="text-white uppercase text-[24px] 2xl:text-[36px] mb-4">
                     Интимная пластика
                 </h2>
