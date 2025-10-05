@@ -157,12 +157,12 @@ const Header = () => {
                 </UnderlinedText>
             </div>
             <div
-                className={`uppercase fixed text-[15px] md:text-base xl:text-[24px] bottom-6 xl:bottom-10 sm:w-full text-center textheader ${
+                className={`uppercase fixed text-[15px] md:text-base xl:text-[24px] bottom-6 xl:bottom-10 w-full text-center textheader ${
                     pathname === "/" ? "" : "hidden"
                 }`}
                 ref={textRef}
             >
-                <div>клиника-резиденция пластический хирургии</div>
+                <div>клиника-резиденция пластической хирургии</div>
                 <button className="uppercase text-[13px] font-semibold mt-6 sm:hidden">
                     ЗАПЛАНИРОВАТЬ ВИЗИТ
                 </button>
