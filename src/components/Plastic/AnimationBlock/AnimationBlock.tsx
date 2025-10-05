@@ -22,66 +22,66 @@ const AnimationBlock = () => {
     const servicesBlock = useRef(null);
 
     useGSAP(() => {
-        gsap.set(
-            [
-                firstText.current,
-                secondText.current,
-                thirdText.current,
-                fourthText.current,
-            ],
-            {
-                opacity: 0,
-                filter: "blur(10px)",
-            }
-        );
-
         gsap.set(".shelf", {
             scale: 0,
             opacity: 0,
         });
 
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top top",
-                end: "+=1000%",
-                scrub: 1,
-                pin: true,
-                anticipatePin: 1,
-                fastScrollEnd: true,
-            },
-        });
-
-        tl.fromTo(
-            firstText.current,
-            {
-                opacity: 0,
-                duration: 1,
-                ease: "none",
-            },
-            {
-                opacity: 1,
-                scale: 1,
-                filter: "blur(0px)",
-                duration: 1,
-                ease: "none",
-            }
-        ).to(
-            ".shelf",
-            {
-                scale: 1,
-                opacity: 1,
-                duration: 1,
-                ease: "none",
-            },
-            "<"
-        );
-
-        tl.to({}, { duration: 1, ease: "none" });
-
         const mm = gsap.matchMedia();
 
         mm.add("(min-width: 769px)", () => {
+            gsap.set(
+                [
+                    firstText.current,
+                    secondText.current,
+                    thirdText.current,
+                    fourthText.current,
+                ],
+                {
+                    opacity: 0,
+                    filter: "blur(10px)",
+                }
+            );
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top top",
+                    end: "+=1000%",
+                    scrub: 1,
+                    pin: true,
+                    anticipatePin: 1,
+                    fastScrollEnd: true,
+                },
+            });
+
+            tl.fromTo(
+                firstText.current,
+                {
+                    opacity: 0,
+                    duration: 1,
+                    ease: "none",
+                },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    filter: "blur(0px)",
+                    duration: 1,
+                    ease: "none",
+                }
+            ).to(
+                ".shelf",
+                {
+                    scale: 1,
+                    opacity: 1,
+                    duration: 1,
+                    ease: "none",
+                },
+                "<"
+            );
+
+            tl.to({}, { duration: 1, ease: "none" });
+
             tl.fromTo(
                 runningStroke.current,
                 {
@@ -120,21 +120,7 @@ const AnimationBlock = () => {
                     },
                     "<"
                 );
-        });
-        mm.add("(max-width: 769px)", () => {
             tl.fromTo(
-                runningStroke.current,
-                {
-                    y: "0%",
-                    opacity: 1,
-                },
-                {
-                    y: "-100%",
-                    opacity: 0,
-                    duration: 1,
-                    ease: "none",
-                }
-            ).fromTo(
                 firstText.current,
                 {
                     opacity: 1,
@@ -149,7 +135,7 @@ const AnimationBlock = () => {
             );
 
             tl.fromTo(
-                servicesBlock.current,
+                secondText.current,
                 {
                     opacity: 0,
                     ease: "none",
@@ -166,7 +152,7 @@ const AnimationBlock = () => {
             tl.to({}, { duration: 2, ease: "none" });
 
             tl.fromTo(
-                servicesBlock.current,
+                secondText.current,
                 {
                     opacity: 1,
                 },
@@ -177,82 +163,52 @@ const AnimationBlock = () => {
                     ease: "none",
                 }
             );
+
+            tl.fromTo(
+                thirdText.current,
+                {
+                    opacity: 0,
+                    ease: "none",
+                },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1,
+                    filter: "blur(0px)",
+                    ease: "none",
+                }
+            );
+
+            tl.to({}, { duration: 2, ease: "none" });
+
+            tl.fromTo(
+                thirdText.current,
+                {
+                    opacity: 1,
+                },
+                {
+                    opacity: 0,
+                    y: -20,
+                    duration: 1,
+                    ease: "none",
+                }
+            );
+
+            tl.fromTo(
+                fourthText.current,
+                {
+                    opacity: 0,
+                    ease: "none",
+                },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1,
+                    filter: "blur(0px)",
+                    ease: "none",
+                }
+            );
         });
-
-        tl.fromTo(
-            secondText.current,
-            {
-                opacity: 0,
-                ease: "none",
-            },
-            {
-                opacity: 1,
-                scale: 1,
-                duration: 1,
-                filter: "blur(0px)",
-                ease: "none",
-            }
-        );
-
-        tl.to({}, { duration: 2, ease: "none" });
-
-        tl.fromTo(
-            secondText.current,
-            {
-                opacity: 1,
-            },
-            {
-                opacity: 0,
-                y: -20,
-                duration: 1,
-                ease: "none",
-            }
-        );
-
-        tl.fromTo(
-            thirdText.current,
-            {
-                opacity: 0,
-                ease: "none",
-            },
-            {
-                opacity: 1,
-                scale: 1,
-                duration: 1,
-                filter: "blur(0px)",
-                ease: "none",
-            }
-        );
-
-        tl.to({}, { duration: 2, ease: "none" });
-
-        tl.fromTo(
-            thirdText.current,
-            {
-                opacity: 1,
-            },
-            {
-                opacity: 0,
-                y: -20,
-                duration: 1,
-                ease: "none",
-            }
-        );
-
-        tl.fromTo(
-            fourthText.current,
-            {
-                opacity: 0,
-                ease: "none",
-            },
-            {
-                opacity: 1,
-                scale: 1,
-                duration: 1,
-                filter: "blur(0px)",
-                ease: "none",
-            }
-        );
 
         /* tl.to({}, { duration: 2, ease: "none" });
 
@@ -273,9 +229,9 @@ const AnimationBlock = () => {
     return (
         <div
             ref={containerRef}
-            className="overflow-hidden relative min-h-dvh text-white  bg-[#080808] before:z-[-1] before:absolute before:h-dvh before:bottom-0 before:left-20 before:w-[calc(90%)] "
+            className="overflow-hidden relative min-h-dvh text-white md:bg-[#080808] before:z-[-1] before:absolute before:h-dvh before:bottom-0 before:left-20 before:w-[calc(90%)] "
         >
-            <div className="absolute z-[-1] h-dvh w-full bg-[#080808]">
+            <div className="hidden md:block absolute z-[-1] h-dvh w-full bg-[#080808]">
                 <div
                     ref={imageRef}
                     className="absolute md:-bottom-10 left-0 w-[100%] aspect-[4096/2777] bg-[url('/plasticbg.webp')] [background-position:15%_bottom] bg-no-repeat bg-cover min-h-dvh md:bg-contain sm:bg-bottom"
@@ -308,7 +264,7 @@ const AnimationBlock = () => {
                 </div>
             </div>
             <div
-                className="absolute bottom-[80px] sm:bottom-auto sm:top-[96px] md:top-[122px] left-0 w-full overflow-hidden"
+                className="absolute top-[calc(100dvh-96px-80px)] sm:top-[96px] md:top-[122px] left-0 w-full overflow-hidden"
                 ref={runningStroke}
             >
                 <div className="marquee flex whitespace-nowrap text-[64px] md:text-[96px] 2xl:text-[130px] mix-blend-difference">
@@ -320,7 +276,7 @@ const AnimationBlock = () => {
             </div>
             <div
                 ref={firstText}
-                className="absolute scale-50 text-xs 2xl:text-lg opacity-0 h-full right-0 z-10 flex flex-col gap-4 xl:p-[80px] 2xl:p-[115px] uppercase justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] md:px-[32px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
+                className="md:absolute md:scale-50 text-xs sm:ml-auto md:ml-0 2xl:text-lg md:opacity-0 h-dvh right-0 z-10 flex flex-col gap-4 xl:p-[80px] 2xl:p-[115px] uppercase justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] md:px-[32px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
             >
                 <p className="mt-30">
                     Пластический хирург – как скульптор – кончиками пальцев,
@@ -336,12 +292,13 @@ const AnimationBlock = () => {
             </div>
             <div
                 ref={servicesBlock}
-                className="absolute scale-50 mt-30 sm:mt-0 text-xs 2xl:text-lg opacity-0 h-full right-0 z-10 flex flex-col gap-8 xl:p-[80px] 2xl:p-[115px] uppercase justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
+                id="services"
+                className="md:absolute md:scale-50 mt-30 sm:mt-0 text-xs sm:ml-auto md:ml-0 2xl:text-lg md:opacity-0 pt-[122px]  h-[calc(100dvh-122px)] right-0 z-10 flex flex-col gap-8 xl:p-[80px] 2xl:p-[115px] uppercase justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
             >
-                <p className="text-[20px] uppercase mt-[]">
+                <p className="text-[20px] uppercase">
                     Услуги пластической хирургии
                 </p>
-                <div className=" border-t border-[#FFFFFF26]">
+                <div className="border-t border-[#FFFFFF26] text-[11px]">
                     <div
                         onClick={() => openPopup("hairpopup")}
                         className="py-4 flex justify-between items-center border-b border-[#FFFFFF26]"
@@ -468,7 +425,7 @@ const AnimationBlock = () => {
             </div>
             <div
                 ref={secondText}
-                className="absolute scale-50 opacity-0 h-full right-0 z-10 flex flex-col  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
+                className="md:absolute md:scale-50 md:opacity-0  sm:ml-auto md:ml-0 h-dvh right-0 z-10 flex flex-col  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
             >
                 <div className="mb-8 2xl:mb-10 text-sm 2xl:text-[21px]">
                     Команде пластических хирургов RAMICLINIC RESIDENCE –
@@ -480,42 +437,42 @@ const AnimationBlock = () => {
                 </div>
                 <div>
                     <div className="grid grid-cols-[40px_1fr] 2xl:grid-cols-[48px_1fr] gap-3 2xl:gap-6 items-center mb-2 2xl:mb-4">
-                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[11px] rounded-full">
+                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[10px] md:text-[11px] rounded-full">
                             01
                         </div>
-                        <div className="2xl:text-lg font-medium uppercase text-xs">
+                        <div className="2xl:text-lg font-medium uppercase text-[11px] md:text-xs">
                             Реконструктивные операции
                         </div>
                     </div>
                     <div className="grid grid-cols-[40px_1fr] 2xl:grid-cols-[48px_1fr] gap-3 2xl:gap-6 items-center mb-2 2xl:mb-4">
-                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[11px] rounded-full">
+                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[10px] md:text-[11px] rounded-full">
                             02
                         </div>
-                        <div className="2xl:text-lg font-medium uppercase text-xs">
+                        <div className="2xl:text-lg font-medium uppercase text-[11px] md:text-xs">
                             Эстетические операции
                         </div>
                     </div>
                     <div className="grid grid-cols-[40px_1fr] 2xl:grid-cols-[48px_1fr] gap-3 2xl:gap-6 items-center mb-2 2xl:mb-4">
-                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[11px] rounded-full">
+                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[10px] md:text-[11px] rounded-full">
                             03
                         </div>
-                        <div className="2xl:text-lg font-medium uppercase text-xs">
+                        <div className="2xl:text-lg font-medium uppercase text-[11px] md:text-xs">
                             Онкопластические операции
                         </div>
                     </div>
                     <div className="grid grid-cols-[40px_1fr] 2xl:grid-cols-[48px_1fr] gap-3 2xl:gap-6 items-center mb-2 2xl:mb-4">
-                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[11px] rounded-full">
+                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[10px] md:text-[11px] rounded-full">
                             04
                         </div>
-                        <div className="2xl:text-lg font-medium uppercase text-xs">
+                        <div className="2xl:text-lg font-medium uppercase text-[11px] md:text-xs">
                             Повторные операции
                         </div>
                     </div>
                     <div className="grid grid-cols-[40px_1fr] 2xl:grid-cols-[48px_1fr] gap-3 2xl:gap-6 items-center mb-2 2xl:mb-4">
-                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[11px] rounded-full">
+                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[10px] md:text-[11px] rounded-full">
                             05
                         </div>
-                        <div className="2xl:text-lg font-medium uppercase text-xs">
+                        <div className="2xl:text-lg font-medium uppercase text-[11px] md:text-xs">
                             Мужская пластика
                         </div>
                     </div>
@@ -523,10 +480,12 @@ const AnimationBlock = () => {
             </div>
             <div
                 ref={thirdText}
-                className="absolute scale-50 opacity-0 h-full right-0 z-10 flex flex-col  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
+                className="md:absolute md:scale-50 md:opacity-0 h-dvh  sm:ml-auto md:ml-0 right-0 z-10 flex flex-col  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
             >
-                <p className="text-[20px] 2xl:text-[28px] mb-6">Наш подход</p>
-                <p className="text-[14px] 2xl:text-[21px]">
+                <p className="text-lg md:text-[20px] 2xl:text-[28px] mb-6">
+                    Наш подход
+                </p>
+                <p className="text-[13px] md:text-[14px] 2xl:text-[21px]">
                     Мы не только продлеваем молодость, но и{" "}
                     <span className="font-bold">меняем качество жизни</span>,
                     давая возможность ежедневно наслаждаться собственным
@@ -535,28 +494,28 @@ const AnimationBlock = () => {
             </div>
             <div
                 ref={fourthText}
-                className="absolute scale-50 opacity-0 h-full right-0 z-10 flex flex-col  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
+                className="md:absolute md:scale-50 md:opacity-0  sm:ml-auto md:ml-0 h-[calc(100dvh/1.25)] md:h-dvh right-0 z-10 flex flex-col  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
             >
-                <p className="text-[20px] 2xl:text-[28px] mb-10">
+                <p className="text-lg md:text-[20px] 2xl:text-[28px] mb-10">
                     Преимущества пациент-центрированного подхода:
                 </p>
                 <div>
                     <div className="grid grid-cols-[40px_1fr] 2xl:grid-cols-[48px_1fr] gap-3 2xl:gap-6 items-center mb-4">
-                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[11px] rounded-full">
+                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[10px] md:text-[11px] rounded-full">
                             01
                         </div>
-                        <div className="2xl:text-lg font-medium uppercase text-xs">
-                            Реконструктивные операции
+                        <div className="2xl:text-lg font-medium uppercase text-[11px] md:text-xs">
+                            Генетический паспорт кожи
                         </div>
                     </div>
                 </div>
 
                 <div>
                     <div className="grid grid-cols-[40px_1fr] 2xl:grid-cols-[48px_1fr] gap-3 2xl:gap-6 items-center mb-4">
-                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[11px] rounded-full">
+                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[10px] md:text-[11px] rounded-full">
                             02
                         </div>
-                        <div className="2xl:text-lg font-medium uppercase text-xs">
+                        <div className="2xl:text-lg font-medium uppercase text-[11px] md:text-xs">
                             Антиэйдж-сопровождение
                         </div>
                     </div>
@@ -564,11 +523,11 @@ const AnimationBlock = () => {
 
                 <div>
                     <div className="grid grid-cols-[40px_1fr] 2xl:grid-cols-[48px_1fr] gap-3 2xl:gap-6 items-center">
-                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[11px] rounded-full">
+                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[10px] md:text-[11px] rounded-full">
                             03
                         </div>
-                        <div className="2xl:text-lg font-medium uppercase text-xs">
-                            Персонализированная «дорожная карта
+                        <div className="2xl:text-lg font-medium uppercase text-[11px] md:text-xs">
+                            Персонализированная «дорожная карта»
                         </div>
                     </div>
                 </div>
@@ -576,7 +535,7 @@ const AnimationBlock = () => {
                 <div>
                     <div className="grid grid-cols-[40px_1fr] 2xl:grid-cols-[48px_1fr] gap-3 2xl:gap-6 items-center mb-4">
                         <div className="aspect-square flex justify-center items-center rounded-full"></div>
-                        <div className="2xl:text-lg font-medium uppercase text-xs text-[#FFFFFF99] leading-[155%]">
+                        <div className="2xl:text-lg font-medium uppercase text-[11px] md:text-xs text-[#FFFFFF99] leading-[155%]">
                             С логистикой всех этапов эстетического преображения:
                             от подготовки к операции до предсказуемых сценариев
                             реабилитационной программы.
