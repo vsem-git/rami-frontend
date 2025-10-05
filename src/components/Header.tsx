@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import NavBar from "./NavBar";
@@ -17,6 +17,10 @@ const Header = () => {
     const visitRef = useRef(null);
     const navBarRef = useRef<HTMLDivElement>(null);
     const textRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        console.log("Ширина экрана в пикселях - ", window.innerWidth);
+    }, []);
 
     useGSAP(() => {
         const logo = logoRef.current;
