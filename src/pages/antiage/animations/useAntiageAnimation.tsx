@@ -301,8 +301,8 @@ export const useAntiageAnimation = (
 				regenerativeMedicineElement,
 			],
 			{
-				y: '-9vh',
-				duration: 50,
+				y: '-6vh',
+				duration: 60,
 				ease: 'power1.inOut',
 			},
 			slowRiseStartTime
