@@ -262,15 +262,13 @@ const AnimationBlock = () => {
                 </div>
             </div>
             <div
-                className="absolute top-[calc(100dvh-96px-80px)] sm:top-[96px] md:top-[122px] left-0 w-full overflow-hidden"
                 ref={runningStroke}
+                className="marquee flex whitespace-nowrap text-[64px] md:text-[96px] 2xl:text-[130px] mix-blend-difference absolute top-[calc(100dvh-96px-80px)] sm:top-[96px] md:top-[122px] left-0 w-full"
             >
-                <div className="marquee flex whitespace-nowrap text-[64px] md:text-[96px] 2xl:text-[130px] mix-blend-difference">
-                    <span className="px-8">ПЛАСТИЧЕСКАЯ ХИРУРГИЯ</span>
-                    <span className="px-8">ПЛАСТИЧЕСКАЯ ХИРУРГИЯ</span>
-                    <span className="px-8">ПЛАСТИЧЕСКАЯ ХИРУРГИЯ</span>
-                    <span className="px-8">ПЛАСТИЧЕСКАЯ ХИРУРГИЯ</span>
-                </div>
+                <span className="px-8">ПЛАСТИЧЕСКАЯ ХИРУРГИЯ</span>
+                <span className="px-8">ПЛАСТИЧЕСКАЯ ХИРУРГИЯ</span>
+                <span className="px-8">ПЛАСТИЧЕСКАЯ ХИРУРГИЯ</span>
+                <span className="px-8">ПЛАСТИЧЕСКАЯ ХИРУРГИЯ</span>
             </div>
             <div
                 ref={firstText}
