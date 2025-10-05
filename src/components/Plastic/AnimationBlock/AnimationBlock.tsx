@@ -43,6 +43,29 @@ const AnimationBlock = () => {
                 }
             );
 
+            gsap.fromTo(
+                firstText.current,
+                {
+                    opacity: 0,
+                    duration: 1,
+                    ease: "none",
+                },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    filter: "blur(0px)",
+                    duration: 2,
+                    ease: "power2.inOut",
+                }
+            );
+
+            gsap.to(".shelf", {
+                scale: 1,
+                opacity: 1,
+                duration: 2,
+                ease: "power2.inOut",
+            });
+
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: containerRef.current,
@@ -54,31 +77,6 @@ const AnimationBlock = () => {
                     fastScrollEnd: true,
                 },
             });
-
-            tl.fromTo(
-                firstText.current,
-                {
-                    opacity: 0,
-                    duration: 1,
-                    ease: "none",
-                },
-                {
-                    opacity: 1,
-                    scale: 1,
-                    filter: "blur(0px)",
-                    duration: 1,
-                    ease: "none",
-                }
-            ).to(
-                ".shelf",
-                {
-                    scale: 1,
-                    opacity: 1,
-                    duration: 1,
-                    ease: "none",
-                },
-                "<"
-            );
 
             tl.to({}, { duration: 1, ease: "none" });
 
