@@ -267,7 +267,7 @@ const FirstAnimationBlock = () => {
                 ref={block8Ref}
             ></div>
             <div
-                className="absolute top-0 left-0 w-full h-full bg-[url('/residence6.webp')] [background-position:80%_100%] [background-size:_176%] [background-repeat:no-repeat] bg-[#F9F7F8] md::bg-cover md:[background-position-x:70%] md:bg-cover md:bg-center z-20"
+                className="absolute top-0 left-0 w-full h-full bg-[url('/residence6.webp'),linear-gradient(90deg,rgba(242,235,236,1)0%,rgba(248,246,247,1)30%,rgba(246,244,244,1)100%)] [background-position:80%_100%,center] [background-size:_176%,cover] [background-repeat:no-repeat,no-repeat] md:bg-cover md:bg-center z-20"
                 ref={block9Ref}
             >
                 <div className="relative w-full h-full flex justify-start pl-[16px] md:pl-[80px] xl:pl-[120px] 2xl:pl-[200px] items-start pt-[110px] sm:pt-[110px] md:pt-0 md:items-center">

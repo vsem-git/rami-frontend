@@ -62,13 +62,10 @@ const VideoAnimation = () => {
             });
         });
 
-        gsap.set(
-            [".menuheader", ".visitheader", ".navbarheader", ".textheader"],
-            {
-                autoAlpha: 0,
-                y: -100, // Пиксели вместо процентов
-            }
-        );
+        gsap.set([".visitheader", ".navbarheader", ".textheader"], {
+            autoAlpha: 0,
+            y: -100, // Пиксели вместо процентов
+        });
 
         gsap.set(".firstblocktext", {
             opacity: 0,
@@ -102,8 +99,7 @@ const VideoAnimation = () => {
             duration: 1,
         }); */
 
-        tl.to(".menuheader", { autoAlpha: 1, y: 0, duration: 2 }, 0)
-            .to(".visitheader", { autoAlpha: 1, y: 0, duration: 2 }, "<")
+        tl.to(".visitheader", { autoAlpha: 1, y: 0, duration: 2 }, "<")
             .to(".navbarheader", { autoAlpha: 1, y: 0, duration: 2 }, "<")
             .fromTo(
                 ".textheader",
