@@ -120,7 +120,7 @@ const FirstAnimationBlock = () => {
                 />
             </div> */}
             <div
-                className="absolute top-0 left-0 w-full h-dvh bg-[url('/animationblock2.webp')] bg-cover bg-center flex justify-between items-end z-50"
+                className="absolute top-0 left-0 w-full h-dvh bg-[url('/animationblock2.jpg')] bg-cover bg-center flex justify-between items-end z-50"
                 ref={block2Ref}
             >
                 <div
