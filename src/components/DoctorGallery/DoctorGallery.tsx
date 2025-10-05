@@ -41,7 +41,6 @@ export const DoctorGallery = () => {
 		if (width >= 1600) return 620
 		if (width >= 1440) return 620
 		if (width >= 1280) return 620
-		if (width >= 1120) return 620
 		if (width >= 1024) return 420
 		if (width >= 768) return 325
 		return 345

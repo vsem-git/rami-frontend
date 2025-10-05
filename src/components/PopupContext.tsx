@@ -1,59 +1,64 @@
 import React, {
-    createContext,
-    useContext,
-    useState,
-    type ReactNode,
-} from "react";
+	createContext,
+	useCallback,
+	useContext,
+	useState,
+	type ReactNode,
+} from 'react'
 
-// Тип состояния одного попапа
-type PopupState = Record<string, boolean>;
+type PopupState = Record<string, boolean>
 
 type PopupContextType = {
-    popups: PopupState;
-    openPopup: (name: string) => void;
-    closePopup: (name: string) => void;
-    togglePopup: (name: string) => void;
-    isOpen: (name: string) => boolean;
-};
+	popups: PopupState
+	openPopup: (name: string) => void
+	closePopup: (name: string) => void
+	closeAllPopups: () => void
+	togglePopup: (name: string) => void
+	isOpen: (name: string) => boolean
+}
 
-// Контекст с дефолтными заглушками
 const PopupContext = createContext<PopupContextType>({
-    popups: {},
-    openPopup: () => {},
-    closePopup: () => {},
-    togglePopup: () => {},
-    isOpen: () => false,
-});
+	popups: {},
+	openPopup: () => {},
+	closePopup: () => {},
+	closeAllPopups: () => {},
+	togglePopup: () => {},
+	isOpen: () => false,
+})
 
-// Хук для удобного использования
-export const usePopup = () => useContext(PopupContext);
+export const usePopup = () => useContext(PopupContext)
 
-// Провайдер
-type PopupProviderProps = { children: ReactNode };
+type PopupProviderProps = { children: ReactNode }
 
 export const PopupProvider: React.FC<PopupProviderProps> = ({ children }) => {
-    const [popups, setPopups] = useState<PopupState>({});
+	const [popups, setPopups] = useState<PopupState>({})
 
-    const openPopup = (name: string) => {
-        setPopups((prev) => ({ ...prev, [name]: true }));
-        console.log(popups);
-    };
+	const openPopup = useCallback((name: string) => {
+		setPopups(prev => ({ ...prev, [name]: true }))
+	}, [])
 
-    const closePopup = (name: string) => {
-        setPopups((prev) => ({ ...prev, [name]: false }));
-    };
+	const closePopup = useCallback((name: string) => {
+		setPopups(prev => ({ ...prev, [name]: false }))
+	}, [])
 
-    const togglePopup = (name: string) => {
-        setPopups((prev) => ({ ...prev, [name]: !prev[name] }));
-    };
+	const closeAllPopups = useCallback(() => {
+		setPopups({})
+	}, [])
 
-    const isOpen = (name: string) => !!popups[name];
+	const togglePopup = useCallback((name: string) => {
+		setPopups(prev => ({ ...prev, [name]: !prev[name] }))
+	}, [])
 
-    return (
-        <PopupContext.Provider
-            value={{ popups, openPopup, closePopup, togglePopup, isOpen }}
-        >
-            {children}
-        </PopupContext.Provider>
-    );
-};
+	const isOpen = useCallback((name: string) => !!popups[name], [popups])
+
+	const value = {
+		popups,
+		openPopup,
+		closePopup,
+		closeAllPopups,
+		togglePopup,
+		isOpen,
+	}
+
+	return <PopupContext.Provider value={value}>{children}</PopupContext.Provider>
+}
