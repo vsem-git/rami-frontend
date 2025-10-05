@@ -18,7 +18,7 @@ export const DoctorCard = forwardRef<HTMLDivElement, DoctorCardProps>(
 			>
 				<div className='absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500 flex items-end p-6'>
 					<button
-						className='flex items-center gap-3 text-base text-white font-semibold uppercase cursor-pointer bg-transparent border-none transform transition-all duration-500 ease-out group-hover:translate-x-2 group-hover:scale-105 group-hover:gap-4'
+						className='flex items-center gap-3 text-sm xl:text-base text-white font-semibold uppercase cursor-pointer bg-transparent border-none transform transition-all duration-500 ease-out group-hover:translate-x-2 group-hover:scale-105 group-hover:gap-4'
 						onClick={onClick}
 					>
 						{buttonText}

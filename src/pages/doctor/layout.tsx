@@ -8,8 +8,23 @@ import { PopupProvider, usePopup } from '../../components/PopupContext'
 import ScrollSmoother from '../../components/ScrollSmoother'
 import { POPUP_NAMES } from '../../constants/popupNames'
 
+import { useEffect, useState } from 'react'
+import { ContactOpenBoxFooter } from '../../components/ContactOpenBoxFooter'
+import FooterUpdate from '../../components/FooterUpdate'
+
 const LayoutContent = () => {
 	const { isOpen } = usePopup()
+	const [isMobile, setIsMobile] = useState(false)
+
+	useEffect(() => {
+		const handleResize = () => {
+			setIsMobile(window.innerWidth <= 768)
+		}
+
+		handleResize()
+		window.addEventListener('resize', handleResize)
+		return () => window.removeEventListener('resize', handleResize)
+	}, [])
 
 	return (
 		<>
@@ -19,9 +34,11 @@ const LayoutContent = () => {
 			{!isOpen(POPUP_NAMES.CONTACT) && !isOpen(POPUP_NAMES.DOCTOR_CARD) && (
 				<HeaderUpdate />
 			)}
+
 			<ScrollSmoother>
 				<Outlet />
-				<Footer />
+				<div className='min-h-[600px] sm:min-h-[700px] flex items-center justify-center'>{isMobile && <ContactOpenBoxFooter />}</div>
+				{isMobile ? <FooterUpdate /> : <Footer />}
 			</ScrollSmoother>
 		</>
 	)
