@@ -17,7 +17,7 @@ export const Antiage = () => {
 	const geneticPassportRef = useRef<HTMLHeadingElement>(null)
 	const hormonesRef = useRef<HTMLHeadingElement>(null)
 	const regenerativeMedicineRef = useRef<HTMLHeadingElement>(null)
-	const cellularRejuvenationRef = useRef<HTMLHeadingElement>(null) // Новый реф
+	const cellularRejuvenationRef = useRef<HTMLHeadingElement>(null)
 
 	const contentRefs = useRef<Array<React.RefObject<HTMLDivElement | null>>>(
 		ANTIAGE.map(() => useRef<HTMLDivElement | null>(null))
@@ -46,7 +46,7 @@ export const Antiage = () => {
 		geneticPassportRef,
 		hormonesRef,
 		regenerativeMedicineRef,
-		cellularRejuvenationRef, // Передаем новый реф
+		cellularRejuvenationRef,
 		...contentRefs
 	)
 
@@ -58,7 +58,7 @@ export const Antiage = () => {
 	return (
 		<div
 			ref={sectionRef}
-			className='w-full h-auto md:h-[110vh] relative overflow-hidden'
+			className='w-full h-auto md:h-[105vh] relative overflow-hidden bg-[url("/antiage-screen/anti-age.png")] bg-no-repeat bg-cover'
 		>
 			<div className='w-full h-[720px] sm:h-[640px] relative md:hidden bg-[#0c0807]'>
 				{isMobile && (
@@ -79,8 +79,8 @@ export const Antiage = () => {
 
 				<div
 					className="
-						absolute w-full h-full will-change-transform
-						bg-[url('/antiage-screen/anti-age.jpg')]
+						absolute w-[600px] h-[100vh] will-change-transform
+						bg-[url('/antiage-screen/image2.png')]
 						bg-no-repeat bg-cover scale-[1] sm:scale-[1.4]
 						bg-[-17rem_0rem] sm:bg-[-13rem_8rem]
 					"
@@ -97,7 +97,7 @@ export const Antiage = () => {
 				ref={backgroundRef}
 				className="
 					hidden md:block absolute w-full h-full will-change-transform
-					bg-[url('/antiage-screen/anti-age.jpg')] bg-no-repeat bg-cover scale-[1.5]
+					bg-[url('/antiage-screen/image2.png')] bg-no-repeat bg-cover scale-[1.5]
 				"
 			/>
 
@@ -109,7 +109,7 @@ export const Antiage = () => {
 					text-[#1D1D1D4D] 
 				'
 			>
-				Антиэйдж
+				#Антиэйдж
 			</h2>
 
 			<h3
@@ -121,7 +121,7 @@ export const Antiage = () => {
 					opacity-0 -translate-x-20
 				'
 			>
-				Генетический <br />
+				#Генетический <br />
 				паспорт
 			</h3>
 
@@ -134,7 +134,7 @@ export const Antiage = () => {
 					opacity-0 scale-50
 				'
 			>
-				гормоны
+				#гормоны
 			</h3>
 
 			<h3
@@ -146,7 +146,7 @@ export const Antiage = () => {
 					opacity-0 -translate-x-20
 				'
 			>
-				Регенеративная <br />
+				#Регенеративная <br />
 				Медицина
 			</h3>
 
@@ -159,7 +159,7 @@ export const Antiage = () => {
 					opacity-0 -translate-x-20
 				'
 			>
-				клеточное <br />
+				#клеточное <br />
 				омоложение
 			</h3>
 
