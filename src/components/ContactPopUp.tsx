@@ -24,7 +24,6 @@ const ContactPopUp = () => {
                 />
             </div>
             <div className="p-[30px] md:p-[80px] 2xl:p-[160px]">
-                {/* Заголовок и кнопка закрытия */}
                 <div className="flex justify-between gap-2 items-center mb-6 pt-[50px]">
                     <h2 className="leading-[125%] text-[24px] 2xl:text-[44px] text-white uppercase">
                         Свяжитесь с нами

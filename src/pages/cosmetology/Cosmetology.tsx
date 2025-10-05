@@ -82,7 +82,7 @@ export const Cosmetology = () => {
 							text-[64px]/[125%] font-normal uppercase whitespace-nowrap
 							text-white mix-blend-difference
 							absolute top-[5.5rem] right-0
-							sm:top-auto sm:bottom-[-5rem]
+							sm:top-auto sm:bottom-[-7rem]
 							pointer-events-none
 							z-20
 						'
@@ -117,7 +117,7 @@ export const Cosmetology = () => {
 					hidden md:block absolute w-full h-full will-change-transform
 					bg-[url('/cosmetology-screen/beef4aba2d32319ab3ff30157c877b883ffce82b.webp')]
 					bg-no-repeat bg-cover
-					scale-[1.4] md:scale-[1] bg-[-13rem_8rem] md:bg-[-22rem_8rem] lg:bg-[-10rem_8rem] xl:bg-[-10rem_0%]
+					scale-[1.4] md:scale-[1] bg-[-13rem_8rem] md:bg-[-22rem_8rem] lg:bg-[-17rem_8rem] xl:bg-[-10rem_0%]
 				"
 			/>
 
@@ -144,7 +144,7 @@ export const Cosmetology = () => {
 				</div>
 			</div>
 
-			<div className='md:hidden flex flex-col items-end gap-16 my-16 px-4'>
+			<div className='md:hidden flex flex-col items-end gap-16  my-16 px-4'>
 				{contentData.map(item => (
 					<div key={item.id} className='space-y-6 text-white'>
 						{item.content}
@@ -154,14 +154,22 @@ export const Cosmetology = () => {
 
 			{!isMobile && (
 				<div
-					className="absolute -bottom-5 right-0 w-full overflow-hidden mix-blend-difference text-white"
+					className='absolute -bottom-5 md:-bottom-0 lg:-bottom-5 right-0 w-full overflow-hidden mix-blend-difference text-white'
 					ref={textRef}
 				>
-					<div className="marquee flex whitespace-nowrap text-[96px]/[125%] xl:text-[160px]/[125%] font-normal uppercase mix-blend-difference">
-						<span className="px-8">ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ</span>
-						<span className="px-8">ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ</span>
-						<span className="px-8">ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ</span>
-						<span className="px-8">ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ</span>
+					<div className='marquee flex whitespace-nowrap text-[clamp(3rem,8vw,10rem)] font-normal uppercase mix-blend-difference leading-[125%]'>
+						<span className='px-4 md:px-6 xl:px-8'>
+							ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ
+						</span>
+						<span className='px-4 md:px-6 xl:px-8'>
+							ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ
+						</span>
+						<span className='px-4 md:px-6 xl:px-8'>
+							ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ
+						</span>
+						<span className='px-4 md:px-6 xl:px-8'>
+							ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ
+						</span>
 					</div>
 				</div>
 			)}
