@@ -157,7 +157,7 @@ const Header = () => {
                 </UnderlinedText>
             </div>
             <div
-                className={`uppercase fixed text-[15px] md:text-base xl:text-[24px] bottom-6 xl:bottom-10 text-center w-full px-4 textheader ${
+                className={`uppercase fixed text-[15px] md:text-base xl:text-[24px] bottom-6 xl:bottom-10 sm:w-full text-center textheader ${
                     pathname === "/" ? "" : "hidden"
                 }`}
                 ref={textRef}
