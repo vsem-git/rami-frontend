@@ -296,11 +296,7 @@ const ThirdAnimationBlock = () => {
                                         );
                                     }}
                                 >
-                                    <img
-                                        src={el[0] as string}
-                                        alt="man"
-                                        style={{ scale: i === 1 ? 0.85 : 1 }}
-                                    />
+                                    <img src={el[0] as string} alt="man" />
                                     {/* вместо div с backgroundImage */}
                                     <video
                                         className={`absolute inset-0 w-full h-full object-cover saturate-0 opacity-0 transition-all group-hover:opacity-100 duration-1000 ${
