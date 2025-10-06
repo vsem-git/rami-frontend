@@ -157,7 +157,7 @@ export const Cosmetology = () => {
 					className='absolute -bottom-5 md:-bottom-0 lg:-bottom-5 right-0 w-full overflow-hidden mix-blend-difference text-white'
 					ref={textRef}
 				>
-					<div className='marquee flex whitespace-nowrap text-[clamp(3rem,8vw,10rem)] font-normal uppercase mix-blend-difference leading-[125%]'>
+					<div className='marquee-cosmetology flex whitespace-nowrap text-[clamp(3rem,8vw,10rem)] font-normal uppercase mix-blend-difference leading-[125%]'>
 						<span className='px-4 md:px-6 xl:px-8'>
 							ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ
 						</span>

@@ -38,6 +38,11 @@ body {
 	animation: marquee 6s linear infinite;
 }
 
+.marquee-cosmetology {
+	display: inline-flex;
+	animation: marquee 40s linear infinite;
+}
+
 @media (min-width: 1850px) {
 	.hairplastic {
 		bottom: 600px;

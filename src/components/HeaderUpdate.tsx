@@ -17,28 +17,12 @@ const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
 	const logoRef = useRef(null)
 	const menuRef = useRef(null)
 	const visitRef = useRef(null)
-	const navBarRef = useRef<HTMLDivElement>(null)
 
-	const currentColor = useWhiteText ? '#ffffff' : headerColor
+	const currentColor = useWhiteText ? '#ffffff' : headerColor || '#000000'
 
-	useGSAP(() => {
-		const logo = logoRef.current
-		const header = headerRef.current
-		const menu = menuRef.current
-		const visit = visitRef.current
-		const navBar = navBarRef.current
+	useGSAP(() => {}, [])
 
-		if (!logo || !header || !menu || !visit || !navBar) {
-			console.error('One or more refs are not defined:', {
-				logo,
-				header,
-				menu,
-				visit,
-				navBar,
-			})
-			return
-		}
-	}, [])
+	const logoSrc = useWhiteText ? '/logo_white.webp' : '/logo_black.webp'
 
 	return (
 		<div
@@ -84,20 +68,20 @@ const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
 					<div className='relative'>
 						<div
 							className='absolute inset-0 w-[100px] h-[81px] 2xl:w-[149px] 2xl:h-[120px] bg-black/15 blur-[30px] z-0'
-							style={
-								headerColor === '#ffffff' ? { opacity: 1 } : { opacity: 0 }
-							}
+							style={{
+								opacity: useWhiteText ? 1 : 0,
+								transition: 'opacity 0.3s ease-in-out',
+							}}
 						></div>
-						
+
 						<img
-							src='/logo_white.webp'
+							src={logoSrc}
 							width={1000}
 							height={1000}
 							alt='logo'
 							className={`absolute inset-0 w-[100px] h-[81px] 2xl:w-[149px] 2xl:h-[120px]`}
-							style={{ transition: 'opacity 0.3s ease-in-out' }}
+							style={{ transition: 'opacity 0.3s ease-in-out', opacity: 1 }}
 						/>
-
 					</div>
 				</div>
 			</div>

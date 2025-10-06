@@ -9,52 +9,52 @@ export const useCardsAnimation = (
 	cardRefs: Array<RefObject<HTMLDivElement | null>>
 ) => {
 	useEffect(() => {
-		const section = sectionRef.current
-		const cards = cardRefs
-			.map(ref => ref.current)
-			.filter(Boolean) as HTMLElement[]
+		if (!sectionRef.current) return
 
-		if (!section || cards.length === 0) return
+		const ctx = gsap.context(() => {
+			const section = sectionRef.current
+			const cards = cardRefs
+				.map(ref => ref.current)
+				.filter(Boolean) as HTMLElement[]
 
-		if (window.innerWidth <= 768) {
-			gsap.set(cards, { opacity: 1, y: 0 })
-			ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-			return
-		}
+			if (!section || cards.length === 0) return
 
-		gsap.set(cards, { opacity: 0, y: 50 })
+			if (window.innerWidth <= 768) {
+				gsap.set(cards, { opacity: 1, y: 0 })
+				return
+			}
 
-		const durationPerCard = 0.5
-		const totalDuration = durationPerCard * cards.length + 1
+			gsap.set(cards, { opacity: 0, y: 50 })
 
-		const tl = gsap.timeline({
-			scrollTrigger: {
-				trigger: section,
-				start: 'top top',
-				end: `+=${totalDuration * window.innerHeight}`,
-				scrub: true,
-				pin: true,
-				anticipatePin: 1,
-				markers: false,
-			},
-		})
+			const durationPerCard = 0.5
+			const totalDuration = durationPerCard * cards.length + 1
 
-		cards.forEach((card, i) => {
-			tl.to(
-				card,
-				{
-					opacity: 1,
-					y: 0,
-					duration: durationPerCard,
-					ease: 'power3.out',
+			const tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: section,
+					start: 'top top',
+					end: `+=${totalDuration * window.innerHeight}`,
+					scrub: true,
+					pin: true,
+					anticipatePin: 1,
+					markers: false,
 				},
-				i * durationPerCard
-			)
-		})
+			})
 
-		return () => {
-			tl.kill()
-			ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-		}
+			cards.forEach((card, i) => {
+				tl.to(
+					card,
+					{ opacity: 1, y: 0, duration: durationPerCard, ease: 'power3.out' },
+					i * durationPerCard
+				)
+			})
+
+			return () => {
+				tl.kill()
+				ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+			}
+		}, sectionRef.current)
+
+		return () => ctx.revert()
 	}, [sectionRef, cardRefs])
 }
