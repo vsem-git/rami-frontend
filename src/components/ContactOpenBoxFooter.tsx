@@ -62,7 +62,7 @@ export const ContactOpenBoxFooter = () => {
 				className='absolute top-0 left-0 w-full h-full grid grid-cols-2 z-10 bg-rose-900 opacity-0 pointer-events-none'
 				ref={contactContentRef}
 			>
-				<img src='/contact.jpg' alt='contact' />
+				<img src='/contact.webp' alt='contact' />
 				<div className='flex justify-center items-center'>CONTACT</div>
 			</div>
 		</div>
