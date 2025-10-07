@@ -279,7 +279,7 @@ const ThirdAnimationBlock = () => {
                                 slidesPerView: 3.5,
                             },
                             1440: {
-                                slidesPerView: 3.8,
+                                slidesPerView: 4.1,
                             },
                         }}
                     >
