@@ -31,12 +31,19 @@ const FirstAnimationBlock = () => {
                 ease: "power2.inOut",
                 scrollTrigger: {
                     trigger: containerRef.current,
-                    start: "top center",
-                    end: "top top",
+                    start: "top+=1200 top",
+                    end: "top+=1900 top",
                     scrub: true,
                 },
             }
         );
+
+        ScrollTrigger.create({
+            trigger: containerRef.current,
+            start: "top 10%", // когда верх блока достигает 80% высоты экрана
+            onEnter: () => setHeaderColor("#ffffff"),
+            onLeaveBack: () => setHeaderColor("#000000"),
+        });
 
         const tl = gsap.timeline({
             scrollTrigger: {
@@ -59,39 +66,19 @@ const FirstAnimationBlock = () => {
             },
         }); */
 
-        /* tl.to(block2Ref.current, {
-            y: "0%",
-            duration: 1,
-            ease: "power2.inOut",
-        })
-            .call(
-                () => {
-                    setHeaderColor("#000000");
-                },
-                [],
-                "-=0.4"
-            )
-            .call(
-                () => {
-                    setHeaderColor("#ffffff");
-                },
-                [],
-                "-=0.3"
-            );
-            */
-        tl.call(
+        /* tl.call(
             () => {
                 setHeaderColor("#000000");
             },
             [],
-            "-=0.5"
+            "-=5"
         ).call(
             () => {
                 setHeaderColor("#ffffff");
             },
             [],
-            "-=0.2"
-        );
+            "-=4"
+        ); */
 
         tl.to(block2ContendRef.current, {
             autoAlpha: 1,

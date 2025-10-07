@@ -121,13 +121,13 @@ const VideoAnimation = () => {
                 x: 0,
                 y: 0,
                 duration: 5,
-                ease: "power2.out",
+                ease: "power2.inOut",
             },
             "<"
         ).fromTo(
             ".textheader",
-            { autoAlpha: 1, y: "0dvh" },
-            { autoAlpha: 0, y: "-20dvh", duration: 2 },
+            { autoAlpha: 1, y: "0dvh", ease: "power2.inOut" },
+            { autoAlpha: 0, y: "-20dvh", duration: 2, ease: "power2.inOut" },
             "<"
         );
 
