@@ -1,43 +1,51 @@
+import { useCallback, useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
+import { ContactOpenBoxFooter } from '../../components/ContactOpenBoxFooter'
 import ContactPopUp from '../../components/ContactPopUp'
 import { DoctorCardModal } from '../../components/DoctorCardModal'
 import Footer from '../../components/Footer'
+import FooterUpdate from '../../components/FooterUpdate'
 import { HeaderProvider } from '../../components/HeaderContext'
 import HeaderUpdate from '../../components/HeaderUpdate'
 import { PopupProvider, usePopup } from '../../components/PopupContext'
 import ScrollSmoother from '../../components/ScrollSmoother'
 import { POPUP_NAMES } from '../../constants/popupNames'
 
-import { useEffect, useState } from 'react'
-import { ContactOpenBoxFooter } from '../../components/ContactOpenBoxFooter'
-import FooterUpdate from '../../components/FooterUpdate'
-
 const LayoutContent = () => {
 	const { isOpen } = usePopup()
-	const [isMobile, setIsMobile] = useState(false)
+	const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768)
+
+	const handleResize = useCallback(() => {
+		setIsMobile(prev => {
+			const next = window.innerWidth <= 768
+			return prev === next ? prev : next
+		})
+	}, [])
 
 	useEffect(() => {
-		const handleResize = () => {
-			setIsMobile(window.innerWidth <= 768)
-		}
-
-		handleResize()
 		window.addEventListener('resize', handleResize)
 		return () => window.removeEventListener('resize', handleResize)
-	}, [])
+	}, [handleResize])
+
+	const isAnyPopupOpen =
+		isOpen(POPUP_NAMES.CONTACT) || isOpen(POPUP_NAMES.DOCTOR_CARD)
 
 	return (
 		<>
 			<ContactPopUp />
 			<DoctorCardModal />
 
-			{!isOpen(POPUP_NAMES.CONTACT) && !isOpen(POPUP_NAMES.DOCTOR_CARD) && (
-				<HeaderUpdate />
-			)}
+			{!isAnyPopupOpen && <HeaderUpdate />}
 
 			<ScrollSmoother>
 				<Outlet />
-				<div className='min-h-[600px] sm:min-h-[700px] flex items-center justify-center'>{isMobile && <ContactOpenBoxFooter />}</div>
+
+				{isMobile && (
+					<div className='min-h-[600px] sm:min-h-[700px] flex items-center justify-center'>
+						<ContactOpenBoxFooter />
+					</div>
+				)}
+
 				{isMobile ? <FooterUpdate /> : <Footer />}
 			</ScrollSmoother>
 		</>
