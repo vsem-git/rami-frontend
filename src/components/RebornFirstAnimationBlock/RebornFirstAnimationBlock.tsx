@@ -33,16 +33,21 @@ const FirstAnimationBlock = () => {
         gsap.set(block4Ref.current, { y: "100%" });
         gsap.set(block9Ref.current, { y: "100%" });
 
-        gsap.to(".firstblocktext", {
-            autoAlpha: 1,
-            duration: 1,
-            scrollTrigger: {
-                trigger: block1Ref.current,
-                start: "top center",
-                end: "bottom bottom",
-                scrub: true,
+        gsap.fromTo(
+            ".firstblocktext",
+            {
+                opacity: 0,
             },
-        });
+            {
+                opacity: 1,
+                scrollTrigger: {
+                    trigger: block1Ref.current,
+                    start: "top center",
+                    end: "bottom bottom",
+                    scrub: true,
+                },
+            }
+        );
 
         ScrollTrigger.create({
             trigger: containerRef.current,
@@ -55,7 +60,7 @@ const FirstAnimationBlock = () => {
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top top",
-                end: "+=1000%",
+                end: "+=2000%",
                 scrub: 1,
                 pin: true,
                 anticipatePin: 1,
@@ -63,12 +68,11 @@ const FirstAnimationBlock = () => {
             },
         });
 
-        tl.to({}, { duration: 5 });
-
         // Исчезновение первого блока + color change
         tl.to([block1Ref.current, ".firstblocktext"], {
-            autoAlpha: 0,
+            opacity: 0,
             duration: 1,
+            ease: "power2.inOut",
         })
             .call(() => {
                 setHeaderColor("#ffffff");
@@ -81,15 +85,13 @@ const FirstAnimationBlock = () => {
         tl.to(block2LogoRef.current, {
             x: "0%",
             duration: 2,
-            ease: "power2.out",
+            ease: "power2.inOut",
         });
 
         tl.to(block2TextRef.current, {
             autoAlpha: 1,
             duration: 1,
         });
-
-        tl.to({}, { duration: 2 });
 
         // Исчезновение второго блока + color change
         tl.call(() => {
@@ -107,55 +109,56 @@ const FirstAnimationBlock = () => {
         tl.to([block3TextRef.current, block3BlurRef.current], {
             autoAlpha: 1,
             duration: 1,
+            ease: "power2.inOut",
         });
-
-        tl.to({}, { duration: 2 });
 
         tl.to(block4Ref.current, {
             y: "0%",
             duration: 3,
-            ease: "power1.inOut",
+            ease: "power3.inOut",
         });
 
-        tl.to({}, { duration: 0.5 });
+        tl.to(block3Ref.current, {
+            opacity: 0,
+            duration: 0,
+            ease: "power3.inOut",
+        });
 
-        tl.to(block3Ref.current, { opacity: 0, duration: 0 });
+        tl.to(block5Ref.current, {
+            opacity: 1,
+            duration: 0,
+            ease: "power4.inOut",
+        });
 
-        tl.to(block5Ref.current, { opacity: 1, duration: 0 });
-
-        tl.to(block6Ref.current, { opacity: 1, duration: 0 });
+        tl.to(block6Ref.current, {
+            opacity: 1,
+            duration: 0,
+            ease: "power4.inOut",
+        });
 
         tl.to(block4Ref.current, {
             x: "-100%",
             duration: 3,
-            ease: "power2.in",
+            ease: "power4.inOut",
         });
-
-        tl.to({}, { duration: 0.5 });
 
         tl.to(block5Ref.current, {
             x: "-100%",
             duration: 3,
-            ease: "power2.in",
+            ease: "power4.inOut",
         });
-
-        tl.to({}, { duration: 0.5 });
 
         tl.to(block6Ref.current, {
             x: "-100%",
             duration: 3,
-            ease: "power3.in",
+            ease: "power4.inOut",
         });
-
-        tl.to({}, { duration: 0.5 });
 
         tl.to(block7Ref.current, {
             x: "-100%",
             duration: 3,
-            ease: "power3.in",
+            ease: "power4.inOut",
         });
-
-        tl.to({}, { duration: 0.5 });
 
         tl.to(block9Ref.current, {
             y: "0%",
@@ -163,8 +166,7 @@ const FirstAnimationBlock = () => {
             ease: "power2.inOut",
         })
             .call(() => setHeaderColor("#ffffff"), [], "-=1")
-            .call(() => setHeaderColor("#000000"), [], "-=0.9")
-            .to({}, { duration: 1 });
+            .call(() => setHeaderColor("#000000"), [], "-=0.9");
     });
 
     return (
