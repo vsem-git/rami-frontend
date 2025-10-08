@@ -153,19 +153,31 @@ const VideoAnimation = () => {
 
         const video = videoEl.current;
 
+        let timer: ReturnType<typeof setTimeout>;
+
+        let isRepeat = false;
+
         const handleScroll = (video: HTMLVideoElement) => {
             video.currentTime += 0.5;
             console.log("scrolled");
         };
 
         if (video) {
-            document.addEventListener("wheel", () => handleScroll(video));
+            document.addEventListener("wheel", () => {
+                if (!isRepeat) {
+                    handleScroll(video);
+                }
+            });
+            video.addEventListener("ended", () => {
+                if (!isRepeat) {
+                    timer = setTimeout(() => {
+                        content.style.maxHeight = "";
+                        gsap.to(window, { duration: 1, scrollTo: 300 });
+                        isRepeat = true;
+                    }, 2000);
+                }
+            });
         }
-
-        const timer = setTimeout(() => {
-            content.style.maxHeight = "";
-            gsap.to(window, { duration: 1, scrollTo: 300 });
-        }, 8000);
 
         return () => {
             clearTimeout(timer);
