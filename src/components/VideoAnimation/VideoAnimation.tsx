@@ -191,6 +191,7 @@ const VideoAnimation = () => {
                 <div ref={videoRef} className="h-dvh w-[100vw] bg-[#5c182a]">
                     <video
                         autoPlay
+                        ref={videoEl}
                         muted
                         playsInline
                         className="h-dvh w-[100vw] object-contain"
