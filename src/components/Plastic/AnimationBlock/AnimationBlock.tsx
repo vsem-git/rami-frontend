@@ -79,7 +79,7 @@ const AnimationBlock = () => {
                 },
             });
 
-            tl.to({}, { duration: 1, ease: "none" });
+            tl.to({}, { duration: 0.5, ease: "none" });
 
             tl.fromTo(
                 runningStroke.current,
@@ -91,7 +91,7 @@ const AnimationBlock = () => {
                     y: "-100%",
                     opacity: 0,
                     duration: 1,
-                    ease: "none",
+                    ease: "power2.inOut",
                 }
             )
                 .to(
@@ -102,7 +102,7 @@ const AnimationBlock = () => {
                         left: "-4%",
                         width: "120%",
                         duration: 2,
-                        ease: "none",
+                        ease: "power2.inOut",
                     },
                     "<"
                 )
@@ -113,9 +113,9 @@ const AnimationBlock = () => {
                     },
                     {
                         opacity: 0,
-                        y: -20,
+                        yPercent: -5,
                         duration: 1,
-                        ease: "none",
+                        ease: "power2.inOut",
                     },
                     "<"
                 );
@@ -128,7 +128,7 @@ const AnimationBlock = () => {
                     opacity: 0,
                     y: -20,
                     duration: 1,
-                    ease: "none",
+                    ease: "power2.inOut",
                 },
                 "<"
             );
@@ -144,11 +144,11 @@ const AnimationBlock = () => {
                     scale: 1,
                     duration: 1,
                     filter: "blur(0px)",
-                    ease: "none",
+                    ease: "power2.inOut",
                 }
             );
 
-            tl.to({}, { duration: 2, ease: "none" });
+            tl.to({}, { duration: 0.5, ease: "none" });
 
             tl.fromTo(
                 secondText.current,
@@ -159,7 +159,7 @@ const AnimationBlock = () => {
                     opacity: 0,
                     y: -20,
                     duration: 1,
-                    ease: "none",
+                    ease: "power2.inOut",
                 }
             );
 
@@ -174,11 +174,11 @@ const AnimationBlock = () => {
                     scale: 1,
                     duration: 1,
                     filter: "blur(0px)",
-                    ease: "none",
+                    ease: "power2.inOut",
                 }
             );
 
-            tl.to({}, { duration: 2, ease: "none" });
+            tl.to({}, { duration: 0.5, ease: "none" });
 
             tl.fromTo(
                 thirdText.current,
@@ -189,7 +189,7 @@ const AnimationBlock = () => {
                     opacity: 0,
                     y: -20,
                     duration: 1,
-                    ease: "none",
+                    ease: "power2.inOut",
                 }
             );
 
@@ -202,9 +202,9 @@ const AnimationBlock = () => {
                 {
                     opacity: 1,
                     scale: 1,
-                    duration: 1,
+                    duration: 0.75,
                     filter: "blur(0px)",
-                    ease: "none",
+                    ease: "power2.inOut",
                 }
             );
         });
@@ -265,7 +265,7 @@ const AnimationBlock = () => {
             </div>
             <div
                 ref={runningStroke}
-                className="marquee flex whitespace-nowrap text-[64px] md:text-[96px] 2xl:text-[130px] mix-blend-difference absolute top-[calc(100dvh-96px-80px)] sm:top-[96px] md:top-[122px] left-0 w-full"
+                className="marquee flex pointer-events-none whitespace-nowrap text-[64px] md:text-[96px] 2xl:text-[130px] mix-blend-difference absolute top-[calc(100dvh-96px-80px)] sm:top-[96px] md:top-[122px] left-0 w-full"
             >
                 <span className="px-8">ПЛАСТИЧЕСКАЯ ХИРУРГИЯ</span>
                 <span className="px-8">ПЛАСТИЧЕСКАЯ ХИРУРГИЯ</span>
@@ -277,14 +277,19 @@ const AnimationBlock = () => {
                 className="md:absolute md:scale-50 text-xs sm:ml-auto md:ml-0 2xl:text-lg md:opacity-0 h-dvh right-0 z-10 flex flex-col gap-4 xl:p-[80px] 2xl:p-[115px] uppercase justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] md:px-[32px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
             >
                 <p className="mt-30">
-                    Пластический хирург – как скульптор – кончиками пальцев,
-                    умом и сердцем – творит новый образ пациента, восстанавливая
-                    гармонию между внешним и внутренним возрастом человека.
+                    «Plastikos» в переводе с греческого языка означает
+                    «создавать форму», на латыни «plasticus» — ваяющий,
+                    формирующий. Команда пластических хирургов RAMICLINIC
+                    RESIDENCE умеет всё: и реконструктивные, и эстетические
+                    операции, включая симультанные, когда одновременно
+                    проводится несколько операций на разных, не связанных между
+                    собой анатомических областях.
                 </p>
 
                 <p>
-                    Мы не только продлеваем молодость, но и меняем качество
-                    жизни, давая возможность ежедневно наслаждаться собственным
+                    Современные пластические операции не только продлевают
+                    молодость, но и меняют качество жизни наших пациентов, давая
+                    возможность ежедневно наслаждаться эстетическим
                     преображением, ощущением свободы и обретением духовной силы.
                 </p>
             </div>
@@ -426,12 +431,8 @@ const AnimationBlock = () => {
                 className="md:absolute md:scale-50 md:opacity-0  sm:ml-auto md:ml-0 h-dvh right-0 z-10 flex flex-col  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
             >
                 <div className="mb-8 2xl:mb-10 text-sm 2xl:text-[21px]">
-                    Команде пластических хирургов RAMICLINIC RESIDENCE –
-                    мастеров мирового уровня – под силу{" "}
-                    <span className="font-bold">
-                        все операции на самом сложном уровне
-                    </span>
-                    :
+                    Сегодня в операционном портфеле RAMICLINIC RESIDENCE
+                    представлены все виды пластической хирургии:
                 </div>
                 <div>
                     <div className="grid grid-cols-[40px_1fr] 2xl:grid-cols-[48px_1fr] gap-3 2xl:gap-6 items-center mb-2 2xl:mb-4">
@@ -484,20 +485,25 @@ const AnimationBlock = () => {
                     Наш подход
                 </p>
                 <p className="text-[13px] md:text-[14px] 2xl:text-[21px]">
-                    Мы не только продлеваем молодость, но и{" "}
-                    <span className="font-bold">меняем качество жизни</span>,
-                    давая возможность ежедневно наслаждаться собственным
-                    преображением, ощущением свободы и обретением духовной силы.
+                    Выбор оптимальной тактики и стратегии эстетического
+                    преображения в RAMICLINIC RESIDENCE происходит на первой
+                    встрече с пластическим хирургом и решение принимается вместе
+                    с пациентом.
                 </p>
             </div>
             <div
                 ref={fourthText}
                 className="md:absolute md:scale-50 md:opacity-0  sm:ml-auto md:ml-0 h-[calc(100dvh/1.25)] md:h-dvh right-0 z-10 flex flex-col  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
             >
-                <p className="text-lg md:text-[20px] 2xl:text-[28px] mb-10">
-                    Преимущества пациент-центрированного подхода:
+                <p className="text-sm md:text-[18px] 2xl:text-[20px] mb-10">
+                    Используя данные генетического паспорта кожи и наш подход к
+                    антиэйдж-сопровождению пациент получает подробную
+                    персонализированную «дорожную карту», где находятся все
+                    этапы эстетического преображения: от подготовки до самого
+                    операционного вмешательства и предсказуемых сценариев
+                    реабилитационной программы.
                 </p>
-                <div>
+                {/* <div>
                     <div className="grid grid-cols-[40px_1fr] 2xl:grid-cols-[48px_1fr] gap-3 2xl:gap-6 items-center mb-4">
                         <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[10px] md:text-[11px] rounded-full">
                             01
@@ -539,14 +545,8 @@ const AnimationBlock = () => {
                             реабилитационной программы.
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
-            {/* <Hair className="absolute hairplastic" />
-            <Correction className="absolute correctionplastic" />
-            <Plastic className="absolute plasticplastic" />
-            <Grud className="absolute grudplastic" />
-            <Intim className="absolute intimplastic" />
-            <Body className="absolute bodyplastic" /> */}
         </div>
     );
 };

@@ -32,6 +32,7 @@ const FirstAnimationBlock = () => {
         gsap.set(block6Ref.current, { opacity: 0 });
         gsap.set(block4Ref.current, { y: "100%" });
         gsap.set(block9Ref.current, { y: "100%" });
+        gsap.set(".firstblocktext", { opacity: 0 });
 
         gsap.fromTo(
             ".firstblocktext",
@@ -69,11 +70,15 @@ const FirstAnimationBlock = () => {
         });
 
         // Исчезновение первого блока + color change
-        tl.to([block1Ref.current, ".firstblocktext"], {
-            opacity: 0,
-            duration: 1,
-            ease: "power2.inOut",
-        })
+        tl.to(
+            [block1Ref.current, ".firstblocktext"],
+            {
+                opacity: 0,
+                duration: 1,
+                ease: "power2.inOut",
+            },
+            ">"
+        )
             .call(() => {
                 setHeaderColor("#ffffff");
             })
