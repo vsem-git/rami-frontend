@@ -190,12 +190,14 @@ const VideoAnimation = () => {
             <div ref={blockRef} className="min-h-dvh max-w-full">
                 <div ref={videoRef} className="h-dvh w-[100vw] bg-[#5c182a]">
                     <video
-                        ref={videoEl}
-                        src="/заставка.mp4"
-                        className="h-dvh w-[100vw] object-contain"
                         autoPlay
+                        loop
                         muted
-                    />
+                        playsInline
+                        className="h-dvh w-[100vw] object-contain"
+                    >
+                        <source src="/заставка.mp4" type="video/mp4" />
+                    </video>
                 </div>
                 <div className="scrollblock"></div>
             </div>
