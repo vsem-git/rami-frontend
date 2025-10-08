@@ -173,15 +173,70 @@ const VideoAnimation = () => {
                 if (!isRepeat) {
                     timer = setTimeout(() => {
                         content.style.maxHeight = "";
-                        gsap.to(window, { duration: 1, scrollTo: 300 });
+
+                        // Сброс скролла перед анимацией
+                        document.documentElement.scrollTop = 0;
+                        document.body.scrollTop = 0;
+
+                        gsap.to(window, {
+                            duration: 1.5,
+                            scrollTo: {
+                                y: 300,
+                                autoKill: false,
+                            },
+                            ease: "power2.inOut", // Плавный ease
+                        });
                         isRepeat = true;
                     }, 2000);
                 }
             });
         }
 
+        let touchStartY = 0;
+        let isScrollingDown = false;
+
+        // Обработчик для touchstart
+        const handleTouchStart = (e) => {
+            touchStartY = e.touches[0].clientY;
+            isScrollingDown = false;
+        };
+
+        // Обработчик для touchmove
+        const handleTouchMove = (e) => {
+            const touchCurrentY = e.touches[0].clientY;
+            const deltaY = touchStartY - touchCurrentY;
+
+            // Если свайп вниз (deltaY > 0) и не повторяем
+            if (deltaY > 0 && !isRepeat && !isScrollingDown) {
+                handleScroll(video);
+                isScrollingDown = true; // Блокируем повтор в этом свайпе
+            }
+        };
+
+        // Обработчик для touchend (сброс флага)
+        const handleTouchEnd = () => {
+            isScrollingDown = false;
+            touchStartY = 0;
+        };
+
+        // Добавляем слушатели
+        document.addEventListener("touchstart", handleTouchStart, {
+            passive: true,
+        });
+        document.addEventListener("touchmove", handleTouchMove, {
+            passive: true,
+        });
+        document.addEventListener("touchend", handleTouchEnd, {
+            passive: true,
+        });
+
+        // Не забудьте очистку в return
         return () => {
             clearTimeout(timer);
+            document.removeEventListener("wheel", handleScrollBound); // Если вы вынесете handleScroll в константу
+            document.removeEventListener("touchstart", handleTouchStart);
+            document.removeEventListener("touchmove", handleTouchMove);
+            document.removeEventListener("touchend", handleTouchEnd);
         };
     }, []);
 
