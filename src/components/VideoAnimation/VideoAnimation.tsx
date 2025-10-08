@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { useHeader } from "../HeaderContext";
@@ -8,67 +8,103 @@ import { useHeader } from "../HeaderContext";
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const VideoAnimation = () => {
-    const blockRef = useRef(null);
+    const blockRef = useRef<HTMLDivElement>(null);
     const videoRef = useRef<HTMLDivElement>(null);
     const videoEl = useRef<HTMLVideoElement>(null);
     const tlRef = useRef<GSAPTimeline | null>(null);
     const { setHeaderColor } = useHeader();
 
+    // Refs для флагов (глобальные для компонента)
+    const isRepeatRef = useRef<boolean>(false);
+    const isScrollingDownRef = useRef<boolean>(false);
+    const touchStartYRef = useRef<number>(0);
+
+    // Стабильные callbacks за пределами useEffect
+    const handleScroll = useCallback((video: HTMLVideoElement) => {
+        video.currentTime += 0.5;
+        console.log("scrolled");
+    }, []);
+
+    const handleWheel = useCallback(
+        (e: WheelEvent, video: HTMLVideoElement | null) => {
+            e.preventDefault(); // Опционально: если хотите заблокировать дефолтный скролл
+            if (!isRepeatRef.current && video) {
+                handleScroll(video);
+            }
+        },
+        [handleScroll]
+    );
+
+    const handleTouchStart = useCallback((e: TouchEvent) => {
+        touchStartYRef.current = e.touches[0].clientY;
+        isScrollingDownRef.current = false;
+    }, []);
+
+    const handleTouchMove = useCallback(
+        (e: TouchEvent, video: HTMLVideoElement | null) => {
+            const touchCurrentY = e.touches[0].clientY;
+            const deltaY = touchStartYRef.current - touchCurrentY;
+
+            if (
+                deltaY > 0 &&
+                !isRepeatRef.current &&
+                !isScrollingDownRef.current &&
+                video
+            ) {
+                handleScroll(video);
+                isScrollingDownRef.current = true;
+            }
+        },
+        [handleScroll]
+    );
+
+    const handleTouchEnd = useCallback(() => {
+        isScrollingDownRef.current = false;
+        touchStartYRef.current = 0;
+    }, []);
+
     useGSAP(() => {
         const mm = gsap.matchMedia();
 
         mm.add("(min-width: 1px)", () => {
-            // Desktop/Tablet: standard values
             gsap.set(".logoheader", {
                 scale: 2.4,
                 y: () =>
-                    // @ts-ignore
                     window.innerHeight / 2 -
-                    // @ts-ignore
+                    //@ts-ignore
                     document?.querySelector(".logoheader")?.offsetHeight / 2,
             });
         });
 
         mm.add("(min-width: 401px)", () => {
-            // Desktop/Tablet: standard values
             gsap.set(".logoheader", {
                 scale: 3,
                 y: () =>
-                    // @ts-ignore
                     window.innerHeight / 2 -
-                    // @ts-ignore
+                    //@ts-ignore
                     document?.querySelector(".logoheader")?.offsetHeight / 2,
             });
         });
 
         mm.add("(min-width: 769px)", () => {
-            // Desktop/Tablet: standard values
             gsap.set(".logoheader", {
                 scale: 4,
                 y: () =>
-                    // @ts-ignore
                     window.innerHeight / 2 -
-                    // @ts-ignore
+                    //@ts-ignore
                     document?.querySelector(".logoheader")?.offsetHeight / 2,
             });
         });
 
         mm.add("(min-width: 1281px)", () => {
-            // Desktop/Tablet: standard values
             gsap.set(".logoheader", {
                 scale: 4.5,
                 y: () =>
-                    // @ts-ignore
                     window.innerHeight / 2 -
-                    // @ts-ignore
+                    //@ts-ignore
                     document?.querySelector(".logoheader")?.offsetHeight / 2,
             });
         });
-
-        /* gsap.set([".visitheader", ".navbarheader", ".textheader"], {
-            autoAlpha: 0,
-            y: -100, // Пиксели вместо процентов
-        }); */
 
         gsap.set(".firstblocktext", {
             opacity: 0,
@@ -108,15 +144,6 @@ const VideoAnimation = () => {
 
         tl.addLabel("middle");
 
-        /* tl.to(".visitheader", { autoAlpha: 1, y: 0, duration: 2 })
-            .to(".navbarheader", { autoAlpha: 1, y: 0, duration: 2 }, "<")
-            .fromTo(
-                ".textheader",
-                { autoAlpha: 0 },
-                { autoAlpha: 1, y: 0, duration: 2 },
-                "<"
-            ); */
-
         tl.call(() => {
             setHeaderColor("#000000");
         });
@@ -155,90 +182,72 @@ const VideoAnimation = () => {
 
         let timer: ReturnType<typeof setTimeout>;
 
-        let isRepeat = false;
+        const handleVideoEnd = useCallback(() => {
+            if (!isRepeatRef.current) {
+                timer = setTimeout(() => {
+                    content.style.maxHeight = "";
 
-        const handleScroll = (video: HTMLVideoElement) => {
-            video.currentTime += 0.5;
-            console.log("scrolled");
-        };
+                    // Сброс скролла перед анимацией
+                    document.documentElement.scrollTop = 0;
+                    document.body.scrollTop = 0;
+
+                    gsap.to(window, {
+                        duration: 1.5,
+                        scrollTo: {
+                            y: 300,
+                            autoKill: false,
+                        },
+                        ease: "power2.inOut",
+                    });
+                    isRepeatRef.current = true;
+                }, 2000);
+            }
+        }, [content]); // deps для content, но оно stable
 
         if (video) {
             video.play();
-            document.addEventListener("wheel", () => {
-                if (!isRepeat) {
-                    handleScroll(video);
-                }
-            });
-            video.addEventListener("ended", () => {
-                if (!isRepeat) {
-                    timer = setTimeout(() => {
-                        content.style.maxHeight = "";
 
-                        // Сброс скролла перед анимацией
-                        document.documentElement.scrollTop = 0;
-                        document.body.scrollTop = 0;
+            // Добавляем слушатели с передачей video
+            const wheelHandler = (e: WheelEvent) => handleWheel(e, video);
+            const touchMoveHandler = (e: TouchEvent) =>
+                handleTouchMove(e, video);
 
-                        gsap.to(window, {
-                            duration: 1.5,
-                            scrollTo: {
-                                y: 300,
-                                autoKill: false,
-                            },
-                            ease: "power2.inOut", // Плавный ease
-                        });
-                        isRepeat = true;
-                    }, 2000);
-                }
+            document.addEventListener("wheel", wheelHandler, {
+                passive: false,
             });
+            document.addEventListener("touchstart", handleTouchStart, {
+                passive: true,
+            });
+            document.addEventListener("touchmove", touchMoveHandler, {
+                passive: true,
+            });
+            document.addEventListener("touchend", handleTouchEnd, {
+                passive: true,
+            });
+
+            video.addEventListener("ended", handleVideoEnd);
+
+            return () => {
+                clearTimeout(timer);
+                document.removeEventListener("wheel", wheelHandler);
+                document.removeEventListener("touchstart", handleTouchStart);
+                document.removeEventListener("touchmove", touchMoveHandler);
+                document.removeEventListener("touchend", handleTouchEnd);
+                video.removeEventListener("ended", handleVideoEnd);
+                video.pause();
+            };
         }
 
-        let touchStartY = 0;
-        let isScrollingDown = false;
-
-        // Обработчик для touchstart
-        const handleTouchStart = (e) => {
-            touchStartY = e.touches[0].clientY;
-            isScrollingDown = false;
-        };
-
-        // Обработчик для touchmove
-        const handleTouchMove = (e) => {
-            const touchCurrentY = e.touches[0].clientY;
-            const deltaY = touchStartY - touchCurrentY;
-
-            // Если свайп вниз (deltaY > 0) и не повторяем
-            if (deltaY > 0 && !isRepeat && !isScrollingDown) {
-                handleScroll(video);
-                isScrollingDown = true; // Блокируем повтор в этом свайпе
-            }
-        };
-
-        // Обработчик для touchend (сброс флага)
-        const handleTouchEnd = () => {
-            isScrollingDown = false;
-            touchStartY = 0;
-        };
-
-        // Добавляем слушатели
-        document.addEventListener("touchstart", handleTouchStart, {
-            passive: true,
-        });
-        document.addEventListener("touchmove", handleTouchMove, {
-            passive: true,
-        });
-        document.addEventListener("touchend", handleTouchEnd, {
-            passive: true,
-        });
-
-        // Не забудьте очистку в return
         return () => {
             clearTimeout(timer);
-            document.removeEventListener("wheel", handleScrollBound); // Если вы вынесете handleScroll в константу
-            document.removeEventListener("touchstart", handleTouchStart);
-            document.removeEventListener("touchmove", handleTouchMove);
-            document.removeEventListener("touchend", handleTouchEnd);
         };
-    }, []);
+    }, [
+        handleWheel,
+        handleTouchMove,
+        handleTouchStart,
+        handleTouchEnd,
+        handleScroll,
+    ]); // Все stable callbacks в deps
 
     return (
         <>
