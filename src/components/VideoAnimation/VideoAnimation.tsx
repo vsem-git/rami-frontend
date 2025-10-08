@@ -163,6 +163,7 @@ const VideoAnimation = () => {
         };
 
         if (video) {
+            video.play();
             document.addEventListener("wheel", () => {
                 if (!isRepeat) {
                     handleScroll(video);
