@@ -256,6 +256,18 @@ const ThirdAndSecondAnimation = () => {
                 className="min-h-dvh pt-[0px] relative "
                 ref={strokeContainerRef}
             >
+                <div className=" sticky bottom-4 left-0 flex gap-8 z-[0] overflow-visible">
+                    <img
+                        src="/runningstrokelogo.svg"
+                        alt=""
+                        className="h-[96px] w-auto md:h-[120px] 2xl:h-[160px] object-cover object-right shrink-0"
+                    />
+                    <img
+                        src="/runningstrokelogo.svg"
+                        alt=""
+                        className="h-[96px] w-auto md:h-[120px] 2xl:h-[160px] object-cover object-left shrink-0"
+                    />
+                </div>
                 <div className="h-[100px] 2xl:h-[500px]" />
                 <div className="flex flex-col md:flex-row justify-center px-4 md:px-[64px] xl:px-[80px] 2xl:px-[120px] md:gap-[105px] xl:gap-[80px] 2xl:gap-[128px]">
                     <div className=" flex flex-col gap-[32px] sm:gap-[120px] md:gap-[160px] 2xl:gap-[260px]">

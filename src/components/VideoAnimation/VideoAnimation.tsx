@@ -1,14 +1,17 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { useHeader } from "../HeaderContext";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const VideoAnimation = () => {
     const blockRef = useRef(null);
-    /* const videoRef = useRef<HTMLVideoElement>(null); */
+    const videoRef = useRef<HTMLDivElement>(null);
+    const videoEl = useRef<HTMLVideoElement>(null);
+    const tlRef = useRef<GSAPTimeline | null>(null);
     const { setHeaderColor } = useHeader();
 
     useGSAP(() => {
@@ -20,7 +23,7 @@ const VideoAnimation = () => {
                 scale: 2.4,
                 y: () =>
                     // @ts-ignore
-                    window.window.innerHeight / 2 -
+                    window.innerHeight / 2 -
                     // @ts-ignore
                     document?.querySelector(".logoheader")?.offsetHeight / 2,
             });
@@ -32,7 +35,7 @@ const VideoAnimation = () => {
                 scale: 3,
                 y: () =>
                     // @ts-ignore
-                    window.window.innerHeight / 2 -
+                    window.innerHeight / 2 -
                     // @ts-ignore
                     document?.querySelector(".logoheader")?.offsetHeight / 2,
             });
@@ -44,7 +47,7 @@ const VideoAnimation = () => {
                 scale: 4,
                 y: () =>
                     // @ts-ignore
-                    window.window.innerHeight / 2 -
+                    window.innerHeight / 2 -
                     // @ts-ignore
                     document?.querySelector(".logoheader")?.offsetHeight / 2,
             });
@@ -56,20 +59,22 @@ const VideoAnimation = () => {
                 scale: 4.5,
                 y: () =>
                     // @ts-ignore
-                    window.window.innerHeight / 2 -
+                    window.innerHeight / 2 -
                     // @ts-ignore
                     document?.querySelector(".logoheader")?.offsetHeight / 2,
             });
         });
 
-        gsap.set([".visitheader", ".navbarheader", ".textheader"], {
+        /* gsap.set([".visitheader", ".navbarheader", ".textheader"], {
             autoAlpha: 0,
             y: -100, // Пиксели вместо процентов
-        });
+        }); */
 
         gsap.set(".firstblocktext", {
             opacity: 0,
         });
+
+        gsap.set(".header", { opacity: 0 });
 
         const headerTriggers = [{ ref: blockRef, color: "#000000" }];
 
@@ -84,31 +89,33 @@ const VideoAnimation = () => {
                 onLeaveBack: () => setHeaderColor("#000000"),
             });
         });
+
         const tl = gsap.timeline({
             scrollTrigger: {
+                id: "preloaderST",
                 trigger: blockRef.current,
-                start: "top 80%",
-                end: "+=180%",
+                start: "top top",
+                end: "+=200%",
                 scrub: true,
                 pin: true,
             },
         });
 
-        /* tl.to(videoRef.current, {
+        tl.to(videoRef.current, {
             opacity: 0,
             duration: 1,
-        }); */
+        }).to(".header", { opacity: 1 }, "<");
 
-        tl.to(".visitheader", { autoAlpha: 1, y: 0, duration: 2 }, "<")
+        tl.addLabel("middle");
+
+        /* tl.to(".visitheader", { autoAlpha: 1, y: 0, duration: 2 })
             .to(".navbarheader", { autoAlpha: 1, y: 0, duration: 2 }, "<")
             .fromTo(
                 ".textheader",
                 { autoAlpha: 0 },
                 { autoAlpha: 1, y: 0, duration: 2 },
                 "<"
-            );
-
-        tl.to({}, { duration: 3 });
+            ); */
 
         tl.call(() => {
             setHeaderColor("#000000");
@@ -134,20 +141,50 @@ const VideoAnimation = () => {
         tl.call(() => {
             setHeaderColor("#000000");
         })
-            .to(".textheader", { display: "block" })
-            .to(".textheader", { display: "none" });
+            .to(".textheader", { display: "block", duration: 0 })
+            .to(".textheader", { display: "none", duration: 0 });
+
+        tlRef.current = tl;
     });
+
+    useEffect(() => {
+        const content = document.querySelector("#content") as HTMLDivElement;
+        content.style.maxHeight = "100dvh";
+
+        const video = videoEl.current;
+
+        const handleScroll = (video: HTMLVideoElement) => {
+            video.currentTime += 0.5;
+            console.log("scrolled");
+        };
+
+        if (video) {
+            document.addEventListener("wheel", () => handleScroll(video));
+        }
+
+        const timer = setTimeout(() => {
+            content.style.maxHeight = "";
+            gsap.to(window, { duration: 1, scrollTo: 300 });
+        }, 8000);
+
+        return () => {
+            clearTimeout(timer);
+        };
+    }, []);
 
     return (
         <>
-            <div ref={blockRef} className="max-h-dvh bg-white mb-[100dvh]">
-                {/* <video
-                    ref={videoRef}
-                    src="/заставка.mp4"
-                    className="h-dvh w-[100vw] object-cover"
-                    autoPlay
-                    muted
-                /> */}
+            <div ref={blockRef} className="min-h-dvh max-w-full">
+                <div ref={videoRef} className="h-dvh w-[100vw] bg-[#5c182a]">
+                    <video
+                        ref={videoEl}
+                        src="/заставка.mp4"
+                        className="h-dvh w-[100vw] object-contain"
+                        autoPlay
+                        muted
+                    />
+                </div>
+                <div className="scrollblock"></div>
             </div>
         </>
     );
