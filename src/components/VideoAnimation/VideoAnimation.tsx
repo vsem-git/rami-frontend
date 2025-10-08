@@ -154,29 +154,74 @@ const VideoAnimation = () => {
         const video = videoEl.current;
 
         let timer: ReturnType<typeof setTimeout>;
-
         let isRepeat = false;
+        let prevY = 0;
 
         const handleScroll = (video: HTMLVideoElement) => {
             video.currentTime += 0.5;
             console.log("scrolled");
         };
 
+        const wheelHandler = () => {
+            if (!isRepeat && video) {
+                handleScroll(video);
+            }
+        };
+
+        const handleTouchStart = (e: Event) => {
+            const touchEvent = e as TouchEvent;
+            if (isRepeat || !video) return;
+            prevY = touchEvent.touches[0].clientY;
+        };
+
+        const handleTouchMove = (e: Event) => {
+            const touchEvent = e as TouchEvent;
+            if (isRepeat || !video) return;
+            const currentY = touchEvent.touches[0].clientY;
+            const deltaY = prevY - currentY;
+            video.currentTime += Math.abs(deltaY) * 0.005; // Подтюнь 0.005 под нужную скорость
+            prevY = currentY;
+            e.preventDefault();
+        };
+
+        /* const handleTouchEnd = (e: Event) => {
+            // Можно добавить логику сброса, если нужно
+        }; */
+
         if (video) {
             video.play();
-            document.addEventListener("wheel", () => {
-                if (!isRepeat) {
-                    handleScroll(video);
-                }
-            });
+            document.addEventListener("wheel", wheelHandler);
+            // Используем типизацию EventListener и опции без passive, если TS жалуется
+            document.addEventListener(
+                "touchstart",
+                handleTouchStart as EventListener
+            );
+            document.addEventListener(
+                "touchmove",
+                handleTouchMove as EventListener,
+                { passive: false }
+            );
+            /*  document.addEventListener(
+                "touchend",
+                handleTouchEnd as EventListener
+            ); */
+
             video.addEventListener("ended", () => {
                 if (!isRepeat) {
                     timer = setTimeout(() => {
                         content.style.maxHeight = "";
                         if (document.body.offsetWidth > 768) {
-                            gsap.to(window, { duration: 1, scrollTo: 300 });
+                            gsap.to(window, {
+                                duration: 1,
+                                scrollTo: 300,
+                                ease: "power1.in",
+                            });
                         } else {
-                            gsap.to(window, { duration: 3, scrollTo: 300 });
+                            gsap.to(window, {
+                                duration: 3,
+                                scrollTo: 300,
+                                ease: "power1.in",
+                            });
                         }
                         isRepeat = true;
                     }, 2000);
@@ -186,6 +231,19 @@ const VideoAnimation = () => {
 
         return () => {
             clearTimeout(timer);
+            document.removeEventListener("wheel", wheelHandler);
+            document.removeEventListener(
+                "touchstart",
+                handleTouchStart as EventListener
+            );
+            document.removeEventListener(
+                "touchmove",
+                handleTouchMove as EventListener
+            );
+            /* document.removeEventListener(
+                "touchend",
+                handleTouchEnd as EventListener
+            ); */
         };
     }, []);
 
