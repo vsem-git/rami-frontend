@@ -45,6 +45,13 @@ const FirstAnimationBlock = () => {
             onLeaveBack: () => setHeaderColor("#000000"),
         });
 
+        ScrollTrigger.create({
+            trigger: containerRef.current,
+            start: "200% top", // когда 50% блока ушло за верх экрана
+            onEnter: () => setHeaderColor("#000000"),
+            onLeaveBack: () => setHeaderColor("#ffffff"),
+        });
+
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: containerRef.current,
