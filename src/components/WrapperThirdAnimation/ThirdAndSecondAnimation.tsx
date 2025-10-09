@@ -162,7 +162,7 @@ const ThirdAndSecondAnimation = () => {
             ".runningstroke",
             { xPercent: 0 },
             {
-                xPercent: -100,
+                xPercent: -70,
                 duration: 10,
                 scrollTrigger: {
                     trigger: strokeContainerRef.current,
@@ -223,7 +223,7 @@ const ThirdAndSecondAnimation = () => {
                 scrollTrigger: {
                     trigger: strokeContainerRef.current,
                     start: "bottom+=100 bottom", // начало за 200px до конца блока
-                    end: "bottom+=990 bottom", // конец за 10px до конца блока
+                    end: "bottom+=950 bottom", // конец за 10px до конца блока
                     scrub: true,
                 },
             });
@@ -251,7 +251,7 @@ const ThirdAndSecondAnimation = () => {
                     scrollTrigger: {
                         trigger: strokeContainerRef.current,
                         start: "bottom-=100 bottom", // начало за 200px до конца блока
-                        end: "bottom+=680 bottom-=80", // конец за 10px до конца блока
+                        end: "bottom+=710 bottom-=80", // конец за 10px до конца блока
                         scrub: true,
                     },
                 });
@@ -264,7 +264,7 @@ const ThirdAndSecondAnimation = () => {
                     scrollTrigger: {
                         trigger: strokeContainerRef.current,
                         start: "bottom-=100 bottom", // начало за 200px до конца блока
-                        end: "bottom+=510 bottom-=80", // конец за 10px до конца блока
+                        end: "bottom+=480 bottom-=80", // конец за 10px до конца блока
                         scrub: true,
                     },
                 });

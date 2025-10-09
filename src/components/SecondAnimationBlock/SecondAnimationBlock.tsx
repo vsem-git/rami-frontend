@@ -22,24 +22,6 @@ const FirstAnimationBlock = () => {
         /* gsap.set(block2Ref.current, { y: "100%" }); */
         gsap.set(block2ContendRef.current, { autoAlpha: 0 });
 
-        gsap.fromTo(
-            ".logoheader",
-            {
-                yPercent: 0,
-            },
-            {
-                yPercent: -300,
-                duration: 1,
-                ease: "power2.inOut",
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top+=300 top",
-                    end: "top+=1000 top",
-                    scrub: true,
-                },
-            }
-        );
-
         mm.add("(max-width: 768px)", () => {
             gsap.fromTo(
                 ".logoheader",
@@ -73,7 +55,7 @@ const FirstAnimationBlock = () => {
                     scrollTrigger: {
                         trigger: containerRef.current,
                         start: "top+=300 top",
-                        end: "top+=1000 top",
+                        end: "top+=700 top",
                         scrub: true,
                     },
                 }
@@ -99,7 +81,7 @@ const FirstAnimationBlock = () => {
         mm.add("(min-width: 769px)", () => {
             ScrollTrigger.create({
                 trigger: containerRef.current,
-                start: "200% top", // когда 50% блока ушло за верх экрана
+                start: "150% top", // когда 50% блока ушло за верх экрана
                 onEnter: () => setHeaderColor("#000000"),
                 onLeaveBack: () => setHeaderColor("#ffffff"),
             });
@@ -166,7 +148,7 @@ const FirstAnimationBlock = () => {
                 />
             </div> */}
             <div
-                className="absolute top-0 left-0 w-full h-dvh bg-[url('/animationblock2.jpg')] bg-cover bg-center flex justify-between items-end z-50"
+                className="absolute top-0 left-0 w-full h-dvh bg-[url('/animationblock2.jpg')] bg-cover bg-top flex justify-between items-end z-50"
                 ref={block2Ref}
             >
                 <div
