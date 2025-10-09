@@ -107,7 +107,7 @@ const VideoAnimation = () => {
                 id: "preloaderST",
                 trigger: blockRef.current,
                 start: "top top",
-                end: "+=200%",
+                end: "+=300%",
                 scrub: true,
                 pin: true,
             },
@@ -169,18 +169,18 @@ const VideoAnimation = () => {
 
         let isRepeat = false;
 
-        const handleScroll = (video: HTMLVideoElement) => {
+        /* const handleScroll = (video: HTMLVideoElement) => {
             video.currentTime += 0.5;
             console.log("scrolled");
-        };
+        }; */
 
         if (video) {
             video.play();
-            document.addEventListener("wheel", () => {
+            /* document.addEventListener("wheel", () => {
                 if (!isRepeat) {
                     handleScroll(video);
                 }
-            });
+            }); */
             video.addEventListener("ended", () => {
                 if (!isRepeat) {
                     timer = setTimeout(() => {
@@ -188,13 +188,13 @@ const VideoAnimation = () => {
                         if (document.body.offsetWidth > 768) {
                             gsap.to(window, {
                                 duration: 1,
-                                scrollTo: 300,
+                                scrollTo: 440,
                                 ease: "power1.in",
                             });
                         } else {
                             gsap.to(window, {
                                 duration: 1,
-                                scrollTo: 300,
+                                scrollTo: 430,
                                 ease: "power1.in",
                             });
                         }

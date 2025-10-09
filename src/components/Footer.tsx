@@ -93,7 +93,10 @@ const Footer = () => {
     }, []);
     return (
         <>
-            <footer className="h-dvh relative" ref={containerRef}>
+            <footer
+                className="h-dvh relative overflow-hidden"
+                ref={containerRef}
+            >
                 <div
                     ref={contactRef}
                     className={`w-full h-full flex justify-center items-center overflow-hidden`}

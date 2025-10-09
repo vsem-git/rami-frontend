@@ -101,7 +101,7 @@ const FirstAnimationBlock = () => {
         );
     }, []);
     return (
-        <div className="h-dvh relative" ref={containerRef}>
+        <div className="h-dvh relative overflow-hidden" ref={containerRef}>
             {/* <div
                 className="absolute top-0 px-10 left-0 w-full h-full bg-white bg-cover bg-center flex justify-center items-center z-0"
                 ref={block1Ref}
