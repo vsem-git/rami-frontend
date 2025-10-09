@@ -44,12 +44,12 @@ const RootLayout = () => {
                     <img
                         src="/runningstrokelogo.svg"
                         alt=""
-                        className="h-[96px] w-auto md:h-[120px] 2xl:h-[160px] object-cover object-right shrink-0"
+                        className="w-auto h-[48px] md:h-[64px] 2xl:h-[96px] py-[24px] md:py-[28px] 2xl:py-10 object-cover object-right shrink-0"
                     />
                     <img
                         src="/runningstrokelogo.svg"
                         alt=""
-                        className="h-[96px] w-auto md:h-[120px] 2xl:h-[160px] object-cover object-left shrink-0"
+                        className="w-auto h-[48px] md:h-[64px] 2xl:h-[96px] py-[24px] md:py-[28px] 2xl:py-10 object-cover object-left shrink-0"
                     />
                 </div>
                 <Header />
