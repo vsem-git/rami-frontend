@@ -159,53 +159,66 @@ const VideoAnimation = () => {
         tlRef.current = tl;
     });
 
+    const BASE_DELAY = 2000;
+    let postDelayMs = BASE_DELAY;
+
     useEffect(() => {
-        const content = document.querySelector("#content") as HTMLDivElement;
-        content.style.maxHeight = "100dvh";
+        const content = document.querySelector("#content") as HTMLDivElement | null;
+        if (content) content.style.maxHeight = "100dvh";
 
         const video = videoEl.current;
 
-        let timer: ReturnType<typeof setTimeout>;
-
+        let timer: ReturnType<typeof setTimeout> | null = null;
         let isRepeat = false;
+        let speededUp = false;
 
-        /* const handleScroll = (video: HTMLVideoElement) => {
-            video.currentTime += 0.5;
-            console.log("scrolled");
-        }; */
+        const speedUp = () => {
+            if (video && !speededUp) {
+                video.playbackRate = 5;
+                postDelayMs = Math.max(300, Math.round(BASE_DELAY / video.playbackRate));
+                speededUp = true;
+                removeStartListeners();
+            }
+        };
+
+        const onWheelOnce = () => speedUp();
+        const onTouchStartOnce = () => speedUp();
+
+        const addStartListeners = () => {
+            document.addEventListener("wheel", onWheelOnce, { passive: true });
+            document.addEventListener("touchstart", onTouchStartOnce, { passive: true });
+        };
+        const removeStartListeners = () => {
+            document.removeEventListener("wheel", onWheelOnce);
+            document.removeEventListener("touchstart", onTouchStartOnce);
+        };
+
+        const onEnded = () => {
+            if (!isRepeat) {
+                timer = setTimeout(() => {
+                    if (content) content.style.maxHeight = "";
+                    const target = document.body.offsetWidth > 768 ? 440 : 430;
+                    gsap.to(window, { duration: 1, scrollTo: target, ease: "power1.in" });
+                    isRepeat = true;
+                }, postDelayMs);
+            }
+        };
 
         if (video) {
-            video.play();
-            /* document.addEventListener("wheel", () => {
-                if (!isRepeat) {
-                    handleScroll(video);
-                }
-            }); */
-            video.addEventListener("ended", () => {
-                if (!isRepeat) {
-                    timer = setTimeout(() => {
-                        content.style.maxHeight = "";
-                        if (document.body.offsetWidth > 768) {
-                            gsap.to(window, {
-                                duration: 1,
-                                scrollTo: 440,
-                                ease: "power1.in",
-                            });
-                        } else {
-                            gsap.to(window, {
-                                duration: 1,
-                                scrollTo: 430,
-                                ease: "power1.in",
-                            });
-                        }
-                        isRepeat = true;
-                    }, 2000);
-                }
-            });
+            // запуск видео и ожидание первого взаимодействия для ускорения
+            video.play().catch(() => {});
+            addStartListeners();
+            video.addEventListener("ended", onEnded);
         }
 
         return () => {
-            clearTimeout(timer);
+            if (timer) clearTimeout(timer);
+            removeStartListeners();
+            if (video) {
+                video.playbackRate = 1; // вернуть нормальную скорость
+                video.removeEventListener("ended", onEnded);
+            }
+            if (content) content.style.maxHeight = "";
         };
     }, []);
 
