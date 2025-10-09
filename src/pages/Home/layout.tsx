@@ -48,7 +48,7 @@ const RootLayout = () => {
                     <Outlet />
                     <Footer />
                 </ScrollSmoother>
-                <p className="firstblocktext pointer-events-none fixed bottom-0 text-[13px] md:text-sm 2xl:text-[21px] sm:top-1/2 sm:-translate-y-1/4 md:-translate-y-0 md:top-auto md:bottom-0 right-0 opacity-0 text-white m-6 xl:m-10 2xl:m-20 uppercase max-w-full  sm:max-w-[320px] 2xl:max-w-[480px] 2xl:tracking-wider 2xl:leading-8 z-10">
+                <p className="firstblocktext pointer-events-none fixed top-[90px] md:bottom-0 text-[13px] md:text-sm 2xl:text-[21px] sm:top-1/2 sm:-translate-y-1/4 md:-translate-y-0 md:top-auto right-0 opacity-0 text-white m-6 xl:m-10 2xl:m-20 uppercase max-w-full  sm:max-w-[320px] 2xl:max-w-[480px] 2xl:tracking-wider 2xl:leading-8 z-10">
                     <span className="font-bold">Новый проект</span> владельцев
                     многопрофильной Клиники РАМИ Галины Резник и Мазена Хамуда –
                     Клиника пластической хирургии и эстетической косметологии{" "}

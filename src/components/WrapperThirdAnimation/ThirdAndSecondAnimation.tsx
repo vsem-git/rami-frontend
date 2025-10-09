@@ -3,14 +3,47 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useHeader } from "../HeaderContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ThirdAndSecondAnimation = () => {
+    const { setHeaderColor } = useHeader();
     const containerRef = useRef(null);
     const strokeContainerRef = useRef(null);
 
     useGSAP(() => {
+        let triggeredWhite = false;
+        let triggeredBlack = false;
+        let prevProgress = 0;
+
+        gsap.to(containerRef.current, {
+            duration: 1,
+            opacity: 1,
+            scale: 1,
+            paused: true, // Если нужно вручную запускать/реверсить
+            onUpdate: function () {
+                const currentProgress = this.progress();
+                const directionUp = currentProgress > prevProgress; // Направление: вверх (появление)
+
+                if (directionUp && currentProgress > 0.5 && !triggeredWhite) {
+                    setHeaderColor("#000000"); // Белый при 50% появления
+                    triggeredWhite = true;
+                    triggeredBlack = false; // Сброс флага для чёрного
+                } else if (
+                    !directionUp &&
+                    currentProgress < 0.5 &&
+                    !triggeredBlack
+                ) {
+                    setHeaderColor("#ffffff"); // Чёрный при 50% исчезновения
+                    triggeredBlack = true;
+                    triggeredWhite = false; // Сброс флага для белого
+                }
+
+                prevProgress = currentProgress;
+            },
+        });
+
         const mm = gsap.matchMedia();
         /*  gsap.set(".bgpattern1", { xPercent: 120 });
         gsap.set(".bgpattern2", { xPercent: -120 }); */
@@ -198,11 +231,11 @@ const ThirdAndSecondAnimation = () => {
             gsap.to(".runningstroke", {
                 y: "-100dvh",
                 ease: "none",
-                duration: 10,
+                duration: 8,
                 scrollTrigger: {
                     trigger: strokeContainerRef.current,
                     start: "bottom-=100 bottom", // начало за 200px до конца блока
-                    end: "bottom+=553 bottom", // конец за 10px до конца блока
+                    end: "bottom+=700 bottom-=80", // конец за 10px до конца блока
                     scrub: true,
                 },
             });
@@ -256,18 +289,6 @@ const ThirdAndSecondAnimation = () => {
                 className="min-h-dvh pt-[0px] relative "
                 ref={strokeContainerRef}
             >
-                <div className=" sticky bottom-4 left-0 flex gap-8 z-[0] overflow-visible">
-                    <img
-                        src="/runningstrokelogo.svg"
-                        alt=""
-                        className="h-[96px] w-auto md:h-[120px] 2xl:h-[160px] object-cover object-right shrink-0"
-                    />
-                    <img
-                        src="/runningstrokelogo.svg"
-                        alt=""
-                        className="h-[96px] w-auto md:h-[120px] 2xl:h-[160px] object-cover object-left shrink-0"
-                    />
-                </div>
                 <div className="h-[100px] 2xl:h-[500px]" />
                 <div className="flex flex-col md:flex-row justify-center px-4 md:px-[64px] xl:px-[80px] 2xl:px-[120px] md:gap-[105px] xl:gap-[80px] 2xl:gap-[128px]">
                     <div className=" flex flex-col gap-[32px] sm:gap-[120px] md:gap-[160px] 2xl:gap-[260px]">

@@ -72,14 +72,14 @@ const Header = () => {
             >
                 <div className="flex flex-col gap-1">
                     <div
-                        className="w-[32px] h-[2px]"
+                        className="2xl:w-[32px] w-[24px] h-[2px]"
                         style={{
                             backgroundColor: headerColor,
                             transition: "background-color 0.3s ease-in-out", // Оставляем переход только для background-color
                         }}
                     ></div>
                     <div
-                        className="w-[32px] h-[2px]"
+                        className="2xl:w-[32px] w-[24px] h-[2px]"
                         style={{
                             backgroundColor: headerColor,
                             transition: "background-color 0.3s ease-in-out",
@@ -87,7 +87,7 @@ const Header = () => {
                     ></div>
                 </div>
                 <div
-                    className="theme hidden text-[13px] xl:text-base relative sm:block after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:transition-all after:duration-300 group-hover:after:w-full"
+                    className="theme hidden text-[11px] md:text-[12px] 2xl:text-base relative sm:block after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:transition-all after:duration-300 group-hover:after:w-full"
                     style={{
                         color: headerColor,
                         transition: "color 0.3s ease-in-out",
@@ -139,7 +139,7 @@ const Header = () => {
             </div>
             <div
                 ref={visitRef}
-                className="item visitheader font-semibold justify-end hidden md:flex cursor-pointer text-[13px] xl:text-base"
+                className="item visitheader font-semibold justify-end hidden md:flex cursor-pointer text-[11px] md:text-[12px] 2xl:text-base"
                 style={{
                     color: headerColor,
                     transition: "none", // Отключаем CSS-переходы
@@ -161,13 +161,13 @@ const Header = () => {
                 </UnderlinedText>
             </div>
             <div
-                className={`uppercase fixed text-[15px] md:text-base xl:text-[24px] bottom-6 xl:bottom-10 w-full text-center textheader ${
+                className={`uppercase fixed text-[15px] md:text-base 2xl:text-[24px] bottom-6 2xl:bottom-10 w-full text-center textheader ${
                     pathname === "/" ? "" : "hidden"
                 }`}
                 ref={textRef}
             >
                 <div>клиника-резиденция пластической хирургии</div>
-                <button className="uppercase text-[13px] font-semibold mt-6 sm:hidden">
+                <button className="uppercase text-[13px] font-semibold mt-2 sm:hidden">
                     ЗАПЛАНИРОВАТЬ ВИЗИТ
                 </button>
             </div>
