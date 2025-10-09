@@ -51,7 +51,7 @@ const NavBar = ({
                     <a href="#" className="relative group">
                         <div className="absolute -left-4 -right-4 -top-2 -bottom-2" />
                         <div
-                            className={`w-6 xl:w-8 h-[1px] group-hover:w-16 transition-all duration-300`}
+                            className={`w-6 2xl:w-8 h-[1px] group-hover:w-16 transition-all duration-300`}
                             style={{
                                 backgroundColor: navbarColor || color,
                                 transition: "all 0.3s ease-in-out",

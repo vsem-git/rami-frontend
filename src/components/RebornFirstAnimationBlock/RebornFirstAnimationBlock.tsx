@@ -34,7 +34,7 @@ const FirstAnimationBlock = () => {
         gsap.set(block9Ref.current, { y: "100%" });
         gsap.set(".firstblocktext", { opacity: 0 });
 
-        gsap.fromTo(
+        /* gsap.fromTo(
             ".firstblocktext",
             {
                 opacity: 0,
@@ -48,7 +48,7 @@ const FirstAnimationBlock = () => {
                     scrub: true,
                 },
             }
-        );
+        ); */
 
         ScrollTrigger.create({
             trigger: containerRef.current,
@@ -61,13 +61,19 @@ const FirstAnimationBlock = () => {
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top top",
-                end: "+=2000%",
+                end: "+=3000%",
                 scrub: 1,
                 pin: true,
                 anticipatePin: 1,
                 fastScrollEnd: true,
             },
         });
+
+        tl.fromTo(
+            ".firstblocktext",
+            { opacity: 0 },
+            { opacity: 1, duration: 1, ease: "power2.inOut" }
+        );
 
         // Исчезновение первого блока + color change
         tl.to(
@@ -187,7 +193,7 @@ const FirstAnimationBlock = () => {
                         style={{ willChange: "filter" }}
                     />
                     <div
-                        className="absolute w-full md:w-[600px] h-[200px] md:h-[600px] right-0 md:-right-20 -bottom-10 md:-top-30 bg-[#1D1D1D9D] blur-[30px] md:blur-[200px]"
+                        className="absolute w-full md:w-[600px] h-[200px] md:h-[600px] right-0 md:-right-20 top-10 md:-top-30 bg-[#1D1D1D9D] blur-[30px] md:blur-[200px]"
                         style={{ willChange: "filter" }}
                     />
                 </div>
