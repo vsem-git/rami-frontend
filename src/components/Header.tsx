@@ -9,14 +9,12 @@ import UnderlinedText from "./UnderlinedText/UnderlinedText";
 gsap.registerPlugin(ScrollTrigger);
 
 const Header = () => {
-    const pathname = window.location.pathname;
     const { headerColor, navbarColor } = useHeader();
     const headerRef = useRef(null);
     const logoRef = useRef(null);
     const menuRef = useRef(null);
     const visitRef = useRef(null);
     const navBarRef = useRef<HTMLDivElement>(null);
-    const textRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         console.log("Ширина экрана в пикселях - ", window.innerWidth);
