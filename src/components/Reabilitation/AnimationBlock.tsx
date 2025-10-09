@@ -2,8 +2,8 @@ import { useState } from "react";
 import Clocks from "./Clocks";
 
 const AnimationBlock = () => {
-    const [minuteAngle, setMinuteAngle] = useState(0);
-    const [hourAngle, setHourAngle] = useState(0);
+    const [minuteAngle] = useState(0);
+    const [hourAngle] = useState(0);
 
     return (
         <div className="bg-[#1D1D1D] h-dvh w-full relative oveflow-hidden">
