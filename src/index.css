@@ -3,7 +3,7 @@
 
 @theme {
     --font-montserrat: "Montserrat", sans-serif;
-    --breakpoint-sm: 421px;
+    --breakpoint-sm: 468px;
     --breakpoint-md: 769px;
     --breakpoint-lg: 991px;
     --breakpoint-xl: 1280px;
@@ -44,8 +44,8 @@ body {
 }
 
 .marquee-cosmetology {
-	display: inline-flex;
-	animation: marquee 40s linear infinite;
+    display: inline-flex;
+    animation: marquee 40s linear infinite;
 }
 
 @media (min-width: 1850px) {

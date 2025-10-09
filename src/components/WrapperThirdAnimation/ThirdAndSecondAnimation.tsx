@@ -13,6 +13,8 @@ const ThirdAndSecondAnimation = () => {
     const strokeContainerRef = useRef(null);
 
     useGSAP(() => {
+        const windowHeight = document.documentElement.clientHeight;
+
         let triggeredWhite = false;
         let triggeredBlack = false;
         let prevProgress = 0;
@@ -228,17 +230,44 @@ const ThirdAndSecondAnimation = () => {
         });
 
         mm.add("(max-width: 767px)", () => {
-            gsap.to(".runningstroke", {
-                y: "-100dvh",
-                ease: "none",
-                duration: 8,
-                scrollTrigger: {
-                    trigger: strokeContainerRef.current,
-                    start: "bottom-=100 bottom", // начало за 200px до конца блока
-                    end: "bottom+=700 bottom-=80", // конец за 10px до конца блока
-                    scrub: true,
-                },
-            });
+            if (windowHeight >= 900)
+                gsap.to(".runningstroke", {
+                    y: "-100dvh",
+                    ease: "none",
+                    duration: 8,
+                    scrollTrigger: {
+                        trigger: strokeContainerRef.current,
+                        start: "bottom-=100 bottom", // начало за 200px до конца блока
+                        end: "bottom+=770 bottom-=80", // конец за 10px до конца блока
+                        scrub: true,
+                    },
+                });
+
+            if (windowHeight >= 800 && windowHeight < 900)
+                gsap.to(".runningstroke", {
+                    y: "-100dvh",
+                    ease: "none",
+                    duration: 8,
+                    scrollTrigger: {
+                        trigger: strokeContainerRef.current,
+                        start: "bottom-=100 bottom", // начало за 200px до конца блока
+                        end: "bottom+=680 bottom-=80", // конец за 10px до конца блока
+                        scrub: true,
+                    },
+                });
+
+            if (windowHeight <= 799)
+                gsap.to(".runningstroke", {
+                    y: "-100dvh",
+                    ease: "none",
+                    duration: 8,
+                    scrollTrigger: {
+                        trigger: strokeContainerRef.current,
+                        start: "bottom-=100 bottom", // начало за 200px до конца блока
+                        end: "bottom+=510 bottom-=80", // конец за 10px до конца блока
+                        scrub: true,
+                    },
+                });
         });
 
         /* const tl = gsap.timeline({
