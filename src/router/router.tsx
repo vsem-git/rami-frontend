@@ -9,6 +9,8 @@ import { Cosmetology } from "../pages/cosmetology/Cosmetology";
 import CosmetologyLayout from "../pages/cosmetology/layout";
 import { Doctor } from "../pages/doctor/Doctor";
 import DoctorLayout from "../pages/doctor/layout";
+import Reabilitation from "../pages/Reabilitation/Reabilitation";
+import ReabilitationLayout from "../pages/Reabilitation/layout";
 
 const router = createBrowserRouter([
     {
@@ -58,6 +60,16 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Doctor />,
+            },
+        ],
+    },
+    {
+        path: "/reabilitation",
+        element: <ReabilitationLayout />,
+        children: [
+            {
+                index: true,
+                element: <Reabilitation />,
             },
         ],
     },
