@@ -17,6 +17,15 @@ const RootLayout = () => {
                 <SecondSectionPopup1 />
                 <SecondSectionPopup2 />
                 <SecondSectionPopup3 />
+
+                <div
+                    className={`uppercase fixed text-[15px] md:text-base 2xl:text-[24px] bottom-6 2xl:bottom-10 w-full text-center textheader `}
+                >
+                    <div>клиника-резиденция пластической хирургии</div>
+                    <button className="uppercase text-[13px] font-semibold mt-2 sm:hidden">
+                        ЗАПЛАНИРОВАТЬ ВИЗИТ
+                    </button>
+                </div>
                 <div className="bgpattern1 fixed top-0 right-0 h-full hidden sm:block opacity-50 z-[0]">
                     <img
                         src="/pattern1.svg"

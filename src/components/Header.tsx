@@ -160,17 +160,6 @@ const Header = () => {
                     ЗАПЛАНИРОВАТЬ ВИЗИТ
                 </UnderlinedText>
             </div>
-            <div
-                className={`uppercase fixed text-[15px] md:text-base 2xl:text-[24px] bottom-6 2xl:bottom-10 w-full text-center textheader ${
-                    pathname === "/" ? "" : "hidden"
-                }`}
-                ref={textRef}
-            >
-                <div>клиника-резиденция пластической хирургии</div>
-                <button className="uppercase text-[13px] font-semibold mt-2 sm:hidden">
-                    ЗАПЛАНИРОВАТЬ ВИЗИТ
-                </button>
-            </div>
             <NavBar
                 color={headerColor}
                 ref={navBarRef as React.RefObject<HTMLDivElement>}
