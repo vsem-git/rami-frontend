@@ -117,15 +117,19 @@ const FirstAnimationBlock = () => {
             });
 
         // Появление третьего блока
-        tl.to([block3TextRef.current, block3BlurRef.current], {
-            autoAlpha: 1,
-            duration: 1,
-            ease: "power2.inOut",
-        });
+        tl.fromTo(
+            [block3TextRef.current, block3BlurRef.current],
+            { autoAlpha: 0 },
+            {
+                autoAlpha: 1,
+                duration: 1,
+                ease: "power2.inOut",
+            }
+        );
 
         tl.to(block4Ref.current, {
             y: "0%",
-            duration: 3,
+            duration: 2.5,
             ease: "power3.inOut",
         });
 
@@ -144,37 +148,37 @@ const FirstAnimationBlock = () => {
         tl.to(block6Ref.current, {
             opacity: 1,
             duration: 0,
-            ease: "power4.inOut",
+            ease: "power3.inOut",
         });
 
         tl.to(block4Ref.current, {
             x: "-100%",
-            duration: 3,
-            ease: "power4.inOut",
+            duration: 2.5,
+            ease: "power3.inOut",
         });
 
         tl.to(block5Ref.current, {
             x: "-100%",
-            duration: 3,
-            ease: "power4.inOut",
+            duration: 2.5,
+            ease: "power3.inOut",
         });
 
         tl.to(block6Ref.current, {
             x: "-100%",
-            duration: 3,
-            ease: "power4.inOut",
+            duration: 2.5,
+            ease: "power3.inOut",
         });
 
         tl.to(block7Ref.current, {
             x: "-100%",
-            duration: 3,
-            ease: "power4.inOut",
+            duration: 2.5,
+            ease: "power3.inOut",
         });
 
         tl.to(block9Ref.current, {
             y: "0%",
-            duration: 3,
-            ease: "power2.inOut",
+            duration: 2.5,
+            ease: "power3.inOut",
         })
             .call(() => setHeaderColor("#ffffff"), [], "-=1")
             .call(() => setHeaderColor("#000000"), [], "-=0.9");
