@@ -163,7 +163,9 @@ const VideoAnimation = () => {
     let postDelayMs = BASE_DELAY;
 
     useEffect(() => {
-        const content = document.querySelector("#content") as HTMLDivElement | null;
+        const content = document.querySelector(
+            "#content"
+        ) as HTMLDivElement | null;
         if (content) content.style.maxHeight = "100dvh";
 
         const video = videoEl.current;
@@ -174,10 +176,15 @@ const VideoAnimation = () => {
 
         const speedUp = () => {
             if (video && !speededUp) {
-                video.playbackRate = 5;
-                postDelayMs = Math.max(300, Math.round(BASE_DELAY / video.playbackRate));
-                speededUp = true;
-                removeStartListeners();
+                requestAnimationFrame(() => {
+                    video.playbackRate = 3; // попробуй начать с 3 вместо 5
+                    postDelayMs = Math.max(
+                        300,
+                        Math.round(BASE_DELAY / video.playbackRate)
+                    );
+                    speededUp = true;
+                    removeStartListeners();
+                });
             }
         };
 
@@ -185,8 +192,10 @@ const VideoAnimation = () => {
         const onTouchStartOnce = () => speedUp();
 
         const addStartListeners = () => {
-            document.addEventListener("wheel", onWheelOnce, { passive: true });
-            document.addEventListener("touchstart", onTouchStartOnce, { passive: true });
+            document.addEventListener("wheel", onWheelOnce, { passive: false });
+            document.addEventListener("touchstart", onTouchStartOnce, {
+                passive: false,
+            });
         };
         const removeStartListeners = () => {
             document.removeEventListener("wheel", onWheelOnce);
@@ -198,17 +207,21 @@ const VideoAnimation = () => {
                 timer = setTimeout(() => {
                     if (content) content.style.maxHeight = "";
                     const target = document.body.offsetWidth > 768 ? 440 : 430;
-                    gsap.to(window, { duration: 1, scrollTo: target, ease: "power1.in" });
+                    gsap.to(window, {
+                        duration: 1,
+                        scrollTo: target,
+                        ease: "power1.in",
+                    });
                     isRepeat = true;
                 }, postDelayMs);
             }
         };
 
         if (video) {
-            // запуск видео и ожидание первого взаимодействия для ускорения
-            video.play().catch(() => {});
-            addStartListeners();
+            const onReady = () => addStartListeners();
             video.addEventListener("ended", onEnded);
+            video.addEventListener("canplay", onReady, { once: true });
+            video.play().catch(() => {});
         }
 
         return () => {
