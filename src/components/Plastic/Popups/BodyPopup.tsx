@@ -36,12 +36,12 @@ const Bodypopup = () => {
                         height="47"
                         rx="23.5"
                         stroke="white"
-                        stroke-opacity="0.1"
+                        strokeOpacity="0.1"
                     />
                     <path
                         d="M30.75 17.25L24 24M17.25 30.75L24 24M24 24L17.25 17.25L30.75 30.75"
                         stroke="white"
-                        stroke-width="1.5"
+                        strokeWidth="1.5"
                     />
                 </svg>
             </div>

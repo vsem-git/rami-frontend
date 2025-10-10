@@ -365,7 +365,7 @@ const ThirdAnimationBlock = () => {
                                                         className="transition-all"
                                                         d="M16 5V16M16 27V16M16 16H27H5"
                                                         stroke="#fff"
-                                                        stroke-width="1.5"
+                                                        strokeWidth="1.5"
                                                     />
                                                 </svg>
                                             </button>
