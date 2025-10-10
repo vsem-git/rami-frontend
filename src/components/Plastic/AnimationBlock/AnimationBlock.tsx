@@ -248,7 +248,7 @@ const AnimationBlock = () => {
                                 <path
                                     d="M8 2.5V8M8 13.5V8M8 8H13.5H2.5"
                                     stroke="white"
-                                    stroke-width="1.5"
+                                    strokeWidth="1.5"
                                 />
                             </svg>
                         </div>
@@ -317,8 +317,8 @@ const AnimationBlock = () => {
                             <path
                                 d="M8 3V8.5M8 14V8.5M8 8.5H13.5H2.5"
                                 stroke="white"
-                                stroke-opacity="0.5"
-                                stroke-width="1.5"
+                                strokeOpacity="0.5"
+                                strokeWidth="1.5"
                             />
                         </svg>
                     </div>
@@ -339,8 +339,8 @@ const AnimationBlock = () => {
                             <path
                                 d="M8 3V8.5M8 14V8.5M8 8.5H13.5H2.5"
                                 stroke="white"
-                                stroke-opacity="0.5"
-                                stroke-width="1.5"
+                                strokeOpacity="0.5"
+                                strokeWidth="1.5"
                             />
                         </svg>
                     </div>
@@ -359,8 +359,8 @@ const AnimationBlock = () => {
                             <path
                                 d="M8 3V8.5M8 14V8.5M8 8.5H13.5H2.5"
                                 stroke="white"
-                                stroke-opacity="0.5"
-                                stroke-width="1.5"
+                                strokeOpacity="0.5"
+                                strokeWidth="1.5"
                             />
                         </svg>
                     </div>
@@ -379,8 +379,8 @@ const AnimationBlock = () => {
                             <path
                                 d="M8 3V8.5M8 14V8.5M8 8.5H13.5H2.5"
                                 stroke="white"
-                                stroke-opacity="0.5"
-                                stroke-width="1.5"
+                                strokeOpacity="0.5"
+                                strokeWidth="1.5"
                             />
                         </svg>
                     </div>
@@ -399,8 +399,8 @@ const AnimationBlock = () => {
                             <path
                                 d="M8 3V8.5M8 14V8.5M8 8.5H13.5H2.5"
                                 stroke="white"
-                                stroke-opacity="0.5"
-                                stroke-width="1.5"
+                                strokeOpacity="0.5"
+                                strokeWidth="1.5"
                             />
                         </svg>
                     </div>
@@ -419,8 +419,8 @@ const AnimationBlock = () => {
                             <path
                                 d="M8 3V8.5M8 14V8.5M8 8.5H13.5H2.5"
                                 stroke="white"
-                                stroke-opacity="0.5"
-                                stroke-width="1.5"
+                                strokeOpacity="0.5"
+                                strokeWidth="1.5"
                             />
                         </svg>
                     </div>
