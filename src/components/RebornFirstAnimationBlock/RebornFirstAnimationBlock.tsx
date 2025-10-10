@@ -61,7 +61,7 @@ const FirstAnimationBlock = () => {
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top top",
-                end: "+=3000%",
+                end: "+=1750%",
                 scrub: 1,
                 pin: true,
                 anticipatePin: 1,
@@ -77,7 +77,7 @@ const FirstAnimationBlock = () => {
 
         // Исчезновение первого блока + color change
         tl.to(
-            [block1Ref.current, ".firstblocktext"],
+            [block1Ref.current],
             {
                 opacity: 0,
                 duration: 2,

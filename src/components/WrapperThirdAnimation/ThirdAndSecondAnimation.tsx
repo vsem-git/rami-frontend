@@ -216,14 +216,27 @@ const ThirdAndSecondAnimation = () => {
             });
         }); */
 
-        mm.add("(min-width: 768px)", () => {
+        mm.add("(min-width: 1601px)", () => {
             gsap.to(".runningstroke", {
                 y: "-100dvh",
                 ease: "none",
                 scrollTrigger: {
                     trigger: strokeContainerRef.current,
-                    start: "bottom+=100 bottom", // начало за 200px до конца блока
-                    end: "bottom+=950 bottom", // конец за 10px до конца блока
+                    start: "bottom+=100 bottom",
+                    end: "bottom+=1050 bottom",
+                    scrub: true,
+                },
+            });
+        });
+
+        mm.add("(min-width: 768px) and (max-width: 1600px)", () => {
+            gsap.to(".runningstroke", {
+                y: "-100dvh",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: strokeContainerRef.current,
+                    start: "bottom+=100 bottom",
+                    end: "bottom+=950 bottom",
                     scrub: true,
                 },
             });

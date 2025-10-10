@@ -159,7 +159,7 @@ const VideoAnimation = () => {
         tlRef.current = tl;
     });
 
-    const BASE_DELAY = 2000;
+    const BASE_DELAY = 1000;
     let postDelayMs = BASE_DELAY;
 
     useEffect(() => {
@@ -177,7 +177,7 @@ const VideoAnimation = () => {
         const speedUp = () => {
             if (video && !speededUp) {
                 requestAnimationFrame(() => {
-                    video.playbackRate = 3; // попробуй начать с 3 вместо 5
+                    video.playbackRate = 5; // попробуй начать с 3 вместо 5
                     postDelayMs = Math.max(
                         300,
                         Math.round(BASE_DELAY / video.playbackRate)
