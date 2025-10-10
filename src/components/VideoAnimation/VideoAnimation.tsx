@@ -235,18 +235,50 @@ const VideoAnimation = () => {
         };
     }, []);
 
+
+    useEffect(() => {
+        const v = document.getElementById("bgVideo") as HTMLVideoElement | null;
+        if (!v) return;
+
+        const EPS = 0.06; // «почти последний» кадр, чтобы не ловить чёрный экран
+        const freeze = () => {
+            const d = v.duration || 0;
+            // выбери, что надо: первый кадр -> 0; последний -> d - EPS
+            v.currentTime = Math.max(0, d - EPS);
+            v.pause();
+        };
+
+        v.addEventListener("loadedmetadata", freeze, { once: true });
+        if (v.readyState >= 1) freeze(); // если кэшировано
+
+        return () => v.removeEventListener("loadedmetadata", freeze);
+    }, []);
+
     return (
         <>
-            <div ref={blockRef} className="min-h-dvh max-w-full">
-                <div ref={videoRef} className="h-dvh w-[100vw] bg-[#5c182a]">
+            <div ref={blockRef} className="">
+                <div ref={videoRef} className="relative h-dvh w-screen overflow-hidden transform-gpu will-change-transform">
+                    <div className="absolute inset-0 -z-10 overflow-hidden bg-[#5c182a]">
+                        <video
+                            id="bgVideo"
+                            muted
+                            playsInline
+                            preload="metadata"
+                            aria-hidden="true"
+                            className="h-full w-full object-cover pointer-events-none lg:hidden"
+                        >
+                            <source src="/startBg.mp4" type="video/mp4" />
+                        </video>
+                    </div>
+
+
                     <video
                         autoPlay
                         ref={videoEl}
                         muted
                         playsInline
-                        className="h-dvh w-[100vw] object-contain"
-                    >
-                        <source src="/заставка.mp4" type="video/mp4" />
+                        className="h-full z-10 w-full lg:object-fill object-center">
+                        <source src="/start.mp4" type="video/mp4" />
                     </video>
                 </div>
                 <div className="scrollblock"></div>

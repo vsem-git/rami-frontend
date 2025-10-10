@@ -62,7 +62,7 @@ const Correction = ({
                     <path
                         d="M192 51L142 1H0"
                         stroke="white"
-                        stroke-opacity="0.5"
+                        strokeOpacity="0.5"
                     />
                 </svg>
             </div>

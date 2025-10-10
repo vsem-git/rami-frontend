@@ -167,7 +167,7 @@ const FirstAnimationBlock = () => {
                                 <path
                                     d="M8 2.5V8M8 13.5V8M8 8H13.5H2.5"
                                     stroke="white"
-                                    stroke-width="1.5"
+                                    strokeWidth="1.5"
                                 />
                             </svg>
                         </div>
@@ -210,7 +210,7 @@ const FirstAnimationBlock = () => {
                                 <path
                                     d="M8 2.5V8M8 13.5V8M8 8H13.5H2.5"
                                     stroke="white"
-                                    stroke-width="1.5"
+                                    strokeWidth="1.5"
                                 />
                             </svg>
                         </div>
@@ -253,7 +253,7 @@ const FirstAnimationBlock = () => {
                                 <path
                                     d="M8 2.5V8M8 13.5V8M8 8H13.5H2.5"
                                     stroke="white"
-                                    stroke-width="1.5"
+                                    strokeWidth="1.5"
                                 />
                             </svg>
                         </div>
