@@ -72,7 +72,7 @@ const FirstAnimationBlock = () => {
         tl.fromTo(
             ".firstblocktext",
             { opacity: 0 },
-            { opacity: 1, duration: 1, ease: "power2.inOut" }
+            { opacity: 1, duration: 2, ease: "power2.inOut" }
         );
 
         // Исчезновение первого блока + color change
@@ -80,7 +80,7 @@ const FirstAnimationBlock = () => {
             [block1Ref.current, ".firstblocktext"],
             {
                 opacity: 0,
-                duration: 1,
+                duration: 2,
                 ease: "power2.inOut",
             },
             ">"
@@ -101,7 +101,7 @@ const FirstAnimationBlock = () => {
 
         tl.to(block2TextRef.current, {
             autoAlpha: 1,
-            duration: 1,
+            duration: 2,
         });
 
         // Исчезновение второго блока + color change
@@ -113,7 +113,7 @@ const FirstAnimationBlock = () => {
             })
             .to(block2Ref.current, {
                 autoAlpha: 0,
-                duration: 1,
+                duration: 2,
             });
 
         // Появление третьего блока
@@ -122,14 +122,14 @@ const FirstAnimationBlock = () => {
             { opacity: 0 },
             {
                 opacity: 1,
-                duration: 1,
+                duration: 2,
                 ease: "power2.inOut",
             }
         );
 
         tl.to(block4Ref.current, {
             y: "0%",
-            duration: 2.5,
+            duration: 2,
             ease: "power3.inOut",
         });
 
@@ -153,31 +153,31 @@ const FirstAnimationBlock = () => {
 
         tl.to(block4Ref.current, {
             x: "-100%",
-            duration: 2.5,
+            duration: 2,
             ease: "power3.inOut",
         });
 
         tl.to(block5Ref.current, {
             x: "-100%",
-            duration: 2.5,
+            duration: 2,
             ease: "power3.inOut",
         });
 
         tl.to(block6Ref.current, {
             x: "-100%",
-            duration: 2.5,
+            duration: 2,
             ease: "power3.inOut",
         });
 
         tl.to(block7Ref.current, {
             x: "-100%",
-            duration: 2.5,
+            duration: 2,
             ease: "power3.inOut",
         });
 
         tl.to(block9Ref.current, {
             y: "0%",
-            duration: 2.5,
+            duration: 2,
             ease: "power3.inOut",
         })
             .call(() => setHeaderColor("#ffffff"), [], "-=1")
