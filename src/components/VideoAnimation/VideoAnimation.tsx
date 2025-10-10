@@ -265,7 +265,7 @@ const VideoAnimation = () => {
                             playsInline
                             preload="metadata"
                             aria-hidden="true"
-                            className="h-full w-full object-cover pointer-events-none"
+                            className="h-full w-full object-cover pointer-events-none lg:hidden"
                         >
                             <source src="/startBg.mp4" type="video/mp4" />
                         </video>
