@@ -235,7 +235,6 @@ const VideoAnimation = () => {
         };
     }, []);
 
-
     useEffect(() => {
         const v = document.getElementById("bgVideo") as HTMLVideoElement | null;
         if (!v) return;
@@ -257,7 +256,10 @@ const VideoAnimation = () => {
     return (
         <>
             <div ref={blockRef} className="">
-                <div ref={videoRef} className="relative h-dvh w-screen overflow-hidden transform-gpu will-change-transform">
+                <div
+                    ref={videoRef}
+                    className="relative h-dvh w-screen overflow-hidden transform-gpu will-change-transform"
+                >
                     <div className="absolute inset-0 -z-10 overflow-hidden bg-[#5c182a]">
                         <video
                             id="bgVideo"
@@ -271,13 +273,13 @@ const VideoAnimation = () => {
                         </video>
                     </div>
 
-
                     <video
                         autoPlay
                         ref={videoEl}
                         muted
                         playsInline
-                        className="h-full z-10 w-full lg:object-fill object-center">
+                        className="h-full z-10 w-full lg:object-fill object-center"
+                    >
                         <source src="/start.mp4" type="video/mp4" />
                     </video>
                 </div>
