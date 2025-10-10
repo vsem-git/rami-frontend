@@ -13,19 +13,20 @@ const Rino = ({
         >
             <div className="flex items-start gap-2">
                 <svg
-                    width="153"
-                    height="52"
-                    viewBox="0 0 153 52"
+                    width="190"
+                    height="20"
+                    viewBox="0 0 190 20"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="-mt-0.5 2xl:mt-2 2xl:max-w-[132px] max-w-[80px]"
+                    className="2xl:mt-2.5 mt-1 md:w-[120px] 2xl:w-[190px]"
                 >
                     <path
-                        d="M1 51L51 1H153"
+                        d="M1 20L70 1H190"
                         stroke="white"
-                        stroke-opacity="0.5"
+                        strokeOpacity="0.5"
                     />
                 </svg>
+
                 <div className="flex gap-1 items-center">
                     <span className="font-semibold text-xs 2xl:text-base after:absolute relative after:left-0 after:bottom-0 after:h-[1px] after:bg-white after:w-0 after:transition-all after:duration-300 group-hover:after:w-full">
                         РИНОПЛАСТИКА
@@ -40,8 +41,8 @@ const Rino = ({
                         <path
                             d="M8 3V8.5M8 14V8.5M8 8.5H13.5H2.5"
                             stroke="white"
-                            stroke-opacity="0.5"
-                            stroke-width="1.5"
+                            strokeOpacity="0.5"
+                            strokeWidth="1.5"
                         />
                     </svg>
                 </div>

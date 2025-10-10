@@ -248,19 +248,19 @@ const AnimationBlock = () => {
                                 <path
                                     d="M8 2.5V8M8 13.5V8M8 8H13.5H2.5"
                                     stroke="white"
-                                    stroke-width="1.5"
+                                    strokeWidth="1.5"
                                 />
                             </svg>
                         </div>
                         <p className="text-xs font-semibold">СМОТРЕТЬ УСЛУГИ</p>
                     </div>
                     <Hair className="shelf hidden md:block absolute bottom-[47%] left-[27.5%] z-50" />
-                    <Rino className="shelf hidden md:block absolute bottom-[40.5%] 2xl:bottom-[41.5%] left-[28.1%] z-50" />
+                    <Rino className="shelf hidden md:block absolute bottom-[41.3%] 2xl:bottom-[41.5%] left-[28%] z-50" />
                     <Correction className="shelf hidden md:block absolute bottom-[37%] right-[76.5%] 2xl:left-[5.5%] z-50 2xl:whitespace-nowrap" />
                     <Grud className="shelf hidden md:block absolute bottom-[30%] right-[74%] 2xl:left-[14.5%] z-50" />
                     <Intim className="shelf hidden md:block absolute bottom-[24%] right-[71%] 2xl:left-[10.5%] 2xl:whitespace-nowrap z-50" />
                     <Body className="shelf hidden md:block absolute bottom-[26%] left-[31%] 2xl:left-[29.5%] z-50" />
-                    <Plastic className="shelf hidden md:block absolute bottom-[37%] left-[29%] 2xl:left-[29%] 2xl:bottom-[36%] z-50" />
+                    <Plastic className="shelf hidden md:block absolute bottom-[36.2%] left-[28.9%] 2xl:left-[29%] 2xl:bottom-[36%] z-50" />
                 </div>
             </div>
             <div
