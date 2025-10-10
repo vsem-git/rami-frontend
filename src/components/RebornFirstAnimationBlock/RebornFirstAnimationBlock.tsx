@@ -25,8 +25,8 @@ const FirstAnimationBlock = () => {
 
     useGSAP(() => {
         gsap.set(block2TextRef.current, { autoAlpha: 0 });
-        gsap.set(block3TextRef.current, { autoAlpha: 0 });
-        gsap.set(block3BlurRef.current, { autoAlpha: 0 });
+        gsap.set(block3TextRef.current, { opacity: 0 });
+        gsap.set(block3BlurRef.current, { opacity: 0 });
         gsap.set(block2LogoRef.current, { x: "-100%" });
         gsap.set(block5Ref.current, { opacity: 0 });
         gsap.set(block6Ref.current, { opacity: 0 });
@@ -119,9 +119,9 @@ const FirstAnimationBlock = () => {
         // Появление третьего блока
         tl.fromTo(
             [block3TextRef.current, block3BlurRef.current],
-            { autoAlpha: 0 },
+            { opacity: 0 },
             {
-                autoAlpha: 1,
+                opacity: 1,
                 duration: 1,
                 ease: "power2.inOut",
             }
@@ -192,6 +192,13 @@ const FirstAnimationBlock = () => {
                 style={{ willChange: "opacity" }} // Оптимизация для fade
             >
                 <div className="relative h-full w-full flex justify-end items-end overflow-hidden">
+                    <p className="firstblocktext pointer-events-none fixed top-[90px] md:bottom-0 text-[13px] md:text-sm 2xl:text-[21px] sm:top-1/2 sm:-translate-y-1/4 md:-translate-y-0 md:top-auto right-0 text-white m-6 xl:m-10 2xl:m-20 uppercase max-w-full  sm:max-w-[320px] 2xl:max-w-[480px] 2xl:tracking-wider 2xl:leading-8 z-10">
+                        <span className="font-bold">Новый проект</span>{" "}
+                        владельцев многопрофильной Клиники РАМИ Галины Резник и
+                        Мазена Хамуда – Клиника пластической хирургии и
+                        эстетической косметологии{" "}
+                        <span className="font-bold">RAMIСLINIC RESIDENCE</span>
+                    </p>
                     <div
                         className="absolute w-[600px] h-[600px] -bottom-0 -right-10 bg-[#1D1D1D9D] blur-[5px] md:blur-[200px] hidden md:block"
                         style={{ willChange: "filter" }}
