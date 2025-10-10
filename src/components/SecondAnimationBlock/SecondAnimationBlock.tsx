@@ -34,8 +34,8 @@ const FirstAnimationBlock = () => {
                     ease: "power2.inOut",
                     scrollTrigger: {
                         trigger: containerRef.current,
-                        start: "top+=200 top",
-                        end: "top+=400 top",
+                        start: "top+=100 top",
+                        end: "top+=300 top",
                         scrub: true,
                     },
                 }
