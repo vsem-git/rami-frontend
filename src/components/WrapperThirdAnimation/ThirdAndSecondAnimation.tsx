@@ -238,7 +238,7 @@ const ThirdAndSecondAnimation = () => {
                     scrollTrigger: {
                         trigger: strokeContainerRef.current,
                         start: "bottom-=100 bottom", // начало за 200px до конца блока
-                        end: "bottom+=770 bottom-=80", // конец за 10px до конца блока
+                        end: "bottom+=765 bottom-=80", // конец за 10px до конца блока
                         scrub: true,
                     },
                 });
@@ -251,7 +251,7 @@ const ThirdAndSecondAnimation = () => {
                     scrollTrigger: {
                         trigger: strokeContainerRef.current,
                         start: "bottom-=100 bottom", // начало за 200px до конца блока
-                        end: "bottom+=710 bottom-=80", // конец за 10px до конца блока
+                        end: "bottom+=670 bottom-=80", // конец за 10px до конца блока
                         scrub: true,
                     },
                 });
