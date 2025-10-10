@@ -255,7 +255,7 @@ const AnimationBlock = () => {
                         <p className="text-xs font-semibold">СМОТРЕТЬ УСЛУГИ</p>
                     </div>
                     <Hair className="shelf hidden md:block absolute bottom-[47%] left-[27.5%] z-50" />
-                    <Rino className="shelf hidden md:block absolute bottom-[41.3%] 2xl:bottom-[41.5%] left-[28%] z-50" />
+                    <Rino className="shelf hidden md:block absolute bottom-[41.6%] 2xl:bottom-[41.5%] left-[28.2%] z-50" />
                     <Correction className="shelf hidden md:block absolute bottom-[37%] right-[76.5%] 2xl:left-[5.5%] z-50 2xl:whitespace-nowrap" />
                     <Grud className="shelf hidden md:block absolute bottom-[30%] right-[74%] 2xl:left-[14.5%] z-50" />
                     <Intim className="shelf hidden md:block absolute bottom-[24%] right-[71%] 2xl:left-[10.5%] 2xl:whitespace-nowrap z-50" />
