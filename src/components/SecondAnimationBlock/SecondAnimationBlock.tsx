@@ -54,8 +54,8 @@ const FirstAnimationBlock = () => {
                     ease: "power2.inOut",
                     scrollTrigger: {
                         trigger: containerRef.current,
-                        start: "top+=300 top",
-                        end: "top+=700 top",
+                        start: "top+=150 top",
+                        end: "top+=350 top",
                         scrub: true,
                     },
                 }
@@ -90,8 +90,8 @@ const FirstAnimationBlock = () => {
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top top",
-                end: "+=50%",
-                scrub: true,
+                end: "+=20%",
+                toggleActions: "play none play reverse",
                 pin: true,
             },
         });
@@ -123,16 +123,9 @@ const FirstAnimationBlock = () => {
 
         tl.to(block2ContendRef.current, {
             autoAlpha: 1,
-            duration: 2,
+            duration: 0.5,
             ease: "power2.inOut",
         });
-
-        tl.to(
-            {},
-            {
-                duration: 1,
-            }
-        );
     }, []);
     return (
         <div className="h-dvh relative overflow-hidden" ref={containerRef}>
