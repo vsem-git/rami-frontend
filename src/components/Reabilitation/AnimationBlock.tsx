@@ -26,20 +26,20 @@ const AnimationBlock = () => {
             ref={containerRef}
             className="md:h-dvh w-full relative oveflow-hidden"
         >
-            <div className="hidden md:block relative aspect-square w-[calc(50%*1.1)] top-1/2 -translate-y-1/2 h-auto">
-                <div className="bg-white aspect-square w-full h-full blur-[80px] rounded-full"></div>
+            <div className="hidden md:block relative pointer-events-none aspect-square w-[calc(50%*1.1)] top-1/2 -translate-y-1/2 h-auto">
+                <div className="bg-white aspect-square pointer-events-none w-full h-full blur-[80px] rounded-full"></div>
                 <Clocks
                     minuteAngle={minuteAngle}
                     hourAngle={hourAngle}
                     ref={clocksRef}
-                    className="absolute w-full h-full left-1/2 top-1/2"
+                    className="absolute w-full h-full pointer-events-none left-1/2 top-1/2"
                 />
             </div>
 
             <img
                 src="/reabilitation-screen/reabilitation.webp"
                 ref={imageRef}
-                className="hidden md:block absolute w-1/2 max-h-[100%] bottom-[0%] md:-bottom-[10%] xl:-bottom-[15%] left-[1%] object-contain"
+                className="hidden pointer-events-none md:block absolute w-1/2 max-h-[100%] bottom-[0%] md:-bottom-[10%] xl:-bottom-[15%] left-[1%] object-contain"
                 width={770}
             />
             <div
