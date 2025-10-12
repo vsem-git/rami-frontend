@@ -11,9 +11,9 @@ const Layout = () => {
         <PopupProvider>
             <HeaderProvider>
                 <ClocksProvider>
-                    <div className="overflow-y-auto overflow-x-hidden h-full w-full bg-[#1D1D1D] fixed reabilitation-block">
+                    <div className="overflow-y-auto overflow-x-hidden h-full w-full bg-[#1D1D1D] fixed">
                         <Header />
-                        <div className="z-10 relative">
+                        <div className="z-10 relative reabilitation-block">
                             <ScrollSmoother>
                                 <Outlet />
                             </ScrollSmoother>
