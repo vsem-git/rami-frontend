@@ -38,6 +38,10 @@ body {
     }
 }
 
+* {
+    will-change: transform;
+}
+
 .marquee {
     display: inline-flex;
     animation: marquee 6s linear infinite;
