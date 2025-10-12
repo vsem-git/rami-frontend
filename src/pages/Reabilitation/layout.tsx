@@ -13,11 +13,9 @@ const Layout = () => {
                 <ClocksProvider>
                     <div className="overflow-y-auto overflow-x-hidden h-full w-full bg-[#1D1D1D] fixed">
                         <Header />
-                        <div className="z-10 relative">
-                            <ScrollSmoother>
-                                <Outlet />
-                            </ScrollSmoother>
-                        </div>
+                        <ScrollSmoother>
+                            <Outlet />
+                        </ScrollSmoother>
                         <MobileBackground />
                         <img
                             src="/reabilitation-screen/reabilitation.webp"
