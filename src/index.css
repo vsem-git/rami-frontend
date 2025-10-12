@@ -20,7 +20,11 @@ body {
     font-family: var(--font-montserrat);
 }
 
-.reabilitation-block * {
+.clock-block {
+    will-change: transform;
+}
+
+.clock-block * {
     will-change: transform;
 }
 
