@@ -184,6 +184,8 @@ const ThirdAnimationBlock = () => {
             return;
         }
 
+        swiper.update();
+
         const wrapper = swiper.wrapperEl;
         const container = swiperContainerRef.current;
         const wrapperWidth = wrapper.scrollWidth;
@@ -269,6 +271,8 @@ const ThirdAnimationBlock = () => {
                     <SwiperComponent
                         slidesPerView={1.2}
                         spaceBetween={16}
+                        observer={true}
+                        observeParents={true}
                         slidesOffsetBefore={20}
                         className="mySwiper h-full w-full teamswiper"
                         loop={false}

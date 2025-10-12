@@ -20,6 +20,11 @@ body {
     font-family: var(--font-montserrat);
 }
 
+.teamswiper {
+    max-width: 100%;
+    width: 100%;
+}
+
 .teamswiper .swiper-wrapper {
     margin-left: 16px;
 }
