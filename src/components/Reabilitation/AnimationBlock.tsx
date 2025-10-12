@@ -26,40 +26,6 @@ const AnimationBlock = () => {
     useGSAP(() => {
         const mm = gsap.matchMedia();
 
-        gsap.to(".mobile-reabilitation-image", {
-            scale: 1.25,
-            duration: 1,
-            ease: "power2.inOut",
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top top",
-                end: "+=1000",
-                scrub: 1,
-                anticipatePin: 1,
-                fastScrollEnd: true,
-            },
-        });
-
-        gsap.fromTo(
-            ".mobile-clocks",
-            {
-                opacity: 0,
-            },
-            {
-                opacity: 1,
-                duration: 1,
-                ease: "power2.inOut",
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top top",
-                    end: "+=1000",
-                    scrub: 1,
-                    anticipatePin: 1,
-                    fastScrollEnd: true,
-                },
-            }
-        );
-
         mm.add("(max-width: 768px)", () => {
             gsap.to(".marquee-reabilitation", {
                 scrollTrigger: {
@@ -70,6 +36,40 @@ const AnimationBlock = () => {
                 },
                 autoAlpha: 0,
             });
+
+            gsap.to(".mobile-reabilitation-image", {
+                scale: 1.25,
+                duration: 1,
+                ease: "power2.inOut",
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top top",
+                    end: "+=1000",
+                    scrub: 1,
+                    anticipatePin: 1,
+                    fastScrollEnd: true,
+                },
+            });
+
+            gsap.fromTo(
+                ".mobile-clocks",
+                {
+                    opacity: 0,
+                },
+                {
+                    opacity: 1,
+                    duration: 1,
+                    ease: "power2.inOut",
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: "top top",
+                        end: "+=1000",
+                        scrub: 1,
+                        anticipatePin: 1,
+                        fastScrollEnd: true,
+                    },
+                }
+            );
 
             ScrollTrigger.create({
                 trigger: secondBlockRef.current,
