@@ -1,60 +1,29 @@
-import { useRef } from "react";
 import Clocks from "./Clocks";
-import gsap from "gsap";
-import { useClocks } from "./ClocksProvider";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const AnimationBlock = () => {
-    const { minuteAngle, hourAngle } = useClocks();
-
-    const firstBlockRef = useRef(null);
-    const secondBlockRef = useRef(null);
-    const thirdBlockRef = useRef(null);
-    const firstStepRef = useRef(null);
-    const secondStepRef = useRef(null);
-    const thirdStepRef = useRef(null);
-    const fourthStepRef = useRef(null);
-    const containerRef = useRef(null);
-    const clocksRef = useRef(null);
-    const imageRef = useRef(null);
-    const marqueeRef = useRef(null);
-
     return (
-        <div
-            ref={containerRef}
-            className="md:h-dvh w-full relative oveflow-hidden"
-        >
+        <div className="md:h-dvh w-full relative oveflow-hidden">
             <div className="hidden md:block relative pointer-events-none aspect-square w-[calc(50%*1.1)] top-1/2 -translate-y-1/2 h-auto">
                 <div className="bg-white aspect-square pointer-events-none w-full h-full blur-[80px] rounded-full"></div>
                 <Clocks
-                    minuteAngle={minuteAngle}
-                    hourAngle={hourAngle}
-                    ref={clocksRef}
+                    minuteAngle={1}
+                    hourAngle={1}
                     className="absolute w-full h-full pointer-events-none left-1/2 top-1/2"
                 />
             </div>
 
             <img
                 src="/reabilitation-screen/reabilitation.webp"
-                ref={imageRef}
                 className="hidden pointer-events-none md:block absolute w-1/2 max-h-[100%] bottom-[0%] md:-bottom-[10%] xl:-bottom-[15%] left-[1%] object-contain"
                 width={770}
             />
-            <div
-                ref={marqueeRef}
-                className="marquee-reabilitation hidden md:inline-flex text-white pointer-events-none whitespace-nowrap text-[64px] md:text-[96px] 2xl:text-[130px] mix-blend-difference absolute bottom-0 left-0 w-full"
-            >
+            <div className="marquee-reabilitation hidden md:inline-flex text-white pointer-events-none whitespace-nowrap text-[64px] md:text-[96px] 2xl:text-[130px] mix-blend-difference absolute bottom-0 left-0 w-full">
                 <span className="px-8">РЕАБИЛИТАЦИЯ</span>
                 <span className="px-8">РЕАБИЛИТАЦИЯ</span>
                 <span className="px-8">РЕАБИЛИТАЦИЯ</span>
                 <span className="px-8">РЕАБИЛИТАЦИЯ</span>
             </div>
-            <span
-                ref={firstBlockRef}
-                className="text-[11px] md:text-xs 2xl:text-lg tracking-[1.5%] sm:max-w-[380px] text-white md:absolute pt-[120px] sm:pt-0 right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col sm:justify-center uppercase leading-[155%] md:max-w-[410px] xl:max-w-[560px] 2xl:max-w-[710px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
-            >
+            <span className="text-[11px] md:text-xs 2xl:text-lg tracking-[1.5%] sm:max-w-[380px] text-white md:absolute pt-[120px] sm:pt-0 right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col sm:justify-center uppercase leading-[155%] md:max-w-[410px] xl:max-w-[560px] 2xl:max-w-[710px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]">
                 <div>
                     <span>
                         <span className="font-bold inline">
@@ -72,10 +41,7 @@ const AnimationBlock = () => {
                     </span>
                 </div>
             </span>
-            <div
-                ref={secondBlockRef}
-                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col  pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[710px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
-            >
+            <div className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col  pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[710px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]">
                 <h1 className="text-[15px] md:text-[16px] 2xl:text-[24px] leading-[130%] mb-4 2xl:mb-6 tracking-[2%]">
                     ОМОЛОЖЕНИЕ И ОЗДОРОВЛЕНИЕ ОРГАНИЗМА ИЗНУТРИ
                 </h1>
@@ -90,10 +56,7 @@ const AnimationBlock = () => {
                     пластической операции.
                 </p>
             </div>
-            <div
-                ref={thirdBlockRef}
-                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[720px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
-            >
+            <div className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[720px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]">
                 <h1 className="text-[15px] md:text-[16px] 2xl:text-[24px] leading-[130%] mb-4 2xl:mb-6">
                     ПОДРОБНЫЙ ГЕНЕТИЧЕСКИЙ АНАЛИЗ
                 </h1>
@@ -105,10 +68,7 @@ const AnimationBlock = () => {
                     этих состояний.
                 </p>
             </div>
-            <div
-                ref={firstStepRef}
-                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[390px] md:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
-            >
+            <div className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[390px] md:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]">
                 <div className="grid grid-cols-[40px_1fr] xl:grid-cols-[48px_1fr] gap-4">
                     <div className="aspect-square bg-[#FFFFFF1A] flex items-center justify-center text-[11px] 2xl:text-[14px] rounded-full">
                         01
@@ -135,10 +95,7 @@ const AnimationBlock = () => {
                     </div>
                 </div>
             </div>
-            <div
-                ref={secondStepRef}
-                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[390px] md:max-w-[410px] xl:max-w-[560px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
-            >
+            <div className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[390px] md:max-w-[410px] xl:max-w-[560px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]">
                 <div className="grid grid-cols-[40px_1fr] xl:grid-cols-[48px_1fr] gap-4">
                     <div className="aspect-square bg-[#FFFFFF1A] flex items-center justify-center text-[11px] 2xl:text-[14px] rounded-full">
                         02
@@ -213,10 +170,7 @@ const AnimationBlock = () => {
                     </div>
                 </div>
             </div>
-            <div
-                ref={thirdStepRef}
-                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
-            >
+            <div className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]">
                 <div className="grid grid-cols-[40px_1fr] xl:grid-cols-[48px_1fr] gap-4">
                     <div className="aspect-square bg-[#FFFFFF1A] flex items-center justify-center text-[11px] 2xl:text-[14px] rounded-full">
                         03
@@ -310,10 +264,7 @@ const AnimationBlock = () => {
                     </div>
                 </div>
             </div>
-            <div
-                ref={fourthStepRef}
-                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
-            >
+            <div className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]">
                 <div className="grid grid-cols-[40px_1fr] xl:grid-cols-[48px_1fr] gap-4">
                     <div className="aspect-square bg-[#FFFFFF1A] flex items-center justify-center text-[11px] 2xl:text-[14px] rounded-full">
                         04
