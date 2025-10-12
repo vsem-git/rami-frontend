@@ -23,7 +23,7 @@ const VideoAnimation = () => {
                 scale: 2.4,
                 y: () =>
                     // @ts-ignore
-                    window.innerHeight / 2 -
+                    document.documentElement.clientHeight / 2 -
                     // @ts-ignore
                     document?.querySelector(".logoheader")?.offsetHeight / 2,
             });
@@ -35,7 +35,7 @@ const VideoAnimation = () => {
                 scale: 3,
                 y: () =>
                     // @ts-ignore
-                    window.innerHeight / 2 -
+                    document.documentElement.clientHeight / 2 -
                     // @ts-ignore
                     document?.querySelector(".logoheader")?.offsetHeight / 2,
             });
@@ -46,8 +46,7 @@ const VideoAnimation = () => {
             gsap.set(".logoheader", {
                 scale: 4,
                 y: () =>
-                    // @ts-ignore
-                    window.innerHeight / 2 -
+                    document.documentElement.clientHeight / 2 -
                     // @ts-ignore
                     document?.querySelector(".logoheader")?.offsetHeight / 2,
             });
@@ -59,7 +58,7 @@ const VideoAnimation = () => {
                 scale: 4,
                 y: () =>
                     // @ts-ignore
-                    window.innerHeight / 2 -
+                    document.documentElement.clientHeight / 2 -
                     // @ts-ignore
                     document?.querySelector(".logoheader")?.offsetHeight / 2,
             });
@@ -71,7 +70,7 @@ const VideoAnimation = () => {
                 scale: 4.7,
                 y: () =>
                     // @ts-ignore
-                    window.innerHeight / 2 -
+                    document.documentElement.clientHeight / 2 -
                     // @ts-ignore
                     document?.querySelector(".logoheader")?.offsetHeight / 2,
             });
@@ -177,7 +176,7 @@ const VideoAnimation = () => {
         const speedUp = () => {
             if (video && !speededUp) {
                 requestAnimationFrame(() => {
-                    video.playbackRate = 5; // попробуй начать с 3 вместо 5
+                    video.playbackRate = 10; // попробуй начать с 3 вместо 5
                     postDelayMs = Math.max(
                         300,
                         Math.round(BASE_DELAY / video.playbackRate)

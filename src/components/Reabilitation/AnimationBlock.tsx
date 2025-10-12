@@ -191,7 +191,7 @@ const AnimationBlock = () => {
             className="bg-[#1D1D1D] h-dvh w-full relative oveflow-hidden"
         >
             <div className="relative aspect-square w-1/2 top-1/2 -translate-y-1/2 h-auto">
-                <div className="bg-white w-full h-full rounded-full blur-[110px]"></div>
+                <div className="bg-white w-full h-full rounded-full blur-[180px]"></div>
                 <Clocks
                     minuteAngle={minuteAngle}
                     hourAngle={hourAngle}
@@ -230,7 +230,7 @@ const AnimationBlock = () => {
             </p>
             <div
                 ref={secondBlockRef}
-                className="text-lg text-white absolute right-0 top-0 h-full flex flex-col justify-center uppercase sm:max-w-1/2 md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[720px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
+                className="text-lg text-white absolute right-0 top-0 h-full flex flex-col justify-center uppercase sm:max-w-1/2 md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[710px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
             >
                 <h1 className="text-[15px] md:text-[16px] 2xl:text-[24px] leading-[130%] mb-4 2xl:mb-6">
                     ОМОЛОЖЕНИЕ И ОЗДОРОВЛЕНИЕ ОРГАНИЗМА ИЗНУТРИ
