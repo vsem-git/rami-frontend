@@ -8,6 +8,7 @@ import ScrollSmoother from "../../components/ScrollSmoother";
 const Layout = () => {
     return (
         <PopupProvider>
+            <div className="fixed w-full h-full bg-[#1D1D1D]"></div>
             <img
                 src="/reabilitation-screen/reabilitation.webp"
                 className="mobile-reabilitation-image fixed z-[1] md:hidden sm:w-[55%] max-h-[100%] -bottom-[8%] -left-[2%]  object-contain"
