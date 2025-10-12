@@ -20,7 +20,7 @@ const Layout = () => {
                         </div>
                         <MobileBackground />
                         <img
-                            src="/reabilitation/reabilitation.webp"
+                            src="/reabilitation-screen/reabilitation.webp"
                             className="mobile-reabilitation-image fixed z-[1] md:hidden sm:w-[55%] max-h-[100%] -bottom-[8%] -left-[2%]  object-contain"
                             width={770}
                         />

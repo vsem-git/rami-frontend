@@ -61,6 +61,16 @@ const AnimationBlock = () => {
         );
 
         mm.add("(max-width: 768px)", () => {
+            gsap.to(".marquee-reabilitation", {
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top top",
+                    end: "+=25%",
+                    scrub: true,
+                },
+                autoAlpha: 0,
+            });
+
             ScrollTrigger.create({
                 trigger: secondBlockRef.current,
                 start: "top 70%",
@@ -174,16 +184,6 @@ const AnimationBlock = () => {
                     );
                 },
             });
-        });
-
-        gsap.to(".marquee-reabilitation", {
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top top",
-                end: "+=25%",
-                scrub: true,
-            },
-            autoAlpha: 0,
         });
 
         mm.add("(min-width: 769px)", () => {
@@ -463,7 +463,7 @@ const AnimationBlock = () => {
             </div>
 
             <img
-                src="/reabilitation/reabilitation.webp"
+                src="/reabilitation-screen/reabilitation.webp"
                 ref={imageRef}
                 className="hidden md:block absolute w-1/2 max-h-[100%] bottom-[0%] md:-bottom-[10%] xl:-bottom-[15%] left-[1%] object-contain"
                 width={770}
