@@ -44,7 +44,7 @@ const AnimationBlock = () => {
                 scrollTrigger: {
                     trigger: containerRef.current,
                     start: "top top",
-                    end: "+=1000",
+                    end: "+=200",
                     scrub: 1,
                     anticipatePin: 1,
                     fastScrollEnd: true,
@@ -63,7 +63,7 @@ const AnimationBlock = () => {
                     scrollTrigger: {
                         trigger: containerRef.current,
                         start: "top top",
-                        end: "+=1000",
+                        end: "+=200",
                         scrub: 1,
                         anticipatePin: 1,
                         fastScrollEnd: true,
@@ -209,7 +209,7 @@ const AnimationBlock = () => {
                 scrollTrigger: {
                     trigger: containerRef.current,
                     start: "top top",
-                    end: "+=1000%",
+                    end: "+=500%",
                     scrub: 1,
                     pin: true,
                     anticipatePin: 1,
