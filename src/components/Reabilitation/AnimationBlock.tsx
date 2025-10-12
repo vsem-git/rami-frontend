@@ -450,7 +450,7 @@ const AnimationBlock = () => {
     return (
         <div
             ref={containerRef}
-            className="md:h-dvh w-full relative oveflow-hidden reabilitation-block"
+            className="md:h-dvh w-full relative oveflow-hidden"
         >
             <div className="hidden md:block relative aspect-square w-[calc(50%*1.1)] top-1/2 -translate-y-1/2 h-auto">
                 <div className="bg-white aspect-square w-full h-full blur-[80px] rounded-full"></div>
