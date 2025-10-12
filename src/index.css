@@ -48,9 +48,8 @@ body {
     animation: marquee 35s linear infinite;
 }
 
-.marquee-cosmetology {
-    display: inline-flex;
-    animation: marquee 40s linear infinite;
+.marquee-reabilitation {
+    animation: marquee 6s linear infinite;
 }
 
 @media (min-width: 1850px) {

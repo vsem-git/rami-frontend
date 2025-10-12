@@ -60,7 +60,11 @@ const Clocks = ({
             <g
                 filter="url(#filter6_f_573_28292)"
                 id="bigarrow"
-                transform={`rotate(${minuteAngle} 540 540)`}
+                className="transition-transform duration-1000"
+                style={{
+                    transform: `rotate(${minuteAngle}deg)`,
+                    transformOrigin: "540px 540px",
+                }}
             >
                 <path
                     d="M540 590C512.386 590 490 567.614 490 540C490 512.386 512.386 490 540 490C567.614 490 860 540 860 540C860 540 567.614 590 540 590Z"
@@ -71,7 +75,11 @@ const Clocks = ({
             <g
                 filter="url(#filter7_f_573_28292)"
                 id="smallarrow"
-                transform={`rotate(${hourAngle} 540 540)`}
+                className="transition-transform duration-1000"
+                style={{
+                    transform: `rotate(${hourAngle}deg)`,
+                    transformOrigin: "540px 540px",
+                }}
             >
                 <path
                     d="M588.296 552.94C581.148 579.614 553.732 595.443 527.058 588.296C500.385 581.149 484.556 553.732 491.703 527.058C498.85 500.385 592.281 344.882 592.281 344.882C592.281 344.882 595.443 526.267 588.296 552.94Z"
