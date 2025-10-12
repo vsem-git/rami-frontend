@@ -176,6 +176,16 @@ const AnimationBlock = () => {
             });
         });
 
+        gsap.to(".marquee-reabilitation", {
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: "top top",
+                end: "+=25%",
+                scrub: true,
+            },
+            autoAlpha: 0,
+        });
+
         mm.add("(min-width: 769px)", () => {
             gsap.set(
                 [
@@ -469,7 +479,7 @@ const AnimationBlock = () => {
             </div>
             <p
                 ref={firstBlockRef}
-                className="text-[11px] md:text-xs 2xl:text-lg tracking-[1.5%] sm:max-w-1/2 text-white md:absolute pt-[120px] sm:pt-0 right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col sm:justify-center uppercase leading-[155%] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[710px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
+                className="text-[11px] md:text-xs 2xl:text-lg tracking-[1.5%] sm:max-w-[380px] text-white md:absolute pt-[120px] sm:pt-0 right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col sm:justify-center uppercase leading-[155%] md:max-w-[410px] xl:max-w-[560px] 2xl:max-w-[710px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
             >
                 <div>
                     <span>
@@ -490,7 +500,7 @@ const AnimationBlock = () => {
             </p>
             <div
                 ref={secondBlockRef}
-                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col  pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-1/2 md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[710px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
+                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col  pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[710px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
             >
                 <h1 className="text-[15px] md:text-[16px] 2xl:text-[24px] leading-[130%] mb-4 2xl:mb-6 tracking-[2%]">
                     ОМОЛОЖЕНИЕ И ОЗДОРОВЛЕНИЕ ОРГАНИЗМА ИЗНУТРИ
@@ -508,7 +518,7 @@ const AnimationBlock = () => {
             </div>
             <div
                 ref={thirdBlockRef}
-                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-1/2 md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[720px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
+                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[720px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
             >
                 <h1 className="text-[15px] md:text-[16px] 2xl:text-[24px] leading-[130%] mb-4 2xl:mb-6">
                     ПОДРОБНЫЙ ГЕНЕТИЧЕСКИЙ АНАЛИЗ
@@ -523,20 +533,24 @@ const AnimationBlock = () => {
             </div>
             <div
                 ref={firstStepRef}
-                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-1/2 md:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
+                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[390px] md:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
             >
-                <div className="grid grid-cols-[48px_1fr] gap-4">
+                <div className="grid grid-cols-[40px_1fr] xl:grid-cols-[48px_1fr] gap-4">
                     <div className="aspect-square bg-[#FFFFFF1A] flex items-center justify-center text-[11px] 2xl:text-[14px] rounded-full">
                         01
                     </div>
-                    <div className="xl:mt-3.5 2xl:mt-2">
+                    <div className="mt-3.5 2xl:mt-2">
                         <h1 className="text-[15px] md:text-[16px] 2xl:text-[24px] leading-[130%] mb-4 md:mb-6">
                             ВОЗДУШНО-КИСЛОРОДНАЯ ГИПЕРБАРИЧЕСКАЯ БАРОКАМЕРА
                             НОВОГО ПОКОЛЕНИЯ
                         </h1>
                         <p className="text-[11px] md:text-[12px] 2xl:text-[18px] leading-[155%]">
-                            ГИПЕРБАРИЧЕСКАЯ ОКСИГЕНАЦИЯ – нахождение пациента в
-                            барокамере в среде повышенного давления и{" "}
+                            ГИПЕРБАРИЧЕСКАЯ ОКСИГЕНАЦИЯ –{" "}
+                            <span className="sm:whitespace-nowrap md:whitespace-normal">
+                                {" "}
+                                нахождение пациента в барокамере в среде
+                            </span>{" "}
+                            повышенного давления и{" "}
                             <span className="font-bold">
                                 дыхания обогащенной кислородной смесью
                             </span>
@@ -549,13 +563,13 @@ const AnimationBlock = () => {
             </div>
             <div
                 ref={secondStepRef}
-                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-1/2 md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
+                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[390px] md:max-w-[410px] xl:max-w-[560px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
             >
-                <div className="grid grid-cols-[48px_1fr] gap-4">
+                <div className="grid grid-cols-[40px_1fr] xl:grid-cols-[48px_1fr] gap-4">
                     <div className="aspect-square bg-[#FFFFFF1A] flex items-center justify-center text-[11px] 2xl:text-[14px] rounded-full">
                         02
                     </div>
-                    <div className="xl:mt-3.5 2xl:mt-2">
+                    <div className="mt-3.5 2xl:mt-2">
                         <h1 className="text-[15px] md:text-[16px] 2xl:text-[24px] leading-[130%] mb-4 md:mb-6">
                             ИНЪЕКЦИОННАЯ КОСМЕТОЛОГИЯ
                         </h1>
@@ -627,13 +641,13 @@ const AnimationBlock = () => {
             </div>
             <div
                 ref={thirdStepRef}
-                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-1/2 md:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
+                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
             >
-                <div className="grid grid-cols-[48px_1fr] gap-4">
+                <div className="grid grid-cols-[40px_1fr] xl:grid-cols-[48px_1fr] gap-4">
                     <div className="aspect-square bg-[#FFFFFF1A] flex items-center justify-center text-[11px] 2xl:text-[14px] rounded-full">
                         03
                     </div>
-                    <div className="xl:mt-3.5 2xl:mt-2">
+                    <div className="mt-3.5 2xl:mt-2">
                         <h1 className="text-[15px] md:text-[16px] 2xl:text-[24px] leading-[130%] mb-4 md:mb-6">
                             АППАРАТНАЯ КОСМЕТОЛОГИЯ
                         </h1>
@@ -655,7 +669,9 @@ const AnimationBlock = () => {
                                     />
                                 </svg>
                             </div>
-                            <div>Фототерапия широкополосным светов</div>
+                            <div className="md:whitespace-nowrap xl:whitespace-normal">
+                                Фототерапия широкополосным светов
+                            </div>
                         </div>
                         <div className="flex items-start gap-2 mb-2 text-[11px] md:text-[12px] 2xl:text-[18px] leading-[155%]">
                             <div className="mt-[5.5px] 2xl:mt-[9.5px]">
@@ -722,13 +738,13 @@ const AnimationBlock = () => {
             </div>
             <div
                 ref={fourthStepRef}
-                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-1/2 md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
+                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
             >
-                <div className="grid grid-cols-[48px_1fr] gap-4">
+                <div className="grid grid-cols-[40px_1fr] xl:grid-cols-[48px_1fr] gap-4">
                     <div className="aspect-square bg-[#FFFFFF1A] flex items-center justify-center text-[11px] 2xl:text-[14px] rounded-full">
                         04
                     </div>
-                    <div className="xl:mt-3.5 2xl:mt-2">
+                    <div className="mt-3.5 2xl:mt-2">
                         <h1 className="text-[15px] md:text-[16px] 2xl:text-[24px] leading-[130%] mb-4 md:mb-6">
                             ИСПОЛЬЗОВАНИЕ ПРЕМИАЛЬНОЙ КОСМЕЦЕВТИКИ
                         </h1>
