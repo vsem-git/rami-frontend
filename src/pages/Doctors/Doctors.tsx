@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 
-const doctors = [
+/* const doctors = [
     [
         "/swiper1.webp",
         "/serb.gif",
@@ -52,7 +52,7 @@ const doctors = [
         "Хамуд",
         "Рами",
     ],
-];
+]; */
 
 const Doctors = () => {
     useEffect(() => {
