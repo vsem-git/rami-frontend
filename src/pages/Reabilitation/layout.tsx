@@ -4,8 +4,37 @@ import { HeaderProvider } from "../../components/HeaderContext";
 import { PopupProvider } from "../../components/PopupContext";
 import MobileBackground from "../../components/Reabilitation/MobileBackground";
 import ScrollSmoother from "../../components/ScrollSmoother";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const Layout = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    const isSmoother = () => {
+        if (isMobile) {
+            return <Outlet />;
+        } else {
+            return (
+                <ScrollSmoother>
+                    <Outlet />
+                </ScrollSmoother>
+            );
+        }
+    };
+
     return (
         <PopupProvider>
             <div className="fixed w-full h-full bg-[#1D1D1D]"></div>
@@ -23,9 +52,7 @@ const Layout = () => {
             <MobileBackground />
             <HeaderProvider>
                 <Header />
-                <ScrollSmoother>
-                    <Outlet />
-                </ScrollSmoother>
+                {isSmoother()}
             </HeaderProvider>
         </PopupProvider>
     );
