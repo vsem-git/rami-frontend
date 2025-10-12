@@ -20,7 +20,7 @@ export default function ScrollSmoother({
                 wrapper: wrapperRef.current,
                 content: contentRef.current,
                 smooth: 2,
-                normalizeScroll: false,
+                normalizeScroll: true,
                 effects: true,
                 smoothTouch: 0.5,
             });
