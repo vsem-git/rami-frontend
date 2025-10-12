@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import Header from "../../components/Header";
-import ScrollSmoother from "../../components/ScrollSmoother";
 import { HeaderProvider } from "../../components/HeaderContext";
 import { PopupProvider } from "../../components/PopupContext";
 import { ClocksProvider } from "../../components/Reabilitation/ClocksProvider";
@@ -13,9 +12,7 @@ const Layout = () => {
                 <ClocksProvider>
                     <div className="overflow-y-auto overflow-x-hidden h-full w-full bg-[#1D1D1D] fixed">
                         <Header />
-                        <ScrollSmoother>
-                            <Outlet />
-                        </ScrollSmoother>
+                        <Outlet />
                         <MobileBackground />
                         <img
                             src="/reabilitation-screen/reabilitation.webp"
