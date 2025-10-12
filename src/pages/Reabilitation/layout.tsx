@@ -4,6 +4,7 @@ import { HeaderProvider } from "../../components/HeaderContext";
 import { PopupProvider } from "../../components/PopupContext";
 import { ClocksProvider } from "../../components/Reabilitation/ClocksProvider";
 import MobileBackground from "../../components/Reabilitation/MobileBackground";
+import ScrollSmoother from "../../components/ScrollSmoother";
 
 const Layout = () => {
     return (
@@ -12,7 +13,9 @@ const Layout = () => {
                 <ClocksProvider>
                     <div className="overflow-y-auto overflow-x-hidden h-full w-full bg-[#1D1D1D] fixed">
                         <Header />
-                        <Outlet />
+                        <ScrollSmoother>
+                            <Outlet />
+                        </ScrollSmoother>
                         <MobileBackground />
                         <img
                             src="/reabilitation-screen/reabilitation.webp"
