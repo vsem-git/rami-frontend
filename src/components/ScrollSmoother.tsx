@@ -19,10 +19,10 @@ export default function ScrollSmoother({
             const smoother = ScrollSmootherClass.create({
                 wrapper: wrapperRef.current,
                 content: contentRef.current,
-                smooth: window.innerWidth > 768 ? 2 : 0, // Отключить плавный скролл для мобильных
+                smooth: 2,
                 normalizeScroll: true,
                 effects: true,
-                smoothTouch: window.innerWidth > 768 ? 0.5 : 0, // Отключить smoothTouch для мобильных
+                smoothTouch: 0.5,
             });
 
             return () => {
