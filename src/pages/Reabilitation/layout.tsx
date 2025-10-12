@@ -5,48 +5,19 @@ import { HeaderProvider } from "../../components/HeaderContext";
 import { PopupProvider } from "../../components/PopupContext";
 import { ClocksProvider } from "../../components/Reabilitation/ClocksProvider";
 import MobileBackground from "../../components/Reabilitation/MobileBackground";
-import { useState } from "react";
-import { useEffect } from "react";
 
 const Layout = () => {
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth < 768);
-        };
-
-        handleResize();
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
-
-    const isSmoother = () => {
-        if (isMobile) {
-            return (
-                <ScrollSmoother>
-                    <Outlet />
-                </ScrollSmoother>
-            );
-        } else {
-            return (
-                <ScrollSmoother>
-                    <Outlet />
-                </ScrollSmoother>
-            );
-        }
-    };
-
     return (
         <PopupProvider>
             <HeaderProvider>
                 <ClocksProvider>
                     <div className="overflow-y-auto overflow-x-hidden h-full w-full bg-[#1D1D1D] fixed">
                         <Header />
-                        <div className="z-10 relative">{isSmoother()}</div>
+                        <div className="z-10 relative">
+                            <ScrollSmoother>
+                                <Outlet />
+                            </ScrollSmoother>
+                        </div>
                         <MobileBackground />
                         <img
                             src="/reabilitation-screen/reabilitation.webp"

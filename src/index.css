@@ -20,6 +20,10 @@ body {
     font-family: var(--font-montserrat);
 }
 
+.reabilitation-block * {
+    will-change: transform;
+}
+
 .teamswiper {
     max-width: 100%;
     width: 100%;
@@ -36,10 +40,6 @@ body {
     100% {
         transform: translateX(-102%);
     }
-}
-
-* {
-    will-change: transform;
 }
 
 .marquee {
