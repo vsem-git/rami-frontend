@@ -477,7 +477,7 @@ const AnimationBlock = () => {
                 <span className="px-8">РЕАБИЛИТАЦИЯ</span>
                 <span className="px-8">РЕАБИЛИТАЦИЯ</span>
             </div>
-            <p
+            <span
                 ref={firstBlockRef}
                 className="text-[11px] md:text-xs 2xl:text-lg tracking-[1.5%] sm:max-w-[380px] text-white md:absolute pt-[120px] sm:pt-0 right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col sm:justify-center uppercase leading-[155%] md:max-w-[410px] xl:max-w-[560px] 2xl:max-w-[710px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
             >
@@ -497,7 +497,7 @@ const AnimationBlock = () => {
                         инновационном отделении косметологии.
                     </span>
                 </div>
-            </p>
+            </span>
             <div
                 ref={secondBlockRef}
                 className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col  pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[710px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
