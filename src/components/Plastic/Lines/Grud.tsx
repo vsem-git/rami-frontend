@@ -4,10 +4,13 @@ const Grud = ({
     className,
     ...props
 }: React.HTMLAttributes<HTMLDivElement>) => {
-    const { openPopup } = usePopup();
+    const { openPopup, closeAllPopups } = usePopup();
     return (
         <div
-            onClick={() => openPopup("breastpopup")}
+            onClick={() => {
+                closeAllPopups();
+                openPopup("breastpopup");
+            }}
             {...props}
             className={`group cursor-pointer ${className}`}
         >
