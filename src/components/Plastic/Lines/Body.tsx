@@ -4,10 +4,13 @@ const Body = ({
     className,
     ...props
 }: React.HTMLAttributes<HTMLDivElement>) => {
-    const { openPopup } = usePopup();
+    const { openPopup, closeAllPopups } = usePopup();
     return (
         <div
-            onClick={() => openPopup("bodypopup")}
+            onClick={() => {
+                closeAllPopups();
+                openPopup("bodypopup");
+            }}
             {...props}
             className={`group cursor-pointer ${className}`}
         >

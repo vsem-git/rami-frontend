@@ -4,10 +4,13 @@ const Rino = ({
     className,
     ...props
 }: React.HTMLAttributes<HTMLDivElement>) => {
-    const { openPopup } = usePopup();
+    const { openPopup, closeAllPopups } = usePopup();
     return (
         <div
-            onClick={() => openPopup("rinopopup")}
+            onClick={() => {
+                closeAllPopups();
+                openPopup("rinopopup");
+            }}
             {...props}
             className={`group cursor-pointer ${className}`}
         >

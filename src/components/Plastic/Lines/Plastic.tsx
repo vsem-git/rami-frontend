@@ -4,10 +4,13 @@ const Plastic = ({
     className,
     ...props
 }: React.HTMLAttributes<HTMLDivElement>) => {
-    const { openPopup } = usePopup();
+    const { openPopup, closeAllPopups } = usePopup();
     return (
         <div
-            onClick={() => openPopup("plasticpopup")}
+            onClick={() => {
+                closeAllPopups();
+                openPopup("plasticpopup");
+            }}
             {...props}
             className={`group cursor-pointer ${className}`}
         >
