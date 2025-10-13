@@ -145,7 +145,7 @@ const FirstAnimationBlock = () => {
                 ref={block2Ref}
             >
                 <div
-                    className="relative h-full w-full flex flex-col justify-center md:grid grid-cols-3 bg-[#1D1D1D1A]"
+                    className="relative h-full w-full flex flex-col justify-center md:grid grid-cols-3"
                     ref={block2ContendRef}
                 >
                     <div className="max-h-[120px] h-full md:h-auto md:max-h-full relative flex flex-row-reverse md:flex-col justify-between md:justify-end items-center border-b border-r-0 md:border-r border-[#FFFFFF33] group px-4 md:px-0">

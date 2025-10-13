@@ -35,7 +35,7 @@ export const COSMETOLOGY = [
         id: 1,
         content: (
             <>
-                <p className="text-[10px]/[155%] md:text-xs/[155%] xl:text-[clamp(0.75rem,1vw,0.875rem)]/[155%] text-white uppercase font-normal max-w-full sm:max-w-[356px] md:max-w-[400px] xl:max-w-[clamp(400px,40vw,580px)] mb-10">
+                <p className="text-[10px]/[155%] md:text-xs/[155%] xl:text-[clamp(0.75rem,1vw,1.125rem)]/[155%] text-white uppercase font-normal max-w-full sm:max-w-[356px] md:max-w-[400px] xl:max-w-[clamp(400px,40vw,580px)] mb-10">
                     Интеллектуальная косметология – это{" "}
                     <span className="font-bold">
                         глубинный междисциплинарный подход{" "}

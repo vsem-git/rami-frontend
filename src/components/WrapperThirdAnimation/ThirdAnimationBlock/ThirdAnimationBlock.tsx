@@ -125,7 +125,7 @@ const ThirdAnimationBlock = () => {
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top top",
-                end: "+=300%",
+                end: "+=175%",
                 scrub: true,
                 pin: true,
             },

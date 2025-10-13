@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 
-/* const doctors = [
+type DoctorsType = [string, string, string[], string, string];
+
+const doctors: DoctorsType[] = [
     [
         "/swiper1.webp",
         "/serb.gif",
@@ -52,7 +54,7 @@ import { gsap } from "gsap";
         "Хамуд",
         "Рами",
     ],
-]; */
+];
 
 const Doctors = () => {
     useEffect(() => {
@@ -61,6 +63,14 @@ const Doctors = () => {
     }, []);
 
     const [activeTab, setActiveTab] = useState<number>(0);
+    const [activeSlide] = useState<number>(-1); // Добавил состояние для activeSlide, если нужно; иначе удалить ссылки на него
+
+    // Фильтрация врачей на основе таба (предполагая, что doctors - это пластические хирурги)
+    let displayedDoctors: DoctorsType[] = [];
+    if (activeTab === 0 || activeTab === 1) {
+        displayedDoctors = doctors;
+    }
+    // Для других табов (2 и 3) - пустой массив, можно добавить другие массивы данных позже
 
     return (
         <div className="2xl:pt-[152px] md:pt-[112px] pt-[80px] px-6 sm:px-4 md:px-6 2xl:px-10 md:mb-[120px] xl:mb-[160px] mb-[96px] 2xl:mb-[240px]">
@@ -160,8 +170,22 @@ const Doctors = () => {
                             </li>
                         </ul>
                     </div>
-                    <div className="flex justify-between items-center gap-4 bg-[#E8E8E8] p-3 xl:p-0 xl:">
-                        <span>ДРУГИЕ СПЕЦИАЛИСТЫ</span>
+                    <div className="flex justify-between items-center gap-4 bg-[#E8E8E8] cursor-pointer xl:bg-transparent p-3 xl:p-0 group">
+                        <span
+                            className="
+                            relative
+                                    after:absolute 
+                                    after:left-0 
+                                    after:bottom-0 
+                                    after:h-[1px] 
+                                    after:w-0
+                                    after:transition-all 
+                                    after:duration-300 
+                                    after:bg-[#1D1D1D]
+                                    group-hover:after:w-full"
+                        >
+                            ДРУГИЕ СПЕЦИАЛИСТЫ
+                        </span>
                         <svg
                             width="32"
                             height="32"
@@ -195,18 +219,93 @@ const Doctors = () => {
                 </div>
             </div>
             <div className="grid md:grid-cols-3 xl:grid-cols-4 gap-4">
-                <div className="aspect-[448/598.4] bg-cover bg-center bg-[url('/swiper1.webp')]"></div>
-                <div className="aspect-[448/598.4] bg-cover bg-center bg-[url('/swiper1.webp')]"></div>
-                <div className="aspect-[448/598.4] bg-cover bg-center bg-[url('/swiper1.webp')]"></div>
-                <div className="aspect-[448/598.4] bg-cover bg-center bg-[url('/swiper1.webp')]"></div>
-                <div className="aspect-[448/598.4] bg-cover bg-center bg-[url('/swiper1.webp')]"></div>
-                <div className="aspect-[448/598.4] bg-cover bg-center bg-[url('/swiper1.webp')]"></div>
-                <div className="aspect-[448/598.4] bg-cover bg-center bg-[url('/swiper1.webp')]"></div>
-                <div className="aspect-[448/598.4] bg-cover bg-center bg-[url('/swiper1.webp')]"></div>
+                {displayedDoctors.map((el, i) => (
+                    <div
+                        key={i}
+                        className="group relative aspect-[448/598.4] bg-cover bg-center"
+                        style={{ backgroundImage: `url(${el[0]})` }}
+                    >
+                        <video
+                            className={`absolute inset-0 w-full h-full object-cover saturate-0 opacity-0 transition-all group-hover:opacity-100 duration-1000 ${
+                                activeSlide === i ? "opacity-100" : ""
+                            }`}
+                            playsInline
+                            muted
+                            loop
+                            autoPlay
+                            preload="metadata"
+                            poster={el[0]}
+                        >
+                            <source
+                                src={el[1].replace(".gif", ".webm")}
+                                type="video/webm"
+                            />
+                            <source
+                                src={el[1].replace(".gif", ".mp4")}
+                                type="video/mp4"
+                            />
+                        </video>
+
+                        <div
+                            className={`absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-0 transition-all group-hover:opacity-100 duration-1000`}
+                        ></div>
+                        <div
+                            className={`absolute inset-0 w-full h-full opacity-0 transition-all group-hover:opacity-100 duration-1000`}
+                        >
+                            <div className="relative h-full w-full flex flex-col items-center text-center justify-end">
+                                <button className="absolute top-0 right-0 m-1 sm:m-2 p-4 md:p-5 2xl:p-8 text-[32px] bg-[#691C32] cursor-pointer">
+                                    <svg
+                                        width="16"
+                                        height="16"
+                                        viewBox="0 0 32 32"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            className="transition-all"
+                                            d="M16 5V16M16 27V16M16 16H27H5"
+                                            stroke="#fff"
+                                            strokeWidth="1.5"
+                                        />
+                                    </svg>
+                                </button>
+                                <p className="text-white text-[11px] md:text-xs 2xl:text-lg mb-2 2xl:mb-3 px-4 uppercase">
+                                    {el[2].map((item: string, idx: number) => {
+                                        if (idx + 1 === el[2].length)
+                                            return item;
+                                        return item + ", ";
+                                    })}
+                                </p>
+                                <p
+                                    className={`uppercase text-[13px] md:text-sm 2xl:text-[21px] leading-[120%] mb-4 md:mb-6 2xl:mb-10 text-white translate-y-full opacity-0 transition-all duration-1000 group-hover:translate-y-0 group-hover:opacity-100 ${
+                                        activeSlide === i
+                                            ? "opacity-100 !translate-y-0"
+                                            : ""
+                                    }`}
+                                >
+                                    <span>{el[3]}</span>
+                                    <br />
+                                    <span>{el[4]}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </div>
             <div className="flex items-center justify-center pt-20">
-                <button className="flex items-center 2xl:text-base text-xs gap-3">
-                    <span className="font-semibold leading-[155%] uppercase">
+                <button className="flex items-center 2xl:text-base text-xs gap-3 group cursor-pointer">
+                    <span
+                        className="font-semibold leading-[155%] uppercase relative
+                                    after:absolute 
+                                    after:left-0 
+                                    after:bottom-0 
+                                    after:h-[1px] 
+                                    after:w-0
+                                    after:transition-all 
+                                    after:duration-300 
+                                    after:bg-[#1D1D1D]
+                                    group-hover:after:w-full"
+                    >
                         Показать ещё
                     </span>
                     <div className="p-3 bg-[#691C32] rounded-full aspect-square">

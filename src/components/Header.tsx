@@ -96,12 +96,12 @@ const Header = () => {
             </div>
             <div className="item-wrapper flex justify-center items-center relative h-[60px]">
                 <div
-                    className="logo logoheader w-[100px] h-[81px] 2xl:w-[149px] 2xl:h-[120px] absolute"
+                    className="logo logoheader w-[79px] h-[64px] 2xl:w-[149px] 2xl:h-[120px] absolute"
                     ref={logoRef}
                 >
                     <div className="relative">
                         <div
-                            className="absolute inset-0 w-[100px] h-[81px] 2xl:w-[149px] 2xl:h-[120px] bg-black/15 blur-[30px] z-0"
+                            className="absolute inset-0 w-[79px] h-[64px] 2xl:w-[149px] 2xl:h-[120px] bg-black/15 blur-[30px] z-0"
                             style={
                                 headerColor === "#ffffff"
                                     ? { opacity: 1 }
@@ -113,7 +113,7 @@ const Header = () => {
                             width={1000}
                             height={1000}
                             alt="logo"
-                            className={`inset-0 absolute w-[100px] h-[81px] 2xl:w-[149px] z-1 2xl:h-[120px] ${
+                            className={`inset-0 absolute w-[79px] h-[64px] 2xl:w-[149px] z-1 2xl:h-[120px] ${
                                 headerColor === "#000000"
                                     ? "opacity-100"
                                     : "opacity-0"
@@ -125,7 +125,7 @@ const Header = () => {
                             width={1000}
                             height={1000}
                             alt="logo"
-                            className={`absolute inset-0 w-[100px] h-[81px] 2xl:w-[149px] 2xl:h-[120px] ${
+                            className={`absolute inset-0 w-[79px] h-[64px] 2xl:w-[149px] 2xl:h-[120px] ${
                                 headerColor === "#000000"
                                     ? "opacity-0"
                                     : "opacity-100"
