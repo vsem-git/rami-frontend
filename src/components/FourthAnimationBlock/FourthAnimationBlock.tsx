@@ -31,7 +31,7 @@ const FourthAnimationBlock = () => {
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top top",
-                end: "+=500%",
+                end: "+=225%",
                 scrub: true,
                 pin: true,
             },

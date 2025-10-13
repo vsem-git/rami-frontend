@@ -48,7 +48,7 @@ const FirstAnimationBlock = () => {
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top top",
-                end: "+=1000%", // Test shorter
+                end: "+=800%", // Test shorter
                 scrub: 1, // Smoother scrub
                 pin: true,
                 anticipatePin: 1,

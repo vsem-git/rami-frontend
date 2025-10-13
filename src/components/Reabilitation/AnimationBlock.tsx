@@ -25,7 +25,7 @@ const AnimationBlock = () => {
 
     useGSAP(() => {
         const mm = gsap.matchMedia();
-
+        // ЗДЕСЬ АНИМАЦИЯ ДЛЯ МОБИЛКИ!!
         mm.add("(max-width: 768px)", () => {
             gsap.to(".marquee-reabilitation", {
                 scrollTrigger: {
@@ -186,6 +186,7 @@ const AnimationBlock = () => {
             });
         });
 
+        // ЗДЕСЬ АНИМАЦИЯ ДЛЯ ПК!!
         mm.add("(min-width: 769px)", () => {
             gsap.set(
                 [

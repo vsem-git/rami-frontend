@@ -20,7 +20,7 @@ const VideoAnimation = () => {
         mm.add("(min-width: 1px)", () => {
             // Desktop/Tablet: standard values
             gsap.set(".logoheader", {
-                scale: 2.4,
+                scale: 3,
                 y: () =>
                     // @ts-ignore
                     document.documentElement.clientHeight / 2 -
@@ -32,7 +32,7 @@ const VideoAnimation = () => {
         mm.add("(min-width: 401px)", () => {
             // Desktop/Tablet: standard values
             gsap.set(".logoheader", {
-                scale: 3,
+                scale: 3.8,
                 y: () =>
                     // @ts-ignore
                     document.documentElement.clientHeight / 2 -
@@ -44,7 +44,7 @@ const VideoAnimation = () => {
         mm.add("(min-width: 769px)", () => {
             // Desktop/Tablet: standard values
             gsap.set(".logoheader", {
-                scale: 4,
+                scale: 5,
                 y: () =>
                     document.documentElement.clientHeight / 2 -
                     // @ts-ignore
@@ -55,7 +55,7 @@ const VideoAnimation = () => {
         mm.add("(min-width: 1281px)", () => {
             // Desktop/Tablet: standard values
             gsap.set(".logoheader", {
-                scale: 4,
+                scale: 5,
                 y: () =>
                     // @ts-ignore
                     document.documentElement.clientHeight / 2 -
@@ -106,7 +106,7 @@ const VideoAnimation = () => {
                 id: "preloaderST",
                 trigger: blockRef.current,
                 start: "top top",
-                end: "+=300%",
+                end: "+=150%",
                 scrub: true,
                 pin: true,
             },
