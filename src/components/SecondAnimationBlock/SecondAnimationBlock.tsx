@@ -17,33 +17,81 @@ const FirstAnimationBlock = () => {
     const block2ContendRef = useRef(null);
 
     useGSAP(() => {
+        const mm = gsap.matchMedia();
+
         /* gsap.set(block2Ref.current, { y: "100%" }); */
         gsap.set(block2ContendRef.current, { autoAlpha: 0 });
 
-        gsap.fromTo(
-            ".logoheader",
-            {
-                yPercent: 0,
-            },
-            {
-                yPercent: -300,
-                duration: 1,
-                ease: "power2.inOut",
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top center",
-                    end: "top top",
-                    scrub: true,
+        mm.add("(max-width: 768px)", () => {
+            gsap.fromTo(
+                ".logoheader",
+                {
+                    yPercent: 0,
                 },
-            }
-        );
+                {
+                    yPercent: -300,
+                    duration: 1,
+                    ease: "power2.inOut",
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: "top+=100 top",
+                        end: "top+=300 top",
+                        scrub: true,
+                    },
+                }
+            );
+        });
 
+        mm.add("(min-width: 769px)", () => {
+            gsap.fromTo(
+                ".logoheader",
+                {
+                    yPercent: 0,
+                },
+                {
+                    yPercent: -300,
+                    duration: 1,
+                    ease: "power2.inOut",
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: "top+=150 top",
+                        end: "top+=350 top",
+                        scrub: true,
+                    },
+                }
+            );
+        });
+
+        ScrollTrigger.create({
+            trigger: containerRef.current,
+            start: "top 10%", // когда верх блока достигает 80% высоты экрана
+            onEnter: () => setHeaderColor("#ffffff"),
+            onLeaveBack: () => setHeaderColor("#000000"),
+        });
+
+        mm.add("(max-width: 768px)", () => {
+            ScrollTrigger.create({
+                trigger: containerRef.current,
+                start: "100% top", // когда 50% блока ушло за верх экрана
+                onEnter: () => setHeaderColor("#000000"),
+                onLeaveBack: () => setHeaderColor("#ffffff"),
+            });
+        });
+
+        mm.add("(min-width: 769px)", () => {
+            ScrollTrigger.create({
+                trigger: containerRef.current,
+                start: "150% top", // когда 50% блока ушло за верх экрана
+                onEnter: () => setHeaderColor("#000000"),
+                onLeaveBack: () => setHeaderColor("#ffffff"),
+            });
+        });
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top top",
-                end: "+=150%",
-                scrub: true,
+                end: "+=20%",
+                toggleActions: "play none play reverse",
                 pin: true,
             },
         });
@@ -59,55 +107,28 @@ const FirstAnimationBlock = () => {
             },
         }); */
 
-        /* tl.to(block2Ref.current, {
-            y: "0%",
-            duration: 1,
-            ease: "power2.inOut",
-        })
-            .call(
-                () => {
-                    setHeaderColor("#000000");
-                },
-                [],
-                "-=0.4"
-            )
-            .call(
-                () => {
-                    setHeaderColor("#ffffff");
-                },
-                [],
-                "-=0.3"
-            );
-            */
-        tl.call(
+        /* tl.call(
             () => {
                 setHeaderColor("#000000");
             },
             [],
-            "-=0.5"
+            "-=5"
         ).call(
             () => {
                 setHeaderColor("#ffffff");
             },
             [],
-            "-=0.2"
-        );
+            "-=4"
+        ); */
 
         tl.to(block2ContendRef.current, {
             autoAlpha: 1,
             duration: 0.5,
             ease: "power2.inOut",
         });
-
-        tl.to(
-            {},
-            {
-                duration: 1,
-            }
-        );
     }, []);
     return (
-        <div className="h-dvh relative" ref={containerRef}>
+        <div className="h-dvh relative overflow-hidden" ref={containerRef}>
             {/* <div
                 className="absolute top-0 px-10 left-0 w-full h-full bg-white bg-cover bg-center flex justify-center items-center z-0"
                 ref={block1Ref}
@@ -120,11 +141,11 @@ const FirstAnimationBlock = () => {
                 />
             </div> */}
             <div
-                className="absolute top-0 left-0 w-full h-dvh bg-[url('/animationblock2.jpg')] bg-cover bg-center flex justify-between items-end z-50"
+                className="absolute top-0 left-0 w-full h-dvh bg-[url('/animationblock2.jpg')] bg-cover bg-top flex justify-between items-end z-50"
                 ref={block2Ref}
             >
                 <div
-                    className="relative h-full w-full flex flex-col justify-center md:grid grid-cols-3 bg-[#1D1D1D1A]"
+                    className="relative h-full w-full flex flex-col justify-center md:grid grid-cols-3"
                     ref={block2ContendRef}
                 >
                     <div className="max-h-[120px] h-full md:h-auto md:max-h-full relative flex flex-row-reverse md:flex-col justify-between md:justify-end items-center border-b border-r-0 md:border-r border-[#FFFFFF33] group px-4 md:px-0">
@@ -139,7 +160,7 @@ const FirstAnimationBlock = () => {
                                 <path
                                     d="M8 2.5V8M8 13.5V8M8 8H13.5H2.5"
                                     stroke="white"
-                                    stroke-width="1.5"
+                                    strokeWidth="1.5"
                                 />
                             </svg>
                         </div>
@@ -182,7 +203,7 @@ const FirstAnimationBlock = () => {
                                 <path
                                     d="M8 2.5V8M8 13.5V8M8 8H13.5H2.5"
                                     stroke="white"
-                                    stroke-width="1.5"
+                                    strokeWidth="1.5"
                                 />
                             </svg>
                         </div>
@@ -225,7 +246,7 @@ const FirstAnimationBlock = () => {
                                 <path
                                     d="M8 2.5V8M8 13.5V8M8 8H13.5H2.5"
                                     stroke="white"
-                                    stroke-width="1.5"
+                                    strokeWidth="1.5"
                                 />
                             </svg>
                         </div>

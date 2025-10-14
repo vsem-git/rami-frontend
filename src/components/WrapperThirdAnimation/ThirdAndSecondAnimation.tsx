@@ -3,14 +3,49 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useHeader } from "../HeaderContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ThirdAndSecondAnimation = () => {
+    const { setHeaderColor } = useHeader();
     const containerRef = useRef(null);
     const strokeContainerRef = useRef(null);
 
     useGSAP(() => {
+        const windowHeight = document.documentElement.clientHeight;
+
+        let triggeredWhite = false;
+        let triggeredBlack = false;
+        let prevProgress = 0;
+
+        gsap.to(containerRef.current, {
+            duration: 1,
+            opacity: 1,
+            scale: 1,
+            paused: true, // Если нужно вручную запускать/реверсить
+            onUpdate: function () {
+                const currentProgress = this.progress();
+                const directionUp = currentProgress > prevProgress; // Направление: вверх (появление)
+
+                if (directionUp && currentProgress > 0.5 && !triggeredWhite) {
+                    setHeaderColor("#000000"); // Белый при 50% появления
+                    triggeredWhite = true;
+                    triggeredBlack = false; // Сброс флага для чёрного
+                } else if (
+                    !directionUp &&
+                    currentProgress < 0.5 &&
+                    !triggeredBlack
+                ) {
+                    setHeaderColor("#ffffff"); // Чёрный при 50% исчезновения
+                    triggeredBlack = true;
+                    triggeredWhite = false; // Сброс флага для белого
+                }
+
+                prevProgress = currentProgress;
+            },
+        });
+
         const mm = gsap.matchMedia();
         /*  gsap.set(".bgpattern1", { xPercent: 120 });
         gsap.set(".bgpattern2", { xPercent: -120 }); */
@@ -127,7 +162,7 @@ const ThirdAndSecondAnimation = () => {
             ".runningstroke",
             { xPercent: 0 },
             {
-                xPercent: -100,
+                xPercent: -70,
                 duration: 10,
                 scrollTrigger: {
                     trigger: strokeContainerRef.current,
@@ -181,31 +216,71 @@ const ThirdAndSecondAnimation = () => {
             });
         }); */
 
-        mm.add("(min-width: 768px)", () => {
+        mm.add("(min-width: 1601px)", () => {
             gsap.to(".runningstroke", {
                 y: "-100dvh",
                 ease: "none",
                 scrollTrigger: {
                     trigger: strokeContainerRef.current,
-                    start: "bottom+=100 bottom", // начало за 200px до конца блока
-                    end: "bottom+=990 bottom", // конец за 10px до конца блока
+                    start: "bottom+=100 bottom",
+                    end: "bottom+=1050 bottom",
+                    scrub: true,
+                },
+            });
+        });
+
+        mm.add("(min-width: 768px) and (max-width: 1600px)", () => {
+            gsap.to(".runningstroke", {
+                y: "-100dvh",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: strokeContainerRef.current,
+                    start: "bottom+=100 bottom",
+                    end: "bottom+=950 bottom",
                     scrub: true,
                 },
             });
         });
 
         mm.add("(max-width: 767px)", () => {
-            gsap.to(".runningstroke", {
-                y: "-100dvh",
-                ease: "none",
-                duration: 10,
-                scrollTrigger: {
-                    trigger: strokeContainerRef.current,
-                    start: "bottom-=100 bottom", // начало за 200px до конца блока
-                    end: "bottom+=553 bottom", // конец за 10px до конца блока
-                    scrub: true,
-                },
-            });
+            if (windowHeight >= 900)
+                gsap.to(".runningstroke", {
+                    y: "-100dvh",
+                    ease: "none",
+                    duration: 8,
+                    scrollTrigger: {
+                        trigger: strokeContainerRef.current,
+                        start: "bottom-=100 bottom", // начало за 200px до конца блока
+                        end: "bottom+=775 bottom-=80", // конец за 10px до конца блока
+                        scrub: true,
+                    },
+                });
+
+            if (windowHeight >= 800 && windowHeight < 900)
+                gsap.to(".runningstroke", {
+                    y: "-100dvh",
+                    ease: "none",
+                    duration: 8,
+                    scrollTrigger: {
+                        trigger: strokeContainerRef.current,
+                        start: "bottom-=100 bottom", // начало за 200px до конца блока
+                        end: "bottom+=680 bottom-=80", // конец за 10px до конца блока
+                        scrub: true,
+                    },
+                });
+
+            if (windowHeight <= 799)
+                gsap.to(".runningstroke", {
+                    y: "-100dvh",
+                    ease: "none",
+                    duration: 8,
+                    scrollTrigger: {
+                        trigger: strokeContainerRef.current,
+                        start: "bottom-=100 bottom", // начало за 200px до конца блока
+                        end: "bottom+=480 bottom-=80", // конец за 10px до конца блока
+                        scrub: true,
+                    },
+                });
         });
 
         /* const tl = gsap.timeline({

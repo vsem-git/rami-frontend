@@ -4,10 +4,13 @@ const Intim = ({
     className,
     ...props
 }: React.HTMLAttributes<HTMLDivElement>) => {
-    const { openPopup } = usePopup();
+    const { openPopup, closeAllPopups } = usePopup();
     return (
         <div
-            onClick={() => openPopup("intimpopup")}
+            onClick={() => {
+                closeAllPopups();
+                openPopup("intimpopup");
+            }}
             {...props}
             className={`group cursor-pointer ${className}`}
         >
@@ -23,8 +26,8 @@ const Intim = ({
                         <path
                             d="M8 3V8.5M8 14V8.5M8 8.5H13.5H2.5"
                             stroke="white"
-                            stroke-opacity="0.5"
-                            stroke-width="1.5"
+                            strokeOpacity="0.5"
+                            strokeWidth="1.5"
                         />
                     </svg>
                     <span className="font-semibold text-xs 2xl:text-base after:absolute relative after:left-0 after:bottom-0 after:h-[1px] after:bg-white after:w-0 after:transition-all after:duration-300 group-hover:after:w-full">
@@ -42,7 +45,7 @@ const Intim = ({
                     <path
                         d="M180 1L142 43H0"
                         stroke="white"
-                        stroke-opacity="0.5"
+                        strokeOpacity="0.5"
                     />
                 </svg>
             </div>

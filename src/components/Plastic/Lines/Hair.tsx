@@ -4,10 +4,13 @@ const Hair = ({
     className,
     ...props
 }: React.HTMLAttributes<HTMLDivElement>) => {
-    const { openPopup } = usePopup();
+    const { openPopup, closeAllPopups } = usePopup();
     return (
         <div
-            onClick={() => openPopup("hairpopup")}
+            onClick={() => {
+                closeAllPopups();
+                openPopup("hairpopup");
+            }}
             {...props}
             className={`group cursor-pointer ${className}`}
         >
@@ -23,7 +26,7 @@ const Hair = ({
                     <path
                         d="M1 51L51 1H153"
                         stroke="white"
-                        stroke-opacity="0.5"
+                        strokeOpacity="0.5"
                     />
                 </svg>
                 <div className="flex gap-1 items-center">
@@ -40,8 +43,8 @@ const Hair = ({
                         <path
                             d="M8 3V8.5M8 14V8.5M8 8.5H13.5H2.5"
                             stroke="white"
-                            stroke-opacity="0.5"
-                            stroke-width="1.5"
+                            strokeOpacity="0.5"
+                            strokeWidth="1.5"
                         />
                     </svg>
                 </div>

@@ -25,24 +25,30 @@ const FirstAnimationBlock = () => {
 
     useGSAP(() => {
         gsap.set(block2TextRef.current, { autoAlpha: 0 });
-        gsap.set(block3TextRef.current, { autoAlpha: 0 });
-        gsap.set(block3BlurRef.current, { autoAlpha: 0 });
+        gsap.set(block3TextRef.current, { opacity: 0 });
+        gsap.set(block3BlurRef.current, { opacity: 0 });
         gsap.set(block2LogoRef.current, { x: "-100%" });
         gsap.set(block5Ref.current, { opacity: 0 });
         gsap.set(block6Ref.current, { opacity: 0 });
         gsap.set(block4Ref.current, { y: "100%" });
         gsap.set(block9Ref.current, { y: "100%" });
+        gsap.set(".firstblocktext", { opacity: 0 });
 
-        gsap.to(".firstblocktext", {
-            autoAlpha: 1,
-            duration: 1,
-            scrollTrigger: {
-                trigger: block1Ref.current,
-                start: "top center",
-                end: "bottom bottom",
-                scrub: true,
+        /* gsap.fromTo(
+            ".firstblocktext",
+            {
+                opacity: 0,
             },
-        });
+            {
+                opacity: 1,
+                scrollTrigger: {
+                    trigger: block1Ref.current,
+                    start: "top center",
+                    end: "bottom bottom",
+                    scrub: true,
+                },
+            }
+        ); */
 
         ScrollTrigger.create({
             trigger: containerRef.current,
@@ -55,7 +61,7 @@ const FirstAnimationBlock = () => {
             scrollTrigger: {
                 trigger: containerRef.current,
                 start: "top top",
-                end: "+=1000%",
+                end: "+=950%",
                 scrub: 1,
                 pin: true,
                 anticipatePin: 1,
@@ -63,13 +69,22 @@ const FirstAnimationBlock = () => {
             },
         });
 
-        tl.to({}, { duration: 5 });
+        tl.fromTo(
+            ".firstblocktext",
+            { opacity: 0 },
+            { opacity: 1, duration: 2, ease: "power2.inOut" }
+        );
 
         // Исчезновение первого блока + color change
-        tl.to([block1Ref.current, ".firstblocktext"], {
-            autoAlpha: 0,
-            duration: 1,
-        })
+        tl.to(
+            [block1Ref.current],
+            {
+                opacity: 0,
+                duration: 2,
+                ease: "power2.inOut",
+            },
+            ">"
+        )
             .call(() => {
                 setHeaderColor("#ffffff");
             })
@@ -81,15 +96,13 @@ const FirstAnimationBlock = () => {
         tl.to(block2LogoRef.current, {
             x: "0%",
             duration: 2,
-            ease: "power2.out",
+            ease: "power2.inOut",
         });
 
         tl.to(block2TextRef.current, {
             autoAlpha: 1,
-            duration: 1,
+            duration: 2,
         });
-
-        tl.to({}, { duration: 2 });
 
         // Исчезновение второго блока + color change
         tl.call(() => {
@@ -100,71 +113,75 @@ const FirstAnimationBlock = () => {
             })
             .to(block2Ref.current, {
                 autoAlpha: 0,
-                duration: 1,
+                duration: 2,
             });
 
         // Появление третьего блока
-        tl.to([block3TextRef.current, block3BlurRef.current], {
-            autoAlpha: 1,
-            duration: 1,
-        });
-
-        tl.to({}, { duration: 2 });
+        tl.fromTo(
+            [block3TextRef.current, block3BlurRef.current],
+            { opacity: 0 },
+            {
+                opacity: 1,
+                duration: 2,
+                ease: "power2.inOut",
+            }
+        );
 
         tl.to(block4Ref.current, {
             y: "0%",
-            duration: 3,
-            ease: "power1.inOut",
+            duration: 2,
+            ease: "power3.inOut",
         });
 
-        tl.to({}, { duration: 0.5 });
+        tl.to(block3Ref.current, {
+            opacity: 0,
+            duration: 0,
+            ease: "power3.inOut",
+        });
 
-        tl.to(block3Ref.current, { opacity: 0, duration: 0 });
+        tl.to(block5Ref.current, {
+            opacity: 1,
+            duration: 0,
+            ease: "power4.inOut",
+        });
 
-        tl.to(block5Ref.current, { opacity: 1, duration: 0 });
-
-        tl.to(block6Ref.current, { opacity: 1, duration: 0 });
+        tl.to(block6Ref.current, {
+            opacity: 1,
+            duration: 0,
+            ease: "power3.inOut",
+        });
 
         tl.to(block4Ref.current, {
             x: "-100%",
-            duration: 3,
-            ease: "power2.in",
+            duration: 2,
+            ease: "power3.inOut",
         });
-
-        tl.to({}, { duration: 0.5 });
 
         tl.to(block5Ref.current, {
             x: "-100%",
-            duration: 3,
-            ease: "power2.in",
+            duration: 2,
+            ease: "power3.inOut",
         });
-
-        tl.to({}, { duration: 0.5 });
 
         tl.to(block6Ref.current, {
             x: "-100%",
-            duration: 3,
-            ease: "power3.in",
+            duration: 2,
+            ease: "power3.inOut",
         });
-
-        tl.to({}, { duration: 0.5 });
 
         tl.to(block7Ref.current, {
             x: "-100%",
-            duration: 3,
-            ease: "power3.in",
+            duration: 2,
+            ease: "power3.inOut",
         });
-
-        tl.to({}, { duration: 0.5 });
 
         tl.to(block9Ref.current, {
             y: "0%",
-            duration: 3,
-            ease: "power2.inOut",
+            duration: 2,
+            ease: "power3.inOut",
         })
             .call(() => setHeaderColor("#ffffff"), [], "-=1")
-            .call(() => setHeaderColor("#000000"), [], "-=0.9")
-            .to({}, { duration: 1 });
+            .call(() => setHeaderColor("#000000"), [], "-=0.9");
     });
 
     return (
@@ -175,12 +192,19 @@ const FirstAnimationBlock = () => {
                 style={{ willChange: "opacity" }} // Оптимизация для fade
             >
                 <div className="relative h-full w-full flex justify-end items-end overflow-hidden">
+                    <p className="firstblocktext pointer-events-none fixed top-[90px] md:bottom-0 text-[13px] md:text-sm 2xl:text-[21px] sm:top-1/2 sm:-translate-y-1/4 md:-translate-y-0 md:top-auto right-0 text-white m-6 xl:m-10 2xl:m-20 uppercase max-w-full  sm:max-w-[320px] 2xl:max-w-[480px] 2xl:tracking-wider 2xl:leading-8 z-10">
+                        <span className="font-bold">Новый проект</span>{" "}
+                        владельцев многопрофильной Клиники РАМИ Галины Резник и
+                        Мазена Хамуда – Клиника пластической хирургии и
+                        эстетической косметологии{" "}
+                        <span className="font-bold">RAMIСLINIC RESIDENCE</span>
+                    </p>
                     <div
                         className="absolute w-[600px] h-[600px] -bottom-0 -right-10 bg-[#1D1D1D9D] blur-[5px] md:blur-[200px] hidden md:block"
                         style={{ willChange: "filter" }}
                     />
                     <div
-                        className="absolute w-full md:w-[600px] h-[200px] md:h-[600px] right-0 md:-right-20 -bottom-10 md:-top-30 bg-[#1D1D1D9D] blur-[30px] md:blur-[200px]"
+                        className="absolute w-full md:w-[600px] h-[200px] md:h-[600px] right-0 md:-right-20 top-10 md:-top-30 bg-[#1D1D1D9D] blur-[30px] md:blur-[200px]"
                         style={{ willChange: "filter" }}
                     />
                 </div>

@@ -3,7 +3,7 @@
 
 @theme {
     --font-montserrat: "Montserrat", sans-serif;
-    --breakpoint-sm: 421px;
+    --breakpoint-sm: 468px;
     --breakpoint-md: 769px;
     --breakpoint-lg: 991px;
     --breakpoint-xl: 1280px;
@@ -18,6 +18,19 @@
 
 body {
     font-family: var(--font-montserrat);
+}
+
+.clock-block {
+    will-change: transform;
+}
+
+.clock-block * {
+    will-change: transform;
+}
+
+.teamswiper {
+    max-width: 100%;
+    width: 100%;
 }
 
 .teamswiper .swiper-wrapper {
@@ -43,9 +56,8 @@ body {
     animation: marquee 35s linear infinite;
 }
 
-.marquee-cosmetology {
-	display: inline-flex;
-	animation: marquee 40s linear infinite;
+.marquee-reabilitation {
+    animation: marquee 6s linear infinite;
 }
 
 @media (min-width: 1850px) {

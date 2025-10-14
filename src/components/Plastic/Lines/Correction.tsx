@@ -4,10 +4,13 @@ const Correction = ({
     className,
     ...props
 }: React.HTMLAttributes<HTMLDivElement>) => {
-    const { openPopup } = usePopup();
+    const { openPopup, closeAllPopups } = usePopup();
     return (
         <div
-            onClick={() => openPopup("breastpopup")}
+            onClick={() => {
+                closeAllPopups();
+                openPopup("correctionpopup");
+            }}
             {...props}
             className={`group cursor-pointer ${className}`}
         >
@@ -23,8 +26,8 @@ const Correction = ({
                         <path
                             d="M8 3V8.5M8 14V8.5M8 8.5H13.5H2.5"
                             stroke="white"
-                            stroke-opacity="0.5"
-                            stroke-width="1.5"
+                            strokeOpacity="0.5"
+                            strokeWidth="1.5"
                         />
                     </svg>
                     <span className="font-semibold text-xs 2xl:text-base">
@@ -47,7 +50,7 @@ const Correction = ({
                     <path
                         d="M1 1L30.9479 31H116"
                         stroke="white"
-                        stroke-opacity="0.5"
+                        strokeOpacity="0.5"
                     />
                 </svg>
 
@@ -62,7 +65,7 @@ const Correction = ({
                     <path
                         d="M192 51L142 1H0"
                         stroke="white"
-                        stroke-opacity="0.5"
+                        strokeOpacity="0.5"
                     />
                 </svg>
             </div>
