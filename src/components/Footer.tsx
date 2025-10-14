@@ -96,10 +96,10 @@ const Footer = () => {
             <footer className="h-dvh relative" ref={containerRef}>
                 <div
                     ref={contactRef}
-                    className={`w-full h-full flex justify-center items-center overflow-hidden`}
+                    className={`w-full h-full flex justify-center items-center overflow-hidden `}
                 >
                     <div
-                        className=" group max-w-[328px] max-h-[328px] mx-4 w-full h-full sm:max-w-[480px] sm:max-h-[270px] md:max-w-[560px] md:max-h-[315px] 2xl:max-w-[924px] 2xl:max-h-[520px] z-0 bg-[#691C32]"
+                        className=" group max-w-[328px] max-h-[328px] mx-4 w-full h-full sm:max-w-[480px] sm:max-h-[270px] md:max-w-[560px] md:max-h-[315px] 2xl:max-w-[924px] 2xl:max-h-[520px] z-0 bg-[#691C32] contact-footer-trigger"
                         ref={contactOpenRef}
                     >
                         <div className="w-full h-full flex justify-center items-center relative cursor-pointer">
@@ -157,10 +157,10 @@ const Footer = () => {
                     </div>
                 </div>
                 <div
-                    className="absolute inset-0 w-full pt-20 sm:pt-0 h-dvh bg-[url('/footer.webp')] bg-cover bg-center text-white flex flex-col"
+                    className="absolute inset-0 w-full pt-20 sm:pt-0 h-dvh bg-[url('/footer.webp')] bg-cover bg-center text-white flex flex-col "
                     ref={footerRef}
                 >
-                    <div className="flex-1 sm:text-[21px] flex-col sm:flex-row uppercase md:text-[28px] 2xl:text-[36px] font-semibold h-full flex">
+                    <div className="flex-1 sm:text-[21px] flex-col sm:flex-row uppercase md:text-[28px] 2xl:text-[36px] font-semibold h-full flex ">
                         <a
                             href="#"
                             className="flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10"
@@ -253,7 +253,7 @@ const Footer = () => {
                         </svg> */}
                         </a>
                     </div>
-                    <div className=" absolute bottom-0 left-0 sm:left-auto sm:right-0 text-xs xl:text-base border-[#FFFFFF4D] border-0 uppercase font-semibold flex md:flex-row flex-col gap-4 justify-between p-6 2xl:p-10">
+                    <div className=" absolute bottom-0 left-0 sm:left-auto sm:right-0 text-xs xl:text-base border-[#FFFFFF4D] border-0 uppercase font-semibold flex md:flex-row flex-col gap-4 justify-between p-6 2xl:p-10 footer-content">
                         <a href="#" className="text-[#FFFFFF80] hidden">
                             ©2025. Рамиклиник резиденс
                         </a>
@@ -263,7 +263,7 @@ const Footer = () => {
                     </div>
                 </div>
             </footer>
-            <div className="px-6 py-6 2xl:px-10 2xl:py-10 bg-[#1D1D1D] text-white flex flex-col-reverse gap-6 md:gap-0 md:flex-row">
+            <div className="px-6 py-6 2xl:px-10 2xl:py-10 bg-[#1D1D1D] text-white flex flex-col-reverse gap-6 md:gap-0 md:flex-row ">
                 <div className="uppercase text-[#FFFFFF80] sm:py-[11px] whitespace-nowrap text-[11px] xl:text-[12px] 2xl:text-base md:pr-[215px] xl:pr-[195px] 2xl:pr-[160px]">
                     ©2025. Рамиклиник резиденс
                 </div>

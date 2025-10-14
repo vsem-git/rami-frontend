@@ -37,6 +37,7 @@ export const DoctorAge = () => {
 					pin: true,
 				},
 			})
+			const heading = containerRef.current?.querySelector('h2')
 
 			cardRefs.current.forEach((card, i) => {
 				if (!card) return
@@ -93,6 +94,18 @@ export const DoctorAge = () => {
 					)
 			}
 
+			if (heading) {
+				tl.to(
+					heading,
+					{
+						opacity: 0,
+						duration: 1.5,
+						ease: 'power2.out',
+					},
+					1.5
+				)
+			}
+
 			return () => {
 				tl.scrollTrigger?.kill()
 				tl.kill()
@@ -141,9 +154,11 @@ export const DoctorAge = () => {
 	return (
 		<div
 			ref={containerRef}
-			className='relative h-auto md:h-screen text-center overflow-hidden'
+			className='relative text-center overflow-hidden 
+		h-auto md:h-[clamp(700px,90vh,900px)] lg:h-[clamp(900px,110vh,1200px)]
+		pt-0 md:pt-[clamp(60px,17vh,150px)]'
 		>
-			<h2 className='text-xl md:text-[clamp(1.5rem,2.5vw,2rem)] xl:text-[clamp(1.75rem,3vw,2.25rem)] 2xl:text-[clamp(2rem,3.5vw,2.25rem)] font-normal text-[#1D1D1D] uppercase mb-[100px] md:mb-[130px] mt-0 md:mt-10'>
+			<h2 className='text-xl md:text-[clamp(1.5rem,2.5vw,2rem)] xl:text-[clamp(1.75rem,3vw,2.25rem)] 2xl:text-[clamp(2rem,3.5vw,2.25rem)] font-normal text-[#1D1D1D] uppercase mb-[100px] md:mb-[130px] mt-0'>
 				Путь в хирургии
 			</h2>
 
