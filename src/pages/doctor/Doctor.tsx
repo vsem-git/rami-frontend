@@ -38,7 +38,7 @@ export const Doctor = () => {
 			<DoctorCardsSection />
 			<section
 				ref={sectionRef}
-				className='w-full h-auto min-h-[640px] lg:min-h-[720px] xl:min-h-screen flex items-center justify-center px-4 xl:px-10 py-10 md:py-20'
+				className='w-full h-auto min-h-[640px] lg:min-h-[720px] flex items-center justify-center px-4 xl:px-10'
 			>
 				<div className='flex items-start flex-col sm:flex-row gap-4 lg:gap-5 xl:gap-10'>
 					<img
@@ -66,7 +66,10 @@ export const Doctor = () => {
 			<DoctorGallery />
 			<DoctorAge />
 
-			<div className='w-full h-[640px] lg:h-[720px] xl:h-screen'>
+			<div
+				id='doctor-video-section'
+				className='w-full h-[640px] lg:h-[720px] xl:h-screen'
+			>
 				<video
 					autoPlay
 					muted

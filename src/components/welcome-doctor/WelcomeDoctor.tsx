@@ -21,13 +21,15 @@ export const WelcomeDoctor: React.FC = () => {
 			className='relative h-auto md:h-screen overflow-hidden'
 			aria-label='Приветствие и информация о докторе'
 		>
-			<div className='w-full h-[370px] md:h-auto'>
+			<div
+				aria-label='Фоновое изображение'
+				className='w-full h-[370px] md:h-auto'
+			>
 				<div
 					ref={backgroundRef}
 					className="relative w-full h-full md:absolute inset-0 bg-cover bg-center bg-[url('/doctor-screen/bg1.webp')] md:bg-[url('/doctor-screen/bg.webp')] flex items-end justify-center"
 					style={{ backgroundPosition: '50% 8%' }}
 					role='img'
-					aria-label='Фоновое изображение'
 				>
 					<div
 						className="block md:hidden w-[299px] h-[299px] bg-cover bg-center bg-[url('/doctor-screen/serb1.webp')]"
