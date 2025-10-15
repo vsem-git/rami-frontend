@@ -50,9 +50,9 @@ export const WelcomeDoctor: React.FC = () => {
 
 			<div
 				ref={defaultContentRef}
-				className='relative z-20 min-h-auto md:min-h-screen flex flex-col justify-end p-6 xl:p-10 border-b border-[#FFFFFF4D] pb-10 text-[#1D1D1D] md:text-white mt-12 md:mt-0'
+				className='relative z-20 min-h-auto md:min-h-screen flex flex-col justify-end p-6 xl:p-10 border-b border-[#FFFFFF4D] pb-10 text-[#1D1D1D] md:text-white mt-4 sm:mt-12 md:mt-0'
 			>
-				<h1 className='text-3xl md:text-5xl xl:text-7xl 2xl:text-8xl/[125%] font-normal uppercase mb-6 xl:mb-10'>
+				<h1 className='text-2xl/[125%] sm:text-3xl/[125%] md:text-5xl/[125%] xl:text-7xl/[125%] 2xl:text-8xl/[125%] font-normal uppercase mb-6 xl:mb-10'>
 					Серб Ирина
 					<br />
 					Анатольевна
@@ -84,7 +84,7 @@ export const WelcomeDoctor: React.FC = () => {
 
 			<div
 				ref={doctorContentRef}
-				className='relative md:absolute inset-0 z-30 flex items-center justify-center p-6 xl:p-10'
+				className='relative md:absolute inset-0 z-30 flex items-center justify-center p-6 xl:p-10 mt-10 md:mt-0'
 			>
 				<div className='w-full flex justify-start md:justify-end'>
 					{DOCTOR[0].content}

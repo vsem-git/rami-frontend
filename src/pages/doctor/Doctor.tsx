@@ -40,14 +40,14 @@ export const Doctor = () => {
 				ref={sectionRef}
 				className='w-full h-auto min-h-[640px] lg:min-h-[720px] flex items-center justify-center px-4 xl:px-10'
 			>
-				<div className='flex items-start flex-col sm:flex-row gap-4 lg:gap-5 xl:gap-10'>
+				<div className='flex items-start flex-col sm:flex-row gap-4 lg:gap-5 2xl:gap-10'>
 					<img
 						src={mes}
 						alt='mes'
-						className='w-[40px] xl:w-[56px] h-[33px] xl:h-[46px] -mt-4 xl:-mt-7 flex-shrink-0'
+						className='w-[40px] xl:w-[56px] 2xl:w-[112px] h-[33px] xl:h-[46px] 2xl:h-[91px] -mt-4 xl:-mt-7 2xl:-mt-10 flex-shrink-0'
 					/>
-					<div className='space-y-6 max-w-[480px] lg:max-w-[560px] xl:max-w-[800px]'>
-						<p className='text-[clamp(0.875rem,1.5vw,1.125rem)]/[155%] text-[#1D1D1D] font-normal uppercase'>
+					<div className='space-y-4 md:space-y-6 max-w-[480px] lg:max-w-[560px] xl:max-w-[800px]'>
+						<p className='text-[clamp(0.875rem,1.5vw,21px)]/[155%] text-[#1D1D1D] font-normal uppercase'>
 							Красота и жизнь нераздельно сплетены друг с другом, и хирург –
 							лишь одна из нитей той непостижимой ткани, где сплелись солнечный
 							свет, звездная пыль и неведомое чудо. Та радость и гордость,
@@ -76,7 +76,7 @@ export const Doctor = () => {
 					playsInline
 					className='w-full h-full object-cover'
 				>
-					<source src='/serb-short.mp4' type='video/mp4' />
+					<source src='/serb-short.webm' type='video/mp4' />
 					Your browser does not support the video tag.
 				</video>
 			</div>

@@ -4,6 +4,7 @@ import SecondAnimationBlock from "../../components/SecondAnimationBlock/SecondAn
 import ThirdAndSecondAnimation from "../../components/WrapperThirdAnimation/ThirdAndSecondAnimation";
 import FourthAnimationBlock from "../../components/FourthAnimationBlock/FourthAnimationBlock";
 import RebornFirstAnimationBlock from "../../components/RebornFirstAnimationBlock/RebornFirstAnimationBlock";
+import FirstAnimationBlock from '../../components/RebornFirstAnimationBlock/RebornFirstAnimationBlock'
 
 const Home = () => {
     return (
