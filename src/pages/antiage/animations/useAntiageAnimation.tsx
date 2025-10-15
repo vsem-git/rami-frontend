@@ -47,7 +47,7 @@ export const useAntiageAnimation = (
 				start: 'top top',
 				end: isMobile ? '+=300%' : '+=1000%',
 				scrub: 2,
-				pin: true,
+				pin: !isMobile,
 				markers: false,
 			},
 		})
@@ -56,14 +56,14 @@ export const useAntiageAnimation = (
 			tl.fromTo(
 				backgroundElement,
 				{ scale: 1, opacity: 1 },
-				{ scale: 1.2, opacity: 0, duration: 3, ease: 'power2.out' },
+				{ scale: 1.2, opacity: 0, duration: 4, ease: 'power3.inOut' },
 				0
 			)
 
 			tl.to(
 				textElement,
-				{ opacity: 0, y: -100, duration: 2, ease: 'power2.inOut' },
-				0.5
+				{ opacity: 0, y: -80, duration: 3, ease: 'power3.inOut' },
+				0.8
 			)
 			return () => {
 				tl.kill()
@@ -71,75 +71,39 @@ export const useAntiageAnimation = (
 			}
 		}
 
-		gsap.set(textElement, {
-			x: '180vw',
-		})
-
-		gsap.set(leftTextElement, {
-			x: '-100%',
-		})
-
-		gsap.set(backgroundElement, {
-			scale: 1,
-			x: 0,
-			y: 0,
-		})
-
-		gsap.set(geneticPassportElement, {
-			opacity: 0,
-			x: -80,
-		})
-
-		gsap.set(hormonesElement, {
-			opacity: 0,
-			scale: 0.5,
-			filter: 'blur(10px)',
-		})
-
-		gsap.set(regenerativeMedicineElement, {
-			opacity: 0,
-			x: -80,
-		})
-
-		gsap.set(cellularRejuvenationElement, {
-			opacity: 0,
-			x: -80,
-		})
-
-		contentElements.forEach(element => {
-			if (element) {
-				gsap.set(element, {
-					opacity: 0,
-					scale: 0.4,
-					filter: 'blur(30px)',
-					y: 0,
-				})
-			}
-		})
+		gsap.set(textElement, { x: '0%', y: '0%', opacity: 1 })
 
 		tl.to(
 			textElement,
 			{
 				x: '-1vw',
-				duration: 9,
-				ease: 'power2.inOut',
+				duration: 5,
+				ease: 'sine.inOut',
 			},
 			0
 		)
 
-		tl.to(
-			textElement,
-			{
-				y: '-140vw',
-				duration: 4,
-				ease: 'power2.inOut',
-			},
-			10.5
-		)
+		gsap.set(leftTextElement, { x: '-100%', opacity: 0 })
+		gsap.set(backgroundElement, { scale: 1, x: 0, y: 0 })
+		gsap.set(geneticPassportElement, { opacity: 0, x: -80 })
+		gsap.set(hormonesElement, { opacity: 0, scale: 0.5, filter: 'blur(10px)' })
+		gsap.set(regenerativeMedicineElement, { opacity: 0, x: -80 })
+		gsap.set(cellularRejuvenationElement, { opacity: 0, x: -80 })
 
-		const blockAppearDuration = 2
-		const blockStayDuration = 2
-		const blockDisappearDuration = 1.5
+		contentElements.forEach(element => {
+			if (element) {
+				gsap.set(element, {
+					opacity: 0,
+					scale: 0.7,
+					filter: 'blur(25px)',
+					y: 0,
+				})
+			}
+		})
+
+		const blockAppearDuration = 3.5
+		const blockStayDuration = 2.5
+		const blockDisappearDuration = 2.5
 
 		let backgroundDownStartTime = 0
 
@@ -149,7 +113,9 @@ export const useAntiageAnimation = (
 			const startTime =
 				3 +
 				index *
-					(blockAppearDuration + blockStayDuration + blockDisappearDuration)
+					(blockAppearDuration +
+						blockStayDuration +
+						blockDisappearDuration * 0.9)
 
 			tl.to(
 				element,
@@ -158,10 +124,22 @@ export const useAntiageAnimation = (
 					scale: 1,
 					filter: 'blur(0px)',
 					duration: blockAppearDuration,
-					ease: 'power2.out',
+					ease: 'power3.out',
 				},
 				startTime
 			)
+
+			if (index === 1) {
+				tl.to(
+					textElement,
+					{
+						opacity: 0,
+						duration: 3,
+						ease: 'power3.inOut',
+					},
+					startTime + blockAppearDuration * 0.7
+				)
+			}
 
 			if (index === 2) {
 				tl.to(
@@ -169,10 +147,10 @@ export const useAntiageAnimation = (
 					{
 						opacity: 1,
 						x: 0,
-						duration: 2,
-						ease: 'power2.out',
+						duration: 3,
+						ease: 'power3.out',
 					},
-					startTime + blockAppearDuration
+					startTime + blockAppearDuration * 0.8
 				)
 			}
 
@@ -183,8 +161,8 @@ export const useAntiageAnimation = (
 						opacity: 1,
 						scale: 1,
 						filter: 'blur(0px)',
-						duration: 2.5,
-						ease: 'back.out(1.7)',
+						duration: 3.2,
+						ease: 'expo.out',
 					},
 					startTime
 				)
@@ -196,8 +174,8 @@ export const useAntiageAnimation = (
 					{
 						opacity: 1,
 						x: 0,
-						duration: 2,
-						ease: 'power2.out',
+						duration: 3,
+						ease: 'power3.out',
 					},
 					startTime
 				)
@@ -209,8 +187,8 @@ export const useAntiageAnimation = (
 					{
 						opacity: 1,
 						x: 0,
-						duration: 2,
-						ease: 'power2.out',
+						duration: 3,
+						ease: 'power3.out',
 					},
 					startTime
 				)
@@ -223,11 +201,11 @@ export const useAntiageAnimation = (
 				tl.to(
 					backgroundElement,
 					{
-						scale: 1.7,
+						scale: 1.5,
 						x: '-25%',
-						y: '15vh',
-						duration: 4,
-						ease: 'power2.out',
+						y: '10vh',
+						duration: 6,
+						ease: 'power3.inOut',
 					},
 					startTime + blockAppearDuration
 				)
@@ -235,21 +213,22 @@ export const useAntiageAnimation = (
 				tl.to(
 					backgroundElement,
 					{
-						y: '-40vh',
-						duration: 35,
-						ease: 'power1.inOut',
+						y: '-30vh',
+						duration: 40,
+						ease: 'sine.inOut',
 					},
-					startTime + blockAppearDuration + 4
+					startTime + blockAppearDuration + 3
 				)
 
 				tl.to(
 					leftTextElement,
 					{
 						x: '7%',
-						duration: 40,
-						ease: 'power2.out',
+						opacity: 1,
+						duration: 6,
+						ease: 'sine.inOut',
 					},
-					startTime + blockAppearDuration
+					startTime + blockAppearDuration * 0.7
 				)
 			}
 
@@ -268,10 +247,12 @@ export const useAntiageAnimation = (
 					element,
 					{
 						opacity: 0,
+						scale: 0.95,
+						filter: 'blur(10px)',
 						duration: blockDisappearDuration,
-						ease: 'power2.inOut',
+						ease: 'power3.inOut',
 					},
-					startTime + blockAppearDuration + blockStayDuration
+					startTime + blockAppearDuration + blockStayDuration * 0.9
 				)
 			}
 		})
@@ -283,15 +264,14 @@ export const useAntiageAnimation = (
 					y: '0vh',
 					scale: 1,
 					x: '-25%',
-
-					duration: 8,
-					ease: 'power2.inOut',
+					duration: 10,
+					ease: 'sine.inOut',
 				},
 				backgroundDownStartTime
 			)
 		}
 
-		const slowRiseStartTime = 40
+		const slowRiseStartTime = 45
 
 		tl.to(
 			[
@@ -301,9 +281,9 @@ export const useAntiageAnimation = (
 				regenerativeMedicineElement,
 			],
 			{
-				y: '-6vh',
-				duration: 60,
-				ease: 'power1.inOut',
+				y: '-5vh',
+				duration: 80,
+				ease: 'sine.inOut',
 			},
 			slowRiseStartTime
 		)
