@@ -3,12 +3,12 @@ export const ANTIAGE = [
 		id: 1,
 		content: (
 			<>
-				<h3 className='text-base text-[#FFFFFF80] uppercase font-normal max-w-[420px]'>
+				<h3 className='text-[clamp(14px,1vw,16px)] xl:text-[clamp(16px,2vw,20px)] text-[#FFFFFF80] uppercase font-normal max-w-[clamp(270px,35vw,580px)]'>
 					Общеизвестный факт:
 				</h3>
-				<p className='text-[11px] sm:text-xs xl:text-base/[155%] text-white uppercase font-normal max-w-[420px]'>
+				<p className='text-[clamp(14px,1vw,16px)] xl:text-[clamp(14px,1vw,16px)] leading-[155%] text-white uppercase font-normal max-w-[clamp(270px,35vw,580px)]'>
 					после 40 резко{' '}
-					<strong className='text-lg'>
+					<strong className='text-[clamp(14px,1vw,16px)] xl:text-[clamp(16px,1.5vw,20px)]'>
 						снижается выработка белков молодости
 					</strong>{' '}
 					– коллагена и эластина, а также женских половых гормонов, которые
@@ -20,26 +20,24 @@ export const ANTIAGE = [
 	{
 		id: 2,
 		content: (
-			<>
-				<p className='text-2xl text-white uppercase font-normal max-w-[580px]'>
-					А что, если мы скажем, что этот процесс можно остановить и замедлить
-					на несколько десятилетий?
-				</p>
-			</>
+			<p className='text-[clamp(14px,1vw,16px)] md:text-[clamp(16px,3vw,18px)] xl:text-[clamp(18px,3vw,24px)] text-white uppercase font-normal max-w-[clamp(270px,50vw,580px)]'>
+				А что, если мы скажем, что этот процесс можно остановить и замедлить на
+				несколько десятилетий?
+			</p>
 		),
 	},
 	{
 		id: 3,
 		content: (
 			<>
-				<p className='text-[11px] sm:text-xs xl:text-base/[155%] text-white uppercase font-normal max-w-[580px]'>
+				<p className='text-[clamp(12px,1vw,14px)] md:text-[clamp(14px,1vw,16px)] xl:text-[clamp(16px,2vw,20px)] leading-[155%] text-white uppercase font-normal max-w-[clamp(270px,45vw,580px)]'>
 					Омоложение на{' '}
-					<strong className='text-lg'>
+					<strong className='text-[clamp(14px,1vw,16px)] md:text-[clamp(16px,1.5vw,20px)]'>
 						гормональном, ментальном, сенситивном, энергетическом
 					</strong>
 					уровнях синхронизируется с преображением внешним.
 				</p>
-				<p className='text-[11px] sm:text-xs xl:text-base/[155%] text-white uppercase font-normal max-w-[580px]'>
+				<p className='text-[clamp(12px,1vw,14px)] md:text-[clamp(14px,1vw,16px)] xl:text-[clamp(16px,2vw,20px)] leading-[155%] text-white uppercase font-normal max-w-[clamp(270px,45vw,580px)] mt-4'>
 					Человек не просто выглядит молодым и красивым, он на все 100%
 					чувствует себя таким.
 				</p>
@@ -49,9 +47,8 @@ export const ANTIAGE = [
 	{
 		id: 4,
 		content: (
-			<p className='text-[11px] sm:text-xs xl:text-base/[155%] text-white uppercase font-normal max-w-[580px]'>
-				<strong className='text-lg'>
-					{' '}
+			<p className='text-[clamp(12px,1vw,14px)] md:text-[clamp(14px,1vw,16px)] xl:text-[clamp(16px,2vw,20px)] leading-[155%] text-white uppercase font-normal max-w-[clamp(270px,45vw,580px)]'>
+				<strong className='text-[clamp(14px,1vw,16px)] md:text-[clamp(16px,1.5vw,20px)]'>
 					безграничные возможности косметологии и пластической хирургии
 				</strong>{' '}
 				в Клинике-резиденции RAMICLINIC RESIDENCE обеспечивают потребности
@@ -63,7 +60,7 @@ export const ANTIAGE = [
 	{
 		id: 5,
 		content: (
-			<p className='text-[11px] sm:text-xs xl:text-base/[155%] text-white uppercase font-normal max-w-[580px]'>
+			<p className='text-[clamp(12px,1vw,14px)] md:text-[clamp(14px,1vw,16px)] xl:text-[clamp(16px,2vw,20px)] leading-[155%] text-white uppercase font-normal max-w-[clamp(270px,45vw,580px)]'>
 				Наши гости отмечают, что вопросы их красоты и молодости еще нигде так
 				пристально и всесторонне не рассматривались, как в Клинике-резиденции
 				<strong className='ml-1'>RAMICLINIC RESIDENCE</strong>.
@@ -73,59 +70,57 @@ export const ANTIAGE = [
 	{
 		id: 6,
 		content: (
-			<>
-				<p className='text-[11px] sm:text-xs xl:text-base/[155%] text-white uppercase font-normal max-w-[580px]'>
-					Наши гости отмечают, что вопросы их красоты и молодости еще нигде так
-					пристально и всесторонне не рассматривались, как в Клинике-резиденции
-					<strong className='ml-1'>RAMICLINIC RESIDENCE</strong>.
-				</p>
-			</>
+			<p className='text-[clamp(12px,1vw,14px)] md:text-[clamp(14px,1vw,16px)] xl:text-[clamp(16px,2vw,20px)] leading-[155%] text-white uppercase font-normal max-w-[clamp(270px,45vw,580px)]'>
+				Наши гости отмечают, что вопросы их красоты и молодости еще нигде так
+				пристально и всесторонне не рассматривались, как в Клинике-резиденции
+				<strong className='ml-1'>RAMICLINIC RESIDENCE</strong>.
+			</p>
 		),
 	},
 	{
 		id: 7,
 		content: (
-			<>
-				<p className='text-[11px] sm:text-xs xl:text-base/[155%] text-white uppercase font-normal max-w-[580px]'>
-					Последние достижения в таких инновационных областях человеческого
-					знания,{' '}
-					<strong className='text-lg'>
-						как антиэйдж, генетические исследования и регенеративная медицина
-					</strong>{' '}
-					– фундаментальная база, на которой зиждется{' '}
-					<strong className='text-lg'>Программа управления возрастом</strong> в
-					Клинике-резиденции RAMICLINIC RESIDENCE.
-				</p>
-			</>
+			<p className='text-[clamp(12px,1vw,14px)] md:text-[clamp(14px,1vw,16px)] xl:text-[clamp(16px,2vw,20px)] leading-[155%] text-white uppercase font-normal max-w-[clamp(270px,45vw,580px)]'>
+				Последние достижения в таких инновационных областях человеческого
+				знания,{' '}
+				<strong className='text-[clamp(14px,1vw,16px)] md:text-[clamp(16px,1.5vw,20px)]'>
+					как антиэйдж, генетические исследования и регенеративная медицина
+				</strong>{' '}
+				– фундаментальная база, на которой зиждется{' '}
+				<strong className='text-[clamp(14px,1vw,16px)] md:text-[clamp(16px,1.5vw,20px)]'>
+					Программа управления возрастом
+				</strong>{' '}
+				в Клинике-резиденции RAMICLINIC RESIDENCE.
+			</p>
 		),
 	},
 	{
 		id: 8,
 		content: (
-			<>
-				<p className='text-[21px]/[155%] text-white uppercase font-normal max-w-[400px] xl:max-w-[580px]'>
-					<strong className='text-lg'>Гормонозаместительная терапия </strong>{' '}
-					синхронизирует возраст, на который выглядит и ощущает себя человек.
-					Она позволяет поддерживать гормональный статус, состояние кожи, мышц,
-					костей, волос на уровне, характерном для молодого возраста.
-				</p>
-			</>
+			<p className='text-[clamp(14px,1.2vw,16px)] xl:text-[clamp(16px,1.2vw,20px)] leading-[155%] text-white uppercase font-normal max-w-[clamp(270px,45vw,580px)]'>
+				<strong className='text-[clamp(14px,1.2vw,16px)] xl:text-[clamp(16px,1.5vw,20px)]'>
+					Гормонозаместительная терапия
+				</strong>{' '}
+				синхронизирует возраст, на который выглядит и ощущает себя человек. Она
+				позволяет поддерживать гормональный статус, состояние кожи, мышц,
+				костей, волос на уровне, характерном для молодого возраста.
+			</p>
 		),
 	},
 	{
 		id: 9,
 		content: (
 			<>
-				<p className='text-[21px]/[155%] text-white uppercase font-normal max-w-[400px] xl:max-w-[580px] '>
+				<p className='text-[clamp(12px,3vw,14px)] lg:text-[clamp(14px,3vw,16px)] xl:text-[clamp(16px,1.2vw,20px)] leading-[155%] text-white uppercase font-normal max-w-[clamp(270px,45vw,580px)]'>
 					Такой подход приводит к абсолютной и безграничной удовлетворенности
 					человека эффектом от пластической операции, значительно сокращает
 					сроки восстановления, продлевает результат и, как бы громко это ни
 					звучало,{' '}
-					<strong className='text-lg'>
+					<strong className='text-[clamp(12px,3vw,14px)] lg:text-[clamp(14px,3vw,16px)] xl:text-[clamp(16px,1.2vw,20px)]'>
 						делает воплощение мечты о вечной молодости все более реальной.
 					</strong>
 				</p>
-				<p className='text-[21px]/[155%] text-white uppercase font-normal max-w-[400px] xl:max-w-[580px] mt-10'>
+				<p className='text-[clamp(12px,3vw,14px)] lg:text-[clamp(14px,3vw,16px)] xl:text-[clamp(16px,1.2vw,20px)] leading-[155%] text-white uppercase font-normal max-w-[clamp(270px,45vw,580px)] mt-6'>
 					Это исключительный подход, который так глубоко и с полной отдачей и
 					вниманием в России применяется только в Клинике-резиденции RAMICLINIC
 					RESIDENCE.

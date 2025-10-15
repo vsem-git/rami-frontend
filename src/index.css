@@ -1,208 +1,278 @@
-@import "tailwindcss";
-@import "./fonts.css";
+@import 'tailwindcss';
+@import './fonts.css';
 
 @theme {
-    --font-montserrat: "Montserrat", sans-serif;
-    --breakpoint-sm: 468px;
-    --breakpoint-md: 769px;
-    --breakpoint-lg: 991px;
-    --breakpoint-xl: 1280px;
-    --breakpoint-2xl: 1600px;
+	--font-montserrat: 'Montserrat', sans-serif;
+	--breakpoint-sm: 468px;
+	--breakpoint-md: 769px;
+	--breakpoint-lg: 991px;
+	--breakpoint-xl: 1280px;
+	--breakpoint-2xl: 1600px;
 }
 
 @layer base {
-    html {
-        font-family: var(--font-montserrat);
-    }
+	html {
+		font-family: var(--font-montserrat);
+	}
 }
 
 body {
-    font-family: var(--font-montserrat);
+	font-family: var(--font-montserrat);
 }
 
 .clock-block {
-    will-change: transform;
+	will-change: transform;
 }
 
 .clock-block * {
-    will-change: transform;
+	will-change: transform;
 }
 
 .teamswiper {
-    max-width: 100%;
-    width: 100%;
+	max-width: 100%;
+	width: 100%;
 }
 
 .teamswiper .swiper-wrapper {
-    margin-left: 16px;
+	margin-left: 16px;
 }
 
 @keyframes marquee {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-102%);
-    }
+	0% {
+		transform: translateX(0%);
+	}
+	100% {
+		transform: translateX(-102%);
+	}
 }
 
 .marquee {
-    display: inline-flex;
-    animation: marquee 6s linear infinite;
+	display: inline-flex;
+	animation: marquee 6s linear infinite;
 }
 
 .marquee-cosmetology {
-    display: inline-flex;
-    animation: marquee 35s linear infinite;
+	display: inline-flex;
+	animation: marquee 35s linear infinite;
 }
 
 .marquee-reabilitation {
-    animation: marquee 6s linear infinite;
+	animation: marquee 6s linear infinite;
 }
 
 @media (min-width: 1850px) {
-    .hairplastic {
-        bottom: 600px;
-        left: 520px;
-    }
+	.hairplastic {
+		bottom: 600px;
+		left: 520px;
+	}
 }
 
 @media (min-width: 1800px) and (max-width: 1850px) {
-    .hairplastic {
-        bottom: 300px;
-        left: 520px;
-    }
+	.hairplastic {
+		bottom: 300px;
+		left: 520px;
+	}
 }
 
 @media (min-width: 1750px) and (max-width: 1800px) {
-    .hairplastic {
-        bottom: 300px;
-        left: 520px;
-    }
+	.hairplastic {
+		bottom: 300px;
+		left: 520px;
+	}
 }
 
 @media (min-width: 1700px) and (max-width: 1750px) {
-    .hairplastic {
-        bottom: 300px;
-        left: 520px;
-    }
+	.hairplastic {
+		bottom: 300px;
+		left: 520px;
+	}
 }
 
 @media (min-width: 1650px) and (max-width: 1700px) {
-    .hairplastic {
-        bottom: 530px;
-        left: 445px;
-    }
+	.hairplastic {
+		bottom: 530px;
+		left: 445px;
+	}
 }
 
 @media (min-width: 1600px) and (max-width: 1650px) {
-    .hairplastic {
-        bottom: 510px;
-        left: 430px;
-    }
+	.hairplastic {
+		bottom: 510px;
+		left: 430px;
+	}
 }
 
 @media (min-width: 1550px) and (max-width: 1600px) {
-    .hairplastic {
-        bottom: 500px;
-        left: 420px;
-    }
+	.hairplastic {
+		bottom: 500px;
+		left: 420px;
+	}
 }
 
 @media (min-width: 1500px) and (max-width: 1550px) {
-    .hairplastic {
-        bottom: 490px;
-        left: 410px;
-    }
+	.hairplastic {
+		bottom: 490px;
+		left: 410px;
+	}
 }
 
 @media (min-width: 1450px) and (max-width: 1500px) {
-    .hairplastic {
-        bottom: 465px;
-        left: 390px;
-    }
+	.hairplastic {
+		bottom: 465px;
+		left: 390px;
+	}
 }
 
 @media (min-width: 1400px) and (max-width: 1450px) {
-    .hairplastic {
-        bottom: 450px;
-        left: 380px;
-    }
+	.hairplastic {
+		bottom: 450px;
+		left: 380px;
+	}
 }
 
 @media (min-width: 1350px) and (max-width: 1400px) {
-    .hairplastic {
-        bottom: 430px;
-        left: 360px;
-    }
+	.hairplastic {
+		bottom: 430px;
+		left: 360px;
+	}
 }
 
 @media (min-width: 1300px) and (max-width: 1350px) {
-    .hairplastic {
-        bottom: 410px;
-        left: 350px;
-    }
+	.hairplastic {
+		bottom: 410px;
+		left: 350px;
+	}
 }
 
 @media (min-width: 1250px) and (max-width: 1300px) {
-    .hairplastic {
-        bottom: 390px;
-        left: 340px;
-    }
+	.hairplastic {
+		bottom: 390px;
+		left: 340px;
+	}
 }
 
 @media (min-width: 1200px) and (max-width: 1250px) {
-    .hairplastic {
-        bottom: 380px;
-        left: 330px;
-    }
+	.hairplastic {
+		bottom: 380px;
+		left: 330px;
+	}
 }
 
 @media (min-width: 1150px) and (max-width: 1200px) {
-    .hairplastic {
-        bottom: 365px;
-        left: 310px;
-    }
+	.hairplastic {
+		bottom: 365px;
+		left: 310px;
+	}
 }
 
 @media (min-width: 1100px) and (max-width: 1150px) {
-    .hairplastic {
-        bottom: 350px;
-        left: 300px;
-    }
+	.hairplastic {
+		bottom: 350px;
+		left: 300px;
+	}
 }
 
 @media (min-width: 1050px) and (max-width: 1100px) {
-    .hairplastic {
-        bottom: 325px;
-        left: 280px;
-    }
+	.hairplastic {
+		bottom: 325px;
+		left: 280px;
+	}
 }
 
 @media (min-width: 1000px) and (max-width: 1050px) {
-    .hairplastic {
-        bottom: 315px;
-        left: 270px;
-    }
+	.hairplastic {
+		bottom: 315px;
+		left: 270px;
+	}
 }
 
 @media (min-width: 950px) and (max-width: 1000px) {
-    .hairplastic {
-        bottom: 300px;
-        left: 250px;
-    }
+	.hairplastic {
+		bottom: 300px;
+		left: 250px;
+	}
 }
 
 @media (min-width: 900px) and (max-width: 950px) {
-    .hairplastic {
-        bottom: 280px;
-        left: 240px;
-    }
+	.hairplastic {
+		bottom: 280px;
+		left: 240px;
+	}
 }
 
 @media (min-width: 850px) and (max-width: 900px) {
-    .hairplastic {
-        bottom: 270px;
-        left: 230px;
-    }
+	.hairplastic {
+		bottom: 270px;
+		left: 230px;
+	}
+}
+
+.text-anti {
+	left: 33.5%;
+}
+
+@media (max-width: 1440px) {
+	.anti-age_bg {
+		left: -2%;
+	}
+}
+@media (max-width: 1330px) {
+	.anti-age_bg {
+		left: -7%;
+	}
+}
+@media (max-width: 1280px) {
+	.anti-age_bg {
+		left: -10%;
+	}
+}
+@media (max-width: 1150px) {
+	.anti-age_bg {
+		left: -24%;
+	}
+
+	.text-anti {
+		left: 22%;
+	}
+}
+@media (max-width: 1024px) {
+	.anti-age_bg {
+		left: -34%;
+	}
+}
+@media (max-width: 900px) {
+	.anti-age_bg {
+		left: -50%;
+		bottom: -6rem;
+		background-size: 140%;
+	}
+}
+@media (max-width: 810px) {
+	.anti-age_bg {
+		left: -55%;
+		bottom: -6rem;
+		background-size: 130%;
+	}
+	.text-anti {
+		left: 12%;
+	}
+}
+
+.bg-size-anti {
+	background-position: -32rem 0rem;
+}
+
+@media (max-width: 605px) {
+	.bg-size-anti {
+		transform: scale(0.7);
+		background-position: -32rem 0rem;
+		left: -5.5rem;
+	}
+}
+@media (max-width: 500px) {
+	.bg-size-anti {
+		transform: scale(0.6);
+		background-position: -32rem 0rem;
+		left: -9rem;
+	}
 }
