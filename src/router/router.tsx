@@ -14,6 +14,8 @@ import ReabilitationLayout from "../pages/Reabilitation/layout";
 import Doctors from "../pages/Doctors/Doctors";
 import DoctorsLayout from "../pages/Doctors/layout";
 
+
+
 const router = createBrowserRouter([
     {
         path: "/",

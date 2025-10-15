@@ -155,7 +155,7 @@ export const DoctorGallery: React.FC = () => {
 
 	return (
 		<div className='w-full px-0 md:px-6 pb-40'>
-			<div className='overflow-hidden whitespace-nowrap mb-16 xl:mb-20'>
+			<div className='overflow-hidden whitespace-nowrap mb-10 md:mb-16 xl:mb-20'>
 				<div
 					ref={scrollingTextRef}
 					className='inline-block'

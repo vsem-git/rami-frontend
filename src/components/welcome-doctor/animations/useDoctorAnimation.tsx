@@ -33,8 +33,8 @@ export const useDoctorAnimation = (
 				scrollTrigger: {
 					trigger: sectionElement,
 					start: 'top top',
-					end: '+=800%',
-					scrub: 1.5,
+					end: '+=450%',
+					scrub: 1,
 					pin: true,
 					markers: false,
 				},
@@ -44,17 +44,17 @@ export const useDoctorAnimation = (
 
 			tl.to(
 				defaultContentElement,
-				{ y: '-90vh', duration: 6, ease: 'power2.inOut' },
+				{ y: '-90vh', duration: 2, ease: 'power2.inOut' },
 				0
 			)
 				.to(
 					backgroundElement,
-					{ backgroundPosition: '50% 50%', duration: 8, ease: 'power2.inOut' },
+					{ backgroundPosition: '50% 50%', duration: 3, ease: 'power2.inOut' },
 					1
 				)
 				.to(
 					doctorContentElement,
-					{ y: '0vh', opacity: 1, duration: 4, ease: 'power2.out' },
+					{ y: '0vh', opacity: 1, duration: 1.5, ease: 'power2.out' },
 					3
 				)
 
@@ -62,7 +62,7 @@ export const useDoctorAnimation = (
 				tl.kill()
 				ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 			}
-		}, sectionRef.current) // передаём элемент
+		}, sectionRef.current)
 
 		return () => ctx.revert()
 	}, [sectionRef, backgroundRef, defaultContentRef, doctorContentRef, isMobile])
