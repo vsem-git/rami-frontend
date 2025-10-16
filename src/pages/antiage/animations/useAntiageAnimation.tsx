@@ -40,6 +40,7 @@ export const useAntiageAnimation = (
 			return
 
 		const isMobile = window.innerWidth <= 768
+		const isTablet = window.innerWidth <= 1000
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
@@ -106,6 +107,8 @@ export const useAntiageAnimation = (
 		const blockDisappearDuration = 2.5
 
 		let backgroundDownStartTime = 0
+
+		const backgroundScale = isTablet ? 1.28 : 1.5
 
 		contentElements.forEach((element, index) => {
 			if (!element) return
@@ -181,7 +184,7 @@ export const useAntiageAnimation = (
 				)
 			}
 
-			if (index === 6) {
+			if (index === 5) {
 				tl.to(
 					cellularRejuvenationElement,
 					{
@@ -201,7 +204,7 @@ export const useAntiageAnimation = (
 				tl.to(
 					backgroundElement,
 					{
-						scale: 1.5,
+						scale: backgroundScale,
 						x: '-25%',
 						y: '10vh',
 						duration: 6,
