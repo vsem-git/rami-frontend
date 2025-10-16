@@ -111,7 +111,7 @@ export const Antiage = () => {
 			<h2
 				ref={leftTextRef}
 				className='
-					hidden md:block text-[clamp(65px,3vw,96px)] font-normal uppercase whitespace-nowrap
+					hidden md:block text-[clamp(45px,3vw,65px)] xl:text-[clamp(65px,3vw,96px)] font-normal uppercase whitespace-nowrap
 					absolute top-[6rem] left-0
 					text-[#1D1D1D4D] 
 				'
@@ -135,8 +135,8 @@ export const Antiage = () => {
 			<h3
 				ref={hormonesRef}
 				className='
-					hidden md:block text-[clamp(36px,3vw,64px)]  font-normal uppercase whitespace-nowrap
-					absolute top-[25%] text-anti
+					hidden md:block text-[clamp(24px,3vw,36px)] xl:text-[clamp(36px,3vw,64px)]  font-normal uppercase whitespace-nowrap
+					absolute top-[25%] text-lg
 					text-[#FFFFFF4D] 
 					opacity-0 scale-50
 				'
@@ -147,7 +147,7 @@ export const Antiage = () => {
 			<h3
 				ref={regenerativeMedicineRef}
 				className='
-					hidden md:block text-[32px]/[125%] font-normal uppercase whitespace-nowrap
+					hidden md:block text-[clamp(24px,3vw,32px)] xl:text-[32px]/[125%] font-normal uppercase whitespace-nowrap
 					absolute top-[70%] left-10
 					text-[#FFFFFFBF] 
 					opacity-0 -translate-x-20
@@ -160,7 +160,7 @@ export const Antiage = () => {
 			<h3
 				ref={cellularRejuvenationRef}
 				className='
-					hidden md:block text-[28px]/[125%] font-normal uppercase whitespace-nowrap
+					hidden md:block text-[clamp(24px,3vw,28px)] xl:text-[28px]/[125%] font-normal uppercase whitespace-nowrap
 					absolute bottom-[11%] left-[21%]
 					text-[#FFFFFFBF] 
 					opacity-0 -translate-x-20
