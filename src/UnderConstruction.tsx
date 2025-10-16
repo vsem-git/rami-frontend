@@ -72,10 +72,10 @@ export default function UnderConstruction() {
                     decoding="async"
                 />
 
-                <h1 className="uc-h1 uc-black-soft text-[30px] md:text-[34px] font-medium tracking-[0.01em] leading-tight">
+                <h1 className="uc-h1 uc-black-soft uppercase text-[30px] md:text-[34px] font-medium tracking-[0.01em] leading-tight">
                     Сайт в разработке
                 </h1>
-                <p className="uc-p mt-3 text-[#7A7A7A] text-[15px] md:text-[16px] leading-relaxed">
+                <p className="uc-p mt-3 text-[#7A7A7A] uppercase text-[15px] md:text-[16px] leading-relaxed">
                     Мы скоро вернёмся с обновлениями.
                 </p>
             </div>
