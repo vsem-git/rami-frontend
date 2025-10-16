@@ -13,6 +13,7 @@ export const useAntiageAnimation = (
 	hormonesRef: RefObject<HTMLHeadingElement | null>,
 	regenerativeMedicineRef: RefObject<HTMLHeadingElement | null>,
 	cellularRejuvenationRef: RefObject<HTMLHeadingElement | null>,
+	specialBackgroundRef: RefObject<HTMLHeadingElement | null>,
 	...contentRefs: RefObject<HTMLDivElement | null>[]
 ) => {
 	useEffect(() => {
@@ -25,6 +26,7 @@ export const useAntiageAnimation = (
 		const regenerativeMedicineElement = regenerativeMedicineRef.current
 		const cellularRejuvenationElement = cellularRejuvenationRef.current
 		const contentElements = contentRefs.map(ref => ref.current)
+		const specialBackgroundElement = specialBackgroundRef.current
 
 		if (
 			!textElement ||
@@ -41,6 +43,7 @@ export const useAntiageAnimation = (
 
 		const isMobile = window.innerWidth <= 768
 		const isTablet = window.innerWidth <= 1000
+		const isTabletx = window.innerWidth <= 850
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
@@ -90,6 +93,19 @@ export const useAntiageAnimation = (
 		gsap.set(hormonesElement, { opacity: 0, scale: 0.5, filter: 'blur(10px)' })
 		gsap.set(regenerativeMedicineElement, { opacity: 0, x: -80 })
 		gsap.set(cellularRejuvenationElement, { opacity: 0, x: -80 })
+
+		gsap.set(specialBackgroundElement, { scale: 1, x: 0 })
+
+		tl.to(
+			specialBackgroundElement,
+			{
+				x: '-30%',
+				scale: 1.5,
+				duration: 25,
+				ease: 'power2.inOut',
+			},
+			0
+		)
 
 		contentElements.forEach(element => {
 			if (element) {
@@ -205,7 +221,7 @@ export const useAntiageAnimation = (
 					backgroundElement,
 					{
 						scale: backgroundScale,
-						x: '-25%',
+						x: isTablet ? '-25%' : '-12%',
 						y: '10vh',
 						duration: 6,
 						ease: 'power3.inOut',
@@ -214,21 +230,11 @@ export const useAntiageAnimation = (
 				)
 
 				tl.to(
-					backgroundElement,
-					{
-						y: '-30vh',
-						duration: 40,
-						ease: 'sine.inOut',
-					},
-					startTime + blockAppearDuration + 3
-				)
-
-				tl.to(
 					leftTextElement,
 					{
 						x: '7%',
 						opacity: 1,
-						duration: 6,
+						duration: 16,
 						ease: 'sine.inOut',
 					},
 					startTime + blockAppearDuration * 0.7
@@ -258,6 +264,24 @@ export const useAntiageAnimation = (
 					startTime + blockAppearDuration + blockStayDuration * 0.9
 				)
 			}
+
+			if (index === 3) {
+				const backgroundMoveStart =
+					startTime +
+					blockAppearDuration +
+					blockStayDuration +
+					blockDisappearDuration * 0.9
+
+				tl.to(
+					backgroundElement,
+					{
+						y: '-30vh',
+						duration: 10,
+						ease: 'sine.inOut',
+					},
+					backgroundMoveStart
+				)
+			}
 		})
 
 		if (backgroundDownStartTime > 0) {
@@ -266,7 +290,7 @@ export const useAntiageAnimation = (
 				{
 					y: '0vh',
 					scale: 1,
-					x: '-25%',
+					x: isTablet ? '-25%' : '-15%',
 					duration: 10,
 					ease: 'sine.inOut',
 				},

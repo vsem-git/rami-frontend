@@ -14,6 +14,7 @@ export const Antiage = () => {
 	const backgroundRef = useRef<HTMLDivElement>(null)
 	const leftTextRef = useRef<HTMLHeadingElement>(null)
 	const textRefMobile = useRef<HTMLHeadingElement>(null)
+	const specialBackgroundRef = useRef<HTMLHeadingElement>(null)
 
 	const geneticPassportRef = useRef<HTMLHeadingElement>(null)
 	const hormonesRef = useRef<HTMLHeadingElement>(null)
@@ -48,6 +49,7 @@ export const Antiage = () => {
 		hormonesRef,
 		regenerativeMedicineRef,
 		cellularRejuvenationRef,
+		specialBackgroundRef,
 		...contentRefs
 	)
 
@@ -59,36 +61,25 @@ export const Antiage = () => {
 	return (
 		<div
 			ref={sectionRef}
-			className='w-full h-auto md:h-[105vh] relative overflow-hidden bg-[url("/antiage-screen/anti-age.png")] bg-no-repeat bg-cover'
+			className='w-full h-auto md:h-[105vh] relative overflow-hidden bg-[#1D1D1D] md:bg-[url("/antiage-screen/anti-age.png")] bg-no-repeat bg-cover '
 		>
-			<div className='w-full h-[720px] sm:h-[640px] relative md:hidden bg-[#0c0807] overflow-hidden bg-[url("/antiage-screen/bg-mobile.png")] sm:bg-[url("/antiage-screen/anti-age.png")] bg-no-repeat bg-cover bg-center'>
-				{isMobile && (
-					<h1
-						ref={textRefMobile}
-						className='
-							text-[64px]/[125%] font-normal uppercase whitespace-nowrap
-							text-white mix-blend-difference
-							absolute top-[5.5rem] right-0
-							sm:top-auto sm:bottom-[-7rem]
-							pointer-events-none
-							z-20
-						'
-					>
-						стратегия управления возрастом
-					</h1>
-				)}
+			<div
+				ref={specialBackgroundRef}
+				className="absolute top-0 left-0 min-w-[2000px] h-full bg-[url('/antiage-screen/anti-age.png')] bg-no-repeat bg-cover   will-change-transform -z-20 hidden md:block"
+			/>
 
+			<div className='w-full h-[800px] sm:h-[740px] relative md:hidden bg-[#0c0807] overflow-hidden bg-[url("/antiage-screen/bg-mobile.png")] sm:bg-[url("/antiage-screen/anti-age.png")] bg-no-repeat bg-cover bg-[55%_0%] sm:bg-center'>
 				<div
 					className="
 						absolute hidden sm:block min-w-[600px] h-[100vh] will-change-transform
 						bg-[url('/antiage-screen/image2.png')]
 						bg-no-repeat bg-cover scale-[1]
-					bg-size-anti
+						bg-size-anti
 
 					"
 				/>
 
-				<div className='relative z-10 h-full flex flex-col items-end justify-end sm:justify-center pb-8 px-4 gap-16'>
+				<div className='relative z-10 h-full flex flex-col items-end justify-end sm:justify-center pb-8 px-4 gap-16 -mt-[70px]'>
 					{isMobile && (
 						<>
 							<div className='space-y-6 text-white mt-24'>
@@ -97,8 +88,22 @@ export const Antiage = () => {
 						</>
 					)}
 				</div>
-			</div>
 
+				{isMobile && (
+					<h1
+						ref={textRefMobile}
+						className='
+							text-[64px]/[125%] font-normal uppercase whitespace-nowrap
+							text-white mix-blend-difference
+							absolute bottom-[1rem] right-0
+							pointer-events-none
+							z-20
+						'
+					>
+						стратегия управления возрастом
+					</h1>
+				)}
+			</div>
 			<div
 				ref={backgroundRef}
 				className="
@@ -107,18 +112,16 @@ export const Antiage = () => {
     bg-no-repeat bg-cover anti-age_bg
   "
 			/>
-
 			<h2
 				ref={leftTextRef}
 				className='
-					hidden md:block text-[clamp(45px,3vw,65px)] xl:text-[clamp(65px,3vw,96px)] font-normal uppercase whitespace-nowrap
-					absolute top-[6rem] left-0
+					hidden md:block text-[clamp(45px,3vw,65px)] xl:text-[96px] font-normal uppercase whitespace-nowrap
+					absolute -z-10 top-[6rem] left-0
 					text-[#1D1D1D4D] 
 				'
 			>
 				#Антиэйдж
 			</h2>
-
 			<h3
 				ref={geneticPassportRef}
 				className='
@@ -131,7 +134,6 @@ export const Antiage = () => {
 				#Генетический <br />
 				паспорт
 			</h3>
-
 			<h3
 				ref={hormonesRef}
 				className='
@@ -143,7 +145,6 @@ export const Antiage = () => {
 			>
 				#гормоны
 			</h3>
-
 			<h3
 				ref={regenerativeMedicineRef}
 				className='
@@ -156,7 +157,6 @@ export const Antiage = () => {
 				#Регенеративная <br />
 				Медицина
 			</h3>
-
 			<h3
 				ref={cellularRejuvenationRef}
 				className='
@@ -169,7 +169,6 @@ export const Antiage = () => {
 				#клеточное <br />
 				омоложение
 			</h3>
-
 			<div className='flex flex-col items-end gap-16 my-16'>
 				{remainingBlocks.map((item, index) => (
 					<div
@@ -177,7 +176,7 @@ export const Antiage = () => {
 						ref={contentRefs[index + 1]}
 						className={`
 							space-y-10
-							md:absolute md:bottom-0 md:right-8 lg:right-2.5 2xl:right-[110px] md:top-[35%]
+							md:absolute md:bottom-0 md:right-8 xl:right-20  2xl:right-[110px] md:top-[35%]
 							relative px-4 md:px-0
 						`}
 					>
@@ -185,19 +184,17 @@ export const Antiage = () => {
 					</div>
 				))}
 			</div>
-
 			{!isMobile && (
 				<div
 					ref={contentRefs[0]}
 					className={`
-						md:absolute md:bottom-0 md:right-8 lg:right-2.5 2xl:right-[110px] md:top-[35%]
+						md:absolute md:bottom-0 md:right-8 xl:right-20 2xl:right-[110px] md:top-[35%]
 						relative mt-10 px-4 md:px-0
 					`}
 				>
 					{firstBlock.content}
 				</div>
 			)}
-
 			{!isMobile && (
 				<div
 					ref={textRef}
