@@ -7,7 +7,7 @@
 	--breakpoint-md: 769px;
 	--breakpoint-lg: 991px;
 	--breakpoint-xl: 1280px;
-	--breakpoint-2xl: 1600px;
+	--breakpoint-2xl: 1660px;
 }
 
 @layer base {
@@ -225,10 +225,20 @@ body {
 	.anti-age_bg {
 		left: -15%;
 	}
+
+	.text-lg {
+		left: 22.5%;
+		z-index: -10;
+	}
 }
 @media (max-width: 1150px) {
 	.anti-age_bg {
 		left: -24%;
+	}
+
+	.text-lg {
+		left: 30%;
+		z-index: -10;
 	}
 }
 @media (max-width: 1024px) {
@@ -245,7 +255,7 @@ body {
 }
 @media (max-width: 870px) {
 	.anti-age_bg {
-		left: -60%;
+		left: -52%;
 		bottom: -6rem;
 		background-size: 130%;
 	}
@@ -259,17 +269,10 @@ body {
 	background-position: -32rem 0rem;
 }
 
-@media (max-width: 605px) {
+@media (max-width: 650px) {
 	.bg-size-anti {
-		transform: scale(0.7);
+		transform: scale(0.75);
 		background-position: -32rem 0rem;
 		left: -5.5rem;
-	}
-}
-@media (max-width: 500px) {
-	.bg-size-anti {
-		transform: scale(0.6);
-		background-position: -32rem 0rem;
-		left: -9rem;
 	}
 }
