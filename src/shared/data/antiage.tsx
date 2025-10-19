@@ -91,16 +91,16 @@ export const ANTIAGE = [
 		id: 9,
 		content: (
 			<>
-				<p className='text-[clamp(12px,3vw,14px)] lg:text-[clamp(14px,3vw,16px)] 2xl:text-[clamp(16px,1.2vw,20px)] leading-[155%] text-white uppercase font-normal max-w-full sm:max-w-[clamp(350px,45vw,420px)] md:max-w-[clamp(270px,40vw,540px)] 2xl:max-w-[clamp(270px,45vw,580px)]'>
+				<p className='text-[11px] md:text-[clamp(12px,3vw,14px)] lg:text-[clamp(14px,3vw,16px)] 2xl:text-[clamp(16px,1.2vw,20px)] leading-[155%] text-white uppercase font-normal max-w-full sm:max-w-[clamp(350px,45vw,420px)] md:max-w-[clamp(270px,40vw,540px)] 2xl:max-w-[clamp(270px,45vw,580px)]'>
 					Такой подход приводит к абсолютной и безграничной удовлетворенности
 					человека эффектом от пластической операции, значительно сокращает
 					сроки восстановления, продлевает результат и, как бы громко это ни
 					звучало,{' '}
-					<strong className='text-[clamp(12px,3vw,14px)] lg:text-[clamp(14px,3vw,16px)] 2xl:text-[clamp(16px,1.2vw,20px)]'>
+					<strong className='text-[11px] md:text-[clamp(12px,3vw,14px)] lg:text-[clamp(14px,3vw,16px)] 2xl:text-[clamp(16px,1.2vw,20px)]'>
 						делает воплощение мечты о вечной молодости все более реальной.
 					</strong>
 				</p>
-				<p className='text-[clamp(12px,3vw,14px)] lg:text-[clamp(14px,3vw,16px)] 2xl:text-[clamp(16px,1.2vw,20px)] leading-[155%] text-white uppercase font-normal max-w-full sm:max-w-[clamp(350px,45vw,420px)] md:max-w-[clamp(270px,40vw,540px)] 2xl:max-w-[clamp(270px,45vw,580px)] mt-6'>
+				<p className='text-[11px] md:text-[clamp(12px,3vw,14px)] lg:text-[clamp(14px,3vw,16px)] 2xl:text-[clamp(16px,1.2vw,20px)] leading-[155%] text-white uppercase font-normal max-w-full sm:max-w-[clamp(350px,45vw,420px)] md:max-w-[clamp(270px,40vw,540px)] 2xl:max-w-[clamp(270px,45vw,580px)] mt-6'>
 					Это исключительный подход, который так глубоко и с полной отдачей и
 					вниманием в России применяется только в Клинике-резиденции RAMICLINIC
 					RESIDENCE.

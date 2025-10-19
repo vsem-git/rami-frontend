@@ -89,7 +89,7 @@ const FourthAnimationBlock = () => {
 
     return (
         <>
-            <div className="flex flex-col items-center md:hidden">
+            <div id='location' className="flex flex-col items-center md:hidden">
                 <div className="max-w-[320px] w-full text-[20px] uppercase inline-block text-center mb-10">
                     МЕжДУ парком,
                     <br /> заливом и городом

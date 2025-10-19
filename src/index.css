@@ -4,6 +4,7 @@
 @theme {
 	--font-montserrat: 'Montserrat', sans-serif;
 	--breakpoint-sm: 468px;
+	--breakpoint-smx: 550px;
 	--breakpoint-md: 769px;
 	--breakpoint-lg: 991px;
 	--breakpoint-xl: 1280px;
@@ -269,10 +270,50 @@ body {
 	background-position: -32rem 0rem;
 }
 
+@media (max-width: 768px) {
+	.anti-age_bg {
+		left: -30%;
+		background-size: cover;
+		background-position: center;
+		width: 100%;
+		height: 100%;
+	}
+}
+@media (max-width: 550px) {
+	.anti-age_bg {
+		left: 0%;
+		background-size: cover;
+		background-position: center;
+		width: 100%;
+		height: 100%;
+		bottom: 0rem;
+	}
+}
+
 @media (max-width: 650px) {
 	.bg-size-anti {
 		transform: scale(0.75);
 		background-position: -32rem 0rem;
 		left: -5.5rem;
 	}
+}
+
+
+::-webkit-scrollbar {
+  width: 2px; 
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #691C32;
+  border-radius: 3px;
+  border: 1px solid transparent;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #691C32 transparent;
 }

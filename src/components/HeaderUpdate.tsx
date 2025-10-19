@@ -1,11 +1,8 @@
-import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useHeader } from './HeaderContext'
+import { MenuHeader } from './MenuHeader'
 import UnderlinedText from './UnderlinedText/UnderlinedText'
-
-gsap.registerPlugin(ScrollTrigger)
 
 interface HeaderUpdateProps {
 	useWhiteText?: boolean
@@ -15,12 +12,40 @@ const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
 	const { headerColor } = useHeader()
 	const headerRef = useRef(null)
 	const logoRef = useRef(null)
-	const menuRef = useRef(null)
-	const visitRef = useRef(null)
+	const menuButtonRef = useRef(null)
+	const topLineRef = useRef(null)
+	const bottomLineRef = useRef(null)
+	const [isOpenMenu, setOpenMenu] = useState(false)
 
 	const currentColor = useWhiteText ? '#ffffff' : headerColor || '#000000'
 
-	useGSAP(() => {}, [])
+	const toggleMenu = () => {
+		setOpenMenu(prev => !prev)
+
+		if (!topLineRef.current || !bottomLineRef.current) return
+
+		if (!isOpenMenu) {
+			gsap.to(topLineRef.current, {
+				rotate: 45,
+				y: 6,
+				backgroundColor: '#ffffff',
+				duration: 0.3,
+			})
+			gsap.to(bottomLineRef.current, {
+				rotate: -45,
+				y: -1,
+				backgroundColor: '#ffffff',
+				duration: 0.3,
+			})
+		} else {
+			gsap.to([topLineRef.current, bottomLineRef.current], {
+				rotate: 0,
+				y: 0,
+				backgroundColor: currentColor,
+				duration: 0.3,
+			})
+		}
+	}
 
 	const logoSrc = useWhiteText ? '/logo_white.webp' : '/logo_black.webp'
 
@@ -30,12 +55,13 @@ const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
 			className='fixed top-0 left-0 right-0 z-[9999] py-[16px] md:py-[20px] 2xl:py-[40px] md:px-[24px] sm:px-[16px] px-[16px] 2xl:px-[40px] grid grid-cols-3 justify-between items-center'
 		>
 			<div
-				ref={menuRef}
-				className='menuheader item flex font-semibold gap-4 items-center h-fit group cursor-pointer'
-				style={{ transition: 'none' }}
+				ref={menuButtonRef}
+				onClick={toggleMenu}
+				className='relative menuheader item flex font-semibold gap-4 items-center h-fit group cursor-pointer z-[999]'
 			>
 				<div className='flex flex-col gap-1'>
 					<div
+						ref={topLineRef}
 						className='w-[32px] h-[2px]'
 						style={{
 							backgroundColor: currentColor,
@@ -43,6 +69,7 @@ const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
 						}}
 					></div>
 					<div
+						ref={bottomLineRef}
 						className='w-[32px] h-[2px]'
 						style={{
 							backgroundColor: currentColor,
@@ -57,12 +84,13 @@ const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
 						transition: 'color 0.3s ease-in-out',
 					}}
 				>
-					МЕНЮ
+					{isOpenMenu ? 'ЗАКРЫТЬ' : 'МЕНЮ'}
 				</div>
 			</div>
+
 			<div className='item-wrapper flex justify-center items-center relative h-[60px]'>
 				<div
-					className='logo logoheader w-[100px] h-[81px] 2xl:w-[149px] 2xl:h-[120px] absolute'
+					className='logo logoheader w-[100px] h-[81px] 2xl:w-[149px] 2xl:h-[120px] absolute z-[999]'
 					ref={logoRef}
 				>
 					<div className='relative'>
@@ -76,36 +104,23 @@ const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
 
 						<img
 							src={logoSrc}
-							width={1000}
-							height={1000}
 							alt='logo'
-							className={`absolute inset-0 w-[100px] h-[81px] 2xl:w-[149px] 2xl:h-[120px]`}
+							className='absolute inset-0 w-[100px] h-[81px] 2xl:w-[149px] 2xl:h-[120px]'
 							style={{ transition: 'opacity 0.3s ease-in-out', opacity: 1 }}
 						/>
 					</div>
 				</div>
 			</div>
+
 			<div
-				ref={visitRef}
 				className='item visitheader font-semibold justify-end hidden md:flex cursor-pointer text-[13px] xl:text-base'
-				style={{
-					color: currentColor,
-					transition: 'none',
-				}}
+				style={{ color: currentColor }}
 			>
-				<style>
-					{`
-                        .theme *:after {
-                            background-color: ${currentColor}; 
-                        }
-                        
-                        .theme:after {
-                            background-color: ${currentColor}; 
-                        }
-                    `}
-				</style>
+				<style>{`.theme *:after { background-color: ${currentColor}; } .theme:after { background-color: ${currentColor}; }`}</style>
 				<UnderlinedText className='theme'>ЗАПЛАНИРОВАТЬ ВИЗИТ</UnderlinedText>
 			</div>
+
+			<MenuHeader isOpen={isOpenMenu} />
 		</div>
 	)
 }

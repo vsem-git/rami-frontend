@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import ContactPopUp from '../../components/ContactPopUp'
-import FooterUpdate from '../../components/FooterUpdate'
+import { FooterAntiAge } from '../../components/FooterAntiAge'
 import { HeaderProvider } from '../../components/HeaderContext'
 import HeaderUpdate from '../../components/HeaderUpdate'
 import { PopupProvider, usePopup } from '../../components/PopupContext'
@@ -16,7 +16,7 @@ const LayoutContent = () => {
 			<ScrollSmoother>
 				<Outlet />
 				<div className='block md:hidden'>
-					<FooterUpdate />
+					<FooterAntiAge />
 				</div>
 			</ScrollSmoother>
 		</>
