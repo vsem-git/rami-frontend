@@ -143,6 +143,7 @@ const FirstAnimationBlock = () => {
             <div
                 className="absolute top-0 left-0 w-full h-dvh bg-[url('/animationblock2.jpg')] bg-cover bg-top flex justify-between items-end z-50"
                 ref={block2Ref}
+                id='services'
             >
                 <div
                     className="relative h-full w-full flex flex-col justify-center md:grid grid-cols-3"

@@ -123,6 +123,7 @@ const FirstAnimationBlock = () => {
 				className='absolute top-0 left-0 w-full min-h-full bg-white flex flex-col-reverse md:flex-row justify-between items-center md:items-end z-40'
 				ref={block2Ref}
 				style={{ willChange: 'opacity' }}
+				id='clinic'
 			>
 				<img
 					src='/logo.svg'
@@ -178,28 +179,41 @@ const FirstAnimationBlock = () => {
 			<div
 				className="absolute top-0 left-0 w-full h-full bg-[url('/residence1.webp')] bg-cover bg-center flex justify-center items-center z-50"
 				ref={block4Ref}
-			></div>
+			>
+				<div className='absolute top-0 left-1/2 -translate-x-1/2 w-full h-[200px] bg-black/30 rounded-full blur-[40px] pointer-events-none'></div>
+			</div>
 			<div
 				className="absolute top-0 left-0 w-full h-full bg-[url('/residence2.webp')] bg-cover bg-center flex justify-center items-center z-40"
 				ref={block5Ref}
-			></div>
+			>
+				<div className='absolute top-0 left-1/2 -translate-x-1/2 w-full h-[200px] bg-black/30 rounded-full blur-[40px] pointer-events-none'></div>
+			</div>
 			<div
 				className="absolute top-0 left-0 w-full h-full bg-[url('/residence3.webp')] bg-cover bg-center flex justify-center items-center z-30"
 				ref={block6Ref}
-			></div>
+			>
+				<div className='absolute top-0 left-1/2 -translate-x-1/2 w-full h-[200px] bg-black/30 rounded-full blur-[40px] pointer-events-none'></div>
+			</div>
 			<div
 				className="absolute top-0 left-0 w-full h-full bg-[url('/residence4.webp')] bg-cover bg-center flex justify-center items-center z-20"
 				ref={block7Ref}
-			></div>
+			>
+				<div className='absolute top-0 left-1/2 -translate-x-1/2 w-full h-[200px] bg-black/30 rounded-full blur-[40px] pointer-events-none'></div>
+			</div>
 			<div
 				className="absolute top-0 left-0 w-full h-full bg-[url('/residence5.webp')] bg-cover bg-center flex justify-center items-center z-10"
 				ref={block8Ref}
-			></div>
+			>
+				<div className='absolute top-0 left-1/2 -translate-x-1/2 w-full h-[200px] bg-black/30 rounded-full blur-[40px] pointer-events-none'></div>
+			</div>
 			<div
 				className="absolute top-0 left-0 w-full h-full bg-[url('/residence6.webp'),linear-gradient(90deg,rgba(242,235,236,1)0%,rgba(248,246,247,1)30%,rgba(246,244,244,1)100%)] [background-position:80%_100%,center] [background-size:_176%,cover] [background-repeat:no-repeat,no-repeat] md:bg-cover md:bg-center z-20"
 				ref={block9Ref}
 			>
-				<div className='relative w-full h-full flex justify-start pl-[16px] md:pl-[80px] xl:pl-[120px] 2xl:pl-[200px] items-start pt-[110px] sm:pt-[110px] md:pt-0 md:items-center'>
+				<div
+					id='manifesto'
+					className='relative w-full h-full flex justify-start pl-[16px] md:pl-[80px] xl:pl-[120px] 2xl:pl-[200px] items-start pt-[110px] sm:pt-[110px] md:pt-0 md:items-center'
+				>
 					<div>
 						<div className='text-[#1D1D1D99] text-[20px] md:text-[24px] 2xl:text-[36px] uppercase mb-7'>
 							манифест искренности
