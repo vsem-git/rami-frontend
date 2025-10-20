@@ -30,7 +30,7 @@ export const WelcomeOperationRooms: React.FC = () => {
 					className='relative w-full h-full md:absolute inset-0 bg-cover bg-center flex items-end justify-center'
 					style={{
 						backgroundPosition: '50% 8%',
-						backgroundImage: `linear-gradient(180deg, rgba(29, 29, 29, 0.7) 0%, rgba(29, 29, 29, 0.3) 50%, rgba(29, 29, 29, 0.7) 100%), url('/operation-rooms/bg1.png')`,
+						backgroundImage: `linear-gradient(180deg, rgba(29, 29, 29, 0.7) 0%, rgba(29, 29, 29, 0.3) 50%, rgba(29, 29, 29, 0.7) 100%), url('/operation-rooms/bg1.webp')`,
 						filter: 'grayscale(100%) brightness(1.2) contrast(1.05)',
 					}}
 					role='img'

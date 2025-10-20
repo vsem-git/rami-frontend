@@ -106,7 +106,7 @@ export const PhysicalSecuritySafety = () => {
 				}}
 			>
 				<img
-					src='/safety-screen/bg5.jpg'
+					src='/safety-screen/bg5.webp'
 					alt='Security'
 					className='object-cover medical-image-ph '
 				/>
@@ -150,7 +150,7 @@ export const PhysicalSecuritySafety = () => {
 			className='relative w-full h-screen p-4 overflow-hidden'
 			style={{
 				backgroundImage:
-					'linear-gradient(180deg, rgba(29, 29, 29, 0.8) 0%, rgba(29, 29, 29, 0.4) 50%, rgba(29, 29, 29, 0.8) 100%), url("/safety-screen/bg5.jpg")',
+					'linear-gradient(180deg, rgba(29, 29, 29, 0.8) 0%, rgba(29, 29, 29, 0.4) 50%, rgba(29, 29, 29, 0.8) 100%), url("/safety-screen/bg5.webp")',
 				backgroundRepeat: 'no-repeat',
 				backgroundSize: 'cover',
 				backgroundPosition: 'center',

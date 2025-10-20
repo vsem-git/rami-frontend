@@ -15,7 +15,6 @@ export const InfoSafety = () => {
 		const sticky = stickyRef.current
 		if (!wrapper || !sticky) return
 
-		// Отключаем анимации при ширине экрана <= 768px
 		const isMobile = window.innerWidth <= 768
 		if (isMobile) {
 			setActiveIndex(0)

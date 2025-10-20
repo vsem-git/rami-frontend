@@ -17,9 +17,9 @@ export const SAFETY = [
 ]
 
 export const bgImages = [
-	'/safety-screen/bg2.png',
-	'/safety-screen/bg3.png',
-	'/safety-screen/bg4.png',
+	'/safety-screen/bg2.webp',
+	'/safety-screen/bg3.webp',
+	'/safety-screen/bg4.webp',
 ]
 
 export const blocksData = [

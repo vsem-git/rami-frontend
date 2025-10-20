@@ -44,13 +44,13 @@ export const WelcomeSafety: React.FC = () => {
 			>
 				<div
 					ref={backgroundRef}
-					className="relative w-full h-full md:absolute inset-0 bg-cover bg-center bg-[url('/safety-screen/bg.png')] flex items-end justify-center px-4 md:px-0"
+					className="relative w-full h-full md:absolute inset-0 bg-cover bg-center bg-[url('/safety-screen/bg.webp')] flex items-end justify-center px-4 md:px-0"
 					style={{
 						backgroundPosition: '50% 8%',
 						backgroundImage:
 							window.innerWidth <= 768
-								? "linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, rgba(29, 29, 29, 0.5) 100%), url('/safety-screen/bg.png')"
-								: "url('/safety-screen/bg.png')",
+								? "linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, rgba(29, 29, 29, 0.5) 100%), url('/safety-screen/bg.webp')"
+								: "url('/safety-screen/bg.webp')",
 						backgroundSize: 'cover',
 						backgroundRepeat: 'no-repeat',
 					}}
