@@ -157,6 +157,12 @@ export const MenuHeader = ({ isOpen }: MenuHeaderProps) => {
 				</div>
 			</div>
 
+			<div className='px-5 md:px-14'>
+				<button className='w-full h-[56px] block md:hidden text-[11px] text-[#691C32] uppercase font-semibold bg-white  mt-8'>
+					Запланировать визит
+				</button>
+			</div>
+
 			<div className='flex flex-col gap-4 mt-20 pl-5 md:pl-14 xl:pl-[100px]'>
 				{footerLinks.map((item, index) => (
 					<a
