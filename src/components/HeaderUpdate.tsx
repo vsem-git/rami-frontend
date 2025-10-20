@@ -78,9 +78,11 @@ const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
 					></div>
 				</div>
 				<div
-					className='theme hidden text-[13px] xl:text-base relative sm:block after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:transition-all after:duration-300 group-hover:after:w-full'
+					className={`hidden text-[13px] xl:text-base relative sm:block after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:transition-all after:duration-300 group-hover:after:w-full ${
+						isOpenMenu ? 'after:bg-white' : 'after:bg-current'
+					}`}
 					style={{
-						color: currentColor,
+						color: isOpenMenu ? '#fff' : currentColor,
 						transition: 'color 0.3s ease-in-out',
 					}}
 				>
