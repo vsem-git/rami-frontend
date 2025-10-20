@@ -34,7 +34,9 @@ export const Safety = () => {
 	return (
 		<>
 			<WelcomeSafety />
-			<MedicalSafety />
+			<section id='medical-safety-section'>
+				<MedicalSafety />
+			</section>
 			<InfoSafety />
 			<PhysicalSecuritySafety />
 		</>
