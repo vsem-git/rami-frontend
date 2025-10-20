@@ -1,5 +1,4 @@
 'use client'
-
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useEffect, useRef, useState } from 'react'
@@ -15,6 +14,13 @@ export const InfoSafety = () => {
 		const wrapper = wrapperRef.current
 		const sticky = stickyRef.current
 		if (!wrapper || !sticky) return
+
+		// Отключаем анимации при ширине экрана <= 768px
+		const isMobile = window.innerWidth <= 768
+		if (isMobile) {
+			setActiveIndex(0)
+			return
+		}
 
 		const blocks = gsap.utils.toArray<HTMLElement>('.safety-block')
 
@@ -72,17 +78,17 @@ export const InfoSafety = () => {
 	return (
 		<div
 			ref={wrapperRef}
-			className='relative flex w-full bg-[#691C32] overflow-hidden'
+			className='relative flex w-full medical-wrap bg-[#691C32] overflow-hidden gap-8 md:gap-14 xl:gap-[100px] px-4 lg:px-0 pt-8 sm:pt-20 md:pt-[100px] xl:pt-[160px]'
 		>
 			<div
 				ref={stickyRef}
-				className='sticky top-0 left-0 w-[860px] h-screen flex-shrink-0 flex items-start justify-center mt-[160px] px-10'
+				className='sticky top-0 left-0 w-[368px] md:w-[400px] lg:w-[540px] xl:w-[640px] 2xl:w-[860px] medical-image-screen flex-shrink-0 flex items-start justify-center px-0 lg:px-10'
 			>
 				<div>
-					<h3 className='text-4xl text-white leading-[125%] uppercase mb-10 max-w-[640px]'>
+					<h3 className='text-2xl xl:text-4xl text-white leading-[125%] uppercase mb-4 md:mb-6 xl:mb-10 max-w-[640px]'>
 						ИНФОРМАЦИОННАЯ БЕЗОПАСНОСТЬ
 					</h3>
-					<p className='text-lg text-[#FFFFFFBF] leading-[155%] uppercase max-w-[540px]'>
+					<p className='text-xs xl:text-lg text-[#FFFFFFBF] leading-[155%] uppercase max-w-[540px]'>
 						Сбалансированный комплекс мер и процессов, предназначенных для
 						защиты информации от несанкционированного доступа, искажения,
 						уничтожения или раскрытия. Обеспечивает соответствие требованиям
@@ -91,28 +97,48 @@ export const InfoSafety = () => {
 				</div>
 			</div>
 
-			<div className='flex flex-col w-full max-w-[750px] mx-auto mt-[160px] mr-[100px] space-y-[64px] text-white'>
+			<div className='flex flex-col w-full max-w-[750px] mx-auto mr-0 lg:mr-16 xl:mr-[100px] space-y-[64px] text-white'>
 				{blocks.map((block, index) => (
 					<section
 						key={index}
-						className='safety-block border-t border-[#FFFFFF33] pt-16'
+						className='safety-block border-t border-[#FFFFFF33] pt-5 sxl:pt-16'
 					>
 						<div className='flex items-center justify-between'>
-							<div className='flex flex-col gap-6 max-w-[554px]'>
-								<h3 className='text-2xl/[130%] uppercase'>{block.title}</h3>
-								<p className='text-lg text-white uppercase leading-[155%]'>
+							<div className='w-full flex flex-col xl:flex-row xl:items-center'>
+								<div className='w-full flex flex-row xl:flex-col  items-center xl:items-start justify-between xl:justify-start gap-0 xl:gap-6'>
+									<h3 className='text-[16px] sxl:text-2xl leading-[130%]  uppercase'>
+										{block.title}
+									</h3>
+									<h1
+										className={`block xl:hidden text-[32px]/[125%] sm:text-[44px]/[125%] lg:text-7xl/[125%] xl:text-[120px]/[125%] uppercase transition-opacity duration-500 ${
+											window.innerWidth <= 768
+												? 'text-[#FFFFFF4D] opacity-100'
+												: activeIndex === index
+												? 'text-[#FFFFFF4D] opacity-100'
+												: 'opacity-30'
+										}`}
+									>
+										{block.number}
+									</h1>
+									<p className='hidden xl:block text-xs xl:text-sm sxl:text-lg text-white uppercase leading-[155%] max-w-[554px]'>
+										{block.description}
+									</p>
+								</div>
+								<p className='block xl:hidden text-[11px] md:text-xs xl:text-lg text-white uppercase leading-[155%] max-w-[300px] md:max-w-[368px] xl:max-w-[554px]'>
 									{block.description}
 								</p>
+								<h1
+									className={`hidden xl:block text-[32px]/[125%] sm:text-[44px]/[125%] lg:text-7xl/[125%] sxl:text-[120px]/[125%] uppercase transition-opacity duration-500 ${
+										window.innerWidth <= 768
+											? 'text-[#FFFFFF4D] opacity-100'
+											: activeIndex === index
+											? 'text-[#FFFFFF4D] opacity-100'
+											: 'opacity-30'
+									}`}
+								>
+									{block.number}
+								</h1>
 							</div>
-							<h1
-								className={`text-[120px]/[105%] uppercase transition-opacity duration-500 ${
-									activeIndex === index
-										? 'text-[#FFFFFF4D] opacity-100'
-										: 'opacity-30'
-								}`}
-							>
-								{block.number}
-							</h1>
 						</div>
 					</section>
 				))}

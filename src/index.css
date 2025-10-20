@@ -8,6 +8,7 @@
 	--breakpoint-md: 769px;
 	--breakpoint-lg: 991px;
 	--breakpoint-xl: 1280px;
+	--breakpoint-sxl: 1440px;
 	--breakpoint-2xl: 1660px;
 }
 
@@ -299,21 +300,44 @@ body {
 }
 
 
-::-webkit-scrollbar {
-  width: 2px; 
+
+.medical-image {
+	width: 352px;
+	height: 352px;
+}
+.medical-image-ph {
+	width: 352px;
+	height: 640px;
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
+@media (max-width: 624px) {
+	.medical-image,
+	.medical-image-ph {
+		width: 100%;
+		height: 352px;
+	}
+}
+@media (max-width: 445px) {
+	.medical-image {
+		height: 328px;
+	}
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: #691C32;
-  border-radius: 3px;
-  border: 1px solid transparent;
+.medical-image-screen {
+	height: 100vh;
 }
 
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #691C32 transparent;
+@media (max-width: 715px) {
+	.medical-wrap {
+		flex-wrap: wrap;
+	}
+
+	.medical-image-ph {
+		width: 100%;
+		height: 352px;
+	}
+
+	.medical-image-screen {
+		height: auto;
+	}
 }
