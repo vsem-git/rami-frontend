@@ -18,11 +18,11 @@ export const InfoSafety = () => {
 
 		const blocks = gsap.utils.toArray<HTMLElement>('.safety-block')
 
-		const pinTrigger = ScrollTrigger.create({
+		ScrollTrigger.create({
 			trigger: wrapper,
 			start: 'top top',
 			endTrigger: blocks[blocks.length - 1],
-			end: 'bottom bottom', 
+			end: 'bottom bottom',
 			pin: sticky,
 			pinSpacing: true,
 			invalidateOnRefresh: true,

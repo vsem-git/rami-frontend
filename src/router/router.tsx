@@ -9,18 +9,20 @@ import Reabilitation from '../pages/Reabilitation/Reabilitation'
 import ReabilitationLayout from '../pages/Reabilitation/layout'
 import { Antiage } from '../pages/antiage/Antiage'
 import AntiageLayout from '../pages/antiage/layout'
+import { Apartments } from '../pages/apartments/Apartments'
+import ApartmentsLayout from '../pages/apartments/layout'
 import { Contact } from '../pages/contact/Contact'
 import ContactLayout from '../pages/contact/layout'
 import { Cosmetology } from '../pages/cosmetology/Cosmetology'
 import CosmetologyLayout from '../pages/cosmetology/layout'
 import { Doctor } from '../pages/doctor/Doctor'
 import DoctorLayout from '../pages/doctor/layout'
+import { OperationRooms } from '../pages/operation-rooms/OperationRooms'
+import OperationRoomsLayout from '../pages/operation-rooms/layout'
 import { PrivacyPolicy } from '../pages/privacy-policy/PrivacyPolicy'
 import PrivacyPolicyLayout from '../pages/privacy-policy/layout'
 import { Safety } from '../pages/safety/Safety'
 import SafetyLayout from '../pages/safety/layout'
-import ApartmentsLayout from '../pages/apartments/layout'
-import {Apartments} from '../pages/apartments/Apartments'
 
 const router = createBrowserRouter([
 	{
@@ -110,6 +112,16 @@ const router = createBrowserRouter([
 			{
 				index: true,
 				element: <Apartments />,
+			},
+		],
+	},
+	{
+		path: '/operation-rooms',
+		element: <OperationRoomsLayout />,
+		children: [
+			{
+				index: true,
+				element: <OperationRooms />,
 			},
 		],
 	},
