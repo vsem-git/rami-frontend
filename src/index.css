@@ -253,16 +253,16 @@ body {
 		left: -34%;
 	}
 }
-@media (max-width: 900px) {
+@media (max-width: 920px) {
 	.anti-age_bg {
-		left: -50%;
+		left: -57%;
 		background-size: 140%;
 	}
 }
 @media (max-width: 870px) {
 	.anti-age_bg {
-		left: -52%;
-		background-size: 130%;
+		left: -57%;
+		background-size: 125%;
 	}
 
 	.text-lg {
@@ -287,6 +287,10 @@ body {
 		width: 100%;
 		height: 115%;
 	}
+
+	.width_anti-age {
+		width: 390px;
+	}
 }
 @media (max-width: 550px) {
 	.anti-age_bg {
@@ -298,8 +302,6 @@ body {
 		bottom: -5rem;
 	}
 }
-
-
 
 @media (max-width: 650px) {
 	.bg-size-anti {
@@ -323,6 +325,12 @@ body {
 	.medical-image-ph {
 		width: 100%;
 		height: 352px;
+	}
+}
+@media (max-width: 468px) {
+	.width_anti-age {
+		width: auto;
+		max-width: 388px;
 	}
 }
 @media (max-width: 445px) {

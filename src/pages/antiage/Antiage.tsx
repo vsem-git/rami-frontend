@@ -112,8 +112,8 @@ export const Antiage = () => {
 			<h2
 				ref={leftTextRef}
 				className='
-					hidden md:block text-[clamp(45px,3vw,65px)] 2xl:text-[96px] font-normal uppercase whitespace-nowrap
-					absolute -z-10 top-[8rem] left-0
+					hidden md:block text-[clamp(45px,3vw,65px)] 2xl:text-[76px] font-normal uppercase whitespace-nowrap
+					absolute -z-10 top-[11rem] left-0
 					text-[#1D1D1D4D] 
 				'
 			>
@@ -172,11 +172,11 @@ export const Antiage = () => {
 						key={item.id}
 						ref={contentRefs[index + 1]}
 						className={`
-            space-y-10
-            md:absolute md:bottom-0 md:right-8 xl:right-20  2xl:right-[110px] md:top-[35%]
-            relative px-4 md:px-0
-            ${item.id === 9 ? 'show_block-text' : ''}
-        `}
+    space-y-10
+    md:absolute md:bottom-0 md:right-8 xl:right-20 2xl:right-[110px] md:top-[35%]
+    relative px-4 md:px-0 width_anti-age
+    ${item.id === 9 ? 'show_block-text' : ''}
+  `}
 					>
 						{item.content}
 					</div>
@@ -186,7 +186,7 @@ export const Antiage = () => {
 				<div
 					ref={contentRefs[0]}
 					className={`
-            md:absolute md:bottom-0 md:right-8 xl:right-20 2xl:right-[110px] md:top-[25%]
+            md:absolute md:bottom-0 md:right-8 xl:right-20 2xl:right-[110px] md:top-[33%] 2xl:top-[25%]
             relative mt-10 px-4 md:px-0
         `}
 				>

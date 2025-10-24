@@ -33,7 +33,7 @@ export const Doctor = () => {
 			)
 		})
 
-		return () => ctx.revert() 
+		return () => ctx.revert()
 	}, [])
 
 	return (
@@ -65,7 +65,7 @@ export const Doctor = () => {
 							счастья! Это сила, способная изменить мир к лучшему.
 						</p>
 						<button className='text-[11px] md:text-[clamp(0.875rem,1.2vw,1rem)] font-semibold uppercase text-[#1D1D1D] cursor-pointer'>
-							ЧИТАТЬ СТАТЬЮ ПОЛНОСТЬЮ
+							Читать статью
 						</button>
 					</div>
 				</div>
