@@ -27,7 +27,7 @@ export const REABILITATION_TEXTS = [
 		id: 2,
 		ref: 'secondBlockRef',
 		className:
-			'text-[18px] text-white flex flex-col sm:justify-center uppercase sm:w-[400px] md:w-[420px] xl:w-[560px] 2xl:w-[710px]',
+			'text-[18px] text-white flex flex-col sm:justify-center uppercase sm:w-[368px] md:w-[420px] xl:w-[560px] 2xl:w-[710px]',
 		content: (
 			<>
 				<h1 className='text-[15px] md:text-[16px] 2xl:text-[24px] leading-[130%] mb-4 2xl:mb-6 tracking-[2%]'>
@@ -49,7 +49,7 @@ export const REABILITATION_TEXTS = [
 		id: 3,
 		ref: 'thirdBlockRef',
 		className:
-			'text-[18px] text-white flex flex-col sm:justify-center uppercase sm:w-[400px] md:w-[420px] xl:w-[560px] 2xl:w-[720px]',
+			'text-[18px] text-white flex flex-col sm:justify-center uppercase sm:w-[368px] md:w-[420px] xl:w-[560px] 2xl:w-[720px]',
 		content: (
 			<>
 				<h1 className='text-[15px] md:text-[16px] 2xl:text-[24px] leading-[130%] mb-4 2xl:mb-6'>
@@ -67,7 +67,7 @@ export const REABILITATION_TEXTS = [
 		id: 4,
 		ref: 'firstStepRef',
 		className:
-			'text-[18px] text-white flex flex-col sm:justify-center uppercase sm:w-[400px] md:w-[420px] xl:w-[550px] 2xl:w-[770px]',
+			'text-[18px] text-white flex flex-col sm:justify-center uppercase sm:w-[368px] md:w-[420px] xl:w-[550px] 2xl:w-[770px]',
 		content: (
 			<div className='grid grid-cols-[40px_1fr] xl:grid-cols-[48px_1fr] gap-4'>
 				<div className='aspect-square bg-[#FFFFFF1A] flex items-center justify-center text-[11px] 2xl:text-[14px] rounded-full'>
@@ -99,7 +99,7 @@ export const REABILITATION_TEXTS = [
 		id: 5,
 		ref: 'secondStepRef',
 		className:
-			'text-[18px] text-white flex flex-col sm:justify-center uppercase sm:w-[400px] md:w-[410px] xl:w-[560px] 2xl:w-[770px]',
+			'text-[18px] text-white flex flex-col sm:justify-center uppercase w-full sm:w-[368px] md:w-[410px] xl:w-[560px] 2xl:w-[770px]',
 		content: (
 			<div className='grid grid-cols-[40px_1fr] xl:grid-cols-[48px_1fr] gap-4'>
 				<div className='aspect-square bg-[#FFFFFF1A] flex items-center justify-center text-[11px] 2xl:text-[14px] rounded-full'>
@@ -159,7 +159,7 @@ export const REABILITATION_TEXTS = [
 		id: 6,
 		ref: 'thirdStepRef',
 		className:
-			'text-[18px] text-white flex flex-col sm:justify-center uppercase sm:w-[400px] md:w-[420px] xl:w-[550px] 2xl:w-[770px]',
+			'text-[18px] text-white flex flex-col sm:justify-center uppercase w-full sm:w-[368px] md:w-[420px] xl:w-[550px] 2xl:w-[770px]',
 		content: (
 			<div className='grid grid-cols-[40px_1fr] xl:grid-cols-[48px_1fr] gap-4'>
 				<div className='aspect-square bg-[#FFFFFF1A] flex items-center justify-center text-[11px] 2xl:text-[14px] rounded-full'>

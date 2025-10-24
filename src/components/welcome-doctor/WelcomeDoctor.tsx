@@ -39,7 +39,7 @@ export const WelcomeDoctor: React.FC = () => {
 	return (
 		<section
 			ref={sectionRef}
-			className='relative h-auto md:h-screen overflow-hidden'
+			className='relative h-auto md:h-screen overflow-hidden pv-0 md:pb-20'
 			aria-label='Приветствие и информация о докторе'
 		>
 			<div
@@ -84,7 +84,7 @@ export const WelcomeDoctor: React.FC = () => {
 
 			<div
 				ref={defaultContentRef}
-				className='relative z-20 min-h-auto md:min-h-screen flex flex-col justify-end p-6 xl:p-10 border-b border-[#FFFFFF4D] pb-0 md:pb-10 text-[#1D1D1D] md:text-white mt-4 sm:mt-6 md:mt-0'
+				className='relative z-20 min-h-auto md:min-h-screen flex flex-col justify-end p-6 xl:p-10 pb-0 md:pb-10 text-[#1D1D1D] md:text-white mt-4 sm:mt-6 md:mt-0'
 			>
 				<Link to={'/'}>
 					<button className='absolute top-[-115%] md:top-[15%] text-[11px] md:text-base text-white font-semibold flex items-center gap-2 uppercase cursor-pointer'>

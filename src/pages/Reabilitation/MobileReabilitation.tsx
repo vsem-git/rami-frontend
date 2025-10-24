@@ -26,7 +26,7 @@ const MobileReabilitation = () => {
 			<div className='flex flex-col items-end gap-[96px] my-24 px-4'>
 				{REABILITATION_TEXTS.slice(1).map(
 					item =>
-						item.id !== 6 && (
+						item.id !== 7 && (
 							<div key={item.id} className={item.className}>
 								{item.content}
 							</div>

@@ -287,7 +287,13 @@ export const useAntiageAnimation = (
 				tl.to(
 					backgroundElement,
 					{
-						y: isTabletX ? '-10vh' : '-30vh',
+						y: isTabletX
+							? '-5vh'
+							: isTablet
+							? '-30vh'
+							: isMobile
+							? '-4vh'
+							: '-30vh',
 						duration: 10,
 						ease: 'sine.inOut',
 					},

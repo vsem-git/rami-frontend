@@ -218,6 +218,11 @@ body {
 	z-index: -1;
 }
 
+.show_block-text {
+	display: block;
+	top: 35%;
+}
+
 @media (max-width: 1440px) {
 	.anti-age_bg {
 		left: -2%;
@@ -229,18 +234,19 @@ body {
 	}
 }
 @media (max-width: 1280px) {
-	.anti-age_bg {
-		left: -15%;
-	}
-
 	.text-lg_anti {
 		left: 22.5%;
 		z-index: -10;
 	}
+
+	.show_block-text {
+		display: block;
+		top: 50%;
+	}
 }
 @media (max-width: 1150px) {
 	.anti-age_bg {
-		left: -24%;
+		left: -15%;
 	}
 
 	.text-lg_anti {
@@ -368,10 +374,6 @@ body {
 		filter: brightness(0.2) saturate(0%) contrast(120%) sepia(100%)
 			hue-rotate(0deg);
 	}
-}
-
-.show_block-text {
-	display: block;
 }
 
 @media (max-width: 768px) {
