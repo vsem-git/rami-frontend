@@ -45,8 +45,10 @@ export const Doctor = () => {
 
 			<section
 				ref={sectionRef}
-				className='w-full h-auto min-h-[640px] lg:min-h-[720px] flex items-center justify-center px-4 xl:px-10'
+				className='relative w-full h-auto min-h-[640px] lg:min-h-[720px] flex items-center justify-center px-4 xl:px-10 overflow-hidden'
 			>
+				<img src='/pattern1.svg' alt='' className='w-1/2 md:w-[40%] xl:w-[30%] absolute right-0 top-1/2 transform -translate-y-1/2 hidden sm:block' />
+				<img src='/pattern2.svg' alt='' className='w-full sm:w-1/2 md:w-[40%] xl:w-[30%] absolute left-0 top-1/2 transform -translate-y-1/2 ' />
 				<div className='flex items-start flex-col sm:flex-row gap-4 lg:gap-5 2xl:gap-10'>
 					<img
 						src={mes}

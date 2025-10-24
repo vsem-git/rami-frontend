@@ -108,7 +108,6 @@ export const SwiperScrollApartments = () => {
       <img src='/pattern1.svg' alt='' className='absolute right-0 top-0' />
       <img src='/pattern2.svg' alt='' className='absolute left-0 -top-32' />
 
-      {/* Кнопки */}
       <button
         onClick={handlePrev}
         className='absolute top-1/2 left-10 -translate-y-1/2 w-[120px] h-[120px] flex items-center justify-center bg-[#FFFFFF1A] border border-[#FFFFFF1A] backdrop-blur-[50px] rounded-full z-20 cursor-pointer'

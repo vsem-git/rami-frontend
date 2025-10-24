@@ -146,7 +146,7 @@ export const Antiage = () => {
 				ref={regenerativeMedicineRef}
 				className='
 					hidden md:block text-[clamp(18px,3vw,24px)]  xl:text-[clamp(24px,3vw,32px)] 2xl:text-[32px]/[125%] font-normal uppercase whitespace-nowrap
-					absolute top-[61%] left-[10vw]
+					absolute top-[55%] 2xl:top-[61%] left-[10vw]
 					text-[#FFFFFFBF] 
 					opacity-0 -translate-x-20
 				'
@@ -158,7 +158,7 @@ export const Antiage = () => {
 				ref={cellularRejuvenationRef}
 				className='
 					hidden md:block text-[clamp(18px,3vw,24px)]  xl:text-[clamp(24px,3vw,28px)] 2xl:text-[28px]/[125%] font-normal uppercase whitespace-nowrap
-					absolute bottom-[11%] left-[21%]
+					absolute bottom-[11%] left-[17%] 2xl:left-[21%]
 					text-[#FFFFFFBF] 
 					opacity-0 -translate-x-20
 				'
@@ -166,16 +166,16 @@ export const Antiage = () => {
 				клеточное <br />
 				омоложение
 			</h3>
-			<div className='flex flex-col items-start sm:items-end gap-16 my-16'>
+			<div className='relative h-full flex flex-col items-start sm:items-end gap-16 my-16 md:my-0'>
 				{remainingBlocks.map((item, index) => (
 					<div
 						key={item.id}
 						ref={contentRefs[index + 1]}
 						className={`
     space-y-10
-    md:absolute md:bottom-0 md:right-8 xl:right-20 2xl:right-[110px] md:top-[35%]
+    md:absolute  md:right-8 xl:right-20 2xl:right-[110px] md:top-1/2 md:-translate-y-1/2 md:transform
     relative px-4 md:px-0 width_anti-age
-    ${item.id === 9 ? 'show_block-text' : ''}
+    ${item.id === 9 ? 'show_block-text ' : ''}
   `}
 					>
 						{item.content}
