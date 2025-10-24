@@ -193,7 +193,7 @@ export const useAntiageAnimation = (
 					{
 						opacity: 1,
 						x: 0,
-						y:0,
+						y: 0,
 						duration: 3,
 						ease: 'power3.out',
 					},
@@ -205,10 +205,10 @@ export const useAntiageAnimation = (
 				// 	{
 				// 		x: '6vw',
 				// 		y: 'vw',
-				// 		duration: 8, 
+				// 		duration: 8,
 				// 		ease: 'sine.inOut',
 				// 	},
-				// 	startTime + 3 
+				// 	startTime + 3
 				// )
 			}
 
@@ -301,7 +301,7 @@ export const useAntiageAnimation = (
 				backgroundElement,
 				{
 					y: '7vh',
-					scale: 1,
+					scale: 1.1,
 					x: isTablet ? '-10%' : '-25%',
 					duration: 10,
 					ease: 'sine.inOut',
