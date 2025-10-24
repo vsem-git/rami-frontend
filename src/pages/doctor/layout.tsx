@@ -1,12 +1,11 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
-import { ContactOpenBoxFooter } from '../../components/ContactOpenBoxFooter'
 import ContactPopUp from '../../components/ContactPopUp'
 import { DoctorCardModal } from '../../components/DoctorCardModal'
+import { DoctorResultEffect } from '../../components/DoctorResultEffect'
 import Footer from '../../components/Footer'
-import FooterUpdate from '../../components/FooterUpdate'
 import { HeaderProvider } from '../../components/HeaderContext'
 import HeaderUpdate from '../../components/HeaderUpdate'
 import { PopupProvider, usePopup } from '../../components/PopupContext'
@@ -17,20 +16,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const LayoutContent = () => {
 	const { isOpen } = usePopup()
-	const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768)
 	const [useWhiteText, setUseWhiteText] = useState(true)
-
-	const handleResize = useCallback(() => {
-		setIsMobile(prev => {
-			const next = window.innerWidth <= 768
-			return prev === next ? prev : next
-		})
-	}, [])
-
-	useEffect(() => {
-		window.addEventListener('resize', handleResize)
-		return () => window.removeEventListener('resize', handleResize)
-	}, [handleResize])
 
 	const isAnyPopupOpen =
 		isOpen(POPUP_NAMES.CONTACT) || isOpen(POPUP_NAMES.DOCTOR_CARD)
@@ -68,7 +54,7 @@ const LayoutContent = () => {
 			triggers.push(
 				ScrollTrigger.create({
 					trigger: cardsSection,
-					start: 'top center',
+					start: 'center center',
 					end: 'bottom top',
 					onEnter: () => setUseWhiteText(true),
 					onLeaveBack: () => setUseWhiteText(true),
@@ -122,19 +108,20 @@ const LayoutContent = () => {
 		<>
 			<ContactPopUp />
 			<DoctorCardModal />
+			<DoctorResultEffect />
 
 			{!isAnyPopupOpen && <HeaderUpdate useWhiteText={useWhiteText} />}
 
 			<ScrollSmoother>
 				<Outlet />
 
-				{isMobile && (
+				{/* {isMobile && (
 					<div className='min-h-[600px] sm:min-h-[700px] flex items-center justify-center footer-content '>
 						<ContactOpenBoxFooter />
 					</div>
-				)}
+				)} */}
 
-				{isMobile ? <FooterUpdate /> : <Footer />}
+				<Footer />
 			</ScrollSmoother>
 		</>
 	)

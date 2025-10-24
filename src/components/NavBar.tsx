@@ -1,7 +1,6 @@
 import { gsap } from 'gsap'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 
-// Регистрируем плагин
 gsap.registerPlugin(ScrollToPlugin)
 
 const navLink = [

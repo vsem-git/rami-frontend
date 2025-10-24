@@ -2,9 +2,9 @@ import { ANTIAGE } from '../shared/data/antiage'
 
 export const FooterAntiAge = () => {
 	return (
-		<div className='relative w-full h-screen overflow-hidden '>
-			<div className="absolute top-0 bg-[10%_0%] w-full h-full bg-[url('/antiage-screen/anti-age.png')] bg-no-repeat bg-cover will-change-transform" />
-
+		<div className='relative w-full h-[751px] sm:h-[800px] overflow-hidden '>
+			<div className="absolute top-0 bg-[50%_0%] sm:bg-[70%_0%] w-full h-full bg-[url('/antiage-screen/anti-age.png')] bg-no-repeat bg-cover will-change-transform" />
+			{/* <div className='bg-white aspect-square w-full sm:w-[50%] h-[60%] blur-[100px] rounded-full absolute bottom-[10%] sm:bottom-[20%]'></div> */}
 			<div
 				className="
 					absolute w-full min-h-[775px] left-0
@@ -17,7 +17,7 @@ export const FooterAntiAge = () => {
 			<h2
 				className='
 					text-[38.4px] font-normal uppercase whitespace-nowrap
-					absolute top-[3rem] smx:top-[6rem] left-0
+					absolute top-[3rem] smx:top-[6rem] left-[10%] smx:left-2.5
 					text-[#1D1D1D4D] 
 				'
 			>
@@ -26,7 +26,7 @@ export const FooterAntiAge = () => {
 			<h3
 				className='
 					text-base font-normal uppercase whitespace-nowrap
-					absolute top-[30%] left-[40%] smx:left-[35%]
+					absolute top-[30%] left-[30%] smx:left-[35%]
 					text-[#FFFFFF99] 
 					-translate-x-20
 				'
@@ -37,7 +37,7 @@ export const FooterAntiAge = () => {
 			<h3
 				className='
 					text-[25px] font-normal uppercase whitespace-nowrap
-					absolute top-[15%] smx:top-[25%] left-[56%] smx:left-0
+					absolute top-[15%] smx:top-[25%] left-[54%] smx:left-0
 					text-[#FFFFFF4D] 
 				'
 			>
@@ -46,7 +46,7 @@ export const FooterAntiAge = () => {
 			<h3
 				className='
 					text-[12.8px] font-normal uppercase whitespace-nowrap
-					absolute top-[45%] left-[80%] smx:left-[20%]
+					absolute top-[45%] left-[70%] smx:left-[20%]
 					text-[#FFFFFFBF] 
 					-translate-x-20
 				'
@@ -57,7 +57,7 @@ export const FooterAntiAge = () => {
 			<h3
 				className='
 					text-[11.2px] font-normal uppercase whitespace-nowrap
-					absolute bottom-[31%] left-[34%]
+					absolute bottom-[42%] smx:bottom-[31%] left-[34%]
 					text-[#FFFFFFBF] 
 					-translate-x-20
 				'

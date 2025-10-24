@@ -213,8 +213,9 @@ body {
 	}
 }
 
-.text-lg {
-	left: 33.5%;
+.text-lg_anti {
+	left: 29%;
+	z-index: -1;
 }
 
 @media (max-width: 1440px) {
@@ -232,7 +233,7 @@ body {
 		left: -15%;
 	}
 
-	.text-lg {
+	.text-lg_anti {
 		left: 22.5%;
 		z-index: -10;
 	}
@@ -242,7 +243,7 @@ body {
 		left: -24%;
 	}
 
-	.text-lg {
+	.text-lg_anti {
 		left: 30%;
 		z-index: -10;
 	}
@@ -255,19 +256,22 @@ body {
 @media (max-width: 900px) {
 	.anti-age_bg {
 		left: -50%;
-		bottom: -6rem;
 		background-size: 140%;
 	}
 }
 @media (max-width: 870px) {
 	.anti-age_bg {
 		left: -52%;
-		bottom: -6rem;
 		background-size: 130%;
 	}
 
 	.text-lg {
 		left: 10%;
+	}
+}
+@media (max-width: 800px) {
+	.anti-age_bg {
+		left: -60%;
 	}
 }
 
@@ -281,19 +285,21 @@ body {
 		background-size: cover;
 		background-position: center;
 		width: 100%;
-		height: 100%;
+		height: 115%;
 	}
 }
 @media (max-width: 550px) {
 	.anti-age_bg {
-		left: 0%;
+		left: -10%;
 		background-size: cover;
 		background-position: center;
 		width: 100%;
-		height: 100%;
-		bottom: 0rem;
+		height: 100vh;
+		bottom: -5rem;
 	}
 }
+
+
 
 @media (max-width: 650px) {
 	.bg-size-anti {
@@ -341,5 +347,55 @@ body {
 
 	.medical-image-screen {
 		height: auto;
+	}
+}
+
+.filter-icon {
+	filter: invert(100%) sepia(7%) saturate(0%) hue-rotate(29deg) brightness(107%)
+		contrast(106%);
+}
+
+@media (max-width: 445px) {
+	.filter-icon {
+		filter: brightness(0.2) saturate(0%) contrast(120%) sepia(100%)
+			hue-rotate(0deg);
+	}
+}
+
+.show_block-text {
+	display: block;
+}
+
+@media (max-width: 768px) {
+	.image-reb-size {
+		width: 65%;
+	}
+
+	.image-anti-size {
+		width: 80%;
+	}
+
+	.show_block-text {
+		display: none;
+	}
+}
+
+@media (max-width: 550px) {
+	.image-anti-size {
+		width: 90%;
+	}
+
+	.show_block-text {
+		display: block;
+	}
+}
+@media (max-width: 500px) {
+	.image-reb-size {
+		width: 70%;
+	}
+}
+@media (max-width: 468px) {
+	.image-reb-size {
+		width: 100%;
 	}
 }

@@ -98,6 +98,7 @@ const FirstAnimationBlock = () => {
 	return (
 		<div className='min-h-dvh relative overflow-hidden' ref={containerRef}>
 			<div
+				id='reborn-first-block'
 				className="absolute top-0 left-0 w-full h-full bg-[url('/1slide.webp')] bg-cover bg-center z-50"
 				ref={block1Ref}
 				style={{ willChange: 'opacity' }}

@@ -42,20 +42,36 @@ export const useDoctorAnimation = (
 
 			gsap.set(doctorContentElement, { y: '90vh', opacity: 0 })
 
+			// Анимация текста - поднимается вверх и исчезает
 			tl.to(
 				defaultContentElement,
-				{ y: '-90vh', duration: 2, ease: 'power2.inOut' },
+				{
+					y: '-100vh',
+					opacity: 0,
+					duration: 2,
+					ease: 'power2.inOut',
+				},
 				0
 			)
+				// Анимация фона и одновременное появление контента доктора
 				.to(
 					backgroundElement,
-					{ backgroundPosition: '50% 50%', duration: 3, ease: 'power2.inOut' },
+					{
+						backgroundPosition: '50% 70%',
+						duration: 4,
+						ease: 'power2.inOut',
+					},
 					1
 				)
 				.to(
 					doctorContentElement,
-					{ y: '0vh', opacity: 1, duration: 1.5, ease: 'power2.out' },
-					3
+					{
+						y: '0vh',
+						opacity: 1,
+						duration: 2,
+						ease: 'power2.out',
+					},
+					1.5 // Начинается раньше, одновременно с анимацией фона
 				)
 
 			return () => {

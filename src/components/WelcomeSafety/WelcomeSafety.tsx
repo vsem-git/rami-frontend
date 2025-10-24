@@ -49,13 +49,14 @@ export const WelcomeSafety: React.FC = () => {
 						backgroundPosition: '50% 8%',
 						backgroundImage:
 							window.innerWidth <= 768
-								? "linear-gradient(180deg, rgba(29, 29, 29, 0) 0%, rgba(29, 29, 29, 0.5) 100%), url('/safety-screen/bg.webp')"
+								? "url('/safety-screen/bg.webp')"
 								: "url('/safety-screen/bg.webp')",
 						backgroundSize: 'cover',
 						backgroundRepeat: 'no-repeat',
 					}}
 					role='img'
 				>
+					{/* Контент для мобильных */}
 					<div className='w-full relative z-20 min-h-auto md:min-h-screen md:hidden flex flex-col justify-end text-white mb-3'>
 						<div className='flex items-center justify-between flex-wrap gap-6'>
 							<h1 className='text-[32px]/[125%] sm:text-[44px]/[125%] xl:text-7xl/[125%] 2xl:text-[120px]/[125%] font-normal uppercase'>

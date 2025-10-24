@@ -13,29 +13,36 @@ export const Doctor = () => {
 	const sectionRef = useRef<HTMLElement>(null)
 
 	useEffect(() => {
-		if (!sectionRef.current) return
+		if (window.innerWidth <= 768 || !sectionRef.current) return
 
-		gsap.fromTo(
-			sectionRef.current,
-			{ opacity: 0, y: 30 },
-			{
-				opacity: 1,
-				y: 0,
-				duration: 4,
-				ease: 'power3.out',
-				scrollTrigger: {
-					trigger: sectionRef.current,
-					start: 'top 80%',
-					toggleActions: 'play none none none',
-				},
-			}
-		)
+		const ctx = gsap.context(() => {
+			gsap.fromTo(
+				sectionRef.current,
+				{ opacity: 0, y: 30 },
+				{
+					opacity: 1,
+					y: 0,
+					duration: 4,
+					ease: 'power3.out',
+					scrollTrigger: {
+						trigger: sectionRef.current,
+						start: 'top 80%',
+						toggleActions: 'play none none none',
+					},
+				}
+			)
+		})
+
+		return () => ctx.revert() 
 	}, [])
 
 	return (
 		<>
 			<WelcomeDoctor />
-			<DoctorCardsSection />
+			<div id='next-section-doctor2'>
+				<DoctorCardsSection />
+			</div>
+
 			<section
 				ref={sectionRef}
 				className='w-full h-auto min-h-[640px] lg:min-h-[720px] flex items-center justify-center px-4 xl:px-10'
@@ -44,9 +51,9 @@ export const Doctor = () => {
 					<img
 						src={mes}
 						alt='mes'
-						className='w-[40px] xl:w-[56px] 2xl:w-[112px] h-[33px] xl:h-[46px] 2xl:h-[91px] -mt-4 xl:-mt-7 2xl:-mt-10 flex-shrink-0'
+						className='w-[40px] xl:w-[56px] h-[33px] xl:h-[46px] -mt-4 xl:-mt-7 flex-shrink-0'
 					/>
-					<div className='space-y-4 md:space-y-6 max-w-[480px] lg:max-w-[560px] xl:max-w-[800px]'>
+					<div className='space-y-2 md:space-y-6 max-w-[480px] lg:max-w-[560px] xl:max-w-[780px]'>
 						<p className='text-[clamp(0.875rem,1.5vw,21px)]/[155%] text-[#1D1D1D] font-normal uppercase'>
 							Красота и жизнь нераздельно сплетены друг с другом, и хирург –
 							лишь одна из нитей той непостижимой ткани, где сплелись солнечный
@@ -57,12 +64,13 @@ export const Doctor = () => {
 							всему окружению. Красота – это не просто слово. Это обещание
 							счастья! Это сила, способная изменить мир к лучшему.
 						</p>
-						<button className='text-[clamp(0.875rem,1.2vw,1rem)] font-semibold uppercase text-[#1D1D1D] cursor-pointer'>
+						<button className='text-[11px] md:text-[clamp(0.875rem,1.2vw,1rem)] font-semibold uppercase text-[#1D1D1D] cursor-pointer'>
 							ЧИТАТЬ СТАТЬЮ ПОЛНОСТЬЮ
 						</button>
 					</div>
 				</div>
 			</section>
+
 			<DoctorGallery />
 			<DoctorAge />
 

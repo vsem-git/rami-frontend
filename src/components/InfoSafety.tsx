@@ -9,17 +9,25 @@ export const InfoSafety = () => {
 	const wrapperRef = useRef<HTMLDivElement | null>(null)
 	const stickyRef = useRef<HTMLDivElement | null>(null)
 	const [activeIndex, setActiveIndex] = useState(0)
+	const [isMobile, setIsMobile] = useState(false)
 
 	useEffect(() => {
+		const handleResize = () => setIsMobile(window.innerWidth <= 768)
+		handleResize()
+		window.addEventListener('resize', handleResize)
+		return () => window.removeEventListener('resize', handleResize)
+	}, [])
+
+	useEffect(() => {
+		if (isMobile) {
+			setActiveIndex(0)
+			ScrollTrigger.getAll().forEach(t => t.kill()) // на всякий случай убираем триггеры
+			return
+		}
+
 		const wrapper = wrapperRef.current
 		const sticky = stickyRef.current
 		if (!wrapper || !sticky) return
-
-		const isMobile = window.innerWidth <= 768
-		if (isMobile) {
-			setActiveIndex(0)
-			return
-		}
 
 		const blocks = gsap.utils.toArray<HTMLElement>('.safety-block')
 
@@ -46,7 +54,7 @@ export const InfoSafety = () => {
 		return () => {
 			ScrollTrigger.getAll().forEach(t => t.kill())
 		}
-	}, [])
+	}, [isMobile])
 
 	const blocks = [
 		{
@@ -64,24 +72,24 @@ export const InfoSafety = () => {
 			title: 'Целостность',
 			number: '03',
 			description:
-				'Информация о пациентах и методах эстетического преображения — корректная, точная, полная и защищенная от непреднамеренного или умышленного изменения',
+				'Информация о пациентах корректная, точная, полная и защищенная',
 		},
 		{
 			title: 'Доступность',
 			number: '04',
 			description:
-				'Уполномоченные пользователи (врачи, медицинский персонал, надзорные органы) имеют возможность получить доступ к информации в любое время',
+				'Уполномоченные пользователи имеют доступ к информации в любое время',
 		},
 	]
 
 	return (
 		<div
 			ref={wrapperRef}
-			className='relative flex w-full medical-wrap bg-[#691C32] overflow-hidden gap-8 md:gap-14 xl:gap-[100px] px-4 lg:px-0 pt-8 sm:pt-20 md:pt-[100px] xl:pt-[160px]'
+			className='relative flex w-full medical-wrap bg-[#691C32] overflow-hidden gap-8 md:gap-14 xl:gap-[100px] pt-8 sm:pt-20 md:pt-[100px] xl:pt-[160px]'
 		>
 			<div
 				ref={stickyRef}
-				className='sticky top-0 left-0 w-[368px] md:w-[400px] lg:w-[540px] xl:w-[640px] 2xl:w-[860px] medical-image-screen flex-shrink-0 flex items-start justify-center px-0 lg:px-10'
+				className='sticky top-0 left-0 w-[368px] md:w-[400px] lg:w-[540px] xl:w-[640px] 2xl:w-[860px] medical-image-screen flex-shrink-0 flex items-start justify-center px-4 lg:px-10'
 			>
 				<div>
 					<h3 className='text-2xl xl:text-4xl text-white leading-[125%] uppercase mb-4 md:mb-6 xl:mb-10 max-w-[640px]'>
@@ -89,14 +97,12 @@ export const InfoSafety = () => {
 					</h3>
 					<p className='text-xs xl:text-lg text-[#FFFFFFBF] leading-[155%] uppercase max-w-[540px]'>
 						Сбалансированный комплекс мер и процессов, предназначенных для
-						защиты информации от несанкционированного доступа, искажения,
-						уничтожения или раскрытия. Обеспечивает соответствие требованиям
-						законов о защите персональных данных РФ и других нормативных актов.
+						защиты информации.
 					</p>
 				</div>
 			</div>
 
-			<div className='flex flex-col w-full max-w-[750px] mx-auto mr-0 lg:mr-16 xl:mr-[100px] space-y-[64px] text-white'>
+			<div className='flex flex-col w-full max-w-[750px] mx-auto mr-0 lg:mr-16 xl:mr-[100px] space-y-[64px] text-white px-4 lg:px-0'>
 				{blocks.map((block, index) => (
 					<section
 						key={index}
@@ -104,15 +110,13 @@ export const InfoSafety = () => {
 					>
 						<div className='flex items-center justify-between'>
 							<div className='w-full flex flex-col xl:flex-row xl:items-center'>
-								<div className='w-full flex flex-row xl:flex-col  items-center xl:items-start justify-between xl:justify-start gap-0 xl:gap-6'>
-									<h3 className='text-[16px] sxl:text-2xl leading-[130%]  uppercase'>
+								<div className='w-full flex flex-row xl:flex-col items-center xl:items-start justify-between xl:justify-start gap-0 xl:gap-6'>
+									<h3 className='text-[16px] sxl:text-2xl leading-[130%] uppercase'>
 										{block.title}
 									</h3>
 									<h1
 										className={`block xl:hidden text-[32px]/[125%] sm:text-[44px]/[125%] lg:text-7xl/[125%] xl:text-[120px]/[125%] uppercase transition-opacity duration-500 ${
-											window.innerWidth <= 768
-												? 'text-[#FFFFFF4D] opacity-100'
-												: activeIndex === index
+											isMobile || activeIndex === index
 												? 'text-[#FFFFFF4D] opacity-100'
 												: 'opacity-30'
 										}`}
@@ -128,9 +132,7 @@ export const InfoSafety = () => {
 								</p>
 								<h1
 									className={`hidden xl:block text-[32px]/[125%] sm:text-[44px]/[125%] lg:text-7xl/[125%] sxl:text-[120px]/[125%] uppercase transition-opacity duration-500 ${
-										window.innerWidth <= 768
-											? 'text-[#FFFFFF4D] opacity-100'
-											: activeIndex === index
+										isMobile || activeIndex === index
 											? 'text-[#FFFFFF4D] opacity-100'
 											: 'opacity-30'
 									}`}
