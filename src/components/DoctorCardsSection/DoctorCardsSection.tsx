@@ -28,11 +28,11 @@ export const DoctorCardsSection: React.FC = () => {
 			className='w-full h-auto min-h-[400px] lg:min-h-screen flex justify-center items-center px-4 md:px-10'
 			aria-label='Раздел карточек доктора'
 		>
-			<div className='w-full grid grid-cols-1 md:grid-cols-3 gap-2'>
+			<div className='w-full grid grid-cols-1 sm:grid-cols-3 gap-2'>
 				<DoctorCard
 					ref={card1Ref}
 					imageUrl='/doctor-screen/card1.webp'
-					className='bg-[70%_0%]'
+					className='bg-[70%_0rem] md:bg-[70%_2rem]'
 					buttonText='Результаты'
 					onClick={handleOpenModal}
 				/>

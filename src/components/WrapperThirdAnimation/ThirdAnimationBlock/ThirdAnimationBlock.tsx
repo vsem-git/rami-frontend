@@ -231,7 +231,7 @@ const ThirdAnimationBlock = () => {
 	}
 
 	return (
-		<div id='#team' className='h-dvh relative' ref={containerRef}>
+		<div className='h-dvh relative' ref={containerRef}>
 			<div
 				className='absolute min-h-dvh top-0 left-0 w-full bg-cover bg-center z-0 flex flex-col justify-center items-center'
 				ref={block1Ref}
@@ -239,6 +239,7 @@ const ThirdAnimationBlock = () => {
 				<div
 					ref={block1TextRef}
 					className='flex absolute flex-col top-0 items-center text-center gap-6  pt-24 px-4 md:pt-48 pb-0 z-10'
+					id='team'
 				>
 					<p className='text-xl md:text-2xl 2xl:text-4xl'>
 						КОМАНДА <br />

@@ -35,7 +35,7 @@ export const useDoctorAnimation = (
 				scrollTrigger: {
 					trigger: sectionElement,
 					start: 'top top',
-					end: '+=450%',
+					end: '+=450%', 
 					scrub: 1,
 					pin: true,
 					markers: false,
@@ -52,13 +52,17 @@ export const useDoctorAnimation = (
 			)
 				.to(
 					backgroundElement,
-					{ backgroundPosition: '50% 50%', duration: 3, ease: 'power2.inOut' },
-					1
+					{
+						backgroundPosition: '50% 80%',
+						duration: 2,
+						ease: 'power2.inOut',
+					},
+					0.8
 				)
 				.to(
 					doctorContentElement,
-					{ y: '0vh', opacity: 1, duration: 1.5, ease: 'power2.out' },
-					3
+					{ y: '0vh', opacity: 1, duration: 1.2, ease: 'power2.out' },
+					2.2
 				)
 
 			return () => {

@@ -17,78 +17,26 @@ const VideoAnimation = () => {
 	useGSAP(() => {
 		const mm = gsap.matchMedia()
 
-		mm.add('(min-width: 1px)', () => {
-			// Desktop/Tablet: standard values
-			gsap.set('.logoheader', {
-				scale: 3,
-				y: () =>
-					// @ts-ignore
-					document.documentElement.clientHeight / 2 -
-					// @ts-ignore
-					document?.querySelector('.logoheader')?.offsetHeight / 2,
-			})
+		const setLogo = (scale: number) => ({
+			scale,
+			y: () =>
+				document.documentElement.clientHeight / 2 -
+				((document.querySelector('.logoheader') as HTMLElement | null)
+					?.offsetHeight || 0) /
+					2,
 		})
 
-		mm.add('(min-width: 401px)', () => {
-			// Desktop/Tablet: standard values
-			gsap.set('.logoheader', {
-				scale: 3.8,
-				y: () =>
-					// @ts-ignore
-					document.documentElement.clientHeight / 2 -
-					// @ts-ignore
-					document?.querySelector('.logoheader')?.offsetHeight / 2,
-			})
-		})
+		mm.add('(min-width: 1px)', () => gsap.set('.logoheader', setLogo(3)))
+		mm.add('(min-width: 401px)', () => gsap.set('.logoheader', setLogo(3.8)))
+		mm.add('(min-width: 769px)', () => gsap.set('.logoheader', setLogo(5)))
+		mm.add('(min-width: 1281px)', () => gsap.set('.logoheader', setLogo(5)))
+		mm.add('(min-width: 1600px)', () => gsap.set('.logoheader', setLogo(4.7)))
 
-		mm.add('(min-width: 769px)', () => {
-			// Desktop/Tablet: standard values
-			gsap.set('.logoheader', {
-				scale: 5,
-				y: () =>
-					document.documentElement.clientHeight / 2 -
-					// @ts-ignore
-					document?.querySelector('.logoheader')?.offsetHeight / 2,
-			})
-		})
-
-		mm.add('(min-width: 1281px)', () => {
-			// Desktop/Tablet: standard values
-			gsap.set('.logoheader', {
-				scale: 5,
-				y: () =>
-					// @ts-ignore
-					document.documentElement.clientHeight / 2 -
-					// @ts-ignore
-					document?.querySelector('.logoheader')?.offsetHeight / 2,
-			})
-		})
-
-		mm.add('(min-width: 1600px)', () => {
-			// Desktop/Tablet: standard values
-			gsap.set('.logoheader', {
-				scale: 4.7,
-				y: () =>
-					// @ts-ignore
-					document.documentElement.clientHeight / 2 -
-					// @ts-ignore
-					document?.querySelector('.logoheader')?.offsetHeight / 2,
-			})
-		})
-
-		/* gsap.set([".visitheader", ".navbarheader", ".textheader"], {
-            autoAlpha: 0,
-            y: -100, // Пиксели вместо процентов
-        }); */
-
-		gsap.set('.firstblocktext', {
-			opacity: 0,
-		})
-
+		gsap.set('.firstblocktext', { opacity: 0 })
 		gsap.set('.header', { opacity: 0 })
 
+		// Цвет шапки при скролле
 		const headerTriggers = [{ ref: blockRef, color: '#000000' }]
-
 		headerTriggers.forEach(({ ref, color }) => {
 			ScrollTrigger.create({
 				trigger: ref.current,
@@ -101,6 +49,7 @@ const VideoAnimation = () => {
 			})
 		})
 
+		// Основная анимация видео и текста
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				id: 'preloaderST',
@@ -112,47 +61,27 @@ const VideoAnimation = () => {
 			},
 		})
 
-		tl.to(videoRef.current, {
-			opacity: 0,
-			duration: 1,
-		}).to('.header', { opacity: 1 }, '<')
-
-		tl.addLabel('middle')
-
-		/* tl.to(".visitheader", { autoAlpha: 1, y: 0, duration: 2 })
-            .to(".navbarheader", { autoAlpha: 1, y: 0, duration: 2 }, "<")
-            .fromTo(
-                ".textheader",
-                { autoAlpha: 0 },
-                { autoAlpha: 1, y: 0, duration: 2 },
-                "<"
-            ); */
-
-		tl.call(() => {
-			setHeaderColor('#000000')
-		})
-
-		tl.to(
-			'.logoheader',
-			{
-				scale: 1,
-				x: 0,
-				y: 0,
-				duration: 5,
-				ease: 'power2.inOut',
-			},
-			'<'
-		).fromTo(
-			'.textheader',
-			{ autoAlpha: 1, y: '0dvh', ease: 'power2.inOut' },
-			{ autoAlpha: 0, y: '-20dvh', duration: 2, ease: 'power2.inOut' },
-			'<'
-		)
-
-		tl.call(() => {
-			setHeaderColor('#000000')
-		})
-			.to('.textheader', { display: 'block', duration: 0 })
+		tl.to(videoRef.current, { opacity: 0, duration: 1 })
+			.to('.header', { opacity: 1 }, '<')
+			.addLabel('middle')
+			.to(
+				'.logoheader',
+				{
+					scale: 1,
+					x: 0,
+					y: 0,
+					duration: 5,
+					ease: 'power2.inOut',
+				},
+				'<'
+			)
+			.fromTo(
+				'.textheader',
+				{ autoAlpha: 1, y: '0dvh', ease: 'power2.inOut' },
+				{ autoAlpha: 0, y: '-20dvh', duration: 2, ease: 'power2.inOut' },
+				'<'
+			)
+			.call(() => setHeaderColor('#000000'))
 			.to('.textheader', { display: 'none', duration: 0 })
 
 		tlRef.current = tl
@@ -166,7 +95,6 @@ const VideoAnimation = () => {
 		if (content) content.style.maxHeight = '100dvh'
 
 		const video = videoEl.current
-
 		let timer: ReturnType<typeof setTimeout> | null = null
 		let isRepeat = false
 		let speededUp = false
@@ -174,7 +102,7 @@ const VideoAnimation = () => {
 		const speedUp = () => {
 			if (video && !speededUp) {
 				requestAnimationFrame(() => {
-					video.playbackRate = 10 // попробуй начать с 3 вместо 5
+					video.playbackRate = 10
 					postDelayMs = Math.max(
 						300,
 						Math.round(BASE_DELAY / video.playbackRate)
@@ -204,11 +132,7 @@ const VideoAnimation = () => {
 				timer = setTimeout(() => {
 					if (content) content.style.maxHeight = ''
 					const target = document.body.offsetWidth > 768 ? 440 : 430
-					gsap.to(window, {
-						duration: 1,
-						scrollTo: target,
-						ease: 'power1.in',
-					})
+					gsap.to(window, { duration: 1, scrollTo: target, ease: 'power1.in' })
 					isRepeat = true
 				}, postDelayMs)
 			}
@@ -225,7 +149,7 @@ const VideoAnimation = () => {
 			if (timer) clearTimeout(timer)
 			removeStartListeners()
 			if (video) {
-				video.playbackRate = 1 // вернуть нормальную скорость
+				video.playbackRate = 1
 				video.removeEventListener('ended', onEnded)
 			}
 			if (content) content.style.maxHeight = ''
@@ -236,23 +160,22 @@ const VideoAnimation = () => {
 		const v = document.getElementById('bgVideo') as HTMLVideoElement | null
 		if (!v) return
 
-		const EPS = 0.06 // «почти последний» кадр, чтобы не ловить чёрный экран
+		const EPS = 0.06
 		const freeze = () => {
 			const d = v.duration || 0
-			// выбери, что надо: первый кадр -> 0; последний -> d - EPS
 			v.currentTime = Math.max(0, d - EPS)
 			v.pause()
 		}
 
 		v.addEventListener('loadedmetadata', freeze, { once: true })
-		if (v.readyState >= 1) freeze() // если кэшировано
+		if (v.readyState >= 1) freeze()
 
 		return () => v.removeEventListener('loadedmetadata', freeze)
 	}, [])
 
 	return (
 		<>
-			<div ref={blockRef} className=''>
+			<div ref={blockRef}>
 				<div
 					ref={videoRef}
 					className='relative h-dvh w-screen overflow-hidden transform-gpu will-change-transform'
@@ -282,25 +205,24 @@ const VideoAnimation = () => {
 
 					{/* <button
 						onClick={() => {
+							if (tlRef.current) tlRef.current.progress(1)
 							gsap.to(window, {
 								duration: 1,
 								scrollTo: window.innerHeight,
-								ease: 'power1.inOut',
+								ease: 'power2.inOut',
 							})
 						}}
-						className='absolute w-full bottom-0 left-[45%] -translate-x-1/2 z-20 flex flex-col items-center justify-center text-white'
+						className='absolute bottom-[-2rem] left-1/2 -translate-x-1/2 z-30 flex flex-col items-center justify-center text-white group cursor-pointer'
 					>
-						<div className='relative  rounded-full'>
-							<div className='w-[250px] h-[100px] absolute flex flex-col items-center justify-center bottom-0 cursor-pointer rounded-t-full border-[1px_0px_1px_1px] border-white/10 py-7 px-12'>
-								<div className='text-xs tracking-widest uppercase whitespace-nowrap'>
-									Листать вниз
-								</div>
-								<img
-									src='/icon-r.svg'
-									alt='arrow-down'
-									className='w-6 h-6 rotate-90'
-								/>
+						<div className='relative overflow-hidden rounded-t-full w-[250px] h-[120px] bg-[#5c182a] flex flex-col items-center justify-center border-t border-white/20 transition-all duration-300  group-hover:scale-105'>
+							<div className='text-[12px] tracking-widest uppercase mb-1  transition-all'>
+								Листать вниз
 							</div>
+							<img
+								src='/icon-r.svg'
+								alt='arrow-down'
+								className='w-5 h-5 rotate-90 transition-all'
+							/>
 						</div>
 					</button> */}
 				</div>

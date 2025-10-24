@@ -1,9 +1,9 @@
-import { useRef } from "react";
-import Clocks from "./Clocks";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { useClocks } from "./ClocksProvider";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useRef } from "react"
+import Clocks from "./Clocks"
+import { useClocks } from "./ClocksProvider"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,7 +25,6 @@ const AnimationBlock = () => {
 
     useGSAP(() => {
         const mm = gsap.matchMedia();
-        // ЗДЕСЬ АНИМАЦИЯ ДЛЯ МОБИЛКИ!!
         mm.add("(max-width: 768px)", () => {
             gsap.to(".marquee-reabilitation", {
                 scrollTrigger: {
@@ -451,7 +450,7 @@ const AnimationBlock = () => {
     return (
         <div
             ref={containerRef}
-            className="md:h-dvh w-full relative oveflow-hidden"
+            className="h-auto md:h-dvh w-full relative overflow-hidden hidden md:block"
         >
             <div className="hidden md:block relative aspect-square w-[calc(50%*1.1)] top-1/2 -translate-y-1/2 h-auto">
                 <div className="bg-white aspect-square w-full h-full blur-[80px] rounded-full"></div>
@@ -480,7 +479,7 @@ const AnimationBlock = () => {
             </div>
             <span
                 ref={firstBlockRef}
-                className="text-[11px] md:text-xs 2xl:text-lg tracking-[1.5%] sm:max-w-[380px] text-white md:absolute pt-[120px] sm:pt-0 right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col sm:justify-center uppercase leading-[155%] md:max-w-[410px] xl:max-w-[560px] 2xl:max-w-[710px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
+                className="text-[11px] md:text-xs 2xl:text-[18px]  tracking-[1.5%] sm:max-w-[380px] text-white md:absolute pt-[120px] sm:pt-0 right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col sm:justify-center uppercase leading-[155%] md:max-w-[410px] xl:max-w-[560px] 2xl:max-w-[710px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
             >
                 <div>
                     <span>
@@ -501,7 +500,7 @@ const AnimationBlock = () => {
             </span>
             <div
                 ref={secondBlockRef}
-                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col  pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[710px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
+                className="text-[18px] text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col  pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[710px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
             >
                 <h1 className="text-[15px] md:text-[16px] 2xl:text-[24px] leading-[130%] mb-4 2xl:mb-6 tracking-[2%]">
                     ОМОЛОЖЕНИЕ И ОЗДОРОВЛЕНИЕ ОРГАНИЗМА ИЗНУТРИ
@@ -519,7 +518,7 @@ const AnimationBlock = () => {
             </div>
             <div
                 ref={thirdBlockRef}
-                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[720px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
+                className="text-[18px]  text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[720px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
             >
                 <h1 className="text-[15px] md:text-[16px] 2xl:text-[24px] leading-[130%] mb-4 2xl:mb-6">
                     ПОДРОБНЫЙ ГЕНЕТИЧЕСКИЙ АНАЛИЗ
@@ -534,7 +533,7 @@ const AnimationBlock = () => {
             </div>
             <div
                 ref={firstStepRef}
-                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[390px] md:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
+                className="text-[18px]  text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[390px] md:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
             >
                 <div className="grid grid-cols-[40px_1fr] xl:grid-cols-[48px_1fr] gap-4">
                     <div className="aspect-square bg-[#FFFFFF1A] flex items-center justify-center text-[11px] 2xl:text-[14px] rounded-full">
@@ -564,7 +563,7 @@ const AnimationBlock = () => {
             </div>
             <div
                 ref={secondStepRef}
-                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[390px] md:max-w-[410px] xl:max-w-[560px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
+                className="text-[18px]  text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[390px] md:max-w-[410px] xl:max-w-[560px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
             >
                 <div className="grid grid-cols-[40px_1fr] xl:grid-cols-[48px_1fr] gap-4">
                     <div className="aspect-square bg-[#FFFFFF1A] flex items-center justify-center text-[11px] 2xl:text-[14px] rounded-full">
@@ -642,7 +641,7 @@ const AnimationBlock = () => {
             </div>
             <div
                 ref={thirdStepRef}
-                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
+                className="text-[18px]  text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
             >
                 <div className="grid grid-cols-[40px_1fr] xl:grid-cols-[48px_1fr] gap-4">
                     <div className="aspect-square bg-[#FFFFFF1A] flex items-center justify-center text-[11px] 2xl:text-[14px] rounded-full">
@@ -739,7 +738,7 @@ const AnimationBlock = () => {
             </div>
             <div
                 ref={fourthStepRef}
-                className="text-lg text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
+                className="text-[18px]  text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[770px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]"
             >
                 <div className="grid grid-cols-[40px_1fr] xl:grid-cols-[48px_1fr] gap-4">
                     <div className="aspect-square bg-[#FFFFFF1A] flex items-center justify-center text-[11px] 2xl:text-[14px] rounded-full">

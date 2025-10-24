@@ -42,7 +42,8 @@ export const useAntiageAnimation = (
 			return
 
 		const isMobile = window.innerWidth <= 768
-		const isTablet = window.innerWidth <= 1000
+		const isTablet = window.innerWidth <= 1024
+		const isTabletX = window.innerWidth <= 1440
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
@@ -123,7 +124,7 @@ export const useAntiageAnimation = (
 
 		let backgroundDownStartTime = 0
 
-		const backgroundScale = isTablet ? 1.28 : 1.5
+		const backgroundScale = isTablet ? 1.1 : 1.5
 
 		contentElements.forEach((element, index) => {
 			if (!element) return
@@ -192,11 +193,23 @@ export const useAntiageAnimation = (
 					{
 						opacity: 1,
 						x: 0,
+						y:0,
 						duration: 3,
 						ease: 'power3.out',
 					},
 					startTime
 				)
+
+				// tl.to(
+				// 	regenerativeMedicineElement,
+				// 	{
+				// 		x: '6vw',
+				// 		y: 'vw',
+				// 		duration: 8, 
+				// 		ease: 'sine.inOut',
+				// 	},
+				// 	startTime + 3 
+				// )
 			}
 
 			if (index === 5) {
@@ -220,8 +233,8 @@ export const useAntiageAnimation = (
 					backgroundElement,
 					{
 						scale: backgroundScale,
-						x: isTablet ? '-25%' : '-12%',
-						y: '10vh',
+						x: isTablet ? '-15%' : '-25%',
+						y: '25vh',
 						duration: 6,
 						ease: 'power3.inOut',
 					},
@@ -274,7 +287,7 @@ export const useAntiageAnimation = (
 				tl.to(
 					backgroundElement,
 					{
-						y: '-30vh',
+						y: isTabletX ? '-10vh' : '-30vh',
 						duration: 10,
 						ease: 'sine.inOut',
 					},
@@ -287,9 +300,9 @@ export const useAntiageAnimation = (
 			tl.to(
 				backgroundElement,
 				{
-					y: '0vh',
+					y: '7vh',
 					scale: 1,
-					x: isTablet ? '-25%' : '-15%',
+					x: isTablet ? '-10%' : '-25%',
 					duration: 10,
 					ease: 'sine.inOut',
 				},
