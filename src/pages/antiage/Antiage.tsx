@@ -186,7 +186,7 @@ export const Antiage = () => {
 				<div
 					ref={contentRefs[0]}
 					className={`
-            md:absolute md:bottom-0 md:right-8 xl:right-20 2xl:right-[110px] md:top-[35%]
+            md:absolute md:bottom-0 md:right-8 xl:right-20 2xl:right-[110px] md:top-[25%]
             relative mt-10 px-4 md:px-0
         `}
 				>
@@ -200,16 +200,16 @@ export const Antiage = () => {
 				>
 					<div className='marquee-cosmetology flex whitespace-nowrap text-[clamp(3rem,8vw,10rem)] font-normal uppercase mix-blend-difference leading-[125%]'>
 						<span className='px-4 md:px-6 xl:px-8'>
-							ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ
+							стратегия управления возрастом
 						</span>
 						<span className='px-4 md:px-6 xl:px-8'>
-							ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ
+							стратегия управления возрастом
 						</span>
 						<span className='px-4 md:px-6 xl:px-8'>
-							ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ
+							стратегия управления возрастом
 						</span>
 						<span className='px-4 md:px-6 xl:px-8'>
-							ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ
+							стратегия управления возрастом
 						</span>
 					</div>
 				</div>
