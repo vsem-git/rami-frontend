@@ -8,7 +8,13 @@ const FooterReabilitation = () => {
 	return (
 		<div className='h-auto w-full bg-[#1D1D1D]'>
 			<div className='relative h-[720px] sm:h-[640px] overflow-hidden px-4'>
-				<div className='bg-white aspect-square w-full sm:w-[55%] h-[65%] blur-[80px] rounded-full absolute bottom-[0%] sm:bottom-[10%]'></div>
+				<div
+					className='bg-white aspect-square w-full sm:w-[55%] h-[65%]  rounded-full absolute bottom-[0%] sm:bottom-[10%]'
+					style={{
+						filter: 'blur(80px)',
+					}}
+				></div>
+
 				<Clocks
 					minuteAngle={minuteAngle}
 					hourAngle={hourAngle}

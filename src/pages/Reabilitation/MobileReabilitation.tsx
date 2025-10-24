@@ -4,7 +4,12 @@ const MobileReabilitation = () => {
 	return (
 		<div className='h-auto w-full bg-[#1D1D1D]'>
 			<div className='relative h-[720px] sm:h-[640px] overflow-hidden px-4'>
-				<div className='bg-white aspect-square w-full sm:w-[45%] h-[60%] blur-[80px] rounded-full absolute bottom-[10%] sm:bottom-[20%]'></div>
+				<div
+					className='bg-white aspect-square w-full sm:w-[45%] h-[60%]  rounded-full absolute bottom-[10%] sm:bottom-[20%]'
+					style={{
+						filter: 'blur(80px)',
+					}}
+				></div>
 				<img
 					src='/reabilitation-screen/reabilitation.webp'
 					className='absolute bottom-0 z-10 w-full sm:w-[45%] max-h-[100%] object-contain '
