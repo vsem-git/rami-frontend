@@ -220,7 +220,6 @@ body {
 
 .show_block-text {
 	display: block;
-	top: 35%;
 }
 
 @media (max-width: 1440px) {
@@ -235,13 +234,12 @@ body {
 }
 @media (max-width: 1280px) {
 	.text-lg_anti {
-		left: 22.5%;
+		left: 33.5%;
 		z-index: -10;
 	}
 
 	.show_block-text {
 		display: block;
-		top: 50%;
 	}
 }
 @media (max-width: 1150px) {

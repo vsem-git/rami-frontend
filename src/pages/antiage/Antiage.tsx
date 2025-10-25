@@ -122,7 +122,7 @@ export const Antiage = () => {
 			<h3
 				ref={geneticPassportRef}
 				className='
-					hidden md:block text-[clamp(18px,3vw,24px)]  xl:text-[clamp(24px,3vw,28px)] 2xl:text-[40px] font-normal uppercase whitespace-nowrap
+					hidden md:block text-[24px]  xl:text-[28px] 2xl:text-[40px] font-normal uppercase whitespace-nowrap
 					absolute top-[40%] left-10
 					text-[#FFFFFF99] 
 					opacity-0 -translate-x-20
@@ -134,10 +134,10 @@ export const Antiage = () => {
 			<h3
 				ref={hormonesRef}
 				className='
-					hidden md:block text-[clamp(18px,3vw,24px)]  lg:text-[clamp(18px,3vw,36px)] xl:text-[clamp(36px,3vw,64px)]  font-normal uppercase whitespace-nowrap
+					hidden md:block text-[24px]  lg:text-[36px] xl:text-[64px]  font-normal uppercase whitespace-nowrap
 					absolute top-[28%] text-lg_anti
 					text-[#FFFFFF4D]
-					opacity-0 scale-50
+					opacity-0 scale-50 
 				'
 			>
 				гормоны
@@ -145,8 +145,8 @@ export const Antiage = () => {
 			<h3
 				ref={regenerativeMedicineRef}
 				className='
-					hidden md:block text-[clamp(18px,3vw,24px)]  xl:text-[clamp(24px,3vw,32px)] 2xl:text-[32px]/[125%] font-normal uppercase whitespace-nowrap
-					absolute top-[55%] 2xl:top-[61%] left-[10vw]
+					hidden md:block text-[18px] xl:text-[24px] 2xl:text-[32px]/[125%] leading-[125%] font-normal uppercase whitespace-nowrap
+					absolute top-[60%] xl:top-[55%] 2xl:top-[61%] left-[10vw]
 					text-[#FFFFFFBF] 
 					opacity-0 -translate-x-20
 				'
@@ -157,15 +157,19 @@ export const Antiage = () => {
 			<h3
 				ref={cellularRejuvenationRef}
 				className='
-					hidden md:block text-[clamp(18px,3vw,24px)]  xl:text-[clamp(24px,3vw,28px)] 2xl:text-[28px]/[125%] font-normal uppercase whitespace-nowrap
-					absolute bottom-[11%] left-[17%] 2xl:left-[21%]
-					text-[#FFFFFFBF] 
-					opacity-0 -translate-x-20
-				'
+    hidden md:block text-[18px]
+    xl:text-[24px]
+    2xl:text-[28px] leading-[125%]
+    font-normal uppercase whitespace-nowrap
+    absolute bottom-[17%] lg:bottom-[10%] left-[19%] lg:left-[25%] xl:left-[17%] 2xl:left-[21%]
+    text-[#FFFFFFBF] 
+    opacity-0 -translate-x-0
+  '
 			>
 				клеточное <br />
 				омоложение
 			</h3>
+
 			<div className='relative h-full flex flex-col items-start sm:items-end gap-16 my-16 md:my-0'>
 				{remainingBlocks.map((item, index) => (
 					<div
@@ -173,9 +177,9 @@ export const Antiage = () => {
 						ref={contentRefs[index + 1]}
 						className={`
     space-y-10
-    md:absolute  md:right-8 xl:right-20 2xl:right-[110px] md:top-1/2 md:-translate-y-1/2 md:transform
+    md:absolute md:right-8 xl:right-20 2xl:right-[110px] md:top-1/2 md:-translate-y-1/2 md:transform
     relative px-4 md:px-0 width_anti-age
-    ${item.id === 9 ? 'show_block-text ' : ''}
+    ${item.id === 9 ? '!md:top-[80%] !md:translate-y-0' : ''}
   `}
 					>
 						{item.content}
