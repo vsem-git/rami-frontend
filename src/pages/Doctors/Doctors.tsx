@@ -179,8 +179,8 @@ const Doctors: React.FC = () => {
 						className='flex justify-between items-center gap-4 bg-[#E8E8E8] cursor-pointer lg:bg-transparent px-3 pb-3 py-3 2xl:py-3 xl:p-0 group'
 						onClick={handleClick}
 					>
-						<span className='relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:transition-all after:duration-300 after:bg-[#1D1D1D] group-hover:after:w-full'>
-							ДРУГИЕ СПЕЦИАЛИСТЫ
+						<span className='relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:transition-all after:duration-300 after:bg-[#1D1D1D] group-hover:after:w-full uppercase'>
+							Другие направления
 						</span>
 						<PlusIcon className='2xl:w-[32px] 2xl:h-[32px] h-[24px] w-[24px] hidden xl:inline' />
 						<svg
