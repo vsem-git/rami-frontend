@@ -234,7 +234,7 @@ body {
 }
 @media (max-width: 1280px) {
 	.text-lg_anti {
-		left: 33.5%;
+		left: 31.5%;
 		z-index: -10;
 	}
 
@@ -395,6 +395,10 @@ body {
 
 	.show_block-text {
 		display: block;
+	}
+
+	.delete_mini-image {
+		display: none;
 	}
 }
 @media (max-width: 500px) {
