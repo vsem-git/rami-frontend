@@ -134,7 +134,7 @@ export const Antiage = () => {
 			<h3
 				ref={hormonesRef}
 				className='
-					hidden md:block text-[24px]  lg:text-[36px] xl:text-[64px]  font-normal uppercase whitespace-nowrap
+					hidden md:block text-[24px]  lg:text-[36px] 2xl:text-[64px]  font-normal uppercase whitespace-nowrap
 					absolute top-[28%] text-lg_anti
 					text-[#FFFFFF4D]
 					opacity-0 scale-50 
@@ -146,7 +146,7 @@ export const Antiage = () => {
 				ref={regenerativeMedicineRef}
 				className='
 					hidden md:block text-[18px] xl:text-[24px] 2xl:text-[32px]/[125%] leading-[125%] font-normal uppercase whitespace-nowrap
-					absolute top-[60%] xl:top-[55%] 2xl:top-[61%] left-[10vw]
+					absolute top-[60%] xl:top-[60%] 2xl:top-[65%] left-[10vw]
 					text-[#FFFFFFBF] 
 					opacity-0 -translate-x-20
 				'
@@ -161,7 +161,7 @@ export const Antiage = () => {
     xl:text-[24px]
     2xl:text-[28px] leading-[125%]
     font-normal uppercase whitespace-nowrap
-    absolute bottom-[17%] lg:bottom-[10%] left-[19%] lg:left-[25%] xl:left-[17%] 2xl:left-[21%]
+    absolute bottom-[17%] lg:bottom-[10%] left-[19%] lg:left-[20%] xl:left-[17%] 2xl:left-[21%]
     text-[#FFFFFFBF] 
     opacity-0 -translate-x-0
   '
