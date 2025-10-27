@@ -3,7 +3,24 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import router from "./router/router.tsx";
+import UnderConstruction from "./UnderConstruction";
+
+function isUnderConstruction() {
+    const envFlag = true;
+
+    const params = new URLSearchParams(location.search);
+    const ucParam = params.get("uc"); // on | off | null
+    const queryFlag = ucParam === "on" ? true : ucParam === "off" ? false : null;
+
+    // 3) Локальный обход заглушки (dev-кнопка)
+    const bypass = localStorage.getItem("uc_bypass") === "1";
+
+    // Приоритет: bypass > query > env
+    if (bypass) return false;
+    if (queryFlag !== null) return queryFlag;
+    return envFlag;
+}
 
 createRoot(document.getElementById("root")!).render(
-    <RouterProvider router={router} />
+    isUnderConstruction() ? <UnderConstruction /> : <RouterProvider router={router} />
 );
