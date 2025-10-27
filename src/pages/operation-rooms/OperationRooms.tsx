@@ -1,3 +1,6 @@
+import { InfoOperationRooms } from '../../components/InfoOperationRooms'
+import { SafetyOperationRooms } from '../../components/SafetyOperationRooms/SafetyOperationRooms'
+import { SafetyOperationRoomsMobile } from '../../components/SafetyOperationRooms/SafetyOperationRoomsMobile'
 import { TelemedicineOperationRooms } from '../../components/TelemedicineOperationRooms'
 import { WelcomeOperationRooms } from '../../components/WelcomeOperationRooms/WelcomeOperationRooms'
 
@@ -6,8 +9,11 @@ export const OperationRooms = () => {
 		<>
 			<WelcomeOperationRooms />
 			<div id='telemedicine-section'>
-				<TelemedicineOperationRooms />
+				<SafetyOperationRooms />
+				<SafetyOperationRoomsMobile />
 			</div>
+			<TelemedicineOperationRooms />
+			<InfoOperationRooms />
 		</>
 	)
 }

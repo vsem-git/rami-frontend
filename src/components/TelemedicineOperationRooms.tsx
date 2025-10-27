@@ -1,4 +1,39 @@
+'use client'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useEffect, useRef } from 'react'
+
+gsap.registerPlugin(ScrollTrigger)
+
 export const TelemedicineOperationRooms = () => {
+	const containerRef = useRef<HTMLDivElement>(null)
+
+	useEffect(() => {
+		const container = containerRef.current
+		if (!container) return
+
+		if (window.innerWidth <= 769) return
+
+		const miniImages = container.querySelectorAll('.delete_mini-image')
+
+		miniImages.forEach(img => {
+			gsap.to(img, {
+				y: () => gsap.utils.random(-50, 80),
+				ease: 'none',
+				scrollTrigger: {
+					trigger: img,
+					start: 'top bottom',
+					end: 'bottom top',
+					scrub: true,
+				},
+			})
+		})
+
+		return () => {
+			ScrollTrigger.getAll().forEach(t => t.kill())
+		}
+	}, [])
+
 	const Card = ({
 		id,
 		title,
@@ -17,11 +52,13 @@ export const TelemedicineOperationRooms = () => {
 			>
 				{id}
 			</h2>
+
 			<img
 				src={img}
 				alt={title}
 				className='w-full h-[360px] md:h-[480px] xl:h-[600px] 2xl:h-[800px] aspect-[1/1] object-cover'
 			/>
+
 			<img
 				src={img2}
 				alt={title}
@@ -34,6 +71,7 @@ export const TelemedicineOperationRooms = () => {
   `}
 				style={{
 					filter: 'grayscale(100%) brightness(1) contrast(1)',
+					willChange: 'transform',
 				}}
 			/>
 
@@ -58,7 +96,10 @@ export const TelemedicineOperationRooms = () => {
 	)
 
 	return (
-		<div className='relative w-full bg-white px-4 sm:px-6 lg:px-20 2xl:px-[120px] pt-[120px] 2xl:py-[220px] flex justify-between overflow-hidden'>
+		<div
+			ref={containerRef}
+			className='relative w-full bg-white px-4 sm:px-6 lg:px-20 2xl:px-[120px] pt-[120px] 2xl:py-[220px] flex justify-between overflow-hidden'
+		>
 			<img src='/pattern1.svg' alt='' className='absolute right-0 top-0' />
 			<img src='/pattern2.svg' alt='' className='absolute left-0 -top-32' />
 
@@ -71,8 +112,7 @@ export const TelemedicineOperationRooms = () => {
 					<div className='relative z-10 '>
 						<Card
 							id='01'
-							title='Видеоинформационный центр для проведения эндоскопических операций и дистанционного
-контроля над лечебными процессами'
+							title='Видеоинформационный центр для проведения эндоскопических операций и дистанционного контроля над лечебными процессами'
 							img='/operation-rooms/card5.jpg'
 							img2='/operation-rooms/card4.jpg'
 						/>
@@ -80,8 +120,7 @@ export const TelemedicineOperationRooms = () => {
 					<div className='relative z-10 flex justify-end xl:mt-[45rem] 2xl:mt-[65rem] mr-0 md:mr-[80px] xl:mr-[10rem]'>
 						<Card
 							id='02'
-							title='Комплекс систем телемедицины для проведения консилиумов, конференций и трансляции
-операций в любую точку мира'
+							title='Комплекс систем телемедицины для проведения консилиумов, конференций и трансляции операций в любую точку мира'
 							img='/operation-rooms/card2.jpg'
 							img2='/operation-rooms/card3.jpg'
 						/>
