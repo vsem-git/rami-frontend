@@ -6,7 +6,7 @@ import router from "./router/router.tsx";
 import UnderConstruction from "./UnderConstruction";
 
 function isUnderConstruction() {
-    const envFlag = true;
+    const envFlag = false;
 
     const params = new URLSearchParams(location.search);
     const ucParam = params.get("uc"); // on | off | null
