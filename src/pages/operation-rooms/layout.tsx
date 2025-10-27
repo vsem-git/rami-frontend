@@ -4,12 +4,11 @@ import { useCallback, useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import ContactPopUp from '../../components/ContactPopUp'
 import { DoctorCardModal } from '../../components/DoctorCardModal'
+import Footer from '../../components/Footer'
 import { HeaderProvider } from '../../components/HeaderContext'
 import HeaderUpdate from '../../components/HeaderUpdate'
 import { PopupProvider } from '../../components/PopupContext'
 import ScrollSmoother from '../../components/ScrollSmoother'
-import FooterUpdate from '../../components/FooterUpdate'
-import Footer from '../../components/Footer'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -38,7 +37,7 @@ const LayoutContent = () => {
 			<ScrollSmoother>
 				<Outlet />
 
-				{isMobile ? <FooterUpdate /> : <Footer />}
+				<Footer />
 			</ScrollSmoother>
 		</>
 	)
