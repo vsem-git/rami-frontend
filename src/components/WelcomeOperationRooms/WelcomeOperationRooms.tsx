@@ -108,7 +108,7 @@ export const WelcomeOperationRooms: React.FC = () => {
 
 			<div
 				ref={doctorContentRef}
-				className='relative md:absolute inset-0 z-30 flex items-center justify-center p-4 md:p-6 xl:p-10'
+				className='relative md:absolute inset-0 z-30 flex items-center justify-center p-4 md:p-6 xl:p-10 mb-14 md:mb-0'
 			>
 				<div className='w-full flex justify-start md:justify-end'>
 					{OperationRooms[0].content}
