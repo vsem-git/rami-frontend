@@ -8,18 +8,35 @@ gsap.registerPlugin(ScrollTrigger)
 export const SafetyOperationRooms = () => {
 	const sectionRef = useRef<HTMLDivElement>(null)
 	const horizontalRef = useRef<HTMLDivElement>(null)
+	const photoRef = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
 		const section = sectionRef.current
 		const horizontal = horizontalRef.current
+		const photo = photoRef.current
 
-		if (!section || !horizontal) return
+		if (!section || !horizontal || !photo) return
 
 		if (window.innerWidth <= 769) {
 			gsap.set(horizontal, { clearProps: 'all' })
 			ScrollTrigger.getAll().forEach(t => t.kill())
 			return
 		}
+
+		gsap.set(photo, { x: -100, opacity: 0, scale: 1.05 })
+		gsap.to(photo, {
+			x: 0,
+			opacity: 1,
+			scale: 1,
+			duration: .5,
+			ease: 'power4.out',
+			scrollTrigger: {
+				trigger: section,
+				start: 'top 20%',
+				end: 'top 50%',
+				scrub: 2,
+			},
+		})
 
 		const totalScrollWidth = horizontal.scrollWidth
 		const windowWidth = window.innerWidth
@@ -50,7 +67,7 @@ export const SafetyOperationRooms = () => {
 			className='relative w-full h-screen xl:h-[1080px] overflow-hidden md:block hidden'
 		>
 			<div ref={horizontalRef} className='flex h-full w-max'>
-				<div className='relative w-1/2 2xl:w-[59%] h-full'>
+				<div ref={photoRef} className='relative w-1/2 2xl:w-[59%] h-full'>
 					<img
 						src='/operation-rooms/bg1.webp'
 						alt=''
@@ -71,7 +88,7 @@ export const SafetyOperationRooms = () => {
 				/>
 
 				<div className='relative h-full'>
-					<div className='absolute top-[200px] left-16 w-[320px] xl:w-[420px]  space-y-3 xl:space-y-4'>
+					<div className='absolute top-[200px] left-16 w-[320px] xl:w-[420px] space-y-3 xl:space-y-4'>
 						<h4 className='text-xs xl:text-[18px] text-[#B59158] leading-[155%] uppercase'>
 							01
 						</h4>
@@ -81,7 +98,7 @@ export const SafetyOperationRooms = () => {
 					</div>
 
 					<div className='absolute bottom-5 left-[15rem] flex gap-10'>
-						<div className='min-w-[320px] xl:min-w-[420px]  space-y-4 mt-0'>
+						<div className='min-w-[320px] xl:min-w-[420px] space-y-4 mt-0'>
 							<h4 className='text-xs xl:text-[18px] text-[#B59158] leading-[155%] uppercase'>
 								02
 							</h4>
@@ -103,7 +120,7 @@ export const SafetyOperationRooms = () => {
 							/>
 						</div>
 
-						<div className='min-w-[320px] xl:min-w-[420px]  space-y-4 mt-20'>
+						<div className='min-w-[320px] xl:min-w-[420px] space-y-4 mt-20'>
 							<h4 className='text-xs xl:text-[18px] text-[#B59158] leading-[155%] uppercase'>
 								04
 							</h4>
@@ -112,7 +129,7 @@ export const SafetyOperationRooms = () => {
 							</p>
 						</div>
 
-						<div className='absolute top-[-15rem] left-[56rem] xl:left-[88rem] w-[320px] xl:w-[420px]  space-y-4'>
+						<div className='absolute top-[-15rem] left-[56rem] xl:left-[88rem] w-[320px] xl:w-[420px] space-y-4'>
 							<h4 className='text-xs xl:text-[18px] text-[#B59158] leading-[155%] uppercase'>
 								03
 							</h4>
@@ -122,7 +139,7 @@ export const SafetyOperationRooms = () => {
 						</div>
 					</div>
 
-					<div className='h-full absolute left-[92rem] xl:left-[150rem] '>
+					<div className='h-full absolute left-[92rem] xl:left-[150rem]'>
 						<img
 							src='/operation-rooms/acr.png'
 							alt=''
@@ -137,11 +154,11 @@ export const SafetyOperationRooms = () => {
 							<img
 								src='/operation-rooms/card2.jpg'
 								alt=''
-								className='w-[240px] xl:w-[450px] aspect-[3/4] shrink-0 ml-[175px] xl:ml-[260px] -mt-[52px] xl:-mt-[230px] object-cover '
+								className='w-[240px] xl:w-[450px] aspect-[3/4] shrink-0 ml-[175px] xl:ml-[260px] -mt-[52px] xl:-mt-[230px] object-cover'
 							/>
 						</div>
 
-						<div className='absolute top-[20rem] xl:top-[12rem] left-[18rem]  xl:left-[35rem] w-[320px] xl:w-[420px]  space-y-4'>
+						<div className='absolute top-[20rem] xl:top-[12rem] left-[18rem] xl:left-[35rem] w-[320px] xl:w-[420px] space-y-4'>
 							<h4 className='text-xs xl:text-[18px] text-[#B59158] leading-[155%] uppercase'>
 								05
 							</h4>
@@ -150,7 +167,7 @@ export const SafetyOperationRooms = () => {
 							</p>
 						</div>
 
-						<div className='absolute bottom-[20rem] left-[40rem] xl:left-[65rem] w-[320px] xl:w-[420px]  space-y-4'>
+						<div className='absolute bottom-[20rem] left-[40rem] xl:left-[65rem] w-[320px] xl:w-[420px] space-y-4'>
 							<h4 className='text-xs xl:text-[18px] text-[#B59158] leading-[155%] uppercase'>
 								06
 							</h4>

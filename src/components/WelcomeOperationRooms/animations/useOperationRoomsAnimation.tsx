@@ -30,13 +30,13 @@ export const useOperationRoomsAnimation = (
 				return
 
 			const title = defaultContentElement.querySelector('h1')
-			const subtitle = defaultContentElement.querySelector('h3') // Добавляем выбор h3
+			const subtitle = defaultContentElement.querySelector('h3')
 
 			const tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: sectionElement,
 					start: 'top top',
-					end: '+=450%',
+					end: '+=700%',
 					scrub: 1,
 					pin: true,
 					markers: false,
@@ -46,6 +46,10 @@ export const useOperationRoomsAnimation = (
 			gsap.set(doctorContentElement, { y: '90vh', opacity: 0 })
 			gsap.set(title, { y: 0, opacity: 1 })
 			gsap.set(subtitle, { y: 0, opacity: 1 })
+			gsap.set(backgroundElement, {
+				scale: 1,
+				transformOrigin: 'center center',
+			})
 
 			tl.to(
 				[title, subtitle],
@@ -54,13 +58,40 @@ export const useOperationRoomsAnimation = (
 			)
 				.to(
 					backgroundElement,
-					{ backgroundPosition: '50% 50%', duration: 3, ease: 'power2.inOut' },
+					{
+						backgroundPosition: '50% 50%',
+						duration: 3,
+						ease: 'power2.inOut',
+					},
 					1
 				)
 				.to(
 					doctorContentElement,
-					{ y: '0vh', opacity: 1, duration: 1.5, ease: 'power2.out' },
+					{
+						y: '0vh',
+						opacity: 1,
+						duration: 1.5,
+						ease: 'power2.out',
+					},
 					3
+				)
+				.to(
+					doctorContentElement,
+					{
+						opacity: 0,
+						duration: 1.5,
+						ease: 'power2.inOut',
+					},
+					'>1'
+				)
+				.to(
+					backgroundElement,
+					{
+						scale: 0.5,
+						duration: 2,
+						ease: 'power2.inOut',
+					},
+					'>'
 				)
 
 			return () => {
