@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 export const Doctor = () => {
 	const sectionRef = useRef<HTMLElement>(null)
+	const videoRef = useRef<HTMLVideoElement>(null)
 
 	useEffect(() => {
 		if (window.innerWidth <= 768 || !sectionRef.current) return
@@ -34,6 +35,37 @@ export const Doctor = () => {
 		})
 
 		return () => ctx.revert()
+	}, [])
+
+	useEffect(() => {
+		const video = videoRef.current
+		if (!video) return
+
+		const handleScroll = () => {
+			const rect = video.getBoundingClientRect()
+			const isInViewport = (
+				rect.top >= 0 &&
+				rect.left >= 0 &&
+				rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+				rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+			)
+
+			if (isInViewport && video.paused) {
+				video.play().catch(console.error)
+			}
+		}
+
+		video.addEventListener('loadeddata', () => {
+			video.play().catch(console.error)
+		})
+
+		window.addEventListener('scroll', handleScroll)
+		
+		handleScroll()
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll)
+		}
 	}, [])
 
 	return (
@@ -81,12 +113,16 @@ export const Doctor = () => {
 				className='w-full h-[640px] lg:h-[720px] xl:h-screen'
 			>
 				<video
+					ref={videoRef}
 					autoPlay
 					muted
+					loop
 					playsInline
+					preload='auto'
 					className='w-full h-full object-cover'
 				>
-					<source src='/serb-short.webm' type='video/mp4' />
+					<source src='/serb-short.webm' type='video/webm' />
+					<source src='/serb-short.mp4' type='video/mp4' />
 					Your browser does not support the video tag.
 				</video>
 			</div>

@@ -32,6 +32,7 @@ export const PhysicalSecuritySafety = () => {
 		)
 			return
 
+		// Создаем pin
 		ScrollTrigger.create({
 			trigger: sectionRef.current,
 			start: 'top top',
@@ -41,15 +42,17 @@ export const PhysicalSecuritySafety = () => {
 			anticipatePin: 1,
 		})
 
+		// Основная временная шкала
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: sectionRef.current,
 				start: 'top top',
 				end: '+=600%',
-				scrub: true,
+				scrub: 1,
 			},
 		})
 
+		// Начальные состояния
 		itemsRefs.current.forEach((item, i) => {
 			if (!item) return
 			const h2 = item.querySelector('h2')
@@ -64,6 +67,7 @@ export const PhysicalSecuritySafety = () => {
 
 		gsap.set([scrollAreaRef.current, textRef.current], { autoAlpha: 0, y: 30 })
 
+		// Анимация появления контейнера и текста
 		tl.to([scrollAreaRef.current, textRef.current], {
 			autoAlpha: 1,
 			y: 0,
@@ -71,6 +75,7 @@ export const PhysicalSecuritySafety = () => {
 			ease: 'power2.out',
 		})
 
+		// Анимация для каждого элемента
 		itemsRefs.current.forEach((item, i) => {
 			if (!item) return
 			const h2 = item.querySelector('h2')
@@ -224,7 +229,7 @@ export const PhysicalSecuritySafety = () => {
 
 			<h2
 				ref={textRef}
-				className='absolute bottom-10 right-10 text-2xl md:text-3xl lg:text-4xl/[125%] text-white uppercase text-right opacity-0'
+				className='absolute bottom-10 right-10 text-2xl md:text-[24px] lg:text-4xl/[125%] text-white uppercase text-right opacity-0'
 			>
 				ФИЗИЧЕСКАЯ <br />
 				БЕЗОПАСНОСТЬ

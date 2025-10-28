@@ -50,7 +50,7 @@ export const useAntiageAnimation = (
 				trigger: sectionElement,
 				start: 'top top',
 				end: isMobile ? '+=300%' : '+=1000%',
-				scrub: 2,
+				scrub: 1.5, // Уменьшил scrub для более плавного скролла
 				pin: !isMobile,
 				markers: false,
 			},
@@ -60,14 +60,24 @@ export const useAntiageAnimation = (
 			tl.fromTo(
 				backgroundElement,
 				{ scale: 1, opacity: 1 },
-				{ scale: 1.2, opacity: 0, duration: 4, ease: 'power3.inOut' },
+				{
+					scale: 1.2,
+					opacity: 0,
+					duration: 6,
+					ease: 'power2.inOut',
+				},
 				0
 			)
 
 			tl.to(
 				textElement,
-				{ opacity: 0, y: -80, duration: 3, ease: 'power3.inOut' },
-				0.8
+				{
+					opacity: 0,
+					y: -80,
+					duration: 4,
+					ease: 'power2.inOut',
+				},
+				1 // Увеличил задержку
 			)
 			return () => {
 				tl.kill()
@@ -81,7 +91,7 @@ export const useAntiageAnimation = (
 			textElement,
 			{
 				x: '-1vw',
-				duration: 5,
+				duration: 8,
 				ease: 'sine.inOut',
 			},
 			0
@@ -101,7 +111,7 @@ export const useAntiageAnimation = (
 			{
 				x: '-30%',
 				scale: 1.5,
-				duration: 25,
+				duration: 35,
 				ease: 'power2.inOut',
 			},
 			0
@@ -118,9 +128,9 @@ export const useAntiageAnimation = (
 			}
 		})
 
-		const blockAppearDuration = 3.5
-		const blockStayDuration = 2.5
-		const blockDisappearDuration = 2.5
+		const blockAppearDuration = 5
+		const blockStayDuration = 3.5
+		const blockDisappearDuration = 3.5
 
 		let backgroundDownStartTime = 0
 
@@ -130,7 +140,7 @@ export const useAntiageAnimation = (
 			if (!element) return
 
 			const startTime =
-				3 +
+				4 + // Увеличил начальную задержку
 				index *
 					(blockAppearDuration +
 						blockStayDuration +
@@ -143,7 +153,7 @@ export const useAntiageAnimation = (
 					scale: 1,
 					filter: 'blur(0px)',
 					duration: blockAppearDuration,
-					ease: 'power3.out',
+					ease: 'power2.out',
 				},
 				startTime
 			)
@@ -153,8 +163,8 @@ export const useAntiageAnimation = (
 					textElement,
 					{
 						opacity: 0,
-						duration: 3,
-						ease: 'power3.inOut',
+						duration: 4,
+						ease: 'power2.inOut',
 					},
 					startTime + blockAppearDuration * 0.7
 				)
@@ -166,8 +176,8 @@ export const useAntiageAnimation = (
 					{
 						opacity: 1,
 						x: 0,
-						duration: 3,
-						ease: 'power3.out',
+						duration: 4,
+						ease: 'power2.out',
 					},
 					startTime + blockAppearDuration * 0.8
 				)
@@ -180,8 +190,8 @@ export const useAntiageAnimation = (
 						opacity: 1,
 						scale: 1,
 						filter: 'blur(0px)',
-						duration: 3.2,
-						ease: 'expo.out',
+						duration: 4.5,
+						ease: 'power2.out',
 					},
 					startTime
 				)
@@ -194,22 +204,11 @@ export const useAntiageAnimation = (
 						opacity: 1,
 						x: 0,
 						y: 0,
-						duration: 3,
-						ease: 'power3.out',
+						duration: 4,
+						ease: 'power2.out',
 					},
 					startTime
 				)
-
-				// tl.to(
-				// 	regenerativeMedicineElement,
-				// 	{
-				// 		x: '6vw',
-				// 		y: 'vw',
-				// 		duration: 8,
-				// 		ease: 'sine.inOut',
-				// 	},
-				// 	startTime + 3
-				// )
 			}
 
 			if (index === 5) {
@@ -218,8 +217,8 @@ export const useAntiageAnimation = (
 					{
 						opacity: 1,
 						x: 0,
-						duration: 3,
-						ease: 'power3.out',
+						duration: 4,
+						ease: 'power2.out',
 					},
 					startTime
 				)
@@ -235,8 +234,8 @@ export const useAntiageAnimation = (
 						scale: backgroundScale,
 						x: isTablet ? '-15%' : '-25%',
 						y: '25vh',
-						duration: 6,
-						ease: 'power3.inOut',
+						duration: 8,
+						ease: 'power2.inOut',
 					},
 					startTime + blockAppearDuration
 				)
@@ -246,7 +245,7 @@ export const useAntiageAnimation = (
 					{
 						x: '7%',
 						opacity: 1,
-						duration: 16,
+						duration: 20,
 						ease: 'sine.inOut',
 					},
 					startTime + blockAppearDuration * 0.7
@@ -271,7 +270,7 @@ export const useAntiageAnimation = (
 						scale: 0.95,
 						filter: 'blur(10px)',
 						duration: blockDisappearDuration,
-						ease: 'power3.inOut',
+						ease: 'power2.inOut',
 					},
 					startTime + blockAppearDuration + blockStayDuration * 0.9
 				)
@@ -294,7 +293,7 @@ export const useAntiageAnimation = (
 							: isMobile
 							? '-4vh'
 							: '-30vh',
-						duration: 10,
+						duration: 12,
 						ease: 'sine.inOut',
 					},
 					backgroundMoveStart
@@ -309,14 +308,14 @@ export const useAntiageAnimation = (
 					y: '7vh',
 					scale: 1.1,
 					x: isTablet ? '-10%' : '-25%',
-					duration: 10,
+					duration: 12,
 					ease: 'sine.inOut',
 				},
 				backgroundDownStartTime
 			)
 		}
 
-		const slowRiseStartTime = 45
+		const slowRiseStartTime = 55
 
 		tl.to(
 			[
@@ -327,7 +326,7 @@ export const useAntiageAnimation = (
 			],
 			{
 				y: '-5vh',
-				duration: 80,
+				duration: 100,
 				ease: 'sine.inOut',
 			},
 			slowRiseStartTime

@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useHeader } from './HeaderContext'
 import { MenuHeader } from './MenuHeader'
 import NavBar from './NavBar'
+import { usePopup } from './PopupContext'
 import UnderlinedText from './UnderlinedText/UnderlinedText'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -24,6 +25,7 @@ const Header = ({ useWhiteText }: HeaderProps) => {
 	const topLineRef = useRef(null)
 	const menuButtonRef = useRef(null)
 	const bottomLineRef = useRef(null)
+	const { openPopup } = usePopup()
 
 	const currentColor = useWhiteText ? '#ffffff' : headerColor || '#000000'
 
@@ -191,7 +193,9 @@ const Header = ({ useWhiteText }: HeaderProps) => {
                         }
                     `}
 				</style>
-				<UnderlinedText className='theme'>ЗАПЛАНИРОВАТЬ ВИЗИТ</UnderlinedText>
+				<UnderlinedText className='theme' onClick={() => openPopup('contact')}>
+					ЗАПЛАНИРОВАТЬ ВИЗИТ
+				</UnderlinedText>
 			</div>
 			<NavBar
 				color={headerColor}

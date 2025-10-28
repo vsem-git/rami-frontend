@@ -16,6 +16,7 @@
 	background-color: var(--underline-color);
 }
 
+
 @layer base {
 	html {
 		font-family: var(--font-montserrat);
@@ -626,5 +627,20 @@ body {
 		left: 0;
 		z-index: 3;
 		transform: translateX(41%);
+	}
+}
+
+.margin-medical_safety {
+	margin-right: 100px;
+}
+
+@media (max-width: 1280px) {
+	.margin-medical_safety {
+		margin-right: 80px;
+	}
+}
+@media (max-width: 900px) {
+	.margin-medical_safety {
+		margin-right: 40px;
 	}
 }
