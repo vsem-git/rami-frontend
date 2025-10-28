@@ -177,9 +177,9 @@ export const Antiage = () => {
 						ref={contentRefs[index + 1]}
 						className={`
     space-y-10
-    md:absolute md:right-8 xl:right-20 2xl:right-[110px] md:top-1/2 md:-translate-y-1/2 md:transform
+    md:absolute md:right-8 xl:right-20 2xl:right-[110px]  md:transform
     relative px-4 md:px-0 width_anti-age
-    ${item.id === 9 ? '!md:top-[80%] !md:translate-y-0' : ''}
+    ${item.id === 9 ? 'top-[35%]' : 'md:top-1/2 md:-translate-y-1/2'}
   `}
 					>
 						{item.content}

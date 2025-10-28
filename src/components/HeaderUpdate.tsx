@@ -1,7 +1,8 @@
 import { gsap } from 'gsap'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useHeader } from './HeaderContext'
 import { MenuHeader } from './MenuHeader'
+import { usePopup } from './PopupContext'
 import UnderlinedText from './UnderlinedText/UnderlinedText'
 
 interface HeaderUpdateProps {
@@ -10,16 +11,50 @@ interface HeaderUpdateProps {
 
 const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
 	const { headerColor } = useHeader()
-	const headerRef = useRef(null)
+	const headerRef = useRef<HTMLDivElement>(null)
 	const logoRef = useRef(null)
 	const menuButtonRef = useRef(null)
 	const topLineRef = useRef(null)
 	const bottomLineRef = useRef(null)
 	const [isOpenMenu, setOpenMenu] = useState(false)
+	const { openPopup, isHeaderVisible, isOpen } = usePopup()
 
 	const currentColor = useWhiteText ? '#ffffff' : headerColor || '#000000'
 
+	// Проверяем, открыта ли любая из модалок, которые должны скрывать хедер
+	const isAnyPopupOpen =
+		isOpen('contact') ||
+		isOpen('doctorCard') ||
+		isOpen('doctorEducation') ||
+		isOpen('doctorExperience')
+
+	useEffect(() => {
+		const header = headerRef.current
+		if (!header) return
+
+		// Если открыта модалка или хедер скрыт через контекст - скрываем
+		if (!isHeaderVisible || isAnyPopupOpen) {
+			gsap.to(header, {
+				y: -100,
+				opacity: 0,
+				duration: 0.5,
+				ease: 'power2.in',
+			})
+		} else {
+			// Показываем только если нет модалок и isHeaderVisible = true
+			gsap.to(header, {
+				y: 0,
+				opacity: 1,
+				duration: 0.5,
+				ease: 'power2.out',
+			})
+		}
+	}, [isHeaderVisible, isAnyPopupOpen])
+
 	const toggleMenu = () => {
+		// Блокируем открытие меню при открытых модалках
+		if (isAnyPopupOpen) return
+
 		setOpenMenu(prev => !prev)
 
 		if (!topLineRef.current || !bottomLineRef.current) return
@@ -47,7 +82,16 @@ const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
 		}
 	}
 
+	const handleVisitClick = () => {
+		openPopup('contact')
+	}
+
 	const logoSrc = useWhiteText ? '/logo_white.webp' : '/logo_black.webp'
+
+	// Полностью скрываем компонент из DOM при открытых модалках
+	if (isAnyPopupOpen) {
+		return null
+	}
 
 	return (
 		<div
@@ -119,7 +163,9 @@ const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
 				style={{ color: currentColor }}
 			>
 				<style>{`.theme *:after { background-color: ${currentColor}; } .theme:after { background-color: ${currentColor}; }`}</style>
-				<UnderlinedText className='theme'>ЗАПЛАНИРОВАТЬ ВИЗИТ</UnderlinedText>
+				<UnderlinedText className='theme' onClick={handleVisitClick}>
+					ЗАПЛАНИРОВАТЬ ВИЗИТ
+				</UnderlinedText>
 			</div>
 
 			<MenuHeader isOpen={isOpenMenu} />

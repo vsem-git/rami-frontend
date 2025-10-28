@@ -15,9 +15,8 @@ const LayoutContent = () => {
 	return (
 		<>
 			<ContactPopUp />
-			<DoctorCardModal />
-
 			<HeaderUpdate useWhiteText={false} />
+			<DoctorCardModal />
 
 			<ScrollSmoother>
 				<Outlet />

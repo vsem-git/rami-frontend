@@ -23,18 +23,20 @@ export const SafetyOperationRooms = () => {
 			return
 		}
 
-		gsap.set(photo, { x: -100, opacity: 0, scale: 1.05 })
-		gsap.to(photo, {
-			x: 0,
+		gsap.set(photo, {
 			opacity: 1,
-			scale: 1,
-			duration: .5,
-			ease: 'power4.out',
+			scaleX: 1,
+			transformOrigin: 'left center',
+		})
+
+		gsap.to(photo, {
+			scaleX: 0.5,
+			ease: 'power2.inOut',
 			scrollTrigger: {
 				trigger: section,
-				start: 'top 20%',
-				end: 'top 50%',
-				scrub: 2,
+				start: 'top top',
+				end: '+=300%',
+				scrub: true,
 			},
 		})
 
@@ -66,8 +68,8 @@ export const SafetyOperationRooms = () => {
 			ref={sectionRef}
 			className='relative w-full h-screen xl:h-[1080px] overflow-hidden md:block hidden'
 		>
-			<div ref={horizontalRef} className='flex h-full w-max'>
-				<div ref={photoRef} className='relative w-1/2 2xl:w-[59%] h-full'>
+			<div ref={horizontalRef} className='flex h-full w-full'>
+				<div ref={photoRef} className='relative w-1/2 h-full'>
 					<img
 						src='/operation-rooms/bg1.webp'
 						alt=''

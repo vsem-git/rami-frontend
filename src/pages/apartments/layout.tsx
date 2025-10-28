@@ -4,17 +4,18 @@ import { useCallback, useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import ContactPopUp from '../../components/ContactPopUp'
 import { DoctorCardModal } from '../../components/DoctorCardModal'
+import Footer from '../../components/Footer'
+import FooterUpdate from '../../components/FooterUpdate'
 import { HeaderProvider } from '../../components/HeaderContext'
 import HeaderUpdate from '../../components/HeaderUpdate'
-import { PopupProvider } from '../../components/PopupContext'
+import { PopupProvider, usePopup } from '../../components/PopupContext'
 import ScrollSmoother from '../../components/ScrollSmoother'
-import FooterUpdate from '../../components/FooterUpdate'
-import Footer from '../../components/Footer'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const LayoutContent = () => {
 	const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768)
+	const { isOpen } = usePopup()
 
 	const handleResize = useCallback(() => {
 		setIsMobile(prev => {
@@ -32,8 +33,7 @@ const LayoutContent = () => {
 		<>
 			<ContactPopUp />
 			<DoctorCardModal />
-
-			<HeaderUpdate />
+			{!isOpen('contact') && <HeaderUpdate />}
 
 			<ScrollSmoother>
 				<Outlet />

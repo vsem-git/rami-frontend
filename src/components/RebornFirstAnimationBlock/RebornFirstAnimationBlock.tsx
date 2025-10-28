@@ -120,35 +120,37 @@ const FirstAnimationBlock = () => {
 					/>
 				</div>
 			</div>
-			<div
-				className='absolute top-0 left-0 w-full min-h-full bg-white flex flex-col-reverse md:flex-row justify-between items-center md:items-end z-40'
-				ref={block2Ref}
-				style={{ willChange: 'opacity' }}
-				id='clinic'
-			>
-				<img
-					src='/logo.svg'
-					alt='logo'
-					ref={block2LogoRef}
-					className='max-w-[360px] sm:max-w-[400px] md:max-w-[570px] xl:max-w-[782px] 2xl:max-w-[1000px]'
-					style={{ willChange: 'transform' }}
-				/>
-				<p
-					className='text-black mt-25 m-4 sm:m-10 sm:mt-25 uppercase text-[13px] md:text-sm 2xl:text-[21px] 2xl:max-w-[720px] md:max-w-[400px] sm:max-w-[400px] max-w-full'
-					ref={block2TextRef}
+			<div>
+				<div
+					id='clinic'
+					className='absolute top-0 left-0 w-full min-h-full bg-white flex flex-col-reverse md:flex-row justify-between items-center md:items-end z-40'
+					ref={block2Ref}
 					style={{ willChange: 'opacity' }}
 				>
-					<span className='mb-4 inline-block 2xl:mb-8 text-[20px] md:text-[24px] 2xl:text-[36px]'>
-						RAMICLINIC RESIDENCE
-					</span>
-					<br />
-					<span className='whitespace-nowrap'> клиника-резиденция</span>{' '}
-					высокотехнологичной пластической хирургии и эстетической косметологии
-					для искушенных пациентов, склонных к поддержанию индивидуальной
-					красоты и внешней привлекательности с гарантией эталонных стандартов
-					безопасности в медицине, полной анонимностью, сервисом и приватностью,
-					достойными первых лиц государств
-				</p>
+					<img
+						src='/logo.svg'
+						alt='logo'
+						ref={block2LogoRef}
+						className='max-w-[360px] sm:max-w-[400px] md:max-w-[570px] xl:max-w-[782px] 2xl:max-w-[1000px]'
+						style={{ willChange: 'transform' }}
+					/>
+					<p
+						className='text-black mt-25 m-4 sm:m-10 sm:mt-25 uppercase text-[13px] md:text-sm 2xl:text-[21px] 2xl:max-w-[720px] md:max-w-[400px] sm:max-w-[400px] max-w-full'
+						ref={block2TextRef}
+						style={{ willChange: 'opacity' }}
+					>
+						<span className='mb-4 inline-block 2xl:mb-8 text-[20px] md:text-[24px] 2xl:text-[36px]'>
+							RAMICLINIC RESIDENCE
+						</span>
+						<br />
+						<span className='whitespace-nowrap'> клиника-резиденция</span>{' '}
+						высокотехнологичной пластической хирургии и эстетической
+						косметологии для искушенных пациентов, склонных к поддержанию
+						индивидуальной красоты и внешней привлекательности с гарантией
+						эталонных стандартов безопасности в медицине, полной анонимностью,
+						сервисом и приватностью, достойными первых лиц государств
+					</p>
+				</div>
 			</div>
 			<div
 				className="absolute top-0 left-0 w-full h-full bg-[url('/2slide.webp')] bg-cover bg-center z-30"

@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger)
 const leftColumnImages = [
 	'/doctor-screen/gallery/photo2.webp',
 	'/doctor-screen/gallery/photo4.webp',
-	'/doctor-screen/gallery/photo3.webp',
+	'/doctor-screen/gallery/photo6.webp',
 ]
 
 const centerColumnImages = [
@@ -19,7 +19,7 @@ const centerColumnImages = [
 
 const rightColumnImages = [
 	'/doctor-screen/card2.webp',
-	'/doctor-screen/gallery/photo6.webp',
+	'/doctor-screen/gallery/photo3.webp',
 	'/doctor-screen/gallery/photo5.webp',
 ]
 

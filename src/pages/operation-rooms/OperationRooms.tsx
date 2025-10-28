@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { InfoOperationRooms } from '../../components/InfoOperationRooms'
 import { SafetyOperationRooms } from '../../components/SafetyOperationRooms/SafetyOperationRooms'
 import { SafetyOperationRoomsMobile } from '../../components/SafetyOperationRooms/SafetyOperationRoomsMobile'
@@ -5,9 +6,10 @@ import { TelemedicineOperationRooms } from '../../components/TelemedicineOperati
 import { WelcomeOperationRooms } from '../../components/WelcomeOperationRooms/WelcomeOperationRooms'
 
 export const OperationRooms = () => {
+	const photoRef = useRef<HTMLDivElement | null>(null)
 	return (
 		<>
-			<WelcomeOperationRooms />
+			<WelcomeOperationRooms nextPhotoRef={photoRef} />
 			<div id='telemedicine-section'>
 				<SafetyOperationRooms />
 				<SafetyOperationRoomsMobile />

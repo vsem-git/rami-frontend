@@ -1,16 +1,15 @@
 import { Outlet } from 'react-router-dom'
+import ContactPopUp from '../../components/ContactPopUp'
 import { DoctorsModal } from '../../components/DoctorsModal'
 import Footer from '../../components/Footer'
-import Header from '../../components/Header'
 import { HeaderProvider } from '../../components/HeaderContext'
+import HeaderUpdate from '../../components/HeaderUpdate'
 import { PopupProvider } from '../../components/PopupContext'
 import ScrollSmoother from '../../components/ScrollSmoother'
 
 const Layout = () => {
 	return (
 		<PopupProvider>
-			<DoctorsModal />
-
 			<HeaderProvider>
 				<div className='bgpattern1 fixed top-0 right-0 h-full hidden sm:block opacity-50 z-[0]'>
 					<img
@@ -26,7 +25,11 @@ const Layout = () => {
 						className='h-full object-cover overflow-visible'
 					/>
 				</div>
-				<Header />
+
+				<ContactPopUp />
+				<DoctorsModal />
+
+				<HeaderUpdate useWhiteText={false} />
 				<ScrollSmoother>
 					<Outlet />
 					<Footer />

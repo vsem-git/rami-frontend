@@ -1,9 +1,11 @@
 import { gsap } from 'gsap'
 import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
-import { useRef } from 'react'
+import { useRef, type MouseEvent } from 'react'
 import { Link } from 'react-router-dom'
+import { POPUP_NAMES } from '../../constants/popupNames'
 import { DOCTOR } from '../../shared/data/doctor'
+import { usePopup } from '../PopupContext'
 import { useDoctorAnimation } from './animations/useDoctorAnimation'
 
 gsap.registerPlugin(ScrollToPlugin, ScrollSmoother)
@@ -13,6 +15,7 @@ export const WelcomeDoctor: React.FC = () => {
 	const backgroundRef = useRef<HTMLDivElement | null>(null)
 	const defaultContentRef = useRef<HTMLDivElement | null>(null)
 	const doctorContentRef = useRef<HTMLDivElement | null>(null)
+	const { openPopup } = usePopup()
 
 	useDoctorAnimation(
 		sectionRef,
@@ -34,6 +37,20 @@ export const WelcomeDoctor: React.FC = () => {
 		} else {
 			nextSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
 		}
+	}
+
+	const handleOpenEducation = (
+		e?: MouseEvent<HTMLButtonElement | HTMLDivElement>
+	) => {
+		e?.preventDefault()
+		openPopup(POPUP_NAMES.DOCTORS_EDUCATION)
+	}
+
+	const handleOpenExperience = (
+		e?: MouseEvent<HTMLButtonElement | HTMLDivElement>
+	) => {
+		e?.preventDefault()
+		openPopup(POPUP_NAMES.DOCTORS_EXPERIENCE)
 	}
 
 	return (
@@ -133,7 +150,10 @@ export const WelcomeDoctor: React.FC = () => {
 				<div className='w-full flex flex-col items-start md:items-end'>
 					{DOCTOR[0].content}
 					<div className='w-full md:max-w-[616px] 2xl:max-w-[920px] flex justify-start gap-10 md:gap-20 text-[#1D1D1D] md:text-white font-semibold text-[11px] md:text-base leading-[155%] mt-6 md:mt-10'>
-						<button className='flex items-center gap-1 md:gap-3 cursor-pointer'>
+						<button
+							className='flex items-center gap-1 md:gap-3 cursor-pointer'
+							onClick={handleOpenExperience}
+						>
 							<span className='border-b border-[#1D1D1D26] md:border-[#FFFFFF26]'>
 								Опыт работы
 							</span>
@@ -143,7 +163,10 @@ export const WelcomeDoctor: React.FC = () => {
 								className='w-4 md:w-6 h-4 md:h-6 filter-icon '
 							/>
 						</button>
-						<button className='flex items-center gap-1 md:gap-3 cursor-pointer'>
+						<button
+							className='flex items-center gap-1 md:gap-3 cursor-pointer'
+							onClick={handleOpenEducation}
+						>
 							<span className='border-b border-[#1D1D1D26] md:border-[#FFFFFF26]'>
 								Образование
 							</span>

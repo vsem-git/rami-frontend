@@ -5,6 +5,8 @@ import { Outlet } from 'react-router-dom'
 import ContactPopUp from '../../components/ContactPopUp'
 import { DoctorCardModal } from '../../components/DoctorCardModal'
 import { DoctorResultEffect } from '../../components/DoctorResultEffect'
+import EducationPanel from '../../components/EducationPanel'
+import ExperiencePanel from '../../components/ExperiencePanel'
 import Footer from '../../components/Footer'
 import { HeaderProvider } from '../../components/HeaderContext'
 import HeaderUpdate from '../../components/HeaderUpdate'
@@ -19,7 +21,10 @@ const LayoutContent = () => {
 	const [useWhiteText, setUseWhiteText] = useState(true)
 
 	const isAnyPopupOpen =
-		isOpen(POPUP_NAMES.CONTACT) || isOpen(POPUP_NAMES.DOCTOR_CARD)
+		isOpen(POPUP_NAMES.CONTACT) ||
+		isOpen(POPUP_NAMES.DOCTOR_CARD) ||
+		isOpen(POPUP_NAMES.DOCTORS_EDUCATION) ||
+		isOpen(POPUP_NAMES.DOCTORS_EXPERIENCE)
 
 	useEffect(() => {
 		const welcomeSection = document.querySelector(
@@ -109,6 +114,8 @@ const LayoutContent = () => {
 			<ContactPopUp />
 			<DoctorCardModal />
 			<DoctorResultEffect />
+			<EducationPanel />
+			<ExperiencePanel />
 
 			{!isAnyPopupOpen && <HeaderUpdate useWhiteText={useWhiteText} />}
 
