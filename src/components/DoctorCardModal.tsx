@@ -12,11 +12,28 @@ export const DoctorCardModal = () => {
 
 	const isModalOpen = isOpen(POPUP_NAMES.DOCTOR_CARD)
 
+	const handleWheel = (e: WheelEvent) => {
+		if (!contentRef.current) return
+
+		const { scrollTop, scrollHeight, clientHeight } = contentRef.current
+		const isAtTop = scrollTop === 0
+		const isAtBottom = Math.abs(scrollTop + clientHeight - scrollHeight) < 1
+
+		if ((e.deltaY < 0 && isAtTop) || (e.deltaY > 0 && isAtBottom)) {
+			e.preventDefault()
+		}
+	}
+
 	useEffect(() => {
 		if (!modalRef.current || !contentRef.current) return
 
+		const contentElement = contentRef.current
+
 		if (isModalOpen) {
 			document.body.style.overflow = 'hidden'
+
+			// Добавляем обработчик события
+			contentElement.addEventListener('wheel', handleWheel, { passive: false })
 
 			gsap.set(modalRef.current, { display: 'flex' })
 
@@ -47,6 +64,9 @@ export const DoctorCardModal = () => {
 		} else {
 			document.body.style.overflow = ''
 
+			// Удаляем обработчик события
+			contentElement.removeEventListener('wheel', handleWheel)
+
 			const tl = gsap.timeline()
 
 			tl.to(contentRef.current, {
@@ -64,6 +84,11 @@ export const DoctorCardModal = () => {
 			})
 
 			tl.set(modalRef.current, { display: 'none' })
+		}
+
+		// Cleanup
+		return () => {
+			contentElement.removeEventListener('wheel', handleWheel)
 		}
 	}, [isModalOpen])
 
