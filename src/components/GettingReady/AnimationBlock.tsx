@@ -7,6 +7,7 @@ const AnimationBlock = () => {
     const runningStroke = useRef(null);
     const bgRef = useRef(null);
     const substractRef = useRef(null);
+    const ballRef = useRef(null);
     const imageRef = useRef(null);
     const firstText = useRef(null);
     const secondText = useRef(null);
@@ -175,6 +176,22 @@ const AnimationBlock = () => {
                         ease: "power2.inOut",
                     },
                     "<"
+                )
+                .fromTo(
+                    ballRef.current,
+                    {
+                        height: "100px",
+                        width: "100px",
+                        opacity: 0,
+                    },
+                    {
+                        height: "100px",
+                        width: "100px",
+                        opacity: 1,
+                        duration: 1,
+                        ease: "power2.inOut",
+                    },
+                    "<"
                 );
 
             tl.to({}, { duration: 0.5, ease: "none" });
@@ -226,6 +243,24 @@ const AnimationBlock = () => {
                     },
                     {
                         top: "80%",
+                        duration: 1,
+                        ease: "power2.inOut",
+                    },
+                    "<"
+                )
+                .fromTo(
+                    ballRef.current,
+                    {
+                        height: "100px",
+                        width: "100px",
+                        left: "19%",
+                        top: "10%",
+                    },
+                    {
+                        height: "100px",
+                        width: "100px",
+                        left: "30%",
+                        top: "20%",
                         duration: 1,
                         ease: "power2.inOut",
                     },
@@ -658,11 +693,19 @@ const AnimationBlock = () => {
                     className="absolute top-1/2 opacity-0 h-[85%] left-[21%] blur-[27.2784px] -translate-y-1/2 object-contain"
                     ref={substractRef}
                 />
-                <img
-                    src="/getting-ready/bg1.png"
-                    className="absolute top-1/2 h-[85%] left-[20%] -translate-y-1/2 object-contain"
+                <div
+                    className="absolute w-full top-1/2 h-[85%] left-[20%] -translate-y-1/2"
                     ref={bgRef}
-                />
+                >
+                    <div
+                        ref={ballRef}
+                        className="bg-[#691C32] w-[100px] h-[100px] opacity-0 rounded-full blur-[27px] top-[10%] left-[17%] absolute -z-10"
+                    ></div>
+                    <img
+                        src="/getting-ready/bg1.png"
+                        className="h-full object-contain"
+                    />
+                </div>
             </div>
             <div
                 ref={runningStroke}
