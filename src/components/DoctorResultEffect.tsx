@@ -11,12 +11,31 @@ export const DoctorResultEffect = () => {
 
 	const isModalOpen = isOpen(POPUP_NAMES.DOCTOR_CARD_ID)
 
+	// Обработчик скролла колесиком мыши
+	const handleWheel = (e: WheelEvent) => {
+		if (!contentRef.current) return
+
+		const { scrollTop, scrollHeight, clientHeight } = contentRef.current
+		const isAtTop = scrollTop === 0
+		const isAtBottom = Math.abs(scrollTop + clientHeight - scrollHeight) < 1
+
+		// Если контент не скроллится дальше, предотвращаем событие
+		if ((e.deltaY < 0 && isAtTop) || (e.deltaY > 0 && isAtBottom)) {
+			e.preventDefault()
+		}
+	}
+
 	useEffect(() => {
 		if (!modalRef.current || !contentRef.current) return
+
+		const contentElement = contentRef.current
 
 		if (isModalOpen) {
 			document.documentElement.style.overflow = 'hidden'
 			document.body.style.overflow = 'hidden'
+
+			// Добавляем обработчик события
+			contentElement.addEventListener('wheel', handleWheel, { passive: false })
 
 			gsap.set(modalRef.current, { display: 'flex' })
 
@@ -67,11 +86,15 @@ export const DoctorResultEffect = () => {
 				document.documentElement.style.overflow = ''
 				document.body.style.overflow = ''
 			})
+
+			// Удаляем обработчик события
+			contentElement.removeEventListener('wheel', handleWheel)
 		}
 
 		return () => {
 			document.documentElement.style.overflow = ''
 			document.body.style.overflow = ''
+			contentElement.removeEventListener('wheel', handleWheel)
 		}
 	}, [isModalOpen])
 
