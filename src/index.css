@@ -16,7 +16,6 @@
 	background-color: var(--underline-color);
 }
 
-
 @layer base {
 	html {
 		font-family: var(--font-montserrat);

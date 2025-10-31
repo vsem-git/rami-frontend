@@ -53,26 +53,28 @@ const NavBar = ({
 		))
 	}
 
-	const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+	const handleNavClick = (
+		e: React.MouseEvent<HTMLAnchorElement>,
+		href: string
+	) => {
 		e.preventDefault()
-		
+
 		const targetId = href.replace('#', '')
 		const targetElement = document.getElementById(targetId)
-		
+
 		if (targetElement) {
+			const elementPosition =
+				targetElement.getBoundingClientRect().top + window.pageYOffset
+			const offsetPosition = elementPosition - 80
+
 			gsap.to(window, {
 				duration: 1.5,
 				scrollTo: {
-					y: targetElement,
-					offsetY: 50 
+					y: offsetPosition,
+					autoKill: true,
 				},
-				ease: "power2.inOut"
+				ease: 'power2.inOut',
 			})
-		} else {
-			const element = document.querySelector(href)
-			if (element) {
-				element.scrollIntoView({ behavior: 'smooth' })
-			}
 		}
 	}
 
@@ -93,10 +95,10 @@ const NavBar = ({
 			</style>
 			{navLink.map((item, index) => (
 				<div key={index} className='flex items-center gap-4 relative py-3'>
-					<a 
-						href={item.href} 
+					<a
+						href={item.href}
 						className='relative group'
-						onClick={(e) => handleNavClick(e, item.href)}
+						onClick={e => handleNavClick(e, item.href)}
 					>
 						<div className='absolute -left-4 -right-4 -top-2 -bottom-2' />
 						<div

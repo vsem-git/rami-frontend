@@ -27,16 +27,17 @@ export const DoctorCardModal = () => {
 	useEffect(() => {
 		if (!modalRef.current || !contentRef.current) return
 
-		const contentElement = contentRef.current
+		const smoother = (window as any).ScrollSmoother?.get()
 
 		if (isModalOpen) {
-			document.body.style.overflow = 'hidden'
+			smoother?.paused(true)
 
-			// Добавляем обработчик события
-			contentElement.addEventListener('wheel', handleWheel, { passive: false })
+			document.body.style.overflow = 'hidden'
+			contentRef.current.addEventListener('wheel', handleWheel, {
+				passive: false,
+			})
 
 			gsap.set(modalRef.current, { display: 'flex' })
-
 			const tl = gsap.timeline()
 
 			tl.to(modalRef.current, {
@@ -47,28 +48,17 @@ export const DoctorCardModal = () => {
 
 			tl.fromTo(
 				contentRef.current,
-				{
-					y: 50,
-					opacity: 0,
-					scale: 0.9,
-				},
-				{
-					y: 0,
-					opacity: 1,
-					scale: 1,
-					duration: 0.6,
-					ease: 'back.out(1.7)',
-				},
+				{ y: 50, opacity: 0, scale: 0.9 },
+				{ y: 0, opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.7)' },
 				'-=0.2'
 			)
 		} else {
 			document.body.style.overflow = ''
+			contentRef.current.removeEventListener('wheel', handleWheel)
 
-			// Удаляем обработчик события
-			contentElement.removeEventListener('wheel', handleWheel)
+			smoother?.paused(false)
 
 			const tl = gsap.timeline()
-
 			tl.to(contentRef.current, {
 				y: 50,
 				opacity: 0,
@@ -76,19 +66,16 @@ export const DoctorCardModal = () => {
 				duration: 0.4,
 				ease: 'power2.in',
 			})
-
 			tl.to(modalRef.current, {
 				opacity: 0,
 				duration: 0.3,
 				ease: 'power2.in',
 			})
-
 			tl.set(modalRef.current, { display: 'none' })
 		}
 
-		// Cleanup
 		return () => {
-			contentElement.removeEventListener('wheel', handleWheel)
+			contentRef.current?.removeEventListener('wheel', handleWheel)
 		}
 	}, [isModalOpen])
 
