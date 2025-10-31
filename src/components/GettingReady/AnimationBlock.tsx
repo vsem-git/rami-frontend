@@ -1,8 +1,10 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";
+import { useBackground } from "./BackgroundContext";
 
 const AnimationBlock = () => {
+    const { setCurrentState } = useBackground();
     const containerRef = useRef(null);
     const runningStroke = useRef(null);
     const bgRef = useRef(null);
@@ -843,12 +845,46 @@ const AnimationBlock = () => {
 
             tl.to({}, { duration: 2, ease: "none" });
         });
+
+        mm.add("(max-width: 768px)", () => {
+            // Массив рефов текстов в порядке состояний (0-9)
+            const textRefs = [
+                firstText.current, // 0
+                secondText.current, // 1
+                thirdText.current, // 2
+                fourthText.current, // 3
+                fifthText.current, // 4
+                sixthText.current, // 5
+                seventhText.current, // 6
+                eighthText.current, // 7
+                ninethText.current, // 8
+                tenthText.current, // 9
+            ];
+
+            textRefs.forEach((el, index) => {
+                if (el) {
+                    gsap.to(el, {
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 80%", // Активация, когда верх секции на 80% от вьюпорта
+                            end: "bottom 20%",
+                            onEnter: () => setCurrentState(index),
+                            onEnterBack: () => setCurrentState(index),
+                            // invalidateOnRefresh: true, // Если нужно перезапускать при ресайзе
+                        },
+                    });
+                }
+            });
+
+            // Initial state уже 0 в контексте, но можно явно set при монте если нужно
+            setCurrentState(0);
+        });
     });
 
     return (
         <div
             ref={containerRef}
-            className="overflow-hidden relative min-h-dvh text-white bg-[#080808] before:z-[-1] before:absolute before:h-dvh before:bottom-0 before:left-20 before:w-[calc(90%)] "
+            className="overflow-hidden relative min-h-dvh text-white before:z-[-1] before:absolute before:h-dvh before:bottom-0 before:left-20 before:w-[calc(90%)] "
         >
             <div className="absolute inset-0">
                 <img
@@ -857,7 +893,7 @@ const AnimationBlock = () => {
                     ref={substractRef}
                 />
                 <div
-                    className="absolute w-fit top-1/2 h-[85%] left-[20%] -translate-y-1/2"
+                    className="absolute hidden md:block w-fit top-1/2 h-[85%] left-[20%] -translate-y-1/2"
                     ref={bgRef}
                 >
                     <div className="relative h-full">
