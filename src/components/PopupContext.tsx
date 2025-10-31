@@ -2,9 +2,13 @@ import React, {
 	createContext,
 	useCallback,
 	useContext,
+	useEffect,
 	useState,
 	type ReactNode,
 } from 'react'
+
+// Если ScrollSmoother используется
+// @ts-ignore
 
 type PopupState = Record<string, boolean>
 
@@ -36,33 +40,38 @@ export const PopupProvider: React.FC<PopupProviderProps> = ({ children }) => {
 	const [popups, setPopups] = useState<PopupState>({})
 	const [isHeaderVisible, setIsHeaderVisible] = useState(true)
 
+	const updateScrollState = useCallback((anyOpen: boolean) => {
+		const smoother = (window as any).ScrollSmoother?.get?.()
+		if (smoother) {
+			smoother.paused(anyOpen)
+		}
+
+		document.body.style.overflow = anyOpen ? 'hidden' : ''
+	}, [])
+
+	useEffect(() => {
+		const anyOpen = Object.values(popups).some(Boolean)
+		updateScrollState(anyOpen)
+	}, [popups, updateScrollState])
+
 	const openPopup = useCallback((name: string) => {
 		setPopups(prev => ({ ...prev, [name]: true }))
-
-		if (name === 'contact') {
-			setIsHeaderVisible(false)
-		}
+		if (name === 'contact') setIsHeaderVisible(false)
 	}, [])
 
 	const closePopup = useCallback((name: string) => {
 		setPopups(prev => ({ ...prev, [name]: false }))
-
-		if (name === 'contact') {
-			setIsHeaderVisible(true)
-		}
+		if (name === 'contact') setIsHeaderVisible(true)
 	}, [])
 
 	const closeAllPopups = useCallback(() => {
 		setPopups({})
-		setIsHeaderVisible(true) 
+		setIsHeaderVisible(true)
 	}, [])
 
 	const togglePopup = useCallback((name: string) => {
 		setPopups(prev => ({ ...prev, [name]: !prev[name] }))
-
-		if (name === 'contact') {
-			setIsHeaderVisible(prev => !prev)
-		}
+		if (name === 'contact') setIsHeaderVisible(prev => !prev)
 	}, [])
 
 	const isOpen = useCallback((name: string) => !!popups[name], [popups])

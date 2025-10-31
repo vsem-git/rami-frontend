@@ -17,7 +17,7 @@ const Home = () => {
 	return (
 		<>
 			<VideoAnimation />
-			{/* <FirstAnimationBlock /> */}
+		
 			<RebornFirstAnimationBlock />
 
 			<SecondAnimationBlock />

@@ -120,9 +120,9 @@ const FirstAnimationBlock = () => {
 					/>
 				</div>
 			</div>
-			<div>
+
+			<div  className='relative h-screen' id='clinic'>
 				<div
-					id='clinic'
 					className='absolute top-0 left-0 w-full min-h-full bg-white flex flex-col-reverse md:flex-row justify-between items-center md:items-end z-40'
 					ref={block2Ref}
 					style={{ willChange: 'opacity' }}
