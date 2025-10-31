@@ -150,6 +150,7 @@ const AnimationBlock = () => {
                     {
                         height: "85%",
                         left: "20%",
+                        top: "50%",
                     },
                     {
                         height: "170%",
@@ -253,14 +254,14 @@ const AnimationBlock = () => {
                     {
                         height: "100px",
                         width: "100px",
-                        left: "19%",
+                        left: "46%",
                         top: "10%",
                     },
                     {
                         height: "100px",
                         width: "100px",
-                        left: "30%",
-                        top: "20%",
+                        left: "85%",
+                        top: "23%",
                         duration: 1,
                         ease: "power2.inOut",
                     },
@@ -316,6 +317,24 @@ const AnimationBlock = () => {
                     },
                     {
                         top: "68%",
+                        duration: 1,
+                        ease: "power2.inOut",
+                    },
+                    "<"
+                )
+                .fromTo(
+                    ballRef.current,
+                    {
+                        height: "100px",
+                        width: "100px",
+                        left: "85%",
+                        top: "23%",
+                    },
+                    {
+                        height: "100px",
+                        width: "100px",
+                        left: "51%",
+                        top: "36%",
                         duration: 1,
                         ease: "power2.inOut",
                     },
@@ -381,6 +400,28 @@ const AnimationBlock = () => {
                         ease: "power2.inOut",
                     },
                     "<"
+                )
+                .fromTo(
+                    ballRef.current,
+                    {
+                        height: "100px",
+                        width: "100px",
+                        left: "51%",
+                        top: "36%",
+                        blur: "27px",
+                    },
+                    {
+                        height: "200px",
+                        width: "80px",
+                        borderRadius: "50%",
+                        blur: "250px",
+                        rotate: "3deg",
+                        left: "55%",
+                        top: "39%",
+                        duration: 1,
+                        ease: "power2.inOut",
+                    },
+                    "<"
                 );
 
             tl.to({}, { duration: 2, ease: "none" });
@@ -440,6 +481,30 @@ const AnimationBlock = () => {
                         ease: "power2.inOut",
                     },
                     "<"
+                )
+                .fromTo(
+                    ballRef.current,
+                    {
+                        height: "200px",
+                        width: "80px",
+                        borderRadius: "50%",
+                        blur: "250px",
+                        top: "36%",
+                        left: "55%",
+                        rotate: "3deg",
+                    },
+                    {
+                        height: "400px",
+                        width: "80px",
+                        borderRadius: "50%",
+                        blur: "250px",
+                        rotate: "12deg",
+                        left: "49%",
+                        top: "45%",
+                        duration: 1,
+                        ease: "power2.inOut",
+                    },
+                    "<"
                 );
 
             tl.to({}, { duration: 2, ease: "none" });
@@ -495,6 +560,30 @@ const AnimationBlock = () => {
                         ease: "power2.inOut",
                     },
                     "<"
+                )
+                .fromTo(
+                    ballRef.current,
+                    {
+                        height: "400px",
+                        width: "80px",
+                        borderRadius: "50%",
+                        blur: "250px",
+                        rotate: "12deg",
+                        top: "45%",
+                        left: "49%",
+                    },
+                    {
+                        height: "250px",
+                        width: "80px",
+                        borderRadius: "50%",
+                        blur: "250px",
+                        rotate: "5deg",
+                        left: "45%",
+                        top: "58%",
+                        duration: 1,
+                        ease: "power2.inOut",
+                    },
+                    "<"
                 );
 
             tl.to({}, { duration: 2, ease: "none" });
@@ -546,6 +635,30 @@ const AnimationBlock = () => {
                     },
                     {
                         top: "-10%",
+                        duration: 1,
+                        ease: "power2.inOut",
+                    },
+                    "<"
+                )
+                .fromTo(
+                    ballRef.current,
+                    {
+                        height: "250px",
+                        width: "80px",
+                        borderRadius: "50%",
+                        blur: "250px",
+                        rotate: "5deg",
+                        left: "45%",
+                        top: "58%",
+                    },
+                    {
+                        height: "400px",
+                        width: "80px",
+                        borderRadius: "50%",
+                        blur: "300px",
+                        rotate: "5deg",
+                        left: "40%",
+                        top: "65%",
                         duration: 1,
                         ease: "power2.inOut",
                     },
@@ -608,6 +721,30 @@ const AnimationBlock = () => {
                         height: "260%",
                         left: "12%",
                         top: "-30%",
+                        duration: 1,
+                        ease: "power2.inOut",
+                    },
+                    "<"
+                )
+                .fromTo(
+                    ballRef.current,
+                    {
+                        height: "400px",
+                        width: "80px",
+                        borderRadius: "50%",
+                        blur: "300px",
+                        rotate: "5deg",
+                        left: "40%",
+                        top: "65%",
+                    },
+                    {
+                        height: "400px",
+                        width: "80px",
+                        borderRadius: "50%",
+                        blur: "300px",
+                        rotate: "13deg",
+                        left: "38%",
+                        top: "75%",
                         duration: 1,
                         ease: "power2.inOut",
                     },
@@ -676,6 +813,32 @@ const AnimationBlock = () => {
                         ease: "power2.inOut",
                     },
                     "<"
+                )
+                .fromTo(
+                    ballRef.current,
+                    {
+                        height: "400px",
+                        width: "80px",
+                        borderRadius: "50%",
+                        blur: "300px",
+                        opacity: 1,
+                        rotate: "5deg",
+                        left: "40%",
+                        top: "65%",
+                    },
+                    {
+                        height: "400px",
+                        width: "80px",
+                        borderRadius: "50%",
+                        blur: "300px",
+                        opacity: 0,
+                        rotate: "13deg",
+                        left: "38%",
+                        top: "75%",
+                        duration: 1,
+                        ease: "power2.inOut",
+                    },
+                    "<"
                 );
 
             tl.to({}, { duration: 2, ease: "none" });
@@ -694,17 +857,19 @@ const AnimationBlock = () => {
                     ref={substractRef}
                 />
                 <div
-                    className="absolute w-full top-1/2 h-[85%] left-[20%] -translate-y-1/2"
+                    className="absolute w-fit top-1/2 h-[85%] left-[20%] -translate-y-1/2"
                     ref={bgRef}
                 >
-                    <div
-                        ref={ballRef}
-                        className="bg-[#691C32] w-[100px] h-[100px] opacity-0 rounded-full blur-[27px] top-[10%] left-[17%] absolute -z-10"
-                    ></div>
-                    <img
-                        src="/getting-ready/bg1.png"
-                        className="h-full object-contain"
-                    />
+                    <div className="relative h-full">
+                        <div
+                            ref={ballRef}
+                            className="bg-[#691C32] w-[100px] h-[100px] opacity-0 rounded-full blur-[27px] top-[10%] left-[46%] absolute -z-10"
+                        ></div>
+                        <img
+                            src="/getting-ready/bg1.png"
+                            className="h-full object-contain"
+                        />
+                    </div>
                 </div>
             </div>
             <div
