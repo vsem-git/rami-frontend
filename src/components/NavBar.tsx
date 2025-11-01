@@ -65,7 +65,7 @@ const NavBar = ({
 		if (targetElement) {
 			const elementPosition =
 				targetElement.getBoundingClientRect().top + window.pageYOffset
-			const offsetPosition = elementPosition - 80
+			const offsetPosition = elementPosition - 10
 
 			gsap.to(window, {
 				duration: 1.5,
