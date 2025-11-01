@@ -121,13 +121,6 @@ const LayoutContent = () => {
 
 			<ScrollSmoother>
 				<Outlet />
-
-				{/* {isMobile && (
-					<div className='min-h-[600px] sm:min-h-[700px] flex items-center justify-center footer-content '>
-						<ContactOpenBoxFooter />
-					</div>
-				)} */}
-
 				<Footer />
 			</ScrollSmoother>
 		</>

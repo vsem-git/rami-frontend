@@ -7,7 +7,6 @@ import React, {
 	type ReactNode,
 } from 'react'
 
-// Если ScrollSmoother используется
 // @ts-ignore
 
 type PopupState = Record<string, boolean>
@@ -45,8 +44,6 @@ export const PopupProvider: React.FC<PopupProviderProps> = ({ children }) => {
 		if (smoother) {
 			smoother.paused(anyOpen)
 		}
-
-		document.body.style.overflow = anyOpen ? 'hidden' : ''
 	}, [])
 
 	useEffect(() => {
