@@ -2,13 +2,16 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { useRef } from "react";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { useRef, useEffect } from "react";
 import { useHeader } from "../HeaderContext";
+import { useScroll } from "../../pages/Home/ScrollContext";
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, ScrollSmoother);
 
 const FirstAnimationBlock = () => {
     const { setHeaderColor } = useHeader();
+    const { setScrollToClinic, setScrollToManifesto } = useScroll();
     const containerRef = useRef(null);
     const block1Ref = useRef(null);
     const block2Ref = useRef(null);
@@ -68,7 +71,8 @@ const FirstAnimationBlock = () => {
                 ">"
             )
             .call(() => setHeaderColor("#ffffff"))
-            .call(() => setHeaderColor("#000000"));
+            .call(() => setHeaderColor("#000000"))
+            .addLabel("clinic");
 
         tlRef.current.to(block2LogoRef.current, {
             x: "0%",
@@ -135,11 +139,30 @@ const FirstAnimationBlock = () => {
         const st = tl.scrollTrigger;
         const progress = tl.labels["manifesto"] / tl.duration();
         const scrollPosition = st.start + progress * (st.end - st.start);
-        gsap.to(window, {
-            scrollTo: scrollPosition,
-            duration: 1,
-            ease: "power2.inOut",
-        });
+        const smoother = ScrollSmoother.get();
+        if (smoother) {
+            gsap.to(smoother, {
+                scrollTop: scrollPosition,
+                duration: 1,
+                ease: "power2.inOut",
+            });
+        }
+    };
+
+    const handleScrollToClinic = () => {
+        const tl = tlRef.current;
+        if (!tl) return;
+        const st = tl.scrollTrigger;
+        const progress = tl.labels["clinic"] / tl.duration();
+        const scrollPosition = st.start + progress * (st.end - st.start);
+        const smoother = ScrollSmoother.get();
+        if (smoother) {
+            gsap.to(smoother, {
+                scrollTop: scrollPosition,
+                duration: 1,
+                ease: "power2.inOut",
+            });
+        }
     };
 
     const handleScrollToFirst = () => {
@@ -147,17 +170,30 @@ const FirstAnimationBlock = () => {
         if (!tl) return;
         const st = tl.scrollTrigger;
         const scrollPosition = st.start;
-        gsap.to(window, {
-            scrollTo: scrollPosition,
-            duration: 1,
-            ease: "power2.inOut",
-        });
+        const smoother = ScrollSmoother.get();
+        if (smoother) {
+            gsap.to(smoother, {
+                scrollTop: scrollPosition,
+                duration: 1,
+                ease: "power2.inOut",
+            });
+        }
     };
+
+    useEffect(() => {
+        setScrollToClinic(() => handleScrollToClinic);
+        setScrollToManifesto(() => handleScrollToManifesto);
+
+        return () => {
+            setScrollToClinic(() => {});
+            setScrollToManifesto(() => {});
+        };
+    }, []);
 
     return (
         <div className="min-h-dvh relative overflow-hidden" ref={containerRef}>
             <div
-                id="reborn-first-block"
+                id="clinic"
                 className="absolute top-0 left-0 w-full h-full bg-[url('/1slide.webp')] bg-cover bg-center z-50"
                 ref={block1Ref}
                 style={{ willChange: "opacity" }}
@@ -188,7 +224,6 @@ const FirstAnimationBlock = () => {
             </div>
             <div>
                 <div
-                    id="clinic"
                     className="absolute top-0 left-0 w-full min-h-full bg-white flex flex-col-reverse md:flex-row justify-between items-center md:items-end z-40"
                     ref={block2Ref}
                     style={{ willChange: "opacity" }}
