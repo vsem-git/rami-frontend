@@ -64,6 +64,8 @@ const FirstAnimationBlock = () => {
             { opacity: 1, duration: 1, ease: "power2.inOut" }
         );
 
+        tlRef.current.addLabel("clinic");
+
         tlRef.current
             .to(
                 [block1Ref.current],
@@ -71,8 +73,7 @@ const FirstAnimationBlock = () => {
                 ">"
             )
             .call(() => setHeaderColor("#ffffff"))
-            .call(() => setHeaderColor("#000000"))
-            .addLabel("clinic");
+            .call(() => setHeaderColor("#000000"));
 
         tlRef.current.to(block2LogoRef.current, {
             x: "0%",
@@ -139,14 +140,11 @@ const FirstAnimationBlock = () => {
         const st = tl.scrollTrigger;
         const progress = tl.labels["manifesto"] / tl.duration();
         const scrollPosition = st.start + progress * (st.end - st.start);
-        const smoother = ScrollSmoother.get();
-        if (smoother) {
-            gsap.to(smoother, {
-                scrollTop: scrollPosition,
-                duration: 1,
-                ease: "power2.inOut",
-            });
-        }
+        gsap.to(window, {
+            scrollTo: scrollPosition,
+            duration: 1,
+            ease: "power2.inOut",
+        });
     };
 
     const handleScrollToClinic = () => {
@@ -155,29 +153,11 @@ const FirstAnimationBlock = () => {
         const st = tl.scrollTrigger;
         const progress = tl.labels["clinic"] / tl.duration();
         const scrollPosition = st.start + progress * (st.end - st.start);
-        const smoother = ScrollSmoother.get();
-        if (smoother) {
-            gsap.to(smoother, {
-                scrollTop: scrollPosition,
-                duration: 1,
-                ease: "power2.inOut",
-            });
-        }
-    };
-
-    const handleScrollToFirst = () => {
-        const tl = tlRef.current;
-        if (!tl) return;
-        const st = tl.scrollTrigger;
-        const scrollPosition = st.start;
-        const smoother = ScrollSmoother.get();
-        if (smoother) {
-            gsap.to(smoother, {
-                scrollTop: scrollPosition,
-                duration: 1,
-                ease: "power2.inOut",
-            });
-        }
+        gsap.to(window, {
+            scrollTo: scrollPosition,
+            duration: 1,
+            ease: "power2.inOut",
+        });
     };
 
     useEffect(() => {
@@ -193,12 +173,15 @@ const FirstAnimationBlock = () => {
     return (
         <div className="min-h-dvh relative overflow-hidden" ref={containerRef}>
             <div
-                id="clinic"
+                id="reborn-first-block"
                 className="absolute top-0 left-0 w-full h-full bg-[url('/1slide.webp')] bg-cover bg-center z-50"
                 ref={block1Ref}
                 style={{ willChange: "opacity" }}
             >
-                <div className="relative h-full w-full flex justify-end items-end overflow-hidden">
+                <div
+                    className="relative h-full w-full flex justify-end items-end overflow-hidden"
+                    id="clinic"
+                >
                     <p className="firstblocktext pointer-events-none fixed top-[90px] md:bottom-0 text-[13px] md:text-sm 2xl:text-[21px] sm:top-1/2 sm:-translate-y-1/4 md:-translate-y-0 md:top-auto right-0 text-white m-6 xl:m-10 2xl:m-20 uppercase max-w-full  sm:max-w-[320px] 2xl:max-w-[480px] 2xl:tracking-wider 2xl:leading-8 z-10">
                         <span className="font-bold">Новый проект</span>{" "}
                         владельцев многопрофильной Клиники РАМИ Галины Резник и
@@ -206,12 +189,6 @@ const FirstAnimationBlock = () => {
                         эстетической косметологии{" "}
                         <span className="font-bold">RAMIСLINIC RESIDENCE</span>
                     </p>
-                    <button
-                        onClick={handleScrollToManifesto}
-                        className="text-white uppercase text-[13px] md:text-sm 2xl:text-[21px] m-6 xl:m-10 2xl:m-20 bg-transparent border border-white px-4 py-2 rounded hover:bg-white hover:text-black transition z-10"
-                    >
-                        Манифест искренности
-                    </button>
                     <div
                         className="absolute w-[600px] h-[600px] -bottom-0 -right-10 bg-[#1D1D1D9D] blur-[5px] md:blur-[200px] hidden md:block"
                         style={{ willChange: "filter" }}
@@ -354,10 +331,7 @@ const FirstAnimationBlock = () => {
                                 повседневную жизнь
                             </p>
                         </div>
-                        <button
-                            onClick={handleScrollToFirst}
-                            className="mt-4 text-black uppercase text-[13px] md:text-sm 2xl:text-[21px] bg-transparent border border-black px-4 py-2 rounded hover:bg-black hover:text-white transition z-50 pointer-events-auto"
-                        >
+                        <button className="mt-4 text-black uppercase text-[13px] md:text-sm 2xl:text-[21px] bg-transparent border border-black px-4 py-2 rounded hover:bg-black hover:text-white transition z-50 pointer-events-auto">
                             Вернуться к началу
                         </button>
                     </div>
