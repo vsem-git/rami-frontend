@@ -175,24 +175,25 @@ const MobileBackground = () => {
     }, [currentState]);
 
     return (
-        <div className="fixed md:hidden inset-0">
-            <div className="absolute w-fit h-[85%] left-[20%]" ref={bgRef}>
-                <div className="relative h-full">
-                    <div
-                        ref={ballRef}
-                        className="bg-[#691C32] w-[100px] h-[100px] opacity-0 rounded-full blur-[27px] top-[10%] left-[46%] absolute -z-10"
-                    ></div>
+        <div
+            className="absolute md:hidden w-fit h-[85%] left-[20%]"
+            ref={bgRef}
+        >
+            <div className="relative h-full">
+                <div
+                    ref={ballRef}
+                    className="bg-[#691C32] w-[100px] h-[100px] opacity-0 rounded-full blur-[27px] top-[10%] left-[46%] absolute -z-10 will-change-transform"
+                ></div>
 
-                    <img
-                        src="/getting-ready/bg2.png"
-                        className="left-[12%] h-full opacity-0 blur-[27.2784px] object-contain"
-                        ref={substractRef}
-                    />
-                    <img
-                        src="/getting-ready/bg1.png"
-                        className="absolute -ml-5 inset-0 h-full object-contain z-10"
-                    />
-                </div>
+                <img
+                    src="/getting-ready/bg2.png"
+                    className="left-[12%] h-full opacity-0 blur-[27.2784px] object-contain will-change-transform"
+                    ref={substractRef}
+                />
+                <img
+                    src="/getting-ready/bg1.png"
+                    className="absolute -ml-5 inset-0 h-full object-contain z-10 will-change-transform"
+                />
             </div>
         </div>
     );
