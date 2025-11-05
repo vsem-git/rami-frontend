@@ -42,7 +42,13 @@ const NavBar = ({
     navbarColor: string;
 }) => {
     const pathname = window.location.pathname;
-    const { scrollToClinic, scrollToManifesto } = useScroll();
+    const {
+        scrollToClinic,
+        scrollToManifesto,
+        scrollToServices,
+        scrollToTeam,
+        scrollToLocation,
+    } = useScroll();
 
     const wrapLetters = (text: string) => {
         return text.split("").map((char, index) => (
@@ -71,6 +77,18 @@ const NavBar = ({
         }
         if (href === "#manifesto") {
             scrollToManifesto();
+            return;
+        }
+        if (href === "#services") {
+            scrollToServices();
+            return;
+        }
+        if (href === "#team") {
+            scrollToTeam();
+            return;
+        }
+        if (href === "#location") {
+            scrollToLocation();
             return;
         }
 

@@ -1,20 +1,21 @@
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import { useHeader } from "../HeaderContext";
 import { usePopup } from "../PopupContext";
+import { useScroll } from "../../pages/Home/ScrollContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const FirstAnimationBlock = () => {
+    const { setScrollToServices } = useScroll();
     const { openPopup } = usePopup();
     const { setHeaderColor } = useHeader();
     const containerRef = useRef(null);
-    /* const block1Ref = useRef(null); */
     const block2Ref = useRef(null);
-    /* const block1LogoRef = useRef(null); */
     const block2ContendRef = useRef(null);
+    const tlRef = useRef<GSAPTimeline | null>(null);
 
     useGSAP(() => {
         const mm = gsap.matchMedia();
@@ -126,7 +127,33 @@ const FirstAnimationBlock = () => {
             duration: 0.5,
             ease: "power2.inOut",
         });
+        tl.addLabel("services");
+
+        tlRef.current = tl;
     }, []);
+
+    const handleScrollToServices = () => {
+        const tl = tlRef.current;
+        if (!tl) return;
+        const st = tl.scrollTrigger;
+        if (!st) return;
+        const progress = tl.labels["services"] / tl.duration();
+        const scrollPosition = st.start + progress * (st.end - st.start);
+        gsap.to(window, {
+            scrollTo: scrollPosition,
+            duration: 1,
+            scrub: false,
+            ease: "power2.inOut",
+        });
+    };
+
+    useEffect(() => {
+        setScrollToServices(() => handleScrollToServices);
+        return () => {
+            setScrollToServices(() => {});
+        };
+    }, []);
+
     return (
         <div className="h-dvh relative overflow-hidden" ref={containerRef}>
             {/* <div
@@ -143,7 +170,7 @@ const FirstAnimationBlock = () => {
             <div
                 className="absolute top-0 left-0 w-full h-dvh bg-[url('/animationblock2.jpg')] bg-cover bg-top flex justify-between items-end z-50"
                 ref={block2Ref}
-                id='services'
+                id="services"
             >
                 <div
                     className="relative h-full w-full flex flex-col justify-center md:grid grid-cols-3"
