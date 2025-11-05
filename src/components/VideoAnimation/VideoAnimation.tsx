@@ -12,6 +12,7 @@ const VideoAnimation = () => {
     const videoRef = useRef<HTMLDivElement>(null);
     const videoEl = useRef<HTMLVideoElement>(null);
     const tlRef = useRef<GSAPTimeline | null>(null);
+    const scrollButtonRef = useRef<HTMLButtonElement>(null);
     const { setHeaderColor } = useHeader();
 
     useGSAP(() => {
@@ -164,6 +165,38 @@ const VideoAnimation = () => {
             }
         };
 
+        scrollButtonRef.current?.addEventListener("click", () => {
+            const tl = tlRef.current;
+            if (!tl) return;
+            const st = tl.scrollTrigger;
+            if (!st) return;
+            const progress = tl.labels["middle"] / tl.duration();
+            const scrollPosition = st.start + progress * (st.end - st.start);
+            if (!isRepeat) {
+                if (content) content.style.maxHeight = "";
+                gsap.to(window, {
+                    scrollTo: scrollPosition,
+                    duration: 1,
+                    scrub: false,
+                    ease: "power2.inOut",
+                    onComplete: () => {
+                        gsap.killTweensOf(window);
+                    },
+                });
+                isRepeat = true;
+            } else {
+                gsap.to(window, {
+                    scrollTo: scrollPosition,
+                    duration: 1,
+                    scrub: false,
+                    ease: "power2.inOut",
+                    onComplete: () => {
+                        gsap.killTweensOf(window);
+                    },
+                });
+            }
+        });
+
         if (video) {
             const onReady = () => addStartListeners();
             video.addEventListener("ended", onEnded);
@@ -230,14 +263,7 @@ const VideoAnimation = () => {
                     </video>
 
                     <button
-                        onClick={() => {
-                            if (tlRef.current) tlRef.current.progress(1);
-                            gsap.to(window, {
-                                duration: 1,
-                                scrollTo: window.innerHeight,
-                                ease: "power2.inOut",
-                            });
-                        }}
+                        ref={scrollButtonRef}
                         className="absolute bottom-[-2rem] left-1/2 -translate-x-1/2 z-30 flex flex-col items-center justify-center text-white group cursor-pointer"
                     >
                         <div className="relative overflow-hidden rounded-t-full w-[250px] h-[120px] bg-[#5c182a] flex flex-col items-center justify-center border-t border-white/20 transition-all duration-300  group-hover:scale-105">
