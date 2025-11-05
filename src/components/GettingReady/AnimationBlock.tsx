@@ -849,16 +849,16 @@ const AnimationBlock = () => {
         mm.add("(max-width: 768px)", () => {
             // Массив рефов текстов в порядке состояний (0-9)
             const textRefs = [
-                firstText.current, // 0
-                secondText.current, // 1
-                thirdText.current, // 2
-                fourthText.current, // 3
-                fifthText.current, // 4
-                sixthText.current, // 5
-                seventhText.current, // 6
-                eighthText.current, // 7
-                ninethText.current, // 8
-                tenthText.current, // 9
+                firstText.current,
+                secondText.current,
+                thirdText.current,
+                fourthText.current,
+                fifthText.current,
+                sixthText.current,
+                seventhText.current,
+                eighthText.current,
+                ninethText.current,
+                tenthText.current,
             ];
 
             textRefs.forEach((el, index) => {
@@ -910,7 +910,7 @@ const AnimationBlock = () => {
             </div>
             <div
                 ref={runningStroke}
-                className="marquee flex pointer-events-none whitespace-nowrap text-[64px] md:text-[96px] 2xl:text-[130px] mix-blend-difference absolute top-[calc(100dvh-96px-80px)] sm:bottom-[0px] md:bottom-[0px] left-0 w-full"
+                className="marquee flex pointer-events-none whitespace-nowrap text-[64px] md:text-[96px] 2xl:text-[130px] mix-blend-difference absolute top-[calc(100dvh-90px)] sm:top-auto sm:bottom-[0px] md:bottom-[0px] left-0 w-full"
             >
                 <span className="px-8 uppercase">
                     Подготовка к пластической операции

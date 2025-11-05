@@ -229,28 +229,28 @@ const VideoAnimation = () => {
                         <source src="/start.mp4" type="video/mp4" />
                     </video>
 
-                    {/* <button
-						onClick={() => {
-							if (tlRef.current) tlRef.current.progress(1)
-							gsap.to(window, {
-								duration: 1,
-								scrollTo: window.innerHeight,
-								ease: 'power2.inOut',
-							})
-						}}
-						className='absolute bottom-[-2rem] left-1/2 -translate-x-1/2 z-30 flex flex-col items-center justify-center text-white group cursor-pointer'
-					>
-						<div className='relative overflow-hidden rounded-t-full w-[250px] h-[120px] bg-[#5c182a] flex flex-col items-center justify-center border-t border-white/20 transition-all duration-300  group-hover:scale-105'>
-							<div className='text-[12px] tracking-widest uppercase mb-1  transition-all'>
-								Листать вниз
-							</div>
-							<img
-								src='/icon-r.svg'
-								alt='arrow-down'
-								className='w-5 h-5 rotate-90 transition-all'
-							/>
-						</div>
-					</button> */}
+                    <button
+                        onClick={() => {
+                            if (tlRef.current) tlRef.current.progress(1);
+                            gsap.to(window, {
+                                duration: 1,
+                                scrollTo: window.innerHeight,
+                                ease: "power2.inOut",
+                            });
+                        }}
+                        className="absolute bottom-[-2rem] left-1/2 -translate-x-1/2 z-30 flex flex-col items-center justify-center text-white group cursor-pointer"
+                    >
+                        <div className="relative overflow-hidden rounded-t-full w-[250px] h-[120px] bg-[#5c182a] flex flex-col items-center justify-center border-t border-white/20 transition-all duration-300  group-hover:scale-105">
+                            <div className="text-[12px] tracking-widest uppercase mb-1  transition-all">
+                                Листать вниз
+                            </div>
+                            <img
+                                src="/icon-r.svg"
+                                alt="arrow-down"
+                                className="w-5 h-5 rotate-90 transition-all"
+                            />
+                        </div>
+                    </button>
                 </div>
                 <div className="scrollblock"></div>
             </div>
