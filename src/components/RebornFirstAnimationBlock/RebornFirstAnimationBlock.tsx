@@ -138,11 +138,13 @@ const FirstAnimationBlock = () => {
         const tl = tlRef.current;
         if (!tl) return;
         const st = tl.scrollTrigger;
+        if (!st) return;
         const progress = tl.labels["manifesto"] / tl.duration();
         const scrollPosition = st.start + progress * (st.end - st.start);
         gsap.to(window, {
             scrollTo: scrollPosition,
             duration: 1,
+            scrub: false,
             ease: "power2.inOut",
         });
     };
@@ -151,11 +153,13 @@ const FirstAnimationBlock = () => {
         const tl = tlRef.current;
         if (!tl) return;
         const st = tl.scrollTrigger;
+        if (!st) return;
         const progress = tl.labels["clinic"] / tl.duration();
         const scrollPosition = st.start + progress * (st.end - st.start);
         gsap.to(window, {
             scrollTo: scrollPosition,
             duration: 1,
+            scrub: false,
             ease: "power2.inOut",
         });
     };
@@ -331,9 +335,6 @@ const FirstAnimationBlock = () => {
                                 повседневную жизнь
                             </p>
                         </div>
-                        <button className="mt-4 text-black uppercase text-[13px] md:text-sm 2xl:text-[21px] bg-transparent border border-black px-4 py-2 rounded hover:bg-black hover:text-white transition z-50 pointer-events-auto">
-                            Вернуться к началу
-                        </button>
                     </div>
                     <div className="uppercase absolute bottom-6 text-white right-6 md:right-[clamp(4.938rem,_-2.938rem_+_16.41vw,_16.75rem)]">
                         <p className="font-bold mb-1 text-sm 2xl:text-[21px]">
