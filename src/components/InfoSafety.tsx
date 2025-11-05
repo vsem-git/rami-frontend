@@ -21,7 +21,7 @@ export const InfoSafety = () => {
 	useEffect(() => {
 		if (isMobile) {
 			setActiveIndex(0)
-			ScrollTrigger.getAll().forEach(t => t.kill()) // на всякий случай убираем триггеры
+			ScrollTrigger.getAll().forEach(t => t.kill())
 			return
 		}
 

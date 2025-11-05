@@ -71,7 +71,7 @@ export const MedicalSafety = () => {
 			<div className='hidden md:flex md:flex-row w-full'>
 				<div
 					ref={imageRef}
-					className='sticky top-0 left-0 w-[456px] lg:w-[584px] 2xl:w-[860px] h-screen flex-shrink-0 overflow-hidden margin-medical_safety'
+					className='sticky top-0 left-0 w-[400px] lg:w-[586px] xl:w-[700px] 2xl:w-[860px] h-screen flex-shrink-0 overflow-hidden margin-medical_safety'
 				>
 					<div className='relative w-full h-full'>
 						{bgImages.map((src, index) => (
@@ -95,14 +95,14 @@ export const MedicalSafety = () => {
 						<section className='safety-block' key={idx}>
 							<div className='w-full h-[1px] bg-[#FFFFFF33] mb-16' />
 							<div className='flex items-center justify-between mb-6'>
-								<h3 className='text-base xl:text-2xl leading-[130%] uppercase'>
+								<h3 className='text-base sxl:text-2xl leading-[130%] uppercase'>
 									{block.title}
 								</h3>
-								<h1 className='text-[32px]/[125%] sm:text-[44px]/[125%] lg:text-7xl/[125%] xl:text-[120px]/[125%] text-[#FFFFFF4D] uppercase'>
+								<h1 className='text-[32px]/[125%] sm:text-[44px]/[125%] lg:text-7xl/[125%] sxl:text-[120px]/[125%] text-[#FFFFFF4D] uppercase'>
 									{block.number}
 								</h1>
 							</div>
-							<ul className='flex flex-col gap-3 max-w-[610px] text-xs xl:text-lg/[155%] uppercase'>
+							<ul className='flex flex-col gap-3 max-w-[610px] text-xs sxl:text-lg/[155%] uppercase'>
 								{block.items.map((item, i) => (
 									<li key={i} className='flex items-center gap-2'>
 										<div className=' min-w-1.5 h-1.5 rounded-full bg-[#FFFFFF80]' />

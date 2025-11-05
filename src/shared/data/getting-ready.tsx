@@ -3,7 +3,7 @@ export const GETTING = [
 		id: 1,
 		content: (
 			<>
-				<p className='text-[clamp(12px,1vw,14px)] xl:text-[clamp(14px,1vw,16px)] 2xl:text-[clamp(16px,2vw,18px)] text-white uppercase font-normal max-w-full sm:max-w-[clamp(300px,30vw,450px)]  md:max-w-[clamp(270px,35vw,450px)] lg:max-w-[clamp(200px,35vw,400px)] 2xl:max-w-[clamp(270px,30vw,580px)]'>
+				<p className='text-[clamp(12px,1vw,14px)] xl:text-[12px] 2xl:text-[clamp(16px,2vw,18px)] text-white uppercase font-normal max-w-full sm:max-w-[clamp(300px,30vw,450px)]  md:max-w-[clamp(270px,35vw,450px)] lg:max-w-[390px] 2xl:max-w-[clamp(270px,30vw,580px)]'>
 					Еще до того, как будут проводиться пластические операции, мы
 					составляем детальный прогноз реакций организма на хирургическое
 					вмешательство, опираясь на результаты инструментальной и лабораторной
@@ -17,7 +17,7 @@ export const GETTING = [
 	{
 		id: 2,
 		content: (
-			<p className='text-[clamp(12px,1vw,14px)] xl:text-[clamp(14px,1vw,16px)] 2xl:text-[clamp(16px,2vw,18px)] text-white uppercase font-normal max-w-full sm:max-w-[clamp(300px,30vw,450px)]  md:max-w-[clamp(270px,35vw,450px)] lg:max-w-[clamp(200px,35vw,400px)] 2xl:max-w-[clamp(270px,30vw,580px)]'>
+			<p className='text-[clamp(12px,1vw,14px)] xl:text-[12px] 2xl:text-[clamp(16px,2vw,18px)] text-white uppercase font-normal max-w-full sm:max-w-[clamp(300px,30vw,450px)]  md:max-w-[clamp(270px,35vw,450px)] lg:max-w-[clamp(200px,35vw,400px)] 2xl:max-w-[clamp(270px,30vw,580px)]'>
 				Составление{' '}
 				<strong>программы подготовки к пластической операции</strong> – это
 				всегда индивидуальный процесс, с которого начинается любая история
@@ -29,7 +29,7 @@ export const GETTING = [
 		id: 3,
 		content: (
 			<>
-				<p className='text-[clamp(12px,1vw,14px)] xl:text-[clamp(14px,1vw,16px)] 2xl:text-[clamp(16px,2vw,18px)] text-white uppercase font-normal max-w-full sm:max-w-[clamp(300px,30vw,450px)]  md:max-w-[clamp(270px,35vw,450px)] lg:max-w-[clamp(200px,35vw,400px)] 2xl:max-w-[clamp(270px,30vw,580px)]'>
+				<p className='text-[clamp(12px,1vw,14px)] xl:text-[clamp(14px,1vw,16px)] 2xl:text-[clamp(16px,2vw,18px)] text-white uppercase font-normal max-w-full sm:max-w-[clamp(300px,30vw,450px)]  md:max-w-[clamp(270px,35vw,450px)] lg:max-w-[clamp(200px,35vw,400px)] 2xl:max-w-[clamp(270px,30vw,560px)]'>
 					С первого до последнего шага корреляция между внешними и внутренними
 					процессами каждого пациента находится под пристальным контролем
 					уникального антиэйдж-специалиста, обладающего глубокими знаниями в
@@ -84,7 +84,7 @@ export const GETTING = [
 	{
 		id: 6,
 		content: (
-			<div className='flex start gap-4 max-w-[clamp(270px,30vw,580px)]'>
+			<div className='flex start gap-4 max-w-[clamp(270px,30vw,560px)]'>
 				<span className='min-w-[48px] h-[48px] flex items-center justify-center bg-[#191919] text-sm text-white rounded-full -mt-2'>
 					02
 				</span>
@@ -113,7 +113,7 @@ export const GETTING = [
 	{
 		id: 7,
 		content: (
-			<div className='flex start gap-4 max-w-[clamp(270px,30vw,580px)]'>
+			<div className='flex start gap-4 max-w-[clamp(270px,30vw,560px)]'>
 				<span className='min-w-[48px] h-[48px] flex items-center justify-center bg-[#191919] text-sm text-white rounded-full -mt-2'>
 					03
 				</span>

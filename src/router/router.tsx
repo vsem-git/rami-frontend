@@ -23,6 +23,8 @@ import { PrivacyPolicy } from '../pages/privacy-policy/PrivacyPolicy'
 import PrivacyPolicyLayout from '../pages/privacy-policy/layout'
 import { Safety } from '../pages/safety/Safety'
 import SafetyLayout from '../pages/safety/layout'
+import GettingReady from '../pages/getting-ready/GettingReady'
+import GettingReadyLayout from '../pages/getting-ready/layout'
 
 const router = createBrowserRouter([
 	{
@@ -145,16 +147,16 @@ const router = createBrowserRouter([
 			},
 		],
 	},
-	// {
-	// 	path: '/getting-ready',
-	// 	element: <GettingReadyLayout />,
-	// 	children: [
-	// 		{
-	// 			index: true,
-	// 			element: <GettingReady />,
-	// 		},
-	// 	],
-	// },
+	{
+		path: '/getting-ready',
+		element: <GettingReadyLayout />,
+		children: [
+			{
+				index: true,
+				element: <GettingReady />,
+			},
+		],
+	},
 ])
 
 export default router
