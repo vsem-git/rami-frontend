@@ -71,7 +71,7 @@ export const MedicalSafety = () => {
 			<div className='hidden md:flex md:flex-row w-full'>
 				<div
 					ref={imageRef}
-					className='sticky top-0 left-0 w-[50%] sxl:w-[700px] 2xl:w-[860px] h-screen flex-shrink-0 overflow-hidden margin-medical_safety'
+					className='sticky top-0 left-0 w-[46%] sxl:w-[700px] 2xl:w-[860px] h-screen flex-shrink-0 overflow-hidden margin-medical_safety'
 				>
 					<div className='relative w-full h-full'>
 						{bgImages.map((src, index) => (
