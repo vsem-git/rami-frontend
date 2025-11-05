@@ -1,4 +1,5 @@
 import { gsap } from 'gsap'
+import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import { useEffect, useRef } from 'react'
 import { POPUP_NAMES } from '../constants/popupNames'
 import { CardModal } from './CardModal'
@@ -20,14 +21,20 @@ export const DoctorCardModal = () => {
 
 		const { scrollTop, scrollHeight, clientHeight } = contentRef.current
 		const trackHeight = clientHeight - 40 // Отступы сверху и снизу
-		const thumbHeight = Math.max((clientHeight / scrollHeight) * trackHeight, 40)
-		const thumbPosition = ((scrollTop / (scrollHeight - clientHeight)) * (trackHeight - thumbHeight)) + 20
+		const thumbHeight = Math.max(
+			(clientHeight / scrollHeight) * trackHeight,
+			40
+		)
+		const thumbPosition =
+			(scrollTop / (scrollHeight - clientHeight)) *
+				(trackHeight - thumbHeight) +
+			20
 
 		gsap.to(thumbRef.current, {
 			height: thumbHeight,
 			y: thumbPosition,
 			duration: 0.1,
-			ease: 'power2.out'
+			ease: 'power2.out',
 		})
 	}
 
@@ -40,12 +47,15 @@ export const DoctorCardModal = () => {
 	const handleWheel = (e: WheelEvent) => {
 		if (!contentRef.current) return
 
-		const { scrollTop, scrollHeight, clientHeight } = contentRef.current
-		const isAtTop = scrollTop === 0
-		const isAtBottom = Math.abs(scrollTop + clientHeight - scrollHeight) < 1
+		const smoother = ScrollSmoother.get()
 
-		if ((e.deltaY < 0 && isAtTop) || (e.deltaY > 0 && isAtBottom)) {
+		if (isModalOpen) {
+			smoother?.paused(true)
+			document.body.style.overflow = 'hidden'
+
+			// Прокрутка контента модального окна
 			e.preventDefault()
+			contentRef.current.scrollTop += e.deltaY
 		}
 	}
 
@@ -64,14 +74,15 @@ export const DoctorCardModal = () => {
 
 		contentRef.current.scrollTo({
 			top: newScrollTop,
-			behavior: 'smooth'
+			behavior: 'smooth',
 		})
 	}
 
 	// Drag для скроллбара
 	const handleThumbDrag = (e: React.MouseEvent) => {
 		e.preventDefault()
-		if (!contentRef.current || !scrollbarRef.current || !thumbRef.current) return
+		if (!contentRef.current || !scrollbarRef.current || !thumbRef.current)
+			return
 
 		const startY = e.clientY
 		const startScrollTop = contentRef.current.scrollTop
@@ -82,9 +93,12 @@ export const DoctorCardModal = () => {
 		const handleMouseMove = (moveEvent: MouseEvent) => {
 			const deltaY = moveEvent.clientY - startY
 			const scrollPercentage = deltaY / trackHeight
-			const newScrollTop = startScrollTop + (scrollPercentage * maxScroll)
+			const newScrollTop = startScrollTop + scrollPercentage * maxScroll
 
-			contentRef.current!.scrollTop = Math.max(0, Math.min(maxScroll, newScrollTop))
+			contentRef.current!.scrollTop = Math.max(
+				0,
+				Math.min(maxScroll, newScrollTop)
+			)
 		}
 
 		const handleMouseUp = () => {
@@ -123,9 +137,9 @@ export const DoctorCardModal = () => {
 			const tl = gsap.timeline()
 
 			tl.to(modalRef.current, {
-				opacity: 1,
-				duration: 0.4,
-				ease: 'power2.out',
+				opacity: 0,
+				duration: 0.3,
+				ease: 'power2.in',
 			})
 
 			tl.fromTo(

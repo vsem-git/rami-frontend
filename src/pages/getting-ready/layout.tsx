@@ -14,7 +14,7 @@ const LayoutContent = () => {
         <>
             <ContactPopUp />
             {!isOpen("contact") && <HeaderUpdate />}
-            <div className="bg-[#080808] h-full w-full fixed">
+            <div className="bg-[#080808] h-full w-full fixed pointer-events-none will-change-transform">
                 <MobileBackground />
                 <ScrollSmoother>
                     <Outlet />
