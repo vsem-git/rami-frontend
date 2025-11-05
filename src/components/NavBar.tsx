@@ -1,7 +1,9 @@
 import { gsap } from 'gsap'
+import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
+import { useScroll } from '../pages/Home/ScrollContext'
 
-gsap.registerPlugin(ScrollToPlugin)
+gsap.registerPlugin(ScrollToPlugin, ScrollSmoother)
 
 const navLink = [
 	{
@@ -40,6 +42,7 @@ const NavBar = ({
 	navbarColor: string
 }) => {
 	const pathname = window.location.pathname
+	const { scrollToClinic, scrollToManifesto } = useScroll()
 
 	const wrapLetters = (text: string) => {
 		return text.split('').map((char, index) => (
@@ -59,20 +62,26 @@ const NavBar = ({
 	) => {
 		e.preventDefault()
 
+		const smoother = ScrollSmoother.get()
+		if (!smoother) return
+
+		if (href === '#clinic') {
+			scrollToClinic()
+			return
+		}
+		if (href === '#manifesto') {
+			scrollToManifesto()
+			return
+		}
+
 		const targetId = href.replace('#', '')
 		const targetElement = document.getElementById(targetId)
 
 		if (targetElement) {
-			const elementPosition =
-				targetElement.getBoundingClientRect().top + window.pageYOffset
-			const offsetPosition = elementPosition - 10
-
-			gsap.to(window, {
+			const position = smoother.offset(targetElement, 'top 50px')
+			gsap.to(smoother, {
+				scrollTop: position,
 				duration: 1.5,
-				scrollTo: {
-					y: offsetPosition,
-					autoKill: true,
-				},
 				ease: 'power2.inOut',
 			})
 		}
