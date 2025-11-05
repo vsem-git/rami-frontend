@@ -5,13 +5,13 @@ import { useBackground } from "./BackgroundContext";
 const states = [
     // State 0: для первого текста (initial)
     {
-        bg: { height: "85%", left: "20%", top: "40%" },
-        sub: { height: "85%", left: "21%", top: "50%", opacity: 0 },
+        bg: { height: "85%", left: "5%", top: "10%", scale: 1 },
+        sub: { opacity: 0 },
         ball: {
             height: "100px",
             width: "100px",
-            left: "46%",
-            top: "10%",
+            left: "36%",
+            top: "5%",
             opacity: 0,
             borderRadius: "50%",
             blur: 27,
@@ -20,13 +20,13 @@ const states = [
     },
     // State 1: для второго текста
     {
-        bg: { height: "170%", left: "15%", top: "75%" },
-        sub: { height: "170%", left: "16%", top: "85%", opacity: 1 },
+        bg: { top: "15%", scale: 1.25, left: "5%" },
+        sub: { opacity: 1 },
         ball: {
             height: "100px",
             width: "100px",
-            left: "46%",
-            top: "10%",
+            left: "32%",
+            top: "8%",
             opacity: 1,
             borderRadius: "50%",
             blur: 27,
@@ -35,13 +35,12 @@ const states = [
     },
     // State 2: для третьего текста
     {
-        bg: { height: "170%", left: "15%", top: "70%" },
-        sub: { height: "170%", left: "16%", top: "80%", opacity: 1 },
+        bg: { top: "5%", left: "5%" },
         ball: {
             height: "100px",
             width: "100px",
-            left: "85%",
-            top: "23%",
+            left: "70%",
+            top: "20%",
             opacity: 1,
             borderRadius: "50%",
             blur: 27,
@@ -50,13 +49,12 @@ const states = [
     },
     // State 3: для четвёртого текста
     {
-        bg: { height: "170%", left: "15%", top: "58%" },
-        sub: { height: "170%", left: "16%", top: "68%", opacity: 1 },
+        bg: { top: "-5%", left: "5%" },
         ball: {
             height: "100px",
             width: "100px",
-            left: "51%",
-            top: "36%",
+            left: "40%",
+            top: "35%",
             opacity: 1,
             borderRadius: "50%",
             blur: 27,
@@ -65,13 +63,12 @@ const states = [
     },
     // State 4: для пятого текста
     {
-        bg: { height: "220%", left: "3%", top: "53%" },
-        sub: { height: "220%", left: "4%", top: "53%", opacity: 1 },
+        bg: { top: "-15%", left: "10%", scale: 1.5 },
         ball: {
             height: "200px",
             width: "80px",
-            left: "55%",
-            top: "39%",
+            left: "30%",
+            top: "41%",
             opacity: 1,
             borderRadius: "50%",
             blur: 250,
@@ -80,12 +77,11 @@ const states = [
     },
     // State 5: для шестого текста
     {
-        bg: { height: "220%", left: "3%", top: "43%" },
-        sub: { height: "220%", left: "4%", top: "43%", opacity: 1 },
+        bg: { top: "-25%", left: "10%" },
         ball: {
             height: "400px",
-            width: "80px",
-            left: "49%",
+            width: "50px",
+            left: "30%",
             top: "45%",
             opacity: 1,
             borderRadius: "50%",
@@ -95,12 +91,11 @@ const states = [
     },
     // State 6: для седьмого текста
     {
-        bg: { height: "220%", left: "3%", top: "22%" },
-        sub: { height: "220%", left: "4%", top: "22%", opacity: 1 },
+        bg: { top: "-35%", left: "10%" },
         ball: {
             height: "250px",
-            width: "80px",
-            left: "45%",
+            width: "40px",
+            left: "35%",
             top: "58%",
             opacity: 1,
             borderRadius: "50%",
@@ -110,38 +105,37 @@ const states = [
     },
     // State 7: для восьмого текста
     {
-        bg: { height: "220%", left: "3%", top: "-10%" },
-        sub: { height: "220%", left: "4%", top: "-10%", opacity: 1 },
+        bg: { top: "-45%", left: "10%" },
         ball: {
-            height: "400px",
-            width: "80px",
-            left: "40%",
+            height: "200px",
+            width: "60px",
+            left: "30%",
             top: "65%",
             opacity: 1,
             borderRadius: "50%",
-            blur: 300,
+            blur: 150,
             rotation: 5,
         },
     },
     // State 8: для девятого текста
     {
-        bg: { height: "260%", left: "11%", top: "-30%" },
-        sub: { height: "260%", left: "12%", top: "-30%", opacity: 1 },
+        bg: { top: "-55%", left: "15%", scale: 1.75 },
+        sub: { opacity: 1 },
         ball: {
-            height: "400px",
-            width: "80px",
-            left: "38%",
-            top: "75%",
+            height: "200px",
+            width: "50px",
+            left: "30%",
+            top: "70%",
             opacity: 1,
             borderRadius: "50%",
-            blur: 300,
+            blur: 100,
             rotation: 13,
         },
     },
     // State 9: для десятого текста (возврат к initial-like)
     {
-        bg: { height: "85%", left: "20%", top: "50%" },
-        sub: { height: "85%", left: "21%", top: "50%", opacity: 0 },
+        bg: { top: "10%", left: "5%", scale: 1 },
+        sub: { opacity: 0 },
         ball: {
             height: "400px",
             width: "80px",
@@ -149,7 +143,7 @@ const states = [
             top: "75%",
             opacity: 0,
             borderRadius: "50%",
-            blur: 300,
+            blur: 150,
             rotation: 13,
         },
     },
@@ -158,8 +152,8 @@ const states = [
 const MobileBackground = () => {
     const { currentState } = useBackground(); // Получаем из контекста
     const bgRef = useRef(null);
-    const substractRef = useRef(null);
     const ballRef = useRef(null);
+    const substractRef = useRef(null);
 
     useEffect(() => {
         const state = states[currentState];
@@ -182,23 +176,21 @@ const MobileBackground = () => {
 
     return (
         <div className="fixed md:hidden inset-0">
-            <img
-                src="/getting-ready/bg2.png"
-                className="absolute top-1/2 opacity-0 h-[85%] left-[21%] blur-[27.2784px] -translate-y-1/2 object-contain"
-                ref={substractRef}
-            />
-            <div
-                className="absolute w-fit top-1/2 h-[85%] left-[20%] -translate-y-1/2"
-                ref={bgRef}
-            >
+            <div className="absolute w-fit h-[85%] left-[20%]" ref={bgRef}>
                 <div className="relative h-full">
                     <div
                         ref={ballRef}
                         className="bg-[#691C32] w-[100px] h-[100px] opacity-0 rounded-full blur-[27px] top-[10%] left-[46%] absolute -z-10"
                     ></div>
+
+                    <img
+                        src="/getting-ready/bg2.png"
+                        className="left-[12%] h-full opacity-0 blur-[27.2784px] object-contain"
+                        ref={substractRef}
+                    />
                     <img
                         src="/getting-ready/bg1.png"
-                        className="h-full object-contain"
+                        className="absolute -ml-5 inset-0 h-full object-contain z-10"
                     />
                 </div>
             </div>

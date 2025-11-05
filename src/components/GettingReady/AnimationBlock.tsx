@@ -71,7 +71,7 @@ const AnimationBlock = () => {
                 scrollTrigger: {
                     trigger: containerRef.current,
                     start: "top top",
-                    end: "+=1000%",
+                    end: "+=2000%",
                     scrub: 1,
                     pin: true,
                     anticipatePin: 1,
@@ -1024,10 +1024,10 @@ const AnimationBlock = () => {
                 </div> */}
             </div>
             <div
-                className="md:absolute md:scale-50 md:opacity-0 flex items-center  sm:ml-auto md:ml-0 h-[calc(100dvh/1.25)] md:h-dvh right-0 z-10  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
+                className="md:absolute md:scale-50 md:opacity-0 flex md:items-center  sm:ml-auto md:ml-0 h-[calc(100dvh/1.25)] md:h-dvh right-0 z-10  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
                 ref={fifthText}
             >
-                <div className="mt-[120px] sm:mt-0 grid grid-cols-[40px_auto] xl:grid-cols-[48px_auto] gap-4">
+                <div className="sm:mt-0 grid grid-cols-[40px_auto] xl:grid-cols-[48px_auto] gap-4">
                     <div className="bg-[#FFFFFF1A] text-[10px] md:text-[11px] 2xl:text-sm w-full flex items-center justify-center aspect-square rounded-full">
                         01
                     </div>
@@ -1103,10 +1103,10 @@ const AnimationBlock = () => {
                 </div>
             </div>
             <div
-                className="md:absolute md:scale-50 md:opacity-0 flex items-center  sm:ml-auto md:ml-0 h-[calc(100dvh/1.25)] md:h-dvh right-0 z-10  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[790px]"
+                className="md:absolute md:scale-50 md:opacity-0 flex md:items-center  sm:ml-auto md:ml-0 h-[calc(100dvh/1.25)] md:h-dvh right-0 z-10  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[790px]"
                 ref={sixthText}
             >
-                <div className="mt-[120px] sm:mt-0 grid grid-cols-[40px_auto] xl:grid-cols-[48px_auto] gap-4">
+                <div className="sm:mt-0 grid grid-cols-[40px_auto] xl:grid-cols-[48px_auto] gap-4">
                     <div className="bg-[#FFFFFF1A] text-[10px] md:text-[11px] 2xl:text-sm w-full flex items-center justify-center aspect-square rounded-full">
                         02
                     </div>
@@ -1182,10 +1182,10 @@ const AnimationBlock = () => {
                 </div>
             </div>
             <div
-                className="md:absolute md:scale-50 md:opacity-0 flex items-center  sm:ml-auto md:ml-0 h-[calc(100dvh/1.25)] md:h-dvh right-0 z-10  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[800px]"
+                className="md:absolute md:scale-50 md:opacity-0 flex md:items-center  sm:ml-auto md:ml-0 h-[calc(100dvh/1.25)] md:h-dvh right-0 z-10  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[800px]"
                 ref={seventhText}
             >
-                <div className="mt-[120px] sm:mt-0 grid grid-cols-[40px_auto] xl:grid-cols-[48px_auto] gap-4">
+                <div className="sm:mt-0 grid grid-cols-[40px_auto] xl:grid-cols-[48px_auto] gap-4">
                     <div className="bg-[#FFFFFF1A] text-[10px] md:text-[11px] 2xl:text-sm w-full flex items-center justify-center aspect-square rounded-full">
                         03
                     </div>
@@ -1208,10 +1208,10 @@ const AnimationBlock = () => {
                 </div>
             </div>
             <div
-                className="md:absolute md:scale-50 md:opacity-0 flex items-center  sm:ml-auto md:ml-0 h-[calc(100dvh/1.25)] md:h-dvh right-0 z-10  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
+                className="md:absolute md:scale-50 md:opacity-0 flex md:items-center  sm:ml-auto md:ml-0 h-[calc(100dvh/1.25)] md:h-dvh right-0 z-10  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
                 ref={eighthText}
             >
-                <div className="mt-[120px] sm:mt-0 grid grid-cols-[40px_auto] xl:grid-cols-[48px_auto] gap-4">
+                <div className="sm:mt-0 grid grid-cols-[40px_auto] xl:grid-cols-[48px_auto] gap-4">
                     <div className="bg-[#FFFFFF1A] text-[10px] md:text-[11px] 2xl:text-sm w-full flex items-center justify-center aspect-square rounded-full">
                         04
                     </div>
@@ -1269,10 +1269,10 @@ const AnimationBlock = () => {
                 </div>
             </div>
             <div
-                className="md:absolute md:scale-50 md:opacity-0 flex items-center  sm:ml-auto md:ml-0 h-[calc(100dvh/1.25)] md:h-dvh right-0 z-10  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[800px]"
+                className="md:absolute md:scale-50 md:opacity-0 flex md:items-center sm:ml-auto md:ml-0 h-[calc(100dvh/1.25)] md:h-dvh right-0 z-10  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[800px]"
                 ref={ninethText}
             >
-                <div className="mt-[120px] sm:mt-0 grid grid-cols-[40px_auto] xl:grid-cols-[48px_auto] gap-4">
+                <div className="sm:mt-0 grid grid-cols-[40px_auto] xl:grid-cols-[48px_auto] gap-4">
                     <div className="bg-[#FFFFFF1A] text-[10px] md:text-[11px] 2xl:text-sm w-full flex items-center justify-center aspect-square rounded-full">
                         05
                     </div>
@@ -1365,10 +1365,10 @@ const AnimationBlock = () => {
             </div>
 
             <div
-                className="md:absolute md:scale-50 md:opacity-0 flex items-center  sm:ml-auto md:ml-0 h-[calc(100dvh/1.25)] md:h-dvh right-0 z-10  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
+                className="md:absolute md:scale-50 md:opacity-0 flex md:items-center sm:ml-auto md:ml-0 h-[calc(100dvh/1.25)] md:h-dvh right-0 z-10  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
                 ref={tenthText}
             >
-                <div className="mt-[120px] sm:mt-0 grid grid-cols-[40px_auto] xl:grid-cols-[48px_auto] gap-4">
+                <div className="sm:mt-0 grid grid-cols-[40px_auto] xl:grid-cols-[48px_auto] gap-4">
                     <div className="bg-[#FFFFFF1A] text-[10px] md:text-[11px] 2xl:text-sm w-full flex items-center justify-center aspect-square rounded-full">
                         06
                     </div>
