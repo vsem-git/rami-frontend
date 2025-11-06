@@ -139,7 +139,7 @@ export const MenuHeader = ({ isOpen }: MenuHeaderProps) => {
 
             <div
                 ref={menuRef}
-                className="custom-scrollbar fixed top-0 left-0 w-full md:w-1/2 h-screen bg-[#1d1d1d] z-50 overflow-auto"
+                className="custom-scrollbar fixed top-0 left-0 w-full md:w-1/2 h-screen bg-[#1d1d1d] pb-20 z-50 overflow-auto"
                 style={{
                     transform: "translateX(-100%)",
                     opacity: 0,
