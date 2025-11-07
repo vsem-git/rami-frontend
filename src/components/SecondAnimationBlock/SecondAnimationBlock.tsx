@@ -1,102 +1,102 @@
-import { useGSAP } from '@gsap/react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useRef } from 'react'
-import { useHeader } from '../HeaderContext'
-import { usePopup } from '../PopupContext'
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+import { useHeader } from "../HeaderContext";
+import { usePopup } from "../PopupContext";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 const FirstAnimationBlock = () => {
-	const { openPopup } = usePopup()
-	const { setHeaderColor } = useHeader()
-	const containerRef = useRef(null)
-	/* const block1Ref = useRef(null); */
-	const block2Ref = useRef(null)
-	/* const block1LogoRef = useRef(null); */
-	const block2ContendRef = useRef(null)
+    const { openPopup } = usePopup();
+    const { setHeaderColor } = useHeader();
+    const containerRef = useRef(null);
+    /* const block1Ref = useRef(null); */
+    const block2Ref = useRef(null);
+    /* const block1LogoRef = useRef(null); */
+    const block2ContendRef = useRef(null);
 
-	useGSAP(() => {
-		const mm = gsap.matchMedia()
+    useGSAP(() => {
+        const mm = gsap.matchMedia();
 
-		/* gsap.set(block2Ref.current, { y: "100%" }); */
-		gsap.set(block2ContendRef.current, { autoAlpha: 0 })
+        /* gsap.set(block2Ref.current, { y: "100%" }); */
+        gsap.set(block2ContendRef.current, { autoAlpha: 0 });
 
-		mm.add('(max-width: 768px)', () => {
-			gsap.fromTo(
-				'.logoheader',
-				{
-					yPercent: 0,
-				},
-				{
-					yPercent: -300,
-					duration: 1,
-					ease: 'power2.inOut',
-					scrollTrigger: {
-						trigger: containerRef.current,
-						start: 'top+=100 top',
-						end: 'top+=300 top',
-						scrub: true,
-					},
-				}
-			)
-		})
+        mm.add("(max-width: 768px)", () => {
+            gsap.fromTo(
+                ".logoheader",
+                {
+                    yPercent: 0,
+                },
+                {
+                    yPercent: -300,
+                    duration: 1,
+                    ease: "power2.inOut",
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: "top+=100 top",
+                        end: "top+=300 top",
+                        scrub: true,
+                    },
+                }
+            );
+        });
 
-		mm.add('(min-width: 769px)', () => {
-			gsap.fromTo(
-				'.logoheader',
-				{
-					yPercent: 0,
-				},
-				{
-					yPercent: -300,
-					duration: 1,
-					ease: 'power2.inOut',
-					scrollTrigger: {
-						trigger: containerRef.current,
-						start: 'top+=150 top',
-						end: 'top+=350 top',
-						scrub: true,
-					},
-				}
-			)
-		})
+        mm.add("(min-width: 769px)", () => {
+            gsap.fromTo(
+                ".logoheader",
+                {
+                    yPercent: 0,
+                },
+                {
+                    yPercent: -300,
+                    duration: 1,
+                    ease: "power2.inOut",
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: "top+=150 top",
+                        end: "top+=350 top",
+                        scrub: true,
+                    },
+                }
+            );
+        });
 
-		ScrollTrigger.create({
-			trigger: containerRef.current,
-			start: 'top 10%', // когда верх блока достигает 80% высоты экрана
-			onEnter: () => setHeaderColor('#ffffff'),
-			onLeaveBack: () => setHeaderColor('#000000'),
-		})
+        ScrollTrigger.create({
+            trigger: containerRef.current,
+            start: "top 10%", // когда верх блока достигает 80% высоты экрана
+            onEnter: () => setHeaderColor("#ffffff"),
+            onLeaveBack: () => setHeaderColor("#000000"),
+        });
 
-		mm.add('(max-width: 768px)', () => {
-			ScrollTrigger.create({
-				trigger: containerRef.current,
-				start: '100% top', // когда 50% блока ушло за верх экрана
-				onEnter: () => setHeaderColor('#000000'),
-				onLeaveBack: () => setHeaderColor('#ffffff'),
-			})
-		})
+        mm.add("(max-width: 768px)", () => {
+            ScrollTrigger.create({
+                trigger: containerRef.current,
+                start: "100% top", // когда 50% блока ушло за верх экрана
+                onEnter: () => setHeaderColor("#000000"),
+                onLeaveBack: () => setHeaderColor("#ffffff"),
+            });
+        });
 
-		mm.add('(min-width: 769px)', () => {
-			ScrollTrigger.create({
-				trigger: containerRef.current,
-				start: '150% top', // когда 50% блока ушло за верх экрана
-				onEnter: () => setHeaderColor('#000000'),
-				onLeaveBack: () => setHeaderColor('#ffffff'),
-			})
-		})
-		const tl = gsap.timeline({
-			scrollTrigger: {
-				trigger: containerRef.current,
-				start: 'top top',
-				end: '+=20%',
-				toggleActions: 'play none play reverse',
-				pin: true,
-			},
-		})
+        mm.add("(min-width: 769px)", () => {
+            ScrollTrigger.create({
+                trigger: containerRef.current,
+                start: "150% top", // когда 50% блока ушло за верх экрана
+                onEnter: () => setHeaderColor("#000000"),
+                onLeaveBack: () => setHeaderColor("#ffffff"),
+            });
+        });
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: "top top",
+                end: "+=20%",
+                toggleActions: "play none play reverse",
+                pin: true,
+            },
+        });
 
-		/* gsap.to(block1LogoRef.current, {
+        /* gsap.to(block1LogoRef.current, {
             rotation: 360, // Поворот на 360 градусов
             ease: "linear", // Линейная анимация для равномерного вращения
             scrollTrigger: {
@@ -107,7 +107,7 @@ const FirstAnimationBlock = () => {
             },
         }); */
 
-		/* tl.call(
+        /* tl.call(
             () => {
                 setHeaderColor("#000000");
             },
@@ -121,19 +121,19 @@ const FirstAnimationBlock = () => {
             "-=4"
         ); */
 
-		tl.to(block2ContendRef.current, {
-			autoAlpha: 1,
-			duration: 0.5,
-			ease: 'power2.inOut',
-		})
-	}, [])
-	return (
-		<div
-			id='services'
-			className='h-dvh relative overflow-hidden'
-			ref={containerRef}
-		>
-			{/* <div
+        tl.to(block2ContendRef.current, {
+            autoAlpha: 1,
+            duration: 0.5,
+            ease: "power2.inOut",
+        });
+    }, []);
+    return (
+        <div
+            id="services"
+            className="h-dvh relative overflow-hidden"
+            ref={containerRef}
+        >
+            {/* <div
                 className="absolute top-0 px-10 left-0 w-full h-full bg-white bg-cover bg-center flex justify-center items-center z-0"
                 ref={block1Ref}
             >
@@ -144,144 +144,156 @@ const FirstAnimationBlock = () => {
                     alt="icon"
                 />
             </div> */}
-			<div
-				className="absolute top-0 left-0 w-full h-dvh bg-[url('/animationblock2.jpg')] bg-cover bg-top flex justify-between items-end z-50"
-				ref={block2Ref}
-			>
-				<div
-					className='relative h-full w-full flex flex-col justify-center md:grid grid-cols-3'
-					ref={block2ContendRef}
-				>
-					<div className='max-h-[120px] h-full md:h-auto md:max-h-full relative flex flex-row-reverse md:flex-col justify-between md:justify-end items-center border-b border-r-0 md:border-r border-[#FFFFFF33] group px-4 md:px-0'>
-						<div className='bg-[#FFFFFF26] backdrop-blur-[50px] p-4 md:p-8 rounded-full md:mb-10'>
-							<svg
-								width='16'
-								height='16'
-								viewBox='0 0 16 16'
-								fill='none'
-								xmlns='http://www.w3.org/2000/svg'
-							>
-								<path
-									d='M8 2.5V8M8 13.5V8M8 8H13.5H2.5'
-									stroke='white'
-									strokeWidth='1.5'
-								/>
-							</svg>
-						</div>
-						<p className='uppercase text-white text-[16px] md:text-[20px] 2xl:text-[28px] md:text-center md:mb-10 md:px-15 2xl:px-20'>
-							эталонная <br />
-							пластическая хирургия
-						</p>
-						<div
-							className='absolute w-full h-full z-10 md:hidden'
-							onClick={() => {
-								openPopup('secondsection1')
-							}}
-						></div>
-						<div className='absolute hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-1000 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D]  flex-col justify-center items-center md:p-6 2xl:p-20 text-center'>
-							<p className='text-[20px] 2xl:text-[28px] uppercase mb-4 2xl:mb-6 leading-[130%] text-white'>
-								Эталонная <br />
-								пластическая хирургия
-							</p>
-							<p className='mb-8 2xl:mb-12 text-[#FFFFFF99] leading-[155%] uppercase font-extralight text-sm 2xl:text-base'>
-								RAMICLINIC RESIDENCE гордится экспертной командой врачей,
-								опирающихся на международную практику и возрастающий авторитет
-								русской школы пластической хирургии с уникальным эстетическим
-								почерком
-							</p>
-							<button className='text-[#691C32] bg-white font-semibold px-8 py-5 uppercase cursor-pointer text-sm 2xl:text-base'>
-								Запланировать визит
-							</button>
-						</div>
-					</div>
-					<div className='max-h-[120px] h-full md:h-auto md:max-h-full relative flex flex-row-reverse md:flex-col justify-between md:justify-end items-center border-b border-r-0 md:border-r border-[#FFFFFF33] group px-4 md:px-0'>
-						<div className='bg-[#FFFFFF26] backdrop-blur-[50px] p-4 md:p-8 rounded-full md:mb-10'>
-							<svg
-								width='16'
-								height='16'
-								viewBox='0 0 16 16'
-								fill='none'
-								xmlns='http://www.w3.org/2000/svg'
-							>
-								<path
-									d='M8 2.5V8M8 13.5V8M8 8H13.5H2.5'
-									stroke='white'
-									strokeWidth='1.5'
-								/>
-							</svg>
-						</div>
-						<p className='uppercase text-white text-[16px] md:text-[20px] 2xl:text-[28px] md:text-center md:mb-10 md:px-20'>
-							интеллектуальная косметология
-						</p>
-						<div
-							className='absolute w-full h-full z-10 md:hidden'
-							onClick={() => {
-								openPopup('secondsection2')
-								console.log('secondsection2')
-							}}
-						></div>
-						<div className='absolute hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-1000 top-0 left-0 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex-col justify-center items-center md:p-6 2xl:p-20 text-center'>
-							<p className='text-[20px] 2xl:text-[28px] uppercase mb-4 2xl:mb-6 leading-[130%] text-white'>
-								интеллектуальная косметология
-							</p>
-							<p className='mb-8 2xl:mb-12 text-[#FFFFFF99] leading-[155%] uppercase font-extralight text-sm 2xl:text-base'>
-								Опытные врачи-косметологи, высокотехнологичный парк
-								инновационного оборудования, достижения в сфере антиэйдж,
-								биохакинга и регенеративной медицины – вот составляющие успеха,
-								из которых складываются блестящие эстетические результаты
-								пациентов
-							</p>
-							<button className='text-[#691C32] bg-white font-semibold px-8 py-5 uppercase cursor-pointer text-sm 2xl:text-base'>
-								Запланировать визит
-							</button>
-						</div>
-					</div>
-					<div className='max-h-[120px] h-full md:h-auto md:max-h-full relative flex flex-row-reverse md:flex-col justify-between md:justify-end items-center border-b border-r-0 md:border-r border-[#FFFFFF33] group px-4 md:px-0'>
-						<div className='bg-[#FFFFFF26] backdrop-blur-[50px] p-4 md:p-8 rounded-full md:mb-10'>
-							<svg
-								width='16'
-								height='16'
-								viewBox='0 0 16 16'
-								fill='none'
-								xmlns='http://www.w3.org/2000/svg'
-							>
-								<path
-									d='M8 2.5V8M8 13.5V8M8 8H13.5H2.5'
-									stroke='white'
-									strokeWidth='1.5'
-								/>
-							</svg>
-						</div>
-						<p className='uppercase md:pb-[2ch] text-white text-[16px] md:text-[20px] 2xl:text-[28px] md:text-center md:mb-10 md:px-20'>
-							реабилитация
-						</p>
-						<div
-							className='absolute w-full h-full z-10 md:hidden'
-							onClick={() => {
-								openPopup('secondsection3')
-								console.log('secondsection3')
-							}}
-						></div>
-						<div className='absolute hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-1000 top-0 left-0 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex-col justify-center items-center md:p-6 2xl:p-20 text-center'>
-							<p className='text-[20px] 2xl:text-[28px] uppercase mb-4 2xl:mb-6 leading-[130%] text-white'>
-								реабилитация
-							</p>
-							<p className='mb-8 2xl:mb-12 text-[#FFFFFF99] leading-[155%] uppercase font-extralight text-sm 2xl:text-base'>
-								Работа на результат начинается задолго до операционной. Для
-								каждого пациента оформляется генетический паспорт кожи с целью
-								детализированного прогноза послеоперационного периода,
-								разрабатывается индивидуальный план восстановительных
-								косметологических процедур
-							</p>
-							<button className='text-[#691C32] bg-white font-semibold px-8 py-5 uppercase cursor-pointer text-sm 2xl:text-base'>
-								Запланировать визит
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	)
-}
+            <div
+                className="absolute top-0 left-0 w-full h-dvh bg-[url('/animationblock2.jpg')] bg-cover bg-top flex justify-between items-end z-50"
+                ref={block2Ref}
+            >
+                <div
+                    className="relative h-full w-full flex flex-col justify-center md:grid grid-cols-3"
+                    ref={block2ContendRef}
+                >
+                    <div className="max-h-[120px] h-full md:h-auto md:max-h-full relative flex flex-row-reverse md:flex-col justify-between md:justify-end items-center border-b border-r-0 md:border-r border-[#FFFFFF33] group px-4 md:px-0">
+                        <div className="bg-[#FFFFFF26] backdrop-blur-[50px] p-4 md:p-8 rounded-full md:mb-10">
+                            <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M8 2.5V8M8 13.5V8M8 8H13.5H2.5"
+                                    stroke="white"
+                                    strokeWidth="1.5"
+                                />
+                            </svg>
+                        </div>
+                        <p className="uppercase text-white text-[16px] md:text-[20px] 2xl:text-[28px] md:text-center md:mb-10 md:px-15 2xl:px-20">
+                            эталонная <br />
+                            пластическая хирургия
+                        </p>
+                        <div
+                            className="absolute w-full h-full z-10 md:hidden"
+                            onClick={() => {
+                                openPopup("secondsection1");
+                            }}
+                        ></div>
+                        <div className="absolute hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-1000 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D]  flex-col justify-center items-center md:p-6 2xl:p-20 text-center">
+                            <p className="text-[20px] 2xl:text-[28px] uppercase mb-4 2xl:mb-6 leading-[130%] text-white">
+                                Эталонная <br />
+                                пластическая хирургия
+                            </p>
+                            <p className="mb-8 2xl:mb-12 text-[#FFFFFF99] leading-[155%] uppercase font-extralight text-sm 2xl:text-base">
+                                RAMICLINIC RESIDENCE гордится экспертной
+                                командой врачей, опирающихся на международную
+                                практику и возрастающий авторитет русской школы
+                                пластической хирургии с уникальным эстетическим
+                                почерком
+                            </p>
+                            <button
+                                onClick={() => openPopup("contact")}
+                                className="text-[#691C32] bg-white font-semibold px-8 py-5 uppercase cursor-pointer text-sm 2xl:text-base"
+                            >
+                                Запланировать визит
+                            </button>
+                        </div>
+                    </div>
+                    <div className="max-h-[120px] h-full md:h-auto md:max-h-full relative flex flex-row-reverse md:flex-col justify-between md:justify-end items-center border-b border-r-0 md:border-r border-[#FFFFFF33] group px-4 md:px-0">
+                        <div className="bg-[#FFFFFF26] backdrop-blur-[50px] p-4 md:p-8 rounded-full md:mb-10">
+                            <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M8 2.5V8M8 13.5V8M8 8H13.5H2.5"
+                                    stroke="white"
+                                    strokeWidth="1.5"
+                                />
+                            </svg>
+                        </div>
+                        <p className="uppercase text-white text-[16px] md:text-[20px] 2xl:text-[28px] md:text-center md:mb-10 md:px-20">
+                            интеллектуальная косметология
+                        </p>
+                        <div
+                            className="absolute w-full h-full z-10 md:hidden"
+                            onClick={() => {
+                                openPopup("secondsection2");
+                                console.log("secondsection2");
+                            }}
+                        ></div>
+                        <div className="absolute hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-1000 top-0 left-0 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex-col justify-center items-center md:p-6 2xl:p-20 text-center">
+                            <p className="text-[20px] 2xl:text-[28px] uppercase mb-4 2xl:mb-6 leading-[130%] text-white">
+                                интеллектуальная косметология
+                            </p>
+                            <p className="mb-8 2xl:mb-12 text-[#FFFFFF99] leading-[155%] uppercase font-extralight text-sm 2xl:text-base">
+                                Опытные врачи-косметологи, высокотехнологичный
+                                парк инновационного оборудования, достижения в
+                                сфере антиэйдж, биохакинга и регенеративной
+                                медицины – вот составляющие успеха, из которых
+                                складываются блестящие эстетические результаты
+                                пациентов
+                            </p>
+                            <button
+                                onClick={() => openPopup("contact")}
+                                className="text-[#691C32] bg-white font-semibold px-8 py-5 uppercase cursor-pointer text-sm 2xl:text-base"
+                            >
+                                Запланировать визит
+                            </button>
+                        </div>
+                    </div>
+                    <div className="max-h-[120px] h-full md:h-auto md:max-h-full relative flex flex-row-reverse md:flex-col justify-between md:justify-end items-center border-b border-r-0 md:border-r border-[#FFFFFF33] group px-4 md:px-0">
+                        <div className="bg-[#FFFFFF26] backdrop-blur-[50px] p-4 md:p-8 rounded-full md:mb-10">
+                            <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M8 2.5V8M8 13.5V8M8 8H13.5H2.5"
+                                    stroke="white"
+                                    strokeWidth="1.5"
+                                />
+                            </svg>
+                        </div>
+                        <p className="uppercase md:pb-[2ch] text-white text-[16px] md:text-[20px] 2xl:text-[28px] md:text-center md:mb-10 md:px-20">
+                            реабилитация
+                        </p>
+                        <div
+                            className="absolute w-full h-full z-10 md:hidden"
+                            onClick={() => {
+                                openPopup("secondsection3");
+                                console.log("secondsection3");
+                            }}
+                        ></div>
+                        <div className="absolute hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-1000 top-0 left-0 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D] flex-col justify-center items-center md:p-6 2xl:p-20 text-center">
+                            <p className="text-[20px] 2xl:text-[28px] uppercase mb-4 2xl:mb-6 leading-[130%] text-white">
+                                реабилитация
+                            </p>
+                            <p className="mb-8 2xl:mb-12 text-[#FFFFFF99] leading-[155%] uppercase font-extralight text-sm 2xl:text-base">
+                                Работа на результат начинается задолго до
+                                операционной. Для каждого пациента оформляется
+                                генетический паспорт кожи с целью
+                                детализированного прогноза послеоперационного
+                                периода, разрабатывается индивидуальный план
+                                восстановительных косметологических процедур
+                            </p>
+                            <button
+                                onClick={() => openPopup("contact")}
+                                className="text-[#691C32] bg-white font-semibold px-8 py-5 uppercase cursor-pointer text-sm 2xl:text-base"
+                            >
+                                Запланировать визит
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
 
-export default FirstAnimationBlock
+export default FirstAnimationBlock;
