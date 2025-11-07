@@ -10,6 +10,7 @@ import { Swiper as SwiperComponent, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
 import { useHeader } from "../../HeaderContext";
 import { useScroll } from "../../../pages/Home/ScrollContext";
+import { usePopup } from "../../PopupContext";
 
 const images = [
     [
@@ -53,6 +54,7 @@ const images = [
 gsap.registerPlugin(ScrollTrigger);
 
 const ThirdAnimationBlock = () => {
+    const { openPopup } = usePopup();
     const { setScrollToTeam } = useScroll();
     const containerRef = useRef<HTMLDivElement | null>(null);
     const block1Ref = useRef<HTMLDivElement | null>(null);
@@ -366,7 +368,12 @@ const ThirdAnimationBlock = () => {
                                         }`}
                                     >
                                         <div className="relative h-full w-full flex flex-col items-center text-center justify-end">
-                                            <button className="absolute top-0 right-0 m-1 sm:m-2 p-4 md:p-5 2xl:p-8 text-[32px] bg-[#691C32] cursor-pointer">
+                                            <button
+                                                onClick={() =>
+                                                    openPopup("contact")
+                                                }
+                                                className="absolute top-0 right-0 m-1 sm:m-2 p-4 md:p-5 2xl:p-8 text-[32px] bg-[#691C32] cursor-pointer"
+                                            >
                                                 <svg
                                                     width="16"
                                                     height="16"

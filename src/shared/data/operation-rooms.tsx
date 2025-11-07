@@ -3,13 +3,11 @@ export const OperationRooms = [
 		id: 1,
 		content: (
 			<>
-				<p className='text-[18px] md:text-[20px] 2xl:text-[36px] text-[#1D1D1D] md:text-white font-normal uppercase w-full md:max-w-[700px] 2xl:max-w-[1085px] tracking-[8%]'>
-					RAMICLINIC RESIDENCE проектировалась, строилась и функционирует как
-					сложная системная организационная культура, где процедуры и операции,
-					модели поведения, технологии и факторы среды позволяют целенаправленно
-					и планомерно ограничивать риски, уменьшать вероятность ошибок и
-					смягчать последствия любых трансформаций внешности и физического
-					облика пациентов.
+				<p className='text-[18px] md:text-[20px] 2xl:text-[36px] text-[#1D1D1D] md:text-white font-normal uppercase w-full md:max-w-[600px] 2xl:max-w-[899px] tracking-[8%]'>
+					Пластические хирурги RAMICLINIC RESIDENCE имеют в своем распоряжении
+					лучшие операционные новейшего времени: сложные высокотехнологичные
+					медицинские комплексы, экспертное хирургическое и наркозное
+					оборудование.
 				</p>
 			</>
 		),
