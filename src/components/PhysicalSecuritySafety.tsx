@@ -99,13 +99,11 @@ export const PhysicalSecuritySafety = () => {
             tl.to(item, { opacity: 1, duration: 5 }, "+=0.7")
                 .to(h4, { opacity: 0, duration: 5 }, "<")
                 .to(h3, { opacity: 1, duration: 5 }, "<")
-                .to(h2, { fontSize: titleBig, duration: 5 }, "<")
                 .to(h1, { fontSize: numberBig, duration: 5 }, "<")
-                .to(desc, { maxHeight: 500, opacity: 1, duration: 5 }, "<")
+                .to(desc, { maxHeight: 50, opacity: 1, duration: 5 }, "<")
                 .to(desc, { maxHeight: 0, opacity: 0, duration: 5 }, "+=1.2")
                 .to(h4, { opacity: 1, duration: 5 }, "<")
                 .to(h3, { opacity: 0, duration: 5 }, "<")
-                .to(h2, { fontSize: titleClosed, duration: 5 }, "<")
                 .to(h1, { fontSize: "24px", duration: 5 }, "<");
         });
 
@@ -240,7 +238,7 @@ export const PhysicalSecuritySafety = () => {
                                         ref={(el) => {
                                             descriptionsRefs.current[i] = el;
                                         }}
-                                        className="text-[#FFFFFFBF] text-xs xl:text-base/[155%] uppercase max-w-[444px]"
+                                        className="text-[#FFFFFFBF] text-xs xl:text-base/[155%] relative -bottom-6 uppercase max-w-[444px]"
                                         style={{ overflow: "hidden" }}
                                     >
                                         {item.text}
