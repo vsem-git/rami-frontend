@@ -68,29 +68,27 @@ export const MedicalSafety = () => {
                 Медицинская безопасность
             </h2>
 
-            <div className="hidden md:flex md:flex-row w-full">
-                <div
-                    ref={imageRef}
-                    className="sticky top-0 left-0 w-[43%] lg:w-[45%] xl:w-[45%] 2xl:w-[45%] h-screen flex-shrink-0 overflow-hidden margin-medical_safety"
-                >
-                    <div className="relative w-full h-full">
-                        {bgImages.map((src, index) => (
-                            <div
-                                key={index}
-                                className={`absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-700 ease-in-out ${
-                                    activeIndex === index
-                                        ? "opacity-100 z-10"
-                                        : "opacity-0 z-0"
-                                }`}
-                                style={{
-                                    backgroundImage: `url(${src})`,
-                                }}
-                            >
-                                <div className="absolute inset-0 bg-gradient-to-b from-[rgba(29,29,29,0.5)] to-[rgba(29,29,29,0)]" />
-                            </div>
-                        ))}
-                    </div>
-                </div>
+			<div className='hidden md:flex md:flex-row w-full'>
+				<div
+					ref={imageRef}
+					className='sticky top-0 left-0 w-[45%] sxl:w-[700px] 2xl:w-[860px] h-screen flex-shrink-0 overflow-hidden margin-medical_safety'
+				>
+					<div className='relative w-full h-full'>
+						{bgImages.map((src, index) => (
+							<div
+								key={index}
+								className={`absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-700 ease-in-out ${
+									activeIndex === index ? 'opacity-100 z-10' : 'opacity-0 z-0'
+								}`}
+								style={{
+									backgroundImage: `url(${src})`,
+								}}
+							>
+								<div className='absolute inset-0 bg-gradient-to-b from-[rgba(29,29,29,0.5)] to-[rgba(29,29,29,0)]' />
+							</div>
+						))}
+					</div>
+				</div>
 
                 <div className="flex flex-col w-full max-w-[820px] mx-auto mt-[160px]  space-y-[300px] text-white px-4">
                     {blocksData.map((block, idx) => (
