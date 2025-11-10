@@ -66,9 +66,7 @@ export const useOperationRoomsAnimation = (
 				.to(
 					backgroundElement,
 					{
-						scaleX: 0.5,
-						scaleY: 1,
-						transformOrigin: 'left center',
+						width: '50%', 
 						duration: 2,
 						ease: 'power2.inOut',
 					},
