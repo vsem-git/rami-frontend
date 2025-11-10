@@ -88,13 +88,10 @@ export const PhysicalSecuritySafety = () => {
             if (!item) return;
             const h4 = item.querySelector("h4");
             const h3 = item.querySelector("h3");
-            const h2 = item.querySelector("h2");
             const h1 = item.querySelector("h1");
             const desc = descriptionsRefs.current[i];
 
-            const titleBig = is1280 ? "16px" : "24px";
             const numberBig = is1280 ? "72px" : "120px";
-            const titleClosed = is1280 ? "12px" : "18px";
 
             tl.to(item, { opacity: 1, duration: 5 }, "+=0.7")
                 .to(h4, { opacity: 0, duration: 5 }, "<")
