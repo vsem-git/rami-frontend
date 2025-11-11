@@ -101,16 +101,6 @@ const Footer = () => {
                     ref={contactRef}
                     className={`relative w-full h-full flex justify-center items-center overflow-hidden `}
                 >
-                    <img
-                        src="/pattern1.svg"
-                        alt=""
-                        className="w-1/2 md:w-[40%] xl:w-[30%] absolute right-0 top-1/2 transform -translate-y-1/2 hidden sm:block"
-                    />
-                    <img
-                        src="/pattern2.svg"
-                        alt=""
-                        className="w-full sm:w-1/2 md:w-[40%] xl:w-[30%] absolute left-0 top-1/2 transform -translate-y-1/2 "
-                    />
                     <div
                         className=" group max-w-[328px] max-h-[328px] mx-4 w-full h-full sm:max-w-[480px] sm:max-h-[270px] md:max-w-[560px] md:max-h-[315px] 2xl:max-w-[924px] 2xl:max-h-[520px] z-0 bg-[#691C32] contact-footer-trigger"
                         ref={contactOpenRef}
