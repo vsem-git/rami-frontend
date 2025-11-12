@@ -17,13 +17,13 @@ export const PhoneList = () => {
             </div>
             <div className="flex items-center gap-1 mt-3 md:mt-6">
                 <a
-                    href="#"
+                    href="https://t.me/+79214470031"
                     className="w-12 h-12 flex items-center justify-center cursor-pointer border-[#1D1D1D1A] border rounded-full"
                 >
                     <img src="/social/tg.svg" alt="tg" className="w-5 h-5" />
                 </a>
                 <a
-                    href="#"
+                    href="https://wa.me/79214470031"
                     className="w-12 h-12 flex items-center justify-center cursor-pointer border-[#1D1D1D1A] border rounded-full"
                 >
                     <img src="/social/wt.svg" alt="wt" className="w-5 h-5" />
