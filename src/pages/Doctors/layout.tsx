@@ -7,7 +7,6 @@ import { PopupProvider } from "../../components/PopupContext";
 import ScrollSmoother from "../../components/ScrollSmoother";
 import Header from "../../components/Header";
 import { useLocation } from "react-router-dom";
-import gsap from "gsap";
 import { useEffect } from "react";
 
 const Layout = () => {
