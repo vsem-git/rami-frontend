@@ -5,7 +5,7 @@ import ContactPopUp from "../../components/ContactPopUp";
 import { DoctorCardModal } from "../../components/DoctorCardModal";
 import Footer from "../../components/Footer";
 import { HeaderProvider } from "../../components/HeaderContext";
-import HeaderUpdate from "../../components/HeaderUpdate";
+import Header from "../../components/Header";
 import { PopupProvider } from "../../components/PopupContext";
 import ScrollSmoother from "../../components/ScrollSmoother";
 
@@ -17,7 +17,7 @@ const LayoutContent = () => {
             <ContactPopUp />
             <DoctorCardModal />
 
-            <HeaderUpdate useWhiteText={false} />
+            <Header />
 
             <ScrollSmoother>
                 <Outlet />
