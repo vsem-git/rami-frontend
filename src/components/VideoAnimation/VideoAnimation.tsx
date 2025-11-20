@@ -42,6 +42,7 @@ const VideoAnimation = () => {
 
         gsap.set(".firstblocktext", { opacity: 0 });
         gsap.set(".header", { opacity: 0 });
+        gsap.set(".scrolltosection", { opacity: 0, pointerEvents: "none" });
 
         // Цвет шапки при скролле
         const headerTriggers = [{ ref: blockRef, color: "#000000" }];
@@ -70,7 +71,7 @@ const VideoAnimation = () => {
         });
 
         tl.to(videoRef.current, { opacity: 0, duration: 1 })
-
+            .to(".scrolltosection", { opacity: 1, pointerEvents: "auto" })
             .addLabel("middle")
 
             .to(".header", { opacity: 1 }, "<")
@@ -87,12 +88,13 @@ const VideoAnimation = () => {
                 { autoAlpha: 1, y: "0dvh", ease: "power2.inOut" },
                 {
                     autoAlpha: 0,
-                    y: "-20dvh",
+                    y: "-10dvh",
                     duration: 2,
                     ease: "power2.inOut",
                 },
                 "<"
             )
+            .fromTo(".scrolltobutton", { opacity: 1 }, { opacity: 0 })
             .call(() => setHeaderColor("#000000"))
             .to(".textheader", { display: "none", duration: 0 });
 
