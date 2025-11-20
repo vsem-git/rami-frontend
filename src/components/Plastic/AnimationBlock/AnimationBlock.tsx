@@ -109,10 +109,11 @@ const AnimationBlock = () => {
                 .fromTo(
                     firstText.current,
                     {
-                        opacity: 1,
+                        autoAlpha: 1,
+                        yPercent: 0,
                     },
                     {
-                        opacity: 0,
+                        autoAlpha: 0,
                         yPercent: -5,
                         duration: 1,
                         ease: "power2.inOut",

@@ -23,11 +23,6 @@ const AnimationBlock = () => {
     const tenthText = useRef(null);
 
     useGSAP(() => {
-        gsap.set(".shelf", {
-            scale: 0,
-            opacity: 0,
-        });
-
         const mm = gsap.matchMedia();
 
         mm.add("(min-width: 769px)", () => {
@@ -59,13 +54,6 @@ const AnimationBlock = () => {
                     ease: "power2.inOut",
                 }
             );
-
-            gsap.to(".shelf", {
-                scale: 1,
-                opacity: 1,
-                duration: 2,
-                ease: "power2.inOut",
-            });
 
             const tl = gsap.timeline({
                 scrollTrigger: {
@@ -108,30 +96,15 @@ const AnimationBlock = () => {
                 )
                 .fromTo(
                     firstText.current,
+                    { autoAlpha: 1, yPercent: 0 },
                     {
-                        opacity: 1,
-                    },
-                    {
-                        opacity: 0,
+                        autoAlpha: 0,
                         yPercent: -5,
                         duration: 1,
                         ease: "power2.inOut",
                     },
                     "<"
                 );
-            tl.fromTo(
-                firstText.current,
-                {
-                    opacity: 1,
-                },
-                {
-                    opacity: 0,
-                    y: -20,
-                    duration: 1,
-                    ease: "power2.inOut",
-                },
-                "<"
-            );
 
             tl.fromTo(
                 secondText.current,

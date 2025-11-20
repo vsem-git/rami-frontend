@@ -1,4 +1,4 @@
-import { privacyPolicy } from '../../shared/data/privacy-policy'
+import { privacyPolicy } from "../../shared/data/privacy-policy";
 
 export const PrivacyPolicy = () => {
 	return (
@@ -7,17 +7,19 @@ export const PrivacyPolicy = () => {
 				Положение о политике конфиденциальности интернет-сайта
 			</h1>
 
-			{privacyPolicy.map((section, index) => (
-				<div
-					key={index}
-					className='mt-16 xl:mt-20  text-xs xl:text-lg leading-[155%] uppercase text-[#1D1D1D]'
-				>
-					{section.title && <h3 className='font-bold mb-6'>{section.title}</h3>}
-					{section.content.map((paragraph, idx) => (
-						<p key={idx}>{paragraph}</p>
-					))}
-				</div>
-			))}
-		</div>
-	)
-}
+            {privacyPolicy.map((section, index) => (
+                <div
+                    key={index}
+                    className="mt-16 xl:mt-20  text-xs xl:text-lg leading-[155%] uppercase text-[#1D1D1D]"
+                >
+                    {section.title && (
+                        <h3 className="font-bold mb-6">{section.title}</h3>
+                    )}
+                    {section.content.map((paragraph, idx) => (
+                        <p key={idx}>{paragraph}</p>
+                    ))}
+                </div>
+            ))}
+        </div>
+    );
+};

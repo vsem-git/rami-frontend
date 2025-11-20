@@ -8,7 +8,7 @@ export const Contact = () => {
                 <div className="flex-1 px-6 2xl:px-10 w-full flex flex-col justify-center">
                     <ContactInfo />
                 </div>
-                <div className='flex-1 w-full min-h-[480px] h-[480px] md:h-full mt-16 md:mt-0 bg-[url("map.png")] bg-no-repeat bg-cover flex items-center justify-center'>
+                <div className='flex-1 w-full min-h-[480px] h-[480px] md:h-full mt-16 md:mt-0 bg-[url("/map.png")] bg-no-repeat bg-cover flex items-center justify-center'>
                     <button className="w-20 h-20 flex items-center justify-center bg-[#691C32] rounded-full border-none cursor-pointer">
                         <img
                             src="/mappinline.svg"
