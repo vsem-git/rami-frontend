@@ -29,14 +29,14 @@ export const SafetyOperationRoomsMobile = () => {
 	]
 
 	return (
-		<div className='w-full flex flex-col md:hidden'>
+		<div className='w-full h-auto flex flex-col md:hidden'>
 			<img
 				src='/operation-rooms/card5.jpg'
 				alt=''
 				className='w-full h-auto min-h-[360px] object-cover'
 			/>
 
-			<div className='relative px-4 pt-24 mb-16'>
+			<div className='relative px-4 mt-24 mb-16'>
 				<img
 					src='/operation-rooms/acr.png'
 					alt=''

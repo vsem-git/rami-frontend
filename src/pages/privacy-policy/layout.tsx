@@ -21,7 +21,6 @@ const LayoutContent = () => {
 
 			<ScrollSmoother>
 				<Outlet />
-
 				<Footer />
 			</ScrollSmoother>
 		</>
