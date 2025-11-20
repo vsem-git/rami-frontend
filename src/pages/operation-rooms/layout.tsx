@@ -16,12 +16,10 @@ const LayoutContent = () => {
 		<>
 			<ContactPopUp />
 			<DoctorCardModal />
-
 			<HeaderUpdate />
 
 			<ScrollSmoother>
 				<Outlet />
-
 				<Footer />
 			</ScrollSmoother>
 		</>

@@ -7,13 +7,12 @@ import { WelcomeOperationRooms } from '../../components/WelcomeOperationRooms/We
 
 export const OperationRooms = () => {
 	const photoRef = useRef<HTMLDivElement | null>(null)
+
 	return (
 		<>
 			<WelcomeOperationRooms nextPhotoRef={photoRef} />
-			<div id='telemedicine-section'>
-				<SafetyOperationRooms />
-				<SafetyOperationRoomsMobile />
-			</div>
+			<SafetyOperationRooms />
+			<SafetyOperationRoomsMobile />
 			<TelemedicineOperationRooms />
 			<InfoOperationRooms />
 		</>

@@ -61,7 +61,7 @@ export const WelcomeDoctor: React.FC = () => {
 		>
 			<div
 				aria-label='Фоновое изображение'
-				className='w-full h-[370px] md:h-auto'
+				className='w-full h-[380px] md:h-auto'
 			>
 				<div
 					ref={backgroundRef}
@@ -104,7 +104,7 @@ export const WelcomeDoctor: React.FC = () => {
 				className='relative z-20 min-h-auto md:min-h-screen flex flex-col justify-end p-6 xl:p-10 pb-0 md:pb-10 text-[#1D1D1D] md:text-white mt-4 sm:mt-6 md:mt-0'
 			>
 				<Link to={'/'}>
-					<button className='absolute top-[-115%] md:top-[15%] text-[11px] md:text-base text-white font-semibold flex items-center gap-2 uppercase cursor-pointer'>
+					<button className='absolute top-[-128%] md:top-[15%] text-[11px] md:text-base text-white font-semibold flex items-center gap-2 uppercase cursor-pointer left-4'>
 						<img src='/arrow (1).svg' alt='' className='w-4 h-4' /> Назад
 					</button>
 				</Link>
