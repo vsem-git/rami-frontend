@@ -615,7 +615,7 @@ body {
 		transform: translateX(41%);
 	}
 }
-@media (max-width: 380px) {
+@media (max-width: 480px) {
 	.image-stack img:nth-child(1) {
 		transform: translateX(-2%);
 		object-position: 0;
