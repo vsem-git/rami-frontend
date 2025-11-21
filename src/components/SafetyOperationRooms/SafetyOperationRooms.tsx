@@ -74,7 +74,7 @@ export const SafetyOperationRooms = () => {
 
 	if (typeof window !== 'undefined' && window.innerWidth <= 768) {
 		return (
-			<section className='relative w-full h-auto overflow-visible  md:block hidden'>
+			<section id='safety-operation' className='relative w-full h-auto overflow-visible  md:block hidden'>
 				<div className='flex flex-col h-full w-full'>
 					<div className='relative w-full h-[400px]'>
 						<img
@@ -162,7 +162,6 @@ export const SafetyOperationRooms = () => {
 		)
 	}
 
-	// Десктопная версия с анимациями
 	return (
 		<section
 			ref={sectionRef}
@@ -191,7 +190,6 @@ export const SafetyOperationRooms = () => {
 				/>
 
 				<div className='relative h-full'>
-					{/* ... остальной десктопный контент ... */}
 					<div className='absolute top-[200px] left-16 w-[320px] xl:w-[420px] space-y-3 xl:space-y-4'>
 						<h4 className='text-xs xl:text-[18px] text-[#B59158] leading-[155%] uppercase'>
 							01
