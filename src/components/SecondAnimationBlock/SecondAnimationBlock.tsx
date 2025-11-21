@@ -1,13 +1,15 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useHeader } from "../HeaderContext";
 import { usePopup } from "../PopupContext";
+import { useScroll } from "../../pages/Home/ScrollContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const FirstAnimationBlock = () => {
+    const { setScrollToServices } = useScroll();
     const { openPopup } = usePopup();
     const { setHeaderColor } = useHeader();
     const containerRef = useRef(null);
@@ -15,6 +17,7 @@ const FirstAnimationBlock = () => {
     const block2Ref = useRef(null);
     /* const block1LogoRef = useRef(null); */
     const block2ContendRef = useRef(null);
+    const tlRef = useRef<gsap.core.Timeline | null>(null);
 
     useGSAP(() => {
         const mm = gsap.matchMedia();
@@ -54,7 +57,7 @@ const FirstAnimationBlock = () => {
                     ease: "power2.inOut",
                     scrollTrigger: {
                         trigger: containerRef.current,
-                        start: "top+=150 top",
+                        start: "top+=180 top",
                         end: "top+=350 top",
                         scrub: true,
                     },
@@ -126,6 +129,33 @@ const FirstAnimationBlock = () => {
             duration: 0.5,
             ease: "power2.inOut",
         });
+
+        tl.addLabel("start");
+
+        tlRef.current = tl;
+    }, []);
+
+    const handleScrollTo = () => {
+        const tl = tlRef.current;
+        if (!tl) return;
+        const st = tl.scrollTrigger;
+        if (!st) return;
+        const progress = tl.labels["start"] / tl.duration();
+        const scrollPosition = st.start + progress * (st.end - st.start);
+        gsap.to(window, {
+            scrollTo: scrollPosition,
+            duration: 1,
+            scrub: false,
+            ease: "power2.inOut",
+        });
+    };
+
+    useEffect(() => {
+        setScrollToServices(() => handleScrollTo);
+
+        return () => {
+            setScrollToServices(() => {});
+        };
     }, []);
     return (
         <div

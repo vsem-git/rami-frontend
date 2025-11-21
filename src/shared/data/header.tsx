@@ -24,5 +24,5 @@ export const patientLinks2 = [
 export const footerLinks = [
     ["Блог", "/#"],
     ["Контакты", "/contact"],
-    ["Документы и лицензии", "/privacy-policy"],
+    ["Документы и лицензии", "/documents"],
 ];
