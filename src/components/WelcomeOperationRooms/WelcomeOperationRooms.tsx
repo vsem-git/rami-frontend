@@ -38,6 +38,7 @@ export const WelcomeOperationRooms: React.FC<{ nextPhotoRef: any }> = ({
 
 	return (
 		<section
+				id='welcome-operation'
 			ref={sectionRef}
 			className='relative h-auto md:h-screen w-full'
 			aria-label='Приветствие — умные операционные'
