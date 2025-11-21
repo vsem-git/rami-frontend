@@ -273,7 +273,7 @@ const VideoAnimation = () => {
                                 Листать вниз
                             </div> */}
                             <img
-                                src="/icon-r.svg"
+                                src="/icon-r-big.svg"
                                 alt="arrow-down"
                                 className="w-8 h-8 rotate-90 transition-all mt-8"
                             />
