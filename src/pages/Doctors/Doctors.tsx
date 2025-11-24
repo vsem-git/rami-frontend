@@ -3,7 +3,7 @@ import { DoctorsCard } from "../../components/DoctorsCard";
 import { usePopup } from "../../components/PopupContext";
 import { POPUP_NAMES } from "../../constants/popupNames";
 
-export type DoctorType = [string, string, string[], string, string];
+export type DoctorType = [string, string, string[], string, string, string];
 
 const DOCTORS_DATA: DoctorType[] = [
     [
@@ -12,6 +12,7 @@ const DOCTORS_DATA: DoctorType[] = [
         ["ГЛАВНЫЙ ВРАЧ", "Пластический хирург"],
         "Серб",
         "Ирина Анатольевна",
+        "/doctor",
     ],
     [
         "/swiper2.webp",
@@ -23,6 +24,7 @@ const DOCTORS_DATA: DoctorType[] = [
         ],
         "Телишевский",
         "Антон Валентинович",
+        "/doctor",
     ],
     [
         "/swiper3.webp",
@@ -30,6 +32,7 @@ const DOCTORS_DATA: DoctorType[] = [
         ["КАНДИДАТ МЕДИЦИНСКИХ НАУК", "ПЛАСТИЧЕСКИЙ ХИРУРГ"],
         "Тарасенко",
         "Василий Сергеевич",
+        "/doctor",
     ],
     [
         "/swiper4.webp",
@@ -37,6 +40,7 @@ const DOCTORS_DATA: DoctorType[] = [
         ["ДОКТОР МЕДИЦИНСКИХ НАУК", "ПЛАСТИЧЕСКИЙ ХИРУРГ"],
         "Хрусталева",
         "Ирина Эдуардовна",
+        "/doctor",
     ],
     [
         "/swiper5.webp",
@@ -44,8 +48,16 @@ const DOCTORS_DATA: DoctorType[] = [
         ["ПЛАСТИЧЕСКИЙ ХИРУРГ"],
         "Кардов",
         "Хазрит Музаринович",
+        "/doctor",
     ],
-    ["/swiper6.webp", "/rami.gif", ["ПЛАСТИЧЕСКИЙ ХИРУРГ"], "Хамуд", "Рами"],
+    [
+        "/swiper6.webp",
+        "/rami.gif",
+        ["ПЛАСТИЧЕСКИЙ ХИРУРГ"],
+        "Хамуд",
+        "Рами",
+        "/doctor",
+    ],
 ];
 
 interface Tab {
