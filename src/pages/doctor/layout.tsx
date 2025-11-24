@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import ContactPopUp from "../../components/ContactPopUp";
 import { DoctorCardModal } from "../../components/DoctorCardModal";
@@ -8,18 +8,17 @@ import { DoctorResultEffect } from "../../components/DoctorResultEffect";
 import EducationPanel from "../../components/EducationPanel";
 import ExperiencePanel from "../../components/ExperiencePanel";
 import Footer from "../../components/Footer";
-import { HeaderProvider, useHeader } from "../../components/HeaderContext";
-import Header from "../../components/Header";
+import { HeaderProvider } from "../../components/HeaderContext";
+import HeaderUpdate from "../../components/HeaderUpdate";
 import { PopupProvider, usePopup } from "../../components/PopupContext";
 import ScrollSmoother from "../../components/ScrollSmoother";
 import { POPUP_NAMES } from "../../constants/popupNames";
-import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const LayoutContent = () => {
     const { isOpen } = usePopup();
-    const { setHeaderColor } = useHeader();
+    const [useWhiteText, setUseWhiteText] = useState(false);
 
     const isAnyPopupOpen =
         isOpen(POPUP_NAMES.CONTACT) ||
@@ -50,8 +49,8 @@ const LayoutContent = () => {
                 trigger: welcomeSection,
                 start: "top top",
                 end: "bottom top",
-                onEnter: () => setHeaderColor("#000000"),
-                onLeaveBack: () => setHeaderColor("#ffffff"),
+                onEnter: () => setUseWhiteText(false),
+                onLeaveBack: () => setUseWhiteText(true),
                 scroller: smootherWrapper,
             })
         );
@@ -62,8 +61,8 @@ const LayoutContent = () => {
                     trigger: cardsSection,
                     start: "center center",
                     end: "bottom top",
-                    onEnter: () => setHeaderColor("#ffffff"),
-                    onLeaveBack: () => setHeaderColor("#ffffff"),
+                    onEnter: () => setUseWhiteText(true),
+                    onLeaveBack: () => setUseWhiteText(true),
                     scroller: smootherWrapper,
                 })
             );
@@ -74,8 +73,8 @@ const LayoutContent = () => {
                 ScrollTrigger.create({
                     trigger: videoSection,
                     start: "top center",
-                    onEnter: () => setHeaderColor("#ffffff"),
-                    onLeaveBack: () => setHeaderColor("#000000"),
+                    onEnter: () => setUseWhiteText(true),
+                    onLeaveBack: () => setUseWhiteText(false),
                     scroller: smootherWrapper,
                 })
             );
@@ -86,8 +85,8 @@ const LayoutContent = () => {
                 ScrollTrigger.create({
                     trigger: contactFooterSection,
                     start: "top center",
-                    onEnter: () => setHeaderColor("#000000"),
-                    onLeaveBack: () => setHeaderColor("#ffffff"),
+                    onEnter: () => setUseWhiteText(false),
+                    onLeaveBack: () => setUseWhiteText(true),
                     scroller: smootherWrapper,
                 })
             );
@@ -98,8 +97,8 @@ const LayoutContent = () => {
                 ScrollTrigger.create({
                     trigger: footerSection,
                     start: "top center",
-                    onEnter: () => setHeaderColor("#ffffff"),
-                    onLeaveBack: () => setHeaderColor("#000000"),
+                    onEnter: () => setUseWhiteText(true),
+                    onLeaveBack: () => setUseWhiteText(false),
                     scroller: smootherWrapper,
                 })
             );
@@ -136,7 +135,7 @@ const LayoutContent = () => {
             <EducationPanel />
             <ExperiencePanel />
 
-            {!isAnyPopupOpen && <Header />}
+            {!isAnyPopupOpen && <HeaderUpdate useWhiteText={useWhiteText} />}
 
             <ScrollSmoother>
                 <Outlet />

@@ -140,14 +140,6 @@ const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
                     ref={logoRef}
                 >
                     <div className="relative">
-                        <div
-                            className="absolute inset-0 w-[100px] h-[81px] 2xl:w-[149px] 2xl:h-[120px] bg-black/15 blur-[30px] z-0"
-                            style={{
-                                opacity: useWhiteText ? 1 : 0,
-                                transition: "opacity 0.3s ease-in-out",
-                            }}
-                        ></div>
-
                         <img
                             src={logoSrc}
                             alt="logo"
