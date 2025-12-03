@@ -29,6 +29,10 @@ import PricesLayout from "../pages/prices/layout";
 import Prices from "../pages/prices/Prices";
 import DocumentsLayout from "../pages/documents/layout";
 import Documents from "../pages/documents/Documents";
+import { Cookie } from "../pages/cookie/Cookie";
+import CookieLayout from "../pages/cookie/layout";
+import { UserAgreement } from "../pages/poljzovateljskoe-soglashenie-ob-ispoljzovanii-sajta/UserAgreement";
+import UserAgreementLayout from "../pages/poljzovateljskoe-soglashenie-ob-ispoljzovanii-sajta/layout";
 
 const router = createBrowserRouter([
     {
@@ -178,6 +182,26 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <Documents />,
+            },
+        ],
+    },
+    {
+        path: "/cookie",
+        element: <CookieLayout />,
+        children: [
+            {
+                index: true,
+                element: <Cookie />,
+            },
+        ],
+    },
+    {
+        path: "/poljzovateljskoe-soglashenie-ob-ispoljzovanii-sajta",
+        element: <UserAgreementLayout />,
+        children: [
+            {
+                index: true,
+                element: <UserAgreement />,
             },
         ],
     },
