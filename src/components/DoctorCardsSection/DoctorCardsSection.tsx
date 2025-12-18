@@ -1,10 +1,11 @@
 import { useRef, type MouseEvent } from 'react'
 import { POPUP_NAMES } from '../../constants/popupNames'
+import type { Doctor } from '../../shared/types/doctor'
 import { DoctorCard } from '../DoctorCard'
 import { usePopup } from '../PopupContext'
 import { useCardsAnimation } from './animation/useCardsAnimation'
 
-export const DoctorCardsSection: React.FC = () => {
+export const DoctorCardsSection = ({ doctor }: { doctor: Doctor }) => {
 	const cardsSectionRef = useRef<HTMLElement | null>(null)
 	const card1Ref = useRef<HTMLDivElement | null>(null)
 	const card2Ref = useRef<HTMLDivElement | null>(null)
@@ -22,6 +23,10 @@ export const DoctorCardsSection: React.FC = () => {
 		openPopup(POPUP_NAMES.DOCTOR_CARD)
 	}
 
+	if (!doctor.cards || doctor.cards.length < 3) {
+		return null
+	}
+
 	return (
 		<section
 			ref={cardsSectionRef}
@@ -31,20 +36,20 @@ export const DoctorCardsSection: React.FC = () => {
 			<div className='w-full grid grid-cols-1 sm:grid-cols-3 gap-2'>
 				<DoctorCard
 					ref={card1Ref}
-					imageUrl='/doctor-screen/card1.webp'
+					imageUrl={doctor.cards[0]}
 					className='bg-[70%_0rem] md:bg-[70%_2rem]'
 					buttonText='Результаты'
 					onClick={handleOpenModal}
 				/>
 				<DoctorCard
 					ref={card2Ref}
-					imageUrl='/doctor-screen/card2.webp'
-					buttonText='Красота как стиль жизни'
+					imageUrl={doctor.cards[1]}
+					buttonText='Обучение у Брайана Мендельсона и любимая'
 					onClick={handleOpenModal}
 				/>
 				<DoctorCard
 					ref={card3Ref}
-					imageUrl='/doctor-screen/card3.webp'
+					imageUrl={doctor.cards[2]}
 					buttonText='Путь в хирургии'
 					onClick={handleOpenModal}
 				/>
