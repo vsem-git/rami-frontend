@@ -3,46 +3,27 @@
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import type { Doctor } from '../../shared/types/doctor'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const leftColumnImages = [
-	'/doctor-screen/gallery/photo2.webp',
-	'/doctor-screen/gallery/photo4.webp',
-	'/doctor-screen/gallery/photo6.webp',
-]
+export const DoctorGallery = ({ doctor }: { doctor: Doctor }) => {
+	const leftColumnImages = doctor.gallery?.[0]?.leftColumnImages || []
+	const centerColumnImages = doctor.gallery?.[1]?.centerColumnImages || []
+	const rightColumnImages = doctor.gallery?.[2]?.rightColumnImages || []
 
-const centerColumnImages = [
-	'/doctor-screen/gallery/photo1.webp',
-	'/doctor-screen/gallery/photo7.webp',
-]
+	const allImages = [
+		...leftColumnImages,
+		...centerColumnImages,
+		...rightColumnImages,
+	]
 
-const rightColumnImages = [
-	'/doctor-screen/card2.webp',
-	'/doctor-screen/gallery/photo3.webp',
-	'/doctor-screen/gallery/photo5.webp',
-]
-
-const allImages = [
-	...leftColumnImages,
-	...centerColumnImages,
-	...rightColumnImages,
-]
-
-export const DoctorGallery: React.FC = () => {
 	const centerRef = useRef<HTMLDivElement | null>(null)
 	const scrollingTextRef = useRef<HTMLDivElement | null>(null)
 	const carouselRef = useRef<HTMLDivElement | null>(null)
 
 	const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
 	const [isMobile, setIsMobile] = useState(false)
-
-	const calculateYValue = useCallback((width: number) => {
-		if (width >= 1280) return 620
-		if (width >= 1024) return 420
-		if (width >= 768) return 325
-		return 345
-	}, [])
 
 	useEffect(() => {
 		const updateWindowSize = () => {
@@ -56,10 +37,17 @@ export const DoctorGallery: React.FC = () => {
 		return () => window.removeEventListener('resize', updateWindowSize)
 	}, [])
 
+	// Анимация центральной колонки
 	useEffect(() => {
 		if (!centerRef.current || windowSize.width === 0 || isMobile) return
 
-		const yValue = calculateYValue(windowSize.width)
+		// Если в левой и правой колонке по 2 картинки, анимация не нужна
+		if (leftColumnImages.length === 2 && rightColumnImages.length === 2) return
+
+		// Динамический сдвиг для центральной колонки
+		const imgHeight = 300 // примерная высота одной картинки
+		const spacing = 16 // расстояние между картинками (tailwind space-y-4)
+		const yValue = centerColumnImages.length * (imgHeight + spacing)
 
 		const ctx = gsap.context(() => {
 			gsap.fromTo(
@@ -71,7 +59,7 @@ export const DoctorGallery: React.FC = () => {
 					scrollTrigger: {
 						trigger: centerRef.current,
 						start: 'top 0%',
-						end: 'bottom 20%',
+						end: `+=${yValue}`,
 						scrub: 1.5,
 					},
 				}
@@ -82,8 +70,15 @@ export const DoctorGallery: React.FC = () => {
 			ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 			ctx.revert()
 		}
-	}, [windowSize.width, isMobile, calculateYValue])
+	}, [
+		windowSize.width,
+		isMobile,
+		centerColumnImages.length,
+		leftColumnImages.length,
+		rightColumnImages.length,
+	])
 
+	// Карусель для мобильных
 	useEffect(() => {
 		if (!carouselRef.current || !isMobile) return
 
@@ -107,6 +102,7 @@ export const DoctorGallery: React.FC = () => {
 		return () => ctx.revert()
 	}, [isMobile])
 
+	// Скроллинг текста
 	useEffect(() => {
 		if (!scrollingTextRef.current) return
 
@@ -151,7 +147,7 @@ export const DoctorGallery: React.FC = () => {
 				/>
 			</div>
 		))
-	}, [])
+	}, [allImages])
 
 	return (
 		<div className='w-full px-0 md:px-6 pb-40'>
@@ -163,10 +159,10 @@ export const DoctorGallery: React.FC = () => {
 					aria-label='Scrolling heading'
 				>
 					<h1 className='text-[44px]/[125%] md:text-[72px]/[125%] xl:text-[120px]/[105%] font-normal text-[#1D1D1D] uppercase mr-10 xl:mr-20'>
-						Красота как стиль жизни
+						{doctor.titleGallery}
 					</h1>
 					<h1 className='text-[44px]/[125%] md:text-[72px]/[125%] xl:text-[120px]/[105%] font-normal text-[#1D1D1D] uppercase mr-10 xl:mr-20'>
-						Красота как стиль жизни
+						{doctor.titleGallery}
 					</h1>
 				</div>
 			</div>
@@ -192,6 +188,7 @@ export const DoctorGallery: React.FC = () => {
 				</div>
 			)}
 
+			{/* Mobile Carousel */}
 			{isMobile && (
 				<div className='md:hidden overflow-hidden'>
 					<div

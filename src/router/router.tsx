@@ -76,7 +76,7 @@ const router = createBrowserRouter([
         ],
     },
     {
-        path: "/doctor",
+        path: "/doctor/:id",
         element: <DoctorLayout />,
         children: [
             {
