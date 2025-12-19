@@ -36,7 +36,7 @@ export const EducationPathCard = ({
 
 	return (
 		<div className='bg-white  mb-0 md:mb-5'>
-			<div className='relative h-[100%] min-h-auto sm:min-h-[500px] 2xl:min-h-[700px] w-full '>
+			<div className='relative h-[100%] sm:h-[500px] 2xl:h-[700px] w-full '>
 				<img
 					src={images[activeImage]}
 					alt={isEducation ? `Обучение ${index + 1}` : `Хирургия ${index + 1}`}
