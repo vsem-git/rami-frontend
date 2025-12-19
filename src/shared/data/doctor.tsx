@@ -114,6 +114,8 @@ export const DOCTORS_DATA: Doctor[] = [
 					'w-[323px] md:w-[380px] xl:w-[449px] h-[216px] md:h-[250px] xl:h-[300px]',
 			},
 		],
+		modalCardEducation: [],
+		modalCardPath: [],
 		welcome_block: [
 			{
 				bgMobile: '/doctor-screen/serb1.webp',
@@ -259,6 +261,7 @@ export const DOCTORS_DATA: Doctor[] = [
 			'/doctor-screen/tarasenko-vasiliy/archive/card6.JPG',
 			'/doctor-screen/tarasenko-vasiliy/training/card2.jpg',
 		],
+
 		modalProfessionalDev: [
 			{
 				description:
@@ -599,6 +602,77 @@ export const DOCTORS_DATA: Doctor[] = [
 				rightColumnImages: [
 					'/doctor-screen/tarasenko-vasiliy/training/card3.jpg',
 					'/doctor-screen/tarasenko-vasiliy/training/card2.jpg',
+				],
+			},
+		],
+		modalCardEducation: [
+			{
+				id: 1,
+				year: '',
+				description: [],
+				images: [
+					'/doctor-screen/tarasenko-vasiliy/training/card6.jpg',
+					'/doctor-screen/tarasenko-vasiliy/training/card1.jpg',
+				],
+			},
+			{
+				id: 2,
+				year: '',
+				description: [],
+				images: [
+					'/doctor-screen/tarasenko-vasiliy/training/card4.jpg',
+					'/doctor-screen/tarasenko-vasiliy/training/card5.jpg',
+				],
+			},
+			{
+				id: 3,
+				year: '',
+				description: [],
+				images: [
+					'/doctor-screen/tarasenko-vasiliy/training/card3.jpg',
+					'/doctor-screen/tarasenko-vasiliy/training/card2.jpg',
+				],
+			},
+		],
+		modalCardPath: [
+			{
+				id: 1,
+				year: '2015 - 2016',
+				description: [
+					[
+						'Б. Мендельсон, курс MAFAC (продвинутая анатомия лица дляпластических хирургов), Мельбурн, Австралия',
+						'ISAPS, Киото, Япония',
+					],
+				],
+				images: [
+					'/doctor-screen/tarasenko-vasiliy/archive/card1.PNG',
+					'/doctor-screen/tarasenko-vasiliy/archive/card2.JPG',
+				],
+			},
+			{
+				id: 2,
+				year: '2016 - 2017',
+				description: [
+					[
+						'Б.Мендельсон, курс «Инновационные методы омоложения лица», Санкт-Петербург',
+						'Б. Мендельсон (Австралия) и Д. Батюков (Беларусь), продвинутый курс MAFAC',
+					],
+				],
+				images: [
+					'/doctor-screen/tarasenko-vasiliy/archive/card3.jpg',
+					'/doctor-screen/tarasenko-vasiliy/archive/card4.JPG',
+				],
+			},
+			{
+				id: 3,
+				year: '2017 - 2018',
+				description: [
+					'3.Сэм Хамра (США), мастер-класс, Москва',
+					'Рамирез (США), международный интенсивный обучающий курс, Санкт-Петербург',
+				],
+				images: [
+					'/doctor-screen/tarasenko-vasiliy/archive/card5.JPG',
+					'/doctor-screen/tarasenko-vasiliy/archive/card6.JPG',
 				],
 			},
 		],

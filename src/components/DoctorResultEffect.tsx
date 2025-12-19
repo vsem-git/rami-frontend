@@ -155,7 +155,7 @@ export const DoctorResultEffect = ({
 								/>
 								Назад
 							</button>
-							<h2 className='text-[16px] md:text-2xl xl:text-[28px] text-[#1D1D1D] uppercase font-normal max-w-1/2'>
+							<h2 className='text-[16px] md:text-2xl 2xl:text-[28px] text-[#1D1D1D] uppercase font-normal max-w-full xl:max-w-1/2'>
 								{selectedItem.description}
 							</h2>
 						</div>
@@ -172,7 +172,7 @@ export const DoctorResultEffect = ({
 						</button>
 					</div>
 
-					<div className='w-full h-[870px] mt-5 sm:mt-10 flex flex-col sm:flex-row items-center'>
+					<div className='w-full h-[550px] xl:h-[600px] 2xl:h-[870px] mt-5 sm:mt-10 flex flex-col md:flex-row items-center'>
 						<div className='h-full w-full relative'>
 							<img
 								src={beforeImg}

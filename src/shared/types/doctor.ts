@@ -59,6 +59,21 @@ export type ModalResultItem = {
 	images: string[]
 }
 
+// Новый тип для карточек обучения
+export type ModalCardEducationItem = {
+	id: number
+	year?: string
+	description: string[] | string[][]
+	images: string[]
+}
+
+export type ModalCardPathItem = {
+	id: number
+	year: string
+	description: string[] | string[][]
+	images: string[]
+}
+
 export type Doctor = {
 	image: string
 	video: string
@@ -84,4 +99,8 @@ export type Doctor = {
 	gallery?: GalleryItem[]
 
 	modal_result?: ModalResultItem[]
+
+	// Новые поля для модалок
+	modalCardEducation?: ModalCardEducationItem[]
+	modalCardPath?: ModalCardPathItem[]
 }
