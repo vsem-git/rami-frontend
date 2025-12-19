@@ -7,32 +7,6 @@ import { CardModal } from './CardModal'
 import { usePopup } from './PopupContext'
 import close from '/plus.svg'
 
-// const modalResults = [
-// 	{
-// 		id: 1,
-// 		title: 'Работа 1',
-// 		images: [
-// 			'./doctor-screen/image-1.1 1.webp',
-// 			'./doctor-screen/image-1.webp',
-// 		],
-// 	},
-// 	{
-// 		id: 2,
-// 		title: 'Работа 2',
-// 		images: ['./doctor-screen/image-2.1.webp', './doctor-screen/image-2.webp'],
-// 	},
-// 	{
-// 		id: 3,
-// 		title: 'Работа 3',
-// 		images: ['./doctor-screen/image-3.1.webp', './doctor-screen/image-3.webp'],
-// 	},
-// 	{
-// 		id: 4,
-// 		title: 'Работа 4',
-// 		images: ['./doctor-screen/image-4.1.webp', './doctor-screen/image-4.webp'],
-// 	},
-// ]
-
 gsap.registerPlugin(ScrollSmootherClass)
 
 export const DoctorCardModal = ({

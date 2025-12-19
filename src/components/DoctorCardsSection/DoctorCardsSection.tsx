@@ -16,11 +16,37 @@ export const DoctorCardsSection = ({ doctor }: { doctor: Doctor }) => {
 
 	useCardsAnimation(cardsSectionRef, cardsRefs)
 
-	const handleOpenModal = (
+	const handleOpenResults = (
 		e?: MouseEvent<HTMLButtonElement | HTMLDivElement>
 	) => {
 		e?.preventDefault()
-		openPopup(POPUP_NAMES.DOCTOR_CARD)
+		openPopup(POPUP_NAMES.UNIVERSAL_MODAL, {
+			type: 'results',
+			title: 'Результаты',
+			items: doctor.modal_result || [],
+		})
+	}
+
+	const handleOpenEducation = (
+		e?: MouseEvent<HTMLButtonElement | HTMLDivElement>
+	) => {
+		e?.preventDefault()
+		openPopup(POPUP_NAMES.UNIVERSAL_MODAL, {
+			type: 'education',
+			title: 'Обучение у Брайана Мендельсона',
+			items: doctor.modalCardEducation || [],
+		})
+	}
+
+	const handleOpenSurgeryPath = (
+		e?: MouseEvent<HTMLButtonElement | HTMLDivElement>
+	) => {
+		e?.preventDefault()
+		openPopup(POPUP_NAMES.UNIVERSAL_MODAL, {
+			type: 'surgeryPath',
+			title: 'Путь в хирургии',
+			items: doctor.modalCardPath || [],
+		})
 	}
 
 	if (!doctor.cards || doctor.cards.length < 3) {
@@ -39,19 +65,19 @@ export const DoctorCardsSection = ({ doctor }: { doctor: Doctor }) => {
 					imageUrl={doctor.cards[0]}
 					className='bg-[70%_0rem] md:bg-[70%_2rem]'
 					buttonText='Результаты'
-					onClick={handleOpenModal}
+					onClick={handleOpenResults}
 				/>
 				<DoctorCard
 					ref={card2Ref}
 					imageUrl={doctor.cards[1]}
 					buttonText='Обучение у Брайана Мендельсона и любимая'
-					onClick={handleOpenModal}
+					onClick={handleOpenEducation}
 				/>
 				<DoctorCard
 					ref={card3Ref}
 					imageUrl={doctor.cards[2]}
 					buttonText='Путь в хирургии'
-					onClick={handleOpenModal}
+					onClick={handleOpenSurgeryPath}
 				/>
 			</div>
 		</section>

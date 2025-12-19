@@ -3,7 +3,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useEffect, useState } from 'react'
 import { Outlet, useLocation, useParams } from 'react-router-dom'
 import ContactPopUp from '../../components/ContactPopUp'
-import { DoctorCardModal } from '../../components/DoctorCardModal'
 import { DoctorResultEffect } from '../../components/DoctorResultEffect'
 import EducationPanel from '../../components/EducationPanel'
 import ExperiencePanel from '../../components/ExperiencePanel'
@@ -12,6 +11,7 @@ import { HeaderProvider } from '../../components/HeaderContext'
 import HeaderUpdate from '../../components/HeaderUpdate'
 import { PopupProvider, usePopup } from '../../components/PopupContext'
 import ScrollSmoother from '../../components/ScrollSmoother'
+import { UniversalModal } from '../../components/UniversalModal'
 import { POPUP_NAMES } from '../../constants/popupNames'
 import { DOCTORS_DATA } from '../../shared/data/doctor'
 
@@ -27,7 +27,7 @@ const LayoutContent = () => {
 
 	const isAnyPopupOpen =
 		isOpen(POPUP_NAMES.CONTACT) ||
-		isOpen(POPUP_NAMES.DOCTOR_CARD) ||
+		isOpen(POPUP_NAMES.UNIVERSAL_MODAL) ||
 		isOpen(POPUP_NAMES.DOCTORS_EDUCATION) ||
 		isOpen(POPUP_NAMES.DOCTORS_EXPERIENCE)
 
@@ -134,12 +134,10 @@ const LayoutContent = () => {
 					className='h-full object-cover overflow-visible'
 				/>
 			</div>
-			<ContactPopUp />
-			<DoctorCardModal
-				modalResults={doctor?.modal_result}
-				onSelect={item => setSelectedItem(item)}
-			/>
 
+			<ContactPopUp />
+
+			<UniversalModal onSelect={item => setSelectedItem(item)} />
 			<DoctorResultEffect selectedItem={selectedItem} />
 
 			<EducationPanel educationData={doctor?.modalEducation || []} />
