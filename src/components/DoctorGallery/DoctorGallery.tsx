@@ -37,16 +37,13 @@ export const DoctorGallery = ({ doctor }: { doctor: Doctor }) => {
 		return () => window.removeEventListener('resize', updateWindowSize)
 	}, [])
 
-	// Анимация центральной колонки
 	useEffect(() => {
 		if (!centerRef.current || windowSize.width === 0 || isMobile) return
 
-		// Если в левой и правой колонке по 2 картинки, анимация не нужна
 		if (leftColumnImages.length === 2 && rightColumnImages.length === 2) return
 
-		// Динамический сдвиг для центральной колонки
-		const imgHeight = 300 // примерная высота одной картинки
-		const spacing = 16 // расстояние между картинками (tailwind space-y-4)
+		const imgHeight = 300
+		const spacing = 16
 		const yValue = centerColumnImages.length * (imgHeight + spacing)
 
 		const ctx = gsap.context(() => {
@@ -78,7 +75,6 @@ export const DoctorGallery = ({ doctor }: { doctor: Doctor }) => {
 		rightColumnImages.length,
 	])
 
-	// Карусель для мобильных
 	useEffect(() => {
 		if (!carouselRef.current || !isMobile) return
 
@@ -102,7 +98,6 @@ export const DoctorGallery = ({ doctor }: { doctor: Doctor }) => {
 		return () => ctx.revert()
 	}, [isMobile])
 
-	// Скроллинг текста
 	useEffect(() => {
 		if (!scrollingTextRef.current) return
 
@@ -150,7 +145,7 @@ export const DoctorGallery = ({ doctor }: { doctor: Doctor }) => {
 	}, [allImages])
 
 	return (
-		<div className='w-full px-0 md:px-6 pb-40'>
+		<div className='w-full  pb-40'>
 			<div className='overflow-hidden whitespace-nowrap mb-10 md:mb-16 xl:mb-20'>
 				<div
 					ref={scrollingTextRef}
@@ -167,39 +162,40 @@ export const DoctorGallery = ({ doctor }: { doctor: Doctor }) => {
 				</div>
 			</div>
 
-			{!isMobile && (
-				<div className='hidden md:flex justify-center gap-4'>
-					<div className='flex flex-col space-y-4 flex-1'>
-						{renderImages(leftColumnImages)}
-					</div>
+			<div className='px-0 md:px-6'>
+				{!isMobile && (
+					<div className='hidden md:flex justify-center gap-4'>
+						<div className='flex flex-col space-y-4 flex-1'>
+							{renderImages(leftColumnImages)}
+						</div>
 
-					<div className='flex-1'>
-						<div
-							ref={centerRef}
-							className='flex flex-col justify-center space-y-4'
-						>
-							{renderImages(centerColumnImages)}
+						<div className='flex-1'>
+							<div
+								ref={centerRef}
+								className='flex flex-col justify-center space-y-4'
+							>
+								{renderImages(centerColumnImages)}
+							</div>
+						</div>
+
+						<div className='flex flex-col space-y-4 flex-1'>
+							{renderImages(rightColumnImages)}
 						</div>
 					</div>
+				)}
 
-					<div className='flex flex-col space-y-4 flex-1'>
-						{renderImages(rightColumnImages)}
+				{isMobile && (
+					<div className='md:hidden overflow-hidden'>
+						<div
+							ref={carouselRef}
+							className='flex'
+							style={{ width: 'max-content' }}
+						>
+							{renderCarouselItems()}
+						</div>
 					</div>
-				</div>
-			)}
-
-			{/* Mobile Carousel */}
-			{isMobile && (
-				<div className='md:hidden overflow-hidden'>
-					<div
-						ref={carouselRef}
-						className='flex'
-						style={{ width: 'max-content' }}
-					>
-						{renderCarouselItems()}
-					</div>
-				</div>
-			)}
+				)}
+			</div>
 		</div>
 	)
 }

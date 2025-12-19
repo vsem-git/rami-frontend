@@ -155,6 +155,21 @@ export const Doctor = () => {
 				ref={sectionRef}
 				className='relative w-full h-auto min-h-[640px] lg:min-h-[720px] flex items-center justify-center px-4 xl:px-10 overflow-hidden'
 			>
+				{/* <div className='bgpattern1 fixed top-0 right-0 h-[130%] hidden sm:block z-[0]'>
+					<img
+						src='/pattern1.svg'
+						alt='teambg'
+						className='h-full object-cover overflow-visible'
+					/>
+				</div>
+				<div className='bgpattern2 fixed top-0 left-0 h-[130%] hidden sm:block z-[0]'>
+					<img
+						src='/pattern2.svg'
+						alt='teambg'
+						className='h-full object-cover overflow-visible'
+					/>
+				</div> */}
+
 				<div className='flex items-start flex-col sm:flex-row gap-4 lg:gap-5 2xl:gap-10'>
 					<img
 						src={mes}
