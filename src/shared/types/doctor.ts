@@ -42,6 +42,7 @@ export type RouteItem = {
 
 export type WelcomeBlockItem = {
 	bg: string
+	bgMobile: string
 	title: JSX.Element
 	description: JSX.Element
 }
@@ -65,6 +66,7 @@ export type Doctor = {
 	lastName: string
 	firstName: string
 	link: string
+	linkQuote?: string
 	id: string
 
 	videoFooterIm?: string
