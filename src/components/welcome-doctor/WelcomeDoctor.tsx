@@ -54,6 +54,8 @@ export const WelcomeDoctor = ({ doctor }: { doctor: Doctor }) => {
 		openPopup(POPUP_NAMES.DOCTORS_EXPERIENCE)
 	}
 
+	const isDesktop = window.innerWidth >= 768
+
 	return (
 		<section
 			ref={sectionRef}
@@ -66,15 +68,20 @@ export const WelcomeDoctor = ({ doctor }: { doctor: Doctor }) => {
 			>
 				<div
 					ref={backgroundRef}
-					className="relative w-full h-full md:absolute inset-0 bg-cover bg-center bg-[url('/doctor-screen/bg-color.png')] md:bg-[url('/doctor-screen/bg.webp')] flex items-end justify-center"
-					style={{ backgroundPosition: '50% 8%' }}
+					className={`relative w-full h-full md:absolute inset-0 bg-cover bg-center  flex items-end justify-center`}
+					style={{
+						backgroundPosition: '50% 8%',
+						backgroundImage: isDesktop
+							? `url(${doctor.welcome_block?.[0]?.bg})`
+							: "url('/doctor-screen/bg-color.png')",
+					}}
 					role='img'
 				>
 					<div
 						className='block md:hidden w-[299px] h-[299px] bg-cover bg-center '
 						style={{
 							backgroundPosition: '50% 10%',
-							backgroundImage: `url(${doctor.welcome_block?.[0]?.bg})`,
+							backgroundImage: `url(${doctor.welcome_block?.[0]?.bgMobile})`,
 						}}
 						aria-hidden='true'
 					/>

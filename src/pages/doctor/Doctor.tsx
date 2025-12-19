@@ -163,9 +163,12 @@ export const Doctor = () => {
 					/>
 					<div className='space-y-2 md:space-y-6 max-w-[480px] lg:max-w-[560px] xl:max-w-[780px]'>
 						{doctor.quote}
-						<button className='text-[11px] md:text-[clamp(0.875rem,1.2vw,1rem)] font-semibold uppercase text-[#1D1D1D] cursor-pointer'>
+						<a
+							href={doctor.linkQuote}
+							className='text-[11px] md:text-[clamp(0.875rem,1.2vw,1rem)] font-semibold uppercase text-[#1D1D1D] cursor-pointer'
+						>
 							Читать статью
-						</button>
+						</a>
 					</div>
 				</div>
 			</section>

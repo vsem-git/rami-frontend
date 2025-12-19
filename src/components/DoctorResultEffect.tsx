@@ -1,11 +1,12 @@
 import { gsap } from 'gsap'
 import { useEffect, useRef, useState } from 'react'
 import { POPUP_NAMES } from '../constants/popupNames'
+import type { ModalResultItem } from '../shared/types/doctor'
 import { usePopup } from './PopupContext'
 import close from '/plus.svg'
 
 interface DoctorResultEffectProps {
-	selectedItem: any
+	selectedItem: ModalResultItem
 }
 
 export const DoctorResultEffect = ({

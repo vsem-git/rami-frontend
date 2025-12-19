@@ -39,7 +39,7 @@ export const DoctorCardModal = ({
 	modalResults,
 	onSelect,
 }: {
-	modalResults: Doctor
+	modalResults: Doctor['modal_result']
 	onSelect: (item: any) => void
 }) => {
 	const modalRef = useRef<HTMLDivElement>(null)
@@ -152,7 +152,7 @@ export const DoctorCardModal = ({
 				</div>
 
 				<div className='w-full grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6 mt-10 '>
-					{modalResults.map((item, index) => (
+					{modalResults?.map((item, index) => (
 						<CardModal
 							key={item.id}
 							item={item}

@@ -116,7 +116,8 @@ export const DOCTORS_DATA: Doctor[] = [
 		],
 		welcome_block: [
 			{
-				bg: '/doctor-screen/serb1.webp',
+				bgMobile: '/doctor-screen/serb1.webp',
+				bg: '/doctor-screen/bg.webp',
 				title: (
 					<h1 className='text-2xl/[125%] sm:text-3xl/[125%] md:text-5xl/[125%] xl:text-7xl/[125%] 2xl:text-8xl/[125%] font-normal uppercase mb-6 xl:mb-10'>
 						Серб Ирина
@@ -246,8 +247,8 @@ export const DOCTORS_DATA: Doctor[] = [
 	{
 		image: '/swiper3.webp',
 		video: '/tarasenko.gif',
-		videoFooterIm: '/tarasenko.webm',
-		videoFooterMp: '/tarasenko.webm',
+		videoFooterIm: '/serb-short.webm',
+		videoFooterMp: '/serb-short.mp4',
 		specialties: ['КАНДИДАТ МЕДИЦИНСКИХ НАУК', 'ПЛАСТИЧЕСКИЙ ХИРУРГ'],
 		lastName: 'Тарасенко',
 		firstName: 'Василий Сергеевич',
@@ -543,7 +544,8 @@ export const DOCTORS_DATA: Doctor[] = [
 		],
 		welcome_block: [
 			{
-				bg: '/doctor-screen/tarasenko-vasiliy/TARASENKO.jpg',
+				bgMobile: '/doctor-screen/tarasenko-vasiliy/TARASENKO.png',
+				bg: '/doctor-screen/tarasenko-vasiliy/bg.png',
 				title: (
 					<h1 className='text-2xl/[125%] sm:text-3xl/[125%] md:text-5xl/[125%] xl:text-7xl/[125%]  font-normal uppercase mb-6 xl:mb-10'>
 						ТАРАСЕНКО ВАСИЛИЙ
@@ -577,6 +579,8 @@ export const DOCTORS_DATA: Doctor[] = [
 				поток.
 			</p>
 		),
+		linkQuote:
+			'https://www.grazia.ru/beauty/kak-plasticheskie-operacii-vliyayut-na-jizn-samoocenku-i-kareru-vse-o-glavnyh-trendah-esteticheskoi-mediciny/',
 		titleGallery: 'Обучение у Мендельсона и любимая методика',
 		gallery: [
 			{
