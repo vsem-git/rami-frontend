@@ -34,32 +34,17 @@ export const WelcomeApartmentsNew = () => {
 		const nextSection = document.getElementById('safety-apartments-new')
 
 		if (!nextSection) {
-			console.log('Next section not found, id:', 'safety-apartments-new')
-			console.log(
-				'Available elements with that id:',
-				document.querySelectorAll('#safety-apartments-new')
-			)
 			return
 		}
 
-		console.log('Scrolling to section:', nextSection)
-
-		// Вариант 1: Используем GSAP для плавной прокрутки
 		gsap.to(window, {
 			duration: 1.5,
 			scrollTo: {
 				y: nextSection,
-				offsetY: 0, // Начало элемента у верха окна
+				offsetY: 0,
 			},
 			ease: 'power2.inOut',
 		})
-
-		// Вариант 2: Нативный способ (запасной вариант)
-		// nextSection.scrollIntoView({
-		//   behavior: 'smooth',
-		//   block: 'start',
-		//   inline: 'nearest'
-		// })
 	}
 
 	return (
@@ -118,7 +103,7 @@ export const WelcomeApartmentsNew = () => {
 								<span
 									className={`h-px bg-[#EAE6E0] transition-all duration-300 ${
 										hoverIndexRight === i ? 'w-6' : 'w-2'
-									}`}
+									} ${hoverIndexRight === i ? 'opacity-100' : 'opacity-50'}`}
 								/>
 
 								<span
