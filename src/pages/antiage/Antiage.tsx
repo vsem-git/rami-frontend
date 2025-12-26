@@ -113,8 +113,8 @@ export const Antiage = () => {
 				ref={leftTextRef}
 				className='
 					hidden md:block text-[clamp(45px,3vw,65px)] 2xl:text-[76px] font-normal uppercase whitespace-nowrap
-					absolute -z-10 top-[11rem] left-0
-					text-[#1D1D1D4D] 
+					absolute -z-10 top-[11rem] left-[20%]
+					text-[#1D1D1D4D]  text_anti-age0
 				'
 			>
 				Антиэйдж
@@ -123,19 +123,20 @@ export const Antiage = () => {
 				ref={geneticPassportRef}
 				className='
 					hidden md:block text-[24px]  xl:text-[28px] 2xl:text-[40px] font-normal uppercase whitespace-nowrap
-					absolute top-[40%] left-10
+					absolute top-[40%] left-[15%] 2xl:left-[20%]
 					text-[#FFFFFF99] 
-					opacity-0 -translate-x-20
+					opacity-0 -translate-x-20 text_anti-age1
 				'
 			>
-				Генетический <br />
-				паспорт
+				АНТИЭЙДЖ
+				<br />
+				СОПРОВОЖДЕНИЕ
 			</h3>
 			<h3
 				ref={hormonesRef}
 				className='
 					hidden md:block text-[24px]  lg:text-[36px] 2xl:text-[64px]  font-normal uppercase whitespace-nowrap
-					absolute top-[28%] text-lg_anti
+					absolute top-[23%] text-lg_anti
 					text-[#FFFFFF4D]
 					opacity-0 scale-50 
 				'
@@ -146,13 +147,13 @@ export const Antiage = () => {
 				ref={regenerativeMedicineRef}
 				className='
 					hidden md:block text-[18px] xl:text-[24px] 2xl:text-[32px]/[125%] leading-[125%] font-normal uppercase whitespace-nowrap
-					absolute top-[60%] xl:top-[60%] 2xl:top-[65%] left-[10vw]
+					absolute top-[60%] xl:top-[55%] 2xl:top-[60%] left-[25vw] 2xl:left-[30vw]
 					text-[#FFFFFFBF] 
-					opacity-0 -translate-x-20
+					opacity-0 -translate-x-20 text_anti-age2
 				'
 			>
-				Регенеративная <br />
-				Медицина
+				ГЕНЕТИЧЕСКИЙ <br />
+				ПАСПОРТ КОЖИ
 			</h3>
 			<h3
 				ref={cellularRejuvenationRef}
@@ -161,13 +162,13 @@ export const Antiage = () => {
     xl:text-[24px]
     2xl:text-[28px] leading-[125%]
     font-normal uppercase whitespace-nowrap
-    absolute bottom-[17%] lg:bottom-[10%] left-[19%] lg:left-[20%] xl:left-[17%] 2xl:left-[21%]
+    absolute bottom-[25%] 2xl:bottom-[20%] left-[19%] lg:left-[36%] 2xl:left-[41%]
     text-[#FFFFFFBF] 
-    opacity-0 -translate-x-0
+    opacity-0 -translate-x-0 text_anti-age3
   '
 			>
-				клеточное <br />
-				омоложение
+				РЕГЕНЕРАТИВНАЯ <br />
+				МЕДИЦИНА
 			</h3>
 
 			<div className='relative h-full flex flex-col items-start sm:items-end gap-16 my-16 md:my-0'>

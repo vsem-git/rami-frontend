@@ -69,7 +69,7 @@ export const telemedicineCards = [
   {
     id: '09',
     title: 'Виды на старинный парк',
-    img: '/apartments-screen/card1.jpg',
+    img: '/apartments-screen/card9.jpg',
     col: 1,
   },
 ]

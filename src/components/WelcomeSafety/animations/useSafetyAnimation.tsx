@@ -4,73 +4,22 @@ import { useEffect, type RefObject } from 'react'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export const useDoctorAnimation = (
-	sectionRef: RefObject<HTMLElement | null>,
-	backgroundRef: RefObject<HTMLDivElement | null>,
-	defaultContentRef: RefObject<HTMLDivElement | null>,
-	doctorContentRef: RefObject<HTMLDivElement | null>,
+export const useSafetyAnimation = (
+	textRef: RefObject<HTMLHeadingElement | null>,
 	isMobile?: boolean
 ) => {
 	useEffect(() => {
-		if (isMobile || window.innerWidth <= 768) return
-		if (!sectionRef.current) return
+		if (isMobile || window.innerWidth <= 768) {
+			return
+		}
 
-		const ctx = gsap.context(() => {
-			const sectionElement = sectionRef.current
-			const backgroundElement = backgroundRef.current
-			const defaultContentElement = defaultContentRef.current
-			const doctorContentElement = doctorContentRef.current
+		const textElement = textRef.current
 
-			if (
-				!sectionElement ||
-				!backgroundElement ||
-				!defaultContentElement ||
-				!doctorContentElement
-			)
-				return
+		if (!textElement) return
 
-			const title = defaultContentElement.querySelector('h1')
-
-			const tl = gsap.timeline({
-				scrollTrigger: {
-					trigger: sectionElement,
-					start: 'top top',
-					end: '+=450%', 
-					scrub: 1,
-					pin: true,
-					markers: false,
-				},
-			})
-
-			gsap.set(doctorContentElement, { y: '90vh', opacity: 0 })
-			gsap.set(title, { y: 0, opacity: 1 })
-
-			tl.to(
-				title,
-				{ y: '-100vh', opacity: 0, duration: 2, ease: 'power2.inOut' },
-				0
-			)
-				.to(
-					backgroundElement,
-					{
-						backgroundPosition: '50% 80%',
-						duration: 2,
-						ease: 'power2.inOut',
-					},
-					0.8
-				)
-				.to(
-					doctorContentElement,
-					{ y: '0vh', opacity: 1, duration: 1.2, ease: 'power2.out' },
-					2.2
-				)
-
-			return () => {
-				tl.kill()
-				ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-			}
-		}, sectionRef.current)
-
-		return () => ctx.revert()
-	}, [sectionRef, backgroundRef, defaultContentRef, doctorContentRef, isMobile])
+		gsap.set(textElement, {
+			y: '0%',
+			opacity: 1,
+		})
+	}, [textRef, isMobile])
 }
