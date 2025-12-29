@@ -3,46 +3,27 @@
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import type { Doctor } from '../../shared/types/doctor'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const leftColumnImages = [
-	'/doctor-screen/gallery/photo2.webp',
-	'/doctor-screen/gallery/photo4.webp',
-	'/doctor-screen/gallery/photo6.webp',
-]
+export const DoctorGallery = ({ doctor }: { doctor: Doctor }) => {
+	const leftColumnImages = doctor.gallery?.[0]?.leftColumnImages || []
+	const centerColumnImages = doctor.gallery?.[1]?.centerColumnImages || []
+	const rightColumnImages = doctor.gallery?.[2]?.rightColumnImages || []
 
-const centerColumnImages = [
-	'/doctor-screen/gallery/photo1.webp',
-	'/doctor-screen/gallery/photo7.webp',
-]
+	const allImages = [
+		...leftColumnImages,
+		...centerColumnImages,
+		...rightColumnImages,
+	]
 
-const rightColumnImages = [
-	'/doctor-screen/card2.webp',
-	'/doctor-screen/gallery/photo3.webp',
-	'/doctor-screen/gallery/photo5.webp',
-]
-
-const allImages = [
-	...leftColumnImages,
-	...centerColumnImages,
-	...rightColumnImages,
-]
-
-export const DoctorGallery: React.FC = () => {
 	const centerRef = useRef<HTMLDivElement | null>(null)
 	const scrollingTextRef = useRef<HTMLDivElement | null>(null)
 	const carouselRef = useRef<HTMLDivElement | null>(null)
 
 	const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
 	const [isMobile, setIsMobile] = useState(false)
-
-	const calculateYValue = useCallback((width: number) => {
-		if (width >= 1280) return 620
-		if (width >= 1024) return 420
-		if (width >= 768) return 325
-		return 345
-	}, [])
 
 	useEffect(() => {
 		const updateWindowSize = () => {
@@ -59,7 +40,11 @@ export const DoctorGallery: React.FC = () => {
 	useEffect(() => {
 		if (!centerRef.current || windowSize.width === 0 || isMobile) return
 
-		const yValue = calculateYValue(windowSize.width)
+		if (leftColumnImages.length === 2 && rightColumnImages.length === 2) return
+
+		const imgHeight = 300
+		const spacing = 16
+		const yValue = centerColumnImages.length * (imgHeight + spacing)
 
 		const ctx = gsap.context(() => {
 			gsap.fromTo(
@@ -71,7 +56,7 @@ export const DoctorGallery: React.FC = () => {
 					scrollTrigger: {
 						trigger: centerRef.current,
 						start: 'top 0%',
-						end: 'bottom 20%',
+						end: `+=${yValue}`,
 						scrub: 1.5,
 					},
 				}
@@ -82,7 +67,13 @@ export const DoctorGallery: React.FC = () => {
 			ScrollTrigger.getAll().forEach(trigger => trigger.kill())
 			ctx.revert()
 		}
-	}, [windowSize.width, isMobile, calculateYValue])
+	}, [
+		windowSize.width,
+		isMobile,
+		centerColumnImages.length,
+		leftColumnImages.length,
+		rightColumnImages.length,
+	])
 
 	useEffect(() => {
 		if (!carouselRef.current || !isMobile) return
@@ -151,10 +142,10 @@ export const DoctorGallery: React.FC = () => {
 				/>
 			</div>
 		))
-	}, [])
+	}, [allImages])
 
 	return (
-		<div className='w-full px-0 md:px-6 pb-40'>
+		<div className='w-full  pb-40'>
 			<div className='overflow-hidden whitespace-nowrap mb-10 md:mb-16 xl:mb-20'>
 				<div
 					ref={scrollingTextRef}
@@ -163,46 +154,48 @@ export const DoctorGallery: React.FC = () => {
 					aria-label='Scrolling heading'
 				>
 					<h1 className='text-[44px]/[125%] md:text-[72px]/[125%] xl:text-[120px]/[105%] font-normal text-[#1D1D1D] uppercase mr-10 xl:mr-20'>
-						Красота как стиль жизни
+						{doctor.titleGallery}
 					</h1>
 					<h1 className='text-[44px]/[125%] md:text-[72px]/[125%] xl:text-[120px]/[105%] font-normal text-[#1D1D1D] uppercase mr-10 xl:mr-20'>
-						Красота как стиль жизни
+						{doctor.titleGallery}
 					</h1>
 				</div>
 			</div>
 
-			{!isMobile && (
-				<div className='hidden md:flex justify-center gap-4'>
-					<div className='flex flex-col space-y-4 flex-1'>
-						{renderImages(leftColumnImages)}
-					</div>
+			<div className='px-0 md:px-6'>
+				{!isMobile && (
+					<div className='hidden md:flex justify-center gap-4'>
+						<div className='flex flex-col space-y-4 flex-1'>
+							{renderImages(leftColumnImages)}
+						</div>
 
-					<div className='flex-1'>
-						<div
-							ref={centerRef}
-							className='flex flex-col justify-center space-y-4'
-						>
-							{renderImages(centerColumnImages)}
+						<div className='flex-1'>
+							<div
+								ref={centerRef}
+								className='flex flex-col justify-center space-y-4'
+							>
+								{renderImages(centerColumnImages)}
+							</div>
+						</div>
+
+						<div className='flex flex-col space-y-4 flex-1'>
+							{renderImages(rightColumnImages)}
 						</div>
 					</div>
+				)}
 
-					<div className='flex flex-col space-y-4 flex-1'>
-						{renderImages(rightColumnImages)}
+				{isMobile && (
+					<div className='md:hidden overflow-hidden'>
+						<div
+							ref={carouselRef}
+							className='flex'
+							style={{ width: 'max-content' }}
+						>
+							{renderCarouselItems()}
+						</div>
 					</div>
-				</div>
-			)}
-
-			{isMobile && (
-				<div className='md:hidden overflow-hidden'>
-					<div
-						ref={carouselRef}
-						className='flex'
-						style={{ width: 'max-content' }}
-					>
-						{renderCarouselItems()}
-					</div>
-				</div>
-			)}
+				)}
+			</div>
 		</div>
 	)
 }
