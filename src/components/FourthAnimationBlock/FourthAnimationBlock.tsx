@@ -119,7 +119,7 @@ const FourthAnimationBlock = () => {
 
     return (
         <>
-            <div className="flex flex-col items-center md:hidden">
+            <div className="mt-[100px] flex flex-col items-center md:hidden">
                 <div className="max-w-[320px] w-full text-[20px] uppercase inline-block text-center mb-10">
                     МЕжДУ парком,
                     <br /> заливом и городом
@@ -165,7 +165,7 @@ const FourthAnimationBlock = () => {
                 </div>
             </div>
             <div
-                className="hidden md:block h-dvh relative"
+                className="-mt-[100px] hidden md:block h-dvh relative"
                 ref={containerRef}
                 id="location"
             >
