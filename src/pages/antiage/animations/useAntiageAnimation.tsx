@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger)
 export const useAntiageAnimation = (
 	textRef: RefObject<HTMLHeadingElement | null>,
 	sectionRef: RefObject<HTMLElement | null>,
-	backgroundRef: RefObject<HTMLDivElement | null>,
+	backgroundRef: RefObject<HTMLDivElement | null>, // СТАТИКА
 	leftTextRef: RefObject<HTMLHeadingElement | null>,
 	geneticPassportRef: RefObject<HTMLHeadingElement | null>,
 	hormonesRef: RefObject<HTMLHeadingElement | null>,
@@ -17,97 +17,71 @@ export const useAntiageAnimation = (
 	...contentRefs: RefObject<HTMLDivElement | null>[]
 ) => {
 	useEffect(() => {
-		const textElement = textRef.current
-		const sectionElement = sectionRef.current
-		const backgroundElement = backgroundRef.current
-		const leftTextElement = leftTextRef.current
-		const geneticPassportElement = geneticPassportRef.current
-		const hormonesElement = hormonesRef.current
-		const regenerativeMedicineElement = regenerativeMedicineRef.current
-		const cellularRejuvenationElement = cellularRejuvenationRef.current
-		const contentElements = contentRefs.map(ref => ref.current)
-		const specialBackgroundElement = specialBackgroundRef.current
+		const section = sectionRef.current
+		const text = textRef.current
+		const bg = backgroundRef.current
+		const leftText = leftTextRef.current
+		const genetic = geneticPassportRef.current
+		const hormones = hormonesRef.current
+		const regen = regenerativeMedicineRef.current
+		const cellular = cellularRejuvenationRef.current
+		const specialBg = specialBackgroundRef.current
+		const blocks = contentRefs.map(r => r.current)
 
 		if (
-			!textElement ||
-			!sectionElement ||
-			!backgroundElement ||
-			!leftTextElement ||
-			!geneticPassportElement ||
-			!hormonesElement ||
-			!regenerativeMedicineElement ||
-			!cellularRejuvenationElement ||
-			contentElements.some(el => !el)
+			!section ||
+			!text ||
+			!bg ||
+			!leftText ||
+			!genetic ||
+			!hormones ||
+			!regen ||
+			!cellular ||
+			!specialBg ||
+			blocks.some(b => !b)
 		)
 			return
 
 		const isMobile = window.innerWidth <= 768
-		const isTablet = window.innerWidth <= 1024
-		const isTabletX = window.innerWidth <= 1440
 
+		/* =====================
+		   TIMELINE
+		===================== */
 		const tl = gsap.timeline({
 			scrollTrigger: {
-				trigger: sectionElement,
+				trigger: section,
 				start: 'top top',
 				end: isMobile ? '+=300%' : '+=1000%',
-				scrub: 1.5, // Уменьшил scrub для более плавного скролла
+				scrub: 1.5,
 				pin: !isMobile,
-				markers: false,
 			},
 		})
 
+		/* =====================
+		   MOBILE
+		===================== */
 		if (isMobile) {
-			tl.fromTo(
-				backgroundElement,
-				{ scale: 1, opacity: 1 },
-				{
-					scale: 1.2,
-					opacity: 0,
-					duration: 6,
-					ease: 'power2.inOut',
-				},
-				0
-			)
-
-			tl.to(
-				textElement,
-				{
-					opacity: 0,
-					y: -80,
-					duration: 4,
-					ease: 'power2.inOut',
-				},
-				1 // Увеличил задержку
-			)
-			return () => {
-				tl.kill()
-				ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-			}
+			tl.to(text, {
+				opacity: 0,
+				y: -80,
+				duration: 4,
+				ease: 'power2.inOut',
+			})
+			return () => tl.kill()
 		}
 
-		gsap.set(textElement, { x: '0%', y: '0%', opacity: 1 })
+		/* =====================
+		   GIRL — СТАТИКА
+		===================== */
+		gsap.set(bg, { x: 0, y: 0, scale: 1 })
+
+		/* =====================
+		   BIG BACKGROUND
+		===================== */
+		gsap.set(specialBg, { scale: 1, x: 0 })
 
 		tl.to(
-			textElement,
-			{
-				x: '-1vw',
-				duration: 8,
-				ease: 'sine.inOut',
-			},
-			0
-		)
-
-		gsap.set(leftTextElement, { x: '-100%', opacity: 0 })
-		gsap.set(backgroundElement, { scale: 1, x: 0, y: 0 })
-		gsap.set(geneticPassportElement, { opacity: 0, x: -80 })
-		gsap.set(hormonesElement, { opacity: 0, scale: 0.5, filter: 'blur(10px)' })
-		gsap.set(regenerativeMedicineElement, { opacity: 0, x: -80 })
-		gsap.set(cellularRejuvenationElement, { opacity: 0, x: -80 })
-
-		gsap.set(specialBackgroundElement, { scale: 1, x: 0 })
-
-		tl.to(
-			specialBackgroundElement,
+			specialBg,
 			{
 				x: '-30%',
 				scale: 1.5,
@@ -117,75 +91,98 @@ export const useAntiageAnimation = (
 			0
 		)
 
-		contentElements.forEach(element => {
-			if (element) {
-				gsap.set(element, {
-					opacity: 0,
-					scale: 0.7,
-					filter: 'blur(25px)',
-					y: 0,
-				})
-			}
+		/* =====================
+		   MARQUEE
+		===================== */
+		gsap.set(text, { opacity: 1 })
+
+		tl.to(
+			text,
+			{
+				x: '-1vw',
+				duration: 8,
+				ease: 'sine.inOut',
+			},
+			0
+		)
+
+		/* =====================
+		   LEFT BIG TEXT
+		===================== */
+		gsap.set(leftText, { x: '-100%', opacity: 0 })
+
+		tl.to(
+			leftText,
+			{
+				x: '7%',
+				opacity: 1,
+				duration: 20,
+				ease: 'sine.inOut',
+			},
+			6
+		)
+
+		/* =====================
+		   SIDE TEXTS — ЦЕНТР / РЯДОМ С BG
+		===================== */
+		gsap.set([genetic, regen, cellular], {
+			opacity: 0,
+			x: -60,
 		})
 
-		const blockAppearDuration = 5
-		const blockStayDuration = 3.5
-		const blockDisappearDuration = 3.5
+		gsap.set(hormones, {
+			opacity: 0,
+			scale: 0.6,
+			filter: 'blur(10px)',
+		})
 
-		let backgroundDownStartTime = 0
+		/* =====================
+		   CONTENT BLOCKS + ТЕКСТЫ
+		   ПОРЯДОК СОХРАНЁН
+		===================== */
+		const appear = 5
+		const stay = 3.5
+		const disappear = 3.5
 
-		const backgroundScale = isTablet ? 1.1 : 1.5
+		blocks.forEach((block, index) => {
+			const t = 4 + index * (appear + stay + disappear * 0.9)
 
-		contentElements.forEach((element, index) => {
-			if (!element) return
-
-			const startTime =
-				4 + // Увеличил начальную задержку
-				index *
-					(blockAppearDuration +
-						blockStayDuration +
-						blockDisappearDuration * 0.9)
+			// контент
+			gsap.set(block, {
+				opacity: 0,
+				scale: 0.7,
+				filter: 'blur(25px)',
+			})
 
 			tl.to(
-				element,
+				block,
 				{
 					opacity: 1,
 					scale: 1,
 					filter: 'blur(0px)',
-					duration: blockAppearDuration,
+					duration: appear,
 					ease: 'power2.out',
 				},
-				startTime
+				t
 			)
 
-			if (index === 1) {
-				tl.to(
-					textElement,
-					{
-						opacity: 0,
-						duration: 4,
-						ease: 'power2.inOut',
-					},
-					startTime + blockAppearDuration * 0.7
-				)
-			}
-
+			// порядок ТЕКСТОВ — КАК БЫЛ
 			if (index === 2) {
 				tl.to(
-					geneticPassportElement,
+					genetic,
 					{
 						opacity: 1,
 						x: 0,
 						duration: 4,
 						ease: 'power2.out',
 					},
-					startTime + blockAppearDuration * 0.8
+					t
 				)
 			}
 
 			if (index === 3) {
 				tl.to(
-					hormonesElement,
+					hormones,
 					{
 						opacity: 1,
 						scale: 1,
@@ -193,148 +190,54 @@ export const useAntiageAnimation = (
 						duration: 4.5,
 						ease: 'power2.out',
 					},
-					startTime
+					t
 				)
 			}
 
 			if (index === 4) {
 				tl.to(
-					regenerativeMedicineElement,
+					regen,
 					{
 						opacity: 1,
 						x: 0,
-						y: 0,
 						duration: 4,
 						ease: 'power2.out',
 					},
-					startTime
+					t
 				)
 			}
 
 			if (index === 5) {
 				tl.to(
-					cellularRejuvenationElement,
+					cellular,
 					{
 						opacity: 1,
 						x: 0,
 						duration: 4,
 						ease: 'power2.out',
 					},
-					startTime
-				)
-
-				backgroundDownStartTime =
-					startTime + blockAppearDuration + blockStayDuration
-			}
-
-			if (index === 0) {
-				tl.to(
-					backgroundElement,
-					{
-						scale: backgroundScale,
-						x: isTablet ? '-15%' : '-25%',
-						y: '25vh',
-						duration: 8,
-						ease: 'power2.inOut',
-					},
-					startTime + blockAppearDuration
-				)
-
-				tl.to(
-					leftTextElement,
-					{
-						x: '7%',
-						opacity: 1,
-						duration: 20,
-						ease: 'sine.inOut',
-					},
-					startTime + blockAppearDuration * 0.7
+					t
 				)
 			}
 
-			tl.to(
-				element,
-				{
-					opacity: 1,
-					duration: blockStayDuration,
-					ease: 'none',
-				},
-				startTime + blockAppearDuration
-			)
-
-			if (index < contentElements.length - 1) {
+			if (index < blocks.length - 1) {
 				tl.to(
-					element,
+					block,
 					{
 						opacity: 0,
 						scale: 0.95,
 						filter: 'blur(10px)',
-						duration: blockDisappearDuration,
+						duration: disappear,
 						ease: 'power2.inOut',
 					},
-					startTime + blockAppearDuration + blockStayDuration * 0.9
-				)
-			}
-
-			if (index === 3) {
-				const backgroundMoveStart =
-					startTime +
-					blockAppearDuration +
-					blockStayDuration +
-					blockDisappearDuration * 0.9
-
-				tl.to(
-					backgroundElement,
-					{
-						y: isTabletX
-							? '-5vh'
-							: isTablet
-							? '-30vh'
-							: isMobile
-							? '-4vh'
-							: '-30vh',
-						duration: 12,
-						ease: 'sine.inOut',
-					},
-					backgroundMoveStart
+					t + appear + stay * 0.9
 				)
 			}
 		})
 
-		if (backgroundDownStartTime > 0) {
-			tl.to(
-				backgroundElement,
-				{
-					y: '7vh',
-					scale: 1.1,
-					x: isTablet ? '-10%' : '-25%',
-					duration: 12,
-					ease: 'sine.inOut',
-				},
-				backgroundDownStartTime
-			)
-		}
-
-		const slowRiseStartTime = 55
-
-		tl.to(
-			[
-				cellularRejuvenationElement,
-				geneticPassportElement,
-				hormonesElement,
-				regenerativeMedicineElement,
-			],
-			{
-				y: '-5vh',
-				duration: 100,
-				ease: 'sine.inOut',
-			},
-			slowRiseStartTime
-		)
-
 		return () => {
 			tl.kill()
-			ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+			ScrollTrigger.getAll().forEach(t => t.kill())
 		}
 	}, [
 		textRef,
@@ -345,6 +248,7 @@ export const useAntiageAnimation = (
 		hormonesRef,
 		regenerativeMedicineRef,
 		cellularRejuvenationRef,
+		specialBackgroundRef,
 		...contentRefs,
 	])
 }

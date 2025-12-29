@@ -3,12 +3,11 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useCallback, useEffect, useRef } from 'react'
-import { cardData } from '../../shared/data/doctor'
-import type { ICardDoctorAge } from '../../shared/types/doctor'
+import type { Doctor, ICardDoctorAge } from '../../shared/types/doctor'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export const DoctorAge = () => {
+export const DoctorAge = ({ doctor }: { doctor: Doctor }) => {
 	const containerRef = useRef<HTMLDivElement | null>(null)
 	const cardRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -163,7 +162,7 @@ export const DoctorAge = () => {
 			</h2>
 
 			<div className='w-full flex flex-col items-center gap-10 -mt-12 md:block md:-mt-0'>
-				{cardData.map((data, index) => (
+				{doctor.route?.map((data, index) => (
 					<Card key={data.year} data={data} index={index} />
 				))}
 			</div>

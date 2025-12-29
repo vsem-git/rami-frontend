@@ -32,7 +32,7 @@ const LayoutContent = () => {
 	return (
 		<>
 			<ContactPopUp />
-			<DoctorCardModal />
+			<DoctorCardModal modalResults={[]} onSelect={item => console.log(item)} />
 			{!isOpen('contact') && <HeaderUpdate />}
 
 			<ScrollSmoother>

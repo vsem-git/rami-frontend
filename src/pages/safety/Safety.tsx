@@ -1,6 +1,6 @@
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { InfoSafety } from '../../components/InfoSafety'
+import { InfoSafetyNew } from '../../components/InfoSafetyNew'
 import { MedicalSafety } from '../../components/MedicalSafety'
 import { PhysicalSecuritySafety } from '../../components/PhysicalSecuritySafety'
 import { WelcomeSafety } from '../../components/WelcomeSafety/WelcomeSafety'
@@ -14,7 +14,8 @@ export const Safety = () => {
 			<section id='medical-safety-section'>
 				<MedicalSafety />
 			</section>
-			<InfoSafety />
+			{/* <InfoSafety /> */}
+			<InfoSafetyNew />
 			<PhysicalSecuritySafety />
 		</div>
 	)
