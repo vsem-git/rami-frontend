@@ -28,6 +28,11 @@ const VideoAnimation = () => {
                     2,
         });
 
+        gsap.set(".scrolltosection", {
+            pointerEvents: "none",
+            visibility: "hidden",
+        });
+
         mm.add("(min-width: 1px)", () => gsap.set(".logoheader", setLogo(3)));
         mm.add("(min-width: 401px)", () =>
             gsap.set(".logoheader", setLogo(3.8))
@@ -42,7 +47,7 @@ const VideoAnimation = () => {
 
         gsap.set(".firstblocktext", { opacity: 0 });
         gsap.set(".header", { opacity: 0 });
-        gsap.set(".scrolltosection", { opacity: 0, pointerEvents: "none" });
+        gsap.set(".scrolltobutton", { opacity: 0, pointerEvents: "none" });
 
         // Цвет шапки при скролле
         const headerTriggers = [{ ref: blockRef, color: "#000000" }];
@@ -70,11 +75,8 @@ const VideoAnimation = () => {
             },
         });
 
-        tl.to(videoRef.current, { opacity: 0, duration: 1 })
-            .to(".scrolltosection", { opacity: 1, pointerEvents: "auto" })
-            .addLabel("middle")
+        tl.addLabel("middle")
 
-            .to(".header", { opacity: 1 }, "<")
             .to(".logoheader", {
                 scale: 1,
                 x: 0,
@@ -94,9 +96,15 @@ const VideoAnimation = () => {
                 },
                 "<"
             )
-            .fromTo(".scrolltobutton", { opacity: 1 }, { opacity: 0 })
+            .fromTo(
+                ".scrolltobutton",
+                { opacity: 1, pointerEvents: "auto" },
+                { opacity: 0, pointerEvents: "none" }
+            )
             .call(() => setHeaderColor("#000000"))
-            .to(".textheader", { display: "none", duration: 0 });
+            .call(() => setHeaderColor("#ffffff"))
+            .to(".textheader", { display: "none", duration: 0 })
+            .to(".scrolltosection", { pointerEvents: "none" });
 
         tlRef.current = tl;
     });
@@ -162,6 +170,26 @@ const VideoAnimation = () => {
                             gsap.killTweensOf(window);
                         },
                     });
+                    gsap.to(videoRef.current, {
+                        opacity: 0,
+                        duration: 1,
+                        scrub: false,
+                        ease: "power2.inOut",
+                    });
+                    gsap.to(".header", {
+                        opacity: 1,
+                        duration: 1,
+                        scrub: false,
+                        ease: "power2.inOut",
+                    });
+                    gsap.to(".scrolltosection", {
+                        opacity: 1,
+                        pointerEvents: "auto",
+                        visibility: "visible",
+                        duration: 1,
+                        scrub: false,
+                        ease: "power2.inOut",
+                    });
                     isRepeat = true;
                 }, postDelayMs);
             }
@@ -184,6 +212,26 @@ const VideoAnimation = () => {
                     onComplete: () => {
                         gsap.killTweensOf(window);
                     },
+                });
+                gsap.to(videoRef.current, {
+                    opacity: 0,
+                    duration: 1,
+                    scrub: false,
+                    ease: "power2.inOut",
+                });
+                gsap.to(".header", {
+                    opacity: 1,
+                    duration: 1,
+                    scrub: false,
+                    ease: "power2.inOut",
+                });
+                gsap.to(".scrolltosection", {
+                    opacity: 1,
+                    pointerEvents: "auto",
+                    duration: 1,
+                    visibility: "visible",
+                    scrub: false,
+                    ease: "power2.inOut",
                 });
                 isRepeat = true;
             } else {
@@ -239,7 +287,7 @@ const VideoAnimation = () => {
             <div ref={blockRef}>
                 <div
                     ref={videoRef}
-                    className="relative h-dvh w-screen overflow-hidden transform-gpu will-change-transform"
+                    className="absolute top-0 left-0 h-dvh z-[999] w-screen overflow-hidden transform-gpu will-change-transform"
                 >
                     <div className="absolute inset-0 -z-10 overflow-hidden bg-[#5c182a]">
                         <video
@@ -266,7 +314,7 @@ const VideoAnimation = () => {
 
                     <button
                         ref={scrollButtonRef}
-                        className="absolute bottom-[-2rem] left-1/2 -translate-x-1/2 z-30 flex flex-col items-center justify-center text-white group cursor-pointer"
+                        className="absolute bottom-[-2rem] left-1/2 -translate-x-1/2 z-[999] flex flex-col items-center justify-center text-white group cursor-pointer"
                     >
                         <div className="relative overflow-hidden rounded-t-full w-[250px] h-[120px] bg-[#5c182a] flex flex-col items-center justify-start border-t border-white/20 transition-all duration-300  group-hover:scale-105">
                             {/* <div className="text-[12px] tracking-widest uppercase mb-1  transition-all">
