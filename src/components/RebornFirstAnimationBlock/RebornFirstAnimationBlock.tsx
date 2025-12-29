@@ -6,6 +6,7 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { useRef, useEffect } from "react";
 import { useHeader } from "../HeaderContext";
 import { useScroll } from "../../pages/Home/ScrollContext";
+import SecondAnimationBlock from "../../components/SecondAnimationBlock/SecondAnimationBlock";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, ScrollSmoother);
 
@@ -17,25 +18,25 @@ const FirstAnimationBlock = () => {
     const block2Ref = useRef(null);
     const block2TextRef = useRef(null);
     const block2LogoRef = useRef(null);
-    const block3Ref = useRef(null);
-    const block3BlurRef = useRef(null);
-    const block3TextRef = useRef(null);
+    const block3Ref = useRef<React.RefObject<HTMLDivElement>>(null);
+    /* const block3BlurRef = useRef(null); */
+    /* const block3TextRef = useRef(null); */
     const block4Ref = useRef(null);
-    const block5Ref = useRef(null);
+    /* const block5Ref = useRef(null);
     const block6Ref = useRef(null);
     const block7Ref = useRef(null);
-    const block8Ref = useRef(null);
+    const block8Ref = useRef(null); */
     const block9Ref = useRef(null);
     const tlRef = useRef<gsap.core.Timeline | null>(null);
 
     useGSAP(() => {
         gsap.set(block2TextRef.current, { autoAlpha: 0 });
-        gsap.set(block3TextRef.current, { opacity: 0 });
-        gsap.set(block3BlurRef.current, { opacity: 0 });
+        /* gsap.set(block3TextRef.current, { opacity: 0 });
+        gsap.set(block3BlurRef.current, { opacity: 0 }); */
         gsap.set(block2LogoRef.current, { x: "-100%" });
-        gsap.set(block5Ref.current, { opacity: 0 });
-        gsap.set(block6Ref.current, { opacity: 0 });
-        gsap.set(block4Ref.current, { y: "100%" });
+        /* gsap.set(block5Ref.current, { opacity: 0 });
+        gsap.set(block6Ref.current, { opacity: 0 }); */
+        gsap.set(block4Ref.current, {});
         gsap.set(block9Ref.current, { y: "100%" });
         gsap.set(".firstblocktext", { opacity: 0 });
 
@@ -87,28 +88,27 @@ const FirstAnimationBlock = () => {
             .call(() => setHeaderColor("#ffffff"))
             .to(block2Ref.current, { autoAlpha: 0, duration: 1 });
 
-        tlRef.current.fromTo(
+        /* tlRef.current.fromTo(
             [block3TextRef.current, block3BlurRef.current],
             { opacity: 0 },
             { opacity: 1, duration: 1, ease: "power2.inOut" }
-        );
+        ); */
 
         tlRef.current.to(block4Ref.current, {
-            y: "0%",
             duration: 1,
             ease: "power3.inOut",
         });
 
-        tlRef.current.to(block3Ref.current, { opacity: 0, duration: 0 });
-        tlRef.current.to(block5Ref.current, { opacity: 1, duration: 0 });
-        tlRef.current.to(block6Ref.current, { opacity: 1, duration: 0 });
+        tlRef.current.to(block3Ref.current, { opacity: 0, duration: 1 });
+        /* tlRef.current.to(block5Ref.current, { opacity: 1, duration: 0 });
+        tlRef.current.to(block6Ref.current, { opacity: 1, duration: 0 }); */
 
-        tlRef.current.to(block4Ref.current, {
+        /* tlRef.current.to(block4Ref.current, {
             x: "-100%",
             duration: 1,
             ease: "power3.inOut",
-        });
-        tlRef.current.to(block5Ref.current, {
+        }); */
+        /* tlRef.current.to(block5Ref.current, {
             x: "-100%",
             duration: 1,
             ease: "power3.inOut",
@@ -122,7 +122,7 @@ const FirstAnimationBlock = () => {
             x: "-100%",
             duration: 1,
             ease: "power3.inOut",
-        });
+        }); */
         tlRef.current.to(block9Ref.current, {
             y: "0%",
             duration: 1,
@@ -178,7 +178,7 @@ const FirstAnimationBlock = () => {
         <div className="min-h-dvh relative overflow-hidden" ref={containerRef}>
             <div
                 id="reborn-first-block"
-                className="absolute top-0 left-0 w-full h-full bg-[url('/1slide.webp')] bg-cover bg-center z-50"
+                className="absolute top-0 left-0 w-full h-full bg-[url('/1slide.webp')] bg-cover bg-center z-50 pointer-events-none"
                 ref={block1Ref}
                 style={{ willChange: "opacity" }}
             >
@@ -238,7 +238,10 @@ const FirstAnimationBlock = () => {
                     </p>
                 </div>
             </div>
-            <div
+            <SecondAnimationBlock
+                ref={block3Ref as unknown as React.RefObject<HTMLDivElement>}
+            />
+            {/* <div
                 className="absolute top-0 left-0 w-full h-full bg-[url('/2slide.webp')] bg-cover bg-center z-30"
                 ref={block3Ref}
                 style={{ willChange: "opacity" }}
@@ -265,13 +268,14 @@ const FirstAnimationBlock = () => {
                         в историческом особняке, окруженном старинным парком
                     </p>
                 </div>
-            </div>
+            </div> */}
             <div
-                className="absolute top-0 left-0 w-full h-full bg-[url('/residence1.webp')] bg-cover bg-center flex justify-center items-center z-50"
+                className="absolute top-0 left-0 w-full h-full bg-[url('/residence1.webp')] bg-cover bg-center flex justify-center items-center z-20"
                 ref={block4Ref}
             >
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[200px] bg-black/30 rounded-full blur-[40px] pointer-events-none"></div>
             </div>
+            {/* 
             <div
                 className="absolute top-0 left-0 w-full h-full bg-[url('/residence2.webp')] bg-cover bg-center flex justify-center items-center z-40"
                 ref={block5Ref}
@@ -295,9 +299,9 @@ const FirstAnimationBlock = () => {
                 ref={block8Ref}
             >
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[200px] bg-black/30 rounded-full blur-[40px] pointer-events-none"></div>
-            </div>
+            </div> */}
             <div
-                className="absolute top-0 left-0 w-full h-full bg-[url('/residence6.webp'),linear-gradient(90deg,rgba(242,235,236,1)0%,rgba(248,246,247,1)30%,rgba(246,244,244,1)100%)] [background-position:80%_100%,center] [background-size:_176%,cover] [background-repeat:no-repeat,no-repeat] md:bg-cover md:bg-center z-20"
+                className="absolute top-0 left-0 w-full h-full bg-[url('/residence6.webp'),linear-gradient(90deg,rgba(242,235,236,1)0%,rgba(248,246,247,1)30%,rgba(246,244,244,1)100%)] [background-position:80%_100%,center] [background-size:_176%,cover] [background-repeat:no-repeat,no-repeat] md:bg-cover md:bg-center z-50"
                 ref={block9Ref}
             >
                 <div

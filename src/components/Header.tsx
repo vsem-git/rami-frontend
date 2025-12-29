@@ -4,7 +4,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 import { useHeader } from "./HeaderContext";
 import { MenuHeader } from "./MenuHeader";
-import NavBar from "./NavBar";
 import { usePopup } from "./PopupContext";
 import UnderlinedText from "./UnderlinedText/UnderlinedText";
 
@@ -15,7 +14,7 @@ interface HeaderProps {
 }
 
 const Header = ({ useWhiteText }: HeaderProps) => {
-    const { headerColor, navbarColor } = useHeader();
+    const { headerColor } = useHeader();
     const headerRef = useRef(null);
     const logoRef = useRef(null);
     const menuRef = useRef(null);
@@ -145,14 +144,14 @@ const Header = ({ useWhiteText }: HeaderProps) => {
                     ref={logoRef}
                 >
                     <a href="/" className="relative block">
-                        {/* <div
-                            className="absolute inset-0 w-[79px] h-[64px] 2xl:w-[149px] 2xl:h-[120px] bg-black/15 blur-[30px] z-0"
+                        <div
+                            className="absolute inset-0 w-[79px] h-[64px] 2xl:w-[149px] 2xl:h-[120px] bg-black/45 blur-[30px] z-0"
                             style={
                                 headerColor === "#ffffff"
                                     ? { opacity: 1 }
                                     : { opacity: 0 }
                             }
-                        ></div> */}
+                        ></div>
                         <img
                             src="/logo_black.webp"
                             width={1000}
@@ -206,11 +205,11 @@ const Header = ({ useWhiteText }: HeaderProps) => {
                     ЗАПЛАНИРОВАТЬ ВИЗИТ
                 </UnderlinedText>
             </div>
-            <NavBar
+            {/* <NavBar
                 color={headerColor}
                 ref={navBarRef as React.RefObject<HTMLDivElement>}
                 navbarColor={navbarColor}
-            />
+            /> */}
 
             <MenuHeader isOpen={isOpenMenu} />
         </div>
