@@ -6,49 +6,65 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 import { Swiper } from "swiper";
 import { Swiper as SwiperComponent, SwiperSlide } from "swiper/react";
-// @ts-ignore
 import "swiper/css/bundle";
 import { useHeader } from "../../HeaderContext";
 import { useScroll } from "../../../pages/Home/ScrollContext";
 import { usePopup } from "../../PopupContext";
 
 const images = [
-    [
-        "/swiper1.webp",
-        "/serb.gif",
-        ["ГЛАВНЫЙ ВРАЧ", "Пластический хирург"],
-        "Серб",
-        "Ирина Анатольевна",
-    ],
-    [
-        "/swiper2.webp",
-        "/telishevskiy.gif",
-        ["ЗАМЕСТИТЕЛЬ ГЛАВНОГО ВРАЧА", "ХИРУРГ", "ОНКОЛОГ-МАММОЛОГ"],
-        "Телишевский",
-        "Антон Валентинович",
-    ],
-    [
-        "/swiper3.webp",
-        "/tarasenko.gif",
-        ["КАНДИДАТ МЕДИЦИНСКИХ НАУК", "ПЛАСТИЧЕСКИЙ ХИРУРГ"],
-        "Тарасенко",
-        "Василий Сергеевич",
-    ],
-    [
-        "/swiper4.webp",
-        "/hrustaleva.gif",
-        ["ДОКТОР МЕДИЦИНСКИХ НАУК", "ПЛАСТИЧЕСКИЙ ХИРУРГ"],
-        "Хрусталева",
-        "Ирина Эдуардовна",
-    ],
-    [
-        "/swiper5.webp",
-        "/kardov.gif",
-        ["ПЛАСТИЧЕСКИЙ ХИРУРГ"],
-        "Кардов",
-        "Хазрит Музаринович",
-    ],
-    ["/swiper6.webp", "/rami.gif", ["ПЛАСТИЧЕСКИЙ ХИРУРГ"], "Хамуд", "Рами"],
+    {
+        image: "/swiper1.webp",
+        subimage: "/serb.gif",
+        specialties: ["Пластический хирург", "ГЛАВНЫЙ ВРАЧ"],
+        lastName: "Серб",
+        firstName: "Ирина Анатольевна",
+        link: "/doctor/serb-irina",
+    },
+    {
+        image: "/swiper2.webp",
+        subimage: "/telishevskiy.gif",
+        specialties: [
+            "ПЛАСТИЧЕСКИЙ ХИРУРГ",
+            "ХИРУРГ",
+            "ОНКОЛОГ-МАММОЛОГ",
+            "ЗАМЕСТИТЕЛЬ ГЛАВНОГО ВРАЧА",
+        ],
+        lastName: "Телишевский",
+        firstName: "Антон Валентинович",
+        link: "/doctor/telishevskiy-anton",
+    },
+    {
+        image: "/swiper3.webp",
+        subimage: "/tarasenko.gif",
+        specialties: ["ПЛАСТИЧЕСКИЙ ХИРУРГ", "КАНДИДАТ МЕДИЦИНСКИХ НАУК"],
+        lastName: "Тарасенко",
+        firstName: "Василий Сергеевич",
+        link: "/doctor/tarasenko-vasiliy",
+    },
+    {
+        image: "/swiper4.webp",
+        subimage: "/hrustaleva.gif",
+        specialties: ["ПЛАСТИЧЕСКИЙ ХИРУРГ", "ДОКТОР МЕДИЦИНСКИХ НАУК"],
+        lastName: "Хрусталева",
+        firstName: "Ирина Эдуардовна",
+        link: "/doctor/hrustaleva-irina",
+    },
+    {
+        image: "/swiper5.webp",
+        subimage: "/kardov.gif",
+        specialties: ["ПЛАСТИЧЕСКИЙ ХИРУРГ"],
+        lastName: "Кардов",
+        firstName: "Хазрит Музаринович",
+        link: "/doctor/kardov-hazrit",
+    },
+    {
+        image: "/swiper6.webp",
+        subimage: "/rami.gif",
+        specialties: ["ПЛАСТИЧЕСКИЙ ХИРУРГ"],
+        lastName: "Хамуд",
+        firstName: "Рами",
+        link: "/doctor/rami-rami",
+    },
 ];
 
 gsap.registerPlugin(ScrollTrigger);
@@ -195,7 +211,7 @@ const ThirdAnimationBlock = () => {
 
         mm.add("(min-width: 768px)", () => {
             tl.to(".teamswiper .swiper-wrapper", {
-                x: `-${totalMovement + 32}px`,
+                x: `-${totalMovement + 48}px`,
                 duration: 3,
                 ease: "power2.inOut",
             });
@@ -323,7 +339,7 @@ const ThirdAnimationBlock = () => {
                                         );
                                     }}
                                 >
-                                    <img src={el[0] as string} alt="man" />
+                                    <img src={el.image as string} alt="man" />
                                     {/* <video
                                         className={`absolute inset-0 w-full h-full object-cover saturate-0 opacity-0 transition-all group-hover:opacity-100 duration-1000 ${
                                             activeSlide === i
@@ -360,7 +376,8 @@ const ThirdAnimationBlock = () => {
                                                 : "opacity-100" // заглушка
                                         }`}
                                     ></div>
-                                    <div
+                                    <a
+                                        href={el.link}
                                         className={`absolute inset-0 w-full h-full opacity-0 transition-all group-hover:opacity-100 duration-1000 ${
                                             activeSlide === i
                                                 ? "opacity-100"
@@ -389,34 +406,38 @@ const ThirdAnimationBlock = () => {
                                                     />
                                                 </svg>
                                             </button>
-                                            <p className="text-white text-[11px] md:text-xs 2xl:text-lg mb-2 2xl:mb-3 px-4 uppercase">
-                                                {Array.isArray(el[2]) &&
-                                                    el[2].map(
-                                                        (
-                                                            item: string,
-                                                            idx: number
-                                                        ) => {
-                                                            if (
-                                                                idx + 1 ===
-                                                                el[2].length
-                                                            )
-                                                                return item;
-                                                            return item + ", ";
-                                                        }
-                                                    )}
-                                            </p>
+
                                             <p
-                                                className={`uppercase text-[13px] md:text-sm 2xl:text-[21px] leading-[120%] mb-4 md:mb-6 2xl:mb-10 text-white translate-y-full opacity-0 transition-all duration-1000 group-hover:translate-y-0 group-hover:opacity-100 ${
+                                                className={`uppercase text-[13px] md:text-sm 2xl:text-[21px] leading-[120%] mb-2 2xl:mb-3 text-white translate-y-full opacity-0 transition-all duration-1000 group-hover:translate-y-0 group-hover:opacity-100 ${
                                                     activeSlide === i
                                                         ? "opacity-100 !translate-y-0"
                                                         : "opacity-100 !translate-y-0"
                                                 }`}
                                             >
                                                 <span className="">
-                                                    {el[3]}
+                                                    {el.firstName}
                                                 </span>
                                                 <br />
-                                                <span>{el[4]}</span>
+                                                <span>{el.lastName}</span>
+                                            </p>
+                                            <p className="text-white text-[11px] md:text-xs 2xl:text-lg mb-4 md:mb-6 2xl:mb-10 px-4 uppercase">
+                                                {Array.isArray(
+                                                    el.specialties
+                                                ) &&
+                                                    el.specialties.map(
+                                                        (
+                                                            item: string,
+                                                            idx: number
+                                                        ) => {
+                                                            if (
+                                                                idx + 1 ===
+                                                                el.specialties
+                                                                    .length
+                                                            )
+                                                                return item;
+                                                            return item + ", ";
+                                                        }
+                                                    )}
                                             </p>
                                             {/* <>
                                                 {Array.isArray(el[2]) &&
@@ -442,7 +463,7 @@ const ThirdAnimationBlock = () => {
                                                     )}
                                             </> */}
                                         </div>
-                                    </div>
+                                    </a>
                                 </SwiperSlide>
                             );
                         })}

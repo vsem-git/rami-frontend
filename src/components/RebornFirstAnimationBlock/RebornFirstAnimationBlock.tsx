@@ -8,6 +8,12 @@ import { useHeader } from "../HeaderContext";
 import { useScroll } from "../../pages/Home/ScrollContext";
 import SecondAnimationBlock from "../../components/SecondAnimationBlock/SecondAnimationBlock";
 
+// Swiper imports
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, ScrollSmoother);
 
 const FirstAnimationBlock = () => {
@@ -19,24 +25,21 @@ const FirstAnimationBlock = () => {
     const block2TextRef = useRef(null);
     const block2LogoRef = useRef(null);
     const block3Ref = useRef<React.RefObject<HTMLDivElement>>(null);
-    /* const block3BlurRef = useRef(null); */
-    /* const block3TextRef = useRef(null); */
     const block4Ref = useRef(null);
-    /* const block5Ref = useRef(null);
-    const block6Ref = useRef(null);
-    const block7Ref = useRef(null);
-    const block8Ref = useRef(null); */
     const block9Ref = useRef(null);
     const tlRef = useRef<gsap.core.Timeline | null>(null);
+    const swiperContainerRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
         gsap.set(block2TextRef.current, { autoAlpha: 0 });
-        /* gsap.set(block3TextRef.current, { opacity: 0 });
-        gsap.set(block3BlurRef.current, { opacity: 0 }); */
         gsap.set(block2LogoRef.current, { x: "-100%" });
-        /* gsap.set(block5Ref.current, { opacity: 0 });
-        gsap.set(block6Ref.current, { opacity: 0 }); */
-        gsap.set(block4Ref.current, {});
+
+        // Изначально block4 полностью прозрачный
+        gsap.set(block4Ref.current, {
+            opacity: 0,
+            pointerEvents: "none",
+        });
+
         gsap.set(block9Ref.current, { y: "100%" });
         gsap.set(".firstblocktext", { opacity: 0 });
 
@@ -88,46 +91,30 @@ const FirstAnimationBlock = () => {
             .call(() => setHeaderColor("#ffffff"))
             .to(block2Ref.current, { autoAlpha: 0, duration: 1 });
 
-        /* tlRef.current.fromTo(
-            [block3TextRef.current, block3BlurRef.current],
-            { opacity: 0 },
-            { opacity: 1, duration: 1, ease: "power2.inOut" }
-        ); */
-
+        // Появление block4 с opacity 0 → 1
         tlRef.current.to(block4Ref.current, {
+            opacity: 1,
             duration: 1,
             ease: "power3.inOut",
+            onUpdate: function () {
+                // Как только opacity >= 0.5 — разрешаем взаимодействие
+                if (this.targets()[0].style.opacity <= 0.5) {
+                    gsap.set(block4Ref.current, { pointerEvents: "none" });
+                }
+                if (this.targets()[0].style.opacity >= 0.5) {
+                    gsap.set(block4Ref.current, { pointerEvents: "auto" });
+                }
+            },
         });
 
         tlRef.current.to(block3Ref.current, { opacity: 0, duration: 1 });
-        /* tlRef.current.to(block5Ref.current, { opacity: 1, duration: 0 });
-        tlRef.current.to(block6Ref.current, { opacity: 1, duration: 0 }); */
 
-        /* tlRef.current.to(block4Ref.current, {
-            x: "-100%",
-            duration: 1,
-            ease: "power3.inOut",
-        }); */
-        /* tlRef.current.to(block5Ref.current, {
-            x: "-100%",
-            duration: 1,
-            ease: "power3.inOut",
-        });
-        tlRef.current.to(block6Ref.current, {
-            x: "-100%",
-            duration: 1,
-            ease: "power3.inOut",
-        });
-        tlRef.current.to(block7Ref.current, {
-            x: "-100%",
-            duration: 1,
-            ease: "power3.inOut",
-        }); */
         tlRef.current.to(block9Ref.current, {
             y: "0%",
             duration: 1,
             ease: "power3.inOut",
         });
+
         tlRef.current
             .addLabel("manifesto")
             .call(() => setHeaderColor("#ffffff"), [], "-=0.5")
@@ -270,10 +257,103 @@ const FirstAnimationBlock = () => {
                 </div>
             </div> */}
             <div
-                className="absolute top-0 left-0 w-full h-full bg-[url('/residence1.webp')] bg-cover bg-center flex justify-center items-center z-20"
+                className="absolute top-0 left-0 w-full h-full flex justify-center items-center z-30"
                 ref={block4Ref}
+                style={{ willChange: "opacity" }}
             >
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[200px] bg-black/30 rounded-full blur-[40px] pointer-events-none"></div>
+                <Swiper
+                    modules={[Autoplay, Navigation]}
+                    navigation={{
+                        nextEl: ".swiper-button-next-custom",
+                        prevEl: ".swiper-button-prev-custom",
+                    }}
+                    loop={true}
+                    speed={1200}
+                    allowTouchMove={false}
+                    className="w-full h-full relative"
+                >
+                    <SwiperSlide>
+                        <div
+                            className="w-full h-full bg-cover bg-center"
+                            style={{
+                                backgroundImage: "url('/residence1.webp')",
+                            }}
+                        />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div
+                            className="w-full h-full bg-cover bg-center"
+                            style={{
+                                backgroundImage: "url('/residence2.webp')",
+                            }}
+                        />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <div
+                            className="w-full h-full bg-cover bg-center"
+                            style={{
+                                backgroundImage: "url('/residence3.webp')",
+                            }}
+                        />
+                    </SwiperSlide>
+
+                    {/* Стрелка ВЛЕВО */}
+                    <div className="swiper-button-prev-custom absolute left-6 md:left-12 top-1/2 -translate-y-1/2 z-50 cursor-pointer select-none">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 40 40"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-10 h-10 md:w-14 md:h-14 opacity-70 hover:opacity-100 transition-opacity duration-300"
+                        >
+                            <circle
+                                cx="20"
+                                cy="20"
+                                r="19.5"
+                                stroke="white"
+                                strokeOpacity="0.8"
+                            />
+                            <path
+                                d="M22 14L16 20L22 26"
+                                stroke="white"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
+                    </div>
+
+                    {/* Стрелка ВПРАВО */}
+                    <div className="swiper-button-next-custom absolute right-6 md:right-12 top-1/2 -translate-y-1/2 z-50 cursor-pointer select-none">
+                        <svg
+                            width="40"
+                            height="40"
+                            viewBox="0 0 40 40"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-10 h-10 md:w-14 md:h-14 opacity-70 hover:opacity-100 transition-opacity duration-300"
+                        >
+                            <circle
+                                cx="20"
+                                cy="20"
+                                r="19.5"
+                                stroke="white"
+                                strokeOpacity="0.8"
+                            />
+                            <path
+                                d="M18 14L24 20L18 26"
+                                stroke="white"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
+                    </div>
+                </Swiper>
+
+                {/* Размытие сверху */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[200px] bg-black/30 rounded-full blur-[40px] pointer-events-none z-40"></div>
             </div>
             {/* 
             <div
