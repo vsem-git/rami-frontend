@@ -256,7 +256,7 @@ const FirstAnimationBlock = ({
                                     косметологических процедур
                                 </p>
                                 <a
-                                    href="/reabilitation"
+                                    href="/anti-age"
                                     className="text-[#691C32] bg-white font-semibold px-8 py-5 uppercase cursor-pointer text-sm 2xl:text-base"
                                 >
                                     Подробнее

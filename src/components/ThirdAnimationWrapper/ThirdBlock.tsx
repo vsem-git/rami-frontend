@@ -345,7 +345,7 @@ const ThirdAndSecondAnimation = () => {
         <div className="relative фыв" ref={containerRef}>
             <ThirdAnimationBlock />
             <div
-                className="min-h-dvh pt-[0px] relative "
+                className="min-h-dvh pt-[0px] relative"
                 ref={strokeContainerRef}
             >
                 <div className="h-[100px] 2xl:h-[500px]" />
@@ -446,11 +446,11 @@ const ThirdAndSecondAnimation = () => {
                         <div>
                             <div>
                                 <img
-                                    src="/card4.webp"
+                                    src="/device.webp"
                                     alt="card"
                                     width={776}
                                     height={436}
-                                    className="aspect-[776/436]"
+                                    className="aspect-776/436"
                                 />
                             </div>
                             <div className="flex justify-between pt-4 2xl:pt-6 text-[16px] 2xl:text-[24px] leading-[130%]">

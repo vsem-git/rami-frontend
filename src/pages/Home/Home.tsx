@@ -2,7 +2,7 @@ import VideoAnimation from "../../components/VideoAnimation/VideoAnimation";
 /* import FirstAnimationBlock from "../../components/FirstAnimationBlock/FirstAnimationBlock"; */
 import FourthAnimationBlock from "../../components/FourthAnimationBlock/FourthAnimationBlock";
 import RebornFirstAnimationBlock from "../../components/RebornFirstAnimationBlock/RebornFirstAnimationBlock";
-import ThirdAndSecondAnimation from "../../components/WrapperThirdAnimation/ThirdAndSecondAnimation";
+import ThirdBlock from "../../components/ThirdAnimationWrapper/ThirdBlock";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -40,7 +40,7 @@ const Home = () => {
             <VideoAnimation />
             <RebornFirstAnimationBlock />
             {/* <SecondAnimationBlock /> */}
-            <ThirdAndSecondAnimation />
+            <ThirdBlock />
             <div
                 ref={sectionRef}
                 className="mt-[100px] overflow-hidden relative min-h-dvh w-full flex justify-start items-start md:items-center  bg-[url('/2slide.webp')] bg-cover bg-center"
