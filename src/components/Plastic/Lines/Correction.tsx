@@ -7,10 +7,11 @@ const Correction = ({
     const { openPopup, closeAllPopups } = usePopup();
     return (
         <div
-            onClick={() => {
+            onMouseEnter={() => {
                 closeAllPopups();
                 openPopup("correctionpopup");
             }}
+            onMouseLeave={() => closeAllPopups()}
             {...props}
             className={`group cursor-pointer ${className}`}
         >
@@ -30,7 +31,7 @@ const Correction = ({
                             strokeWidth="1.5"
                         />
                     </svg>
-                    <span className="font-semibold text-xs 2xl:text-base">
+                    <span className="font-semibold group-hover:scale-105 transition-transform text-xs 2xl:text-base">
                         <p className="after:absolute relative after:left-0 after:bottom-0 after:h-[1px] after:bg-white after:w-0 after:transition-all after:duration-300 group-hover:after:w-full">
                             КОРРЕКЦИЯ ШРАМОВ
                         </p>

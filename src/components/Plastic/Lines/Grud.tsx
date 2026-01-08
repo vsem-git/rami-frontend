@@ -7,10 +7,11 @@ const Grud = ({
     const { openPopup, closeAllPopups } = usePopup();
     return (
         <div
-            onClick={() => {
+            onMouseEnter={() => {
                 closeAllPopups();
                 openPopup("breastpopup");
             }}
+            onMouseLeave={() => closeAllPopups()}
             {...props}
             className={`group cursor-pointer ${className}`}
         >
@@ -30,8 +31,13 @@ const Grud = ({
                             strokeWidth="1.5"
                         />
                     </svg>
-                    <span className="font-semibold text-xs 2xl:text-base after:absolute relative after:left-0 after:bottom-0 after:h-[1px] after:bg-white after:w-0 after:transition-all after:duration-300 group-hover:after:w-full">
-                        ГРУДЬ
+                    <span className="font-semibold group-hover:scale-105 transition-transform text-xs 2xl:text-base">
+                        <p className="after:absolute relative after:left-0 after:bottom-0 after:h-[1px] after:bg-white after:w-0 after:transition-all after:duration-300 group-hover:after:w-full">
+                            ПЛАСТИКА
+                        </p>
+                        <p className="after:absolute relative after:left-0 after:bottom-0 after:h-[1px] after:bg-white after:w-0 after:transition-all after:duration-300 group-hover:after:w-[5.5ch]">
+                            ГРУДИ
+                        </p>
                     </span>
                 </div>
                 <svg
@@ -40,7 +46,7 @@ const Grud = ({
                     viewBox="0 0 181 44"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="-mt-8 2xl:max-w-[180px] max-w-[103px]"
+                    className="-mt-3 2xl:max-w-[180px] max-w-[103px]"
                 >
                     <path
                         d="M180 1L142 43H0"

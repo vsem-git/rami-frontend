@@ -71,15 +71,13 @@ const AnimationBlock = () => {
                 scrollTrigger: {
                     trigger: containerRef.current,
                     start: "top top",
-                    end: "+=1000%",
+                    end: "+=500%",
                     scrub: 1,
                     pin: true,
                     anticipatePin: 1,
                     fastScrollEnd: true,
                 },
             });
-
-            tl.to({}, { duration: 0.5, ease: "none" });
 
             tl.fromTo(
                 runningStroke.current,
@@ -101,7 +99,7 @@ const AnimationBlock = () => {
                         bottom: "8%", */
                         left: "-4%",
                         width: "120%",
-                        duration: 2,
+                        duration: 1,
                         ease: "power2.inOut",
                     },
                     "<"
@@ -120,15 +118,19 @@ const AnimationBlock = () => {
                     },
                     "<"
                 );
+
             tl.fromTo(
-                firstText.current,
-                {
-                    opacity: 1,
-                },
+                secondText.current,
                 {
                     opacity: 0,
-                    y: -20,
+                    ease: "none",
+                },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    delay: 0.5,
                     duration: 1,
+                    filter: "blur(0px)",
                     ease: "power2.inOut",
                 },
                 "<"
@@ -137,29 +139,12 @@ const AnimationBlock = () => {
             tl.fromTo(
                 secondText.current,
                 {
-                    opacity: 0,
-                    ease: "none",
-                },
-                {
-                    opacity: 1,
-                    scale: 1,
-                    duration: 1,
-                    filter: "blur(0px)",
-                    ease: "power2.inOut",
-                }
-            );
-
-            tl.to({}, { duration: 0.5, ease: "none" });
-
-            tl.fromTo(
-                secondText.current,
-                {
                     opacity: 1,
                 },
                 {
                     opacity: 0,
                     y: -20,
-                    duration: 1,
+                    duration: 0.75,
                     ease: "power2.inOut",
                 }
             );
@@ -173,13 +158,11 @@ const AnimationBlock = () => {
                 {
                     opacity: 1,
                     scale: 1,
-                    duration: 1,
+                    duration: 0.75,
                     filter: "blur(0px)",
                     ease: "power2.inOut",
                 }
             );
-
-            tl.to({}, { duration: 0.5, ease: "none" });
 
             tl.fromTo(
                 thirdText.current,
@@ -189,7 +172,7 @@ const AnimationBlock = () => {
                 {
                     opacity: 0,
                     y: -20,
-                    duration: 1,
+                    duration: 0.75,
                     ease: "power2.inOut",
                 }
             );

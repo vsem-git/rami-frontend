@@ -7,10 +7,11 @@ const Hair = ({
     const { openPopup, closeAllPopups } = usePopup();
     return (
         <div
-            onClick={() => {
+            onMouseEnter={() => {
                 closeAllPopups();
                 openPopup("hairpopup");
             }}
+            onMouseLeave={() => closeAllPopups()}
             {...props}
             className={`group cursor-pointer ${className}`}
         >
@@ -30,7 +31,7 @@ const Hair = ({
                     />
                 </svg>
                 <div className="flex gap-1 items-center">
-                    <span className="font-semibold text-xs 2xl:text-base after:absolute relative after:left-0 after:bottom-0 after:h-[1px] after:bg-white after:w-0 after:transition-all after:duration-300 group-hover:after:w-full">
+                    <span className="font-semibold group-hover:scale-105 transition-transform text-xs 2xl:text-base after:absolute relative after:left-0 after:bottom-0 after:h-[1px] after:bg-white after:w-0 after:transition-all after:duration-300 group-hover:after:w-full">
                         ПЕРЕСАДКА ВОЛОС
                     </span>
                     <svg
