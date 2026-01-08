@@ -9,16 +9,12 @@ export const ContactInfo = () => {
 
             <div className="grid sm:grid-cols-3 md:block flex-wrap sm:gap-10 mt-[32px] md:mt-[48px] 2xl:mt-[56px]">
                 <div className="flex md:flex-row flex-col gap-3 nd:gap-10">
-                    <div>
-                        <p className="text-[11px] md:text-sm 2xl:text-[21px] leading-[155%] text-[#1D1D1D] uppercase max-w-[248px] 2xl:max-w-[340px]">
-                            РОССИЙСКАЯ ФЕДЕРАЦИЯ, САНКТ-ПЕТЕРБУРГ, КРЕСТОВСКИЙ
-                            ОСТРОВ, КРЕСТОВСКИЙ ПР., 4 Б
+                    <div className="flex-1">
+                        <p className="text-[11px] md:text-sm 2xl:text-[21px] leading-[155%] text-[#1D1D1D] uppercase">
+                            РОССИЙСКАЯ ФЕДЕРАЦИЯ, САНКТ-ПЕТЕРБУРГ
                         </p>
-                    </div>
-
-                    <div>
-                        <p className="text-[11px] md:text-sm 2xl:text-[21px] leading-[155%] text-[#1D1D1D] uppercase whitespace-nowrap">
-                            ВИЗИТ – ПО <br /> ПРЕДВАРИТЕЛЬНОЙ ЗАПИСИ
+                        <p className="text-[11px] md:text-sm 2xl:text-[21px] leading-[155%] text-[#1D1D1D] uppercase">
+                            КРЕСТОВСКИЙ ОСТРОВ, КРЕСТОВСКИЙ ПР. 4Б
                         </p>
                     </div>
                 </div>
@@ -27,9 +23,14 @@ export const ContactInfo = () => {
                         вход вверх по лестнице в Бизнес-центр «Яузская, 5».
                     </div> */}
                     <div className="sm:mt-1 mb-8 sm:mb-0 md:mb-14">
-                        <button className="h-[48px] md:h-[56px] flex items-center gap-2 2xl:gap-4 text-[11px] md:text-xs 2xl:text-lg leading-[155%] text-[#1D1D1D] uppercase bg-transparent border-none cursor-pointer font-semibold">
+                        <a
+                            href="https://yandex.ru/maps/-/CLX1zQjw"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="h-[48px] md:h-[56px] w-fit flex items-center gap-2 2xl:gap-4 text-[11px] md:text-xs 2xl:text-lg leading-[155%] text-[#1D1D1D] uppercase bg-transparent border-none cursor-pointer font-semibold"
+                        >
                             <span className="w-full border-b border-[#1D1D1D26]">
-                                ОТКРЫТЬ В КАРТАХ
+                                ПОСТРОИТЬ МАРШРУТ
                             </span>
                             <svg
                                 width="24"
@@ -45,11 +46,14 @@ export const ContactInfo = () => {
                                     strokeWidth="1.5"
                                 />
                             </svg>
-                        </button>
+                        </a>
                     </div>
                 </div>
 
                 <PhoneList />
+                <div className="text-[11px] md:text-sm 2xl:text-[21px] leading-[155%] text-[#691c32] uppercase">
+                    ВИЗИТ ПО ПРЕДВАРИТЕЛЬНОЙ ЗАПИСИ
+                </div>
             </div>
         </>
     );
