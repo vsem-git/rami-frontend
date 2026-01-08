@@ -1,7 +1,7 @@
 import { usePopup } from "../../PopupContext";
 
 const Correctionpopup = () => {
-    const { isOpen, closePopup, openPopup } = usePopup();
+    const { isOpen, openPopup } = usePopup();
 
     const popupName = "correctionpopup";
 

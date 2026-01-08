@@ -1,7 +1,7 @@
 import { usePopup } from "../../PopupContext";
 
 const Breastpopup = () => {
-    const { isOpen, closePopup, openPopup } = usePopup();
+    const { isOpen, openPopup } = usePopup();
 
     const popupName = "breastpopup";
 
