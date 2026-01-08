@@ -31,6 +31,7 @@ const VideoAnimation = () => {
         gsap.set(".scrolltosection", {
             pointerEvents: "none",
             visibility: "hidden",
+            opacity: 0,
         });
 
         mm.add("(min-width: 1px)", () => gsap.set(".logoheader", setLogo(3)));
@@ -69,7 +70,7 @@ const VideoAnimation = () => {
                 id: "preloaderST",
                 trigger: blockRef.current,
                 start: "top top",
-                end: "+=150%",
+                end: "+=200%",
                 scrub: true,
                 pin: true,
             },
@@ -82,28 +83,32 @@ const VideoAnimation = () => {
                 x: 0,
                 y: 0,
                 duration: 5,
-                ease: "power2.inOut",
+                ease: "power2.out",
             })
 
             .fromTo(
                 ".textheader",
-                { autoAlpha: 1, y: "0dvh", ease: "power2.inOut" },
                 {
-                    autoAlpha: 0,
-                    y: "-10dvh",
-                    duration: 2,
-                    ease: "power2.inOut",
+                    y: "0dvh",
+                },
+                {
+                    y: "-40dvh",
+                    duration: 7,
+                    scale: 1.5,
+                    ease: "power4.out",
                 },
                 "<"
             )
             .fromTo(
                 ".scrolltobutton",
-                { opacity: 1, pointerEvents: "auto" },
-                { opacity: 0, pointerEvents: "none" }
+                { opacity: 1, pointerEvents: "auto", duration: 0 },
+                { opacity: 0, pointerEvents: "none", duration: 0 }
             )
-            .call(() => setHeaderColor("#000000"))
-            .call(() => setHeaderColor("#ffffff"))
-            .to(".textheader", { display: "none", duration: 0 })
+            .fromTo(
+                ".textheader",
+                { y: "-40dvh" },
+                { opacity: 0, y: "-60dvh", duration: 2 }
+            )
             .to(".scrolltosection", { pointerEvents: "none" });
 
         tlRef.current = tl;
@@ -328,7 +333,7 @@ const VideoAnimation = () => {
                         </div>
                     </button>
                 </div>
-                <div className="scrollblock"></div>
+                <div className="scrollblock h-[25dvh]"></div>
             </div>
         </>
     );
