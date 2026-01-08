@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import ContactPopUp from "../../components/ContactPopUp";
 import { DoctorsModal } from "../../components/DoctorsModal";
-import Footer from "../../components/Footer";
+import Footer from "../../components/DoctorsFooter";
 import { HeaderProvider } from "../../components/HeaderContext";
 import { PopupProvider } from "../../components/PopupContext";
 import ScrollSmoother from "../../components/ScrollSmoother";

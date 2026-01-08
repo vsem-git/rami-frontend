@@ -5,10 +5,12 @@ import { usePopup } from "../PopupContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FirstAnimationBlock = ({
+const SecondAnimationBlock = ({
     ref,
+    className = "",
 }: {
     ref: React.RefObject<HTMLDivElement>;
+    className?: string;
 }) => {
     /* const { setScrollToServices } = useScroll(); */
     const { openPopup } = usePopup();
@@ -155,7 +157,10 @@ const FirstAnimationBlock = ({
         };
     }, []); */
     return (
-        <div ref={ref} className="absolute top-0 left-0 w-full h-full z-30">
+        <div
+            ref={ref}
+            className={`absolute top-0 left-0 w-full h-full z-30 ${className}`}
+        >
             <div id="services" className="h-dvh relative overflow-hidden">
                 {/* <div
                 className="absolute top-0 px-10 left-0 w-full h-full bg-white bg-cover bg-center flex justify-center items-center z-0"
@@ -316,4 +321,4 @@ const FirstAnimationBlock = ({
     );
 };
 
-export default FirstAnimationBlock;
+export default SecondAnimationBlock;
