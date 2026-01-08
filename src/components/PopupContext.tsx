@@ -13,7 +13,7 @@ type PopupData = Record<string, any>
 type PopupContextType = {
 	popups: PopupState
 	popupData: PopupData
-	openPopup: (name: string, data?: any) => void 
+	openPopup: (name: string, data?: any) => void
 	closePopup: (name: string) => void
 	closeAllPopups: () => void
 	togglePopup: (name: string) => void
@@ -65,7 +65,7 @@ export const PopupProvider: React.FC<PopupProviderProps> = ({ children }) => {
 
 	const closePopup = useCallback((name: string) => {
 		setPopups(prev => ({ ...prev, [name]: false }))
-		// Очищаем данные после небольшой задержки (чтобы анимация закрытия завершилась)
+
 		setTimeout(() => {
 			setPopupData(prev => {
 				const newData = { ...prev }

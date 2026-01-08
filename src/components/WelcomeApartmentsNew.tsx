@@ -3,7 +3,6 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import { useState } from 'react'
 import arrow from '/arrow-ap.svg'
 
-// Регистрируем плагин если используете GSAP
 if (typeof window !== 'undefined') {
 	gsap.registerPlugin(ScrollToPlugin)
 }

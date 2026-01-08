@@ -1,19 +1,19 @@
-import { usePopup } from "../../PopupContext";
+import { usePopup } from '../../PopupContext'
 
 const Intimpopup = () => {
-    const { isOpen, closePopup, openPopup } = usePopup();
+	const { isOpen, openPopup } = usePopup()
 
-    const popupName = "intimpopup";
+	const popupName = 'intimpopup'
 
-    return (
-        <div
-            className={`fixed flex flex-col sm:flex-row justify-end right-0 sm:max-w-[384px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px] h-dvh w-full group z-50 transition-all duration-1000 ${
-                isOpen(popupName)
-                    ? "opacity-100 pointer-events-auto"
-                    : "opacity-0 pointer-events-none"
-            }`}
-        >
-            {/* <div
+	return (
+		<div
+			className={`fixed flex flex-col sm:flex-row justify-end right-0 sm:max-w-[384px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px] h-dvh w-full group z-50 transition-all duration-1000 ${
+				isOpen(popupName)
+					? 'opacity-100 pointer-events-auto'
+					: 'opacity-0 pointer-events-none'
+			}`}
+		>
+			{/* <div
                 className={`sm:absolute bottom-full sm:top-1/2 sm:right-full sm:left-auto h-[48px] sm:translate-y-0 -translate-y-1/2 transition-all duration-1000 justify-center flex sm:items-center mb-4 sm:mb-0 sm:mr-4 ${
                     isOpen(popupName)
                         ? "translate-y-0 sm:translate-x-0"
@@ -45,33 +45,32 @@ const Intimpopup = () => {
                     />
                 </svg>
             </div> */}
-            <div
-                className={`bg-[#691C32] transition-all duration-1000 text-center sm:text-left sm:max-w-[384px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px] w-full justify-center px-8 xl:px-20 2xl:px-[120px] py-8 flex flex-col ${
-                    isOpen(popupName)
-                        ? "translate-y-0 sm:translate-x-0"
-                        : "translate-y-full sm:translate-y-0 sm:translate-x-full"
-                }`}
-            >
-                <h2 className="text-white uppercase text-[24px] 2xl:text-[36px] mb-4">
-                    Интимная пластика
-                </h2>
-                <p className="text-[#FFFFFF99] text-[12px] 2xl:text-[18px] mb-8 md:max-w-none uppercase">
-                    Комплекс хирургических и нехирургических (инъекционных,
-                    лазерных, нитевых) процедур направлен на устранение
-                    функциональных проблем женской мочеполовой системы,
-                    коррекцию возрастных изменений и последствий родов,
-                    улучшение эстетики наружных половых органов, повышение
-                    качества сексуальной жизни.
-                </p>
-                <button
-                    onClick={() => openPopup("contact")}
-                    className="text-[#691C32] hover:outline hover:outline-white hover:bg-transparent hover:text-white transition-all duration-300 bg-white uppercase py-5 px-8 text-[12px] 2xl:text-base cursor-pointer w-full sm:w-fit font-semibold"
-                >
-                    Запланировать визит
-                </button>
-            </div>
-        </div>
-    );
-};
+			<div
+				className={`bg-[#691C32] transition-all duration-1000 text-center sm:text-left sm:max-w-[384px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px] w-full justify-center px-8 xl:px-20 2xl:px-[120px] py-8 flex flex-col ${
+					isOpen(popupName)
+						? 'translate-y-0 sm:translate-x-0'
+						: 'translate-y-full sm:translate-y-0 sm:translate-x-full'
+				}`}
+			>
+				<h2 className='text-white uppercase text-[24px] 2xl:text-[36px] mb-4'>
+					Интимная пластика
+				</h2>
+				<p className='text-[#FFFFFF99] text-[12px] 2xl:text-[18px] mb-8 md:max-w-none uppercase'>
+					Комплекс хирургических и нехирургических (инъекционных, лазерных,
+					нитевых) процедур направлен на устранение функциональных проблем
+					женской мочеполовой системы, коррекцию возрастных изменений и
+					последствий родов, улучшение эстетики наружных половых органов,
+					повышение качества сексуальной жизни.
+				</p>
+				<button
+					onClick={() => openPopup('contact')}
+					className='text-[#691C32] hover:outline hover:outline-white hover:bg-transparent hover:text-white transition-all duration-300 bg-white uppercase py-5 px-8 text-[12px] 2xl:text-base cursor-pointer w-full sm:w-fit font-semibold'
+				>
+					Запланировать визит
+				</button>
+			</div>
+		</div>
+	)
+}
 
-export default Intimpopup;
+export default Intimpopup

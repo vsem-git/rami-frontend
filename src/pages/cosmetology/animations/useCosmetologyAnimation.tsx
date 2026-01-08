@@ -14,16 +14,17 @@ export const useCosmetologyAnimation = (
 	contentRef4: RefObject<HTMLDivElement | null>,
 	contentRef5: RefObject<HTMLDivElement | null>,
 	contentRef6: RefObject<HTMLDivElement | null>,
+	featuresRef: RefObject<HTMLDivElement | null>,
 	isMobile?: boolean
 ) => {
 	useEffect(() => {
-		if (isMobile || window.innerWidth <= 768) {
-			return
-		}
+		if (isMobile || window.innerWidth <= 768) return
 
 		const sectionElement = sectionRef.current
 		const backgroundElement = backgroundRef.current
 		const textElement = textRef.current
+		const featuresElement = featuresRef.current
+
 		const contentElements = [
 			contentRef1.current,
 			contentRef2.current,
@@ -38,13 +39,34 @@ export const useCosmetologyAnimation = (
 			!backgroundElement ||
 			!textElement ||
 			contentElements.some(el => !el)
-		)
+		) {
 			return
+		}
 
 		gsap.set(textElement, {
-			y: '0%',
 			opacity: 1,
+			y: '0%',
 		})
+
+		if (featuresElement) {
+			gsap.set(featuresElement, {
+				opacity: 1,
+				y: 0,
+			})
+		}
+
+		contentElements.forEach(el => {
+			if (!el) return
+			gsap.set(el, {
+				opacity: 0,
+				scale: 0.4,
+				filter: 'blur(30px)',
+				y: 0,
+				x: 0,
+				transformOrigin: 'center center',
+			})
+		})
+
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
@@ -53,24 +75,10 @@ export const useCosmetologyAnimation = (
 				end: '+=1000%',
 				scrub: 1,
 				pin: true,
-				markers: false,
 				anticipatePin: 1,
 				fastScrollEnd: true,
+				markers: false,
 			},
-		})
-
-
-		contentElements.forEach(element => {
-			if (element) {
-				gsap.set(element, {
-					opacity: 0,
-					scale: 0.4,
-					filter: 'blur(30px)',
-					y: 0,
-					x: 0,
-					transformOrigin: 'center center',
-				})
-			}
 		})
 
 		tl.fromTo(
@@ -104,7 +112,6 @@ export const useCosmetologyAnimation = (
 					opacity: 1,
 					scale: 1,
 					filter: 'blur(0px)',
-					y: 0,
 					duration: blockAppearDuration,
 					ease: 'power2.out',
 				},
@@ -115,14 +122,13 @@ export const useCosmetologyAnimation = (
 				element,
 				{
 					opacity: 1,
-					y: 0,
 					duration: blockStayDuration,
 					ease: 'none',
 				},
 				startTime + blockAppearDuration
 			)
 
-			if (index === 1) { 
+			if (index === 1) {
 				tl.to(
 					textElement,
 					{
@@ -133,13 +139,37 @@ export const useCosmetologyAnimation = (
 					startTime + blockAppearDuration
 				)
 			}
+			if (featuresElement) {
+				if (window.innerWidth <= 991 && index === 0) {
+					tl.to(
+						featuresElement,
+						{
+							opacity: 0,
+							y: 20,
+							duration: blockDisappearDuration,
+							ease: 'power2.inOut',
+						},
+						startTime
+					)
+				} else if (window.innerWidth > 991 && index === 1) {
+					tl.to(
+						featuresElement,
+						{
+							opacity: 0,
+							y: 20,
+							duration: blockDisappearDuration,
+							ease: 'power2.inOut',
+						},
+						startTime
+					)
+				}
+			}
 
 			if (index < contentElements.length - 1) {
 				tl.to(
 					element,
 					{
 						opacity: 0,
-						y: 0,
 						duration: blockDisappearDuration,
 						ease: 'power2.inOut',
 					},
@@ -150,7 +180,7 @@ export const useCosmetologyAnimation = (
 
 		return () => {
 			tl.kill()
-			ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+			ScrollTrigger.getAll().forEach(t => t.kill())
 		}
 	}, [
 		textRef,
@@ -162,6 +192,7 @@ export const useCosmetologyAnimation = (
 		contentRef4,
 		contentRef5,
 		contentRef6,
+		featuresRef,
 		isMobile,
 	])
 }

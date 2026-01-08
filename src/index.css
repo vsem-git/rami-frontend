@@ -66,6 +66,10 @@ body {
 	animation: marquee 6s linear infinite;
 }
 
+.cosmetology-bg_image {
+	background-position: -10rem 0%;
+}
+
 @media (min-width: 1850px) {
 	.hairplastic {
 		bottom: 600px;
@@ -243,6 +247,10 @@ body {
 	.text-lg_anti {
 		left: 45%;
 	}
+
+	.cosmetology-bg_image {
+		background-position: -5rem 4rem;
+	}
 }
 @media (max-width: 1440px) {
 	.anti-age_bg {
@@ -296,6 +304,10 @@ body {
 	.text_anti-age3 {
 		left: 26%;
 	}
+
+	.cosmetology-bg_image {
+		background-position: -10rem 4rem;
+	}
 }
 @media (max-width: 1150px) {
 	.anti-age_bg {
@@ -325,7 +337,18 @@ body {
 	.text-lg_anti {
 		left: 28rem;
 	}
+
+	.cosmetology-bg_image {
+		background-position: -10rem 8rem;
+	}
+
+	@media (max-height: 750px) {
+		.cosmetology-bg_image {
+			background-position: -7rem 8rem;
+		}
+	}
 }
+
 @media (max-width: 955px) {
 	.anti-age_bg {
 		left: -80%;
@@ -341,6 +364,15 @@ body {
 	.text_anti-age0 {
 		left: 0%;
 		top: 25%;
+	}
+	.cosmetology-bg_image {
+		background-position: -19rem 8rem;
+	}
+
+	@media (max-height: 750px) {
+		.cosmetology-bg_image {
+			background-position: -14rem 8rem;
+		}
 	}
 }
 @media (max-width: 900px) {
@@ -369,6 +401,7 @@ body {
 		left: 15%;
 	}
 }
+
 @media (max-width: 800px) {
 	.anti-age_bg {
 		left: -75%;
