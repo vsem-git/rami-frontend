@@ -14,6 +14,7 @@ import { usePopup } from "../../PopupContext";
 const images = [
     {
         image: "/swiper1.webp",
+        shadow: "/swiper1-shadow.webp",
         subimage: "/serb.gif",
         specialties: ["Пластический хирург", "ГЛАВНЫЙ ВРАЧ"],
         lastName: "Серб",
@@ -22,6 +23,7 @@ const images = [
     },
     {
         image: "/swiper2.webp",
+        shadow: "/swiper2-shadow.webp",
         subimage: "/telishevskiy.gif",
         specialties: [
             "ПЛАСТИЧЕСКИЙ ХИРУРГ",
@@ -339,7 +341,24 @@ const ThirdAnimationBlock = () => {
                                         );
                                     }}
                                 >
-                                    <img src={el.image as string} alt="man" />
+                                    {el.shadow && (
+                                        <img
+                                            src={el.shadow}
+                                            alt="shadow"
+                                            className="scale-70 blur-2xl absolute"
+                                        />
+                                    )}
+                                    <img
+                                        src={el.image as string}
+                                        alt="man"
+                                        className={
+                                            i === 0
+                                                ? "scale-90"
+                                                : i === 1
+                                                ? "scale-90"
+                                                : ""
+                                        }
+                                    />
                                     {/* <video
                                         className={`absolute inset-0 w-full h-full object-cover saturate-0 opacity-0 transition-all group-hover:opacity-100 duration-1000 ${
                                             activeSlide === i
