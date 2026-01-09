@@ -2,12 +2,10 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
-import { useHeader } from "./HeaderContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Footer = () => {
-    const { setHeaderColor } = useHeader();
     const containerRef = useRef(null);
     const footerRef = useRef(null);
     useGSAP(() => {
@@ -23,17 +21,16 @@ const Footer = () => {
 
         gsap.set(footerRef.current, { y: "100%" });
 
-        gsap.fromTo(
+        /* gsap.fromTo(
             ".bgpattern1",
             { xPercent: 120 },
             {
                 xPercent: 0,
                 scrollTrigger: {
                     trigger: containerRef.current,
-                    start: "top bottom", // начало анимации, когда верх контейнера достигнет нижней границы viewport
-                    end: "center top", // конец анимации через 200px прокрутки
-                    scrub: true, // плавная синхронизация с прокруткой
-                    // pin: true,            // если не нужно фиксировать контейнер, можно убрать
+                    start: "top bottom",
+                    end: "center top",
+                    scrub: true, 
                 },
             }
         );
@@ -45,36 +42,19 @@ const Footer = () => {
                 xPercent: 0,
                 scrollTrigger: {
                     trigger: containerRef.current,
-                    start: "top bottom", // начало анимации, когда верх контейнера достигнет нижней границы viewport
-                    end: "center top", // конец анимации через 200px прокрутки
-                    scrub: true, // плавная синхронизация с прокруткой
-                    // pin: true,            // если не нужно фиксировать контейнер, можно убрать
+                    start: "top bottom", 
+                    end: "center top", 
+                    scrub: true, 
                 },
             }
-        );
+        ); */
 
         tl.to({}, { duration: 1 })
-
-            .call(
-                () => {
-                    setHeaderColor("#000000");
-                },
-                [],
-                "-=0"
-            )
 
             .to(footerRef.current, {
                 y: "0%",
                 duration: 2,
             })
-
-            .call(
-                () => {
-                    setHeaderColor("#ffffff");
-                },
-                [],
-                "-=1"
-            )
             .fromTo(
                 ".navbarheader",
                 { opacity: 1, pointerEvents: "auto" },
