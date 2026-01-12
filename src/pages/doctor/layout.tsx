@@ -118,6 +118,15 @@ const LayoutContent = () => {
 
 	useEffect(() => {}, [location.pathname])
 
+	useEffect(() => {
+		const handler = (e: any) => setSelectedItem(e.detail)
+		window.addEventListener('doctor-result-select', handler)
+
+		return () => {
+			window.removeEventListener('doctor-result-select', handler)
+		}
+	}, [])
+
 	return (
 		<>
 			<div className='bgpattern1 fixed top-0 right-0 h-full hidden sm:block z-[0]'>

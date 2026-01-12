@@ -6,6 +6,7 @@ export const DOCTORS_DATA: Doctor[] = [
         shadow: "/swiper1-shadow.webp",
         video: "/serb.gif",
         specialties: ["Пластический хирург", "ГЛАВНЫЙ ВРАЧ"],
+        directions: ["Пластика лица"],
         lastName: "Серб",
         firstName: "Ирина Анатольевна",
         link: "/doctor",
@@ -182,6 +183,7 @@ export const DOCTORS_DATA: Doctor[] = [
         modal_result: [
             {
                 id: 1,
+                type: "Пластика лица",
                 description:
                     "Комплексное омоложение:  эндоскопический фронтотемпоральный лифтинг, нижняя трансконъюктивальная блефаропластика, медиальная платизмопластика, смас-лифтинг, липофилинг лица",
                 images: [
@@ -193,6 +195,7 @@ export const DOCTORS_DATA: Doctor[] = [
             },
             {
                 id: 2,
+                type: "Пластика лица",
                 description:
                     "Комплексное омоложение: квадрилатеральная блефаропластика, эндоскопический фронтотемпоральный лифтинг, корсетная медиальная платизмопластика, смас-лифтинг",
                 images: [
@@ -205,6 +208,7 @@ export const DOCTORS_DATA: Doctor[] = [
             },
             {
                 id: 3,
+                type: "Пластика лица",
                 description:
                     "Комплексное омоложение:  эндоскопический фронтотемпоральный лифтинг,  квадрилатеральная блефаропластика, кантомиопексия, медиальная платизмопластика, субментальная липосакция, смас-лифтинг",
                 images: [
@@ -218,6 +222,7 @@ export const DOCTORS_DATA: Doctor[] = [
 
             {
                 id: 5,
+                type: "Пластика лица",
                 description:
                     "Комплексное омоложение:  верхняя и нижняя блефаропластика, эндоскопический фронтотемпоральный лифтинг, медиальная корсетная платизмопластика, смас-лифтинг, редукция комков Биша",
                 images: [
@@ -228,6 +233,7 @@ export const DOCTORS_DATA: Doctor[] = [
             },
             {
                 id: 5,
+                type: "Пластика лица",
                 description: "",
                 images: [
                     "/doctor-screen/result-ser/5/1.png",
@@ -247,6 +253,7 @@ export const DOCTORS_DATA: Doctor[] = [
             "ОНКОЛОГ-МАММОЛОГ",
             "ЗАМЕСТИТЕЛЬ ГЛАВНОГО ВРАЧА",
         ],
+        directions: ["Пересадка волос"],
         lastName: "Телишевский",
         firstName: "Антон Валентинович",
         link: "/doctor",
@@ -258,6 +265,7 @@ export const DOCTORS_DATA: Doctor[] = [
         videoFooterIm: "/serb-short.webm",
         videoFooterMp: "/serb-short.mp4",
         specialties: ["ПЛАСТИЧЕСКИЙ ХИРУРГ", "КАНДИДАТ МЕДИЦИНСКИХ НАУК"],
+        directions: ["Пластика лица", "Пластика тела"],
         lastName: "Тарасенко",
         firstName: "Василий Сергеевич",
         link: "/doctor",
@@ -687,6 +695,7 @@ export const DOCTORS_DATA: Doctor[] = [
         modal_result: [
             {
                 id: 1,
+                type: "Пластика лица",
                 description:
                     "Комплексная операция: лифтинг Мендельсона, эндоскопическое омоложение лба и нижняя блефаропластика. Результат через 6 месяцев после операции.",
                 images: [
@@ -698,6 +707,7 @@ export const DOCTORS_DATA: Doctor[] = [
             },
             {
                 id: 2,
+                type: "Пластика лица",
                 description: "",
                 images: [
                     "/doctor-screen/tarasenko-vasiliy/result/res2/35_1.jpg",
@@ -706,6 +716,7 @@ export const DOCTORS_DATA: Doctor[] = [
             },
             {
                 id: 3,
+                type: "Пластика лица",
                 description:
                     "Подтяжка лица и шеи по методике лифтинг Мендельсона, эндоскопический фронто-темпоральный лифтинг. Результата через 6 месяцев после операции.",
                 images: [
@@ -717,6 +728,7 @@ export const DOCTORS_DATA: Doctor[] = [
 
             {
                 id: 5,
+                type: "Пластика лица",
                 description:
                     "Лифтинг Мендельсона и эндоскопический фронтотемпоральный лифтинг 6 мес",
                 images: [
@@ -726,6 +738,7 @@ export const DOCTORS_DATA: Doctor[] = [
             },
             {
                 id: 5,
+                type: "Пластика лица",
                 description:
                     "Лифтинг Мендельсона и эндоскопический фронтотемпоральный лифтинг 1 год",
                 images: [
@@ -743,6 +756,7 @@ export const DOCTORS_DATA: Doctor[] = [
         image: "/swiper4.webp",
         video: "/hrustaleva.gif",
         specialties: ["ПЛАСТИЧЕСКИЙ ХИРУРГ", "ДОКТОР МЕДИЦИНСКИХ НАУК"],
+        directions: ["Пластика лица"],
         lastName: "Хрусталева",
         firstName: "Ирина Эдуардовна",
         link: "/doctor",
@@ -752,6 +766,7 @@ export const DOCTORS_DATA: Doctor[] = [
         image: "/swiper5.webp",
         video: "/kardov.gif",
         specialties: ["ПЛАСТИЧЕСКИЙ ХИРУРГ"],
+        directions: ["Пластика лица"],
         lastName: "Кардов",
         firstName: "Хазрит Музаринович",
         link: "/doctor",
@@ -761,6 +776,7 @@ export const DOCTORS_DATA: Doctor[] = [
         image: "/swiper6.webp",
         video: "/rami.gif",
         specialties: ["ПЛАСТИЧЕСКИЙ ХИРУРГ"],
+        directions: ["Пластика лица"],
         lastName: "Хамуд",
         firstName: "Рами",
         link: "/doctor",

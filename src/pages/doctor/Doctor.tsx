@@ -3,11 +3,14 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { DoctorAge } from '../../components/DoctorAge/DoctorAge'
-import { DoctorCardsSection } from '../../components/DoctorCardsSection/DoctorCardsSection'
 import { DoctorGallery } from '../../components/DoctorGallery/DoctorGallery'
+import DoctorResults from '../../components/DoctorResults/DoctorResults'
+import { usePopup } from '../../components/PopupContext'
 import { WelcomeDoctor } from '../../components/welcome-doctor/WelcomeDoctor'
+import { POPUP_NAMES } from '../../constants/popupNames'
 import { DOCTORS_DATA } from '../../shared/data/doctor'
 import mes from '../../shared/icons/mes.svg'
+import type { ModalResultItem } from '../../shared/types/doctor'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -15,6 +18,7 @@ export const Doctor = () => {
 	const sectionRef = useRef<HTMLElement>(null)
 	const videoRef = useRef<HTMLVideoElement>(null)
 	const { id } = useParams()
+	const { openPopup } = usePopup()
 
 	const doctor = DOCTORS_DATA.find(d => d.id === id)
 
@@ -144,12 +148,24 @@ export const Doctor = () => {
 		}
 	}, [])
 
+	const handleSelectResult = (item: ModalResultItem) => {
+		openPopup(POPUP_NAMES.DOCTOR_CARD_ID)
+		window.dispatchEvent(
+			new CustomEvent('doctor-result-select', { detail: item })
+		)
+	}
+
 	return (
 		<>
 			<WelcomeDoctor doctor={doctor} />
-			<div id='next-section-doctor2'>
+			<DoctorResults
+				directions={doctor.directions}
+				results={doctor.modal_result ?? []}
+				onSelect={handleSelectResult}
+			/>
+			{/* <div id='next-section-doctor2'>
 				<DoctorCardsSection doctor={doctor} />
-			</div>
+			</div> */}
 
 			<section
 				ref={sectionRef}
