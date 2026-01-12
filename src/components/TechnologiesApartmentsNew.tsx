@@ -1,6 +1,6 @@
 export const TechnologiesApartmentsNew = () => {
 	return (
-		<div className='relative w-full min-h-[1600px] bg-[#1D1D1D] pt-52 overflow-hidden'>
+		<div id='technologies-apartments-new' className='relative w-full min-h-[1600px] bg-[#1D1D1D] pt-52 overflow-hidden'>
 			<div className='relative z-10 flex flex-col items-center'>
 				<h2 className='relative z-10 text-[110px] font-normal text-white uppercase leading-none text-center mb-20'>
 					Hi-tech

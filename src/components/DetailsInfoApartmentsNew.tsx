@@ -1,6 +1,6 @@
 export const DetailsInfoApartmentsNew = () => {
 	return (
-		<div className='relative w-full min-h-[1400px] pt-[90px] pl-[30px] overflow-hidden bg-[url("/apartmentsnew-screen/bg18.jpg")] bg-no-repeat bg-cover'>
+		<div id='details-info-apartments-new' className='relative w-full min-h-[1400px] pt-[90px] pl-[30px] overflow-hidden bg-[url("/apartmentsnew-screen/bg18.jpg")] bg-no-repeat bg-cover'>
 			<h1 className='relative z-10 text-[110px] font-normal text-white uppercase leading-none'>
 				Комфорт
 				<br />в деталях
