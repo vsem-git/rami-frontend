@@ -55,6 +55,7 @@ export type GalleryItem = {
 
 export type ModalResultItem = {
     id: number;
+    type: Directions;
     description: string;
     images: string[];
 };
@@ -74,11 +75,21 @@ export type ModalCardPathItem = {
     images: string[];
 };
 
+export type Directions =
+    | "Пересадка волос"
+    | "Ринопластика"
+    | "Пластика лица"
+    | "Пластика тела"
+    | "Интимная пластика"
+    | "Пластика груди"
+    | "Коррекция шрамов и рубцов";
+
 export type Doctor = {
     image: string;
     shadow?: string;
     video: string;
     specialties: string[];
+    directions: Directions[];
     lastName: string;
     firstName: string;
     link: string;
