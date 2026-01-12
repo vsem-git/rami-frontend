@@ -4,7 +4,7 @@ export const SafetyApartmentsNew = () => {
 			id='safety-apartments-new'
 			className='relative w-full min-h-[1400px] bg-white pt-[160px] pl-10 overflow-hidden'
 		>
-			<h1 className='relative z-10 text-[110px] font-normal text-[#1D1D1D] uppercase leading-none'>
+			<h1 className='relative z-10 text-[110px] font-normal text-[#691c32] uppercase leading-none'>
 				безопасность <br />
 				пребывания
 			</h1>

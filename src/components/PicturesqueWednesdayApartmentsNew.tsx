@@ -1,6 +1,7 @@
 export const PicturesqueWednesdayApartmentsNew = () => {
 	return (
 		<div
+		id='picturesque-wednesday-apartments-new'
 			className='relative w-full h-[120vh] min-h-screen overflow-hidden bg-cover bg-center bg-no-repeat pt-20'
 			style={{
 				backgroundImage: `

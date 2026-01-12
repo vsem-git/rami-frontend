@@ -4,7 +4,7 @@ export const ServiceApartmentsNew = () => {
 			id='service-apartments-new'
 			className='relative w-full min-h-[1400px] bg-white pt-[160px] pl-[54px] overflow-hidden'
 		>
-			<h1 className='relative z-10 text-[80px] font-normal text-[#1D1D1D] uppercase leading-[110%]'>
+			<h1 className='relative z-10 text-[80px] font-normal text-[#691c32] uppercase leading-[110%]'>
 				Персонализированный <br />
 				сервис 24/7
 			</h1>

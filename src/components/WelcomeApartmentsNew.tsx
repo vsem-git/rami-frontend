@@ -8,11 +8,14 @@ if (typeof window !== 'undefined') {
 }
 
 const featuresLeft = [
-	'Безопасность пребывания',
-	'Hi-tech технологии',
-	'Комфорт в деталях',
-	'Персонализированный сервис 24/7',
-	'Живописная пространственная среда',
+	{ text: 'Безопасность пребывания', id: 'safety-apartments-new' },
+	{ text: 'Hi-tech технологии', id: 'technologies-apartments-new' },
+	{ text: 'Комфорт в деталях', id: 'details-info-apartments-new' },
+	{ text: 'Персонализированный сервис 24/7', id: 'service-apartments-new' },
+	{
+		text: 'Живописная пространственная среда',
+		id: 'picturesque-wednesday-apartments-new',
+	},
 ]
 
 const featuresRight = [
@@ -29,25 +32,33 @@ const featuresRight = [
 export const WelcomeApartmentsNew = () => {
 	const [hoverIndexRight, setHoverIndexRight] = useState<number | null>(2)
 
-	const handleScrollToNext = () => {
-		const nextSection = document.getElementById('safety-apartments-new')
+	const handleScrollToSection = (sectionId: string) => {
+		const targetSection = document.getElementById(sectionId)
 
-		if (!nextSection) {
+		if (!targetSection) {
+			console.warn(`Section with id "${sectionId}" not found`)
 			return
 		}
 
 		gsap.to(window, {
 			duration: 1.5,
 			scrollTo: {
-				y: nextSection,
+				y: targetSection,
 				offsetY: 0,
 			},
 			ease: 'power2.inOut',
 		})
 	}
 
+	const handleScrollToNext = () => {
+		handleScrollToSection('safety-apartments-new')
+	}
+
 	return (
-		<div className='relative w-full min-h-[2400px] bg-[#1D1D1D] pt-52'>
+		<div
+			id='welcomeApartmentsNew'
+			className='relative w-full min-h-[2400px] bg-[#1D1D1D] pt-52'
+		>
 			<img
 				src='/apartmentsnew-screen/bg11.png'
 				alt=''
@@ -59,13 +70,14 @@ export const WelcomeApartmentsNew = () => {
 					{featuresLeft.map((item, i) => (
 						<li
 							key={i}
-							className='flex items-center gap-4 cursor-pointer uppercase'
+							className='flex items-center gap-4 cursor-pointer uppercase group'
+							onClick={() => handleScrollToSection(item.id)}
 						>
-							<span className='text-[#EAE6E0] transition-all duration-300'>
+							<span className='text-[#EAE6E0] transition-all duration-300 group-hover:text-white'>
 								0{i + 1}
 							</span>
-							<span className='text-base text-[#EAE6E0] font-normal leading-none border-b border-[#EAE6E0] pb-2 pt-2'>
-								{item}
+							<span className='text-base text-[#EAE6E0] font-normal leading-none border-b border-[#EAE6E0] pb-2 pt-2 transition-all duration-300 group-hover:text-white group-hover:border-white'>
+								{item.text}
 							</span>
 						</li>
 					))}
