@@ -15,7 +15,10 @@ export const ApartmentsNew = () => {
 			<DetailsInfoApartmentsNew />
 			<ServiceApartmentsNew />
 			<PicturesqueWednesdayApartmentsNew />
-			{/* <AquamarineApartmentsNew /> */}
 		</div>
 	)
 }
+
+
+// FOOTER 
+{/* <AquamarineApartmentsNew /> */} 
