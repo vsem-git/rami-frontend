@@ -69,9 +69,12 @@ interface TabItemProps {
     onClick: (id: number) => void;
 }
 
-const TabItem: React.FC<TabItemProps> = ({ tab, isActive, onClick }) => (
+export const TabItem: React.FC<TabItemProps> = ({ tab, isActive, onClick }) => (
     <li
-        onClick={() => onClick(tab.id)}
+        onClick={(e) => {
+            e.preventDefault();
+            onClick(tab.id);
+        }}
         className={`
       relative cursor-pointer transition-colors duration-300
       ${isActive ? "text-[#1D1D1D]" : "text-[#1D1D1D80]"}
