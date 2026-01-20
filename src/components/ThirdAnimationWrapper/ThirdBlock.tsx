@@ -446,7 +446,7 @@ const ThirdAndSecondAnimation = () => {
                         <div>
                             <div>
                                 <img
-                                    src="/device.webp"
+                                    src="/telishevsky.webp"
                                     alt="card"
                                     width={776}
                                     height={436}
