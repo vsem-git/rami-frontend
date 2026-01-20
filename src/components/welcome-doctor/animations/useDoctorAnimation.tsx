@@ -41,7 +41,6 @@ export const useDoctorAnimation = (
 
             gsap.set(doctorContentElement, { y: "90vh", opacity: 0 });
 
-            // 1. Убираем старый контент
             tl.to(
                 defaultContentElement,
                 {
@@ -53,7 +52,6 @@ export const useDoctorAnimation = (
                 0
             );
 
-            // 2. Анимация фона (длится 4 секунды)
             tl.to(
                 backgroundElement,
                 {
