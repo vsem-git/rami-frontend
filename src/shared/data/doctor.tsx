@@ -116,6 +116,15 @@ export const DOCTORS_DATA: Doctor[] = [
                 imageClassName:
                     "w-[323px] md:w-[380px] xl:w-[449px] h-[216px] md:h-[250px] xl:h-[300px]",
             },
+            {
+                year: "2025",
+                title: "Главный врач RAMICLINIC RESIDENCE",
+                description: "2025",
+                image: "/doctor-screen/age/card7.webp",
+                backgroundYear: "2025",
+                imageClassName:
+                    "w-[223px] md:w-[280px] xl:w-[349px] h-[316px] md:h-[350px] xl:h-[400px]",
+            },
         ],
         modalCardEducation: [],
         modalCardPath: [],
