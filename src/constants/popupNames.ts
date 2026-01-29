@@ -9,7 +9,7 @@ export const POPUP_NAMES = {
 	DOCTOR_EDUCATION: 'doctorEducation',
 	DOCTOR_SURGERY_PATH: 'doctorSurgeryPath',
 	UNIVERSAL_MODAL: 'universalModal',
-	
+	LICENSE_GALLERY: 'licenseGallery',
 } as const
 
 export type PopupName = keyof typeof POPUP_NAMES
