@@ -18,13 +18,7 @@ export const ApartmentsNew = () => {
 	)
 }
 
-<<<<<<< HEAD
 // FOOTER
 {
 	/* <AquamarineApartmentsNew /> */
 }
-=======
-
-// FOOTER 
-{/* <AquamarineApartmentsNew /> */} 
->>>>>>> db2b100c811d63db1904f3338be26dadcb5705b4
