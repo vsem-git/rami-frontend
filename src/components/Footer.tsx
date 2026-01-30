@@ -221,7 +221,8 @@ const Footer = () => {
                         </a>
 
                         <a
-                            href="#"
+                            href="лицензия_выписка_28_10_2025_ДЕЙСТВУЮЩАЯ.pdf"
+                            target="_blank"
                             className="flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10"
                         >
                             <span className="relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full">
@@ -249,11 +250,13 @@ const Footer = () => {
                         </a>
                         <a
                             href="/privacy-policy.docx"
-                            className="text-xs xl:text-base"
+                            className="flex gap-2 items-center group text-xs xl:text-base border-b border-[#FFFFFF4D] leading-[150%] py-4"
                             download
                             target="_blank"
                         >
-                            Политика конфиденциальности
+                            <span className="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:w-full">
+                                Политика конфиденциальности
+                            </span>
                         </a>
                     </div>
                 </div>
@@ -319,7 +322,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="text-[11px] xl:text-[12px] 2xl:text-base uppercase flex flex-wrap gap-6 md:mt-5">
-                    <a href="/documents">Документы</a>
+                    <a href="/patient"> Пациентам</a>
                     <a href="/contacts">Контакты</a>
                     <a href="#">Карта сайта</a>
                     <a href="#" className="flex items-center gap-2">

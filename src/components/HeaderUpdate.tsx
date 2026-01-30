@@ -23,7 +23,6 @@ const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
 
     const currentColor = useWhiteText ? "#ffffff" : headerColor || "#000000";
 
-    // Проверяем, открыта ли любая из модалок, которые должны скрывать хедер
     const isAnyPopupOpen =
         isOpen("contact") ||
         isOpen("doctorCard") ||
@@ -34,7 +33,6 @@ const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
         const header = headerRef.current;
         if (!header) return;
 
-        // Если открыта модалка или хедер скрыт через контекст - скрываем
         if (!isHeaderVisible || isAnyPopupOpen) {
             gsap.to(header, {
                 y: -100,
@@ -43,7 +41,6 @@ const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
                 ease: "power2.in",
             });
         } else {
-            // Показываем только если нет модалок и isHeaderVisible = true
             gsap.to(header, {
                 y: 0,
                 opacity: 1,
@@ -54,7 +51,6 @@ const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
     }, [isHeaderVisible, isAnyPopupOpen]);
 
     const toggleMenu = () => {
-        // Блокируем открытие меню при открытых модалках
         if (isAnyPopupOpen) return;
 
         setOpenMenu((prev) => !prev);
@@ -90,7 +86,6 @@ const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
 
     const logoSrc = useWhiteText ? "/logo_white.webp" : "/logo_black.webp";
 
-    // Полностью скрываем компонент из DOM при открытых модалках
     if (isAnyPopupOpen) {
         return null;
     }

@@ -173,8 +173,9 @@ export const Patient = () => {
 							{patientData.license.description}
 						</p>
 
-						<Link
-							to={`/patient/${patientData.license.selection}`}
+						<a
+							href={patientData.license.file}
+							target='_blank'
 							className='w-full py-2 md:py-3 flex items-start gap-3 md:gap-4 cursor-pointer group hover:gap-5 transition-all duration-300'
 						>
 							<img
@@ -188,7 +189,7 @@ export const Patient = () => {
 								</h3>
 								<div className='w-full h-px bg-[#FFFFFF26] mt-1 transition-all duration-300 group-hover:bg-white group-hover:opacity-70' />
 							</div>
-						</Link>
+						</a>
 					</div>
 
 					<div className='w-full mt-24'>
