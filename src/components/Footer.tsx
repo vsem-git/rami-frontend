@@ -245,11 +245,13 @@ const Footer = () => {
 						</a>
 						<a
 							href='/privacy-policy.docx'
-							className='text-xs xl:text-base'
+							className='flex gap-2 items-center group text-xs xl:text-base border-b border-[#FFFFFF4D] leading-[150%] py-4'
 							download
 							target='_blank'
 						>
-							Политика конфиденциальности
+							<span className='relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:w-full'>
+								Политика конфиденциальности
+							</span>
 						</a>
 					</div>
 				</div>
@@ -315,7 +317,7 @@ const Footer = () => {
 					</div>
 				</div>
 				<div className='text-[11px] xl:text-[12px] 2xl:text-base uppercase flex flex-wrap gap-6 md:mt-5'>
-					<a href='/documents'>Документы</a>
+					<a href='/patient'> Пациентам</a>
 					<a href='/contacts'>Контакты</a>
 					<a href='#'>Карта сайта</a>
 					<a href='#' className='flex items-center gap-2'>
