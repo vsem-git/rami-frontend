@@ -107,7 +107,7 @@ const Header = ({ useWhiteText }: HeaderProps) => {
             <div
                 ref={menuButtonRef}
                 onClick={toggleMenu}
-                className="relative menuheader item flex font-semibold gap-4 items-center h-fit group cursor-pointer z-[999] opacity-0 pointer-events-none"
+                className="relative menuheader item flex font-semibold gap-4 items-center h-fit group cursor-pointer z-[999]"
             >
                 <div className="flex flex-col gap-1">
                     <div
@@ -145,14 +145,6 @@ const Header = ({ useWhiteText }: HeaderProps) => {
                     ref={logoRef}
                 >
                     <a href="/" className="relative block">
-                        <div
-                            className="absolute inset-0 w-[79px] h-[64px] 2xl:w-[149px] 2xl:h-[120px] bg-black/45 blur-[30px] z-0"
-                            style={
-                                headerColor === "#ffffff"
-                                    ? { opacity: 1 }
-                                    : { opacity: 0 }
-                            }
-                        ></div>
                         <img
                             src="/logo_black.webp"
                             width={1000}
@@ -170,10 +162,22 @@ const Header = ({ useWhiteText }: HeaderProps) => {
                             width={1000}
                             height={1000}
                             alt="logo"
-                            className={`absolute inset-0 w-[79px] h-[64px] 2xl:w-[149px] 2xl:h-[120px] ${
+                            className={`absolute inset-0 w-[79px] h-[64px] 2xl:w-[149px] z-1 2xl:h-[120px] ${
                                 headerColor === "#000000"
                                     ? "opacity-0"
                                     : "opacity-100"
+                            }`}
+                            style={{ transition: "opacity 0.3s ease-in-out" }}
+                        />
+                        <img
+                            src="/logo_black.webp"
+                            width={1000}
+                            height={1000}
+                            alt="logo"
+                            className={`inset-0 absolute w-[79px] h-[64px] blur-[5px] 2xl:w-[149px] 2xl:h-[120px] ${
+                                headerColor === "#ffffff"
+                                    ? "opacity-100"
+                                    : "opacity-0"
                             }`}
                             style={{ transition: "opacity 0.3s ease-in-out" }}
                         />

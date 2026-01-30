@@ -25,7 +25,8 @@ const VideoAnimation = () => {
                 document.documentElement.clientHeight / 2 -
                 ((document.querySelector(".logoheader") as HTMLElement | null)
                     ?.offsetHeight || 0) /
-                    2,
+                    2 -
+                50,
         });
 
         gsap.set(".scrolltosection", {
@@ -321,7 +322,7 @@ const VideoAnimation = () => {
                         ref={scrollButtonRef}
                         className="absolute bottom-[-2rem] left-1/2 -translate-x-1/2 z-[999] flex flex-col items-center justify-center text-white group cursor-pointer"
                     >
-                        <div className="relative overflow-hidden rounded-t-full w-[250px] h-[120px] bg-[#5c182a] flex flex-col items-center justify-start border-t border-white/20 transition-all duration-300  group-hover:scale-105">
+                        <div className="relative overflow-hidden rounded-t-full w-[200px] md:w-[250px] h-[100px] md:h-[120px] bg-[#5c182a] flex flex-col items-center justify-start border-t border-white/20 transition-all duration-300  group-hover:scale-105">
                             {/* <div className="text-[12px] tracking-widest uppercase mb-1  transition-all">
                                 Листать вниз
                             </div> */}

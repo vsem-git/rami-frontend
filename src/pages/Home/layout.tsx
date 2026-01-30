@@ -24,8 +24,9 @@ const RootLayout = () => {
                     <div
                         className={`scrolltosection uppercase fixed text-[15px] z-10 md:text-base 2xl:text-[24px] bottom-0 w-full text-center  `}
                     >
-                        <div className="textheader">
-                            клиника-резиденция пластической хирургии
+                        <div className="textheader mb-4 md:mb-0">
+                            клиника-резиденция
+                            <br className="md:hidden" /> пластической хирургии
                         </div>
                         <button className="uppercase text-[13px] font-semibold mt-2 sm:hidden textheader">
                             ЗАПЛАНИРОВАТЬ ВИЗИТ

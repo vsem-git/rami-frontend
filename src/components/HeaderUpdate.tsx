@@ -4,12 +4,14 @@ import { useHeader } from "./HeaderContext";
 import { MenuHeader } from "./MenuHeader";
 import { usePopup } from "./PopupContext";
 import UnderlinedText from "./UnderlinedText/UnderlinedText";
+import { useLocation } from "react-router-dom";
 
 interface HeaderUpdateProps {
     useWhiteText?: boolean;
 }
 
 const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
+    const { pathname } = useLocation();
     const { headerColor } = useHeader();
     const headerRef = useRef<HTMLDivElement>(null);
     const logoRef = useRef(null);
@@ -101,7 +103,11 @@ const HeaderUpdate = ({ useWhiteText = true }: HeaderUpdateProps) => {
             <div
                 ref={menuButtonRef}
                 onClick={toggleMenu}
-                className="relative menuheader item flex font-semibold gap-4 items-center h-fit group cursor-pointer z-[999]"
+                className={`relative menuheader item flex font-semibold gap-4 items-center h-fit group cursor-pointer z-[999] ${
+                    pathname === "/patient"
+                        ? "opacity-0 pointer-events-none"
+                        : "opacity-100"
+                }`}
             >
                 <div className="flex flex-col gap-1">
                     <div

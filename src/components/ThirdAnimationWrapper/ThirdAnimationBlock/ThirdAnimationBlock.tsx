@@ -104,14 +104,14 @@ const ThirdAnimationBlock = () => {
 
         mm.add("(min-width: 768px)", () => {
             // Desktop/Tablet: standard values
-            gsap.set(swiperContainerRef.current, { y: "60%" });
-            gsap.set(".teamswiper .swiper-wrapper", { x: "0%" });
+            gsap.set(swiperContainerRef.current, { yPercent: 60 });
+            gsap.set(".teamswiper .swiper-wrapper", { xPercent: 0 });
         });
 
         mm.add("(max-width: 767px)", () => {
             // Mobile: smaller shift
-            gsap.set(swiperContainerRef.current, { y: "45%" });
-            gsap.set(".teamswiper .swiper-wrapper", { x: "0%" });
+            gsap.set(swiperContainerRef.current, { yPercent: 45 });
+            gsap.set(".teamswiper .swiper-wrapper", { xPercent: 0 });
         });
         // Initial setup only (no timeline yet)
     }, []);
@@ -158,14 +158,14 @@ const ThirdAnimationBlock = () => {
         tl.addLabel("team");
 
         tl.to(block1TextRef.current, {
-            y: "-60%",
+            yPercent: -60,
             duration: 3,
             opacity: 0,
             ease: "power2.inOut",
         }).to(
             swiperContainerRef.current,
             {
-                y: "5%",
+                yPercent: 5,
                 duration: 3,
                 ease: "power2.inOut",
             },
@@ -300,8 +300,8 @@ const ThirdAnimationBlock = () => {
                     <SwiperComponent
                         slidesPerView={1.2}
                         spaceBetween={16}
-                        observer={true}
-                        observeParents={true}
+                        observer={window.innerWidth >= 768}
+                        observeParents={window.innerWidth >= 768}
                         slidesOffsetBefore={20}
                         className="mySwiper h-full w-full teamswiper"
                         loop={false}
@@ -345,7 +345,7 @@ const ThirdAnimationBlock = () => {
                                         <img
                                             src={el.shadow}
                                             alt="shadow"
-                                            className="scale-70 blur-2xl absolute"
+                                            className="hidden lg:block lg:scale-70 lg:blur-2xl absolute"
                                         />
                                     )}
                                     <img
