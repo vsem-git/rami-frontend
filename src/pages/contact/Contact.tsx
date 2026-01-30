@@ -19,7 +19,7 @@ export const Contact = () => {
                 </div>
             </section>
 
-            <ContactForm />
+            {/* <ContactForm /> */}
         </>
     );
 };

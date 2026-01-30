@@ -141,7 +141,12 @@ const Footer = () => {
 						<a href='#' className='text-[#FFFFFF80] hidden'>
 							©2025. Рамиклиник резиденс
 						</a>
-						<a href='#' className='text-xs xl:text-base'>
+						<a
+							href='/privacy-policy.docx'
+							className='text-xs xl:text-base'
+							download
+							target='_blank'
+						>
 							Политика конфиденциальности
 						</a>
 					</div>

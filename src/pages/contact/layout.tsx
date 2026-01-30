@@ -3,11 +3,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Outlet } from 'react-router-dom'
 import ContactPopUp from '../../components/ContactPopUp'
 import { DoctorCardModal } from '../../components/DoctorCardModal'
-import Footer from '../../components/FooterWithoutAnimation'
 import Header from '../../components/Header'
 import { HeaderProvider } from '../../components/HeaderContext'
 import { PopupProvider } from '../../components/PopupContext'
 import ScrollSmoother from '../../components/ScrollSmoother'
+import Footer from '../../components/Footer'
 
 gsap.registerPlugin(ScrollTrigger)
 

@@ -131,7 +131,10 @@ export const Patient = () => {
 				</div>
 			</div>
 
-			<div className='w-full mt-14 bg-[#691C32] pb-[100px] px-4 lg:px-0'>
+			<div
+				id='patient-section2'
+				className='w-full mt-14 bg-[#691C32] pb-[100px] px-4 lg:px-0'
+			>
 				<div className='w-full max-w-[890px] flex flex-col mx-auto pt-16 md:pt-[114px]'>
 					<h3 className='text-base md:text-[11px] sm:text-sm md:text-lg text-white font-bold uppercase'>
 						{patientData.referenceInfo.title}
