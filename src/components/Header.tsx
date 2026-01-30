@@ -107,7 +107,7 @@ const Header = ({ useWhiteText }: HeaderProps) => {
             <div
                 ref={menuButtonRef}
                 onClick={toggleMenu}
-                className="relative menuheader item flex font-semibold gap-4 items-center h-fit group cursor-pointer z-[999]"
+                className="relative menuheader item flex font-semibold gap-4 items-center h-fit group cursor-pointer z-[999] opacity-0 pointer-events-none"
             >
                 <div className="flex flex-col gap-1">
                     <div
