@@ -107,7 +107,7 @@ const Header = ({ useWhiteText }: HeaderProps) => {
             <div
                 ref={menuButtonRef}
                 onClick={toggleMenu}
-                className="relative menuheader item flex font-semibold gap-4 items-center h-fit group cursor-pointer z-[999] opacity-0 pointer-events-none"
+                className="relative menuheader item flex font-semibold gap-4 items-center h-fit group cursor-pointer z-[999] md:opacity-0 md:pointer-events-none"
             >
                 <div className="flex flex-col gap-1">
                     <div
@@ -185,7 +185,7 @@ const Header = ({ useWhiteText }: HeaderProps) => {
                 className="item visitheader font-semibold justify-end items-center flex gap-6 cursor-pointer text-[11px] md:text-[12px] 2xl:text-base"
                 style={{
                     color: headerColor,
-                    transition: "none", // Отключаем CSS-переходы
+                    transition: "none",
                 }}
             >
                 <Phone className="md:hidden" />
