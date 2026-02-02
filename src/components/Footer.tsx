@@ -40,7 +40,7 @@ const Footer = () => {
                     scrub: true, // плавная синхронизация с прокруткой
                     // pin: true,            // если не нужно фиксировать контейнер, можно убрать
                 },
-            }
+            },
         );
 
         gsap.fromTo(
@@ -55,7 +55,7 @@ const Footer = () => {
                     scrub: true, // плавная синхронизация с прокруткой
                     // pin: true,            // если не нужно фиксировать контейнер, можно убрать
                 },
-            }
+            },
         );
 
         tl.to({}, { duration: 1 })
@@ -65,7 +65,7 @@ const Footer = () => {
                     setHeaderColor("#000000");
                 },
                 [],
-                "-=0"
+                "-=0",
             )
 
             .to(footerRef.current, {
@@ -78,7 +78,7 @@ const Footer = () => {
                     setHeaderColor("#ffffff");
                 },
                 [],
-                "-=1"
+                "-=1",
             )
             .fromTo(
                 ".navbarheader",
@@ -88,7 +88,7 @@ const Footer = () => {
                     pointerEvents: "none",
                     duration: 1,
                 },
-                "-=2"
+                "-=2",
             );
     }, []);
     return (
@@ -175,7 +175,7 @@ const Footer = () => {
                 >
                     <div className="flex-1 sm:text-[21px] flex-col sm:flex-row uppercase md:text-[28px] 2xl:text-[36px] font-semibold h-full flex ">
                         <a
-                            href="#"
+                            href="/"
                             className="flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10"
                         >
                             <span className="relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full">
