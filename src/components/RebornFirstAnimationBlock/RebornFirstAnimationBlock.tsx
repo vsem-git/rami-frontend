@@ -384,7 +384,7 @@ const FirstAnimationBlock = () => {
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[200px] bg-black/30 rounded-full blur-[40px] pointer-events-none"></div>
             </div> */}
             <div
-                className="absolute top-0 left-0 w-full h-full bg-[url('/residence6.webp'),linear-gradient(90deg,rgba(242,235,236,1)0%,rgba(248,246,247,1)30%,rgba(246,244,244,1)100%)] [background-position:80%_100%,center] [background-size:_176%,cover] [background-repeat:no-repeat,no-repeat] md:bg-cover md:bg-center z-50"
+                className="absolute top-0 left-0 w-full h-full bg-[url('/residence6.webp'),linear-gradient(90deg,rgba(242,235,236,1)0%,rgba(248,246,247,1)30%,rgba(246,244,244,1)100%)] [background-position:80%_100%,center] [background-size:_176%,cover] seo-clinic [background-repeat:no-repeat,no-repeat] md:bg-cover md:bg-center z-50"
                 ref={block9Ref}
             >
                 <div

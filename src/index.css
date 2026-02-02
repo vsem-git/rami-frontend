@@ -903,3 +903,21 @@ body {
 .teamswiper .swiper-wrapper {
     will-change: transform;
 }
+
+@media (max-height: 660px) {
+    .seo-clinic {
+        background-size: 146%, cover;
+    }
+}
+
+@media (max-height: 610px) {
+    .seo-clinic {
+        background-size: 126%, cover;
+    }
+}
+
+@media (max-height: 560px) {
+    .seo-clinic {
+        background-size: 106%, cover;
+    }
+}
