@@ -89,7 +89,7 @@ const ThirdAndSecondAnimation = () => {
                         end: "bottom+=1000 bottom",
                         scrub: true,
                     },
-                }
+                },
             );
         });
 
@@ -106,11 +106,11 @@ const ThirdAndSecondAnimation = () => {
                         end: "bottom-=1200 bottom",
                         scrub: true,
                     },
-                }
+                },
             );
         });
 
-        mm.add("(max-width: 1280px)", () => {
+        /* mm.add("(max-width: 1280px)", () => {
             gsap.fromTo(
                 ".logoheader",
                 { yPercent: -300 },
@@ -125,7 +125,7 @@ const ThirdAndSecondAnimation = () => {
                     },
                 }
             );
-        });
+        }); */
 
         gsap.fromTo(
             ".bgpattern1",
@@ -140,7 +140,7 @@ const ThirdAndSecondAnimation = () => {
                     end: "top+=200 top", // через 200px после начала
                     scrub: true,
                 },
-            }
+            },
         );
 
         gsap.fromTo(
@@ -156,7 +156,7 @@ const ThirdAndSecondAnimation = () => {
                     end: "top+=200 top", // через 200px после начала
                     scrub: true,
                 },
-            }
+            },
         );
 
         gsap.fromTo(
@@ -172,7 +172,7 @@ const ThirdAndSecondAnimation = () => {
                     end: "top center",
                     scrub: true,
                 },
-            }
+            },
         );
 
         gsap.fromTo(
@@ -187,7 +187,7 @@ const ThirdAndSecondAnimation = () => {
                     end: "bottom -100%",
                     scrub: true,
                 },
-            }
+            },
         );
 
         gsap.fromTo(
@@ -202,7 +202,7 @@ const ThirdAndSecondAnimation = () => {
                     end: "top+=100 top", // через 200px после начала
                     scrub: true,
                 },
-            }
+            },
         );
 
         gsap.fromTo(
@@ -217,7 +217,7 @@ const ThirdAndSecondAnimation = () => {
                     end: "top+=100 top", // через 200px после начала
                     scrub: true,
                 },
-            }
+            },
         );
 
         /* mm.add("(min-width: 1281px)", () => {
