@@ -169,14 +169,14 @@ const Footer = () => {
 					ref={footerRef}
 				>
 					<div className='flex-1 sm:text-[21px] flex-col sm:flex-row uppercase md:text-[28px] 2xl:text-[36px] font-semibold h-full flex '>
-						{/* <a
-                            href="#"
-                            className="flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10"
-                        >
-                            <span className="relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full">
-                                Блог
-                            </span>
-                            {/* <svg
+						<a
+							href='/'
+							className='hidden temporary:flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10'
+						>
+							<span className='relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full'>
+								Блог
+							</span>
+							{/* <svg
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
@@ -192,14 +192,14 @@ const Footer = () => {
                         </svg> 
                         </a> */}
 
-						<a
-							href='/patient'
-							className='flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10'
-						>
-							<span className='relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full'>
-								Пациентам
-							</span>
-							{/* <svg
+							<a
+								href='/patient'
+								className='flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10'
+							>
+								<span className='relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full'>
+									Пациентам
+								</span>
+								{/* <svg
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
@@ -213,17 +213,17 @@ const Footer = () => {
                                 strokeWidth="1.5"
                             />
                         </svg> */}
-						</a>
+							</a>
 
-						<a
-							href='лицензия_выписка_28_10_2025_ДЕЙСТВУЮЩАЯ.pdf'
-							target='_blank'
-							className='flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10'
-						>
-							<span className='relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full'>
-								Лицензия
-							</span>
-							{/* <svg
+							<a
+								href='/%D0%92%D1%8B%D0%BF%D0%B8%D1%81%D0%BA%D0%B0_%D0%B8%D0%B7_%D1%80%D0%B5%D0%B5%D1%81%D1%82%D1%80%D0%B0.pdf'
+								target='_blank'
+								className='flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10'
+							>
+								<span className='relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full'>
+									Лицензия
+								</span>
+								{/* <svg
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
@@ -237,6 +237,7 @@ const Footer = () => {
                                 strokeWidth="1.5"
                             />
                         </svg> */}
+							</a>
 						</a>
 					</div>
 					<div className=' absolute bottom-0 left-0 sm:left-auto sm:right-0 text-xs xl:text-base border-[#FFFFFF4D] border-0 uppercase font-semibold flex md:flex-row flex-col gap-4 justify-between p-6 2xl:p-10 footer-content'>
@@ -244,9 +245,8 @@ const Footer = () => {
 							©2025. Рамиклиник резиденс
 						</a>
 						<a
-							href='/privacy-policy.docx'
-							className='flex gap-2 items-center group text-xs xl:text-base leading-[150%] py-4'
-							download
+							href='/privacy-policy'
+							className='flex gap-2 items-center group text-xs xl:text-base border-b border-[#FFFFFF4D] leading-[150%] py-4'
 							target='_blank'
 						>
 							<span className='relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:w-full'>
@@ -278,7 +278,7 @@ const Footer = () => {
 						</div>
 						<div className='flex items-end md:items-start gap-1'>
 							<a
-								href=''
+								href='https://t.me/+78126271313'
 								className='border-[#FFFFFF1A] border p-[14px] rounded-full h-fit aspect-square'
 							>
 								<svg
@@ -295,7 +295,7 @@ const Footer = () => {
 								</svg>
 							</a>
 							<a
-								href=''
+								href='https://wa.me/78126271313'
 								className='border-[#FFFFFF1A] border p-[14px] rounded-full h-fit aspect-square'
 							>
 								<svg
@@ -319,30 +319,30 @@ const Footer = () => {
 				<div className='text-[11px] xl:text-[12px] 2xl:text-base uppercase flex flex-wrap gap-6 md:mt-5'>
 					<a href='/patient'> Пациентам</a>
 					<a href='/contacts'>Контакты</a>
-					<a href='#'>Карта сайта</a>
-					<a href='#' className='flex items-center gap-2'>
-						<span>Версия для слабовидящих</span>
-						<svg
-							width='24'
-							height='13'
-							viewBox='0 0 24 13'
-							fill='white'
-							xmlns='http://www.w3.org/2000/svg'
-						>
-							<path
-								d='M12 0C15.7688 3.01769e-06 18.7723 1.62989 20.8205 3.24021C21.846 4.04638 22.6382 4.85192 23.1745 5.45681C23.4428 5.75947 23.6475 6.01257 23.786 6.19096C23.8553 6.28016 23.9081 6.35098 23.9439 6.39989C23.9617 6.42424 23.9753 6.44327 23.9847 6.45647C23.9894 6.46309 23.9933 6.4684 23.9959 6.47207L23.9996 6.47751L24 6.47824C24 6.47824 23.9952 6.48113 23.9663 6.5C23.9952 6.51887 24 6.52176 24 6.52176L23.9996 6.52249L23.9959 6.52793C23.9933 6.5316 23.9894 6.53691 23.9847 6.54353C23.9753 6.55673 23.9617 6.57576 23.9439 6.60011C23.9081 6.64902 23.8553 6.71984 23.786 6.80904C23.6475 6.98743 23.4428 7.24053 23.1745 7.54319C22.6382 8.14808 21.846 8.95362 20.8205 9.75979C18.7723 11.3701 15.7688 13 12 13C8.23124 13 5.22775 11.3701 3.17945 9.75979C2.15403 8.95362 1.36179 8.14808 0.825535 7.54319C0.557212 7.24053 0.352462 6.98743 0.213958 6.80904C0.144706 6.71984 0.0919288 6.64902 0.056108 6.60011C0.038278 6.57576 0.0247418 6.55673 0.0153362 6.54353C0.0106217 6.53691 0.00669198 6.5316 0.00411458 6.52793L0.000374053 6.52249L0 6.52176C0 6.52176 0.00484626 6.51887 0.0336648 6.5C0.00484625 6.48113 0 6.47824 0 6.47824L0.000374053 6.47751L0.00411458 6.47207C0.00669198 6.4684 0.0106217 6.46309 0.0153362 6.45647C0.0247418 6.44327 0.038278 6.42424 0.056108 6.39989C0.0919288 6.35098 0.144706 6.28016 0.213958 6.19096C0.352462 6.01257 0.557212 5.75947 0.825535 5.45681C1.36179 4.85192 2.15403 4.04638 3.17945 3.24021C5.22775 1.62989 8.23124 -2.92649e-06 12 0ZM12 0.742857C8.46731 0.742854 5.62952 2.27013 3.66198 3.81694C2.67954 4.58931 1.92013 5.36239 1.40681 5.94141C1.21413 6.15875 1.05624 6.34829 0.934759 6.5C1.05624 6.65171 1.21413 6.84125 1.40681 7.05859C1.92013 7.63761 2.67954 8.41069 3.66198 9.18306C5.62952 10.7299 8.46731 12.2571 12 12.2571C15.5327 12.2571 18.3705 10.7299 20.338 9.18306C21.3205 8.41069 22.0799 7.63761 22.5932 7.05859C22.7858 6.84133 22.9434 6.65168 23.0649 6.5C22.9434 6.34832 22.7858 6.15867 22.5932 5.94141C22.0799 5.36239 21.3205 4.58931 20.338 3.81694C18.3705 2.27014 15.5327 0.74286 12 0.742857Z'
-								fill='currentColor'
-							/>
-							<path
-								d='M16.4048 6.68571C16.4048 4.2241 14.347 2.22857 11.8085 2.22857C9.26998 2.22857 7.21212 4.2241 7.21212 6.68571C7.21212 9.14733 9.26998 11.1429 11.8085 11.1429V11.8857C8.8469 11.8857 6.44606 9.5576 6.44606 6.68571C6.44606 3.81383 8.8469 1.48571 11.8085 1.48571C14.7701 1.48571 17.1709 3.81383 17.1709 6.68571C17.1709 9.5576 14.7701 11.8857 11.8085 11.8857V11.1429C14.347 11.1429 16.4048 9.14733 16.4048 6.68571Z'
-								fill='currentColor'
-							/>
-							<path
-								d='M14.8727 6.68571C14.8727 8.32679 13.5008 9.65714 11.8085 9.65714C10.1161 9.65714 8.74424 8.32679 8.74424 6.68571C8.74424 5.04464 10.1161 3.71429 11.8085 3.71429C13.5008 3.71429 14.8727 5.04464 14.8727 6.68571Z'
-								fill='currentColor'
-							/>
-						</svg>
-					</a>
+					{/* <a href="/">Карта сайта</a>
+                    <a href="/" className="flex items-center gap-2">
+                        <span>Версия для слабовидящих</span>
+                        <svg
+                            width="24"
+                            height="13"
+                            viewBox="0 0 24 13"
+                            fill="white"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M12 0C15.7688 3.01769e-06 18.7723 1.62989 20.8205 3.24021C21.846 4.04638 22.6382 4.85192 23.1745 5.45681C23.4428 5.75947 23.6475 6.01257 23.786 6.19096C23.8553 6.28016 23.9081 6.35098 23.9439 6.39989C23.9617 6.42424 23.9753 6.44327 23.9847 6.45647C23.9894 6.46309 23.9933 6.4684 23.9959 6.47207L23.9996 6.47751L24 6.47824C24 6.47824 23.9952 6.48113 23.9663 6.5C23.9952 6.51887 24 6.52176 24 6.52176L23.9996 6.52249L23.9959 6.52793C23.9933 6.5316 23.9894 6.53691 23.9847 6.54353C23.9753 6.55673 23.9617 6.57576 23.9439 6.60011C23.9081 6.64902 23.8553 6.71984 23.786 6.80904C23.6475 6.98743 23.4428 7.24053 23.1745 7.54319C22.6382 8.14808 21.846 8.95362 20.8205 9.75979C18.7723 11.3701 15.7688 13 12 13C8.23124 13 5.22775 11.3701 3.17945 9.75979C2.15403 8.95362 1.36179 8.14808 0.825535 7.54319C0.557212 7.24053 0.352462 6.98743 0.213958 6.80904C0.144706 6.71984 0.0919288 6.64902 0.056108 6.60011C0.038278 6.57576 0.0247418 6.55673 0.0153362 6.54353C0.0106217 6.53691 0.00669198 6.5316 0.00411458 6.52793L0.000374053 6.52249L0 6.52176C0 6.52176 0.00484626 6.51887 0.0336648 6.5C0.00484625 6.48113 0 6.47824 0 6.47824L0.000374053 6.47751L0.00411458 6.47207C0.00669198 6.4684 0.0106217 6.46309 0.0153362 6.45647C0.0247418 6.44327 0.038278 6.42424 0.056108 6.39989C0.0919288 6.35098 0.144706 6.28016 0.213958 6.19096C0.352462 6.01257 0.557212 5.75947 0.825535 5.45681C1.36179 4.85192 2.15403 4.04638 3.17945 3.24021C5.22775 1.62989 8.23124 -2.92649e-06 12 0ZM12 0.742857C8.46731 0.742854 5.62952 2.27013 3.66198 3.81694C2.67954 4.58931 1.92013 5.36239 1.40681 5.94141C1.21413 6.15875 1.05624 6.34829 0.934759 6.5C1.05624 6.65171 1.21413 6.84125 1.40681 7.05859C1.92013 7.63761 2.67954 8.41069 3.66198 9.18306C5.62952 10.7299 8.46731 12.2571 12 12.2571C15.5327 12.2571 18.3705 10.7299 20.338 9.18306C21.3205 8.41069 22.0799 7.63761 22.5932 7.05859C22.7858 6.84133 22.9434 6.65168 23.0649 6.5C22.9434 6.34832 22.7858 6.15867 22.5932 5.94141C22.0799 5.36239 21.3205 4.58931 20.338 3.81694C18.3705 2.27014 15.5327 0.74286 12 0.742857Z"
+                                fill="currentColor"
+                            />
+                            <path
+                                d="M16.4048 6.68571C16.4048 4.2241 14.347 2.22857 11.8085 2.22857C9.26998 2.22857 7.21212 4.2241 7.21212 6.68571C7.21212 9.14733 9.26998 11.1429 11.8085 11.1429V11.8857C8.8469 11.8857 6.44606 9.5576 6.44606 6.68571C6.44606 3.81383 8.8469 1.48571 11.8085 1.48571C14.7701 1.48571 17.1709 3.81383 17.1709 6.68571C17.1709 9.5576 14.7701 11.8857 11.8085 11.8857V11.1429C14.347 11.1429 16.4048 9.14733 16.4048 6.68571Z"
+                                fill="currentColor"
+                            />
+                            <path
+                                d="M14.8727 6.68571C14.8727 8.32679 13.5008 9.65714 11.8085 9.65714C10.1161 9.65714 8.74424 8.32679 8.74424 6.68571C8.74424 5.04464 10.1161 3.71429 11.8085 3.71429C13.5008 3.71429 14.8727 5.04464 14.8727 6.68571Z"
+                                fill="currentColor"
+                            />
+                        </svg>
+                    </a> */}
 				</div>
 			</div>
 		</>
