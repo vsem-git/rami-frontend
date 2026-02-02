@@ -149,10 +149,8 @@ const Header = ({ useWhiteText }: HeaderProps) => {
                             alt="logo"
                             className="absolute inset-0 w-[79px] h-[64px] 2xl:w-[149px] 2xl:h-[120px] blur-[5px] transition-all duration-300"
                             style={{
-                                filter:
-                                    headerColor === "#ffffff"
-                                        ? "opacity-100"
-                                        : "opacity-0",
+                                opacity:
+                                    headerColor === "#ffffff" ? "100" : "0",
                             }}
                         />
                     </a>
