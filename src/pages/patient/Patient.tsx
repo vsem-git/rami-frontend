@@ -4,7 +4,7 @@ import { patientData } from '../../shared/data/patient'
 export const Patient = () => {
 	return (
 		<div className=''>
-			<div className='w-full max-w-[890px] flex flex-col mx-auto pt-[8rem] lg:pt-[12rem] px-4 lg:px-0'>
+			<div className='w-full max-w-[890px] flex flex-col mx-auto pt-[2rem] lg:pt-[4rem] px-4 lg:px-0'>
 				<h2 className='text-xl sm:text-4xl md:text-[44px] uppercase text-[#1D1D1D] tracking-[3px] sm:tracking-[6px]'>
 					{patientData.title}
 				</h2>
