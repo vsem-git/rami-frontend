@@ -323,7 +323,7 @@ const Footer = () => {
                 <div className="text-[11px] xl:text-[12px] 2xl:text-base uppercase flex flex-wrap gap-6 md:mt-5">
                     <a href="/patient"> Пациентам</a>
                     <a href="/contacts">Контакты</a>
-                    <a href="/">Карта сайта</a>
+                    {/* <a href="/">Карта сайта</a>
                     <a href="/" className="flex items-center gap-2">
                         <span>Версия для слабовидящих</span>
                         <svg
@@ -346,7 +346,7 @@ const Footer = () => {
                                 fill="currentColor"
                             />
                         </svg>
-                    </a>
+                    </a> */}
                 </div>
             </div>
         </>
