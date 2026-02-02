@@ -221,7 +221,7 @@ const Footer = () => {
                         </a>
 
                         <a
-                            href="лицензия_выписка_28_10_2025_ДЕЙСТВУЮЩАЯ.pdf"
+                            href="/%D0%92%D1%8B%D0%BF%D0%B8%D1%81%D0%BA%D0%B0_%D0%B8%D0%B7_%D1%80%D0%B5%D0%B5%D1%81%D1%82%D1%80%D0%B0.pdf"
                             target="_blank"
                             className="flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10"
                         >
@@ -249,9 +249,8 @@ const Footer = () => {
                             ©2025. Рамиклиник резиденс
                         </a>
                         <a
-                            href="/privacy-policy.docx"
+                            href="/privacy-policy"
                             className="flex gap-2 items-center group text-xs xl:text-base border-b border-[#FFFFFF4D] leading-[150%] py-4"
-                            download
                             target="_blank"
                         >
                             <span className="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:w-full">
