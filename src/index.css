@@ -907,17 +907,20 @@ body {
 @media (max-height: 660px) {
     .seo-clinic {
         background-size: 146%, cover;
+        @apply bg-[url('/residence6.webp'),linear-gradient(90deg,rgb(231,227,226)0%,rgb(244,241,242)30%,rgba(247,245,246,1)100%)];
     }
 }
 
 @media (max-height: 610px) {
     .seo-clinic {
         background-size: 126%, cover;
+        @apply bg-[url('/residence6.webp'),linear-gradient(90deg,rgb(231,227,226)0%,rgb(244,241,242)30%,rgba(247,245,246,1)100%)];
     }
 }
 
 @media (max-height: 560px) {
     .seo-clinic {
         background-size: 106%, cover;
+        @apply bg-[url('/residence6.webp'),linear-gradient(90deg,rgb(228,218,219)0%,rgb(240,233,233,1)30%,rgba(246,244,244,1)100%)];
     }
 }

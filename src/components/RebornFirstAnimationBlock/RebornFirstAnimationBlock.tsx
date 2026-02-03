@@ -389,10 +389,10 @@ const FirstAnimationBlock = () => {
             >
                 <div
                     id="manifesto"
-                    className="relative w-full h-full flex justify-start pl-[16px] md:pl-[80px] xl:pl-[120px] 2xl:pl-[200px] items-start pt-[110px] sm:pt-[110px] md:pt-0 md:items-center"
+                    className="relative w-full h-full flex justify-start pl-[16px] md:pl-[80px] xl:pl-[120px] 2xl:pl-[200px] items-start pt-[95px] sm:pt-[110px] md:pt-0 md:items-center"
                 >
                     <div>
-                        <div className="text-[#1D1D1D99] text-[20px] md:text-[24px] 2xl:text-[36px] uppercase mb-7">
+                        <div className="text-[#1D1D1D99] text-[20px] md:text-[24px] 2xl:text-[36px] uppercase mb-3 xl:mb-7">
                             манифест искренности
                         </div>
                         <div className="flex gap-6">
