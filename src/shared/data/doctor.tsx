@@ -196,10 +196,10 @@ export const DOCTORS_DATA: Doctor[] = [
                 description:
                     "Комплексное омоложение:  эндоскопический фронтотемпоральный лифтинг, нижняя трансконъюктивальная блефаропластика, медиальная платизмопластика, смас-лифтинг, липофилинг лица",
                 images: [
-                    "/doctor-screen/result-ser/1/1.png",
-                    "/doctor-screen/result-ser/1/2.png",
-                    "/doctor-screen/result-ser/1/1.1.png",
-                    "/doctor-screen/result-ser/1/1.2.png",
+                    "/doctor-screen/result-ser/1/1.webp",
+                    "/doctor-screen/result-ser/1/2.webp",
+                    "/doctor-screen/result-ser/1/1.1.webp",
+                    "/doctor-screen/result-ser/1/1.2.webp",
                 ],
             },
             {
@@ -208,11 +208,11 @@ export const DOCTORS_DATA: Doctor[] = [
                 description:
                     "Комплексное омоложение: квадрилатеральная блефаропластика, эндоскопический фронтотемпоральный лифтинг, корсетная медиальная платизмопластика, смас-лифтинг",
                 images: [
-                    "/doctor-screen/result-ser/2/1.1.jpg",
-                    "/doctor-screen/result-ser/2/2.2.jpg",
-                    "/doctor-screen/result-ser/2/2.3.jpg",
-                    "/doctor-screen/result-ser/2/2.4.jpg",
-                    "/doctor-screen/result-ser/2/2.jpg",
+                    "/doctor-screen/result-ser/2/1.1.webp",
+                    "/doctor-screen/result-ser/2/2.2.webp",
+                    "/doctor-screen/result-ser/2/2.3.webp",
+                    "/doctor-screen/result-ser/2/2.4.webp",
+                    "/doctor-screen/result-ser/2/2.webp",
                 ],
             },
             {
@@ -221,11 +221,11 @@ export const DOCTORS_DATA: Doctor[] = [
                 description:
                     "Комплексное омоложение:  эндоскопический фронтотемпоральный лифтинг,  квадрилатеральная блефаропластика, кантомиопексия, медиальная платизмопластика, субментальная липосакция, смас-лифтинг",
                 images: [
-                    "/doctor-screen/result-ser/3/1.png",
-                    "/doctor-screen/result-ser/3/2.png",
-                    "/doctor-screen/result-ser/3/3.png",
-                    "/doctor-screen/result-ser/3/4.png",
-                    "/doctor-screen/result-ser/3/5.png",
+                    "/doctor-screen/result-ser/3/1.webp",
+                    "/doctor-screen/result-ser/3/2.webp",
+                    "/doctor-screen/result-ser/3/3.webp",
+                    "/doctor-screen/result-ser/3/4.webp",
+                    "/doctor-screen/result-ser/3/5.webp",
                 ],
             },
 
@@ -235,9 +235,9 @@ export const DOCTORS_DATA: Doctor[] = [
                 description:
                     "Комплексное омоложение:  верхняя и нижняя блефаропластика, эндоскопический фронтотемпоральный лифтинг, медиальная корсетная платизмопластика, смас-лифтинг, редукция комков Биша",
                 images: [
-                    "/doctor-screen/result-ser/4/1.png",
-                    "/doctor-screen/result-ser/4/2.png",
-                    "/doctor-screen/result-ser/4/3.png",
+                    "/doctor-screen/result-ser/4/1.webp",
+                    "/doctor-screen/result-ser/4/2.webp",
+                    "/doctor-screen/result-ser/4/3.webp",
                 ],
             },
             {
@@ -245,9 +245,9 @@ export const DOCTORS_DATA: Doctor[] = [
                 type: "Пластика лица",
                 description: "",
                 images: [
-                    "/doctor-screen/result-ser/5/1.png",
-                    "/doctor-screen/result-ser/5/2.png",
-                    "/doctor-screen/result-ser/5/3.png",
+                    "/doctor-screen/result-ser/5/1.webp",
+                    "/doctor-screen/result-ser/5/2.webp",
+                    "/doctor-screen/result-ser/5/3.webp",
                 ],
             },
         ],
@@ -280,9 +280,9 @@ export const DOCTORS_DATA: Doctor[] = [
         link: "/doctor",
         id: "tarasenko-vasiliy",
         cards: [
-            "/doctor-screen/tarasenko-vasiliy/result/res4/1.png",
-            "/doctor-screen/tarasenko-vasiliy/archive/card6.JPG",
-            "/doctor-screen/tarasenko-vasiliy/training/card2.jpg",
+            "/doctor-screen/tarasenko-vasiliy/result/res4/1.webp",
+            "/doctor-screen/tarasenko-vasiliy/archive/card6.webp",
+            "/doctor-screen/tarasenko-vasiliy/training/card2.webp",
         ],
 
         modalProfessionalDev: [
@@ -497,7 +497,7 @@ export const DOCTORS_DATA: Doctor[] = [
                 year: "2015",
                 title: "Б. Мендельсон, курс MAFAC (продвинутая анатомия лица дляпластических хирургов), Мельбурн, Австралия",
                 description: "2015",
-                image: "/doctor-screen/tarasenko-vasiliy/archive/card1.PNG",
+                image: "/doctor-screen/tarasenko-vasiliy/archive/card1.webp",
                 backgroundYear: "2015",
                 imageClassName:
                     "w-[193px] md:w-[280px] xl:w-[317px] h-[216px] md:h-[320px] xl:h-[396px]",
@@ -506,7 +506,7 @@ export const DOCTORS_DATA: Doctor[] = [
                 year: "2016",
                 title: "ISAPS, Киото, Япония",
                 description: "2016",
-                image: "/doctor-screen/tarasenko-vasiliy/archive/card2.JPG",
+                image: "/doctor-screen/tarasenko-vasiliy/archive/card2.webp",
                 backgroundYear: "2016",
                 imageClassName:
                     "w-[193px] md:w-[280px] xl:w-[317px] h-[216px] md:h-[320px] xl:h-[396px]",
@@ -515,7 +515,7 @@ export const DOCTORS_DATA: Doctor[] = [
                 year: "2016",
                 title: "Б.Мендельсон, курс «Инновационные методы омоложения лица», Санкт-Петербург",
                 description: "2016",
-                image: "/doctor-screen/tarasenko-vasiliy/archive/card3.jpg",
+                image: "/doctor-screen/tarasenko-vasiliy/archive/card3.webp",
                 backgroundYear: "2016",
                 imageClassName:
                     "w-[193px] md:w-[280px] xl:w-[317px] h-[216px] md:h-[320px] xl:h-[396px]",
@@ -524,7 +524,7 @@ export const DOCTORS_DATA: Doctor[] = [
                 year: "2017",
                 title: "Б. Мендельсон (Австралия) и Д. Батюков (Беларусь), продвинутый курс MAFAC",
                 description: "2017",
-                image: "/doctor-screen/tarasenko-vasiliy/archive/card4.JPG",
+                image: "/doctor-screen/tarasenko-vasiliy/archive/card4.webp",
                 backgroundYear: "2017",
                 imageClassName:
                     "w-[193px] md:w-[280px] xl:w-[317px] h-[216px] md:h-[320px] xl:h-[396px]",
@@ -533,7 +533,7 @@ export const DOCTORS_DATA: Doctor[] = [
                 year: "2017",
                 title: "3.Сэм Хамра (США), мастер-класс, Москва",
                 description: "2017",
-                image: "/doctor-screen/tarasenko-vasiliy/archive/card5.JPG",
+                image: "/doctor-screen/tarasenko-vasiliy/archive/card5.webp",
                 backgroundYear: "2017",
                 imageClassName:
                     "w-[323px] md:w-[380px] xl:w-[449px] h-[216px] md:h-[250px] xl:h-[300px]",
@@ -542,7 +542,7 @@ export const DOCTORS_DATA: Doctor[] = [
                 year: "2018",
                 title: "Рамирез (США), международный интенсивный обучающий курс, Санкт-Петербург",
                 description: "2018",
-                image: "/doctor-screen/tarasenko-vasiliy/archive/card6.JPG",
+                image: "/doctor-screen/tarasenko-vasiliy/archive/card6.webp",
                 backgroundYear: "2018",
                 imageClassName:
                     "w-[193px] md:w-[280px] xl:w-[317px] h-[216px] md:h-[320px] xl:h-[396px]",
@@ -551,7 +551,7 @@ export const DOCTORS_DATA: Doctor[] = [
                 year: "2018",
                 title: "Томас М. Биггс, ISAPS, Майами, США",
                 description: "2018",
-                image: "/doctor-screen/tarasenko-vasiliy/archive/card7.JPG",
+                image: "/doctor-screen/tarasenko-vasiliy/archive/card7.webp",
                 backgroundYear: "2018",
                 imageClassName:
                     "w-[193px] md:w-[280px] xl:w-[317px] h-[216px] md:h-[320px] xl:h-[396px]",
@@ -560,7 +560,7 @@ export const DOCTORS_DATA: Doctor[] = [
                 year: "2018",
                 title: "О.Рамирез, ISPS, СПб",
                 description: "2018",
-                image: "/doctor-screen/tarasenko-vasiliy/archive/card8.jpg",
+                image: "/doctor-screen/tarasenko-vasiliy/archive/card8.webp",
                 backgroundYear: "2018",
                 imageClassName:
                     "w-[193px] md:w-[280px] xl:w-[317px] h-[216px] md:h-[320px] xl:h-[396px]",
@@ -568,8 +568,8 @@ export const DOCTORS_DATA: Doctor[] = [
         ],
         welcome_block: [
             {
-                bgMobile: "/doctor-screen/tarasenko-vasiliy/TARASENKO.png",
-                bg: "/doctor-screen/tarasenko-vasiliy/bg.png",
+                bgMobile: "/doctor-screen/tarasenko-vasiliy/TARASENKO.webp",
+                bg: "/doctor-screen/tarasenko-vasiliy/bg.webp",
                 title: (
                     <h1 className="text-2xl/[125%] sm:text-3xl/[125%] md:text-5xl/[125%] xl:text-7xl/[125%]  font-normal uppercase mb-6 xl:mb-10">
                         ТАРАСЕНКО ВАСИЛИЙ
@@ -612,20 +612,20 @@ export const DOCTORS_DATA: Doctor[] = [
         gallery: [
             {
                 leftColumnImages: [
-                    "/doctor-screen/tarasenko-vasiliy/training/card6.jpg",
-                    "/doctor-screen/tarasenko-vasiliy/training/card1.jpg",
+                    "/doctor-screen/tarasenko-vasiliy/training/card6.webp",
+                    "/doctor-screen/tarasenko-vasiliy/training/card1.webp",
                 ],
             },
             {
                 centerColumnImages: [
-                    "/doctor-screen/tarasenko-vasiliy/training/card4.jpg",
-                    "/doctor-screen/tarasenko-vasiliy/training/card5.jpg",
+                    "/doctor-screen/tarasenko-vasiliy/training/card4.webp",
+                    "/doctor-screen/tarasenko-vasiliy/training/card5.webp",
                 ],
             },
             {
                 rightColumnImages: [
-                    "/doctor-screen/tarasenko-vasiliy/training/card3.jpg",
-                    "/doctor-screen/tarasenko-vasiliy/training/card2.jpg",
+                    "/doctor-screen/tarasenko-vasiliy/training/card3.webp",
+                    "/doctor-screen/tarasenko-vasiliy/training/card2.webp",
                 ],
             },
         ],
@@ -635,8 +635,8 @@ export const DOCTORS_DATA: Doctor[] = [
                 year: "",
                 description: [],
                 images: [
-                    "/doctor-screen/tarasenko-vasiliy/training/card6.jpg",
-                    "/doctor-screen/tarasenko-vasiliy/training/card1.jpg",
+                    "/doctor-screen/tarasenko-vasiliy/training/card6.webp",
+                    "/doctor-screen/tarasenko-vasiliy/training/card1.webp",
                 ],
             },
             {
@@ -644,8 +644,8 @@ export const DOCTORS_DATA: Doctor[] = [
                 year: "",
                 description: [],
                 images: [
-                    "/doctor-screen/tarasenko-vasiliy/training/card4.jpg",
-                    "/doctor-screen/tarasenko-vasiliy/training/card5.jpg",
+                    "/doctor-screen/tarasenko-vasiliy/training/card4.webp",
+                    "/doctor-screen/tarasenko-vasiliy/training/card5.webp",
                 ],
             },
             {
@@ -653,8 +653,8 @@ export const DOCTORS_DATA: Doctor[] = [
                 year: "",
                 description: [],
                 images: [
-                    "/doctor-screen/tarasenko-vasiliy/training/card3.jpg",
-                    "/doctor-screen/tarasenko-vasiliy/training/card2.jpg",
+                    "/doctor-screen/tarasenko-vasiliy/training/card3.webp",
+                    "/doctor-screen/tarasenko-vasiliy/training/card2.webp",
                 ],
             },
         ],
@@ -669,8 +669,8 @@ export const DOCTORS_DATA: Doctor[] = [
                     ],
                 ],
                 images: [
-                    "/doctor-screen/tarasenko-vasiliy/archive/card1.PNG",
-                    "/doctor-screen/tarasenko-vasiliy/archive/card2.JPG",
+                    "/doctor-screen/tarasenko-vasiliy/archive/card1.webp",
+                    "/doctor-screen/tarasenko-vasiliy/archive/card2.webp",
                 ],
             },
             {
@@ -683,8 +683,8 @@ export const DOCTORS_DATA: Doctor[] = [
                     ],
                 ],
                 images: [
-                    "/doctor-screen/tarasenko-vasiliy/archive/card3.jpg",
-                    "/doctor-screen/tarasenko-vasiliy/archive/card4.JPG",
+                    "/doctor-screen/tarasenko-vasiliy/archive/card3.webp",
+                    "/doctor-screen/tarasenko-vasiliy/archive/card4.webp",
                 ],
             },
             {
@@ -695,8 +695,8 @@ export const DOCTORS_DATA: Doctor[] = [
                     "Рамирез (США), международный интенсивный обучающий курс, Санкт-Петербург",
                 ],
                 images: [
-                    "/doctor-screen/tarasenko-vasiliy/archive/card5.JPG",
-                    "/doctor-screen/tarasenko-vasiliy/archive/card6.JPG",
+                    "/doctor-screen/tarasenko-vasiliy/archive/card5.webp",
+                    "/doctor-screen/tarasenko-vasiliy/archive/card6.webp",
                 ],
             },
         ],
@@ -708,10 +708,10 @@ export const DOCTORS_DATA: Doctor[] = [
                 description:
                     "Комплексная операция: лифтинг Мендельсона, эндоскопическое омоложение лба и нижняя блефаропластика. Результат через 6 месяцев после операции.",
                 images: [
-                    "/doctor-screen/tarasenko-vasiliy/result/res1/1.png",
-                    "/doctor-screen/tarasenko-vasiliy/result/res1/1.2.png",
-                    "/doctor-screen/tarasenko-vasiliy/result/res1/2.png",
-                    "/doctor-screen/tarasenko-vasiliy/result/res1/2.2.png",
+                    "/doctor-screen/tarasenko-vasiliy/result/res1/1.webp",
+                    "/doctor-screen/tarasenko-vasiliy/result/res1/1.2.webp",
+                    "/doctor-screen/tarasenko-vasiliy/result/res1/2.webp",
+                    "/doctor-screen/tarasenko-vasiliy/result/res1/2.2.webp",
                 ],
             },
             {
@@ -719,8 +719,8 @@ export const DOCTORS_DATA: Doctor[] = [
                 type: "Пластика лица",
                 description: "",
                 images: [
-                    "/doctor-screen/tarasenko-vasiliy/result/res2/35_1.jpg",
-                    "/doctor-screen/tarasenko-vasiliy/result/res2/35_2.jpg",
+                    "/doctor-screen/tarasenko-vasiliy/result/res2/35_1.webp",
+                    "/doctor-screen/tarasenko-vasiliy/result/res2/35_2.webp",
                 ],
             },
             {
@@ -729,9 +729,9 @@ export const DOCTORS_DATA: Doctor[] = [
                 description:
                     "Подтяжка лица и шеи по методике лифтинг Мендельсона, эндоскопический фронто-темпоральный лифтинг. Результата через 6 месяцев после операции.",
                 images: [
-                    "/doctor-screen/tarasenko-vasiliy/result/res3/4.2.jpg",
+                    "/doctor-screen/tarasenko-vasiliy/result/res3/4.2.webp",
 
-                    "/doctor-screen/tarasenko-vasiliy/result/res3/4.jpg",
+                    "/doctor-screen/tarasenko-vasiliy/result/res3/4.webp",
                 ],
             },
 
@@ -741,8 +741,8 @@ export const DOCTORS_DATA: Doctor[] = [
                 description:
                     "Лифтинг Мендельсона и эндоскопический фронтотемпоральный лифтинг 6 мес",
                 images: [
-                    "/doctor-screen/tarasenko-vasiliy/result/res4/1.png",
-                    "/doctor-screen/tarasenko-vasiliy/result/res4/3.png",
+                    "/doctor-screen/tarasenko-vasiliy/result/res4/1.webp",
+                    "/doctor-screen/tarasenko-vasiliy/result/res4/3.webp",
                 ],
             },
             {
@@ -751,12 +751,12 @@ export const DOCTORS_DATA: Doctor[] = [
                 description:
                     "Лифтинг Мендельсона и эндоскопический фронтотемпоральный лифтинг 1 год",
                 images: [
-                    "/doctor-screen/tarasenko-vasiliy/result/res5/1.jpg",
-                    "/doctor-screen/tarasenko-vasiliy/result/res5/1.jpg",
-                    "/doctor-screen/tarasenko-vasiliy/result/res5/2.jpg",
-                    "/doctor-screen/tarasenko-vasiliy/result/res5/3.jpg",
-                    "/doctor-screen/tarasenko-vasiliy/result/res5/4.jpg",
-                    "/doctor-screen/tarasenko-vasiliy/result/res5/5.jpg",
+                    "/doctor-screen/tarasenko-vasiliy/result/res5/1.webp",
+                    "/doctor-screen/tarasenko-vasiliy/result/res5/1.webp",
+                    "/doctor-screen/tarasenko-vasiliy/result/res5/2.webp",
+                    "/doctor-screen/tarasenko-vasiliy/result/res5/3.webp",
+                    "/doctor-screen/tarasenko-vasiliy/result/res5/4.webp",
+                    "/doctor-screen/tarasenko-vasiliy/result/res5/5.webp",
                 ],
             },
         ],

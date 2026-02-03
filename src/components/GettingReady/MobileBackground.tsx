@@ -186,12 +186,12 @@ const MobileBackground = () => {
                 ></div>
 
                 <img
-                    src="/getting-ready/bg2.png"
+                    src="/getting-ready/bg2.webp"
                     className="left-[12%] h-full opacity-0 blur-[27.2784px] object-contain will-change-transform"
                     ref={substractRef}
                 />
                 <img
-                    src="/getting-ready/bg1.png"
+                    src="/getting-ready/bg1.webp"
                     className="absolute -ml-5 inset-0 h-full object-contain z-10 will-change-transform"
                 />
             </div>

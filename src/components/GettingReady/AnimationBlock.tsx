@@ -36,7 +36,7 @@ const AnimationBlock = () => {
                 {
                     opacity: 0,
                     filter: "blur(10px)",
-                }
+                },
             );
 
             gsap.fromTo(
@@ -52,7 +52,7 @@ const AnimationBlock = () => {
                     filter: "blur(0px)",
                     duration: 2,
                     ease: "power2.inOut",
-                }
+                },
             );
 
             const tl = gsap.timeline({
@@ -80,7 +80,7 @@ const AnimationBlock = () => {
                     opacity: 0,
                     duration: 1,
                     ease: "power2.inOut",
-                }
+                },
             )
                 .to(
                     imageRef.current,
@@ -92,7 +92,7 @@ const AnimationBlock = () => {
                         duration: 2,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 )
                 .fromTo(
                     firstText.current,
@@ -103,7 +103,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 );
 
             tl.fromTo(
@@ -118,7 +118,7 @@ const AnimationBlock = () => {
                     duration: 1,
                     filter: "blur(0px)",
                     ease: "power2.inOut",
-                }
+                },
             )
                 .fromTo(
                     bgRef.current,
@@ -134,7 +134,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 )
                 .fromTo(
                     substractRef.current,
@@ -151,7 +151,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 )
                 .fromTo(
                     ballRef.current,
@@ -167,7 +167,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 );
 
             tl.to({}, { duration: 0.5, ease: "none" });
@@ -182,7 +182,7 @@ const AnimationBlock = () => {
                     y: -20,
                     duration: 1,
                     ease: "power2.inOut",
-                }
+                },
             );
 
             tl.fromTo(
@@ -197,7 +197,7 @@ const AnimationBlock = () => {
                     duration: 1,
                     filter: "blur(0px)",
                     ease: "power2.inOut",
-                }
+                },
             )
                 .fromTo(
                     bgRef.current,
@@ -209,7 +209,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 )
                 .fromTo(
                     substractRef.current,
@@ -222,7 +222,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 )
                 .fromTo(
                     ballRef.current,
@@ -240,7 +240,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 );
 
             tl.to({}, { duration: 0.5, ease: "none" });
@@ -255,7 +255,7 @@ const AnimationBlock = () => {
                     y: -20,
                     duration: 1,
                     ease: "power2.inOut",
-                }
+                },
             );
 
             tl.fromTo(
@@ -270,7 +270,7 @@ const AnimationBlock = () => {
                     duration: 0.75,
                     filter: "blur(0px)",
                     ease: "power2.inOut",
-                }
+                },
             )
                 .fromTo(
                     bgRef.current,
@@ -282,7 +282,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 )
                 .fromTo(
                     substractRef.current,
@@ -295,7 +295,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 )
                 .fromTo(
                     ballRef.current,
@@ -313,7 +313,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 );
 
             tl.to({}, { duration: 2, ease: "none" });
@@ -328,7 +328,7 @@ const AnimationBlock = () => {
                     y: -20,
                     duration: 1,
                     ease: "none",
-                }
+                },
             );
 
             tl.fromTo(
@@ -343,7 +343,7 @@ const AnimationBlock = () => {
                     duration: 0.75,
                     filter: "blur(0px)",
                     ease: "power2.inOut",
-                }
+                },
             )
                 .fromTo(
                     bgRef.current,
@@ -358,7 +358,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 )
                 .fromTo(
                     substractRef.current,
@@ -374,7 +374,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 )
                 .fromTo(
                     ballRef.current,
@@ -396,7 +396,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 );
 
             tl.to({}, { duration: 2, ease: "none" });
@@ -411,7 +411,7 @@ const AnimationBlock = () => {
                     y: -20,
                     duration: 1,
                     ease: "none",
-                }
+                },
             );
 
             tl.fromTo(
@@ -426,7 +426,7 @@ const AnimationBlock = () => {
                     duration: 0.75,
                     filter: "blur(0px)",
                     ease: "power2.inOut",
-                }
+                },
             )
                 .fromTo(
                     bgRef.current,
@@ -440,7 +440,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 )
                 .fromTo(
                     substractRef.current,
@@ -455,7 +455,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 )
                 .fromTo(
                     ballRef.current,
@@ -479,7 +479,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 );
 
             tl.to({}, { duration: 2, ease: "none" });
@@ -494,7 +494,7 @@ const AnimationBlock = () => {
                     y: -20,
                     duration: 1,
                     ease: "none",
-                }
+                },
             );
 
             tl.fromTo(
@@ -509,7 +509,7 @@ const AnimationBlock = () => {
                     duration: 0.75,
                     filter: "blur(0px)",
                     ease: "power2.inOut",
-                }
+                },
             )
                 .fromTo(
                     bgRef.current,
@@ -521,7 +521,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 )
                 .fromTo(
                     substractRef.current,
@@ -534,7 +534,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 )
                 .fromTo(
                     ballRef.current,
@@ -558,7 +558,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 );
 
             tl.to({}, { duration: 2, ease: "none" });
@@ -573,7 +573,7 @@ const AnimationBlock = () => {
                     y: -20,
                     duration: 1,
                     ease: "none",
-                }
+                },
             );
 
             tl.fromTo(
@@ -588,7 +588,7 @@ const AnimationBlock = () => {
                     duration: 0.75,
                     filter: "blur(0px)",
                     ease: "power2.inOut",
-                }
+                },
             )
                 .fromTo(
                     bgRef.current,
@@ -600,7 +600,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 )
                 .fromTo(
                     substractRef.current,
@@ -613,7 +613,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 )
                 .fromTo(
                     ballRef.current,
@@ -637,7 +637,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 );
 
             tl.to({}, { duration: 2, ease: "none" });
@@ -652,7 +652,7 @@ const AnimationBlock = () => {
                     y: -20,
                     duration: 1,
                     ease: "none",
-                }
+                },
             );
 
             tl.fromTo(
@@ -667,7 +667,7 @@ const AnimationBlock = () => {
                     duration: 0.75,
                     filter: "blur(0px)",
                     ease: "power2.inOut",
-                }
+                },
             )
                 .fromTo(
                     bgRef.current,
@@ -683,7 +683,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 )
                 .fromTo(
                     substractRef.current,
@@ -699,7 +699,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 )
                 .fromTo(
                     ballRef.current,
@@ -723,7 +723,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 );
 
             tl.to({}, { duration: 2, ease: "none" });
@@ -738,7 +738,7 @@ const AnimationBlock = () => {
                     y: -20,
                     duration: 1,
                     ease: "none",
-                }
+                },
             );
 
             tl.fromTo(
@@ -753,7 +753,7 @@ const AnimationBlock = () => {
                     duration: 0.75,
                     filter: "blur(0px)",
                     ease: "power2.inOut",
-                }
+                },
             )
                 .fromTo(
                     bgRef.current,
@@ -769,7 +769,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 )
                 .fromTo(
                     substractRef.current,
@@ -787,7 +787,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 )
                 .fromTo(
                     ballRef.current,
@@ -813,7 +813,7 @@ const AnimationBlock = () => {
                         duration: 1,
                         ease: "power2.inOut",
                     },
-                    "<"
+                    "<",
                 );
 
             tl.to({}, { duration: 2, ease: "none" });
@@ -861,7 +861,7 @@ const AnimationBlock = () => {
         >
             <div className="absolute inset-0">
                 <img
-                    src="/getting-ready/bg2.png"
+                    src="/getting-ready/bg2.webp"
                     className="absolute top-1/2 opacity-0 h-[85%] left-[21%] blur-[27.2784px] -translate-y-1/2 object-contain"
                     ref={substractRef}
                 />
@@ -875,7 +875,7 @@ const AnimationBlock = () => {
                             className="bg-[#691C32] w-[100px] h-[100px] opacity-0 rounded-full blur-[27px] top-[10%] left-[46%] absolute -z-10"
                         ></div>
                         <img
-                            src="/getting-ready/bg1.png"
+                            src="/getting-ready/bg1.webp"
                             className="h-full object-contain"
                         />
                     </div>
