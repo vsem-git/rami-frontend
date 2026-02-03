@@ -396,7 +396,8 @@ const ThirdAnimationBlock = () => {
                                         }`}
                                     ></div>
                                     <a
-                                        href={el.link}
+                                        href={"#"}
+                                        onClick={(e) => e.preventDefault()}
                                         className={`absolute inset-0 w-full h-full opacity-0 transition-all group-hover:opacity-100 duration-1000 ${
                                             activeSlide === i
                                                 ? "opacity-100"
@@ -404,7 +405,7 @@ const ThirdAnimationBlock = () => {
                                         }`}
                                     >
                                         <div className="relative h-full w-full flex flex-col items-center text-center justify-end">
-                                            <button
+                                            {/* <button
                                                 onClick={() =>
                                                     openPopup("contact")
                                                 }
@@ -424,7 +425,7 @@ const ThirdAnimationBlock = () => {
                                                         strokeWidth="1.5"
                                                     />
                                                 </svg>
-                                            </button>
+                                            </button> */}
 
                                             <p
                                                 className={`uppercase text-[13px] md:text-sm 2xl:text-[21px] leading-[120%] mb-2 2xl:mb-3 text-white translate-y-full opacity-0 transition-all duration-1000 group-hover:translate-y-0 group-hover:opacity-100 ${
