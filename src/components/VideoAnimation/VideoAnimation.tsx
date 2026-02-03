@@ -37,14 +37,14 @@ const VideoAnimation = () => {
 
         mm.add("(min-width: 1px)", () => gsap.set(".logoheader", setLogo(3)));
         mm.add("(min-width: 401px)", () =>
-            gsap.set(".logoheader", setLogo(3.8))
+            gsap.set(".logoheader", setLogo(3.8)),
         );
         mm.add("(min-width: 769px)", () => gsap.set(".logoheader", setLogo(5)));
         mm.add("(min-width: 1281px)", () =>
-            gsap.set(".logoheader", setLogo(5))
+            gsap.set(".logoheader", setLogo(5)),
         );
         mm.add("(min-width: 1600px)", () =>
-            gsap.set(".logoheader", setLogo(4.7))
+            gsap.set(".logoheader", setLogo(4.7)),
         );
 
         gsap.set(".firstblocktext", { opacity: 0 });
@@ -98,17 +98,17 @@ const VideoAnimation = () => {
                     scale: 1.5,
                     ease: "power4.out",
                 },
-                "<"
+                "<",
             )
             .fromTo(
                 ".scrolltobutton",
                 { opacity: 1, pointerEvents: "auto", duration: 0 },
-                { opacity: 0, pointerEvents: "none", duration: 0 }
+                { opacity: 0, pointerEvents: "none", duration: 0 },
             )
             .fromTo(
                 ".textheader",
                 { y: "-40dvh" },
-                { opacity: 0, y: "-60dvh", duration: 2 }
+                { opacity: 0, y: "-60dvh", duration: 2 },
             )
             .to(".scrolltosection", { pointerEvents: "none" });
 
@@ -120,7 +120,7 @@ const VideoAnimation = () => {
 
     useEffect(() => {
         const content = document.querySelector(
-            "#content"
+            "#content",
         ) as HTMLDivElement | null;
         if (content) content.style.maxHeight = "100dvh";
 
@@ -135,7 +135,7 @@ const VideoAnimation = () => {
                     video.playbackRate = 10;
                     postDelayMs = Math.max(
                         300,
-                        Math.round(BASE_DELAY / video.playbackRate)
+                        Math.round(BASE_DELAY / video.playbackRate),
                     );
                     speededUp = true;
                     removeStartListeners();
@@ -302,7 +302,7 @@ const VideoAnimation = () => {
                             playsInline
                             preload="metadata"
                             aria-hidden="true"
-                            className="h-full w-full object-cover pointer-events-none lg:hidden"
+                            className="h-full w-full object-cover pointer-events-none lg:hidden pointer-events-none"
                         >
                             <source src="/startBg.mp4" type="video/mp4" />
                         </video>
@@ -313,7 +313,7 @@ const VideoAnimation = () => {
                         ref={videoEl}
                         muted
                         playsInline
-                        className="h-full z-10 w-full lg:object-fill object-center"
+                        className="h-full z-10 w-full lg:object-fill object-center pointer-events-none"
                     >
                         <source src="/start.mp4" type="video/mp4" />
                     </video>

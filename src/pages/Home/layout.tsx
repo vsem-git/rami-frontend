@@ -9,7 +9,7 @@ import ContactPopUp from "../../components/ContactPopUp";
 import SecondSectionPopup1 from "../../components/SecondSectionPopup1";
 import SecondSectionPopup2 from "../../components/SecondSectionPopup2";
 import SecondSectionPopup3 from "../../components/SecondSectionPopup3";
-import ScrollToButton from "../../components/ScrollToButton";
+import ScrollToPage from "../../components/ScrollToPage";
 
 const RootLayout = () => {
     return (
@@ -21,18 +21,7 @@ const RootLayout = () => {
                     <SecondSectionPopup2 />
                     <SecondSectionPopup3 />
 
-                    <div
-                        className={`scrolltosection uppercase fixed text-[15px] z-10 md:text-base 2xl:text-[24px] bottom-0 w-full text-center  `}
-                    >
-                        <div className="textheader mb-4 md:mb-0">
-                            клиника-резиденция
-                            <br className="md:hidden" /> пластической хирургии
-                        </div>
-                        <button className="uppercase text-[13px] font-semibold mt-2 sm:hidden textheader">
-                            ЗАПЛАНИРОВАТЬ ВИЗИТ
-                        </button>
-                        <ScrollToButton />
-                    </div>
+                    <ScrollToPage />
                     <div className="bgpattern1 fixed top-0 right-0 h-full hidden sm:block opacity-50 z-[0]">
                         <img
                             src="/pattern1.svg"
