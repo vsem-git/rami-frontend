@@ -299,7 +299,7 @@ const Footer = () => {
                                 </svg>
                             </a>
                             <a
-                                href="https://wa.me/78126271313"
+                                href="tel:+79214470031"
                                 className="border-[#FFFFFF1A] border p-[14px] rounded-full h-fit aspect-square"
                             >
                                 <svg
