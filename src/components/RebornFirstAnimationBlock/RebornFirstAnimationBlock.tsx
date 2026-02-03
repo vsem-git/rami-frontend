@@ -48,6 +48,26 @@ const FirstAnimationBlock = () => {
             onLeaveBack: () => setHeaderColor("#000000"),
         });
 
+        ScrollTrigger.create({
+            trigger: containerRef.current,
+            start: "top bottom", // когда верх блока появляется внизу экрана
+            end: "bottom top", // конец блока, можно оставить
+            onEnter: () => {
+                gsap.set(".scrolltosection", { pointerEvents: "none" });
+            },
+            onEnterBack: () => {
+                // при возвращении сверху вниз (скролл наверх) включаем pointer-events
+                gsap.set(".scrolltosection", { pointerEvents: "none" });
+            },
+            onLeaveBack: () => {
+                // когда блок полностью вышел наверх — включаем pointer-events
+                gsap.set(".scrolltosection", { pointerEvents: "auto" });
+            },
+            onLeave: () => {
+                gsap.set(".scrolltosection", { pointerEvents: "none" });
+            },
+        });
+
         tlRef.current = gsap.timeline({
             scrollTrigger: {
                 trigger: containerRef.current,

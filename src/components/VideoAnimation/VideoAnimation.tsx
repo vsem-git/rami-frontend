@@ -109,8 +109,7 @@ const VideoAnimation = () => {
                 ".textheader",
                 { y: "-40dvh" },
                 { opacity: 0, y: "-60dvh", duration: 2 },
-            )
-            .to(".scrolltosection", { pointerEvents: "none" });
+            );
 
         tlRef.current = tl;
     });

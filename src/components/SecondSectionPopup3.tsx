@@ -1,7 +1,7 @@
 import { usePopup } from "./PopupContext";
 
 const SecondSectionPopup3 = () => {
-    const { isOpen, closePopup } = usePopup();
+    const { isOpen, closePopup, openPopup } = usePopup();
 
     const popupName = "secondsection3"; // уникальное имя попапа
 
@@ -63,7 +63,10 @@ const SecondSectionPopup3 = () => {
                     разрабатывается индивидуальный план восстановительных
                     косметологических процедур
                 </p>
-                <button className="text-[#691C32] bg-white uppercase py-5 w-full text-[13px] cursor-pointer">
+                <button
+                    onClick={() => openPopup("contact")}
+                    className="text-[#691C32] bg-white uppercase py-5 w-full text-[13px] cursor-pointer"
+                >
                     Запланировать визит
                 </button>
             </div>
