@@ -144,7 +144,7 @@ const ThirdAnimationBlock = () => {
                 setHeaderColor("#ffffff");
             },
             [],
-            "-=1.5"
+            "-=1.5",
         );
 
         tl.call(
@@ -152,7 +152,7 @@ const ThirdAnimationBlock = () => {
                 setHeaderColor("#000000");
             },
             [],
-            "-=1.4"
+            "-=1.4",
         );
 
         tl.addLabel("team");
@@ -169,7 +169,7 @@ const ThirdAnimationBlock = () => {
                 duration: 3,
                 ease: "power2.inOut",
             },
-            "<"
+            "<",
         );
         /* .fromTo(
                 ".logoheader",
@@ -224,7 +224,7 @@ const ThirdAnimationBlock = () => {
     // Optional: Ensure images are loaded before calculating (if needed)
     const ensureImagesLoaded = (swiper: Swiper) => {
         const images = swiper.slides.flatMap((slide) =>
-            Array.from(slide.querySelectorAll("img"))
+            Array.from(slide.querySelectorAll("img")),
         );
         if (images.length === 0) {
             createTimeline();
@@ -337,7 +337,7 @@ const ThirdAnimationBlock = () => {
                                     onClick={() => {
                                         /* if (!isMobile) return; */
                                         setActiveSlide((prev) =>
-                                            prev === i ? null : i
+                                            prev === i ? null : i,
                                         );
                                     }}
                                 >
@@ -355,8 +355,8 @@ const ThirdAnimationBlock = () => {
                                             i === 0
                                                 ? "scale-90"
                                                 : i === 1
-                                                ? "scale-90"
-                                                : ""
+                                                  ? "scale-90"
+                                                  : ""
                                         }
                                     />
                                     {/* <video
@@ -389,7 +389,7 @@ const ThirdAnimationBlock = () => {
                                     </video> */}
 
                                     <div
-                                        className={`absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-0 transition-all group-hover:opacity-100 duration-1000 ${
+                                        className={`absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-t from-black/70 via-black/40 to-transparent opacity-0 transition-all group-hover:opacity-100 duration-1000 ${
                                             activeSlide === i
                                                 ? "opacity-100"
                                                 : "opacity-100" // заглушка
@@ -441,12 +441,12 @@ const ThirdAnimationBlock = () => {
                                             </p>
                                             <p className="text-white text-[11px] md:text-xs 2xl:text-lg mb-4 md:mb-6 2xl:mb-10 px-4 uppercase">
                                                 {Array.isArray(
-                                                    el.specialties
+                                                    el.specialties,
                                                 ) &&
                                                     el.specialties.map(
                                                         (
                                                             item: string,
-                                                            idx: number
+                                                            idx: number,
                                                         ) => {
                                                             if (
                                                                 idx + 1 ===
@@ -455,7 +455,7 @@ const ThirdAnimationBlock = () => {
                                                             )
                                                                 return item;
                                                             return item + ", ";
-                                                        }
+                                                        },
                                                     )}
                                             </p>
                                             {/* <>
