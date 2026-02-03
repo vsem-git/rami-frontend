@@ -213,12 +213,12 @@ const SecondAnimationBlock = ({
                                     авторитет русской школы пластической
                                     хирургии с уникальным эстетическим почерком
                                 </p>
-                                <a
+                                {/* <a
                                     href="/plastic"
                                     className="text-[#691C32] bg-white font-semibold px-8 py-5 uppercase cursor-pointer text-sm 2xl:text-base"
                                 >
                                     Подробнее
-                                </a>
+                                </a> */}
                             </div>
                         </div>
                         <div className="max-h-[120px] h-full md:h-auto md:max-h-full relative flex flex-row-reverse md:flex-col justify-between md:justify-end items-center border-b border-r-0 md:border-r border-[#FFFFFF33] group px-4 md:px-0">
@@ -260,12 +260,12 @@ const SecondAnimationBlock = ({
                                     индивидуальный план восстановительных
                                     косметологических процедур
                                 </p>
-                                <a
+                                {/* <a
                                     href="/anti-age"
                                     className="text-[#691C32] bg-white font-semibold px-8 py-5 uppercase cursor-pointer text-sm 2xl:text-base"
                                 >
                                     Подробнее
-                                </a>
+                                </a> */}
                             </div>
                         </div>
                         <div className="max-h-[120px] h-full md:h-auto md:max-h-full relative flex flex-row-reverse md:flex-col justify-between md:justify-end items-center border-b border-r-0 md:border-r border-[#FFFFFF33] group px-4 md:px-0">
@@ -306,12 +306,12 @@ const SecondAnimationBlock = ({
                                     составляющие успеха, из которых складываются
                                     блестящие эстетические результаты пациентов
                                 </p>
-                                <a
+                                {/*  <a
                                     href="/cosmetology"
                                     className="text-[#691C32] bg-white font-semibold px-8 py-5 uppercase cursor-pointer text-sm 2xl:text-base"
                                 >
                                     Подробнее
-                                </a>
+                                </a> */}
                             </div>
                         </div>
                     </div>
