@@ -144,15 +144,6 @@ const Header = ({ useWhiteText }: HeaderProps) => {
                                         : "none",
                             }}
                         />
-                        <img
-                            src="/logo_black.webp"
-                            alt="logo"
-                            className="absolute inset-0 w-[79px] h-[64px] 2xl:w-[149px] 2xl:h-[120px] blur-[5px] transition-all duration-300"
-                            style={{
-                                opacity:
-                                    headerColor === "#ffffff" ? "100" : "0",
-                            }}
-                        />
                     </a>
                 </div>
             </div>
