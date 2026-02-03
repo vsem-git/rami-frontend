@@ -463,7 +463,7 @@ const ThirdAndSecondAnimation = () => {
                             </div>
                             <div className="flex justify-between pt-4 2xl:pt-6 text-[16px] 2xl:text-[24px] leading-[130%]">
                                 <span className="uppercase">
-                                    Привелегированный сервис
+                                    Привилегированный сервис
                                 </span>
                                 <span className="text-[#1D1D1D80]">03</span>
                             </div>
