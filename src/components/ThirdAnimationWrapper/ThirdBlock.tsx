@@ -286,7 +286,7 @@ const ThirdAndSecondAnimation = () => {
                     },
                 });
 
-            if (windowHeight <= 799)
+            if (windowHeight <= 799 && windowHeight >= 700)
                 gsap.to(".runningstroke", {
                     y: "-100dvh",
                     ease: "none",
@@ -294,7 +294,33 @@ const ThirdAndSecondAnimation = () => {
                     scrollTrigger: {
                         trigger: strokeContainerRef.current,
                         start: "bottom-=100 bottom", // начало за 200px до конца блока
-                        end: "bottom+=480 bottom-=80", // конец за 10px до конца блока
+                        end: "bottom+=530 bottom-=80", // конец за 10px до конца блока
+                        scrub: true,
+                    },
+                });
+
+            if (windowHeight <= 699 && windowHeight >= 600)
+                gsap.to(".runningstroke", {
+                    y: "-100dvh",
+                    ease: "none",
+                    duration: 8,
+                    scrollTrigger: {
+                        trigger: strokeContainerRef.current,
+                        start: "bottom-=100 bottom", // начало за 200px до конца блока
+                        end: "bottom+=520 bottom-=80", // конец за 10px до конца блока
+                        scrub: true,
+                    },
+                });
+
+            if (windowHeight <= 599 && windowHeight >= 500)
+                gsap.to(".runningstroke", {
+                    y: "-100dvh",
+                    ease: "none",
+                    duration: 8,
+                    scrollTrigger: {
+                        trigger: strokeContainerRef.current,
+                        start: "bottom-=100 bottom", // начало за 200px до конца блока
+                        end: "bottom+=400 bottom-=80", // конец за 10px до конца блока
                         scrub: true,
                     },
                 });

@@ -45,13 +45,13 @@ const FourthAnimationBlock = () => {
                 ".bgpattern1",
                 { xPercent: 120 },
                 { xPercent: 0, duration: 1 },
-                "group1"
+                "group1",
             )
             .fromTo(
                 ".bgpattern2",
                 { xPercent: -120 },
                 { xPercent: 0, duration: 1 },
-                "group1"
+                "group1",
             );
 
         tl.addLabel("location");
@@ -60,7 +60,7 @@ const FourthAnimationBlock = () => {
             .to(
                 textContainerRef.current,
                 { y: "-100px", opacity: 0, duration: 1 },
-                "group2"
+                "group2",
             )
             .to(bgRef.current, { y: "0px", duration: 1 }, "group2");
 
@@ -70,25 +70,25 @@ const FourthAnimationBlock = () => {
                 bgRef.current,
                 { scale: 0.5 },
                 { scale: 1, duration: 1 },
-                "group3"
+                "group3",
             )
             .fromTo(
                 contentRef.current,
                 { "--inset": "25%" },
                 { "--inset": "0%", duration: 1 },
-                "group3"
+                "group3",
             )
             .fromTo(
                 ".bgpattern1",
                 { xPercent: 0 },
                 { xPercent: 120, duration: 1 },
-                "group3"
+                "group3",
             )
             .fromTo(
                 ".bgpattern2",
                 { xPercent: 0 },
                 { xPercent: -120, duration: 1 },
-                "group3"
+                "group3",
             );
 
         tlRef.current = tl;
@@ -159,9 +159,12 @@ const FourthAnimationBlock = () => {
                             <p className="text-xs"> ОТ ЦЕНТРА </p>
                         </div>
                     </div>
-                    <button className="bg-[#691C32] p-5 uppercase text-white text-xs mt-4">
+                    <a
+                        href="https://yandex.com/maps/-/CPAXaP4L"
+                        className="bg-[#691C32] p-5 uppercase text-white text-xs mt-4"
+                    >
                         построить маршрут
-                    </button>
+                    </a>
                 </div>
             </div>
             <div
@@ -234,9 +237,12 @@ const FourthAnimationBlock = () => {
                             </div>
                         </div>
                         <div className="flex justify-center">
-                            <button className="uppercase px-[32px] md:text-[13px] 2xl:text-base py-5 font-semibold bg-[#691C32] text-white cursor-pointer">
+                            <a
+                                href="https://yandex.com/maps/-/CPAXaP4L"
+                                className="uppercase px-[32px] md:text-[13px] 2xl:text-base py-5 font-semibold bg-[#691C32] text-white cursor-pointer"
+                            >
                                 Построить маршрут
-                            </button>
+                            </a>
                         </div>
                         <div className=""></div>
                     </div>
