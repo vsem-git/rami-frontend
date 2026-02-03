@@ -170,7 +170,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div
-                    className="absolute inset-0 w-full pt-20 sm:pt-0 h-screen bg-[url('/footer.webp')] bg-cover bg-center text-white flex flex-col "
+                    className="absolute inset-0 w-full pt-17 sm:pt-0 h-screen bg-[linear-gradient(to_bottom,rgba(0,0,0,0.35),rgba(0,0,0,0)),url('/footer.webp')] bg-cover bg-center text-white flex flex-col "
                     ref={footerRef}
                 >
                     <div className="flex-1 sm:text-[21px] flex-col sm:flex-row uppercase md:text-[28px] 2xl:text-[36px] font-semibold h-full flex ">
@@ -194,17 +194,17 @@ const Footer = () => {
                                 stroke="white"
                                 strokeWidth="1.5"
                             />
-                        </svg> 
-                        </a> */}
+                        </svg>  */}
+                        </a>
 
-                            <a
-                                href="/patient"
-                                className="flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10"
-                            >
-                                <span className="relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full">
-                                    Пациентам
-                                </span>
-                                {/* <svg
+                        <a
+                            href="/patient"
+                            className="flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10"
+                        >
+                            <span className="relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full">
+                                Пациентам
+                            </span>
+                            {/* <svg
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
@@ -218,17 +218,17 @@ const Footer = () => {
                                 strokeWidth="1.5"
                             />
                         </svg> */}
-                            </a>
+                        </a>
 
-                            <a
-                                href="/%D0%92%D1%8B%D0%BF%D0%B8%D1%81%D0%BA%D0%B0_%D0%B8%D0%B7_%D1%80%D0%B5%D0%B5%D1%81%D1%82%D1%80%D0%B0.pdf"
-                                target="_blank"
-                                className="flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10"
-                            >
-                                <span className="relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full">
-                                    Лицензия
-                                </span>
-                                {/* <svg
+                        <a
+                            href="/%D0%92%D1%8B%D0%BF%D0%B8%D1%81%D0%BA%D0%B0_%D0%B8%D0%B7_%D1%80%D0%B5%D0%B5%D1%81%D1%82%D1%80%D0%B0.pdf"
+                            target="_blank"
+                            className="flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10"
+                        >
+                            <span className="relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full">
+                                Лицензия
+                            </span>
+                            {/* <svg
                             width="24"
                             height="24"
                             viewBox="0 0 24 24"
@@ -242,7 +242,6 @@ const Footer = () => {
                                 strokeWidth="1.5"
                             />
                         </svg> */}
-                            </a>
                         </a>
                     </div>
                     <div className=" absolute bottom-0 left-0 sm:left-auto sm:right-0 text-xs xl:text-base border-[#FFFFFF4D] border-0 uppercase font-semibold flex md:flex-row flex-col gap-4 justify-between p-6 2xl:p-10 footer-content">
@@ -251,7 +250,7 @@ const Footer = () => {
                         </a>
                         <a
                             href="/privacy-policy"
-                            className="flex gap-2 items-center group text-xs xl:text-base border-b border-[#FFFFFF4D] leading-[150%] py-4"
+                            className="flex gap-2 items-center group text-xs xl:text-base leading-[150%]"
                             target="_blank"
                         >
                             <span className="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:w-full">
