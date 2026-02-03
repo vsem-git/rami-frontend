@@ -9,7 +9,6 @@ import { Swiper as SwiperComponent, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
 import { useHeader } from "../../HeaderContext";
 import { useScroll } from "../../../pages/Home/ScrollContext";
-import { usePopup } from "../../PopupContext";
 
 const images = [
     {
@@ -72,7 +71,6 @@ const images = [
 gsap.registerPlugin(ScrollTrigger);
 
 const ThirdAnimationBlock = () => {
-    const { openPopup } = usePopup();
     const { setScrollToTeam } = useScroll();
     const containerRef = useRef<HTMLDivElement | null>(null);
     const block1Ref = useRef<HTMLDivElement | null>(null);
