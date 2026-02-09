@@ -3,12 +3,12 @@ import { ANTIAGE } from "../shared/data/antiage";
 export const FooterAntiAge = () => {
     return (
         <div className="relative w-full h-[751px] sm:h-[800px] overflow-hidden ">
-            <div className="absolute top-0 bg-[50%_0%] sm:bg-[70%_0%] w-full h-full bg-[url('/antiage-screen/anti-age.jpg')] bg-no-repeat bg-cover will-change-transform" />
+            <div className="absolute top-0 bg-[50%_0%] sm:bg-[70%_0%] w-full h-full bg-[url('/antiage-screen/anti-age.png')] bg-no-repeat bg-cover will-change-transform" />
             {/* <div className='bg-white aspect-square w-full sm:w-[50%] h-[60%] blur-[100px] rounded-full absolute bottom-[10%] sm:bottom-[20%]'></div> */}
             <div
                 className="
 					absolute w-full min-h-[775px] left-0
-					will-change-transform bg-[url('/antiage-screen/image2.webp')] 
+					will-change-transform bg-[url('/antiage-screen/image2.png')] 
 					bg-no-repeat bg-cover bg-center
 					anti-age_bg
 				"

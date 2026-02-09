@@ -61,18 +61,18 @@ export const Antiage = () => {
     return (
         <div
             ref={sectionRef}
-            className='w-full h-auto md:h-[105vh] relative overflow-hidden bg-[#1D1D1D] md:bg-[url("/antiage-screen/anti-age.jpg")] bg-no-repeat bg-cover '
+            className='w-full h-auto md:h-[105vh] relative overflow-hidden bg-[#1D1D1D] md:bg-[url("/antiage-screen/anti-age.png")] bg-no-repeat bg-cover '
         >
             <div
                 ref={specialBackgroundRef}
-                className="absolute top-0 left-0 min-w-[2000px] h-full bg-[url('/antiage-screen/anti-age.jpg')] bg-no-repeat bg-cover   will-change-transform -z-20 hidden md:block"
+                className="absolute top-0 left-0 min-w-[2000px] h-full bg-[url('/antiage-screen/anti-age.png')] bg-no-repeat bg-cover   will-change-transform -z-20 hidden md:block"
             />
 
-            <div className='w-full h-[800px] sm:h-[740px] relative md:hidden bg-[#0c0807] overflow-hidden bg-[url("/antiage-screen/bg-mobile.jpg")] sm:bg-[url("/antiage-screen/anti-age.jpg")] bg-no-repeat bg-cover bg-[55%_0%] sm:bg-center'>
+            <div className='w-full h-[800px] sm:h-[740px] relative md:hidden bg-[#0c0807] overflow-hidden bg-[url("/antiage-screen/bg-mobile.png")] sm:bg-[url("/antiage-screen/anti-age.png")] bg-no-repeat bg-cover bg-[55%_0%] sm:bg-center'>
                 <div
                     className="
         absolute left-[-120px] bottom-[-5.5rem] hidden sm:block  h-auto aspect-[3/4] will-change-transform
-        bg-[url('/antiage-screen/image2.webp')]
+        bg-[url('/antiage-screen/image2.png')]
         bg-no-repeat bg-cover bg-center image-anti-size
     "
                 />
@@ -105,7 +105,7 @@ export const Antiage = () => {
                 ref={backgroundRef}
                 className="
     hidden md:block absolute w-full h-full min-w-[1200px]
-    will-change-transform bg-[url('/antiage-screen/image2.webp')] 
+    will-change-transform bg-[url('/antiage-screen/image2.png')] 
     bg-no-repeat bg-cover anti-age_bg
   "
             />
