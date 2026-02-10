@@ -256,12 +256,12 @@ const ContactPopUp = () => {
 
                     {/* Статус */}
                     {status === "success" && (
-                        <p className="mt-2 text-green-400">
+                        <p className="mt-2 text-white">
                             Заявка успешно отправлена!
                         </p>
                     )}
                     {status === "error" && (
-                        <p className="mt-2 text-red-400">
+                        <p className="mt-2 text-white">
                             Ошибка при отправке. Попробуйте снова.
                         </p>
                     )}
