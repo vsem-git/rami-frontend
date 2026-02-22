@@ -114,7 +114,7 @@ const ContactPopUp = () => {
 
     return (
         <div
-            className="fixed inset-0 bg-[#691C32] h-dvh w-full overflow-hidden group z-[999] md:grid grid-cols-2 transition-all duration-1000"
+            className="fixed inset-0 bg-[#691C32] h-dvh w-full overflow-hidden group z-[999999] md:grid grid-cols-2 transition-all duration-1000"
             style={{
                 scale: isOpen(popupName) ? 1 : 0.5,
                 opacity: isOpen(popupName) ? 1 : 0,
