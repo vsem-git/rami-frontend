@@ -111,7 +111,7 @@ export const AboutHistory = () => {
             ref={sectionRef}
             className="relative w-full h-screen min-h-screen overflow-hidden"
         >
-            <div className="absolute inset-0 w-full h-full bg-[url('about/2.jpg')] bg-no-repeat bg-cover bg-[20rem_-17rem] scale-[2]" />
+            <div className="absolute inset-0 w-full h-full bg-[url('/about/2.jpg')] bg-no-repeat bg-cover bg-[20rem_-17rem] scale-[2]" />
 
             <div className="absolute top-1/2 left-1/2 -translate-1/2 w-[1187px] h-[1187px] rounded-full border-2 border-[#EAE6E04D]" />
 

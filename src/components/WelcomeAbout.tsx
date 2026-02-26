@@ -1,7 +1,7 @@
 export const WelcomeAbout = () => {
     return (
         <div className="relative h-[2300px] w-full">
-            <div className="absolute inset-0 bg-no-repeat bg-cover bg-[0px_-65rem] bg-[url('about/1.jpg')] grayscale"></div>
+            <div className="absolute inset-0 bg-no-repeat bg-cover bg-[0px_-65rem] bg-[url('/about/1.jpg')] grayscale"></div>
 
             <div
                 className="absolute inset-0"

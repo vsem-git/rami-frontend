@@ -69,7 +69,7 @@ export const AboutDynasty = () => {
                 className="w-full h-[287px] mt-[330px]"
             />
 
-            <div className='relative w-full h-full min-h-[2312px] bg-[url("about/13.png")] bg-cover bg-no-repeat bg-center'>
+            <div className='relative w-full h-full min-h-[2312px] bg-[url("/about/13.png")] bg-cover bg-no-repeat bg-center'>
                 <img
                     src="about/shadow.png"
                     alt=""
