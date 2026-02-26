@@ -19,19 +19,19 @@ export const AboutSmartOperational = () => {
 
                 <div className="w-full flex items-start justify-center ml-[-15rem]">
                     <img
-                        src="about/4.jpg"
+                        src="about/4.webp"
                         alt=""
                         className="w-[662px] h-[821px] object-cover object-[0_-10rem]"
                     />
                     <img
-                        src="about/5.jpg"
+                        src="about/5.webp"
                         alt=""
                         className="w-[283px] h-[350px] ml-[-8.5rem] mt-[-13rem] object-cover"
                     />
                 </div>
             </div>
             <img
-                src="about/Vector.png"
+                src="about/Vector.webp"
                 alt=""
                 className="absolute left-0 top-0"
             />

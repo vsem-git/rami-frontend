@@ -6,17 +6,17 @@ export const AboutNutrition = () => {
             </h1>
             <div>
                 <img
-                    src="about/Vector (7).png"
+                    src="about/Vector (7).webp"
                     alt=""
                     className="absolute z-10 top-[-58rem] left-0"
                 />
                 <img
-                    src="about/15.png"
+                    src="about/15.webp"
                     alt=""
                     className="absolute z-20 left-[-13rem] w-[1402px] h-[1146px] mt-[83px]"
                 />
                 <div className="w-full absolute top-[53rem]">
-                    <img src="about/Group 656.png" alt="w-full" />
+                    <img src="about/Group 656.webp" alt="w-full" />
                 </div>
             </div>
 
@@ -76,7 +76,7 @@ export const AboutNutrition = () => {
 
                         <div className="relative w-full h-[1082px] overflow-hidden">
                             <img
-                                src="about/16.jpg"
+                                src="about/16.webp"
                                 alt=""
                                 className="w-full h-full object-cover"
                             />

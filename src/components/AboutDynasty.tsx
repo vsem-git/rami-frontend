@@ -15,7 +15,7 @@ export const AboutDynasty = () => {
 
             <div className="flex justify-center items-center gap-[269px] mt-[140px]">
                 <img
-                    src="about/10.jpg"
+                    src="about/10.webp"
                     alt=""
                     className="w-[662px] h-[820px] object-cover"
                 />
@@ -54,7 +54,7 @@ export const AboutDynasty = () => {
 
                         <div className="w-full flex justify-end">
                             <img
-                                src="about/11.png"
+                                src="about/11.webp"
                                 alt=""
                                 className="w-[286px]"
                             />
@@ -64,14 +64,14 @@ export const AboutDynasty = () => {
             </div>
 
             <img
-                src="about/12.png"
+                src="about/12.webp"
                 alt=""
                 className="w-full h-[287px] mt-[330px]"
             />
 
-            <div className='relative w-full h-full min-h-[2312px] bg-[url("about/13.png")] bg-cover bg-no-repeat bg-center'>
+            <div className='relative w-full h-full min-h-[2312px] bg-[url("about/13.webp")] bg-cover bg-no-repeat bg-center'>
                 <img
-                    src="about/shadow.png"
+                    src="about/shadow.webp"
                     alt=""
                     className="absolute w-full h-[736px]"
                 />
@@ -102,7 +102,7 @@ export const AboutDynasty = () => {
 
                         <div className="w-full h-full flex items-end justify-end -mt-[6rem]">
                             <img
-                                src="about/14.jpg"
+                                src="about/14.webp"
                                 alt=""
                                 className="w-[676px] h-[679px] object-cover"
                             />
@@ -111,7 +111,7 @@ export const AboutDynasty = () => {
                 </div>
             </div>
 
-						<img src="about/Vector (6).png" alt="" className='absolute top-0 right-0' />
+						<img src="about/Vector (6).webp" alt="" className='absolute top-0 right-0' />
         </div>
     );
 };

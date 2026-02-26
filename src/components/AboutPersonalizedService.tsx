@@ -13,12 +13,12 @@ export const AboutPersonalizedService = () => {
             <div className=" relative z-10 w-full mt-[70px]">
                 <div className=" w-full flex items-start justify-center ">
                     <img
-                        src="about/6.png"
+                        src="about/6.webp"
                         alt=""
                         className="w-[680px] h-[820px] object-cover"
                     />
                     <img
-                        src="about/image 111.png"
+                        src="about/image 111.webp"
                         alt=""
                         className="absolute top-1/2 -translate-y-1/2 w-[254ox] h-[334px] object-cover ml-[43rem]"
                     />
@@ -33,13 +33,13 @@ export const AboutPersonalizedService = () => {
             </div>
 
             <img
-                src="about/Vector (5).png"
+                src="about/Vector (5).webp"
                 alt=""
                 className="absolute left-0 top-0"
             />
 
             <img
-                src="about/Vector (4).png"
+                src="about/Vector (4).webp"
                 alt=""
                 className="absolute right-0 top-0"
             />

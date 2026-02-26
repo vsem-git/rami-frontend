@@ -117,7 +117,7 @@ export const NewsCardInfoModal = () => {
 
                     <div className="w-full h-px bg-[#1D1D1D1F] my-[30px]" />
 
-                    <img src="news/5.png" alt="" className="w-full" />
+                    <img src="news/5.webp" alt="" className="w-full" />
 
                     <div className="w-full flex justify-end mt-20 ">
                         <div className="w-full max-w-[520px] text-base text-[#1D1D1D] uppercase font-suisse font-semibold space-y-8">

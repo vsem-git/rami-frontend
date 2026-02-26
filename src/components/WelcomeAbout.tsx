@@ -1,7 +1,7 @@
 export const WelcomeAbout = () => {
     return (
         <div className="relative h-[2300px] w-full">
-            <div className="absolute inset-0 bg-no-repeat bg-cover bg-[0px_-65rem] bg-[url('about/1.jpg')] grayscale"></div>
+            <div className="absolute inset-0 bg-no-repeat bg-cover bg-[0px_-65rem] bg-[url('about/1.webp')] grayscale"></div>
 
             <div
                 className="absolute inset-0"
@@ -11,18 +11,18 @@ export const WelcomeAbout = () => {
                 }}
             />
             <img
-                src="about/Vector (10).png"
+                src="about/Vector (10).webp"
                 alt=""
                 className="absolute z-10 bottom-0 right-0"
             />
             <div className="relative z-10">
                 <img
-                    src="about/Vector (8).png"
+                    src="about/Vector (8).webp"
                     alt=""
                     className="absolute z-10 top-0 right-0"
                 />
                 <img
-                    src="about/Vector (9).png"
+                    src="about/Vector (9).webp"
                     alt=""
                     className="absolute z-10 top-[6%] left-0"
                 />
@@ -49,7 +49,7 @@ export const WelcomeAbout = () => {
 
                 <div className="relative z-20 w-full flex justify-end mt-[30rem] ml-[-22rem]">
                     <img
-                        src="about/17.jpg"
+                        src="about/17.webp"
                         alt=""
                         className="w-[530px] h-[660px] rounded-full object-cover grayscale"
                     />

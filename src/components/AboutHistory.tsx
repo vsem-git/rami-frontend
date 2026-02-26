@@ -9,7 +9,7 @@ const historyData = [
     {
         id: 1,
         year: "1997",
-        image: "about/cards/1.jpg",
+        image: "about/cards/1.webp",
         description: [
             "На Гончарной улице в Санкт-Петербурге открылась Клиника РАМИ — первая частная многопрофильная клиника в городе и одна из первых в России.",
             "История компании началась с частного гинекологического кабинета, который вскоре был дополнен новыми направлениями - урологией и ультразвуковой диагностикой и перебрался в особняк на Кирочной",
@@ -18,7 +18,7 @@ const historyData = [
     {
         id: 2,
         year: "1999",
-        image: "about/cards/2.jpg",
+        image: "about/cards/2.webp",
         description: [
             "Переезд основного филиала Клиники на Кирочную, 13 – в особняк XIX века",
         ],
@@ -26,7 +26,7 @@ const historyData = [
     {
         id: 3,
         year: "1999",
-        image: "about/cards/3.jpg",
+        image: "about/cards/3.webp",
         description: [
             "Открытие направления пластической хирургии на Кирочной, 13.",
         ],
@@ -34,13 +34,13 @@ const historyData = [
     {
         id: 4,
         year: "2008",
-        image: "about/cards/4.jpg",
+        image: "about/cards/4.webp",
         description: ["Клиника стоматологии РАМИ на Гончарной улице"],
     },
     {
         id: 5,
         year: "2022",
-        image: "about/cards/5.jpg",
+        image: "about/cards/5.webp",
         description: [
             "Многопрофильная клиника РАМИ  торжественно отметила 25-летний юбилей. К этому времени прием на Кирочной ведут 150 специалистов более 60 медицинских направлений, проводится более 2000 операций в год",
         ],
@@ -48,7 +48,7 @@ const historyData = [
     {
         id: 6,
         year: "2025",
-        image: "about/cards/6.jpg",
+        image: "about/cards/6.webp",
         description: [
             "В привилегированной локации Крестовского острова открылась Клиника-резиденция пластической хирургии и косметологии RAMICLINIC RESIDENCE",
         ],
@@ -111,7 +111,7 @@ export const AboutHistory = () => {
             ref={sectionRef}
             className="relative w-full h-screen min-h-screen overflow-hidden"
         >
-            <div className="absolute inset-0 w-full h-full bg-[url('about/2.jpg')] bg-no-repeat bg-cover bg-[20rem_-17rem] scale-[2]" />
+            <div className="absolute inset-0 w-full h-full bg-[url('about/2.webp')] bg-no-repeat bg-cover bg-[20rem_-17rem] scale-[2]" />
 
             <div className="absolute top-1/2 left-1/2 -translate-1/2 w-[1187px] h-[1187px] rounded-full border-2 border-[#EAE6E04D]" />
 

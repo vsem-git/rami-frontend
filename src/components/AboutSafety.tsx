@@ -7,7 +7,7 @@ export const AboutSafety = () => {
 
             <div className="flex items-end gap-[95px] mt-[250px]">
                 <img
-                    src="about/7.jpg"
+                    src="about/7.webp"
                     alt=""
                     className="w-[59%] h-[735px] object-cover object-[0_-55rem]"
                 />
@@ -21,7 +21,7 @@ export const AboutSafety = () => {
             </div>
 
             <img
-                src="about/9.png"
+                src="about/9.webp"
                 alt=""
                 className="absolute left-[-1rem] top-[65%] -translate-y-1/2"
             />
@@ -39,7 +39,7 @@ export const AboutSafety = () => {
                     </p>
                 </div>
                 <img
-                    src="about/8.png"
+                    src="about/8.webp"
                     alt=""
                     className="w-[110%] object-cover scale-[1.2]"
                 />

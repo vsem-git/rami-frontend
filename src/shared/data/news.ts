@@ -4,7 +4,7 @@ export const newsData = [
         title: "RAMICLINIC RESIDENCE: КЛИНИКА-РЕЗИДЕНЦИЯ",
         day: 17,
         month: "октябрь",
-        image: "news/1.png",
+        image: "news/1.webp",
         positionImage: "!object-[0_-24px] grayscale ",
         isDarkened: true,
     },
@@ -13,14 +13,14 @@ export const newsData = [
         title: "Комфорт для пациента – наша главная задача",
         day: 16,
         month: "октябрь",
-        image: "news/2.png",
+        image: "news/2.webp",
     },
     {
         id: 3,
         title: "Лазерная гинекология и интимное омоложение ASCLEPION",
         day: 9,
         month: "СЕНТЯБРЬ",
-        image: "news/3.png",
+        image: "news/3.webp",
         positionImage: "!object-[0_-13.5rem] grayscale ",
     },
     {
@@ -28,7 +28,7 @@ export const newsData = [
         title: "Здоровье и красота после родов",
         day: 30,
         month: "ИЮЛЬ",
-        image: "news/4.png",
+        image: "news/4.webp",
         positionImage: "!object-[0_-40px]",
     },
     {
@@ -36,14 +36,14 @@ export const newsData = [
         title: "Откровенно о сокровенном: public-talk с экспертами Клиники РАМИ",
         day: 10,
         month: "июль",
-        image: "news/5.png",
+        image: "news/5.webp",
     },
     {
         id: 6,
         title: "RAMICLINIC RESIDENCE: КЛИНИКА-РЕЗИДЕНЦИЯ",
         day: 8,
         month: "июль",
-        image: "news/6.png",
+        image: "news/6.webp",
         positionImage: "!object-[0_-9rem]",
         positionDay: "!-bottom-23.5",
     },
@@ -63,7 +63,7 @@ export const speakersData = [
     {
         number: "01",
         title: "ЖИЗНЬ БЕЗ ПАУЗЫ",
-        avatar: "news/avatars/av.png",
+        avatar: "news/avatars/av.webp",
         name: "Дюсембинова Шолпан Дулатовна",
         description:
             "акушер-гинеколог, врач ультразвуковой диагностики и эстетической гинекологии, кандидат медицинских наук",
@@ -71,21 +71,21 @@ export const speakersData = [
     {
         number: "02",
         title: "ВСЁ, ЧТО НУЖНО ЗНАТЬ О ЗДОРОВЬЕ ГРУДИ",
-        avatar: "news/avatars/av2.png",
+        avatar: "news/avatars/av2.webp",
         name: "Телишевский Антон Валентинович",
         description: "пластический хирург, врач маммолог-онколог",
     },
     {
         number: "03",
         title: "ВОЗМОЖНОСТИ КОСМЕТОЛОГИЧЕСКОЙ КОРРЕКЦИИ В ЭСТЕТИЧЕСКОЙ МЕДИЦИНЕ",
-        avatar: "news/avatars/av3.png",
+        avatar: "news/avatars/av3.webp",
         name: "Шостак Екатерина Евгеньевна",
         description: "врач-косметолог, геронтолог",
     },
     {
         number: "04",
         title: "НЕВИДИМЫЕ ЛИНИИ: ЭСТЕТИКА В ИНТИМНОЙ ХИРУРГИИ",
-        avatar: "news/avatars/av4.png",
+        avatar: "news/avatars/av4.webp",
         name: "Бобыкин Дмитрий Сергеевич",
         description: "пластический хирург",
     },
@@ -97,17 +97,17 @@ export const secondaryTexts = [
 ];
 
 export const galleryImages = [
-    { src: "news/gallery/1.png", className: "w-[620px] h-full" },
+    { src: "news/gallery/1.webp", className: "w-[620px] h-full" },
     {
-        src: "news/gallery/2.png",
+        src: "news/gallery/2.webp",
         className: "w-full h-full object-cover row-span-1 object-[0_-10px]",
     },
     {
-        src: "news/gallery/3.png",
+        src: "news/gallery/3.webp",
         className: "w-full h-full object-cover row-span-1 object-[0_-18px]",
     },
     {
-        src: "news/gallery/4.png",
+        src: "news/gallery/4.webp",
         className: "w-full h-full object-cover row-span-1 object-[0_-18px]",
     },
 ];
