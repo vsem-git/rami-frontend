@@ -111,7 +111,11 @@ export const AboutDynasty = () => {
                 </div>
             </div>
 
-						<img src="about/Vector (6).webp" alt="" className='absolute top-0 right-0' />
+            <img
+                src="about/Vector (6).webp"
+                alt=""
+                className="absolute top-0 right-0"
+            />
         </div>
     );
 };
