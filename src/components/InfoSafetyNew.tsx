@@ -4,7 +4,19 @@ import { useEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const cards = [
+export interface SafetyCard {
+    title: string;
+    text?: string;
+    image: string;
+}
+
+interface InfoSafetyNewProps {
+    cards?: SafetyCard[];
+    className?: string;
+    overlayGradient?: string;
+}
+
+const defaultCards: SafetyCard[] = [
     {
         title: "МЕДИЦИНСКАЯ\nБЕЗОПАСНОСТЬ",
         text: `В RAMICLINIC RESIDENCE обеспечивается самое строгое соблюдение медицинских протоколов и технологических требований для бесперебойного функционирования всего клинического комплекса. Это создает максимальный уровень безопасности для пациентов и медицинского персонала.`,
@@ -22,7 +34,14 @@ const cards = [
     },
 ];
 
-export const InfoSafetyNew = () => {
+const defaultGradient =
+    "linear-gradient(180deg, rgba(29, 29, 29, 0.54) 0%, rgba(29, 29, 29, 0) 100%)";
+
+export const InfoSafetyNew = ({
+    cards = defaultCards,
+    className = "",
+    overlayGradient = defaultGradient,
+}: InfoSafetyNewProps) => {
     const sectionRef = useRef(null);
     const cardsRef = useRef<Array<HTMLDivElement | null>>([]);
 
@@ -66,7 +85,7 @@ export const InfoSafetyNew = () => {
     return (
         <section
             ref={sectionRef}
-            className="w-full min-h-screen 2xl:min-h-[105vh] bg-[#1D1D1D] flex items-center pt-0 md:pt-24"
+            className={`w-full min-h-screen 2xl:min-h-[105vh] bg-[#1D1D1D] flex items-center pt-0 md:pt-24 ${className}`}
         >
             <div className="w-full h-full grid max-[650px]:grid-cols-1 grid-cols-2 lg:grid-cols-3 gap-5 p-5 xl:p-10 2xl:p-[56px] ">
                 {cards.map((card, i) => (
@@ -80,15 +99,20 @@ export const InfoSafetyNew = () => {
                         className="relative w-full h-full bg-cover bg-center py-8 px-6 overflow-hidden min-h-[500px] md:min-h-[600px]"
                         style={{ backgroundImage: `url(${card.image})` }}
                     >
-                        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(29,29,29,0.95)_0%,rgba(29,29,29,0.4)_30%,rgba(29,29,29,0.4)_100%,rgba(29,29,29,0.95)_100%)]" />
+                        <div
+                            className="absolute inset-0"
+                            style={{ background: overlayGradient }}
+                        />
 
                         <div className="relative z-10">
                             <h2 className="text-2xl xl:text-[28px] 2xl:text-[32px] font-normal text-[#EAE6E0] uppercase leading-[125%] whitespace-pre-line">
                                 {card.title}
                             </h2>
-                            <p className="text-xs xl:text-sm 2xl:text-base font-medium uppercase text-[#EAE6E0] mt-6 xl:mt-8 max-w-[400px] md:max-w-full">
-                                {card.text}
-                            </p>
+                            {card.text && (
+                                <p className="text-xs xl:text-sm 2xl:text-base font-medium uppercase text-[#EAE6E0] mt-6 xl:mt-8 max-w-[400px] md:max-w-full">
+                                    {card.text}
+                                </p>
+                            )}
                         </div>
 
                         <div className="absolute bottom-0 2x:-bottom-4 right-6 z-10 pointer-events-none">

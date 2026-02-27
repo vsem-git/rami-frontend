@@ -7,7 +7,74 @@ import ThirdAnimationBlock from "./ThirdAnimationBlock/ThirdAnimationBlock";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ThirdAndSecondAnimation = () => {
+interface CardItem {
+    image: string;
+    title: string;
+    number: string;
+    alt?: string;
+}
+
+interface CardsData {
+    leftColumn: CardItem[];
+    rightColumn: CardItem[];
+}
+
+interface ThirdAndSecondAnimationProps {
+    isShowBlockDoctors?: boolean;
+    isShowBlockCards?: boolean;
+    isTeamDescription?: boolean;
+    cardsData?: CardsData;
+}
+
+const defaultCardsData: CardsData = {
+    leftColumn: [
+        {
+            image: "/card1.webp",
+            title: "Изысканная среда обитания",
+            number: "01",
+            alt: "card",
+        },
+        {
+            image: "/card3.webp",
+            title: "Привилегированный сервис",
+            number: "03",
+            alt: "card",
+        },
+        {
+            image: "/card2.webp",
+            title: "Умные операционные",
+            number: "02",
+            alt: "card",
+        },
+    ],
+    rightColumn: [
+        {
+            image: "/card2.webp",
+            title: "Умные операционные",
+            number: "02",
+            alt: "card",
+        },
+        {
+            image: "/card3.webp",
+            title: "Привилегированный сервис",
+            number: "03",
+            alt: "card",
+        },
+        {
+            image: "/telishevsky.webp",
+            title: "Безопасность",
+            number: "04",
+            alt: "card",
+        },
+    ],
+};
+
+const ThirdAndSecondAnimation = ({
+    isShowBlockDoctors = true,
+    isShowBlockCards = true,
+    cardsData = defaultCardsData,
+    isTeamDescription,
+}: ThirdAndSecondAnimationProps) => {
     const { setHeaderColor } = useHeader();
     const containerRef = useRef(null);
     const strokeContainerRef = useRef(null);
@@ -23,23 +90,23 @@ const ThirdAndSecondAnimation = () => {
             duration: 1,
             opacity: 1,
             scale: 1,
-            paused: true, // Если нужно вручную запускать/реверсить
+            paused: true,
             onUpdate: function () {
                 const currentProgress = this.progress();
-                const directionUp = currentProgress > prevProgress; // Направление: вверх (появление)
+                const directionUp = currentProgress > prevProgress;
 
                 if (directionUp && currentProgress > 0.5 && !triggeredWhite) {
-                    setHeaderColor("#000000"); // Белый при 50% появления
+                    setHeaderColor("#000000");
                     triggeredWhite = true;
-                    triggeredBlack = false; // Сброс флага для чёрного
+                    triggeredBlack = false;
                 } else if (
                     !directionUp &&
                     currentProgress < 0.5 &&
                     !triggeredBlack
                 ) {
-                    setHeaderColor("#ffffff"); // Чёрный при 50% исчезновения
+                    setHeaderColor("#ffffff");
                     triggeredBlack = true;
-                    triggeredWhite = false; // Сброс флага для белого
+                    triggeredWhite = false;
                 }
 
                 prevProgress = currentProgress;
@@ -47,34 +114,6 @@ const ThirdAndSecondAnimation = () => {
         });
 
         const mm = gsap.matchMedia();
-        /*  gsap.set(".bgpattern1", { xPercent: 120 });
-        gsap.set(".bgpattern2", { xPercent: -120 }); */
-
-        /* gsap.to(".runningstroke", {
-            x: "-100%",
-            ease: "power2.inOut",
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top bottom",
-                end: "bottom bottom",
-                scrub: true,
-            },
-        }); */
-
-        /* gsap.fromTo(
-            ".logoheader",
-            { yPercent: 0 },
-            {
-                yPercent: -300,
-                duration: 1,
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top center",
-                    end: "center bottom",
-                    scrub: true,
-                },
-            }
-        ); */
 
         mm.add("(min-width: 1281px)", () => {
             gsap.fromTo(
@@ -110,23 +149,6 @@ const ThirdAndSecondAnimation = () => {
             );
         });
 
-        /* mm.add("(max-width: 1280px)", () => {
-            gsap.fromTo(
-                ".logoheader",
-                { yPercent: -300 },
-                {
-                    yPercent: 0,
-                    duration: 1,
-                    scrollTrigger: {
-                        trigger: strokeContainerRef.current,
-                        start: "bottom bottom",
-                        end: "bottom+=400 bottom",
-                        scrub: true,
-                    },
-                }
-            );
-        }); */
-
         gsap.fromTo(
             ".bgpattern1",
             { xPercent: 130 },
@@ -136,8 +158,8 @@ const ThirdAndSecondAnimation = () => {
                 duration: 1,
                 scrollTrigger: {
                     trigger: containerRef.current,
-                    start: "top bottom", // когда верх элемента коснётся низа окна
-                    end: "top+=200 top", // через 200px после начала
+                    start: "top bottom",
+                    end: "top+=200 top",
                     scrub: true,
                 },
             },
@@ -152,8 +174,8 @@ const ThirdAndSecondAnimation = () => {
                 duration: 1,
                 scrollTrigger: {
                     trigger: containerRef.current,
-                    start: "top bottom", // когда верх элемента коснётся низа окна
-                    end: "top+=200 top", // через 200px после начала
+                    start: "top bottom",
+                    end: "top+=200 top",
                     scrub: true,
                 },
             },
@@ -198,8 +220,8 @@ const ThirdAndSecondAnimation = () => {
                 duration: 1,
                 scrollTrigger: {
                     trigger: strokeContainerRef.current,
-                    start: "top bottom", // когда верх элемента коснётся низа окна
-                    end: "top+=100 top", // через 200px после начала
+                    start: "top bottom",
+                    end: "top+=100 top",
                     scrub: true,
                 },
             },
@@ -213,25 +235,12 @@ const ThirdAndSecondAnimation = () => {
                 duration: 10,
                 scrollTrigger: {
                     trigger: strokeContainerRef.current,
-                    start: "top bottom", // когда верх элемента коснётся низа окна
-                    end: "top+=100 top", // через 200px после начала
+                    start: "top bottom",
+                    end: "top+=100 top",
                     scrub: true,
                 },
             },
         );
-
-        /* mm.add("(min-width: 1281px)", () => {
-            gsap.to(".runningstroke", {
-                y: "-100dvh",
-                ease: "none",
-                scrollTrigger: {
-                    trigger: strokeContainerRef.current,
-                    start: "bottom+=100 bottom", // начало за 200px до конца блока
-                    end: "bottom+=1400 bottom", // конец за 10px до конца блока
-                    scrub: true,
-                },
-            });
-        }); */
 
         mm.add("(min-width: 1601px)", () => {
             gsap.to(".runningstroke", {
@@ -267,8 +276,8 @@ const ThirdAndSecondAnimation = () => {
                     duration: 8,
                     scrollTrigger: {
                         trigger: strokeContainerRef.current,
-                        start: "bottom-=100 bottom", // начало за 200px до конца блока
-                        end: "bottom+=775 bottom-=80", // конец за 10px до конца блока
+                        start: "bottom-=100 bottom",
+                        end: "bottom+=775 bottom-=80",
                         scrub: true,
                     },
                 });
@@ -280,8 +289,8 @@ const ThirdAndSecondAnimation = () => {
                     duration: 8,
                     scrollTrigger: {
                         trigger: strokeContainerRef.current,
-                        start: "bottom-=100 bottom", // начало за 200px до конца блока
-                        end: "bottom+=680 bottom-=80", // конец за 10px до конца блока
+                        start: "bottom-=100 bottom",
+                        end: "bottom+=680 bottom-=80",
                         scrub: true,
                     },
                 });
@@ -293,8 +302,8 @@ const ThirdAndSecondAnimation = () => {
                     duration: 8,
                     scrollTrigger: {
                         trigger: strokeContainerRef.current,
-                        start: "bottom-=100 bottom", // начало за 200px до конца блока
-                        end: "bottom+=530 bottom-=80", // конец за 10px до конца блока
+                        start: "bottom-=100 bottom",
+                        end: "bottom+=530 bottom-=80",
                         scrub: true,
                     },
                 });
@@ -306,8 +315,8 @@ const ThirdAndSecondAnimation = () => {
                     duration: 8,
                     scrollTrigger: {
                         trigger: strokeContainerRef.current,
-                        start: "bottom-=100 bottom", // начало за 200px до конца блока
-                        end: "bottom+=520 bottom-=80", // конец за 10px до конца блока
+                        start: "bottom-=100 bottom",
+                        end: "bottom+=520 bottom-=80",
                         scrub: true,
                     },
                 });
@@ -319,171 +328,72 @@ const ThirdAndSecondAnimation = () => {
                     duration: 8,
                     scrollTrigger: {
                         trigger: strokeContainerRef.current,
-                        start: "bottom-=100 bottom", // начало за 200px до конца блока
-                        end: "bottom+=400 bottom-=80", // конец за 10px до конца блока
+                        start: "bottom-=100 bottom",
+                        end: "bottom+=400 bottom-=80",
                         scrub: true,
                     },
                 });
         });
-
-        /* const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top bottom",
-                end: "bottom+=700 bottom",
-                scrub: true,
-            },
-        }); */
-
-        /* tl.to({}, { duration: 30 });
-
-        tl.addLabel("group1")
-            .fromTo(
-                ".bgpattern1",
-                { xPercent: 120 },
-                { xPercent: 0, opacity: 1, duration: 10 },
-                "group1"
-            )
-            .fromTo(
-                ".bgpattern2",
-                { xPercent: -120 },
-                { xPercent: 0, opacity: 1, duration: 10 },
-                "group1"
-            );
-
-        tl.to({}, { duration: 130 }); */
-
-        /* tl.addLabel("group2")
-            .fromTo(
-                ".bgpattern1",
-                { xPercent: 0 },
-                { xPercent: 130, duration: 10 },
-                "group2"
-            )
-            .fromTo(
-                ".bgpattern2",
-                { xPercent: 0 },
-                { xPercent: -130, duration: 10 },
-                "group2"
-            ); */
     });
+
+    const renderCard = (
+        card: CardItem,
+        index: number,
+        column: "left" | "right",
+    ) => (
+        <div key={`${column}-${index}`}>
+            <div>
+                <img
+                    src={card.image}
+                    alt={card.alt || "card"}
+                    width={776}
+                    height={436}
+                    className="aspect-[776/436]"
+                />
+            </div>
+            <div className="flex justify-between pt-4 2xl:pt-6 text-[16px] 2xl:text-[24px] leading-[130%]">
+                <span className="uppercase">{card.title}</span>
+                <span className="text-[#1D1D1D80]">{card.number}</span>
+            </div>
+        </div>
+    );
+
     return (
-        <div className="relative фыв" ref={containerRef}>
-            <ThirdAnimationBlock />
+        <div className="relative" ref={containerRef}>
             <div
+                style={{
+                    display: isShowBlockDoctors ? "block" : "none",
+                }}
+            >
+                <ThirdAnimationBlock isTeamDescription={isTeamDescription} />
+            </div>
+            <div
+                style={{
+                    display: isShowBlockCards ? "block" : "none",
+                }}
                 className="min-h-dvh pt-[0px] relative"
                 ref={strokeContainerRef}
             >
-                <div className="h-[100px] 2xl:h-[500px]" />
+                <div
+                    className="h-[100px] 2xl:h-[500px]"
+                    style={{
+                        display: isShowBlockDoctors ? "block" : "none",
+                    }}
+                />
                 <div
                     id="facilities"
                     className="flex flex-col md:flex-row justify-center px-4 md:px-[64px] xl:px-[80px] 2xl:px-[120px] md:gap-[105px] xl:gap-[80px] 2xl:gap-[128px]"
                 >
                     <div className="flex flex-col gap-[32px] sm:gap-[120px] md:gap-[160px] 2xl:gap-[260px]">
-                        <div>
-                            <div>
-                                <img
-                                    src="/card1.webp"
-                                    alt="card"
-                                    width={776}
-                                    height={436}
-                                    className="aspect-[776/436]"
-                                />
-                            </div>
-                            <div className="flex justify-between pt-4 2xl:pt-6 text-[16px] 2xl:text-[24px] leading-[130%]">
-                                <span className="uppercase">
-                                    Изысканная среда обитания
-                                </span>
-                                <span className="text-[#1D1D1D80]">01</span>
-                            </div>
-                        </div>
-                        <div className="hidden md:block">
-                            <div>
-                                <img
-                                    src="/card3.webp"
-                                    alt="card"
-                                    width={776}
-                                    height={436}
-                                    className="aspect-[776/436]"
-                                />
-                            </div>
-                            <div className="flex justify-between pt-4 2xl:pt-6 text-[16px] 2xl:text-[24px] leading-[130%]">
-                                <span className="uppercase">
-                                    Привилегированный сервис
-                                </span>
-                                <span className="text-[#1D1D1D80]">03</span>
-                            </div>
-                        </div>
-                        <div className="block md:hidden">
-                            <div>
-                                <img
-                                    src="/card2.webp"
-                                    alt="card"
-                                    width={776}
-                                    height={436}
-                                    className="aspect-[776/436] "
-                                />
-                            </div>
-                            <div className="flex justify-between pt-4 2xl:pt-6 text-[16px] 2xl:text-[24px] leading-[130%]">
-                                <span className="uppercase">
-                                    Умные операционные
-                                </span>
-                                <span className="text-[#1D1D1D80]">02</span>
-                            </div>
-                        </div>
+                        {cardsData.leftColumn.map((card, index) =>
+                            renderCard(card, index, "left"),
+                        )}
                     </div>
 
                     <div className="pt-[32px] md:pt-56 flex flex-col gap-[32px] sm:gap-[120px] md:gap-[160px] 2xl:gap-[260px]">
-                        <div className="hidden md:block">
-                            <div>
-                                <img
-                                    src="/card2.webp"
-                                    alt="card"
-                                    width={776}
-                                    height={436}
-                                    className="aspect-[776/436]"
-                                />
-                            </div>
-                            <div className="flex justify-between pt-4 2xl:pt-6 text-[16px] 2xl:text-[24px] leading-[130%]">
-                                <span className="uppercase">
-                                    Умные операционные
-                                </span>
-                                <span className="text-[#1D1D1D80]">02</span>
-                            </div>
-                        </div>
-                        <div className="block md:hidden">
-                            <div>
-                                <img
-                                    src="/card3.webp"
-                                    alt="card"
-                                    width={776}
-                                    height={436}
-                                    className="aspect-[776/436]"
-                                />
-                            </div>
-                            <div className="flex justify-between pt-4 2xl:pt-6 text-[16px] 2xl:text-[24px] leading-[130%]">
-                                <span className="uppercase">
-                                    Привилегированный сервис
-                                </span>
-                                <span className="text-[#1D1D1D80]">03</span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div>
-                                <img
-                                    src="/telishevsky.webp"
-                                    alt="card"
-                                    width={776}
-                                    height={436}
-                                    className="aspect-776/436"
-                                />
-                            </div>
-                            <div className="flex justify-between pt-4 2xl:pt-6 text-[16px] 2xl:text-[24px] leading-[130%]">
-                                <span className="uppercase">Безопасность</span>
-                                <span className="text-[#1D1D1D80]">04</span>
-                            </div>
-                        </div>
+                        {cardsData.rightColumn.map((card, index) =>
+                            renderCard(card, index, "right"),
+                        )}
                     </div>
                 </div>
 

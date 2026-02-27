@@ -41,6 +41,8 @@ import { Safety } from "../pages/safety/Safety";
 import SafetyLayout from "../pages/safety/layout";
 import { About } from "../pages/about/About";
 import AboutLayout from "../pages/about/layout";
+import TourismLayout from "../pages/tourism/layout";
+import { Tourism } from '../pages/tourism/Tourism'
 
 const router = createBrowserRouter([
     {
@@ -240,6 +242,16 @@ const router = createBrowserRouter([
             {
                 index: true,
                 element: <About />,
+            },
+        ],
+    },
+    {
+        path: "/tourism",
+        element: <TourismLayout />,
+        children: [
+            {
+                index: true,
+                element: <Tourism />,
             },
         ],
     },

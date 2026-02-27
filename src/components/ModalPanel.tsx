@@ -77,7 +77,7 @@ const ModalPanel = ({ popupName, title, content }: ModalPanelProps) => {
     return (
         <div
             ref={modalRef}
-            className="fixed top-0 left-0 w-full h-screen hidden z-50"
+            className="fixed top-0 left-0 w-full h-screen hidden z-9999"
         >
             <div
                 className="absolute top-0 left-0 w-full h-full bg-[#1D1D1D80]"

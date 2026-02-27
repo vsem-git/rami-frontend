@@ -5,10 +5,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 import { Swiper } from "swiper";
-import { Swiper as SwiperComponent, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
-import { useHeader } from "../../HeaderContext";
+import { Swiper as SwiperComponent, SwiperSlide } from "swiper/react";
 import { useScroll } from "../../../pages/Home/ScrollContext";
+import { useHeader } from "../../HeaderContext";
 
 const images = [
     {
@@ -70,7 +70,11 @@ const images = [
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ThirdAnimationBlock = () => {
+const ThirdAnimationBlock = ({
+    isTeamDescription,
+}: {
+    isTeamDescription?: boolean;
+}) => {
     const { setScrollToTeam } = useScroll();
     const containerRef = useRef<HTMLDivElement | null>(null);
     const block1Ref = useRef<HTMLDivElement | null>(null);
@@ -281,18 +285,34 @@ const ThirdAnimationBlock = () => {
                     className="flex absolute flex-col top-0 items-center text-center gap-6  pt-24 px-4 md:pt-48 pb-0 z-10"
                     id="team"
                 >
-                    <p className="text-xl md:text-2xl 2xl:text-4xl">
-                        КОМАНДА <br />
-                        <span className="text-[#B59158]">
-                            RAMICLINIC RESIDENCE
-                        </span>
-                    </p>
-                    <p className="sm:max-w-[420px] 2xl:max-w-[560px] uppercase text-[11px] md:text-[12px] 2xl:text-[16px] w-full">
-                        Ядро команды RAMICLINIC RESIDENCE – специалисты с
-                        многолетним опытом, которые стоят у истоков бренда РАМИ.
-                        Рядом с признанными мастерами – молодые амбициозные
-                        коллеги с новаторским складом ума
-                    </p>
+                    {isTeamDescription ? (
+                        <>
+                            <p className="text-xl md:text-2xl 2xl:text-4xl">
+                                КОМАНДА <br />
+                                <span className="text-[#B59158]">
+                                    RAMICLINIC RESIDENCE
+                                </span>
+                            </p>
+                            <p className="sm:max-w-[420px] 2xl:max-w-[560px] uppercase text-[11px] md:text-[12px] 2xl:text-[16px] w-full">
+                                Ядро команды RAMICLINIC RESIDENCE – специалисты
+                                с многолетним опытом, которые стоят у истоков
+                                бренда РАМИ. Рядом с признанными мастерами –
+                                молодые амбициозные коллеги с новаторским
+                                складом ума
+                            </p>
+                        </>
+                    ) : (
+                        <>
+                            <h2 className="text-[48px] text-[#1D1D1D] uppercase leading-[125%] mb-0">
+                                Хирурги, которым доверяют
+                            </h2>
+
+                            <p className="sm:max-w-[420px] 2xl:max-w-[764px] uppercase text-[11px] md:text-[12px] 2xl:text-[18px] w-full">
+                                Наши специалисты — это многолетний опыт,
+                                международные стажировки и безупречная репутация
+                            </p>
+                        </>
+                    )}
                 </div>
                 <div className="max-w-full z-10" ref={swiperContainerRef}>
                     <SwiperComponent
