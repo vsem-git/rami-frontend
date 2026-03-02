@@ -1,6 +1,6 @@
 export const GeniusLociSpeech = () => {
     return (
-        <div className='relative w-full h-screen min-h-screen bg-no-repeat bg-cover bg-[url("tourism/3.webp")] [background-position:80%_100%] [background-size:_176%] [background-repeat:no-repeat] bg-[#F9F7F8] md::bg-cover md:[background-position-x:70%] md:bg-cover md:bg-center z-20'>
+        <div className='relative w-full h-screen min-h-screen bg-no-repeat bg-cover bg-[url("/tourism/3.webp")] [background-position:80%_100%] [background-size:_176%] [background-repeat:no-repeat] bg-[#F9F7F8] md::bg-cover md:[background-position-x:70%] md:bg-cover md:bg-center z-20'>
             <div className="h-full flex items-center ml-[200px]">
                 <div className="flex items-start gap-4">
                     <img src="tourism/Quote icon.svg" alt="" />
