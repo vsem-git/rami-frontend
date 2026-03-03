@@ -84,7 +84,7 @@ export const NewsCardInfoModal = () => {
         >
             <div
                 ref={panelRef}
-                className="w-full max-w-[1253px] bg-[#EAE6E0] p-15 overflow-scroll custom-scrollbar translate-x-full"
+                className="w-full max-w-[659px] lg:max-w-[847px] 2xl:max-w-[1253px] bg-[#EAE6E0] p-6 lg:p-15 overflow-scroll custom-scrollbar translate-x-full"
             >
                 <header className="flex items-center justify-between">
                     <button
@@ -100,7 +100,7 @@ export const NewsCardInfoModal = () => {
                     </button>
 
                     <div className="text-end">
-                        <h2 className="text-[110px] font-normal text-[#691C32] uppercase leading-[100%]">
+                        <h2 className="max-[600px]:text-[60px] text-[90px] md:text-[110px] font-normal text-[#691C32] uppercase leading-[100%]">
                             {headerDate.day}
                         </h2>
                         <span className="text-[15px] font-normal text-[#691C32] uppercase">
@@ -109,18 +109,18 @@ export const NewsCardInfoModal = () => {
                     </div>
                 </header>
 
-                <div className="mt-[100px]">
-                    <h3 className="text-[32px] text-[#1D1D1D] font-normal uppercase max-w-[833px] leading-[125%]">
+                <div className="max-[600px]:mt-8 mt-[50px] xl:mt-[100px]">
+                    <h3 className="max-[600px]:text-lg text-2xl lg:text-[32px] text-[#1D1D1D] font-normal uppercase max-w-[833px] leading-[125%]">
                         Откровенно о сокровенном»: public-talk с экспертами
                         Клиники РАМИ
                     </h3>
 
-                    <div className="w-full h-px bg-[#1D1D1D1F] my-[30px]" />
+                    <div className="w-full h-px bg-[#1D1D1D1F] my-4 lg:my-[30px]" />
 
                     <img src="news/5.webp" alt="" className="w-full" />
 
-                    <div className="w-full flex justify-end mt-20 ">
-                        <div className="w-full max-w-[520px] text-base text-[#1D1D1D] uppercase font-suisse font-semibold space-y-8">
+                    <div className="w-full flex justify-start lg:justify-end mt-12 md:mt-16 xl:mt-20 ">
+                        <div className="w-full max-w-full lg:max-w-[520px]  text-base text-[#1D1D1D] uppercase font-suisse font-semibold space-y-8 leading-[170%] max-[600px]:space-y-5 max-[600px]:text-xs">
                             {mainTexts.map((text, index) => (
                                 <p key={index}>{text}</p>
                             ))}
@@ -128,12 +128,12 @@ export const NewsCardInfoModal = () => {
                     </div>
                 </div>
 
-                <div className="mt-[100px]">
-                    <h4 className="text-base font-suisse uppercase text-[#1D1D1D] mb-7.5">
+                <div className="mt-12 xl:mt-[100px]">
+                    <h4 className="max-[600px]:text-xs text-base font-suisse uppercase text-[#1D1D1D] mb-4 md:mb-7.5">
                         Темы выступлений и спикеры
                     </h4>
 
-                    <div className="flex flex-col gap-7.5">
+                    <div className="flex flex-col gap-4 md:gap-7.5">
                         {speakersData.map((speaker, index) => (
                             <div key={index}>
                                 <CardNewsDetail
@@ -152,8 +152,8 @@ export const NewsCardInfoModal = () => {
                         ))}
                     </div>
 
-                    <div className="w-full flex justify-end mt-12 ">
-                        <div className="w-full max-w-[510px] text-base text-[#1D1D1D] uppercase font-suisse font-semibold space-y-8">
+                    <div className="w-full flex justify-start lg:justify-end mt-12">
+                        <div className="w-full max-w-full lg:max-w-[510px]  text-base text-[#1D1D1D] uppercase font-suisse font-semibold space-y-8 leading-[170%] max-[600px]:space-y-5 max-[600px]:text-xs">
                             {secondaryTexts.map((text, index) => (
                                 <p key={index}>{text}</p>
                             ))}
@@ -161,12 +161,12 @@ export const NewsCardInfoModal = () => {
                     </div>
                 </div>
 
-                <div className="mt-[100px]">
+                <div className="mt-20 sm:mt-[100px]">
                     <h4 className="text-base font-suisse uppercase text-[#1D1D1D] mb-7.5">
                         галерея
                     </h4>
 
-                    <div className="flex gap-5 h-[620px] overflow-hidden">
+                    <div className="flex max-[600px]:flex-col gap-2 2xl:gap-5 max-[600px]:h-auto h-[339px] lg:h-[403px] 2xl:h-[620px] overflow-hidden">
                         <div className={galleryImages[0].className}>
                             <img
                                 src={galleryImages[0].src}
@@ -175,7 +175,7 @@ export const NewsCardInfoModal = () => {
                             />
                         </div>
 
-                        <div className="w-1/2 h-full grid grid-cols-2 grid-rows-2 gap-5">
+                        <div className="max-[600px]:w-full w-1/2 h-full grid grid-cols-2 grid-rows-2 gap-2 2xl:gap-5">
                             {galleryImages.slice(1).map((image, index) => (
                                 <img
                                     key={index}

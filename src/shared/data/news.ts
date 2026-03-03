@@ -5,7 +5,9 @@ export const newsData = [
         day: 17,
         month: "октябрь",
         image: "news/1.webp",
-        positionImage: "!object-[0_-24px] grayscale ",
+        positionImage:
+            "max-[500px]:!object-[50%_0px] max-[680px]:!object-[0_-24px] !object-[0_0px] xl:!object-[0_-24px] grayscale ",
+        positionDay: "!-bottom-[51px] md:!-bottom-18.5",
         isDarkened: true,
     },
     {
@@ -21,7 +23,8 @@ export const newsData = [
         day: 9,
         month: "СЕНТЯБРЬ",
         image: "news/3.webp",
-        positionImage: "!object-[0_-13.5rem] grayscale ",
+        positionImage:
+            "max-[500px]:!object-[50%_-4rem] max-[680px]:!object-[0_-13.5rem] max-[885px]:!object-[0_-5rem] !object-[0_-10rem] xl:!object-[0_-13.5rem] grayscale ",
     },
     {
         id: 4,
@@ -29,7 +32,10 @@ export const newsData = [
         day: 30,
         month: "ИЮЛЬ",
         image: "news/4.webp",
-        positionImage: "!object-[0_-40px]",
+        positionImage:
+            "max-[500px]:!object-[50%_0px] max-[680px]:!object-[0_-40px] xl:!object-[0_-40px]",
+        positionDay:
+            "max-[680px]:!-bottom-[3.3rem] !-bottom-[4.5rem] md:!-bottom-23.5",
     },
     {
         id: 5,
@@ -44,8 +50,10 @@ export const newsData = [
         day: 8,
         month: "июль",
         image: "news/6.webp",
-        positionImage: "!object-[0_-9rem]",
-        positionDay: "!-bottom-23.5",
+        positionImage:
+            "max-[500px]:!object-[50%_-4rem] max-[680px]:!object-[0_-9rem] !object-[0_-6rem] xl:!object-[0_-9rem]",
+        positionDay:
+            "max-[680px]:!-bottom-[3.3rem] !-bottom-[4.5rem] md:!-bottom-23.5",
     },
 ];
 
@@ -97,17 +105,24 @@ export const secondaryTexts = [
 ];
 
 export const galleryImages = [
-    { src: "news/gallery/1.webp", className: "w-[620px] h-full" },
+    {
+        src: "news/gallery/1.webp",
+        className:
+            "max-[600px]:w-full w-[300px] lg:w-[403px] 2xl:w-[620px] h-full object-cover",
+    },
     {
         src: "news/gallery/2.webp",
-        className: "w-full h-full object-cover row-span-1 object-[0_-10px]",
+        className:
+            "w-full h-full object-cover row-span-1 object-[0_-10px] max-[600px]:h-[181px]",
     },
     {
         src: "news/gallery/3.webp",
-        className: "w-full h-full object-cover row-span-1 object-[0_-18px]",
+        className:
+            "w-full h-full object-cover row-span-1 object-[0_-18px] max-[600px]:h-[181px]",
     },
     {
         src: "news/gallery/4.webp",
-        className: "w-full h-full object-cover row-span-1 object-[0_-18px]",
+        className:
+            "w-full h-full object-cover row-span-1 object-[0_-18px] max-[600px]:h-[181px]",
     },
 ];
