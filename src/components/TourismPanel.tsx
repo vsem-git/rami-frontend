@@ -18,9 +18,9 @@ const TourismPanel: React.FC<TourismPanelProps> = ({
     const modalTitle = selectedItem?.title || "Медицинский туризм";
 
     const content = (
-        <div className="flex flex-col border-t border-[#FFFFFF80] py-6 md:py-10 xl:py-16">
+        <div className="flex flex-col border-t border-[#FFFFFF26] py-6 md:py-10 xl:py-16">
             {selectedItem.description && (
-                <div className="flex flex-col gap-2 xl:gap-3 mb-4 md:mb-6 xl:mb-16">
+                <div className="flex flex-col gap-2 xl:gap-3 mb-5 md:mb-6 xl:mb-16">
                     <p className="text-[13px] md:text-sm xl:text-[21px] text-white leading-[155%] uppercase max-w-[640px]">
                         {selectedItem.description}
                     </p>
@@ -29,7 +29,7 @@ const TourismPanel: React.FC<TourismPanelProps> = ({
 
             {selectedItem.specializations &&
                 selectedItem.specializations.length > 0 && (
-                    <ul className="space-y-1 md:space-y-4 pb-6 md:pb-10 xl:pb-16">
+                    <ul className="space-y-4 pb-6 md:pb-10 xl:pb-16">
                         {selectedItem.specializations.map((spec, index) => (
                             <li
                                 key={index}
@@ -44,9 +44,9 @@ const TourismPanel: React.FC<TourismPanelProps> = ({
                     </ul>
                 )}
 
-            <div className="border-t border-[#FFFFFF80] pt-6 md:pt-10 xl:pt-14">
+            <div className="border-t border-[#FFFFFF26] pt-6 md:pt-10 xl:pt-14">
                 <button
-                    className="relative text-base font-semibold text-[#EAE6E0] uppercase cursor-pointer px-1 flex items-center gap-2 group mt-4"
+                    className="relative text-xs xl:text-sm 2xl:text-base font-semibold text-[#EAE6E0] uppercase cursor-pointer px-1 flex items-center gap-2 group mt-4"
                     onClick={handleOpenContact}
                 >
                     <span className="relative">
@@ -56,7 +56,16 @@ const TourismPanel: React.FC<TourismPanelProps> = ({
                     <img
                         src="/plus.svg"
                         alt=""
-                        className="inline-block -mt-1"
+                        className="hidden sm:inline-block -mt-1"
+                        style={{
+                            filter: "brightness(0) invert(1)",
+                        }}
+                    />
+
+                    <img
+                        src="/plus-up.svg"
+                        alt=""
+                        className="block  sm:hidden -mt-[3px] w-4"
                         style={{
                             filter: "brightness(0) invert(1)",
                         }}

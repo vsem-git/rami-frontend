@@ -17,6 +17,7 @@ import {
     tourismSafetyCards,
     tourismSecondBlockData,
 } from "../../shared/data/tourism";
+import { MedicalTourProgramMobile } from '../../components/MedicalTourProgramMobile'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -48,6 +49,8 @@ export const Tourism = () => {
 
     useGSAP(() => {
         if (!safetyContainerRef.current) return;
+
+        if (window.innerWidth <= 768) return;
 
         const items = gsap.utils.toArray(".safety-item") as Element[];
 
@@ -85,10 +88,11 @@ export const Tourism = () => {
             <MedicineCultureHub />
             <GeniusLociSpeech />
 
-            <div className="my-50">
+            <div className="mt-20 2xl:my-50">
                 <ThirdAndSecondAnimation
                     isShowBlockDoctors={false}
                     cardsData={tourismAdvantagesData}
+                    classNameTop='h-[100px]! '
                 />
                 <img
                     src="tourism/running-stroke-logo.png"
@@ -98,7 +102,7 @@ export const Tourism = () => {
             </div>
 
             <MedicalTourProgram />
-
+            <MedicalTourProgramMobile />
             <div
                 ref={containerRef}
                 className="min-h-screen will-change-transform relative overflow-hidden"
@@ -130,7 +134,7 @@ export const Tourism = () => {
 
             <div
                 ref={safetyContainerRef}
-                className="min-h-screen will-change-transform relative overflow-hidden"
+                className="min-h-[85vh] sm:min-h-[90vh] md:min-h-screen will-change-transform relative overflow-hidden"
             >
                 <TourismSafety />
             </div>

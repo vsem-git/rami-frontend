@@ -71,7 +71,7 @@ const images = [
 gsap.registerPlugin(ScrollTrigger);
 
 const ThirdAnimationBlock = ({
-    isTeamDescription,
+    isTeamDescription = true,
 }: {
     isTeamDescription?: boolean;
 }) => {
@@ -85,42 +85,26 @@ const ThirdAnimationBlock = ({
     const tlRef = useRef<null | GSAPTimeline>(null);
     const { setHeaderColor } = useHeader();
     const [activeSlide, setActiveSlide] = useState<number | null>(null);
-    /* const [isMobile, setIsMobile] = useState(false); */
 
     useEffect(() => {
         console.log(activeSlide);
     }, [activeSlide]);
 
-    /* useEffect(() => {
-        const mediaQuery = window.matchMedia("(max-width: 767px)");
-        setIsMobile(mediaQuery.matches);
-
-        const handleChange = () => setIsMobile(mediaQuery.matches);
-        mediaQuery.addEventListener("change", handleChange);
-
-        return () => mediaQuery.removeEventListener("change", handleChange);
-    }, []); */
-
     useGSAP(() => {
         const mm = gsap.matchMedia();
 
         mm.add("(min-width: 768px)", () => {
-            // Desktop/Tablet: standard values
             gsap.set(swiperContainerRef.current, { yPercent: 60 });
             gsap.set(".teamswiper .swiper-wrapper", { xPercent: 0 });
         });
 
         mm.add("(max-width: 767px)", () => {
-            // Mobile: smaller shift
             gsap.set(swiperContainerRef.current, { yPercent: 45 });
             gsap.set(".teamswiper .swiper-wrapper", { xPercent: 0 });
         });
-        // Initial setup only (no timeline yet)
     }, []);
 
-    // Function to create timeline (called when ready)
     const createTimeline = () => {
-        // Проверяем, мобильное ли устройство, и если да, не создаем timeline
         if (window.matchMedia("(max-width: 767px)").matches) {
             return;
         }
@@ -128,7 +112,7 @@ const ThirdAnimationBlock = ({
         const mm = gsap.matchMedia();
 
         if (tlRef.current) {
-            tlRef.current.kill(); // Убиваем старый timeline
+            tlRef.current.kill();
         }
 
         const tl = gsap.timeline({
@@ -173,18 +157,6 @@ const ThirdAnimationBlock = ({
             },
             "<",
         );
-        /* .fromTo(
-                ".logoheader",
-                {
-                    yPercent: 0,
-                },
-                {
-                    yPercent: -300,
-                    duration: 1,
-                    ease: "power2.inOut",
-                },
-                "<"
-            ); */
 
         const swiper = swiperRef.current;
         if (!swiper || !swiper.wrapperEl || !swiperContainerRef.current) {
@@ -200,19 +172,6 @@ const ThirdAnimationBlock = ({
         const containerWidth = container.clientWidth;
         const totalMovement = wrapperWidth - containerWidth;
 
-        console.log(`Wrapper Width: ${wrapperWidth}px`);
-        console.log(`Container Width: ${containerWidth}px`);
-        console.log(`Total Movement: ${totalMovement}px`);
-
-        // ✅ Применяем движение только если экран шире 768px
-        /* if (window.matchMedia("(min-width: 768px)").matches) {
-            tl.to(".teamswiper .swiper-wrapper", {
-                x: `-${totalMovement + 32}px`,
-                duration: 1,
-                ease: "power2.inOut",
-            });
-        } */
-
         mm.add("(min-width: 768px)", () => {
             tl.to(".teamswiper .swiper-wrapper", {
                 x: `-${totalMovement + 48}px`,
@@ -223,7 +182,6 @@ const ThirdAnimationBlock = ({
         tlRef.current = tl;
     };
 
-    // Optional: Ensure images are loaded before calculating (if needed)
     const ensureImagesLoaded = (swiper: Swiper) => {
         const images = swiper.slides.flatMap((slide) =>
             Array.from(slide.querySelectorAll("img")),
@@ -275,14 +233,20 @@ const ThirdAnimationBlock = ({
     }, []);
 
     return (
-        <div className="h-dvh relative" ref={containerRef}>
+        <div className="h-auto min-h-[800px] sm:min-h-dvh relative overflow-hidden" ref={containerRef}>
             <div
-                className="absolute min-h-dvh top-0 left-0 w-full bg-cover bg-center z-0 flex flex-col justify-center items-center"
+                className={`absolute min-h-dvh top-0 left-0 w-full bg-cover bg-center z-0 flex flex-col justify-center items-center`}
                 ref={block1Ref}
             >
                 <div
                     ref={block1TextRef}
-                    className="flex absolute flex-col top-0 items-center text-center gap-6  pt-24 px-4 md:pt-48 pb-0 z-10"
+                    className={`flex absolute flex-col top-0 items-center text-center gap-6 px-4 pb-0 z-10
+                        ${
+                            isTeamDescription
+                                ? "md:pt-48 pt-24"
+                                : "pt-36 md:pt-[120px] xl:pt-48"
+                        }
+                    `}
                     id="team"
                 >
                     {isTeamDescription ? (
@@ -303,11 +267,10 @@ const ThirdAnimationBlock = ({
                         </>
                     ) : (
                         <>
-                            <h2 className="text-[48px] text-[#1D1D1D] uppercase leading-[125%] mb-0">
+                            <h2 className="text-[24px] md:text-[32px] xl:text-[48px] text-[#1D1D1D] uppercase leading-[125%] mb-0">
                                 Хирурги, которым доверяют
                             </h2>
-
-                            <p className="sm:max-w-[420px] 2xl:max-w-[764px] uppercase text-[11px] md:text-[12px] 2xl:text-[18px] w-full">
+                            <p className="sm:max-w-[764px] uppercase text-[11px] sm:text-[14px] xl:text-[18px] w-full">
                                 Наши специалисты — это многолетний опыт,
                                 международные стажировки и безупречная репутация
                             </p>
@@ -321,28 +284,36 @@ const ThirdAnimationBlock = ({
                         observer={window.innerWidth >= 768}
                         observeParents={window.innerWidth >= 768}
                         slidesOffsetBefore={20}
+                        slidesOffsetAfter={20} // Добавлен отступ справа для мобильных
                         className="mySwiper h-full w-full teamswiper"
                         loop={false}
                         onSwiper={(swiper) => {
                             swiperRef.current = swiper;
                             isSwiperReady.current = true;
-                            // Delay slightly for DOM settling, then ensure images and create TL
                             setTimeout(() => {
                                 ensureImagesLoaded(swiper);
                             }, 100);
                         }}
                         breakpoints={{
+                            640: {
+                                slidesPerView: 1.5,
+                                slidesOffsetAfter: 20,
+                            },
                             768: {
                                 slidesPerView: 2.2,
+                                slidesOffsetAfter: 0, // Убираем отступ справа на десктопе
                             },
                             992: {
                                 slidesPerView: 2.5,
+                                slidesOffsetAfter: 0,
                             },
                             1280: {
                                 slidesPerView: 3.5,
+                                slidesOffsetAfter: 0,
                             },
                             1440: {
                                 slidesPerView: 4.1,
+                                slidesOffsetAfter: 0,
                             },
                         }}
                     >
@@ -350,7 +321,7 @@ const ThirdAnimationBlock = ({
                             return (
                                 <SwiperSlide
                                     key={i}
-                                    className="h-[640px] w-[480px] relative group aspect-[390/520] bg-[linear-gradient(90deg,rgba(116,117,112,1)0%,rgba(166,167,164,1)50%,rgba(116,117,112,1)100%)]"
+                                    className="relative group aspect-[390/520] bg-[linear-gradient(90deg,rgba(116,117,112,1)0%,rgba(166,167,164,1)50%,rgba(116,117,112,1)100%)] max-[768px]:w-[300px]!"
                                     onTouchStart={() => {}}
                                     onClick={() => {
                                         /* if (!isMobile) return; */

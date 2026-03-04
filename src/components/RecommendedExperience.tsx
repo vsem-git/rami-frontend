@@ -88,28 +88,28 @@ export const RecommendedExperience = () => {
     return (
         <div
             ref={containerRef}
-            className="relative h-screen min-h-screen px-10 overflow-hidden"
+            className="relative h-[80vh] lg:h-screen min-h-full lg:min-h-screen px-4 lg:px-6 xl:px-10 overflow-hidden"
         >
-            <h1 className="text-[48px] text-[#1D1D1D] uppercase leading-[125%] text-center pt-50">
+            <h1 className="text-[18px] sm:text-[24px] md:text-[32px] xl:text-[48px] text-[#1D1D1D] uppercase leading-[125%] text-center max-[600px]:pt-15 pt-[120px] 2xl:pt-50">
                 Опыт, который рекомендуют
             </h1>
 
-            <div className="relative z-10 flex items-center justify-between mt-30">
+            <div className="relative z-10 flex items-center justify-between mt-15 2xl:mt-30 max-[600px]:flex-col max-[600px]:gap-[100px]">
                 <button
                     onClick={() => animateCardChange("prev")}
                     disabled={isAnimating}
-                    className="w-12 h-12 bg-[#1D1D1D] border border-[#1D1D1D1A] backdrop-blur-sm flex items-center justify-center cursor-pointer rounded-full hover:bg-opacity-80 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10 hover:scale-105 active:scale-95"
+                    className="max-[600px]:hidden min-w-8 lg:w-12 h-8 lg:h-12 bg-[#1D1D1D] border border-[#1D1D1D1A] backdrop-blur-sm flex items-center justify-center cursor-pointer rounded-full hover:bg-opacity-80 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10 hover:scale-105 active:scale-95"
                 >
                     <img
                         src="/icon-r.svg"
                         alt="Previous"
-                        className="w-10 h-10 rotate-180 transition-transform duration-300"
+                        className="w-4 lg:w-10 rotate-180 transition-transform duration-300"
                     />
                 </button>
 
                 <div
                     ref={cardRef}
-                    className="w-full max-w-[1034px] mx-auto will-change-transform will-change-opacity"
+                    className="w-full max-w-[800px] xl:max-w-[1034px] mx-auto will-change-transform will-change-opacity"
                     style={{
                         opacity: 0,
                         transform: "translateY(0) scale(1)",
@@ -121,14 +121,39 @@ export const RecommendedExperience = () => {
                 <button
                     onClick={() => animateCardChange("next")}
                     disabled={isAnimating}
-                    className="w-12 h-12 bg-[#1D1D1D] border border-[#1D1D1D1A] backdrop-blur-sm flex items-center justify-center cursor-pointer rounded-full hover:bg-opacity-80 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10 hover:scale-105 active:scale-95"
+                    className="max-[600px]:hidden min-w-8 lg:w-12 h-8 lg:h-12 bg-[#1D1D1D] border border-[#1D1D1D1A] backdrop-blur-sm flex items-center justify-center cursor-pointer rounded-full hover:bg-opacity-80 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10 hover:scale-105 active:scale-95"
                 >
                     <img
                         src="/icon-r.svg"
                         alt="Next"
-                        className="w-10 h-10 transition-transform duration-300"
+                        className="w-4 lg:w-10 transition-transform duration-300"
                     />
                 </button>
+
+                <div className=" max-[600px]:flex hidden w-full justify-center items-center gap-4">
+                    <button
+                        onClick={() => animateCardChange("prev")}
+                        disabled={isAnimating}
+                        className="flex min-w-8 h-8 bg-[#1D1D1D] border border-[#1D1D1D1A] backdrop-blur-sm  items-center justify-center cursor-pointer rounded-full hover:bg-opacity-80 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10 hover:scale-105 active:scale-95"
+                    >
+                        <img
+                            src="/icon-r.svg"
+                            alt="Previous"
+                            className="w-4 lg:w-10 rotate-180 transition-transform duration-300"
+                        />
+                    </button>
+                    <button
+                        onClick={() => animateCardChange("next")}
+                        disabled={isAnimating}
+                        className="flex min-w-8 h-8 bg-[#1D1D1D] border border-[#1D1D1D1A] backdrop-blur-sm  items-center justify-center cursor-pointer rounded-full hover:bg-opacity-80 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed z-10 hover:scale-105 active:scale-95"
+                    >
+                        <img
+                            src="/icon-r.svg"
+                            alt="Next"
+                            className="w-4 transition-transform duration-300"
+                        />
+                    </button>
+                </div>
             </div>
 
             <img

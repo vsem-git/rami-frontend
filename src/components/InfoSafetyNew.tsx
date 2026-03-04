@@ -85,9 +85,9 @@ export const InfoSafetyNew = ({
     return (
         <section
             ref={sectionRef}
-            className={`w-full min-h-screen 2xl:min-h-[105vh] bg-[#1D1D1D] flex items-center pt-0 md:pt-24 ${className}`}
+            className={`w-full min-h-[80vh] md:min-h-screen 2xl:min-h-[105vh] bg-[#1D1D1D] flex items-center pt-0 md:pt-24 ${className}`}
         >
-            <div className="w-full h-full grid max-[650px]:grid-cols-1 grid-cols-2 lg:grid-cols-3 gap-5 p-5 xl:p-10 2xl:p-[56px] ">
+            <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 p-5 xl:p-10 2xl:p-[56px] ">
                 {cards.map((card, i) => (
                     <div
                         key={i}
@@ -96,7 +96,7 @@ export const InfoSafetyNew = ({
                                 cardsRef.current[i] = el;
                             }
                         }}
-                        className="relative w-full h-full bg-cover bg-center py-8 px-6 overflow-hidden min-h-[500px] md:min-h-[600px]"
+                        className="relative w-full h-full bg-cover bg-center py-6 md:py-8 px-4 md:px-6 overflow-hidden min-h-[200px] md:min-h-[600px]"
                         style={{ backgroundImage: `url(${card.image})` }}
                     >
                         <div
@@ -105,7 +105,7 @@ export const InfoSafetyNew = ({
                         />
 
                         <div className="relative z-10">
-                            <h2 className="text-2xl xl:text-[28px] 2xl:text-[32px] font-normal text-[#EAE6E0] uppercase leading-[125%] whitespace-pre-line">
+                            <h2 className="text-[18px] md:text-2xl xl:text-[28px] 2xl:text-[32px] font-normal text-[#EAE6E0] uppercase leading-[125%] whitespace-pre-line">
                                 {card.title}
                             </h2>
                             {card.text && (
@@ -115,8 +115,8 @@ export const InfoSafetyNew = ({
                             )}
                         </div>
 
-                        <div className="absolute bottom-0 2x:-bottom-4 right-6 z-10 pointer-events-none">
-                            <h1 className="text-[32px]/[125%] sm:text-[44px]/[125%] lg:text-7xl/[125%] xl:text-[110px]/[125%] font-normal text-[#EAE6E0]">
+                        <div className="absolute bottom-0 2x:-bottom-4 right-4 md:right-6 z-10 pointer-events-none">
+                            <h1 className="text-[40px]/[125%] sm:text-[60px]/[125%] lg:text-7xl/[125%] xl:text-[110px]/[125%] font-normal text-[#EAE6E0]">
                                 {String(i + 1).padStart(2, "0")}
                             </h1>
                         </div>

@@ -24,6 +24,7 @@ interface ThirdAndSecondAnimationProps {
     isShowBlockCards?: boolean;
     isTeamDescription?: boolean;
     cardsData?: CardsData;
+    classNameTop?: string;
 }
 
 const defaultCardsData: CardsData = {
@@ -74,6 +75,7 @@ const ThirdAndSecondAnimation = ({
     isShowBlockCards = true,
     cardsData = defaultCardsData,
     isTeamDescription,
+    classNameTop,
 }: ThirdAndSecondAnimationProps) => {
     const { setHeaderColor } = useHeader();
     const containerRef = useRef(null);
@@ -397,7 +399,7 @@ const ThirdAndSecondAnimation = ({
                     </div>
                 </div>
 
-                <div className="h-[200px] xl:h-[10dvh]" />
+                <div className={`h-[200px] xl:h-[10dvh] ${classNameTop} `} />
             </div>
         </div>
     );
