@@ -12,12 +12,12 @@ export const About = () => {
         <div>
             <WelcomeAbout />
             <AboutInfo />
-            <AboutHistory />
+            {/* <AboutHistory /> */}
             <AboutDynasty />
             <AboutSmartOperational />
             <AboutSafety />
             <AboutPersonalizedService />
-            <AboutNutrition />
+            {/* <AboutNutrition /> */}
         </div>
     );
 };
