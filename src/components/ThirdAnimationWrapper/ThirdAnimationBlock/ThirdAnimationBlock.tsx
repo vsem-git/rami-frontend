@@ -233,7 +233,10 @@ const ThirdAnimationBlock = ({
     }, []);
 
     return (
-        <div className="h-auto min-h-[800px] sm:min-h-dvh relative overflow-hidden" ref={containerRef}>
+        <div
+            className="h-auto min-h-[800px] sm:min-h-dvh relative overflow-hidden"
+            ref={containerRef}
+        >
             <div
                 className={`absolute min-h-dvh top-0 left-0 w-full bg-cover bg-center z-0 flex flex-col justify-center items-center`}
                 ref={block1Ref}
@@ -296,12 +299,12 @@ const ThirdAnimationBlock = ({
                         }}
                         breakpoints={{
                             640: {
-                                slidesPerView: 1.5,
-                                slidesOffsetAfter: 20,
+                                slidesPerView: 1,
+                                slidesOffsetAfter: 0,
                             },
                             768: {
                                 slidesPerView: 2.2,
-                                slidesOffsetAfter: 0, // Убираем отступ справа на десктопе
+                                slidesOffsetAfter: 0,
                             },
                             992: {
                                 slidesPerView: 2.5,
@@ -321,7 +324,7 @@ const ThirdAnimationBlock = ({
                             return (
                                 <SwiperSlide
                                     key={i}
-                                    className="relative group aspect-[390/520] bg-[linear-gradient(90deg,rgba(116,117,112,1)0%,rgba(166,167,164,1)50%,rgba(116,117,112,1)100%)] max-[768px]:w-[300px]!"
+                                    className="relative group aspect-[390/520] bg-[linear-gradient(90deg,rgba(116,117,112,1)0%,rgba(166,167,164,1)50%,rgba(116,117,112,1)100%)] max-[768px]:max-w-[300px]! max-[458px]:max-w-[260px]!"
                                     onTouchStart={() => {}}
                                     onClick={() => {
                                         /* if (!isMobile) return; */

@@ -5,7 +5,7 @@ export const WelcomeTourism = () => {
 
     return (
         <div className="relative max-[600px]:h-[700px] h-[780px] md:h-[980px] lg:h-[1200px] 2xl:h-[1600px] w-full overflow-hidden">
-            <div className="absolute inset-0 bg-no-repeat bg-cover bg-[url('tourism/welcome.webp')] grayscale scale-140 md:scale-[2] max-[600px]:bg-[45%_6rem] bg-[18%_6rem] md:bg-[15%_15rem] lg:bg-[0%_0%] lg:scale-100"></div>
+            <div className="absolute inset-0 bg-no-repeat bg-cover bg-[url('/tourism/welcome.webp')] grayscale scale-140 md:scale-[2] max-[600px]:bg-[45%_6rem] bg-[18%_6rem] md:bg-[15%_15rem] lg:bg-[0%_0%] lg:scale-100"></div>
 
             <div
                 className="absolute inset-0"
@@ -36,7 +36,7 @@ export const WelcomeTourism = () => {
                 </p>
 
                 <button
-                    className="relative max-[600px]:text-xs text-sm 2xl:text-base font-semibold text-[#EAE6E0] uppercase cursor-pointer px-1 flex items-center gap-2 group mt-4 lg:mt-6"
+                    className="relative max-[400px]:text-[11px] max-[600px]:text-xs text-sm 2xl:text-base font-semibold text-[#EAE6E0] uppercase cursor-pointer px-1 flex items-center gap-2 group mt-4 lg:mt-6"
                     onClick={() => openPopup("contact")}
                 >
                     <span className="relative">

@@ -7,7 +7,7 @@ export const AboutInfo = () => {
                 className="absolute w-full"
             />
 
-            <div className="w-full relative z-20 max-[600px]:pt-22  pt-[130px] md:pt-[150px] xl:pt-[15rem] pl-4 md:pl-[100px] xl:pl-[112px] 2xl:pl-[17rem]">
+            <div className="w-full relative z-20 max-[600px]:pt-22  pt-[130px] md:pt-[150px] xl:pt-[15rem] px-4 md:pl-[100px] xl:pl-[112px] 2xl:pl-[17rem]">
                 <p className="text-xs xl:text-base text-[#EAE6E0] uppercase max-w-[310px] xl:max-w-[491px] 2xl:max-w-[372px] max-[500px]:max-w-[350px]">
                     RAMICLINIC RESIDENCE — новая Клиника-резиденция с
                     традициями, где в центре внимания — пациент. Здесь воплощён

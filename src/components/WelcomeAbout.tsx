@@ -24,7 +24,7 @@ export const WelcomeAbout = () => {
                 <img
                     src="about/Vector (9).webp"
                     alt=""
-                    className="absolute z-10 top-[4%] left-[-6%] md:left-0 w-[300px] md:w-[280px] lg:w-[344px] 2xl:w-auto max-[600px]:left-[-5%] max-[600px]:top-[-5rem] max-[600px]:w-[200px]  max-[500px]:left-[-15%]  max-[500px]:top-[-15%]"
+                    className="absolute z-10 top-[4%] left-[-6%] md:left-0 w-[300px] md:w-[280px] lg:w-[344px] 2xl:w-auto max-[600px]:left-[-5%] max-[600px]:top-[-5rem] max-[600px]:w-[190px]  max-[500px]:left-[-10%]  max-[500px]:top-[-15%] "
                 />
 
                 <div className="relative z-20 flex items-end justify-between max-[600px]:pt-32 pt-[15rem] lg:pt-[20rem] 2xl:pt-[40rem] pl-4 md:pl-12 pr-4 md:pr-6 xl:pr-15 max-[600px]:items-center max-[600px]:justify-center max-[600px]:pl-0  max-[600px]:pl-0  max-[600px]:px-4">
@@ -32,7 +32,7 @@ export const WelcomeAbout = () => {
                         <span className="text-xs md:text-base text-[#EAE6E0] uppercase font-suisse font-semibold pl-1 2xl:pl-3 max-[600px]:text-center">
                             О клинике
                         </span>
-                        <h1 className="text-[44px] md:text-[56px] 2xl:text-[110px] text-[#EAE6E0] uppercase leading-[110%] mt-3 2xl:mt-6 max-[600px]:text-center">
+                        <h1 className="text-[44px] md:text-[56px] 2xl:text-[110px] text-[#EAE6E0] uppercase leading-[110%] mt-3 2xl:mt-6 max-[600px]:text-center max-[600px]:text-[32px]">
                             RAMICLINIC <br />
                             RESIDENCE
                         </h1>
@@ -54,7 +54,7 @@ export const WelcomeAbout = () => {
                         className="max-[600px]:w-[161px] w-[209px] md:w-[241px] 2xl:w-[530px] max-[600px]:h-[200px] h-[260px] xl:h-[300px] 2xl:h-[660px] rounded-full object-cover grayscale"
                     />
                     <div className="relative z-10 -ml-32 max-[600px]:ml-0  -mt-[5rem] 2xl:-mt-[7rem] max-[600px]:mt-6">
-                        <p className="text-xs 2xl:text-base text-[#EAE6E0] uppercase font-suisse font-semibold max-w-[363px] max-[600px]:text-center ">
+                        <p className="text-xs 2xl:text-base text-[#EAE6E0] uppercase font-suisse font-semibold max-w-[363px] max-[600px]:text-center leading-[19px] ">
                             Клиника-резиденция высокотехнологичной пластической
                             хирургии и косметологии для искушенных пациентов,
                             настроенных на поддержание индивидуальной красоты и
