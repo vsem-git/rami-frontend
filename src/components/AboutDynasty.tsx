@@ -115,6 +115,7 @@ export const AboutDynasty = () => {
                 </p>
             </div>
 
+        <img src="/about/Rectangle 2821 (1).png" alt="" className='absolute left-0 w-full max-[600px]:block hidden' />
             <div className='w-full h-[468px]  bg-[url("/about/13.webp")] bg-cover bg-no-repeat hidden max-[600px]:block'></div>
 
             <div className='relative w-full h-full min-h-[1000px] xl:min-h-[1398px] 2xl:min-h-[2312px] bg-[url("/about/13.webp")] bg-cover bg-no-repeat bg-[0px_6rem]  md:bg-[0px_10rem] xl:bg-center mt-[-25rem] 2xl:mt-0 max-[600px]:flex item-center justify-center flex-col max-[600px]:hidden'>
