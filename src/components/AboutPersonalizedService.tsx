@@ -25,7 +25,7 @@ export const AboutPersonalizedService = () => {
                     <img
                         src="about/image 111.webp"
                         alt=""
-                        className="absolute top-[40%] xl:top-1/2 -translate-y-1/2 w-[144px] lg:w-[198px] xl:w-[254ox] h-[190px] lg:h-[261px] xl:h-[334px] object-cover ml-[22rem] lg:ml-[36rem] xl:ml-[43rem] max-[540px]:w-[100px] max-[540px]:h-[130px] max-[540px]:ml-[20rem] max-[430px]:hidden"
+                        className="absolute top-[40%] xl:top-1/2 -translate-y-1/2 w-[144px] lg:w-[198px] xl:w-[254px] h-[190px] lg:h-[261px] xl:h-[334px] object-cover ml-[22rem] lg:ml-[36rem] xl:ml-[43rem] max-[540px]:w-[100px] max-[540px]:h-[130px] max-[540px]:ml-[20rem] max-[430px]:hidden"
                     />
                 </div>
                 <div className="w-full flex justify-center mt-6 xl:mt-15">

@@ -8,15 +8,15 @@ interface CardAboutHistoryProps {
 
 export const CardAboutHistory = ({ data }: CardAboutHistoryProps) => {
     return (
-        <div className="w-[540px] h-full min-h-[670px] bg-white p-5">
+        <div className="w-[364px] lg:w-[375px] xl:w-[450px] 2xl:w-[540px] h-full min-h-[510px] 2xl:min-h-[670px] bg-white p-5">
             <img
                 src={data.image}
                 alt=""
-                className="w-full h-[320px] object-cover"
+                className="w-full h-[200px] xl:h-[280px] 2xl:h-[320px] object-cover"
             />
             <div className='h-[310px] flex flex-col justify-between'>
                 <div className="flex justify-between mt-5 text-[#89685C]">
-                    <h3 className="text-[56px] uppercase leading-none">
+                    <h3 className="text-[40px] 2xl:text-[56px] uppercase leading-none">
                         {data.year}
                     </h3>
                     <span className="text-xs uppercase leading-none pt-2 font-suisse">
@@ -24,7 +24,7 @@ export const CardAboutHistory = ({ data }: CardAboutHistoryProps) => {
                     </span>
                 </div>
 
-                <div className="w-full text-[15px] text-[#1D1D1D] uppercase font-suisse font-semibold space-y-5">
+                <div className="w-full text-xs xl:text-[15px] text-[#1D1D1D] uppercase font-suisse font-semibold space-y-5">
                     {data.description.map((text, index) => (
                         <p
                             key={index}

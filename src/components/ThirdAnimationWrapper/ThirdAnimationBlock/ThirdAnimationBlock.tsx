@@ -324,7 +324,7 @@ const ThirdAnimationBlock = ({
                             return (
                                 <SwiperSlide
                                     key={i}
-                                    className="relative group aspect-[390/520] bg-[linear-gradient(90deg,rgba(116,117,112,1)0%,rgba(166,167,164,1)50%,rgba(116,117,112,1)100%)] max-[768px]:max-w-[300px]! max-[458px]:max-w-[260px]!"
+                                    className="relative group aspect-[390/520] bg-[linear-gradient(90deg,rgba(116,117,112,1)0%,rgba(166,167,164,1)50%,rgba(116,117,112,1)100%)] max-[768px]:max-w-[300px]! max-[458px]:max-w-[280px]! max-[458px]:h-[340px]!"
                                     onTouchStart={() => {}}
                                     onClick={() => {
                                         /* if (!isMobile) return; */

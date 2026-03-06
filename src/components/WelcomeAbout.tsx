@@ -1,7 +1,7 @@
 export const WelcomeAbout = () => {
     return (
         <div className="relative max-[600px]:h-[740px] h-[1110px] md:h-[1110px] 2xl:h-[2300px] w-full overflow-hidden">
-            <div className="absolute inset-0 bg-no-repeat bg-cover bg-position-[0_120%] md:bg-position-[0_80%] lg:bg-position-[0_60%] xl:bg-position-[40%] 2xl:bg-position-[0_90%] bg-[url('about/1.webp')] grayscale scale-130 md:scale-110 lg:scale-100 max-[600px]:bg-position-[0_80%] max-[500px]:bg-position-[0_-5rem] max-[500px]:scale-170"></div>
+            <div className="absolute inset-0 bg-no-repeat bg-cover bg-position-[0_120%] md:bg-position-[0_80%] lg:bg-position-[0_60%] xl:bg-position-[40%] 2xl:bg-position-[0_90%] bg-[url('/about/1.webp')] grayscale scale-130 md:scale-110 lg:scale-100 max-[600px]:bg-position-[0_80%] max-[500px]:bg-position-[0_-5rem] max-[500px]:scale-170"></div>
 
             <div
                 className="absolute inset-0"
@@ -28,7 +28,7 @@ export const WelcomeAbout = () => {
                 />
 
                 <div className="relative z-20 flex items-end justify-between max-[600px]:pt-32 pt-[15rem] lg:pt-[20rem] 2xl:pt-[40rem] pl-4 md:pl-12 pr-4 md:pr-6 xl:pr-15 max-[600px]:items-center max-[600px]:justify-center max-[600px]:pl-0  max-[600px]:pl-0  max-[600px]:px-4">
-                    <div className='max-[600px]:flex items-center flex-col'>
+                    <div className="max-[600px]:flex items-center flex-col">
                         <span className="text-xs md:text-base text-[#EAE6E0] uppercase font-suisse font-semibold pl-1 2xl:pl-3 max-[600px]:text-center">
                             О клинике
                         </span>
