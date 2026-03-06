@@ -1,7 +1,10 @@
 export const WelcomeAbout = () => {
     return (
         <div className="relative max-[600px]:h-[740px] h-[1110px] md:h-[1110px] 2xl:h-[2300px] w-full overflow-hidden">
-            <div className="absolute inset-0 bg-no-repeat bg-cover bg-position-[0_120%] md:bg-position-[0_80%] lg:bg-position-[0_60%] xl:bg-position-[40%] 2xl:bg-position-[0_90%] bg-[url('/about/1.webp')] grayscale scale-130 md:scale-110 lg:scale-100 max-[600px]:bg-position-[0_80%] max-[500px]:bg-position-[0_-5rem] max-[500px]:scale-170"></div>
+            <div
+                className="absolute inset-0 bg-no-repeat bg-cover bg-position-[0_120%] md:bg-position-[0_80%] lg:bg-position-[0_60%] xl:bg-position-[40%] 2xl:bg-position-[0_90%] bg-[url('/about/1.webp')] scale-130 md:scale-110 lg:scale-100 max-[600px]:bg-position-[0_80%] max-[500px]:bg-position-[0_-5rem] max-[500px]:scale-170"
+                style={{ filter: "grayscale(100%)" }}
+            ></div>
 
             <div
                 className="absolute inset-0"
@@ -51,7 +54,8 @@ export const WelcomeAbout = () => {
                     <img
                         src="about/17.webp"
                         alt=""
-                        className="max-[600px]:w-[161px] w-[209px] md:w-[241px] 2xl:w-[530px] max-[600px]:h-[200px] h-[260px] xl:h-[300px] 2xl:h-[660px] rounded-full object-cover grayscale"
+                        className="max-[600px]:w-[161px] w-[209px] md:w-[241px] 2xl:w-[530px] max-[600px]:h-[200px] h-[260px] xl:h-[300px] 2xl:h-[660px] rounded-full object-cover "
+                        style={{ filter: "grayscale(100%)" }}
                     />
                     <div className="relative z-10 -ml-32 max-[600px]:ml-0  -mt-[5rem] 2xl:-mt-[7rem] max-[600px]:mt-6">
                         <p className="text-xs 2xl:text-base text-[#EAE6E0] uppercase font-suisse font-semibold max-w-[363px] max-[600px]:text-center leading-[19px] ">

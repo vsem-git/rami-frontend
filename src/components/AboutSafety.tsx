@@ -10,6 +10,7 @@ export const AboutSafety = () => {
                     src="about/7.webp"
                     alt=""
                     className="max-[680px]:w-full w-1/2 xl:w-[55%] 2xl:w-[59%] h-[270px] md:h-[328px] lg:h-[420px] xl:h-[628px] 2xl:h-[735px] object-cover object-[0_80%] max-[680px]:h-[219px] max-[600px]:h-[320px]"
+                    style={{ transform: "scaleX(-1)" }}
                 />
                 <p className="text-xs xl:text-base text-[#EAE6E0] uppercase font-suisse font-semibold max-[680px]:max-w-[270px] max-w-[302px] lg:max-w-[392px] xl:max-w-[421px] max-[600px]:text-center max-[600px]:max-w-[420px]">
                     RAMICLINIC RESIDENCE проектировалась, строилась и
