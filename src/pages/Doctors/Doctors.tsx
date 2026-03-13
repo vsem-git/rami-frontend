@@ -1,13 +1,13 @@
-import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
-import { DoctorsCard } from "../../components/DoctorsCard";
-import { usePopup } from "../../components/PopupContext";
-import { POPUP_NAMES } from "../../constants/popupNames";
-import { DOCTORS_DATA } from "../../shared/data/doctor";
-import DoctorsCardInfo from "../../components/DoctorsCardInfo";
-import SecondAnimationBlock from "../../components/SecondAnimationBlock/SecondAnimationBlock";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
+import { DoctorsCard } from "../../components/DoctorsCard";
+import DoctorsCardInfo from "../../components/DoctorsCardInfo";
 import { useHeader } from "../../components/HeaderContext";
+import { usePopup } from "../../components/PopupContext";
+import SecondAnimationBlock from "../../components/SecondAnimationBlock/SecondAnimationBlock";
+import { POPUP_NAMES } from "../../constants/popupNames";
+import { DOCTORS_DATA } from "../../shared/data/doctor";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -186,37 +186,12 @@ const Doctors: React.FC = () => {
                                 ))}
                             </ul>
                         </nav>
-
-                        <div
-                            className="flex justify-between items-center gap-4 bg-[#E8E8E8] cursor-pointer lg:bg-transparent px-3 pb-3 py-3 2xl:py-3 xl:p-0 group"
-                            onClick={handleClick}
-                        >
-                            <span className="relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:transition-all after:duration-300 after:bg-[#1D1D1D] group-hover:after:w-full uppercase">
-                                Другие направления
-                            </span>
-                            <PlusIcon className="2xl:w-[32px] 2xl:h-[32px] h-[24px] w-[24px] hidden xl:inline" />
-                            <svg
-                                width="16"
-                                height="17"
-                                viewBox="0 0 16 17"
-                                fill="none"
-                                className="xl:hidden"
-                            >
-                                <path
-                                    d="M2.5 8.5H13.5M13.5 8.5L9 4M13.5 8.5L9 13"
-                                    stroke="#1D1D1D"
-                                    strokeOpacity="0.5"
-                                    strokeWidth="1.5"
-                                />
-                            </svg>
-                        </div>
                     </div>
                 </div>
 
                 <div>
                     <div className="mx-auto flex max-w-[1280px] flex-col gap-10 md:gap-20">
                         {" "}
-                        {/* Отступ между парами врачей */}
                         {chunkArray(displayedDoctors).map((chunk, index) => {
                             const doc1 = chunk[0];
                             const doc2 = chunk[1];
@@ -237,7 +212,7 @@ const Doctors: React.FC = () => {
                                                     doctor={doc1}
                                                     index={index * 2}
                                                     isClicked={clickedCards.has(
-                                                        index * 2
+                                                        index * 2,
                                                     )}
                                                     onCardClick={toggleCard}
                                                 />
@@ -258,7 +233,7 @@ const Doctors: React.FC = () => {
                                                     doctor={doc2}
                                                     index={index * 2 + 1}
                                                     isClicked={clickedCards.has(
-                                                        index * 2 + 1
+                                                        index * 2 + 1,
                                                     )}
                                                     onCardClick={toggleCard}
                                                 />

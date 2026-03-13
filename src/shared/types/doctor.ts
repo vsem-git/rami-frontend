@@ -115,4 +115,5 @@ export type Doctor = {
     // Новые поля для модалок
     modalCardEducation?: ModalCardEducationItem[];
     modalCardPath?: ModalCardPathItem[];
+    isSpecialites?: boolean;
 };

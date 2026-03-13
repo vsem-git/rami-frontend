@@ -287,7 +287,7 @@ export const SafetyOperationRooms = () => {
                         </div>
 
                         <img
-                            src="/operation-rooms/card2.jpg"
+                            src="/operation-rooms/card2.webp"
                             alt=""
                             className="absolute min-w-[540px] xl:min-w-[810px] h-full top-1/2 transform -translate-y-1/2 left-[62rem] xl:left-[95rem] shrink-0 object-cover"
                         />

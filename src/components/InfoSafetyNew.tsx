@@ -20,17 +20,17 @@ const defaultCards: SafetyCard[] = [
     {
         title: "МЕДИЦИНСКАЯ\nБЕЗОПАСНОСТЬ",
         text: `В RAMICLINIC RESIDENCE обеспечивается самое строгое соблюдение медицинских протоколов и технологических требований для бесперебойного функционирования всего клинического комплекса. Это создает максимальный уровень безопасности для пациентов и медицинского персонала.`,
-        image: "/safety-screen/info/card1.webp",
+        image: "/safety-screen/info/1.webp",
     },
     {
         title: "ФИЗИЧЕСКАЯ\nБЕЗОПАСНОСТЬ",
         text: `Сбалансированный комплекс мер и процессов, предназначенных для защиты информации от несанкционированного доступа, искажения, уничтожения или раскрытия. Обеспечивает соответствие требованиям законов о защите персональных данных РФ и других нормативных актов.`,
-        image: "/safety-screen/info/card2.webp",
+        image: "/safety-screen/info/2.webp",
     },
     {
         title: "ИНФОРМАЦИОННАЯ\nБЕЗОПАСНОСТЬ",
         text: `В RAMICLINIC RESIDENCE обеспечивается самое строгое соблюдение медицинских протоколов и технологических требований для бесперебойного функционирования всего клинического комплекса. Это создает максимальный уровень безопасности для пациентов и медицинского персонала.`,
-        image: "/safety-screen/info/card3.webp",
+        image: "/safety-screen/info/3.webp",
     },
 ];
 
@@ -99,10 +99,7 @@ export const InfoSafetyNew = ({
                         className="relative w-full h-full bg-cover bg-center py-6 md:py-8 px-4 md:px-6 overflow-hidden min-h-[200px] md:min-h-[600px]"
                         style={{ backgroundImage: `url(${card.image})` }}
                     >
-                        <div
-                            className="absolute inset-0"
-                            style={{ background: overlayGradient }}
-                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-[rgba(29,29,29,0.5)] to-[rgba(29,29,29,0.3)]" />
 
                         <div className="relative z-10">
                             <h2 className="text-[18px] md:text-2xl xl:text-[28px] 2xl:text-[32px] font-normal text-[#EAE6E0] uppercase leading-[125%] whitespace-pre-line">

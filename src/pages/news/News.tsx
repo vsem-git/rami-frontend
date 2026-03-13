@@ -1,14 +1,72 @@
+import { useMemo, useState } from "react";
 import { CardNews } from "../../components/CardNews";
 import { usePopup } from "../../components/PopupContext";
 import { Button } from "../../components/ui/Button";
+import { Dropdown } from "../../components/ui/Dropdown";
 import { newsData } from "../../shared/data/news";
+
+const DIRECTIONS = ["все", "мероприятие", "услуга", "врач"];
+const MONTHS_ORDER = [
+    "январь",
+    "февраль",
+    "март",
+    "апрель",
+    "май",
+    "июнь",
+    "июль",
+    "август",
+    "сентябрь",
+    "октябрь",
+    "ноябрь",
+    "декабрь",
+];
 
 export const News = () => {
     const { openPopup } = usePopup();
 
+    const [filterDate, setFilterDate] = useState("все");
+    const [filterAuthor, setFilterAuthor] = useState("все");
+    const [filterDirection, setFilterDirection] = useState("все");
+    const [visibleCount, setVisibleCount] = useState(6);
+
+    const authors = useMemo(() => {
+        const unique = [
+            ...new Set(newsData.map((n) => n.author).filter(Boolean)),
+        ];
+        return ["все", ...unique];
+    }, []);
+
+    const months = useMemo(() => {
+        const unique = [...new Set(newsData.map((n) => n.month.toLowerCase()))];
+        return [
+            "все",
+            ...unique.sort(
+                (a, b) => MONTHS_ORDER.indexOf(b) - MONTHS_ORDER.indexOf(a),
+            ),
+        ];
+    }, []);
+
+    const filtered = useMemo(() => {
+        return newsData.filter((n) => {
+            const matchDate =
+                filterDate === "все" || n.month.toLowerCase() === filterDate;
+            const matchAuthor =
+                filterAuthor === "все" || n.author === filterAuthor;
+            const matchDir =
+                filterDirection === "все" || n.direction === filterDirection;
+            return matchDate && matchAuthor && matchDir;
+        });
+    }, [filterDate, filterAuthor, filterDirection]);
+
     const handleCardClick = (news: (typeof newsData)[0]) => {
         openPopup("newsCardInfo", { news });
     };
+
+    const hasFilters =
+        filterDate !== "все" ||
+        filterAuthor !== "все" ||
+        filterDirection !== "все";
+    const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
     return (
         <div className="relative w-full flex flex-col px-4 md:px-6 xl:px-12 pt-[7rem] md:pt-[9rem] 2xl:pt-[13rem] gap-4 sm:gap-6">
@@ -18,22 +76,81 @@ export const News = () => {
 
             <div className="relative z-10 w-full flex justify-end 2xl:mt-[56px]">
                 <div className="w-full max-w-[1200px] flex items-center flex-col gap-y-6 md:gap-y-8">
-                    <div className="grid max-[680px]:grid-cols-1 grid-cols-2 gap-2 xl:gap-5">
-                        {newsData.map((news) => (
-                            <CardNews
-                                key={news.id}
-                                title={news.title}
-                                day={news.day}
-                                month={news.month}
-                                image={news.image}
-                                positionImage={news.positionImage}
-                                positionDay={news.positionDay}
-                                onClick={() => handleCardClick(news)}
-                            />
-                        ))}
+                    <div className="w-full flex flex-wrap gap-3 items-center">
+                        <Dropdown
+                            value={filterDate}
+                            options={months}
+                            placeholder="Дата"
+                            onChange={(v) => {
+                                setFilterDate(v);
+                                setVisibleCount(6);
+                            }}
+                            formatLabel={capitalize}
+                        />
+                        <Dropdown
+                            value={filterAuthor}
+                            options={authors as string[]}
+                            placeholder="Автор"
+                            onChange={(v) => {
+                                setFilterAuthor(v);
+                                setVisibleCount(6);
+                            }}
+                        />
+                        <Dropdown
+                            value={filterDirection}
+                            options={DIRECTIONS}
+                            placeholder="Направление"
+                            onChange={(v) => {
+                                setFilterDirection(v);
+                                setVisibleCount(6);
+                            }}
+                            formatLabel={capitalize}
+                        />
+
+                        <button
+                            onClick={() => {
+                                setFilterDate("все");
+                                setFilterAuthor("все");
+                                setFilterDirection("все");
+                                setVisibleCount(6);
+                            }}
+                            className={`text-xs font-semibold uppercase text-[#691C32] underline underline-offset-2
+                                hover:opacity-70 transition-all duration-300
+                                ${hasFilters ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+                        >
+                            Сбросить
+                        </button>
                     </div>
 
-                    <Button className="max-[680px]:w-[170px] w-[205px] max-[560px]:h-14 h-16 max-[680px]:text-xs">пОКАЗАТЬ ЕЩЕ</Button>
+                    {filtered.length === 0 ? (
+                        <div className="w-full py-20 text-center text-[#1D1D1D]/40 text-sm uppercase font-semibold">
+                            Ничего не найдено
+                        </div>
+                    ) : (
+                        <div className="grid max-[680px]:grid-cols-1 grid-cols-2 gap-2 xl:gap-5 w-full">
+                            {filtered.slice(0, visibleCount).map((news) => (
+                                <CardNews
+                                    key={news.id}
+                                    title={news.title}
+                                    day={news.day}
+                                    month={news.month}
+                                    image={news.image}
+                                    positionImage={news.positionImage}
+                                    positionDay={news.positionDay}
+                                    onClick={() => handleCardClick(news)}
+                                />
+                            ))}
+                        </div>
+                    )}
+
+                    {visibleCount < filtered.length && (
+                        <Button
+                            className="max-[680px]:w-[170px] w-[205px] max-[560px]:h-14 h-16 max-[680px]:text-xs"
+                            onClick={() => setVisibleCount((v) => v + 6)}
+                        >
+                            ПОКАЗАТЬ ЕЩЕ
+                        </Button>
+                    )}
                 </div>
             </div>
 

@@ -7,7 +7,7 @@ import close from "/plus.svg";
 const SPECIALTIES_DATA = [
     {
         id: 1,
-        image: "/doctors-screen/card3.webp",
+        image: "/doctors-screen/card1.webp",
         title: "Анестезиологи",
     },
     {
@@ -17,7 +17,7 @@ const SPECIALTIES_DATA = [
     },
     {
         id: 3,
-        image: "/doctors-screen/card1.webp",
+        image: "/doctors-screen/card3.webp",
         title: "Хирурги",
     },
 ];

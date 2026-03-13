@@ -4,6 +4,8 @@ export const newsData = [
         title: "RAMICLINIC RESIDENCE: КЛИНИКА-РЕЗИДЕНЦИЯ",
         day: 17,
         month: "октябрь",
+        author: "Ирина Серб",
+        direction: "мероприятие",
         image: "news/1.webp",
         positionImage:
             "max-[500px]:!object-[50%_0px] max-[680px]:!object-[0_-24px] !object-[0_0px] xl:!object-[0_-24px] grayscale ",
@@ -15,6 +17,8 @@ export const newsData = [
         title: "Комфорт для пациента – наша главная задача",
         day: 16,
         month: "октябрь",
+        author: "Екатерина Шостак",
+        direction: "услуга",
         image: "news/2.webp",
     },
     {
@@ -22,6 +26,8 @@ export const newsData = [
         title: "Лазерная гинекология и интимное омоложение ASCLEPION",
         day: 9,
         month: "СЕНТЯБРЬ",
+        author: "Шолпан Дюсембинова",
+        direction: "услуга",
         image: "news/3.webp",
         positionImage:
             "max-[500px]:!object-[50%_-4rem] max-[680px]:!object-[0_-13.5rem] max-[885px]:!object-[0_-5rem] !object-[0_-10rem] xl:!object-[0_-13.5rem] grayscale ",
@@ -31,6 +37,8 @@ export const newsData = [
         title: "Здоровье и красота после родов",
         day: 30,
         month: "ИЮЛЬ",
+        author: "Антон Телишевский",
+        direction: "врач",
         image: "news/4.webp",
         positionImage:
             "max-[500px]:!object-[50%_0px] max-[680px]:!object-[0_-40px] xl:!object-[0_-40px]",
@@ -42,6 +50,8 @@ export const newsData = [
         title: "Откровенно о сокровенном: public-talk с экспертами Клиники РАМИ",
         day: 10,
         month: "июль",
+        author: "Ирина Серб",
+        direction: "мероприятие",
         image: "news/5.webp",
     },
     {
@@ -49,6 +59,8 @@ export const newsData = [
         title: "RAMICLINIC RESIDENCE: КЛИНИКА-РЕЗИДЕНЦИЯ",
         day: 8,
         month: "июль",
+        author: "Дмитрий Бобыкин",
+        direction: "врач",
         image: "news/6.webp",
         positionImage:
             "max-[500px]:!object-[50%_-4rem] max-[680px]:!object-[0_-9rem] !object-[0_-6rem] xl:!object-[0_-9rem]",
