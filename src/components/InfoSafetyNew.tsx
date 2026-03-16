@@ -34,13 +34,10 @@ const defaultCards: SafetyCard[] = [
     },
 ];
 
-const defaultGradient =
-    "linear-gradient(180deg, rgba(29, 29, 29, 0.54) 0%, rgba(29, 29, 29, 0) 100%)";
 
 export const InfoSafetyNew = ({
     cards = defaultCards,
     className = "",
-    overlayGradient = defaultGradient,
 }: InfoSafetyNewProps) => {
     const sectionRef = useRef(null);
     const cardsRef = useRef<Array<HTMLDivElement | null>>([]);

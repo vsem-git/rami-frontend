@@ -4,9 +4,7 @@ import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { DoctorsCard } from "../../components/DoctorsCard";
 import DoctorsCardInfo from "../../components/DoctorsCardInfo";
 import { useHeader } from "../../components/HeaderContext";
-import { usePopup } from "../../components/PopupContext";
 import SecondAnimationBlock from "../../components/SecondAnimationBlock/SecondAnimationBlock";
-import { POPUP_NAMES } from "../../constants/popupNames";
 import { DOCTORS_DATA } from "../../shared/data/doctor";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -96,7 +94,6 @@ const Doctors: React.FC = () => {
     const [activeTab, setActiveTab] = useState<number>(0);
     const [clickedCards, setClickedCards] = useState<Set<number>>(new Set());
     const SecondAnimationBlockRef = useRef<HTMLDivElement>(null);
-    const { openPopup } = usePopup();
 
     const toggleCard = useCallback((index: number) => {
         setClickedCards((prev) => {
@@ -106,9 +103,6 @@ const Doctors: React.FC = () => {
         });
     }, []);
 
-    const handleClick = () => {
-        openPopup(POPUP_NAMES.DOCTORS);
-    };
 
     const displayedDoctors = activeTab <= 1 ? DOCTORS_DATA : [];
 
