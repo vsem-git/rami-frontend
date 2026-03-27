@@ -4,15 +4,15 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
-import SecondAnimationBlock from "../../components/SecondAnimationBlock/SecondAnimationBlock";
-import { useScroll } from "../../pages/Home/ScrollContext";
-import { useHeader } from "../HeaderContext";
 
 // Swiper imports
 import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import {useHeader} from "../../../../components/HeaderContext.tsx";
+import {useScroll} from "../../ScrollContext.tsx";
+import SecondAnimationBlock from "../../../../components/SecondAnimationBlock/SecondAnimationBlock.tsx";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, ScrollSmoother);
 

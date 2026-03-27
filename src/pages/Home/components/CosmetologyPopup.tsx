@@ -1,9 +1,9 @@
-import { usePopup } from "./PopupContext";
+import {usePopup} from "../../../components/PopupContext.tsx";
 
-const SecondSectionPopup1 = () => {
+const CosmetologyPopup = () => {
     const { isOpen, closePopup, openPopup } = usePopup();
 
-    const popupName = "secondsection1"; // уникальное имя попапа
+    const popupName = "secondsection2"; // уникальное имя попапа
 
     return (
         <div
@@ -54,14 +54,14 @@ const SecondSectionPopup1 = () => {
                 }}
             >
                 <h2 className="text-white uppercase text-[20px] mb-4">
-                    Эталонная <br />
-                    пластическая хирургия
+                    интеллектуальная косметология
                 </h2>
                 <p className="text-[#FFFFFF99] text-[11px] mb-8 max-w-[328px] uppercase">
-                    RAMICLINIC RESIDENCE гордится экспертной командой врачей,
-                    опирающихся на международную практику и возрастающий
-                    авторитет русской школы пластической хирургии с уникальным
-                    эстетическим почерком.
+                    Опытные врачи-косметологи, высокотехнологичный парк
+                    инновационного оборудования, достижения в сфере антиэйдж,
+                    биохакинга и регенеративной медицины – вот составляющие
+                    успеха, из которых складываются блестящие эстетические
+                    результаты пациентов.
                 </p>
                 <button
                     onClick={() => openPopup("contact")}
@@ -74,4 +74,4 @@ const SecondSectionPopup1 = () => {
     );
 };
 
-export default SecondSectionPopup1;
+export default CosmetologyPopup;

@@ -1,9 +1,9 @@
-import { usePopup } from "./PopupContext";
+import {usePopup} from "../../../components/PopupContext.tsx";
 
-const SecondSectionPopup3 = () => {
+const PlasticSurgeryPopup = () => {
     const { isOpen, closePopup, openPopup } = usePopup();
 
-    const popupName = "secondsection3"; // уникальное имя попапа
+    const popupName = "secondsection1"; // уникальное имя попапа
 
     return (
         <div
@@ -54,14 +54,14 @@ const SecondSectionPopup3 = () => {
                 }}
             >
                 <h2 className="text-white uppercase text-[20px] mb-4">
-                    Стратегия управления возрастом
+                    Эталонная <br />
+                    пластическая хирургия
                 </h2>
                 <p className="text-[#FFFFFF99] text-[11px] mb-8 max-w-[328px] uppercase">
-                    Работа на результат начинается задолго до операционной. Для
-                    каждого пациента оформляется генетический паспорт кожи с
-                    целью детализированного прогноза послеоперационного периода,
-                    разрабатывается индивидуальный план восстановительных
-                    косметологических процедур
+                    RAMICLINIC RESIDENCE гордится экспертной командой врачей,
+                    опирающихся на международную практику и возрастающий
+                    авторитет русской школы пластической хирургии с уникальным
+                    эстетическим почерком.
                 </p>
                 <button
                     onClick={() => openPopup("contact")}
@@ -74,4 +74,4 @@ const SecondSectionPopup3 = () => {
     );
 };
 
-export default SecondSectionPopup3;
+export default PlasticSurgeryPopup;

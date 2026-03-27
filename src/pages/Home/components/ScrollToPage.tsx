@@ -1,5 +1,5 @@
-import { usePopup } from "./PopupContext";
-import ScrollToButton from "./ScrollToButton";
+import {usePopup} from "../../../components/PopupContext.tsx";
+import ScrollToButton from "../../../components/ScrollToButton.tsx";
 
 const ScrollToPage = () => {
     const { openPopup } = usePopup();

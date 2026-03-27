@@ -1,9 +1,9 @@
-import { usePopup } from "./PopupContext";
+import {usePopup} from "../../../components/PopupContext.tsx";
 
-const SecondSectionPopup2 = () => {
+const AntiAgePopup = () => {
     const { isOpen, closePopup, openPopup } = usePopup();
 
-    const popupName = "secondsection2"; // уникальное имя попапа
+    const popupName = "secondsection3"; // уникальное имя попапа
 
     return (
         <div
@@ -54,14 +54,14 @@ const SecondSectionPopup2 = () => {
                 }}
             >
                 <h2 className="text-white uppercase text-[20px] mb-4">
-                    интеллектуальная косметология
+                    Стратегия управления возрастом
                 </h2>
                 <p className="text-[#FFFFFF99] text-[11px] mb-8 max-w-[328px] uppercase">
-                    Опытные врачи-косметологи, высокотехнологичный парк
-                    инновационного оборудования, достижения в сфере антиэйдж,
-                    биохакинга и регенеративной медицины – вот составляющие
-                    успеха, из которых складываются блестящие эстетические
-                    результаты пациентов.
+                    Работа на результат начинается задолго до операционной. Для
+                    каждого пациента оформляется генетический паспорт кожи с
+                    целью детализированного прогноза послеоперационного периода,
+                    разрабатывается индивидуальный план восстановительных
+                    косметологических процедур
                 </p>
                 <button
                     onClick={() => openPopup("contact")}
@@ -74,4 +74,4 @@ const SecondSectionPopup2 = () => {
     );
 };
 
-export default SecondSectionPopup2;
+export default AntiAgePopup;

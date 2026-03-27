@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
-import { useHeader } from "../HeaderContext";
+import {useHeader} from "../../../../components/HeaderContext.tsx";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 

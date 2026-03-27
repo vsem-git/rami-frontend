@@ -1,7 +1,7 @@
-import VideoAnimation from "../../components/VideoAnimation/VideoAnimation";
-/* import FirstAnimationBlock from "../../components/FirstAnimationBlock/FirstAnimationBlock"; */
-import FourthAnimationBlock from "../../components/FourthAnimationBlock/FourthAnimationBlock";
-import RebornFirstAnimationBlock from "../../components/RebornFirstAnimationBlock/RebornFirstAnimationBlock";
+import VideoAnimation from "./components/VideoAnimation/VideoAnimation";
+/* import FirstAnimationBlock from "./components/FirstAnimationBlock/FirstAnimationBlock"; */
+import FourthAnimationBlock from "./components/FourthAnimationBlock/FourthAnimationBlock";
+import RebornFirstAnimationBlock from "./components/RebornFirstAnimationBlock/RebornFirstAnimationBlock";
 import ThirdBlock from "../../components/ThirdAnimationWrapper/ThirdBlock";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
