@@ -1,6 +1,7 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
+import { EditableText } from "../../../components/EditableText";
 import { CardRecommendedExperience } from "./CardRecommendedExperience";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -90,9 +91,12 @@ export const RecommendedExperience = () => {
             ref={containerRef}
             className="relative h-[80vh] lg:h-screen min-h-full lg:min-h-screen px-4 lg:px-6 xl:px-10 overflow-hidden"
         >
-            <h1 className="text-[18px] sm:text-[24px] md:text-[32px] xl:text-[48px] text-[#1D1D1D] uppercase leading-[125%] text-center max-[600px]:pt-15 pt-[120px] 2xl:pt-50">
-                Опыт, который рекомендуют
-            </h1>
+            <EditableText
+                id="tourism.recommended.title"
+                fallback="Опыт, который рекомендуют"
+                tag="h1"
+                className="text-[18px] sm:text-[24px] md:text-[32px] xl:text-[48px] text-[#1D1D1D] uppercase leading-[125%] text-center max-[600px]:pt-15 pt-[120px] 2xl:pt-50"
+            />
 
             <div className="relative z-10 flex items-center justify-between mt-15 2xl:mt-30 max-[600px]:flex-col max-[600px]:gap-[100px]">
                 <button

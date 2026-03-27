@@ -1,6 +1,7 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
+import { EditableText } from "../../../components/EditableText";
 import { ConsentCheckbox } from "../../../components/ConsentCheckbox";
 import { Input } from "../../../components/ui/Input";
 
@@ -46,13 +47,18 @@ export const FormTourism = () => {
             />
 
             <div className="w-full lg:w-1/2 px-8 lg:px-15 2xl:px-[160px] py-10">
-                <h1 className="text-[18px] sm:text-[24px] lg:text-[32px] xl:text-[44px] text-white leading-[125%] uppercase max-w-[500px] md:max-w-[600px] lg:max-w-[400px] 2xl:max-w-full">
-                    Начните путь к результату уже сегодня
-                </h1>
-                <p className="text-xs xl:text-lg text-[#FFFFFFBF] uppercase leading-[155%] mt-4 sm:mt-6 max-w-[560px]">
-                    Оставьте заявку, и наш координатор свяжется с вами для
-                    конфиденциальной консультации.
-                </p>
+                <EditableText
+                    id="tourism.form.title"
+                    fallback="Начните путь к результату уже сегодня"
+                    tag="h1"
+                    className="text-[18px] sm:text-[24px] lg:text-[32px] xl:text-[44px] text-white leading-[125%] uppercase max-w-[500px] md:max-w-[600px] lg:max-w-[400px] 2xl:max-w-full"
+                />
+                <EditableText
+                    id="tourism.form.subtitle"
+                    fallback="Оставьте заявку, и наш координатор свяжется с вами для конфиденциальной консультации."
+                    tag="p"
+                    className="text-xs xl:text-lg text-[#FFFFFFBF] uppercase leading-[155%] mt-4 sm:mt-6 max-w-[560px]"
+                />
 
                 <form className="mt-5 xl:mt-10">
                     <Input

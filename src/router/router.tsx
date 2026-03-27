@@ -67,7 +67,13 @@ const Cookie = lazy(() => import("../pages/cookie/Cookie").then(m => ({ default:
 const UserAgreementLayout = lazy(() => import("../pages/poljzovateljskoe-soglashenie-ob-ispoljzovanii-sajta/layout"));
 const UserAgreement = lazy(() => import("../pages/poljzovateljskoe-soglashenie-ob-ispoljzovanii-sajta/UserAgreement").then(m => ({ default: m.UserAgreement })));
 
+const AdminLogin = lazy(() => import("../pages/admin/AdminLogin").then(m => ({ default: m.AdminLogin })));
+
 const router = createBrowserRouter([
+    {
+        path: "/__admin",
+        element: <AdminLogin />,
+    },
     {
         path: "/",
         element: <RootLayout />,

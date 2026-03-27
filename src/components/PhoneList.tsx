@@ -1,3 +1,4 @@
+import { EditableText } from "./EditableText";
 import Phone from "./svg/Phone";
 
 export const PhoneList = () => {
@@ -9,7 +10,11 @@ export const PhoneList = () => {
                     href="tel:+78126271313"
                     className="border-b border-[#1D1D1D26]"
                 >
-                    +7 (812) 627-13-13
+                    <EditableText
+                        id="contact.phone"
+                        fallback="+7 (812) 627-13-13"
+                        tag="span"
+                    />
                 </a>
             </div>
             <div className="flex items-center gap-1 mt-3 md:mt-6">

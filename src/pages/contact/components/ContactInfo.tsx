@@ -1,27 +1,34 @@
+import { EditableText } from "../../../components/EditableText";
 import { PhoneList } from "../../../components/PhoneList";
 
 export const ContactInfo = () => {
     return (
         <>
-            <h2 className="text-[28px] 2xl:text-[44px] leading-[125%] text-[#1D1D1D] uppercase">
-                КОНТАКТЫ
-            </h2>
+            <EditableText
+                id="contact.title"
+                fallback="КОНТАКТЫ"
+                tag="h2"
+                className="text-[28px] 2xl:text-[44px] leading-[125%] text-[#1D1D1D] uppercase"
+            />
 
             <div className="grid sm:grid-cols-3 md:block flex-wrap sm:gap-10 mt-[32px] md:mt-[48px] 2xl:mt-[56px]">
                 <div className="flex md:flex-row flex-col gap-3 nd:gap-10">
                     <div className="flex-1">
-                        <p className="text-[11px] md:text-sm 2xl:text-[21px] leading-[155%] text-[#1D1D1D] uppercase">
-                            РОССИЙСКАЯ ФЕДЕРАЦИЯ, САНКТ-ПЕТЕРБУРГ
-                        </p>
-                        <p className="text-[11px] md:text-sm 2xl:text-[21px] leading-[155%] text-[#1D1D1D] uppercase">
-                            КРЕСТОВСКИЙ ОСТРОВ, КРЕСТОВСКИЙ ПР. 4Б
-                        </p>
+                        <EditableText
+                            id="contact.address1"
+                            fallback="РОССИЙСКАЯ ФЕДЕРАЦИЯ, САНКТ-ПЕТЕРБУРГ"
+                            tag="p"
+                            className="text-[11px] md:text-sm 2xl:text-[21px] leading-[155%] text-[#1D1D1D] uppercase"
+                        />
+                        <EditableText
+                            id="contact.address2"
+                            fallback="КРЕСТОВСКИЙ ОСТРОВ, КРЕСТОВСКИЙ ПР. 4Б"
+                            tag="p"
+                            className="text-[11px] md:text-sm 2xl:text-[21px] leading-[155%] text-[#1D1D1D] uppercase"
+                        />
                     </div>
                 </div>
                 <div>
-                    {/* <div className="text-[11px] md:text-sm 2xl:text-[21px] text-[#1D1D1D99] leading-[155%] uppercase md:max-w-[248px] 2xl:max-w-[420px] mt-8 sm:mt-0 md:mt-10">
-                        вход вверх по лестнице в Бизнес-центр «Яузская, 5».
-                    </div> */}
                     <div className="sm:mt-1 mb-8 sm:mb-0 md:mb-14">
                         <a
                             href="https://yandex.ru/maps/-/CLX1zQjw"
@@ -51,9 +58,12 @@ export const ContactInfo = () => {
                 </div>
 
                 <PhoneList />
-                <div className="text-[11px] md:text-sm 2xl:text-[21px] leading-[155%] text-[#691c32] uppercase">
-                    ВИЗИТ ПО ПРЕДВАРИТЕЛЬНОЙ ЗАПИСИ
-                </div>
+                <EditableText
+                    id="contact.note"
+                    fallback="ВИЗИТ ПО ПРЕДВАРИТЕЛЬНОЙ ЗАПИСИ"
+                    tag="div"
+                    className="text-[11px] md:text-sm 2xl:text-[21px] leading-[155%] text-[#691c32] uppercase"
+                />
             </div>
         </>
     );

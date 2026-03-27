@@ -1,3 +1,4 @@
+import { EditableText } from "../../../components/EditableText";
 export const TechnologiesApartmentsNew = () => {
     return (
         <div
@@ -5,11 +6,12 @@ export const TechnologiesApartmentsNew = () => {
             className="relative w-full max-[450px]:min-h-[670px] max-[650px]:min-h-[800px] min-h-[900px] md:min-h-[1050px] lg:min-h-[1250px] xl:min-h-[1400px] 2xl:min-h-[1600px] bg-[#1D1D1D] max-[650px]:pt-11 pt-[112px] md:pt-[140px] lg:pt-[160px] 2xl:pt-52 overflow-hidden"
         >
             <div className="relative z-10 flex flex-col items-center">
-                <h2 className="relative z-10 max-[650px]:text-[32px] text-[44px] md:text-[64px] lg:text-[88px] 2xl:text-[110px]  font-normal text-white uppercase leading-none text-center max-[500px]:mb-6 mb-8 md:mb-16 lg:mb-20">
-                    Hi-tech
-                    <br />
-                    технологии
-                </h2>
+                <EditableText
+                    id="apartments.technologies.title"
+                    fallback="Hi-tech <br /> технологии"
+                    tag="h2"
+                    className="relative z-10 max-[650px]:text-[32px] text-[44px] md:text-[64px] lg:text-[88px] 2xl:text-[110px]  font-normal text-white uppercase leading-none text-center max-[500px]:mb-6 mb-8 md:mb-16 lg:mb-20"
+                />
 
                 <div className="relative">
                     <div

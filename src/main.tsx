@@ -5,6 +5,10 @@ import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import router from "./router/router.tsx";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { AdminProvider } from "./contexts/AdminContext";
+import { AdminBar } from "./components/AdminBar";
+import { ContentProvider } from "./contexts/ContentContext";
+
 // import UnderConstruction from "./UnderConstruction";
 //
 // function isUnderConstruction() {
@@ -30,8 +34,13 @@ import ErrorBoundary from "./components/ErrorBoundary";
 
 createRoot(document.getElementById("root")!).render(
     <ErrorBoundary>
-        <Suspense fallback={null}>
-            <RouterProvider router={router} />
-        </Suspense>
+        <AdminProvider>
+            <ContentProvider>
+                <AdminBar />
+                <Suspense fallback={null}>
+                    <RouterProvider router={router} />
+                </Suspense>
+            </ContentProvider>
+        </AdminProvider>
     </ErrorBoundary>
 );

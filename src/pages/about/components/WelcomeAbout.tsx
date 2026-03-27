@@ -1,3 +1,5 @@
+import { EditableText } from "../../../components/EditableText";
+
 export const WelcomeAbout = () => {
     return (
         <div className="relative max-[600px]:h-[740px] h-[1110px] md:h-[1110px] 2xl:h-[2300px] w-full overflow-hidden">
@@ -32,13 +34,18 @@ export const WelcomeAbout = () => {
 
                 <div className="relative z-20 flex items-end justify-between max-[600px]:pt-32 pt-[15rem] lg:pt-[20rem] 2xl:pt-[40rem] pl-4 md:pl-12 pr-4 md:pr-6 xl:pr-15 max-[600px]:items-center max-[600px]:justify-center max-[600px]:pl-0  max-[600px]:pl-0  max-[600px]:px-4">
                     <div className="max-[600px]:flex items-center flex-col">
-                        <span className="text-xs md:text-base text-[#EAE6E0] uppercase font-suisse font-semibold pl-1 2xl:pl-3 max-[600px]:text-center">
-                            О клинике
-                        </span>
-                        <h1 className="text-[44px] md:text-[56px] 2xl:text-[110px] text-[#EAE6E0] uppercase leading-[110%] mt-3 2xl:mt-6 max-[600px]:text-center max-[600px]:text-[32px]">
-                            RAMICLINIC <br />
-                            RESIDENCE
-                        </h1>
+                        <EditableText
+                            id="about.welcome.label"
+                            fallback="О клинике"
+                            tag="span"
+                            className="text-xs md:text-base text-[#EAE6E0] uppercase font-suisse font-semibold pl-1 2xl:pl-3 max-[600px]:text-center"
+                        />
+                        <EditableText
+                            id="about.welcome.title"
+                            fallback="RAMICLINIC RESIDENCE"
+                            tag="h1"
+                            className="text-[44px] md:text-[56px] 2xl:text-[110px] text-[#EAE6E0] uppercase leading-[110%] mt-3 2xl:mt-6 max-[600px]:text-center max-[600px]:text-[32px]"
+                        />
                     </div>
 
                     <button className="w-10 h-10 flex items-center justify-center border border-[#EAE6E0] rounded-full cursor-pointer transition-all duration-200 hover:scale-105 max-[600px]:hidden">
@@ -58,15 +65,12 @@ export const WelcomeAbout = () => {
                         style={{ filter: "grayscale(100%)" }}
                     />
                     <div className="relative z-10 -ml-32 max-[600px]:ml-0  -mt-[5rem] 2xl:-mt-[7rem] max-[600px]:mt-6">
-                        <p className="text-xs 2xl:text-base text-[#EAE6E0] uppercase font-suisse font-semibold max-w-[363px] max-[600px]:text-center leading-[19px] ">
-                            Клиника-резиденция высокотехнологичной пластической
-                            хирургии и косметологии для искушенных пациентов,
-                            настроенных на поддержание индивидуальной красоты и
-                            внешней привлекательности с гарантией эталонных
-                            стандартов безопасности в медицине, полной
-                            анонимностью, сервисом и приватностью, достойными
-                            первых лиц государств
-                        </p>
+                        <EditableText
+                            id="about.welcome.description"
+                            fallback="Клиника-резиденция высокотехнологичной пластической хирургии и косметологии для искушенных пациентов, настроенных на поддержание индивидуальной красоты и внешней привлекательности с гарантией эталонных стандартов безопасности в медицине, полной анонимностью, сервисом и приватностью, достойными первых лиц государств"
+                            tag="p"
+                            className="text-xs 2xl:text-base text-[#EAE6E0] uppercase font-suisse font-semibold max-w-[363px] max-[600px]:text-center leading-[19px]"
+                        />
                     </div>
                 </div>
             </div>

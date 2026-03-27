@@ -1,18 +1,27 @@
+import { EditableText } from "../../../components/EditableText";
+
 export const AboutPersonalizedService = () => {
     return (
         <div className="relative w-full max-[600px]:h-[900px] h-[1000px] md:h-[1100px] lg:h-[1500px] xl:h-[1728px] px-4 md:px-[95px] pt-20 md:pt-[90px] lg:pt-[120px] 2xl:pt-[221px] bg-[#EAE6E0] overflow-hidden">
             <div className=" relative z-10 flex flex-col items-center text-center">
-                <span className="text-base text-[#1D1D1D] uppercase text-center font-suisse ">
-                    24/7
-                </span>
-                <h1 className="text-[110px] text-[#1D1D1D] uppercase leading-[120px] hidden 2xl:block ">
-                    ПЕРСОНАЛИЗИРОВАННЫЙ сервис
-                </h1>
-                <h1 className="relative z-10 text-[44px] md:text-[56px] xl:text-[88px] text-[#1D1D1D] uppercase leading-[110%] block 2xl:hidden max-[600px]:text-[32px]">
-                    ПЕРСОНАЛИ- <br />
-                    ЗИРОВАННЫЙ <br />
-                    сервис
-                </h1>
+                <EditableText
+                    id="about.service.label"
+                    fallback="24/7"
+                    tag="span"
+                    className="text-base text-[#1D1D1D] uppercase text-center font-suisse"
+                />
+                <EditableText
+                    id="about.service.title"
+                    fallback="ПЕРСОНАЛИЗИРОВАННЫЙ сервис"
+                    tag="h1"
+                    className="text-[110px] text-[#1D1D1D] uppercase leading-[120px] hidden 2xl:block"
+                />
+                <EditableText
+                    id="about.service.title"
+                    fallback="ПЕРСОНАЛИЗИРОВАННЫЙ сервис"
+                    tag="h1"
+                    className="relative z-10 text-[44px] md:text-[56px] xl:text-[88px] text-[#1D1D1D] uppercase leading-[110%] block 2xl:hidden max-[600px]:text-[32px]"
+                />
             </div>
 
             <div className="relative z-10 w-full mt-12 lg:mt-14 xl:mt-[70px]">
@@ -29,11 +38,12 @@ export const AboutPersonalizedService = () => {
                     />
                 </div>
                 <div className="w-full flex justify-center mt-6 xl:mt-15">
-                    <p className="text-xs xl:text-base text-[#1D1D1D] uppercase font-suisse font-semibold max-w-[308px] xl:max-w-[525px] text-center">
-                        RAMICLINIC RESIDENCE представляет пациентоцентричную
-                        медицину как новую реальность, ориентированную на
-                        потребности самых взыскательных пациентов
-                    </p>
+                    <EditableText
+                        id="about.service.description"
+                        fallback="RAMICLINIC RESIDENCE представляет пациентоцентричную медицину как новую реальность, ориентированную на потребности самых взыскательных пациентов"
+                        tag="p"
+                        className="text-xs xl:text-base text-[#1D1D1D] uppercase font-suisse font-semibold max-w-[308px] xl:max-w-[525px] text-center"
+                    />
                 </div>
             </div>
 

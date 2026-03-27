@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { EditableText } from "../../../components/EditableText";
 
 const IMAGES = ["about/16.webp", "about/17.webp", "about/16.webp"];
 
@@ -94,9 +95,12 @@ export const AboutNutrition = () => {
 
     return (
         <div className="relative w-full max-[600px]:min-h-[1450px] min-h-[1600px] md:min-h-[1700px] lg:min-h-[1944px] xl:min-h-[2390px] bg-[#1D1D1D]">
-            <h1 className="relative z-20 text-[44px] md:text-[56px] xl:text-[88px] 2xl:text-[110px] text-white uppercase leading-[110%] text-right pr-[54px] pt-20 md:pt-[90px] lg:pt-[120px] max-[500px]:text-center max-[500px]:pr-0 max-[500px]:pb-5 max-[600px]:text-[32px]">
-                Питание
-            </h1>
+            <EditableText
+                id="about.nutrition.title"
+                fallback="Питание"
+                tag="h1"
+                className="relative z-20 text-[44px] md:text-[56px] xl:text-[88px] 2xl:text-[110px] text-white uppercase leading-[110%] text-right pr-[54px] pt-20 md:pt-[90px] lg:pt-[120px] max-[500px]:text-center max-[500px]:pr-0 max-[500px]:pb-5 max-[600px]:text-[32px]"
+            />
             <div>
                 <img
                     src="about/Vector (7).webp"
@@ -111,21 +115,27 @@ export const AboutNutrition = () => {
             </div>
 
             <div className="relative z-20 w-full flex justify-end mt-[32rem] xl:mt-[45rem] max-[600px]:ml-[-3%] ml-[-10%] lg:ml-[-25%] xl:ml-[-18rem] max-[500px]:ml-0 max-[500px]:justify-center max-[500px]:mt-[18rem]">
-                <p className="text-xs xl:text-base text-[#EAE6E0] uppercase font-suisse font-medium max-w-[280px] xl:max-w-[320px] 2xl:max-w-[478px] max-[500px]:text-center max-[500px]:max-w-[380px]">
-                    Меню для пациентов RAMICLINIC RESIDENCE составляется
-                    согласно индивидуальным рекомендациям лечащего врача и
-                    диетолога и с учетом вкусовых предпочтений пациента
-                </p>
+                <EditableText
+                    id="about.nutrition.menu-text"
+                    fallback="Меню для пациентов RAMICLINIC RESIDENCE составляется согласно индивидуальным рекомендациям лечащего врача и диетолога и с учетом вкусовых предпочтений пациента"
+                    tag="p"
+                    className="text-xs xl:text-base text-[#EAE6E0] uppercase font-suisse font-medium max-w-[280px] xl:max-w-[320px] 2xl:max-w-[478px] max-[500px]:text-center max-[500px]:max-w-[380px]"
+                />
             </div>
 
             <div className="max-[600px]:mt-[10rem] mt-[14rem] md:mt-[20rem] lg:mt-[23rem] xl:mt-[30rem] ml-4 md:ml-6 xl:ml-[54px] max-[500px]:ml-0 max-[500px]:mt-[8rem]">
-                <h1 className="relative z-10 text-[44px] md:text-[56px] xl:text-[88px] 2xl:text-[110px] text-[#89685C] uppercase leading-[110%] max-[600px]:text-[32px] max-[500px]:text-center">
-                    ИЗЫСКАННАЯ
-                </h1>
-                <h1 className="relative z-10 text-[44px] md:text-[56px] xl:text-[88px] 2xl:text-[110px] text-white uppercase leading-[110%] max-[600px]:text-[32px] max-[500px]:text-center">
-                    СРЕДА <br className="lg:block hidden max-[500px]:block" />{" "}
-                    ОБИТАНИЯ
-                </h1>
+                <EditableText
+                    id="about.nutrition.subtitle1"
+                    fallback="ИЗЫСКАННАЯ"
+                    tag="h1"
+                    className="relative z-10 text-[44px] md:text-[56px] xl:text-[88px] 2xl:text-[110px] text-[#89685C] uppercase leading-[110%] max-[600px]:text-[32px] max-[500px]:text-center"
+                />
+                <EditableText
+                    id="about.nutrition.subtitle2"
+                    fallback="СРЕДА ОБИТАНИЯ"
+                    tag="h1"
+                    className="relative z-10 text-[44px] md:text-[56px] xl:text-[88px] 2xl:text-[110px] text-white uppercase leading-[110%] max-[600px]:text-[32px] max-[500px]:text-center"
+                />
             </div>
 
             <div className="relative w-full flex justify-end mt-15 lg:mt-[51px] xl:mt-[90px] 2xl:mt-[200px] max-[500px]:mt-8">
@@ -186,30 +196,31 @@ export const AboutNutrition = () => {
                 <div className="h-full flex items-center justify-between max-[500px]:flex-col-reverse max-[500px]:items-start">
                     <div className="max-[600px]:h-[370px] h-[433px] xl:h-[503px] xl:h-[714px] 2xl:h-[1082px] flex flex-col justify-between pl-4 md:pl-6 xl:pl-15 max-[500px]:h-auto max-[500px]:gap-[30px]">
                         <div className="flex-1 flex items-center pt-[12rem] max-[500px]:pt-8">
-                            <h4 className="max-[500px]:text-[11px] text-xs xl:text-base text-[#EAE6E0] uppercase font-suisse font-semibold">
-                                Интерьеры
-                            </h4>
+                            <EditableText
+                                id="about.nutrition.interiors-label"
+                                fallback="Интерьеры"
+                                tag="h4"
+                                className="max-[500px]:text-[11px] text-xs xl:text-base text-[#EAE6E0] uppercase font-suisse font-semibold"
+                            />
                         </div>
                         <div className="relative z-20 w-full flex justify-end">
-                            <p className="text-xs xl:text-base text-[#EAE6E0] uppercase font-suisse font-semibold max-w-[280px] md:max-w-[330px] xl:max-w-[355px] max-[600px]:max-w-[200px] max-[500px]:max-w-[350px] max-[500px]:text-[11px]">
-                                В интерьерах резиденции использованы предметы
-                                мебели, являющиеся самостоятельными
-                                арт-объектами, экзотические породы дерева,
-                                сложные декоративные элементы лепнины, латунь,
-                                ценные виды натурального камня, витражи и люстры
-                                в стиле ар деко
-                            </p>
+                            <EditableText
+                                id="about.nutrition.interiors-text"
+                                fallback="В интерьерах резиденции использованы предметы мебели, являющиеся самостоятельными арт-объектами, экзотические породы дерева, сложные декоративные элементы лепнины, латунь, ценные виды натурального камня, витражи и люстры в стиле ар деко"
+                                tag="p"
+                                className="text-xs xl:text-base text-[#EAE6E0] uppercase font-suisse font-semibold max-w-[280px] md:max-w-[330px] xl:max-w-[355px] max-[600px]:max-w-[200px] max-[500px]:max-w-[350px] max-[500px]:text-[11px]"
+                            />
                         </div>
                     </div>
 
                     <div className="max-[500px]:w-full w-[51%] space-y-5 md:space-y-8 xl:space-y-10 2xl:space-y-15 max-[500px]:px-4 max-[500px]:flex items-center flex-col">
                         <div className="relative z-20 w-full flex justify-end pr-4 md:pr-6 xl:pr-[58px] max-[500px]:pr-0 max-[500px]:text-center max-[500px]:max-w-[400px]">
-                            <p className="text-xs xl:text-base text-[#EAE6E0] uppercase font-suisse font-semibold">
-                                Наша абсолютная ценность – подлинность всего,
-                                что мы предлагаем пациенту: от экспертности и
-                                профессионализма хирургов до изысканной среды
-                                обитания
-                            </p>
+                            <EditableText
+                                id="about.nutrition.values-text"
+                                fallback="Наша абсолютная ценность – подлинность всего, что мы предлагаем пациенту: от экспертности и профессионализма хирургов до изысканной среды обитания"
+                                tag="p"
+                                className="text-xs xl:text-base text-[#EAE6E0] uppercase font-suisse font-semibold"
+                            />
                         </div>
 
                         <div className="relative w-full max-[600px]:h-[370px] h-[433px] md:h-[503px] xl:h-[714px] 2xl:h-[1082px] overflow-hidden">

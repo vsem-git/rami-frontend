@@ -3,6 +3,7 @@ import VideoAnimation from "./components/VideoAnimation/VideoAnimation";
 import FourthAnimationBlock from "./components/FourthAnimationBlock/FourthAnimationBlock";
 import RebornFirstAnimationBlock from "./components/RebornFirstAnimationBlock/RebornFirstAnimationBlock";
 import ThirdBlock from "../../components/ThirdAnimationWrapper/ThirdBlock";
+import { EditableText } from "../../components/EditableText";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -53,15 +54,13 @@ const Home = () => {
                     className="absolute w-full md:w-[600px] h-[250px] md:h-[600px] right-0 md:-right-30 top-0 md:-top-40 bg-[#1D1D1D9D] blur-[80px] md:blur-[200px]"
                     style={{ willChange: "filter" }}
                 />
-                <p
+                <EditableText
+                    id="home.location-text"
+                    fallback="Расположена в живописной и престижной локации Санкт-Петербурга – в дельте Невы, на Крестовском острове, в историческом особняке, окруженном старинным парком"
+                    tag="p"
                     className="text-white text-sm 2xl:text-[21px] ml-[24px] mt-[110px] sm:mt-[96px] md:ml-[120px] md:mt-0 xl:ml-[120px] 2xl:ml-[200px] max-w-[312px] sm:max-w-[288px] md:max-w-[360px] xl:max-w-[360px] 2xl:max-w-[560px] uppercase z-10"
                     style={{ willChange: "opacity" }}
-                >
-                    <span className="font-bold">Расположена</span> в живописной
-                    и престижной локации Санкт-Петербурга – в дельте Невы, на
-                    <span className="font-bold"> Крестовском острове</span>, в
-                    историческом особняке, окруженном старинным парком
-                </p>
+                />
             </div>
             <FourthAnimationBlock />
         </>

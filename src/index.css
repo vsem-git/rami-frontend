@@ -964,3 +964,18 @@ body {
         scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
     }
 }
+
+/* Links inside rich-text editable content */
+[data-content-id] a,
+[data-rich-content] a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: currentColor;
+    opacity: 0.75;
+    transition: opacity 0.15s;
+}
+
+[data-content-id] a:hover,
+[data-rich-content] a:hover {
+    opacity: 1;
+}
