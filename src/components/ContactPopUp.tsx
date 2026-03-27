@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { usePopup } from "./PopupContext";
+import { submitFeedback } from "../services/api";
 
 const ContactPopUp = () => {
     const { isOpen, closePopup } = usePopup();
@@ -65,32 +66,19 @@ const ContactPopUp = () => {
             return; // Прерываем, если есть ошибки
         }
 
-        setStatus("success");
-        setName("");
-        setPhone("");
-        setEmail("");
-        setInterest("");
-        setAgree(false);
-        setErrors({});
+        setStatus("loading");
 
         try {
-            const res = await fetch("https://igor.grtsq.ru/api/feedback", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    name,
-                    phone,
-                    email, // Добавил отправку email, раз мы его собираем
-                    message: interest,
-                }),
-            });
-
-            const data = await res.json();
+            const data = await submitFeedback({ name, phone, email, message: interest });
 
             if (data.success) {
-                setStatus("success"); // Успех ставим только после ответа сервера
+                setName("");
+                setPhone("");
+                setEmail("");
+                setInterest("");
+                setAgree(false);
+                setErrors({});
+                setStatus("success");
             } else {
                 setStatus("error");
                 console.error("Ошибка сервера:", data.error);
