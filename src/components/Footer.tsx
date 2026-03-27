@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { useHeader } from "./HeaderContext";
 import { usePopup } from "./PopupContext";
 import FooterInfo from "./FooterInfo";
+import { EditableText } from "./EditableText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -164,7 +165,7 @@ const Footer = () => {
                             </div>
                             <div className="absolute bottom-0 left-0  p-4 2xl:p-6 text-[11px] md:text-[13px] 2xl:text-[16px] text-white uppercase font-semibold">
                                 <span className="relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:bg-[#ffffff] after:w-0 after:transition-all after:duration-300 group-hover:after:w-full">
-                                    СВЯжитесь С НАМИ
+                                    <EditableText id="footer.contact.cta" fallback="СВЯжитесь С НАМИ" tag="span" />
                                 </span>
                             </div>
                         </div>
@@ -212,7 +213,7 @@ const Footer = () => {
                             className="flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10"
                         >
                             <span className="relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full">
-                                Пациентам
+                                <EditableText id="footer.link.patients" fallback="Пациентам" tag="span" />
                             </span>
                             {/* <svg
                             width="24"
@@ -236,7 +237,7 @@ const Footer = () => {
                             className="flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10"
                         >
                             <span className="relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full">
-                                Лицензия
+                                <EditableText id="footer.link.license" fallback="Лицензия" tag="span" />
                             </span>
                             {/* <svg
                             width="24"
@@ -264,7 +265,7 @@ const Footer = () => {
                             target="_blank"
                         >
                             <span className="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:w-full">
-                                Политика конфиденциальности
+                                <EditableText id="footer.link.privacy" fallback="Политика конфиденциальности" tag="span" />
                             </span>
                         </a>
                     </div>

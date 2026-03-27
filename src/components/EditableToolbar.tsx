@@ -3,6 +3,11 @@ import { createPortal } from "react-dom";
 
 export type SaveStatus = "idle" | "saving" | "saved" | "error";
 
+export interface ToolbarAction {
+    label: string;
+    execute: () => void;
+}
+
 interface EditableToolbarProps {
     targetRef: RefObject<HTMLElement | null>;
     fieldId: string;
@@ -11,6 +16,7 @@ interface EditableToolbarProps {
     onReset: () => void;
     onKeepAlive: () => void;
     onContentChange: (html: string) => void;
+    action?: ToolbarAction;
 }
 
 export const EditableToolbar = ({
@@ -21,9 +27,12 @@ export const EditableToolbar = ({
     onReset,
     onKeepAlive,
     onContentChange,
+    action,
 }: EditableToolbarProps) => {
     const [rect, setRect] = useState<DOMRect | null>(null);
     const rafRef = useRef<number>(undefined);
+    const toolbarRef = useRef<HTMLDivElement>(null);
+    const [toolbarWidth, setToolbarWidth] = useState(360);
 
     const [isBold, setIsBold] = useState(false);
     const [isItalic, setIsItalic] = useState(false);
@@ -69,7 +78,7 @@ export const EditableToolbar = ({
     const top = rect.top - toolbarHeight - 6;
     const isAboveViewport = top < 4;
     const finalTop = isAboveViewport ? rect.bottom + 6 : top;
-    const finalLeft = Math.min(Math.max(rect.left, 4), window.innerWidth - 360);
+    const finalLeft = Math.min(Math.max(rect.left, 4), window.innerWidth - toolbarWidth - 4);
 
     const execFormat = (command: string) => {
         targetRef.current?.focus();
@@ -142,6 +151,10 @@ export const EditableToolbar = ({
 
     return createPortal(
         <div
+            ref={(node) => {
+                (toolbarRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
+                if (node) setToolbarWidth(node.offsetWidth);
+            }}
             style={{
                 position: "fixed",
                 top: finalTop,
@@ -233,6 +246,23 @@ export const EditableToolbar = ({
                                 <path d="M3 3v5h5" />
                             </svg>
                             сброс
+                        </button>
+                    </>
+                )}
+
+                {/* Action (parent link/button) */}
+                {action && (
+                    <>
+                        <span className="w-px h-4 bg-black/10 mx-0.5" />
+                        <button
+                            onClick={action.execute}
+                            className="text-[#691C32] hover:text-[#7d2239] transition-colors cursor-pointer flex items-center gap-1 text-[10px] font-medium"
+                            title={action.label}
+                        >
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                                <polygon points="5 3 19 12 5 21 5 3" />
+                            </svg>
+                            {action.label}
                         </button>
                     </>
                 )}

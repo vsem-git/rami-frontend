@@ -8,6 +8,7 @@ import { MenuHeader } from "./MenuHeader";
 import { usePopup } from "./PopupContext";
 import Envelope from "./svg/Envelope";
 import Phone from "./svg/Phone";
+import { EditableText } from "./EditableText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -165,7 +166,7 @@ const Header = ({ useWhiteText }: HeaderProps) => {
                     href="tel:+78126271313"
                     className="font-normal hidden md:inline"
                 >
-                    +7 (812) 627 -13-13
+                    <EditableText id="header.phone" fallback="+7 (812) 627 -13-13" tag="span" />
                 </a>
             </div>
 

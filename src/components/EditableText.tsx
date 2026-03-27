@@ -8,12 +8,16 @@ import {
 } from "react";
 import { useAdmin } from "../contexts/AdminContext";
 import { useContentContext } from "../contexts/ContentContext";
-import { EditableToolbar, type SaveStatus } from "./EditableToolbar";
+import { EditableToolbar, type SaveStatus, type ToolbarAction } from "./EditableToolbar";
 
 interface EditableTextProps extends HTMLAttributes<HTMLElement> {
     id: string;
     fallback: string;
     tag?: ElementType;
+    /** Override the auto-detected parent action label */
+    actionLabel?: string;
+    /** Override or add a parent action handler (for buttons with onClick) */
+    onAction?: () => void;
 }
 
 export const EditableText = ({
@@ -21,6 +25,8 @@ export const EditableText = ({
     fallback,
     tag: Tag = "span",
     className,
+    actionLabel,
+    onAction,
     ...rest
 }: EditableTextProps) => {
     const { isEditMode } = useAdmin();
@@ -31,9 +37,38 @@ export const EditableText = ({
     const isEditingRef = useRef(false);
     const [isFocused, setIsFocused] = useState(false);
     const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
+    const [parentAction, setParentAction] = useState<ToolbarAction | null>(null);
 
     const value = getContent(id, fallback);
     const isOverridden = value !== fallback;
+
+    // Detect closest interactive ancestor and intercept its click in edit mode
+    useEffect(() => {
+        if (!isEditMode || !ref.current) return;
+
+        // Explicit onAction prop takes priority
+        if (onAction) {
+            setParentAction({ label: actionLabel ?? "Выполнить", execute: onAction });
+            return;
+        }
+
+        const anchor = ref.current.closest<HTMLAnchorElement>("a[href]");
+        if (anchor) {
+            const href = anchor.href;
+            const target = anchor.target || "_self";
+            setParentAction({
+                label: actionLabel ?? "Перейти",
+                execute: () => window.open(href, target),
+            });
+
+            // Block navigation while in edit mode
+            const block = (e: MouseEvent) => e.preventDefault();
+            anchor.addEventListener("click", block);
+            return () => anchor.removeEventListener("click", block);
+        }
+
+        setParentAction(null);
+    }, [isEditMode, onAction, actionLabel]);
 
     // Sync DOM ← context when value changes externally (real-time, reset)
     // but not while user is typing
@@ -139,6 +174,8 @@ export const EditableText = ({
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 onInput={handleInput}
+                // Prevent bubbling to parent <a>/<button> while editing
+                onClick={(e: React.MouseEvent) => e.stopPropagation()}
                 data-content-id={id}
                 {...rest}
             />
@@ -152,6 +189,7 @@ export const EditableText = ({
                     onReset={handleReset}
                     onKeepAlive={cancelBlur}
                     onContentChange={handleContentChange}
+                    action={parentAction ?? undefined}
                 />
             )}
         </>
