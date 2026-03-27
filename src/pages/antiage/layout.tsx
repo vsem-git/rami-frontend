@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import ContactPopUp from '../../components/ContactPopUp'
-import { FooterAntiAge } from '../../components/FooterAntiAge'
+import { FooterAntiAge } from './components/FooterAntiAge'
 import { HeaderProvider } from '../../components/HeaderContext'
 import HeaderUpdate from '../../components/HeaderUpdate'
 import { PopupProvider, usePopup } from '../../components/PopupContext'
