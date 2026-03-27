@@ -4,8 +4,8 @@ import { HeaderProvider } from "../../components/HeaderContext";
 import HeaderUpdate from "../../components/HeaderUpdate";
 import { PopupProvider, usePopup } from "../../components/PopupContext";
 import ScrollSmoother from "../../components/ScrollSmoother";
-import { BackgroundProvider } from "../../components/GettingReady/BackgroundContext";
-import MobileBackground from "../../components/GettingReady/MobileBackground";
+import { BackgroundProvider } from './components/GettingReady/BackgroundContext';
+import MobileBackground from './components/GettingReady/MobileBackground';
 
 const LayoutContent = () => {
     const { isOpen } = usePopup();

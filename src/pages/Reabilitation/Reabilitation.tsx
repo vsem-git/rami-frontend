@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import FooterReabilitation from '../../components/FooterReabilitation'
+import FooterReabilitation from './components/FooterReabilitation'
 import { useHeader } from '../../components/HeaderContext'
-import AnimationBlock from '../../components/Reabilitation/AnimationBlock'
+import AnimationBlock from './components/AnimationBlock'
 import MobileReabilitation from './MobileReabilitation'
 
 const Reabilitation = () => {

@@ -1,9 +1,10 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollSmoother as ScrollSmootherClass } from "gsap/ScrollSmoother";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 
-gsap.registerPlugin(ScrollSmootherClass);
+gsap.registerPlugin(ScrollSmootherClass, ScrollTrigger);
 
 export default function ScrollSmoother({
     children,

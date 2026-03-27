@@ -5,7 +5,7 @@ import HeaderUpdate from "../../components/HeaderUpdate";
 import { NewsCardInfoModal } from "../../components/NewsCardInfoModal";
 import { PopupProvider, usePopup } from "../../components/PopupContext";
 import ScrollSmoother from "../../components/ScrollSmoother";
-import TourismPanel from "../../components/TourismPanel";
+import TourismPanel from "./components/TourismPanel";
 import { POPUP_NAMES } from "../../constants/popupNames";
 import { dataTourism } from "../../shared/data/tourism";
 

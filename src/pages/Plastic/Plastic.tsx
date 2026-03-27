@@ -1,4 +1,4 @@
-import AnimationBlock from "../../components/Plastic/AnimationBlock/AnimationBlock";
+import AnimationBlock from "./components/AnimationBlock/AnimationBlock";
 import { useHeader } from "../../components/HeaderContext";
 import { useEffect } from "react";
 

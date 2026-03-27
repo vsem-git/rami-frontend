@@ -4,14 +4,14 @@ import ScrollSmoother from "../../components/ScrollSmoother";
 import { HeaderProvider } from "../../components/HeaderContext";
 import { PopupProvider } from "../../components/PopupContext";
 import ContactPopUp from "../../components/ContactPopUp";
-import BreastPopup from "../../components/Plastic/Popups/BreastPopup";
-import BodyPopup from "../../components/Plastic/Popups/BodyPopup";
-import HairPopup from "../../components/Plastic/Popups/HairPopup";
-import IntimPopup from "../../components/Plastic/Popups/IntimPopup";
-import PlasticPopup from "../../components/Plastic/Popups/PlasticPopup";
-import CorrectionPopup from "../../components/Plastic/Popups/CorrectionPopup";
-import SeeServices from "../../components/Plastic/SeeServices";
-import RinoPopup from "../../components/Plastic/Popups/RinoPopup";
+import BreastPopup from "./components/Popups/BreastPopup";
+import BodyPopup from "./components/Popups/BodyPopup";
+import HairPopup from "./components/Popups/HairPopup";
+import IntimPopup from "./components/Popups/IntimPopup";
+import PlasticPopup from "./components/Popups/PlasticPopup";
+import CorrectionPopup from "./components/Popups/CorrectionPopup";
+import SeeServices from "./components/SeeServices";
+import RinoPopup from "./components/Popups/RinoPopup";
 
 const Layout = () => {
     return (

@@ -1,8 +1,8 @@
 import gsap from 'gsap'
 import { useEffect, useRef } from 'react'
 import { SwiperScrollApartments } from '../../components/SwiperScrollApartments'
-import { TelemedicineApartments } from '../../components/TelemedicineApartments'
-import { WelcomeApartments } from '../../components/WelcomeApartments/WelcomeApartments'
+import { TelemedicineApartments } from './components/TelemedicineApartments'
+import { WelcomeApartments } from './components/WelcomeApartments/WelcomeApartments'
 
 export const Apartments = () => {
 	const sectionRef = useRef<HTMLElement>(null)

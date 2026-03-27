@@ -2,22 +2,22 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
-import { FormTourism } from "../../components/FormTourism";
-import { GeniusLociSpeech } from "../../components/GeniusLociSpeech";
+import { FormTourism } from "./components/FormTourism";
+import { GeniusLociSpeech } from "./components/GeniusLociSpeech";
 import { InfoSafetyNew } from "../../components/InfoSafetyNew";
-import { MedicalTourProgram } from "../../components/MedicalTourProgram";
-import { MedicineCultureHub } from "../../components/MedicineCultureHub ";
-import { RecommendedExperience } from "../../components/RecommendedExperience";
+import { MedicalTourProgram } from "./components/MedicalTourProgram";
+import { MedicineCultureHub } from "./components/MedicineCultureHub ";
+import { RecommendedExperience } from "./components/RecommendedExperience";
 import SecondAnimationBlock from "../../components/SecondAnimationBlock/SecondAnimationBlock";
 import ThirdAndSecondAnimation from "../../components/ThirdAnimationWrapper/ThirdBlock";
-import { TourismSafety } from "../../components/TourismSafety";
-import { WelcomeTourism } from "../../components/WelcomeTourism";
+import { TourismSafety } from "./components/TourismSafety";
+import { WelcomeTourism } from "./components/WelcomeTourism";
 import {
     tourismAdvantagesData,
     tourismSafetyCards,
     tourismSecondBlockData,
 } from "../../shared/data/tourism";
-import { MedicalTourProgramMobile } from '../../components/MedicalTourProgramMobile'
+import { MedicalTourProgramMobile } from './components/MedicalTourProgramMobile'
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 

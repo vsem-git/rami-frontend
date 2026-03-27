@@ -2,11 +2,11 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useEffect, useRef } from 'react'
 import { useParams } from 'react-router-dom'
-import { DoctorAge } from '../../components/DoctorAge/DoctorAge'
-import { DoctorGallery } from '../../components/DoctorGallery/DoctorGallery'
-import DoctorResults from '../../components/DoctorResults/DoctorResults'
+import { DoctorAge } from './components/DoctorAge/DoctorAge'
+import { DoctorGallery } from './components/DoctorGallery/DoctorGallery'
+import DoctorResults from './components/DoctorResults/DoctorResults'
 import { usePopup } from '../../components/PopupContext'
-import { WelcomeDoctor } from '../../components/welcome-doctor/WelcomeDoctor'
+import { WelcomeDoctor } from './components/welcome-doctor/WelcomeDoctor'
 import { POPUP_NAMES } from '../../constants/popupNames'
 import { DOCTORS_DATA } from '../../shared/data/doctor'
 import mes from '../../shared/icons/mes.svg'
@@ -140,7 +140,6 @@ export const Doctor = () => {
 		setTimeout(() => {
 			bgpattern1.style.transform = 'translate(120%, 0%)'
 			bgpattern2.style.transform = 'translate(-120%, 0%)'
-			console.log('cleaned')
 		}, 500)
 
 		return () => {

@@ -1,8 +1,8 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
-import { DoctorsCard } from "../../components/DoctorsCard";
-import DoctorsCardInfo from "../../components/DoctorsCardInfo";
+import { DoctorsCard } from "./components/DoctorsCard";
+import DoctorsCardInfo from "./components/DoctorsCardInfo";
 import { useHeader } from "../../components/HeaderContext";
 import SecondAnimationBlock from "../../components/SecondAnimationBlock/SecondAnimationBlock";
 import { DOCTORS_DATA } from "../../shared/data/doctor";

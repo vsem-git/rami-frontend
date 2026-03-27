@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import ContactPopUp from "../../components/ContactPopUp";
-import { DoctorsModal } from "../../components/DoctorsModal";
+import { DoctorsModal } from "./components/DoctorsModal";
 import Footer from "../../components/DoctorsFooter";
 import { HeaderProvider } from "../../components/HeaderContext";
 import { PopupProvider } from "../../components/PopupContext";

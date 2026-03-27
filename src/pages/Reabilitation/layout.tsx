@@ -2,8 +2,8 @@ import { Outlet } from 'react-router-dom'
 import Header from '../../components/Header'
 import { HeaderProvider } from '../../components/HeaderContext'
 import { PopupProvider } from '../../components/PopupContext'
-import { ClocksProvider } from '../../components/Reabilitation/ClocksProvider'
-import MobileBackground from '../../components/Reabilitation/MobileBackground'
+import { ClocksProvider } from './components/ClocksProvider'
+import MobileBackground from './components/MobileBackground'
 import ScrollSmoother from '../../components/ScrollSmoother'
 
 const Layout = () => {

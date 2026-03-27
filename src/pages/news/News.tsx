@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { CardNews } from "../../components/CardNews";
+import { CardNews } from "./components/CardNews";
 import { usePopup } from "../../components/PopupContext";
 import { Button } from "../../components/ui/Button";
 import { Dropdown } from "../../components/ui/Dropdown";
