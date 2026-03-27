@@ -86,9 +86,6 @@ const ThirdAnimationBlock = ({
     const { setHeaderColor } = useHeader();
     const [activeSlide, setActiveSlide] = useState<number | null>(null);
 
-    useEffect(() => {
-        console.log(activeSlide);
-    }, [activeSlide]);
 
     useGSAP(() => {
         const mm = gsap.matchMedia();

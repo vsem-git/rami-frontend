@@ -29,35 +29,41 @@ const Footer = () => {
 
         gsap.set(footerRef.current, { y: "100%" });
 
-        gsap.fromTo(
-            ".bgpattern1",
-            { xPercent: 120 },
-            {
-                xPercent: 0,
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top bottom", // начало анимации, когда верх контейнера достигнет нижней границы viewport
-                    end: "center top", // конец анимации через 200px прокрутки
-                    scrub: true, // плавная синхронизация с прокруткой
-                    // pin: true,            // если не нужно фиксировать контейнер, можно убрать
-                },
-            },
-        );
+        const bg1 = document.querySelector(".bgpattern1");
+        const bg2 = document.querySelector(".bgpattern2");
+        const navbar = document.querySelector(".navbarheader");
 
-        gsap.fromTo(
-            ".bgpattern2",
-            { xPercent: -120 },
-            {
-                xPercent: 0,
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top bottom", // начало анимации, когда верх контейнера достигнет нижней границы viewport
-                    end: "center top", // конец анимации через 200px прокрутки
-                    scrub: true, // плавная синхронизация с прокруткой
-                    // pin: true,            // если не нужно фиксировать контейнер, можно убрать
+        if (bg1) {
+            gsap.fromTo(
+                bg1,
+                { xPercent: 120 },
+                {
+                    xPercent: 0,
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: "top bottom",
+                        end: "center top",
+                        scrub: true,
+                    },
                 },
-            },
-        );
+            );
+        }
+
+        if (bg2) {
+            gsap.fromTo(
+                bg2,
+                { xPercent: -120 },
+                {
+                    xPercent: 0,
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: "top bottom",
+                        end: "center top",
+                        scrub: true,
+                    },
+                },
+            );
+        }
 
         tl.to({}, { duration: 1 })
 
@@ -80,9 +86,11 @@ const Footer = () => {
                 },
                 [],
                 "-=1",
-            )
-            .fromTo(
-                ".navbarheader",
+            );
+
+        if (navbar) {
+            tl.fromTo(
+                navbar,
                 { opacity: 1, pointerEvents: "auto" },
                 {
                     opacity: 0,
@@ -91,6 +99,7 @@ const Footer = () => {
                 },
                 "-=2",
             );
+        }
     }, []);
     return (
         <>
