@@ -1,4 +1,5 @@
 /* import { StrictMode } from "react"; */
+import { Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { RouterProvider } from "react-router-dom";
@@ -29,6 +30,8 @@ import ErrorBoundary from "./components/ErrorBoundary";
 
 createRoot(document.getElementById("root")!).render(
     <ErrorBoundary>
-        <RouterProvider router={router} />
+        <Suspense fallback={null}>
+            <RouterProvider router={router} />
+        </Suspense>
     </ErrorBoundary>
 );
