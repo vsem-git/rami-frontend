@@ -7,7 +7,10 @@ import router from "./router/router.tsx";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { AdminProvider } from "./contexts/AdminContext";
 import { AdminBar } from "./components/AdminBar";
+import { ContentHintSync } from "./components/ContentHintSync";
 import { ContentProvider } from "./contexts/ContentContext";
+import { EditingProvider } from "./contexts/EditingContext";
+import { EditingPanel } from "./components/EditingPanel";
 
 // import UnderConstruction from "./UnderConstruction";
 //
@@ -36,10 +39,14 @@ createRoot(document.getElementById("root")!).render(
     <ErrorBoundary>
         <AdminProvider>
             <ContentProvider>
-                <AdminBar />
-                <Suspense fallback={null}>
-                    <RouterProvider router={router} />
-                </Suspense>
+                <EditingProvider>
+                    <AdminBar />
+                    <ContentHintSync />
+                    <EditingPanel />
+                    <Suspense fallback={null}>
+                        <RouterProvider router={router} />
+                    </Suspense>
+                </EditingProvider>
             </ContentProvider>
         </AdminProvider>
     </ErrorBoundary>

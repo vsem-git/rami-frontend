@@ -1,5 +1,3 @@
-import { EditableText } from "../../../components/EditableText";
-
 export const AboutInfo = () => {
     return (
         <div className="relative w-full max-[600px]:h-[800px] h-[920px] md:h-[950px] xl:h-[1400px] 2xl:h-[1660px] bg-[#1D1D1D] overflow-hidden">
@@ -10,12 +8,7 @@ export const AboutInfo = () => {
             />
 
             <div className="w-full relative z-20 max-[600px]:pt-22  pt-[130px] md:pt-[150px] xl:pt-[15rem] px-4 md:pl-[100px] xl:pl-[112px] 2xl:pl-[17rem]">
-                <EditableText
-                    id="about.info.text"
-                    fallback="RAMICLINIC RESIDENCE — новая Клиника-резиденция с традициями, где в центре внимания — пациент. Здесь воплощён уникальный пациентоцентричный подход: врачи, диагностическое оборудование, всё, что необходимо для оценки здоровья, обеспечения безопасной хирургии и эффективной реабилитации — устремляется к пациенту, окружает заботой, работает на его мечту"
-                    tag="p"
-                    className="text-xs xl:text-base text-[#EAE6E0] uppercase max-w-[310px] xl:max-w-[491px] 2xl:max-w-[372px] max-[500px]:max-w-[350px]"
-                />
+                <p className="text-xs xl:text-base text-[#EAE6E0] uppercase max-w-[310px] xl:max-w-[491px] 2xl:max-w-[372px] max-[500px]:max-w-[350px]" data-content-hint="about.info.text">RAMICLINIC RESIDENCE — новая Клиника-резиденция с традициями, где в центре внимания — пациент. Здесь воплощён уникальный пациентоцентричный подход: врачи, диагностическое оборудование, всё, что необходимо для оценки здоровья, обеспечения безопасной хирургии и эффективной реабилитации — устремляется к пациенту, окружает заботой, работает на его мечту</p>
             </div>
 
             <div className="w-full relative z-20 flex justify-end pr-4 md:pr-6 xl:pr-[160px] 2xl:pr-[288px] mt-[5rem] 2xl:-mt-[4rem] max-[500px]:pr-0 max-[500px]:mt-[11.7rem] max-[500px]:absolute max-[500px]:bottom-0">

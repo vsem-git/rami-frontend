@@ -1,17 +1,11 @@
-import { EditableText } from "../../../components/EditableText";
 export const ServiceApartmentsNew = () => {
     return (
         <div
             id="service-apartments-new"
-            className="relative w-full max-[500px]:min-h-[75vh] min-h-[90vh] md:min-h-screen 2xl:min-h-[1400px] bg-white max-[650px]:pt-16 pt-[112px] md:pt-[140px] lg:pt-[160px] 
+            className="relative w-full max-[500px]:min-h-[75vh] min-h-[90vh] md:min-h-screen 2xl:min-h-[1400px] bg-white max-[650px]:pt-16 pt-[112px] md:pt-[140px] lg:pt-[160px]
 			max-[650px]:px-4 max-[1070px]:px-6 px-15 overflow-hidden"
         >
-            <EditableText
-                id="apartments.service.title"
-                fallback="Персонализированный <br /> сервис 24/7"
-                tag="h1"
-                className="relative z-10 max-[500px]:text-2xl max-[650px]:text-[32px] text-[38px] md:text-[44px] lg:text-[64px] 2xl:text-[88px] font-normal text-[#691c32] uppercase leading-[110%]"
-            />
+            <h1 className="relative z-10 max-[500px]:text-2xl max-[650px]:text-[32px] text-[38px] md:text-[44px] lg:text-[64px] 2xl:text-[88px] font-normal text-[#691c32] uppercase leading-[110%]" data-content-hint="apartments.service.title">Персонализированный <br /> сервис 24/7</h1>
 
             <div className="relative z-10 w-full flex items-start max-[650px]:gap-2.5 gap-2 lg:gap-5 justify-end max-[650px]:mt-8 mt-11 md:mt-20 lg:mt-[140px] 2xl:mt-[154px] max-[650px]:flex-row-reverse ">
                 <div className="max-[500px]:w-[102px] max-[650px]:w-[170px] w-[240px] md:w-[349px] lg:w-[324px] 2xl:w-[359px] max-[685px]:mt-[5.5rem] max-[941px]:mt-[4.5rem] mt-[57px] 2xl:mt-[78px] space-y-6 2xl:space-y-[28px] max-[650px]:mt-0">

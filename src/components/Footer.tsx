@@ -5,7 +5,6 @@ import { useRef } from "react";
 import { useHeader } from "./HeaderContext";
 import { usePopup } from "./PopupContext";
 import FooterInfo from "./FooterInfo";
-import { EditableText } from "./EditableText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -163,9 +162,12 @@ const Footer = () => {
                                     />
                                 </svg>
                             </div>
-                            <div className="absolute bottom-0 left-0  p-4 2xl:p-6 text-[11px] md:text-[13px] 2xl:text-[16px] text-white uppercase font-semibold">
+                            <div
+                                className="absolute bottom-0 left-0 p-4 2xl:p-6 text-[11px] md:text-[13px] 2xl:text-[16px] text-white uppercase font-semibold cursor-pointer"
+                                onClick={() => openPopup("contact")}
+                            >
                                 <span className="relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:bg-[#ffffff] after:w-0 after:transition-all after:duration-300 group-hover:after:w-full">
-                                    <EditableText id="footer.contact.cta" fallback="СВЯжитесь С НАМИ" tag="span" />
+                                    <span data-content-hint="footer.contact.cta">СВЯжитесь С НАМИ</span>
                                 </span>
                             </div>
                         </div>
@@ -174,15 +176,19 @@ const Footer = () => {
                         className="absolute top-0 left-0 w-full h-full grid grid-cols-2 z-10 bg-rose-900 opacity-0 pointer-events-none"
                         ref={contactContentRef}
                     >
-                        <img src="/contact.webp" alt="contact" />
+                        <img src="/contact.webp" alt="contact" data-content-hint="home.contact.image" data-content-hint-type="image" />
                         <div className="flex justify-center items-center">
                             CONTACT
                         </div>
                     </div>
                 </div>
                 <div
-                    className="absolute inset-0 w-full pt-17 sm:pt-0 h-screen bg-[linear-gradient(to_bottom,rgba(0,0,0,0.35),rgba(0,0,0,0)),url('/footer.webp')] bg-cover bg-center text-white flex flex-col "
+                    className="absolute inset-0 w-full pt-17 sm:pt-0 h-screen bg-cover bg-center text-white flex flex-col"
                     ref={footerRef}
+                    data-content-hint="home.footer.image"
+                    data-content-hint-type="image"
+                    data-content-hint-bg-prefix="linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0))"
+                    style={{ backgroundImage: "linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0)), url('/footer.webp')" }}
                 >
                     <div className="flex-1 sm:text-[21px] flex-col sm:flex-row uppercase md:text-[28px] 2xl:text-[36px] font-semibold h-full flex ">
                         <a
@@ -213,7 +219,7 @@ const Footer = () => {
                             className="flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10"
                         >
                             <span className="relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full">
-                                <EditableText id="footer.link.patients" fallback="Пациентам" tag="span" />
+                                <span data-content-hint="footer.link.patients">Пациентам</span>
                             </span>
                             {/* <svg
                             width="24"
@@ -237,7 +243,7 @@ const Footer = () => {
                             className="flex gap-2 items-center group sm:[writing-mode:vertical-rl] sm:[text-orientation:mixed] sm:rotate-180 border-b sm:border-b-0 sm:border-l border-[#FFFFFF4D] leading-[150%] py-4 sm:py-8 px-4 md:px-10"
                         >
                             <span className="relative after:absolute after:-left-1 after:top-0 after:h-0 after:w-[1px] after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:h-full">
-                                <EditableText id="footer.link.license" fallback="Лицензия" tag="span" />
+                                <span data-content-hint="footer.link.license">Лицензия</span>
                             </span>
                             {/* <svg
                             width="24"
@@ -265,7 +271,7 @@ const Footer = () => {
                             target="_blank"
                         >
                             <span className="relative after:absolute after:left-0 after:-bottom-1 after:h-[1px] after:w-0 after:bg-[#FFFFFF] after:transition-all after:duration-300 group-hover:after:w-full">
-                                <EditableText id="footer.link.privacy" fallback="Политика конфиденциальности" tag="span" />
+                                <span data-content-hint="footer.link.privacy">Политика конфиденциальности</span>
                             </span>
                         </a>
                     </div>

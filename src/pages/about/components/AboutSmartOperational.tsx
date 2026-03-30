@@ -1,22 +1,11 @@
-import { EditableText } from "../../../components/EditableText";
-
 export const AboutSmartOperational = () => {
     return (
         <div className="relative w-full h-[798px] lg:h-[917px] xl:h-[1260px] 2xl:h-[1660px] max-[500px]:pt-20 pt-[98px] xl:pt-[120px] px-6 xl:px-15 2xl:p-[112px] overflow-hidden">
-            <EditableText
-                id="about.operational.title"
-                fallback="УМНЫЕ ОПЕРАЦИОННЫЕ"
-                tag="h1"
-                className="relative z-10 text-[44px] md:text-[56px] xl:text-[88px] 2xl:text-[110px] text-[#1D1D1D] uppercase leading-[110%] max-[500px]:text-center max-[500px]:text-[32px]"
-            />
+            <h1 className="relative z-10 text-[44px] md:text-[56px] xl:text-[88px] 2xl:text-[110px] text-[#1D1D1D] uppercase leading-[110%] max-[500px]:text-center max-[500px]:text-[32px]" data-content-hint="about.operational.title">УМНЫЕ ОПЕРАЦИОННЫЕ</h1>
 
             <div className="relative w-full flex z-10 max-[600px]:mt-8 mt-[140px] xl:mt-[180px] 2xl:mt-[302px] justify-center 2xl:justify-start gap-2 md:gap-20 xl:gap-[122px] max-[600px]:flex-col max-[500px]:items-center">
                 <div className="text-xs xl:text-base text-[#1D1D1D] uppercase font-suisse font-semibold max-w-[300px] 2xl:max-w-[370px] max-[500px]:text-center">
-                    <EditableText
-                        id="about.operational.description"
-                        fallback="Пластические хирурги RAMICLINIC RESIDENCE имеют в своем распоряжении лучшие операционные новейшего времени Medical Visual Systems – золотой стандарт безопасной хирургии, экспертное хирургическое и наркозное оборудование, систему телемедицины"
-                        tag="p"
-                    />
+                    <p data-content-hint="about.operational.description">Пластические хирурги RAMICLINIC RESIDENCE имеют в своем распоряжении лучшие операционные новейшего времени Medical Visual Systems – золотой стандарт безопасной хирургии, экспертное хирургическое и наркозное оборудование, систему телемедицины</p>
                 </div>
 
                 <div className="max-[600px]:w-full w-auto 2xl:w-full flex items-start 2xl:justify-center max-[600px]:mt-[5rem] max-[600px]:justify-end">

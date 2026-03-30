@@ -3,12 +3,12 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useContentContext } from "../contexts/ContentContext";
 import { useHeader } from "./HeaderContext";
 import { MenuHeader } from "./MenuHeader";
 import { usePopup } from "./PopupContext";
 import Envelope from "./svg/Envelope";
 import Phone from "./svg/Phone";
-import { EditableText } from "./EditableText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,6 +18,7 @@ interface HeaderProps {
 
 const Header = ({ useWhiteText }: HeaderProps) => {
     const { headerColor, setHeaderColor } = useHeader();
+    const { getContent } = useContentContext();
     const headerRef = useRef<HTMLDivElement>(null);
     const logoRef = useRef<HTMLDivElement>(null);
     const visitRef = useRef<HTMLDivElement>(null);
@@ -163,10 +164,10 @@ const Header = ({ useWhiteText }: HeaderProps) => {
                     onClick={() => openPopup("contact")}
                 />
                 <a
-                    href="tel:+78126271313"
+                    href={"tel:" + getContent("header.phone", "+7 (812) 627 -13-13").replace(/[^\d+]/g, "")}
                     className="font-normal hidden md:inline"
                 >
-                    <EditableText id="header.phone" fallback="+7 (812) 627 -13-13" tag="span" />
+                    <span data-content-hint="header.phone">+7 (812) 627 -13-13</span>
                 </a>
             </div>
 

@@ -120,7 +120,7 @@ const FourthAnimationBlock = () => {
     return (
         <>
             <div className="mt-[100px] flex flex-col items-center md:hidden">
-                <div className="max-w-[320px] w-full text-[20px] uppercase inline-block text-center mb-10">
+                <div className="max-w-[320px] w-full text-[20px] uppercase inline-block text-center mb-10" data-content-hint="home.location.title">
                     МЕжДУ парком,
                     <br /> заливом и городом
                 </div>
@@ -129,6 +129,8 @@ const FourthAnimationBlock = () => {
                         src="/map.webp"
                         alt="map"
                         className="w-full aspect-square object-cover"
+                        data-content-hint="home.map.image"
+                        data-content-hint-type="image"
                     />
 
                     <img
@@ -138,7 +140,7 @@ const FourthAnimationBlock = () => {
                     />
                 </div>
                 <div className="flex flex-col w-full gap-4 py-[32px] px-4">
-                    <div className="font-lg uppercase">
+                    <div className="font-lg uppercase" data-content-hint="home.location.address">
                         Санкт-Петербург, КРЕСТОВСКИЙ ПРОСПЕКТ, 4Б
                     </div>
                     <div className="flex gap-3 items-center">
@@ -146,8 +148,8 @@ const FourthAnimationBlock = () => {
                             <img src="/anchor.svg" alt="" />
                         </div>
                         <div className="flex flex-col">
-                            <p className="text-[18px]"> 10 МИНУТ </p>
-                            <p className="text-xs"> ДО СТОЯНКИ ЯХТ </p>
+                            <p className="text-[18px]" data-content-hint="home.location.yacht-time"> 10 МИНУТ </p>
+                            <p className="text-xs" data-content-hint="home.location.yacht-label"> ДО СТОЯНКИ ЯХТ </p>
                         </div>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -155,13 +157,14 @@ const FourthAnimationBlock = () => {
                             <img src="/pointer.svg" alt="" />
                         </div>
                         <div className="flex flex-col">
-                            <p className="text-[18px]"> 10 МИНУТ </p>
-                            <p className="text-xs"> ОТ ЦЕНТРА </p>
+                            <p className="text-[18px]" data-content-hint="home.location.center-time"> 10 МИНУТ </p>
+                            <p className="text-xs" data-content-hint="home.location.center-label"> ОТ ЦЕНТРА </p>
                         </div>
                     </div>
                     <a
                         href="https://yandex.com/maps/-/CPAXaP4L"
                         className="bg-[#691C32] p-5 uppercase text-white text-xs mt-4"
+                        data-content-hint="home.location.route-btn"
                     >
                         построить маршрут
                     </a>
@@ -176,14 +179,17 @@ const FourthAnimationBlock = () => {
                     ref={textContainerRef}
                     className="w-full text-center py-[82px] sm:py-[180px] 2xl:py-[248px]"
                 >
-                    <div className="md:max-w-[300px] 2xl:max-w-[450px] text-20px md:text-[24px] 2xl:text-[36px] uppercase inline-block text-center">
+                    <div className="md:max-w-[300px] 2xl:max-w-[450px] text-20px md:text-[24px] 2xl:text-[36px] uppercase inline-block text-center" data-content-hint="home.location.title">
                         МЕжДУ парком, заливом и городом
                     </div>
                 </div>
                 <div ref={mapContainerRef} className="min-h-[500px] ку">
                     <div
                         ref={bgRef}
-                        className="absolute top-0 left-0 w-full h-full bg-[url('/map.webp')] bg-cover bg-center flex justify-between items-end"
+                        className="absolute top-0 left-0 w-full h-full bg-cover bg-center flex justify-between items-end"
+                        data-content-hint="home.map.image"
+                        data-content-hint-type="image"
+                        style={{ backgroundImage: "url('/map.webp')" }}
                     >
                         <div className="relative h-full w-full flex justify-center items-center">
                             <img src="/pin.svg" alt="pin" />
@@ -206,11 +212,11 @@ const FourthAnimationBlock = () => {
                                         <img src="/anchor.svg" alt="" />
                                     </div>
                                     <div className="flex flex-col">
-                                        <p className="text-xl md:text-[20px] 2xl:text-[28px]">
+                                        <p className="text-xl md:text-[20px] 2xl:text-[28px]" data-content-hint="home.location.yacht-time">
                                             {" "}
                                             10 МИНУТ{" "}
                                         </p>
-                                        <p className="text-xs 2xl:text-base">
+                                        <p className="text-xs 2xl:text-base" data-content-hint="home.location.yacht-label">
                                             {" "}
                                             ДО СТОЯНКИ ЯХТ{" "}
                                         </p>
@@ -221,18 +227,18 @@ const FourthAnimationBlock = () => {
                                         <img src="/pointer.svg" alt="" />
                                     </div>
                                     <div className="flex flex-col">
-                                        <p className="text-xl md:text-[20px] 2xl:text-[28px]">
+                                        <p className="text-xl md:text-[20px] 2xl:text-[28px]" data-content-hint="home.location.center-time">
                                             {" "}
                                             10 МИНУТ{" "}
                                         </p>
-                                        <p className="text-xs 2xl:text-base">
+                                        <p className="text-xs 2xl:text-base" data-content-hint="home.location.center-label">
                                             {" "}
                                             ОТ ЦЕНТРА{" "}
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                            <div className="uppercase text-sm md:text-[20px] 2xl:text-[28px]">
+                            <div className="uppercase text-sm md:text-[20px] 2xl:text-[28px]" data-content-hint="home.location.address">
                                 Санкт-Петербург, КРЕСТОВСКИЙ ПРОСПЕКТ, 4Б
                             </div>
                         </div>
@@ -240,6 +246,7 @@ const FourthAnimationBlock = () => {
                             <a
                                 href="https://yandex.com/maps/-/CPAXaP4L"
                                 className="uppercase px-[32px] md:text-[13px] 2xl:text-base py-5 font-semibold bg-[#691C32] text-white cursor-pointer"
+                                data-content-hint="home.location.route-btn"
                             >
                                 Построить маршрут
                             </a>

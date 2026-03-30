@@ -5,7 +5,6 @@ import { useHeader } from './HeaderContext'
 import { MenuHeader } from './MenuHeader'
 import { usePopup } from './PopupContext'
 import UnderlinedText from './UnderlinedText/UnderlinedText'
-import { EditableText } from './EditableText'
 
 interface HeaderUpdateProps {
 	useWhiteText?: boolean
@@ -169,7 +168,7 @@ const HeaderUpdate = ({
 			>
 				<style>{`.theme *:after { background-color: ${currentColor}; } .theme:after { background-color: ${currentColor}; }`}</style>
 				<UnderlinedText className='theme' onClick={handleVisitClick}>
-					<EditableText id="header.cta" fallback="ЗАПЛАНИРОВАТЬ ВИЗИТ" tag="span" />
+					<span data-content-hint="header.cta">ЗАПЛАНИРОВАТЬ ВИЗИТ</span>
 				</UnderlinedText>
 			</div>
 

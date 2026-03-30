@@ -1,24 +1,34 @@
-import { EditableText } from "./EditableText";
+import { useContentContext } from "../contexts/ContentContext";
 
 const FooterInfo = () => {
+    const { getContent } = useContentContext();
+    const phone1 = getContent("footer.phone1", "+7 (921) 447-00-31");
+    const phone2 = getContent("footer.phone2", "+7 (812) 627-13-13");
+
     return (
         <div className="px-6 py-6 2xl:px-10 2xl:py-10 bg-[#1D1D1D] text-white flex flex-col gap-6 md:gap-0">
             <div className="flex w-full md:flex-row flex-col gap-6">
                 <div className="uppercase text-[#FFFFFF80] sm:py-[11px] whitespace-nowrap text-[11px] xl:text-[12px] 2xl:text-base md:pr-[215px] xl:pr-[195px] 2xl:pr-[160px]">
-                    <EditableText id="footer.copyright" fallback="©2025. Рамиклиник резиденс" tag="span" />
+                    <span data-content-hint="footer.copyright">©2025. Рамиклиник резиденс</span>
                 </div>
                 <div className="flex flex-col sm:flex-row justify-between flex-1 gap-6 sm:gap-0">
                     <div className="flex justify-between flex-col gap-6 sm:gap-[16px] xl:gap-0 xl:flex-row flex-1 pr-[clamp(2.5rem,-46.25rem+60vw,10rem)]">
                         <div className="uppercase max-w-[360px] md:max-w-[440px] 2xl:max-w-[570px] mb-0 xl:py-[11px] text-[11px] xl:text-[12px] 2xl:text-base">
-                            <EditableText id="footer.address" fallback="Крестовский пр., 4Б, Крестовский остров, Санкт-Петербург, Российская Федерация" tag="span" />
+                            <span data-content-hint="footer.address">Крестовский пр., 4Б, Крестовский остров, Санкт-Петербург, Российская Федерация</span>
                         </div>
                         <div className="flex gap-10 sm:py-[16px] md:py-[11px] mb-[6px] sm:mb-0 text-[11px] xl:text-[12px] 2xl:text-base">
-                            <div className="font-semibold border-b border-[#FFFFFF26] h-fit whitespace-nowrap">
-                                <EditableText id="footer.phone1" fallback="+7 (921) 447-00-31" tag="span" />
-                            </div>
-                            <div className="font-semibold border-b border-[#FFFFFF26] h-fit whitespace-nowrap">
-                                <EditableText id="footer.phone2" fallback="+7 (812) 627-13-13" tag="span" />
-                            </div>
+                            <a
+                                href={"tel:" + phone1.replace(/[^\d+]/g, "")}
+                                className="font-semibold border-b border-[#FFFFFF26] h-fit whitespace-nowrap"
+                            >
+                                <span data-content-hint="footer.phone1">+7 (921) 447-00-31</span>
+                            </a>
+                            <a
+                                href={"tel:" + phone2.replace(/[^\d+]/g, "")}
+                                className="font-semibold border-b border-[#FFFFFF26] h-fit whitespace-nowrap"
+                            >
+                                <span data-content-hint="footer.phone2">+7 (812) 627-13-13</span>
+                            </a>
                         </div>
                     </div>
                     <div className="flex items-end md:items-start gap-1 mb-6 sm:mb-0">
@@ -42,8 +52,8 @@ const FooterInfo = () => {
                 </div>
             </div>
             <div className="text-[11px] xl:text-[12px] 2xl:text-base uppercase flex flex-wrap gap-6 md:mt-5">
-                <a href="/patient"><EditableText id="footer.nav.patients" fallback="Пациентам" tag="span" /></a>
-                <a href="/contacts"><EditableText id="footer.nav.contacts" fallback="Контакты" tag="span" /></a>
+                <a href="/patient"><span data-content-hint="footer.nav.patients">Пациентам</span></a>
+                <a href="/contacts"><span data-content-hint="footer.nav.contacts">Контакты</span></a>
             </div>
         </div>
     );

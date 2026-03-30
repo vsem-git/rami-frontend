@@ -251,13 +251,13 @@ const ThirdAnimationBlock = ({
                 >
                     {isTeamDescription ? (
                         <>
-                            <p className="text-xl md:text-2xl 2xl:text-4xl">
+                            <p className="text-xl md:text-2xl 2xl:text-4xl" data-content-hint="home.team.title">
                                 КОМАНДА <br />
                                 <span className="text-[#B59158]">
                                     RAMICLINIC RESIDENCE
                                 </span>
                             </p>
-                            <p className="sm:max-w-[420px] 2xl:max-w-[560px] uppercase text-[11px] md:text-[12px] 2xl:text-[16px] w-full">
+                            <p className="sm:max-w-[420px] 2xl:max-w-[560px] uppercase text-[11px] md:text-[12px] 2xl:text-[16px] w-full" data-content-hint="home.team.description">
                                 Ядро команды RAMICLINIC RESIDENCE – специалисты
                                 с многолетним опытом, которые стоят у истоков
                                 бренда РАМИ. Рядом с признанными мастерами –
@@ -422,6 +422,7 @@ const ThirdAnimationBlock = ({
                                                         ? "opacity-100 !translate-y-0"
                                                         : "opacity-100 !translate-y-0"
                                                 }`}
+                                                data-content-hint={`home.team.${i}.name`}
                                             >
                                                 <span className="">
                                                     {el.firstName}
@@ -429,7 +430,7 @@ const ThirdAnimationBlock = ({
                                                 <br />
                                                 <span>{el.lastName}</span>
                                             </p>
-                                            <p className="text-white text-[11px] md:text-xs 2xl:text-lg mb-4 md:mb-6 2xl:mb-10 px-4 uppercase">
+                                            <p className="text-white text-[11px] md:text-xs 2xl:text-lg mb-4 md:mb-6 2xl:mb-10 px-4 uppercase" data-content-hint={`home.team.${i}.specialties`}>
                                                 {Array.isArray(
                                                     el.specialties,
                                                 ) &&

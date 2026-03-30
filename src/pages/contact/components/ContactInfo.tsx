@@ -1,31 +1,15 @@
-import { EditableText } from "../../../components/EditableText";
 import { PhoneList } from "../../../components/PhoneList";
 
 export const ContactInfo = () => {
     return (
         <>
-            <EditableText
-                id="contact.title"
-                fallback="КОНТАКТЫ"
-                tag="h2"
-                className="text-[28px] 2xl:text-[44px] leading-[125%] text-[#1D1D1D] uppercase"
-            />
+            <h2 className="text-[28px] 2xl:text-[44px] leading-[125%] text-[#1D1D1D] uppercase" data-content-hint="contact.title">КОНТАКТЫ</h2>
 
             <div className="grid sm:grid-cols-3 md:block flex-wrap sm:gap-10 mt-[32px] md:mt-[48px] 2xl:mt-[56px]">
                 <div className="flex md:flex-row flex-col gap-3 nd:gap-10">
                     <div className="flex-1">
-                        <EditableText
-                            id="contact.address1"
-                            fallback="РОССИЙСКАЯ ФЕДЕРАЦИЯ, САНКТ-ПЕТЕРБУРГ"
-                            tag="p"
-                            className="text-[11px] md:text-sm 2xl:text-[21px] leading-[155%] text-[#1D1D1D] uppercase"
-                        />
-                        <EditableText
-                            id="contact.address2"
-                            fallback="КРЕСТОВСКИЙ ОСТРОВ, КРЕСТОВСКИЙ ПР. 4Б"
-                            tag="p"
-                            className="text-[11px] md:text-sm 2xl:text-[21px] leading-[155%] text-[#1D1D1D] uppercase"
-                        />
+                        <p className="text-[11px] md:text-sm 2xl:text-[21px] leading-[155%] text-[#1D1D1D] uppercase" data-content-hint="contact.address1">РОССИЙСКАЯ ФЕДЕРАЦИЯ, САНКТ-ПЕТЕРБУРГ</p>
+                        <p className="text-[11px] md:text-sm 2xl:text-[21px] leading-[155%] text-[#1D1D1D] uppercase" data-content-hint="contact.address2">КРЕСТОВСКИЙ ОСТРОВ, КРЕСТОВСКИЙ ПР. 4Б</p>
                     </div>
                 </div>
                 <div>
@@ -58,12 +42,7 @@ export const ContactInfo = () => {
                 </div>
 
                 <PhoneList />
-                <EditableText
-                    id="contact.note"
-                    fallback="ВИЗИТ ПО ПРЕДВАРИТЕЛЬНОЙ ЗАПИСИ"
-                    tag="div"
-                    className="text-[11px] md:text-sm 2xl:text-[21px] leading-[155%] text-[#691c32] uppercase"
-                />
+                <div className="text-[11px] md:text-sm 2xl:text-[21px] leading-[155%] text-[#691c32] uppercase" data-content-hint="contact.note">ВИЗИТ ПО ПРЕДВАРИТЕЛЬНОЙ ЗАПИСИ</div>
             </div>
         </>
     );

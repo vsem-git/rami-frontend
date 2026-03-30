@@ -71,7 +71,12 @@ const SecondAnimationBlock = ({
             className={`absolute top-0 left-0 w-full h-full z-30 ${className}`}
         >
             <div id="services" className="h-dvh relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-dvh bg-[url('/animationblock2.jpg')] bg-cover bg-top flex justify-between items-end z-50">
+                <div
+                    className="absolute top-0 left-0 w-full h-dvh bg-cover bg-top flex justify-between items-end z-50"
+                    data-content-hint="home.services.image"
+                    data-content-hint-type="image"
+                    style={{ backgroundImage: "url('/animationblock2.jpg')" }}
+                >
                     <div className="relative h-full w-full flex flex-col justify-center md:grid grid-cols-3">
                         {sections.map((section, index) => (
                             <div
@@ -81,7 +86,7 @@ const SecondAnimationBlock = ({
                                 <div className="bg-[#FFFFFF26] backdrop-blur-[50px] p-4 md:p-8 rounded-full md:mb-10">
                                     {section.icon || <DefaultIcon />}
                                 </div>
-                                <p className="uppercase text-white text-[16px] md:text-[20px] 2xl:text-[28px] md:text-center md:mb-10 md:px-15 2xl:px-20">
+                                <p className="uppercase text-white text-[16px] md:text-[20px] 2xl:text-[28px] md:text-center md:mb-10 md:px-15 2xl:px-20" data-content-hint={`home.services.${index}.title`}>
                                     {section.mobileTitle || section.title}
                                 </p>
                                 <div
@@ -92,10 +97,10 @@ const SecondAnimationBlock = ({
                                     }}
                                 ></div>
                                 <div className="absolute hidden md:flex opacity-0 group-hover:opacity-100 transition-all duration-1000 inset-0 backdrop-blur-[40px] bg-[#1D1D1D4D]  flex-col justify-center items-center md:p-6 2xl:p-20 text-center">
-                                    <p className="text-[20px] 2xl:text-[28px] uppercase mb-4 2xl:mb-6 leading-[130%] text-white">
+                                    <p className="text-[20px] 2xl:text-[28px] uppercase mb-4 2xl:mb-6 leading-[130%] text-white" data-content-hint={`home.services.${index}.title`}>
                                         {section.title}
                                     </p>
-                                    <p className="mb-8 2xl:mb-12 text-[#FFFFFF99] leading-[155%] uppercase font-extralight text-sm 2xl:text-base">
+                                    <p className="mb-8 2xl:mb-12 text-[#FFFFFF99] leading-[155%] uppercase font-extralight text-sm 2xl:text-base" data-content-hint={`home.services.${index}.description`}>
                                         {section.description}
                                     </p>
                                     {/* <a

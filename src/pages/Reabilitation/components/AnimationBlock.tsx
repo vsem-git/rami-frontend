@@ -447,10 +447,10 @@ const AnimationBlock = () => {
 				ref={marqueeRef}
 				className='marquee-reabilitation hidden md:inline-flex text-white pointer-events-none whitespace-nowrap text-[64px] md:text-[96px] 2xl:text-[130px] mix-blend-difference absolute bottom-0 left-0 w-full'
 			>
-				<span className='px-8'>РЕАБИЛИТАЦИЯ</span>
-				<span className='px-8'>РЕАБИЛИТАЦИЯ</span>
-				<span className='px-8'>РЕАБИЛИТАЦИЯ</span>
-				<span className='px-8'>РЕАБИЛИТАЦИЯ</span>
+				<span className="px-8" data-content-hint="reabilitation.marquee">РЕАБИЛИТАЦИЯ</span>
+				<span className="px-8" data-content-hint="reabilitation.marquee">РЕАБИЛИТАЦИЯ</span>
+				<span className="px-8" data-content-hint="reabilitation.marquee">РЕАБИЛИТАЦИЯ</span>
+				<span className="px-8" data-content-hint="reabilitation.marquee">РЕАБИЛИТАЦИЯ</span>
 			</div>
 
 			<span
@@ -458,20 +458,7 @@ const AnimationBlock = () => {
 				className='text-[11px] md:text-xs 2xl:text-[18px]  tracking-[1.5%] sm:max-w-[380px] text-white md:absolute pt-[120px] sm:pt-0 right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col sm:justify-center uppercase leading-[155%] md:max-w-[410px] xl:max-w-[560px] 2xl:max-w-[720px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]'
 			>
 				<div>
-					<span>
-						<span className='font-bold inline'>
-							Быстрая и комфортная реабилитация
-						</span>{' '}
-						пациента в
-					</span>
-					<span>
-						{' '}
-						Клинике-резиденции RAMICLINIC RESIDENCE начинается задолго до
-						операционного вмешательства. Она включает в себя коррекцию
-						гормонального статуса, устранение дефицитов и, конечно,
-						полномасштабную подготовку кожи на инновационном отделении
-						косметологии.
-					</span>
+					<p data-content-hint="reabilitation.block1.text">Быстрая и комфортная реабилитация пациента в Клинике-резиденции RAMICLINIC RESIDENCE начинается задолго до операционного вмешательства. Она включает в себя коррекцию гормонального статуса, устранение дефицитов и, конечно, полномасштабную подготовку кожи на инновационном отделении косметологии.</p>
 				</div>
 			</span>
 			<div
@@ -479,16 +466,10 @@ const AnimationBlock = () => {
 				className='text-[18px] text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col  pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[720px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]'
 			>
 				<h1 className='text-[15px] md:text-[16px] 2xl:text-[24px] leading-[130%] mb-4 2xl:mb-6 tracking-[2%]'>
-					ОМОЛОЖЕНИЕ И ОЗДОРОВЛЕНИЕ ОРГАНИЗМА ИЗНУТРИ
+					<span data-content-hint="reabilitation.block2.title">ОМОЛОЖЕНИЕ И ОЗДОРОВЛЕНИЕ ОРГАНИЗМА ИЗНУТРИ</span>
 				</h1>
 				<p className='text-[11px] md:text-[12px] 2xl:text-[18px] leading-[155%] tracking-[1.5%]'>
-					повышение тургора, эластичности, уровня увлажненности кожи
-					<span className='font-bold'>
-						{' '}
-						улучшают регенеративные возможности тканей
-					</span>{' '}
-					и приближают день, когда пациент сможет насладиться полностью
-					сформированным безупречным результатом пластической операции.
+					<span data-content-hint="reabilitation.block2.body">повышение тургора, эластичности, уровня увлажненности кожи улучшают регенеративные возможности тканей и приближают день, когда пациент сможет насладиться полностью сформированным безупречным результатом пластической операции.</span>
 				</p>
 			</div>
 			<div
@@ -496,12 +477,10 @@ const AnimationBlock = () => {
 				className='text-[18px]  text-white  md:absolute right-0 sm:ml-auto md:ml-0 top-0 h-dvh flex flex-col pt-[120px] sm:pt-0 sm:justify-center uppercase sm:max-w-[400px] md:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[720px] px-[16px] md:px-[32px] xl:px-[80px] 2xl:px-[110px]'
 			>
 				<h1 className='text-[15px] md:text-[16px] 2xl:text-[24px] leading-[130%] mb-4 2xl:mb-6'>
-					ПОДРОБНЫЙ ГЕНЕТИЧЕСКИЙ АНАЛИЗ
+					<span data-content-hint="reabilitation.block3.title">ПОДРОБНЫЙ ГЕНЕТИЧЕСКИЙ АНАЛИЗ</span>
 				</h1>
 				<p className='text-[11px] md:text-[12px] 2xl:text-[18px] leading-[155%]'>
-					позволяет сделать <span className='font-bold'>детальный прогноз</span>{' '}
-					заживления ран, формирования рубцов, гематом, отеков и заблаговременно
-					предпринять меры эффективного предупреждения этих состояний.
+					<span data-content-hint="reabilitation.block3.body">позволяет сделать детальный прогноз заживления ран, формирования рубцов, гематом, отеков и заблаговременно предпринять меры эффективного предупреждения этих состояний.</span>
 				</p>
 			</div>
 			<div
@@ -514,21 +493,10 @@ const AnimationBlock = () => {
 					</div>
 					<div className='mt-3.5 2xl:mt-2'>
 						<h1 className='text-[15px] md:text-[16px] 2xl:text-[24px] leading-[130%] mb-4 md:mb-6'>
-							ВОЗДУШНО-КИСЛОРОДНАЯ ГИПЕРБАРИЧЕСКАЯ БАРОКАМЕРА НОВОГО ПОКОЛЕНИЯ
+							<span data-content-hint="reabilitation.step1.title">ВОЗДУШНО-КИСЛОРОДНАЯ ГИПЕРБАРИЧЕСКАЯ БАРОКАМЕРА НОВОГО ПОКОЛЕНИЯ</span>
 						</h1>
 						<p className='text-[11px] md:text-[12px] 2xl:text-[18px] leading-[155%]'>
-							ГИПЕРБАРИЧЕСКАЯ ОКСИГЕНАЦИЯ –{' '}
-							<span className='sm:whitespace-nowrap md:whitespace-normal'>
-								{' '}
-								нахождение пациента в барокамере в среде
-							</span>{' '}
-							повышенного давления и{' '}
-							<span className='font-bold'>
-								дыхания обогащенной кислородной смесью
-							</span>
-							. Процедура повышает способность организма транспортировать и
-							поглощать кислород, а также восстанавливать поврежденные клетки и
-							ткани.
+							<span data-content-hint="reabilitation.step1.body">ГИПЕРБАРИЧЕСКАЯ ОКСИГЕНАЦИЯ – нахождение пациента в барокамере в среде повышенного давления и дыхания обогащенной кислородной смесью. Процедура повышает способность организма транспортировать и поглощать кислород, а также восстанавливать поврежденные клетки и ткани.</span>
 						</p>
 					</div>
 				</div>
@@ -543,7 +511,7 @@ const AnimationBlock = () => {
 					</div>
 					<div className='mt-3.5 2xl:mt-2'>
 						<h1 className='text-[15px] md:text-[16px] 2xl:text-[24px] leading-[130%] mb-4 md:mb-6'>
-							ИНЪЕКЦИОННАЯ КОСМЕТОЛОГИЯ
+							<span data-content-hint="reabilitation.step2.title">ИНЪЕКЦИОННАЯ КОСМЕТОЛОГИЯ</span>
 						</h1>
 						<div className='flex items-start gap-2 mb-2 text-[11px] md:text-[12px] 2xl:text-[18px] leading-[155%]'>
 							<div className='mt-[5.5px] 2xl:mt-[9.5px]'>
@@ -557,7 +525,7 @@ const AnimationBlock = () => {
 									<circle cx='3' cy='3' r='3' fill='white' fillOpacity='0.5' />
 								</svg>
 							</div>
-							<div>Терапия обогащенной тромбоцитами плазмы</div>
+							<div data-content-hint="reabilitation.step2.item1">Терапия обогащенной тромбоцитами плазмы</div>
 						</div>
 						<div className='flex items-start gap-2 mb-2 text-[11px] md:text-[12px] 2xl:text-[18px] leading-[155%]'>
 							<div className='mt-[5.5px] 2xl:mt-[9.5px]'>
@@ -571,7 +539,7 @@ const AnimationBlock = () => {
 									<circle cx='3' cy='3' r='3' fill='white' fillOpacity='0.5' />
 								</svg>
 							</div>
-							<div>PRP для активации клеточной регенерации</div>
+							<div data-content-hint="reabilitation.step2.item2">PRP для активации клеточной регенерации</div>
 						</div>
 						<div className='flex items-start gap-2 mb-2 text-[11px] md:text-[12px] 2xl:text-[18px] leading-[155%]'>
 							<div className='mt-[5.5px] 2xl:mt-[9.5px]'>
@@ -585,7 +553,7 @@ const AnimationBlock = () => {
 									<circle cx='3' cy='3' r='3' fill='white' fillOpacity='0.5' />
 								</svg>
 							</div>
-							<div>Плацентарная терапия для улучшения метаболизма клеток</div>
+							<div data-content-hint="reabilitation.step2.item3">Плацентарная терапия для улучшения метаболизма клеток</div>
 						</div>
 					</div>
 				</div>
@@ -600,7 +568,7 @@ const AnimationBlock = () => {
 					</div>
 					<div className='mt-3.5 2xl:mt-2'>
 						<h1 className='text-[15px] md:text-[16px] 2xl:text-[24px] leading-[130%] mb-4 md:mb-6'>
-							АППАРАТНАЯ КОСМЕТОЛОГИЯ
+							<span data-content-hint="reabilitation.step3.title">АППАРАТНАЯ КОСМЕТОЛОГИЯ</span>
 						</h1>
 						<div className='flex items-start gap-2 mb-2 text-[11px] md:text-[12px] 2xl:text-[18px] leading-[155%]'>
 							<div className='mt-[5.5px] 2xl:mt-[9.5px]'>
@@ -615,7 +583,7 @@ const AnimationBlock = () => {
 								</svg>
 							</div>
 							<div className='md:whitespace-nowrap xl:whitespace-normal'>
-								Фототерапия широкополосным светов
+								<span data-content-hint="reabilitation.step3.item1">Фототерапия широкополосным светов</span>
 							</div>
 						</div>
 						<div className='flex items-start gap-2 mb-2 text-[11px] md:text-[12px] 2xl:text-[18px] leading-[155%]'>
@@ -630,7 +598,7 @@ const AnimationBlock = () => {
 									<circle cx='3' cy='3' r='3' fill='white' fillOpacity='0.5' />
 								</svg>
 							</div>
-							<div>Высокочастотная ультразвуковая терапия</div>
+							<div data-content-hint="reabilitation.step3.item2">Высокочастотная ультразвуковая терапия</div>
 						</div>
 						<div className='flex items-start gap-2 mb-2 text-[11px] md:text-[12px] 2xl:text-[18px] leading-[155%]'>
 							<div className='mt-[5.5px] 2xl:mt-[9.5px]'>
@@ -644,7 +612,7 @@ const AnimationBlock = () => {
 									<circle cx='3' cy='3' r='3' fill='white' fillOpacity='0.5' />
 								</svg>
 							</div>
-							<div>Микротоковая терапия</div>
+							<div data-content-hint="reabilitation.step3.item3">Микротоковая терапия</div>
 						</div>
 						<div className='flex items-start gap-2 mb-2 text-[11px] md:text-[12px] 2xl:text-[18px] leading-[155%]'>
 							<div className='mt-[5.5px] 2xl:mt-[9.5px]'>
@@ -658,7 +626,7 @@ const AnimationBlock = () => {
 									<circle cx='3' cy='3' r='3' fill='white' fillOpacity='0.5' />
 								</svg>
 							</div>
-							<div>Радиочастотная физиотерапия</div>
+							<div data-content-hint="reabilitation.step3.item4">Радиочастотная физиотерапия</div>
 						</div>
 					</div>
 				</div>
@@ -673,10 +641,10 @@ const AnimationBlock = () => {
 					</div>
 					<div className='mt-3.5 2xl:mt-2'>
 						<h1 className='text-[15px] md:text-[16px] 2xl:text-[24px] leading-[130%] mb-4 md:mb-6'>
-							ИСПОЛЬЗОВАНИЕ ПРЕМИАЛЬНОЙ КОСМЕЦЕВТИКИ
+							<span data-content-hint="reabilitation.step4.title">ИСПОЛЬЗОВАНИЕ ПРЕМИАЛЬНОЙ КОСМЕЦЕВТИКИ</span>
 						</h1>
 						<div className='flex items-start gap-2 mb-2 text-[11px] md:text-[12px] 2xl:text-[18px] leading-[155%]'>
-							<div>с доказанной эффективностью</div>
+							<div data-content-hint="reabilitation.step4.body">с доказанной эффективностью</div>
 						</div>
 					</div>
 				</div>

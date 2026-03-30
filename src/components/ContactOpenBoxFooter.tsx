@@ -50,7 +50,10 @@ export const ContactOpenBoxFooter = () => {
 						</svg>
 					</div>
 
-					<div className='absolute bottom-0 left-0 p-4 2xl:p-6 text-[11px] md:text-[13px] 2xl:text-[16px] text-white uppercase font-semibold'>
+					<div
+						className='absolute bottom-0 left-0 p-4 2xl:p-6 text-[11px] md:text-[13px] 2xl:text-[16px] text-white uppercase font-semibold cursor-pointer'
+						onClick={() => openPopup('contact')}
+					>
 						<span className="relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:bg-[#ffffff] after:w-0 after:transition-all after:duration-300 group-hover:after:w-full">
 							Свяжитесь с нами
 						</span>

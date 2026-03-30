@@ -5,6 +5,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { createRequire } from "module";
 import { prerenderRoutes } from "./src/shared/seo/routes";
+import { editablePlugin } from "./plugins/editable";
 
 const require = createRequire(import.meta.url);
 const prerender = require("vite-plugin-prerender");
@@ -13,11 +14,15 @@ const isVercelBuild = process.env.VERCEL === "1";
 const isCi = process.env.CI === "true";
 const shouldRunPrerender = process.env.PRERENDER !== "false" && !isVercelBuild && !isCi;
 
+const reactPlugin = react({
+    babel: { plugins: [editablePlugin] },
+});
+
 // https://vite.dev/config/
 export default defineConfig({
     plugins: shouldRunPrerender
         ? [
-              react(),
+              reactPlugin,
               tailwindcss(),
               prerender({
                   staticDir: path.resolve(configDir, "dist"),
@@ -25,7 +30,12 @@ export default defineConfig({
                   routes: prerenderRoutes,
               }),
           ]
-        : [react(), tailwindcss()],
+        : [reactPlugin, tailwindcss()],
+    resolve: {
+        alias: {
+            "@": path.resolve(configDir, "src"),
+        },
+    },
     server: {
         host: "0.0.0.0",
         port: 5173,

@@ -108,6 +108,11 @@ export const EditableToolbar = ({
             return;
         }
         const fullUrl = url.startsWith("http") ? url : `https://${url}`;
+        // Block dangerous URL schemes
+        if (/^(javascript|data|vbscript):/i.test(fullUrl)) {
+            setIsLinkOpen(false);
+            return;
+        }
 
         targetRef.current.focus();
         const sel = window.getSelection();

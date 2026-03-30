@@ -1,4 +1,3 @@
-import { EditableText } from "../../../components/EditableText";
 import { usePopup } from "../../../components/PopupContext";
 
 export const WelcomeTourism = () => {
@@ -20,18 +19,8 @@ export const WelcomeTourism = () => {
             />
 
             <div className="relative z-10 flex flex-col items-center text-center pt-[6rem] md:pt-[7rem] 2xl:pt-[180px] px-4 md:px-6">
-                <EditableText
-                    id="tourism.welcome.label"
-                    fallback="медтуризм"
-                    tag="h4"
-                    className="max-[600px]:text-xs text-base font-normal text-[#EAE6E0] uppercase leading-[20px] max-[600px]:mb-2 mb-[30px] md:mb-2"
-                />
-                <EditableText
-                    id="tourism.welcome.title"
-                    fallback="Санкт-Петербург идеально соединяет туризм международного уровня и медицину эталонного качества"
-                    tag="h1"
-                    className="max-[600px]:text-xl text-2xl md:text-[32px] 2xl:text-[48px] uppercase text-[#EAE6E0] max-w-[944px] 2xl:max-w-[1212px]"
-                />
+                <h4 className="max-[600px]:text-xs text-base font-normal text-[#EAE6E0] uppercase leading-[20px] max-[600px]:mb-2 mb-[30px] md:mb-2" data-content-hint="tourism.welcome.label">медтуризм</h4>
+                <h1 className="max-[600px]:text-xl text-2xl md:text-[32px] 2xl:text-[48px] uppercase text-[#EAE6E0] max-w-[944px] 2xl:max-w-[1212px]" data-content-hint="tourism.welcome.title">Санкт-Петербург идеально соединяет туризм международного уровня и медицину эталонного качества</h1>
 
                 <img
                     src="tourism/3.2.webp"
@@ -39,12 +28,7 @@ export const WelcomeTourism = () => {
                     className="max-[600px]:w-[163px] w-[212px] md:w-[245px] lg:w-[370px] 2xl:w-[473px] max-[600px]:h-[200px] h-[260px] md:h-[300px] lg:h-[450px] 2xl:h-[580px] max-[600px]:mt-8 mt-10"
                 />
 
-                <EditableText
-                    id="tourism.welcome.description"
-                    fallback="Персональный медицинский туризм: от первой консультации до полного восстановления с комфортом премиум-класса"
-                    tag="p"
-                    className="max-[600px]:text-sm text-lg md:text-2xl 2xl:text-[32px] text-[#EAE6E0] uppercase leading-[125%] max-w-[612px] lg:max-w-[900px] 2xl:max-w-[1042px] max-[600px]:mt-4 mt-8"
-                />
+                <p className="max-[600px]:text-sm text-lg md:text-2xl 2xl:text-[32px] text-[#EAE6E0] uppercase leading-[125%] max-w-[612px] lg:max-w-[900px] 2xl:max-w-[1042px] max-[600px]:mt-4 mt-8" data-content-hint="tourism.welcome.description">Персональный медицинский туризм: от первой консультации до полного восстановления с комфортом премиум-класса</p>
 
                 <button
                     className="relative max-[400px]:text-[11px] max-[600px]:text-xs text-sm 2xl:text-base font-semibold text-[#EAE6E0] uppercase cursor-pointer px-1 flex items-center gap-2 group mt-4 lg:mt-6"

@@ -1,4 +1,3 @@
-import { EditableText } from "../../../components/EditableText";
 export const PicturesqueWednesdayApartmentsNew = () => {
     return (
         <div
@@ -18,12 +17,7 @@ export const PicturesqueWednesdayApartmentsNew = () => {
                     transform: "scaleX(-1)",
                 }}
             >
-                <EditableText
-                    id="apartments.picturesque.title"
-                    fallback="Живописная пространственная среда"
-                    tag="h2"
-                    className="relative z-10 max-[450px]:text-2xl max-[650px]:text-[32px] max-[800px]:text-[44px] max-[1100px]:text-[64px] text-[88px] 2xl:text-[110px] font-normal text-[#EAE6E0] uppercase leading-[120%]"
-                />
+                <h2 className="relative z-10 max-[450px]:text-2xl max-[650px]:text-[32px] max-[800px]:text-[44px] max-[1100px]:text-[64px] text-[88px] 2xl:text-[110px] font-normal text-[#EAE6E0] uppercase leading-[120%]" data-content-hint="apartments.picturesque.title">Живописная пространственная среда</h2>
                 <div className="w-full flex items-center flex-col mt-20 md:mt-[124px] lg:mt-[140px] max-[650px]:hidden">
                     <h4 className="text-xs xl:text-base font-medium text-white uppercase mb-10 max-w-[550px]  xl:max-w-[738px] text-center">
                         Из окон открываются прекрасные виды на старинный парк,

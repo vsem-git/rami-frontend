@@ -186,15 +186,21 @@ const FirstAnimationBlock = () => {
         >
             <div
                 id="reborn-first-block"
-                className="absolute top-0 left-0 w-full h-full bg-[url('/1slide.webp')] bg-cover bg-center z-50 pointer-events-none"
+                className="absolute top-0 left-0 w-full h-full bg-cover bg-center z-50 pointer-events-none"
                 ref={block1Ref}
-                style={{ willChange: "opacity" }}
+                data-content-hint="home.hero.image"
+                data-content-hint-type="image"
+                style={{ backgroundImage: "url('/1slide.webp')", willChange: "opacity" }}
             >
                 <div
                     className="relative h-full w-full flex justify-end items-end overflow-hidden"
                     id="clinic"
                 >
-                    <p className="firstblocktext pointer-events-none fixed top-[90px] md:bottom-0 text-[13px] md:text-sm 2xl:text-[21px] sm:top-1/2 sm:-translate-y-1/4 md:-translate-y-0 md:top-auto right-0 text-white m-6 xl:m-10 2xl:m-20 uppercase max-w-full  sm:max-w-[320px] 2xl:max-w-[480px] 2xl:tracking-wider 2xl:leading-8 z-10">
+                    <p
+                        className="firstblocktext  fixed top-[90px] md:bottom-0 text-[13px] md:text-sm 2xl:text-[21px] sm:top-1/2 sm:-translate-y-1/4 md:-translate-y-0 md:top-auto right-0 text-white m-6 xl:m-10 2xl:m-20 uppercase max-w-full  sm:max-w-[320px] 2xl:max-w-[480px] 2xl:tracking-wider 2xl:leading-8 z-10"
+                        data-content-hint="home.slide1.text"
+                        data-content-hint-type="richtext"
+                    >
                         <span className="font-bold">Новый проект</span>{" "}
                         владельцев многопрофильной Клиники РАМИ Галины Резник и
                         Мазена Хамуда – Клиника пластической хирургии и
@@ -229,6 +235,7 @@ const FirstAnimationBlock = () => {
                             className="text-black mt-25 m-4 sm:m-10 sm:mt-25 uppercase text-[13px] md:text-sm 2xl:text-[21px] 2xl:max-w-[720px] md:max-w-[400px] sm:max-w-[400px] max-w-full"
                             ref={block2TextRef}
                             style={{ willChange: "opacity" }}
+                            data-content-hint="home.slide2.description"
                         >
                             <span className="mb-4 inline-block 2xl:mb-8 text-[20px] md:text-[24px] 2xl:text-[36px]">
                                 RAMICLINIC RESIDENCE
@@ -298,25 +305,25 @@ const FirstAnimationBlock = () => {
                     <SwiperSlide>
                         <div
                             className="w-full h-full bg-cover bg-center"
-                            style={{
-                                backgroundImage: "url('/residence1.webp')",
-                            }}
+                            data-content-hint="home.residence.image1"
+                            data-content-hint-type="image"
+                            style={{ backgroundImage: "url('/residence1.webp')" }}
                         />
                     </SwiperSlide>
                     <SwiperSlide>
                         <div
                             className="w-full h-full bg-cover bg-center"
-                            style={{
-                                backgroundImage: "url('/residence2.webp')",
-                            }}
+                            data-content-hint="home.residence.image2"
+                            data-content-hint-type="image"
+                            style={{ backgroundImage: "url('/residence2.webp')" }}
                         />
                     </SwiperSlide>
                     <SwiperSlide>
                         <div
                             className="w-full h-full bg-cover bg-center"
-                            style={{
-                                backgroundImage: "url('/residence3.webp')",
-                            }}
+                            data-content-hint="home.residence.image3"
+                            data-content-hint-type="image"
+                            style={{ backgroundImage: "url('/residence3.webp')" }}
                         />
                     </SwiperSlide>
 
@@ -412,7 +419,7 @@ const FirstAnimationBlock = () => {
                     className="relative w-full h-full flex justify-start pl-[16px] md:pl-[80px] xl:pl-[120px] 2xl:pl-[200px] items-start pt-[95px] sm:pt-[110px] md:pt-0 md:items-center"
                 >
                     <div>
-                        <div className="text-[#1D1D1D99] text-[20px] md:text-[24px] 2xl:text-[36px] uppercase mb-3 xl:mb-7">
+                        <div className="text-[#1D1D1D99] text-[20px] md:text-[24px] 2xl:text-[36px] uppercase mb-3 xl:mb-7" data-content-hint="home.manifesto.label">
                             манифест искренности
                         </div>
                         <div className="flex gap-6">
@@ -421,7 +428,7 @@ const FirstAnimationBlock = () => {
                                 alt=""
                                 className="w-[80px] h-[66px]"
                             />
-                            <p className="max-w-[264px] sm:max-w-[376px] 2xl:max-w-[640px] leading-[155%] mt-0 sm:mt-4 2xl:mt-10 uppercase text-[11px] md:text-xs 2xl:text-lg">
+                            <p className="max-w-[264px] sm:max-w-[376px] 2xl:max-w-[640px] leading-[155%] mt-0 sm:mt-4 2xl:mt-10 uppercase text-[11px] md:text-xs 2xl:text-lg" data-content-hint="home.manifesto.quote">
                                 <span className="font-bold text-[#691C32]">
                                     RAMICLINIC RESIDENCE
                                 </span>{" "}
@@ -436,10 +443,10 @@ const FirstAnimationBlock = () => {
                         </div>
                     </div>
                     <div className="uppercase absolute bottom-6 text-white right-6 md:right-[clamp(4.938rem,_-2.938rem_+_16.41vw,_16.75rem)]">
-                        <p className="font-bold mb-1 text-sm 2xl:text-[21px]">
+                        <p className="font-bold mb-1 text-sm 2xl:text-[21px]" data-content-hint="home.manifesto.author-name">
                             Галина Резник
                         </p>
-                        <p className="text-xs 2xl:text-lg">
+                        <p className="text-xs 2xl:text-lg" data-content-hint="home.manifesto.author-role">
                             Генеральный директор
                         </p>
                     </div>
@@ -450,6 +457,8 @@ const FirstAnimationBlock = () => {
                             width={228}
                             height={218}
                             className="w-[160px] h-[153px] 2xl:w-[228px] 2xl:h-[218px]"
+                            data-content-hint="home.ceo.image"
+                            data-content-hint-type="image"
                         />
                     </div>
                 </div>
