@@ -48,7 +48,7 @@ const MAX_FILE_BYTES = 15 * 1024 * 1024;
 const RecordRow = ({ field }: { field: DisplayField }) => {
     const { saveContent, resetContent } = useContentContext();
     const [expanded, setExpanded] = useState(false);
-    const [draft, setDraft] = useState(field.value);
+    const [, setDraft] = useState(field.value);
     const [status, setStatus] = useState<SaveStatus>("idle");
     const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
     const editorRef = useRef<HTMLDivElement>(null);

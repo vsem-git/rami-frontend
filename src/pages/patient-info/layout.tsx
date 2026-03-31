@@ -16,7 +16,7 @@ const LayoutContent = () => {
 	return (
 		<>
 			<HeaderUpdate useWhiteText={false} />
-			<DoctorCardModal modalResults={[]} onSelect={item => console.log(item)} />
+			<DoctorCardModal modalResults={[]} modalProfessionalDev={[]} modalEducation={[]} onSelect={item => console.log(item)} />
 			<GalleryModal />
 			<ContactPopUp />
 			<ScrollSmoother>

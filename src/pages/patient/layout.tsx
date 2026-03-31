@@ -12,6 +12,8 @@ const LayoutContent = () => {
             <HeaderUpdate useWhiteText={false} isRelative={true} />
             <DoctorCardModal
                 modalResults={[]}
+                modalProfessionalDev={[]}
+                modalEducation={[]}
                 onSelect={(item) => console.log(item)}
             />
 

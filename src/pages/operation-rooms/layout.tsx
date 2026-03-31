@@ -125,7 +125,7 @@ const LayoutContent = () => {
 				/>
 			</div>
 			<ContactPopUp />
-			<DoctorCardModal modalResults={[]} onSelect={item => console.log(item)} />
+			<DoctorCardModal modalResults={[]} modalProfessionalDev={[]} modalEducation={[]} onSelect={item => console.log(item)} />
 
 			{!isAnyPopupOpen && <HeaderUpdate useWhiteText={useWhiteText} />}
 

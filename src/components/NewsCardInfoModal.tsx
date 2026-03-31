@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import close from "../../public/close-n.svg";
 import type { NewsItem } from "../services/news";
 import { CardNewsDetail } from "./CardNewsDetail";

@@ -1,16 +1,14 @@
-import gsap from 'gsap'
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useEffect, useRef, useState } from 'react'
-import { useParams } from 'react-router-dom'
 import { DoctorAge } from './components/DoctorAge/DoctorAge'
 import { DoctorGallery } from './components/DoctorGallery/DoctorGallery'
 import DoctorResults from './components/DoctorResults/DoctorResults'
+import { DoctorCardModal } from '../../components/DoctorCardModal'
 import { usePopup } from '../../components/PopupContext'
 import { WelcomeDoctor } from './components/welcome-doctor/WelcomeDoctor'
 import { POPUP_NAMES } from '../../constants/popupNames'
-import { fetchDoctorBySlug } from '../../services/doctors'
-import { doctorFromRecord } from '../../shared/utils/doctorFromRecord'
-import type { Doctor as DoctorType } from '../../shared/types/doctor'
+import { useDoctor } from './DoctorContext'
 import mes from '../../shared/icons/mes.svg'
 import type { ModalResultItem } from '../../shared/types/doctor'
 
@@ -19,16 +17,8 @@ gsap.registerPlugin(ScrollTrigger)
 export const Doctor = () => {
 	const sectionRef = useRef<HTMLElement>(null)
 	const videoRef = useRef<HTMLVideoElement>(null)
-	const { id } = useParams()
 	const { openPopup } = usePopup()
-	const [doctor, setDoctor] = useState<DoctorType | null | undefined>(undefined)
-
-	useEffect(() => {
-		if (!id) { setDoctor(null); return }
-		fetchDoctorBySlug(id).then((record) =>
-			setDoctor(record ? doctorFromRecord(record) : null),
-		)
-	}, [id])
+	const { doctor, loading } = useDoctor()
 
 	useEffect(() => {
 		if (!doctor || window.innerWidth <= 768 || !sectionRef.current) return
@@ -155,11 +145,11 @@ export const Doctor = () => {
 	// Всегда рендерим один стабильный wrapper-div, чтобы React не делал
 	// insertBefore относительно Footer в #content, пока ScrollSmoother
 	// модифицирует DOM. Контент внутри меняется, структура снаружи — нет.
-	if (doctor === undefined) {
+	if (loading) {
 		return <div><div className="min-h-screen" /></div>
 	}
 
-	if (doctor === null) {
+	if (!doctor) {
 		return <div><div className="p-8 text-center uppercase tracking-widest text-black/40 text-sm">Доктор не найден</div></div>
 	}
 
@@ -176,6 +166,12 @@ export const Doctor = () => {
 			<DoctorResults
 				directions={doctor.directions}
 				results={doctor.modal_result ?? []}
+				onSelect={handleSelectResult}
+			/>
+			<DoctorCardModal
+				modalResults={doctor.modal_result ?? []}
+				modalProfessionalDev={doctor.modalProfessionalDev ?? []}
+				modalEducation={doctor.modalEducation ?? []}
 				onSelect={handleSelectResult}
 			/>
 			{/* <div id='next-section-doctor2'>

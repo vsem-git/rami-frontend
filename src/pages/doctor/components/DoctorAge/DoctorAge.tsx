@@ -11,6 +11,11 @@ export const DoctorAge = ({ doctor }: { doctor: Doctor }) => {
 	const containerRef = useRef<HTMLDivElement | null>(null)
 	const cardRefs = useRef<(HTMLDivElement | null)[]>([])
 
+	// Не показываем секцию, если нет route
+	if (!doctor.route || doctor.route.length === 0) {
+		return null
+	}
+
 	const setCardRef = useCallback(
 		(index: number) => (el: HTMLDivElement | null) => {
 			cardRefs.current[index] = el
@@ -153,7 +158,7 @@ export const DoctorAge = ({ doctor }: { doctor: Doctor }) => {
 	return (
 		<div
 			ref={containerRef}
-			className='relative text-center overflow-hidden 
+			className='relative text-center overflow-hidden
 		h-auto md:h-[clamp(700px,90vh,900px)] lg:h-[clamp(900px,110vh,1200px)]
 		pt-0 md:pt-[clamp(60px,17vh,150px)]'
 		>
@@ -162,7 +167,7 @@ export const DoctorAge = ({ doctor }: { doctor: Doctor }) => {
 			</h2>
 
 			<div className='w-full flex flex-col items-center gap-10 -mt-12 md:block md:-mt-0'>
-				{doctor.route?.map((data, index) => (
+				{doctor.route && doctor.route.length > 0 && doctor.route.map((data, index) => (
 					<Card key={data.year} data={data} index={index} />
 				))}
 			</div>

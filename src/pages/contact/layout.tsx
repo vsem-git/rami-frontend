@@ -16,7 +16,7 @@ const LayoutContent = () => {
 		<>
 			<ContactPopUp />
 			<Header />
-			<DoctorCardModal modalResults={[]} onSelect={item => console.log(item)} />
+			<DoctorCardModal modalResults={[]} modalProfessionalDev={[]} modalEducation={[]} onSelect={item => console.log(item)} />
 
 			<ScrollSmoother>
 				<Outlet />

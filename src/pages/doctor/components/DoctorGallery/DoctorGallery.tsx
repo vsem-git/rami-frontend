@@ -8,15 +8,22 @@ import type { Doctor } from '../../../../shared/types/doctor'
 gsap.registerPlugin(ScrollTrigger)
 
 export const DoctorGallery = ({ doctor }: { doctor: Doctor }) => {
-	const leftColumnImages = doctor.gallery?.[0]?.leftColumnImages || []
-	const centerColumnImages = doctor.gallery?.[1]?.centerColumnImages || []
-	const rightColumnImages = doctor.gallery?.[2]?.rightColumnImages || []
+	// Берём все колонки из первого элемента gallery
+	const galleryItem = doctor.gallery?.[0];
+	const leftColumnImages = galleryItem?.leftColumnImages || []
+	const centerColumnImages = galleryItem?.centerColumnImages || []
+	const rightColumnImages = galleryItem?.rightColumnImages || []
 
 	const allImages = [
 		...leftColumnImages,
 		...centerColumnImages,
 		...rightColumnImages,
 	]
+
+	// Не показываем галерею, если нет изображений
+	if (allImages.length === 0 && !doctor.titleGallery) {
+		return null
+	}
 
 	const centerRef = useRef<HTMLDivElement | null>(null)
 	const scrollingTextRef = useRef<HTMLDivElement | null>(null)

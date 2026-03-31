@@ -13,13 +13,19 @@ import { PopupProvider, usePopup } from '../../components/PopupContext'
 import ScrollSmoother from '../../components/ScrollSmoother'
 import { UniversalModal } from './components/UniversalModal'
 import { POPUP_NAMES } from '../../constants/popupNames'
+import { DoctorProvider, useDoctor } from './DoctorContext'
+import type { EducationItem, ExperienceItem } from '../../shared/types/doctor'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const LayoutContent = () => {
 	const { isOpen } = usePopup()
+	const { doctor } = useDoctor()
 	const [useWhiteText, setUseWhiteText] = useState(false)
 	const [selectedItem, setSelectedItem] = useState<any>(null)
+
+	const educationData: EducationItem[] = doctor?.modalEducation ?? []
+	const experienceData: ExperienceItem[] = doctor?.modalProfessionalDev ?? []
 
 	const isAnyPopupOpen =
 		isOpen(POPUP_NAMES.CONTACT) ||
@@ -145,8 +151,8 @@ const LayoutContent = () => {
 			<UniversalModal onSelect={item => setSelectedItem(item)} />
 			<DoctorResultEffect selectedItem={selectedItem} />
 
-			<EducationPanel educationData={[]} />
-			<ExperiencePanel experienceData={[]} />
+			<EducationPanel educationData={educationData} />
+			<ExperiencePanel experienceData={experienceData} />
 
 			{!isAnyPopupOpen && <HeaderUpdate useWhiteText={useWhiteText} />}
 
@@ -162,7 +168,9 @@ const Layout = () => {
 	return (
 		<PopupProvider>
 			<HeaderProvider>
-				<LayoutContent />
+				<DoctorProvider>
+					<LayoutContent />
+				</DoctorProvider>
 			</HeaderProvider>
 		</PopupProvider>
 	)

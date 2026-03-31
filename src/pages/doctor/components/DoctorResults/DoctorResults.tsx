@@ -19,6 +19,11 @@ const DoctorResults = ({
 	results,
 	onSelect,
 }: DoctorResultsProps) => {
+	// Не показываем секцию, если нет результатов и направлений
+	if ((!results || results.length === 0) && (!directions || directions.length === 0)) {
+		return null
+	}
+
 	const [processedResults, setProcessedResults] = useState(results || [])
 
 	const TABS: Tab[] = [
