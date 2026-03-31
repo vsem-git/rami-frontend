@@ -79,7 +79,6 @@ interface FormState {
     titleGallery: string;
     isSpecialites: boolean;
     sortOrder: string;
-    cards: string[];
     modalProfessionalDev: ExperienceItem[];
     modalEducation: EducationItem[];
     route: RouteItem[];
@@ -113,7 +112,6 @@ const emptyForm = (): FormState => ({
     titleGallery: "",
     isSpecialites: false,
     sortOrder: "0",
-    cards: [],
     modalProfessionalDev: [],
     modalEducation: [],
     route: [],
@@ -141,7 +139,6 @@ const recordToForm = (item: DoctorRecord): FormState => ({
     titleGallery: item.titleGallery ?? "",
     isSpecialites: item.isSpecialites ?? false,
     sortOrder: String(item.sortOrder ?? 0),
-    cards: safeArray<string>(item.cards),
     modalProfessionalDev: item.modalProfessionalDev ?? [],
     modalEducation: item.modalEducation ?? [],
     route: item.route ?? [],
@@ -442,39 +439,6 @@ export const DoctorsPanel = ({ isOpen, onClose }: DoctorsPanelProps) => {
             }
         };
 
-    const makeCardUploader = (index: number) => async (file: File) => {
-        const key = `card_${index}`;
-        setUploading((u) => ({ ...u, [key]: true }));
-        try {
-            const url = await uploadDoctorImage(file, editingId ?? undefined);
-            setForm((f) => {
-                const arr = [...f.cards];
-                arr[index] = url;
-                return { ...f, cards: arr };
-            });
-        } finally {
-            setUploading((u) => ({ ...u, [key]: false }));
-        }
-    };
-
-    const makeResultImageUploader =
-        (resultIndex: number, imgIndex: number) => async (file: File) => {
-            const key = `result_${resultIndex}_${imgIndex}`;
-            setUploading((u) => ({ ...u, [key]: true }));
-            try {
-                const url = await uploadDoctorImage(file, editingId ?? undefined);
-                setForm((f) => {
-                    const results = [...f.modalResult];
-                    const imgs = [...results[resultIndex].images];
-                    imgs[imgIndex] = url;
-                    results[resultIndex] = { ...results[resultIndex], images: imgs };
-                    return { ...f, modalResult: results };
-                });
-            } finally {
-                setUploading((u) => ({ ...u, [key]: false }));
-            }
-        };
-
     const makeGalleryUploader =
         (groupIndex: number, col: "left" | "center" | "right", imgIndex: number) =>
         async (file: File) => {
@@ -575,7 +539,6 @@ export const DoctorsPanel = ({ isOpen, onClose }: DoctorsPanelProps) => {
                 titleGallery: form.titleGallery || undefined,
                 isSpecialites: form.isSpecialites,
                 sortOrder: parseInt(form.sortOrder) || 0,
-                cards: form.cards.filter((c) => c.trim()),
                 modalProfessionalDev: form.modalProfessionalDev.length > 0 ? form.modalProfessionalDev : [],
                 modalEducation: form.modalEducation.length > 0 ? form.modalEducation : [],
                 route: form.route.length > 0 ? form.route : [],
@@ -634,19 +597,6 @@ export const DoctorsPanel = ({ isOpen, onClose }: DoctorsPanelProps) => {
             directions: f.directions.includes(dir)
                 ? f.directions.filter((d) => d !== dir)
                 : [...f.directions, dir],
-        }));
-
-    const updateCard = (index: number, value: string) =>
-        setForm((f) => {
-            const arr = [...f.cards];
-            arr[index] = value;
-            return { ...f, cards: arr };
-        });
-
-    const removeCard = (index: number) =>
-        setForm((f) => ({
-            ...f,
-            cards: f.cards.filter((_, i) => i !== index),
         }));
 
     // ── Render ────────────────────────────────────────────────────────────────
@@ -996,7 +946,7 @@ export const DoctorsPanel = ({ isOpen, onClose }: DoctorsPanelProps) => {
                                     />
                                 </Field>
 
-                                <Field label="Видео футер WebM">
+                                <Field label="Видео для футера (WebM)">
                                     <UploadableInput
                                         value={form.videoFooterIm}
                                         onChange={(v) => setField("videoFooterIm", v)}
@@ -1007,7 +957,7 @@ export const DoctorsPanel = ({ isOpen, onClose }: DoctorsPanelProps) => {
                                     />
                                 </Field>
 
-                                <Field label="Видео футер MP4">
+                                <Field label="Видео для футера (MP4)">
                                     <UploadableInput
                                         value={form.videoFooterMp}
                                         onChange={(v) => setField("videoFooterMp", v)}
@@ -1036,32 +986,6 @@ export const DoctorsPanel = ({ isOpen, onClose }: DoctorsPanelProps) => {
                                         uploading={uploading["bgMobile"]}
                                         placeholder="/doctor-screen/serb1.webp"
                                     />
-                                </Field>
-
-                                <Field label={`Карточки результатов (${form.cards.length})`}>
-                                    <div className="flex flex-col gap-2">
-                                        {form.cards.map((c, i) => (
-                                            <div key={i} className="flex gap-1 items-start">
-                                                <div className="flex-1">
-                                                    <UploadableInput
-                                                        value={c}
-                                                        onChange={(v) => updateCard(i, v)}
-                                                        onUpload={makeCardUploader(i)}
-                                                        uploading={uploading[`card_${i}`]}
-                                                        placeholder="/doctor-screen/card1.webp"
-                                                    />
-                                                </div>
-                                                <RemoveButton onClick={() => removeCard(i)} />
-                                            </div>
-                                        ))}
-                                        <AddButton
-                                            onClick={() =>
-                                                setField("cards", [...form.cards, ""])
-                                            }
-                                        >
-                                            Добавить карточку
-                                        </AddButton>
-                                    </div>
                                 </Field>
                             </Section>
 
@@ -1154,9 +1078,8 @@ export const DoctorsPanel = ({ isOpen, onClose }: DoctorsPanelProps) => {
                                     value={form.modalResult}
                                     onChange={(val) => setField("modalResult", val)}
                                     uploading={uploading}
-                                    onUpload={async (resultIndex, imgIndex, file) => {
-                                        await makeResultImageUploader(resultIndex, imgIndex)(file);
-                                    }}
+                                    uploadDoctorImage={uploadDoctorImage}
+                                    setUploading={setUploading}
                                 />
                             </Section>
                         </div>

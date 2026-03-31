@@ -13,11 +13,6 @@ export const DOCTORS_DATA: Doctor[] = [
         videoFooterIm: "/serb-short.webm",
         videoFooterMp: "/serb-short.mp4",
         id: "serb-irina",
-        cards: [
-            "/doctor-screen/card1.webp",
-            "/doctor-screen/card2.webp",
-            "/doctor-screen/card3.webp",
-        ],
         modalProfessionalDev: [
             {
                 year: "1988 — 2008",
@@ -195,38 +190,24 @@ export const DOCTORS_DATA: Doctor[] = [
                 type: "Пластика лица",
                 description:
                     "Комплексное омоложение:  эндоскопический фронтотемпоральный лифтинг, нижняя трансконъюктивальная блефаропластика, медиальная платизмопластика, смас-лифтинг, липофилинг лица",
-                images: [
-                    "/doctor-screen/result-ser/1/1.webp",
-                    "/doctor-screen/result-ser/1/2.webp",
-                    "/doctor-screen/result-ser/1/1.1.webp",
-                    "/doctor-screen/result-ser/1/1.2.webp",
-                ],
+                before: "/doctor-screen/result-ser/1/1.webp",
+                after: "/doctor-screen/result-ser/1/2.webp",
             },
             {
                 id: 2,
                 type: "Пластика лица",
                 description:
-                    "Комплексное омоложение: квадрилатеральная блефаропластика, эндоскопический фронтотемпоральный лифтинг, корсетная медиальная платизмопластика, смас-лифтинг",
-                images: [
-                    "/doctor-screen/result-ser/2/1.1.webp",
-                    "/doctor-screen/result-ser/2/2.2.webp",
-                    "/doctor-screen/result-ser/2/2.3.webp",
-                    "/doctor-screen/result-ser/2/2.4.webp",
-                    "/doctor-screen/result-ser/2/2.webp",
-                ],
+                    "Комплексное омоложение: квадрилатеральная блефаропластика, эндоскопический фронтотемпоральный лифтинг, корсетная медиальная платизмопластика, смас-лифтинг",
+                before: "/doctor-screen/result-ser/2/1.1.webp",
+                after: "/doctor-screen/result-ser/2/2.2.webp",
             },
             {
                 id: 3,
                 type: "Пластика лица",
                 description:
                     "Комплексное омоложение:  эндоскопический фронтотемпоральный лифтинг,  квадрилатеральная блефаропластика, кантомиопексия, медиальная платизмопластика, субментальная липосакция, смас-лифтинг",
-                images: [
-                    "/doctor-screen/result-ser/3/1.webp",
-                    "/doctor-screen/result-ser/3/2.webp",
-                    "/doctor-screen/result-ser/3/3.webp",
-                    "/doctor-screen/result-ser/3/4.webp",
-                    "/doctor-screen/result-ser/3/5.webp",
-                ],
+                before: "/doctor-screen/result-ser/3/1.webp",
+                after: "/doctor-screen/result-ser/3/2.webp",
             },
 
             {
@@ -234,22 +215,16 @@ export const DOCTORS_DATA: Doctor[] = [
                 type: "Пластика лица",
                 description:
                     "Комплексное омоложение:  верхняя и нижняя блефаропластика, эндоскопический фронтотемпоральный лифтинг, медиальная корсетная платизмопластика, смас-лифтинг, редукция комков Биша",
-                images: [
-                    "/doctor-screen/result-ser/4/2.webp",
-                    "/doctor-screen/result-ser/4/3.webp",
-                    "/doctor-screen/result-ser/4/1.webp",
-                ],
+                before: "/doctor-screen/result-ser/4/2.webp",
+                after: "/doctor-screen/result-ser/4/3.webp",
             },
             {
                 id: 5,
                 type: "Пластика лица",
                 description:
                     "Комплексное омоложение:  верхняя и нижняя блефаропластика, эндоскопический фронтотемпоральный лифтинг, медиальная корсетная платизмопластика, смас-лифтинг, редукция комков Биша",
-                images: [
-                    "/doctor-screen/result-ser/5/1.webp",
-                    "/doctor-screen/result-ser/5/2.webp",
-                    "/doctor-screen/result-ser/5/3.webp",
-                ],
+                before: "/doctor-screen/result-ser/5/1.webp",
+                after: "/doctor-screen/result-ser/5/2.webp",
             },
         ],
     },
@@ -280,11 +255,6 @@ export const DOCTORS_DATA: Doctor[] = [
         firstName: "Василий Сергеевич",
         link: "/doctor",
         id: "tarasenko-vasiliy",
-        cards: [
-            "/doctor-screen/tarasenko-vasiliy/result/res4/1.webp",
-            "/doctor-screen/tarasenko-vasiliy/archive/card6.webp",
-            "/doctor-screen/tarasenko-vasiliy/training/card2.webp",
-        ],
 
         modalProfessionalDev: [
             {
@@ -635,28 +605,19 @@ export const DOCTORS_DATA: Doctor[] = [
                 id: 1,
                 year: "",
                 description: [],
-                images: [
-                    "/doctor-screen/tarasenko-vasiliy/training/card6.webp",
-                    "/doctor-screen/tarasenko-vasiliy/training/card1.webp",
-                ],
+                images: ["/doctor-screen/tarasenko-vasiliy/training/card6.webp", "/doctor-screen/tarasenko-vasiliy/training/card1.webp"],
             },
             {
                 id: 2,
                 year: "",
                 description: [],
-                images: [
-                    "/doctor-screen/tarasenko-vasiliy/training/card4.webp",
-                    "/doctor-screen/tarasenko-vasiliy/training/card5.webp",
-                ],
+                images: ["/doctor-screen/tarasenko-vasiliy/training/card4.webp", "/doctor-screen/tarasenko-vasiliy/training/card5.webp"],
             },
             {
                 id: 3,
                 year: "",
                 description: [],
-                images: [
-                    "/doctor-screen/tarasenko-vasiliy/training/card3.webp",
-                    "/doctor-screen/tarasenko-vasiliy/training/card2.webp",
-                ],
+                images: ["/doctor-screen/tarasenko-vasiliy/training/card3.webp", "/doctor-screen/tarasenko-vasiliy/training/card2.webp"],
             },
         ],
         modalCardPath: [
@@ -669,10 +630,7 @@ export const DOCTORS_DATA: Doctor[] = [
                         "ISAPS, Киото, Япония",
                     ],
                 ],
-                images: [
-                    "/doctor-screen/tarasenko-vasiliy/archive/card1.webp",
-                    "/doctor-screen/tarasenko-vasiliy/archive/card2.webp",
-                ],
+                images: ["/doctor-screen/tarasenko-vasiliy/archive/card1.webp", "/doctor-screen/tarasenko-vasiliy/archive/card2.webp"],
             },
             {
                 id: 2,
@@ -683,10 +641,7 @@ export const DOCTORS_DATA: Doctor[] = [
                         "Б. Мендельсон (Австралия) и Д. Батюков (Беларусь), продвинутый курс MAFAC",
                     ],
                 ],
-                images: [
-                    "/doctor-screen/tarasenko-vasiliy/archive/card3.webp",
-                    "/doctor-screen/tarasenko-vasiliy/archive/card4.webp",
-                ],
+                images: ["/doctor-screen/tarasenko-vasiliy/archive/card3.webp", "/doctor-screen/tarasenko-vasiliy/archive/card4.webp"],
             },
             {
                 id: 3,
@@ -695,10 +650,7 @@ export const DOCTORS_DATA: Doctor[] = [
                     "3.Сэм Хамра (США), мастер-класс, Москва",
                     "Рамирез (США), международный интенсивный обучающий курс, Санкт-Петербург",
                 ],
-                images: [
-                    "/doctor-screen/tarasenko-vasiliy/archive/card5.webp",
-                    "/doctor-screen/tarasenko-vasiliy/archive/card6.webp",
-                ],
+                images: ["/doctor-screen/tarasenko-vasiliy/archive/card5.webp", "/doctor-screen/tarasenko-vasiliy/archive/card6.webp"],
             },
         ],
 
@@ -708,32 +660,23 @@ export const DOCTORS_DATA: Doctor[] = [
                 type: "Пластика лица",
                 description:
                     "Комплексная операция: лифтинг Мендельсона, эндоскопическое омоложение лба и нижняя блефаропластика. Результат через 6 месяцев после операции.",
-                images: [
-                    "/doctor-screen/tarasenko-vasiliy/result/res1/1.webp",
-                    "/doctor-screen/tarasenko-vasiliy/result/res1/1.2.webp",
-                    "/doctor-screen/tarasenko-vasiliy/result/res1/2.webp",
-                    "/doctor-screen/tarasenko-vasiliy/result/res1/2.2.webp",
-                ],
+                before: "/doctor-screen/tarasenko-vasiliy/result/res1/1.webp",
+                after: "/doctor-screen/tarasenko-vasiliy/result/res1/1.2.webp",
             },
             {
                 id: 2,
                 type: "Пластика лица",
                 description: "",
-                images: [
-                    "/doctor-screen/tarasenko-vasiliy/result/res2/35_1.webp",
-                    "/doctor-screen/tarasenko-vasiliy/result/res2/35_2.webp",
-                ],
+                before: "/doctor-screen/tarasenko-vasiliy/result/res2/35_1.webp",
+                after: "/doctor-screen/tarasenko-vasiliy/result/res2/35_2.webp",
             },
             {
                 id: 3,
                 type: "Пластика лица",
                 description:
                     "Подтяжка лица и шеи по методике лифтинг Мендельсона, эндоскопический фронто-темпоральный лифтинг. Результата через 6 месяцев после операции.",
-                images: [
-                    "/doctor-screen/tarasenko-vasiliy/result/res3/4.2.webp",
-
-                    "/doctor-screen/tarasenko-vasiliy/result/res3/4.webp",
-                ],
+                before: "/doctor-screen/tarasenko-vasiliy/result/res3/4.2.webp",
+                after: "/doctor-screen/tarasenko-vasiliy/result/res3/4.webp",
             },
 
             {
@@ -741,24 +684,16 @@ export const DOCTORS_DATA: Doctor[] = [
                 type: "Пластика лица",
                 description:
                     "Лифтинг Мендельсона и эндоскопический фронтотемпоральный лифтинг 6 мес",
-                images: [
-                    "/doctor-screen/tarasenko-vasiliy/result/res4/1.webp",
-                    "/doctor-screen/tarasenko-vasiliy/result/res4/3.webp",
-                ],
+                before: "/doctor-screen/tarasenko-vasiliy/result/res4/1.webp",
+                after: "/doctor-screen/tarasenko-vasiliy/result/res4/3.webp",
             },
             {
                 id: 5,
                 type: "Пластика лица",
                 description:
                     "Лифтинг Мендельсона и эндоскопический фронтотемпоральный лифтинг 1 год",
-                images: [
-                    "/doctor-screen/tarasenko-vasiliy/result/res5/1.webp",
-                    "/doctor-screen/tarasenko-vasiliy/result/res5/1.webp",
-                    "/doctor-screen/tarasenko-vasiliy/result/res5/2.webp",
-                    "/doctor-screen/tarasenko-vasiliy/result/res5/3.webp",
-                    "/doctor-screen/tarasenko-vasiliy/result/res5/4.webp",
-                    "/doctor-screen/tarasenko-vasiliy/result/res5/5.webp",
-                ],
+                before: "/doctor-screen/tarasenko-vasiliy/result/res5/1.webp",
+                after: "/doctor-screen/tarasenko-vasiliy/result/res5/1.webp",
             },
         ],
     },

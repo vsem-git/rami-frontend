@@ -16,11 +16,8 @@ interface Tab {
     label: string;
 }
 
-const TABS: Tab[] = [
+const BASE_TABS: Tab[] = [
     { id: 0, label: "ВСЕ ВРАЧИ" },
-    { id: 1, label: "ПЛАСТИЧЕСКИЕ ХИРУРГИ" },
-    { id: 2, label: "КОСМЕТОЛОГИ" },
-    { id: 3, label: "Антиэйдж-специалисты" },
 ];
 
 interface PlusIconProps {
@@ -96,12 +93,30 @@ const Doctors: React.FC = () => {
     const [activeTab, setActiveTab] = useState<number>(0);
     const [clickedCards, setClickedCards] = useState<Set<number>>(new Set());
     const [doctorsData, setDoctorsData] = useState<Doctor[]>([]);
+    const [tabs, setTabs] = useState<Tab[]>(BASE_TABS);
     const SecondAnimationBlockRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        fetchAllDoctors().then((records) =>
-            setDoctorsData(records.map(doctorFromRecord)),
-        );
+        fetchAllDoctors().then((records) => {
+            const doctors = records.map(doctorFromRecord);
+            setDoctorsData(doctors);
+
+            // Собираем уникальные направления
+            const allDirections = new Set<string>();
+            doctors.forEach((doctor) => {
+                doctor.directions?.forEach((dir) => allDirections.add(dir));
+            });
+
+            // Создаём табы из направлений
+            const directionTabs: Tab[] = Array.from(allDirections).map(
+                (direction, index) => ({
+                    id: index + 1,
+                    label: direction.toUpperCase(),
+                })
+            );
+
+            setTabs([...BASE_TABS, ...directionTabs]);
+        });
     }, []);
 
     const toggleCard = useCallback((index: number) => {
@@ -112,8 +127,16 @@ const Doctors: React.FC = () => {
         });
     }, []);
 
-
-    const displayedDoctors = activeTab <= 1 ? doctorsData : [];
+    // Фильтрация врачей по выбранному направлению
+    const displayedDoctors = activeTab === 0 
+        ? doctorsData 
+        : doctorsData.filter((doctor) => {
+              const selectedTab = tabs.find((t) => t.id === activeTab);
+              if (!selectedTab) return false;
+              return doctor.directions?.some(
+                  (dir) => dir.toUpperCase() === selectedTab.label
+              );
+          });
 
     const chunkArray = (array: any[], size = 2) => {
         const result = [];
@@ -179,7 +202,7 @@ const Doctors: React.FC = () => {
                     <div className="font-semibold leading-[155%] text-[11px] md:text-xs 2xl:text-base flex lg:flex-row flex-col justify-between xl:items-center">
                         <nav className="">
                             <ul className="flex gap-10 xl:h-auto h-[48px] items-center uppercase overflow-x-auto whitespace-nowrap scrollbar-hide pb-2">
-                                {TABS.map((tab) => (
+                                {tabs.map((tab) => (
                                     <TabItem
                                         key={tab.id}
                                         tab={tab}

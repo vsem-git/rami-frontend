@@ -437,15 +437,30 @@ export const RouteEditor = ({
                             />
                         )}
                     </Field>
-                    <Field label="CSS класс изображения">
-                        <input
-                            className={inputCls}
-                            placeholder="w-[200px]"
-                            value={item.imageClassName}
-                            onChange={(e) =>
-                                updateField(i, "imageClassName", e.target.value)
-                            }
-                        />
+                    <Field label="Ширина изображения">
+                        <div className="flex gap-2 items-center">
+                            <select
+                                className={inputCls}
+                                value={item.imageClassName || ""}
+                                onChange={(e) =>
+                                    updateField(i, "imageClassName", e.target.value)
+                                }
+                            >
+                                <option value="">Выберите ширину</option>
+                                <option value="w-[150px]">150px</option>
+                                <option value="w-[200px]">200px</option>
+                                <option value="w-[250px]">250px</option>
+                                <option value="w-[300px]">300px</option>
+                                <option value="w-[350px]">350px</option>
+                                <option value="w-[400px]">400px</option>
+                                <option value="w-full">100%</option>
+                            </select>
+                            {item.imageClassName && (
+                                <span className="text-[10px] text-black/40 whitespace-nowrap">
+                                    {item.imageClassName}
+                                </span>
+                            )}
+                        </div>
                     </Field>
                 </div>
             ))}
@@ -622,20 +637,22 @@ interface ModalResultEditorProps {
     value: ModalResultItem[];
     onChange: (value: ModalResultItem[]) => void;
     uploading: Record<string, boolean>;
-    onUpload: (resultIndex: number, imgIndex: number, file: File) => Promise<void>;
+    uploadDoctorImage: (file: File) => Promise<string>;
+    setUploading: React.Dispatch<React.SetStateAction<Record<string, boolean>>>;
 }
 
 export const ModalResultEditor = ({
     value,
     onChange,
     uploading,
-    onUpload,
+    uploadDoctorImage,
+    setUploading,
 }: ModalResultEditorProps) => {
     const addResult = () => {
         const maxId = value.reduce((max, r) => Math.max(max, r.id), 0);
         onChange([
             ...value,
-            { id: maxId + 1, type: "Пластика лица", description: "", images: [] },
+            { id: maxId + 1, type: "Пластика лица", description: "", before: undefined, after: undefined, video: undefined, commentAudio: undefined },
         ]);
     };
 
@@ -653,27 +670,56 @@ export const ModalResultEditor = ({
         onChange(next);
     };
 
-    const addImage = (index: number) => {
-        const next = [...value];
-        next[index] = { ...next[index], images: [...next[index].images, ""] };
-        onChange(next);
+    const uploadBeforeImage = async (index: number, file: File) => {
+        const key = `result_${index}_before`;
+        setUploading((u) => ({ ...u, [key]: true }));
+        try {
+            const url = await uploadDoctorImage(file);
+            const next = [...value];
+            next[index] = { ...next[index], before: url };
+            onChange(next);
+        } finally {
+            setUploading((u) => ({ ...u, [key]: false }));
+        }
     };
 
-    const updateImage = (index: number, imgIndex: number, url: string) => {
-        const next = [...value];
-        const imgs = [...next[index].images];
-        imgs[imgIndex] = url;
-        next[index] = { ...next[index], images: imgs };
-        onChange(next);
+    const uploadAfterImage = async (index: number, file: File) => {
+        const key = `result_${index}_after`;
+        setUploading((u) => ({ ...u, [key]: true }));
+        try {
+            const url = await uploadDoctorImage(file);
+            const next = [...value];
+            next[index] = { ...next[index], after: url };
+            onChange(next);
+        } finally {
+            setUploading((u) => ({ ...u, [key]: false }));
+        }
     };
 
-    const removeImage = (index: number, imgIndex: number) => {
-        const next = [...value];
-        next[index] = {
-            ...next[index],
-            images: next[index].images.filter((_, i) => i !== imgIndex),
-        };
-        onChange(next);
+    const uploadVideo = async (index: number, file: File) => {
+        const key = `result_${index}_video`;
+        setUploading((u) => ({ ...u, [key]: true }));
+        try {
+            const url = await uploadDoctorImage(file);
+            const next = [...value];
+            next[index] = { ...next[index], video: url };
+            onChange(next);
+        } finally {
+            setUploading((u) => ({ ...u, [key]: false }));
+        }
+    };
+
+    const uploadCommentAudio = async (index: number, file: File) => {
+        const key = `result_${index}_audio`;
+        setUploading((u) => ({ ...u, [key]: true }));
+        try {
+            const url = await uploadDoctorImage(file);
+            const next = [...value];
+            next[index] = { ...next[index], commentAudio: url };
+            onChange(next);
+        } finally {
+            setUploading((u) => ({ ...u, [key]: false }));
+        }
     };
 
     return (
@@ -713,58 +759,164 @@ export const ModalResultEditor = ({
                             }
                         />
                     </Field>
-                    <Field label="Фотографии">
-                        <div className="flex flex-col gap-2">
-                            {result.images.map((img, imgI) => (
-                                <div key={imgI} className="flex flex-col gap-1">
-                                    <div className="flex gap-1 items-center">
-                                        <input
-                                            className={inputCls}
-                                            placeholder="/results/img1.webp"
-                                            value={img}
-                                            onChange={(e) =>
-                                                updateImage(i, imgI, e.target.value)
+                    <div className="grid grid-cols-2 gap-2">
+                        <Field label="Фото 'До'">
+                            <div className="flex flex-col gap-1">
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        const input = document.createElement('input');
+                                        input.type = 'file';
+                                        input.accept = 'image/*';
+                                        input.onchange = async (e) => {
+                                            const file = (e.target as HTMLInputElement).files?.[0];
+                                            if (file) {
+                                                await uploadBeforeImage(i, file);
                                             }
-                                        />
-                                        <RemoveButton
-                                            onClick={() => removeImage(i, imgI)}
-                                        />
-                                    </div>
-                                    <div className="flex gap-1">
-                                        <button
-                                            type="button"
-                                            onClick={() => {
-                                                const input = document.createElement('input');
-                                                input.type = 'file';
-                                                input.accept = 'image/*';
-                                                input.onchange = async (e) => {
-                                                    const file = (e.target as HTMLInputElement).files?.[0];
-                                                    if (file) {
-                                                        await onUpload(i, imgI, file);
-                                                    }
-                                                };
-                                                input.click();
-                                            }}
-                                            disabled={uploading[`result_${i}_${imgI}`]}
-                                            className="text-[10px] px-2 py-1 bg-[#691C32] text-white rounded hover:bg-[#7d2239] transition-colors cursor-pointer disabled:opacity-40"
-                                        >
-                                            {uploading[`result_${i}_${imgI}`] ? 'Загрузка...' : 'Загрузить фото'}
-                                        </button>
-                                    </div>
-                                    {img && (
+                                        };
+                                        input.click();
+                                    }}
+                                    disabled={uploading[`result_${i}_before`]}
+                                    className="text-[10px] px-2 py-1 bg-[#691C32] text-white rounded hover:bg-[#7d2239] transition-colors cursor-pointer disabled:opacity-40"
+                                >
+                                    {uploading[`result_${i}_before`] ? 'Загрузка...' : 'Загрузить'}
+                                </button>
+                                {result.before && (
+                                    <>
                                         <img
-                                            src={img}
-                                            alt=""
+                                            src={result.before}
+                                            alt="До"
                                             className="w-full max-h-32 object-cover rounded border border-black/8"
                                         />
-                                    )}
-                                </div>
-                            ))}
-                            <AddButton onClick={() => addImage(i)}>
-                                Добавить фото
-                            </AddButton>
-                        </div>
-                    </Field>
+                                        <button
+                                            type="button"
+                                            onClick={() => updateField(i, 'before', undefined)}
+                                            className="text-[9px] text-red-500 hover:text-red-700"
+                                        >
+                                            Удалить
+                                        </button>
+                                    </>
+                                )}
+                            </div>
+                        </Field>
+                        <Field label="Фото 'После'">
+                            <div className="flex flex-col gap-1">
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        const input = document.createElement('input');
+                                        input.type = 'file';
+                                        input.accept = 'image/*';
+                                        input.onchange = async (e) => {
+                                            const file = (e.target as HTMLInputElement).files?.[0];
+                                            if (file) {
+                                                await uploadAfterImage(i, file);
+                                            }
+                                        };
+                                        input.click();
+                                    }}
+                                    disabled={uploading[`result_${i}_after`]}
+                                    className="text-[10px] px-2 py-1 bg-[#691C32] text-white rounded hover:bg-[#7d2239] transition-colors cursor-pointer disabled:opacity-40"
+                                >
+                                    {uploading[`result_${i}_after`] ? 'Загрузка...' : 'Загрузить'}
+                                </button>
+                                {result.after && (
+                                    <>
+                                        <img
+                                            src={result.after}
+                                            alt="После"
+                                            className="w-full max-h-32 object-cover rounded border border-black/8"
+                                        />
+                                        <button
+                                            type="button"
+                                            onClick={() => updateField(i, 'after', undefined)}
+                                            className="text-[9px] text-red-500 hover:text-red-700"
+                                        >
+                                            Удалить
+                                        </button>
+                                    </>
+                                )}
+                            </div>
+                        </Field>
+                    </div>
+
+                    {/* Видео и аудио */}
+                    <div className="grid grid-cols-2 gap-2 mt-3 pt-3 border-t border-black/8">
+                        <Field label="Видео о работе">
+                            <div className="flex flex-col gap-1">
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        const input = document.createElement('input');
+                                        input.type = 'file';
+                                        input.accept = 'video/*';
+                                        input.onchange = async (e) => {
+                                            const file = (e.target as HTMLInputElement).files?.[0];
+                                            if (file) {
+                                                await uploadVideo(i, file);
+                                            }
+                                        };
+                                        input.click();
+                                    }}
+                                    disabled={uploading[`result_${i}_video`]}
+                                    className="text-[9px] px-2 py-1 bg-[#1D1D1D] text-white rounded hover:bg-[#1D1D1D80] transition-colors cursor-pointer disabled:opacity-40"
+                                >
+                                    {uploading[`result_${i}_video`] ? 'Загрузка...' : 'Загрузить видео'}
+                                </button>
+                                {result.video && (
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-[9px] text-black/40 truncate flex-1">
+                                            {result.video}
+                                        </span>
+                                        <button
+                                            type="button"
+                                            onClick={() => updateField(i, 'video', undefined)}
+                                            className="text-[9px] text-red-500 hover:text-red-700"
+                                        >
+                                            Удалить
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
+                        </Field>
+                        <Field label="Комментарий врача (аудио)">
+                            <div className="flex flex-col gap-1">
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        const input = document.createElement('input');
+                                        input.type = 'file';
+                                        input.accept = 'audio/*';
+                                        input.onchange = async (e) => {
+                                            const file = (e.target as HTMLInputElement).files?.[0];
+                                            if (file) {
+                                                await uploadCommentAudio(i, file);
+                                            }
+                                        };
+                                        input.click();
+                                    }}
+                                    disabled={uploading[`result_${i}_audio`]}
+                                    className="text-[9px] px-2 py-1 bg-[#1D1D1D] text-white rounded hover:bg-[#1D1D1D80] transition-colors cursor-pointer disabled:opacity-40"
+                                >
+                                    {uploading[`result_${i}_audio`] ? 'Загрузка...' : 'Загрузить аудио'}
+                                </button>
+                                {result.commentAudio && (
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-[9px] text-black/40 truncate flex-1">
+                                            {result.commentAudio}
+                                        </span>
+                                        <button
+                                            type="button"
+                                            onClick={() => updateField(i, 'commentAudio', undefined)}
+                                            className="text-[9px] text-red-500 hover:text-red-700"
+                                        >
+                                            Удалить
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
+                        </Field>
+                    </div>
                 </div>
             ))}
             <AddButton onClick={addResult}>Добавить результат</AddButton>

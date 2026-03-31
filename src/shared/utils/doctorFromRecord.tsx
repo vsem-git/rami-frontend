@@ -31,7 +31,6 @@ export const doctorFromRecord = (record: DoctorRecord): Doctor => {
         link: `/doctor/${record.slug}`,
         videoFooterIm: record.videoFooterIm,
         videoFooterMp: record.videoFooterMp,
-        cards: safeArray<string>(record.cards),
         isSpecialites: record.isSpecialites,
         modalProfessionalDev: safeArray(record.modalProfessionalDev),
         modalEducation: safeArray(record.modalEducation),

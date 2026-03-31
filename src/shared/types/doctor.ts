@@ -57,7 +57,10 @@ export type ModalResultItem = {
     id: number;
     type: Directions;
     description: string;
-    images: string[];
+    before?: string;
+    after?: string;
+    video?: string;
+    commentAudio?: string;
 };
 
 // Новый тип для карточек обучения
@@ -105,7 +108,6 @@ export interface DoctorRecord {
     titleGallery?: string;
     isSpecialites?: boolean;
     sortOrder?: number;
-    cards?: string[];
     modalProfessionalDev?: ExperienceItem[];
     modalEducation?: EducationItem[];
     route?: RouteItem[];
@@ -135,7 +137,6 @@ export type Doctor = {
 
     videoFooterIm?: string;
     videoFooterMp?: string;
-    cards?: string[];
 
     modalProfessionalDev?: ExperienceItem[];
     modalEducation?: EducationItem[];
