@@ -888,13 +888,13 @@ export const DoctorsPanel = ({ isOpen, onClose }: DoctorsPanelProps) => {
                                 </Field>
 
                                 <Field label="Направления">
-                                    <div className="flex flex-wrap gap-1.5 mb-3">
+                                    <div className="flex flex-wrap gap-1.5 mb-3 max-h-48 overflow-y-auto p-1">
                                         {directionsOptions.map((dir) => (
                                             <button
                                                 key={dir}
                                                 type="button"
                                                 onClick={() => toggleDirection(dir)}
-                                                className={`text-[10px] px-2 py-1 rounded border cursor-pointer transition-colors ${
+                                                className={`text-[10px] px-2 py-1 rounded border cursor-pointer transition-colors shrink-0 ${
                                                     form.directions.includes(dir)
                                                         ? "bg-[#691C32] text-white border-[#691C32]"
                                                         : "bg-white text-black/50 border-black/12 hover:border-[#691C32]/40"

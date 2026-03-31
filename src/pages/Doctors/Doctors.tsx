@@ -216,8 +216,8 @@ const Doctors: React.FC = () => {
                     </h1>
 
                     <div className="font-semibold leading-[155%] text-[11px] md:text-xs 2xl:text-base flex lg:flex-row flex-col justify-between xl:items-center">
-                        <nav className="">
-                            <ul className="flex gap-10 xl:h-auto h-[48px] items-center uppercase overflow-x-auto whitespace-nowrap scrollbar-hide pb-2">
+                        <nav className="w-full lg:w-auto">
+                            <ul className="flex flex-wrap gap-4 xl:gap-6 items-center uppercase">
                                 {tabs.map((tab) => (
                                     <TabItem
                                         key={tab.id}
