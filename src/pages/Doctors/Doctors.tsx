@@ -1,11 +1,13 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { DoctorsCard } from "./components/DoctorsCard";
 import DoctorsCardInfo from "./components/DoctorsCardInfo";
 import { useHeader } from "../../components/HeaderContext";
 import SecondAnimationBlock from "../../components/SecondAnimationBlock/SecondAnimationBlock";
-import { DOCTORS_DATA } from "../../shared/data/doctor";
+import { fetchAllDoctors } from "../../services/doctors";
+import { doctorFromRecord } from "../../shared/utils/doctorFromRecord";
+import type { Doctor } from "../../shared/types/doctor";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -93,7 +95,14 @@ const Doctors: React.FC = () => {
     const { setHeaderColor } = useHeader();
     const [activeTab, setActiveTab] = useState<number>(0);
     const [clickedCards, setClickedCards] = useState<Set<number>>(new Set());
+    const [doctorsData, setDoctorsData] = useState<Doctor[]>([]);
     const SecondAnimationBlockRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        fetchAllDoctors().then((records) =>
+            setDoctorsData(records.map(doctorFromRecord)),
+        );
+    }, []);
 
     const toggleCard = useCallback((index: number) => {
         setClickedCards((prev) => {
@@ -104,7 +113,7 @@ const Doctors: React.FC = () => {
     }, []);
 
 
-    const displayedDoctors = activeTab <= 1 ? DOCTORS_DATA : [];
+    const displayedDoctors = activeTab <= 1 ? doctorsData : [];
 
     const chunkArray = (array: any[], size = 2) => {
         const result = [];

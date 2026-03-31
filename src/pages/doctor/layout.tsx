@@ -1,7 +1,7 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useEffect, useState } from 'react'
-import { Outlet, useLocation, useParams } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import ContactPopUp from '../../components/ContactPopUp'
 import { DoctorResultEffect } from './components/DoctorResultEffect'
 import EducationPanel from './components/EducationPanel'
@@ -13,17 +13,13 @@ import { PopupProvider, usePopup } from '../../components/PopupContext'
 import ScrollSmoother from '../../components/ScrollSmoother'
 import { UniversalModal } from './components/UniversalModal'
 import { POPUP_NAMES } from '../../constants/popupNames'
-import { DOCTORS_DATA } from '../../shared/data/doctor'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const LayoutContent = () => {
 	const { isOpen } = usePopup()
 	const [useWhiteText, setUseWhiteText] = useState(false)
-	const { id } = useParams()
 	const [selectedItem, setSelectedItem] = useState<any>(null)
-
-	const doctor = DOCTORS_DATA.find(d => d.id === id)
 
 	const isAnyPopupOpen =
 		isOpen(POPUP_NAMES.CONTACT) ||
@@ -149,8 +145,8 @@ const LayoutContent = () => {
 			<UniversalModal onSelect={item => setSelectedItem(item)} />
 			<DoctorResultEffect selectedItem={selectedItem} />
 
-			<EducationPanel educationData={doctor?.modalEducation || []} />
-			<ExperiencePanel experienceData={doctor?.modalProfessionalDev || []} />
+			<EducationPanel educationData={[]} />
+			<ExperiencePanel experienceData={[]} />
 
 			{!isAnyPopupOpen && <HeaderUpdate useWhiteText={useWhiteText} />}
 

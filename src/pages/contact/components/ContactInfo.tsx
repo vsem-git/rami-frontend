@@ -19,8 +19,9 @@ export const ContactInfo = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             className="h-[48px] md:h-[56px] w-fit flex items-center gap-2 2xl:gap-4 text-[11px] md:text-xs 2xl:text-lg leading-[155%] text-[#1D1D1D] uppercase bg-transparent border-none cursor-pointer font-semibold"
+                            data-content-hint="contact.routeLink"
                         >
-                            <span className="w-full border-b border-[#1D1D1D26]">
+                            <span className="w-full border-b border-[#1D1D1D26]" data-content-hint="contact.routeLink.text">
                                 ПОСТРОИТЬ МАРШРУТ
                             </span>
                             <svg

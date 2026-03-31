@@ -123,10 +123,17 @@ export const PhysicalSecuritySafety = () => {
 					src='/safety-screen/bg5.webp'
 					alt='Security'
 					className='object-cover medical-image-ph '
+                    data-content-hint="safety.physical.image"
+                    data-content-hint-type="image"
 				/>
 
 				<div className='flex flex-col gap-4 w-full'>
-					<h2 className='text-xl  uppercase mb-2'>ФИЗИЧЕСКАЯ БЕЗОПАСНОСТЬ</h2>
+					<h2 
+                        className='text-xl  uppercase mb-2'
+                        data-content-hint="safety.physical.title"
+                    >
+                        ФИЗИЧЕСКАЯ БЕЗОПАСНОСТЬ
+                    </h2>
 
 					{[
 						'Организация охраны на объектах',
@@ -139,14 +146,23 @@ export const PhysicalSecuritySafety = () => {
 						<div key={i} className='border-t border-[#FFFFFF33] pt-8 pb-6'>
 							<div className='flex flex-col gap-2'>
 								<div className='flex items-center justify-between '>
-									<h3 className='text-[15px] uppercase max-w-[288px]'>
+									<h3 
+                                        className='text-[15px] uppercase max-w-[288px]'
+                                        data-content-hint={`safety.physical.item.${i}.title`}
+                                    >
 										{title}
 									</h3>
-									<span className='text-[#FFFFFF4D] text-[32px] sm:text-[44px]'>
+									<span 
+                                        className='text-[#FFFFFF4D] text-[32px] sm:text-[44px]'
+                                        data-content-hint={`safety.physical.item.${i}.number`}
+                                    >
 										{`0${i + 1}`}
 									</span>
 								</div>
-								<p className='text-[11px] text-[#FFFFFFBF] uppercase leading-snug max-w-[288px]'>
+								<p 
+                                    className='text-[11px] text-[#FFFFFFBF] uppercase leading-snug max-w-[288px]'
+                                    data-content-hint={`safety.physical.item.${i}.description`}
+                                >
 									Только авторизованные пользователи могут получать доступ к
 									информации
 								</p>
@@ -251,6 +267,7 @@ export const PhysicalSecuritySafety = () => {
 			<h2
 				ref={window.innerWidth >= 768 ? textRef : undefined}
 				className='absolute bottom-10 right-10 text-2xl md:text-[24px] lg:text-4xl/[125%] text-white uppercase text-right opacity-0'
+                data-content-hint="safety.physical.title"
 			>
 				ФИЗИЧЕСКАЯ <br />
 				БЕЗОПАСНОСТЬ

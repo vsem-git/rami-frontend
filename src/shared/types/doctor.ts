@@ -84,6 +84,43 @@ export type Directions =
     | "Пластика груди"
     | "Коррекция шрамов и рубцов";
 
+// ── PocketBase-serializable doctor record ─────────────────────────────────────
+
+export interface DoctorRecord {
+    id: string;                          // PocketBase record id
+    slug: string;                        // URL slug, e.g. "serb-irina"
+    lastName: string;
+    firstName: string;
+    specialties: string[];
+    directions: string[];
+    image: string;
+    shadow?: string;
+    video: string;
+    videoFooterIm?: string;
+    videoFooterMp?: string;
+    bgDesktop?: string;
+    bgMobile?: string;
+    welcomeDescription?: string;
+    quoteText?: string;
+    titleGallery?: string;
+    isSpecialites?: boolean;
+    sortOrder?: number;
+    cards?: string[];
+    modalProfessionalDev?: ExperienceItem[];
+    modalEducation?: EducationItem[];
+    route?: RouteItem[];
+    gallery?: GalleryItem[];
+    modal_result?: ModalResultItem[];
+    modalCardEducation?: ModalCardEducationItem[];
+    modalCardPath?: ModalCardPathItem[];
+    created?: string;
+    updated?: string;
+}
+
+export type DoctorCreateData = Omit<DoctorRecord, "id" | "created" | "updated">;
+
+// ── Legacy frontend Doctor type (includes JSX) ────────────────────────────────
+
 export type Doctor = {
     image: string;
     shadow?: string;

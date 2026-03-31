@@ -64,7 +64,10 @@ export const MedicalSafety = () => {
 			ref={wrapperRef}
 			className='relative w-full bg-[#691C32] overflow-hidden px-4 md:px-0 pb-10'
 		>
-			<h2 className='w-full text-xl leading-[125%] text-white uppercase mb-10 block md:hidden'>
+			<h2 
+                className='w-full text-xl leading-[125%] text-white uppercase mb-10 block md:hidden'
+                data-content-hint="safety.medical.title"
+            >
 				Медицинская безопасность
 			</h2>
 
@@ -83,6 +86,8 @@ export const MedicalSafety = () => {
 								style={{
 									backgroundImage: `url(${src})`,
 								}}
+                                data-content-hint={`safety.medical.image.${index}`}
+                                data-content-hint-type="image"
 							>
 								<div className='absolute inset-0 bg-gradient-to-b from-[rgba(29,29,29,0.5)] to-[rgba(29,29,29,0)]' />
 							</div>
@@ -95,16 +100,26 @@ export const MedicalSafety = () => {
 						<section className='safety-block' key={idx}>
 							<div className='w-full h-[1px] bg-[#FFFFFF33] mb-16' />
 							<div className='flex items-center justify-between mb-6'>
-								<h3 className='text-base sxl:text-2xl leading-[130%] uppercase'>
+								<h3 
+                                    className='text-base sxl:text-2xl leading-[130%] uppercase'
+                                    data-content-hint={`safety.medical.block.${idx}.title`}
+                                >
 									{block.title}
 								</h3>
-								<h1 className='text-[32px]/[125%] sm:text-[44px]/[125%] lg:text-7xl/[125%] sxl:text- [120px]/[125%] text-[#FFFFFF4D] uppercase'>
+								<h1 
+                                    className='text-[32px]/[125%] sm:text-[44px]/[125%] lg:text-7xl/[125%] sxl:text- [120px]/[125%] text-[#FFFFFF4D] uppercase'
+                                    data-content-hint={`safety.medical.block.${idx}.number`}
+                                >
 									{block.number}
 								</h1>
 							</div>
 							<ul className='flex flex-col gap-3 max-w-[610px] text-xs sxl:text-lg/[155%] uppercase'>
 								{block.items.map((item, i) => (
-									<li key={i} className='flex items-start gap-2'>
+									<li 
+                                        key={i} 
+                                        className='flex items-start gap-2'
+                                        data-content-hint={`safety.medical.block.${idx}.item.${i}`}
+                                    >
 										<div className='min-w-1.5 h-1.5 rounded-full bg-[#FFFFFF80] mt-2' />
 										{item}
 									</li>
@@ -122,14 +137,24 @@ export const MedicalSafety = () => {
 
 						<div className='flex flex-wrap space-x-4'>
 							<div className='w-full flex sm:hidden items-center justify-between mb-4'>
-								<h3 className='text-[18px] leading-[130%] uppercase text-white'>
+								<h3 
+                                    className='text-[18px] leading-[130%] uppercase text-white'
+                                    data-content-hint={`safety.medical.block.${idx}.title`}
+                                >
 									{block.title}
 								</h3>
-								<h1 className='text-[32px]/[125%] sm:text-[44px]/[125%] text-[#FFFFFF4D] uppercase flex-shrink-0'>
+								<h1 
+                                    className='text-[32px]/[125%] sm:text-[44px]/[125%] text-[#FFFFFF4D] uppercase flex-shrink-0'
+                                    data-content-hint={`safety.medical.block.${idx}.number`}
+                                >
 									{block.number}
 								</h1>
 							</div>
-							<div className='flex-shrink-0 medical-image relative overflow-hidden'>
+							<div 
+                                className='flex-shrink-0 medical-image relative overflow-hidden'
+                                data-content-hint={`safety.medical.image.${idx}`}
+                                data-content-hint-type="image"
+                            >
 								<div
 									className='w-full h-full bg-cover bg-center'
 									style={{
@@ -142,16 +167,26 @@ export const MedicalSafety = () => {
 
 							<div className='flex-1 text-white'>
 								<div className='hidden sm:flex items-center justify-between mb-4'>
-									<h3 className='text-[18px] leading-[130%] uppercase flex-1 text-white'>
+									<h3 
+                                        className='text-[18px] leading-[130%] uppercase flex-1 text-white'
+                                        data-content-hint={`safety.medical.block.${idx}.title`}
+                                    >
 										{block.title}
 									</h3>
-									<h1 className='text-[32px]/[125%] sm:text-[44px]/[125%] text-[#FFFFFF4D] uppercase flex-shrink-0'>
+									<h1 
+                                        className='text-[32px]/[125%] sm:text-[44px]/[125%] text-[#FFFFFF4D] uppercase flex-shrink-0'
+                                        data-content-hint={`safety.medical.block.${idx}.number`}
+                                    >
 										{block.number}
 									</h1>
 								</div>
 								<ul className='flex flex-col gap-2 text-xs uppercase mt-6 sm:mt-0'>
 									{block.items.map((item, i) => (
-										<li key={i} className='flex items-center gap-2'>
+										<li 
+                                            key={i} 
+                                            className='flex items-center gap-2'
+                                            data-content-hint={`safety.medical.block.${idx}.item.${i}`}
+                                        >
 											<div className=' min-w-1.5 h-1.5 rounded-full bg-[#FFFFFF80]' />
 											{item}
 										</li>

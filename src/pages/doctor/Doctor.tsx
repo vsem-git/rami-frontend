@@ -1,6 +1,6 @@
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { DoctorAge } from './components/DoctorAge/DoctorAge'
 import { DoctorGallery } from './components/DoctorGallery/DoctorGallery'
@@ -8,7 +8,9 @@ import DoctorResults from './components/DoctorResults/DoctorResults'
 import { usePopup } from '../../components/PopupContext'
 import { WelcomeDoctor } from './components/welcome-doctor/WelcomeDoctor'
 import { POPUP_NAMES } from '../../constants/popupNames'
-import { DOCTORS_DATA } from '../../shared/data/doctor'
+import { fetchDoctorBySlug } from '../../services/doctors'
+import { doctorFromRecord } from '../../shared/utils/doctorFromRecord'
+import type { Doctor as DoctorType } from '../../shared/types/doctor'
 import mes from '../../shared/icons/mes.svg'
 import type { ModalResultItem } from '../../shared/types/doctor'
 
@@ -19,15 +21,17 @@ export const Doctor = () => {
 	const videoRef = useRef<HTMLVideoElement>(null)
 	const { id } = useParams()
 	const { openPopup } = usePopup()
-
-	const doctor = DOCTORS_DATA.find(d => d.id === id)
-
-	if (!doctor) {
-		return <div>Доктор не найден</div>
-	}
+	const [doctor, setDoctor] = useState<DoctorType | null | undefined>(undefined)
 
 	useEffect(() => {
-		if (window.innerWidth <= 768 || !sectionRef.current) return
+		if (!id) { setDoctor(null); return }
+		fetchDoctorBySlug(id).then((record) =>
+			setDoctor(record ? doctorFromRecord(record) : null),
+		)
+	}, [id])
+
+	useEffect(() => {
+		if (!doctor || window.innerWidth <= 768 || !sectionRef.current) return
 
 		const ctx = gsap.context(() => {
 			gsap.fromTo(
@@ -106,9 +110,10 @@ export const Doctor = () => {
 		)
 
 		return () => ctx.revert()
-	}, [])
+	}, [doctor])
 
 	useEffect(() => {
+		if (!doctor) return
 		const video = videoRef.current
 		if (!video) return
 
@@ -138,14 +143,25 @@ export const Doctor = () => {
 		const bgpattern1 = document.querySelector('.bgpattern1') as HTMLElement
 		const bgpattern2 = document.querySelector('.bgpattern2') as HTMLElement
 		setTimeout(() => {
-			bgpattern1.style.transform = 'translate(120%, 0%)'
-			bgpattern2.style.transform = 'translate(-120%, 0%)'
+			if (bgpattern1) bgpattern1.style.transform = 'translate(120%, 0%)'
+			if (bgpattern2) bgpattern2.style.transform = 'translate(-120%, 0%)'
 		}, 500)
 
 		return () => {
 			window.removeEventListener('scroll', handleScroll)
 		}
-	}, [])
+	}, [doctor])
+
+	// Всегда рендерим один стабильный wrapper-div, чтобы React не делал
+	// insertBefore относительно Footer в #content, пока ScrollSmoother
+	// модифицирует DOM. Контент внутри меняется, структура снаружи — нет.
+	if (doctor === undefined) {
+		return <div><div className="min-h-screen" /></div>
+	}
+
+	if (doctor === null) {
+		return <div><div className="p-8 text-center uppercase tracking-widest text-black/40 text-sm">Доктор не найден</div></div>
+	}
 
 	const handleSelectResult = (item: ModalResultItem) => {
 		openPopup(POPUP_NAMES.DOCTOR_CARD_ID)
@@ -155,7 +171,7 @@ export const Doctor = () => {
 	}
 
 	return (
-		<>
+		<div>
 			<WelcomeDoctor doctor={doctor} />
 			<DoctorResults
 				directions={doctor.directions}
@@ -224,6 +240,6 @@ export const Doctor = () => {
 					Your browser does not support the video tag.
 				</video>
 			</div>
-		</>
+		</div>
 	)
 }

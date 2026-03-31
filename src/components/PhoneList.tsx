@@ -21,12 +21,14 @@ export const PhoneList = () => {
                 <a
                     href="https://t.me/+78126271313"
                     className="w-12 h-12 flex items-center justify-center cursor-pointer border-[#1D1D1D1A] border rounded-full"
+                    data-content-hint="contact.telegram"
                 >
                     <img src="/social/tg.svg" alt="tg" className="w-5 h-5" />
                 </a>
                 <a
                     href="https://wa.me/78126271313"
                     className="w-12 h-12 flex items-center justify-center cursor-pointer border-[#1D1D1D1A] border rounded-full"
+                    data-content-hint="contact.whatsapp"
                 >
                     <img src="/social/wt.svg" alt="wt" className="w-5 h-5" />
                 </a>

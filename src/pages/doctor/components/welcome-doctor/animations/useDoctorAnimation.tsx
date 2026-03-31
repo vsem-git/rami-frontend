@@ -15,7 +15,11 @@ export const useDoctorAnimation = (
         if (isMobile || window.innerWidth <= 768) return;
         if (!sectionRef.current) return;
 
-        const ctx = gsap.context(() => {
+        let ctx: gsap.Context | undefined;
+        const rafId = requestAnimationFrame(() => {
+        if (!sectionRef.current) return;
+
+        ctx = gsap.context(() => {
             const sectionElement = sectionRef.current;
             const backgroundElement = backgroundRef.current;
             const defaultContentElement = defaultContentRef.current;
@@ -36,6 +40,7 @@ export const useDoctorAnimation = (
                     end: "+=450%",
                     scrub: 1,
                     pin: true,
+                    pinReparent: true,
                 },
             });
 
@@ -71,14 +76,13 @@ export const useDoctorAnimation = (
                 },
                 1
             );
-
-            return () => {
-                tl.kill();
-                ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-            };
         }, sectionRef.current);
+        }); // end requestAnimationFrame
 
-        return () => ctx.revert();
+        return () => {
+            cancelAnimationFrame(rafId);
+            ctx?.revert();
+        };
     }, [
         sectionRef,
         backgroundRef,

@@ -62,7 +62,10 @@ export const WelcomeSafety: React.FC = () => {
 
 					<div className='w-full relative z-20 min-h-auto md:min-h-screen md:hidden flex flex-col justify-end text-white mb-3'>
 						<div className='flex items-center justify-between flex-wrap gap-6'>
-							<h1 className='text-[32px]/[125%] sm:text-[44px]/[125%] xl:text-7xl/[125%] 2xl:text-[120px]/[125%] font-normal uppercase'>
+							<h1 
+                                className='text-[32px]/[125%] sm:text-[44px]/[125%] xl:text-7xl/[125%] 2xl:text-[120px]/[125%] font-normal uppercase'
+                                data-content-hint="safety.title"
+                            >
 								Безопасность
 							</h1>
 
@@ -127,7 +130,9 @@ export const WelcomeSafety: React.FC = () => {
 				className='relative md:absolute inset-0 z-30 flex items-center justify-center p-4 md:p-6 xl:p-10 my-20 md:my-0 pointer-events-none md:pointer-events-auto'
 			>
 				<div className='w-full flex justify-start md:justify-end'>
-					{SAFETY[0].content}
+                    <div data-content-hint="safety.welcome.description" data-content-hint-type="richtext">
+					    {SAFETY[0].content}
+                    </div>
 				</div>
 			</div>
 		</section>

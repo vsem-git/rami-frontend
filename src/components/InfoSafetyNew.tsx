@@ -95,22 +95,34 @@ export const InfoSafetyNew = ({
                         }}
                         className="relative w-full h-full bg-cover bg-center py-6 md:py-8 px-4 md:px-6 overflow-hidden min-h-[200px] md:min-h-[600px]"
                         style={{ backgroundImage: `url(${card.image})` }}
+                        data-content-hint={`safety.info.card.${i}.image`}
+                        data-content-hint-type="image"
                     >
                         <div className="absolute inset-0 bg-gradient-to-b from-[rgba(29,29,29,0.5)] to-[rgba(29,29,29,0.3)]" />
 
                         <div className="relative z-10">
-                            <h2 className="text-[18px] md:text-2xl xl:text-[28px] 2xl:text-[32px] font-normal text-[#EAE6E0] uppercase leading-[125%] whitespace-pre-line">
+                            <h2 
+                                className="text-[18px] md:text-2xl xl:text-[28px] 2xl:text-[32px] font-normal text-[#EAE6E0] uppercase leading-[125%] whitespace-pre-line"
+                                data-content-hint={`safety.info.card.${i}.title`}
+                            >
                                 {card.title}
                             </h2>
                             {card.text && (
-                                <p className="text-xs xl:text-sm 2xl:text-base font-medium uppercase text-[#EAE6E0] mt-6 xl:mt-8 max-w-[400px] md:max-w-full">
+                                <p 
+                                    className="text-xs xl:text-sm 2xl:text-base font-medium uppercase text-[#EAE6E0] mt-6 xl:mt-8 max-w-[400px] md:max-w-full"
+                                    data-content-hint={`safety.info.card.${i}.text`}
+                                    data-content-hint-type="richtext"
+                                >
                                     {card.text}
                                 </p>
                             )}
                         </div>
 
                         <div className="absolute bottom-0 2x:-bottom-4 right-4 md:right-6 z-10 pointer-events-none">
-                            <h1 className="text-[40px]/[125%] sm:text-[60px]/[125%] lg:text-7xl/[125%] xl:text-[110px]/[125%] font-normal text-[#EAE6E0]">
+                            <h1 
+                                className="text-[40px]/[125%] sm:text-[60px]/[125%] lg:text-7xl/[125%] xl:text-[110px]/[125%] font-normal text-[#EAE6E0]"
+                                data-content-hint={`safety.info.card.${i}.number`}
+                            >
                                 {String(i + 1).padStart(2, "0")}
                             </h1>
                         </div>
