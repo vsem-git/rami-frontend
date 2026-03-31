@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
-import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import close from "../../public/close-n.svg";
 import type { NewsItem } from "../services/news";
 import { CardNewsDetail } from "./CardNewsDetail";
@@ -14,6 +14,8 @@ export const NewsCardInfoModal = () => {
     const popupName = "newsCardInfo";
     const isModalOpen = isOpen(popupName);
     const newsItem: NewsItem | undefined = getPopupData(popupName)?.news;
+    const [galleryExpanded, setGalleryExpanded] = useState(false);
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
     const activeMainTexts = newsItem?.mainTexts ?? [];
     const activeSecondaryTexts = newsItem?.secondaryTexts ?? [];
@@ -183,7 +185,7 @@ export const NewsCardInfoModal = () => {
                             галерея
                         </h4>
 
-                        <div className="flex max-[600px]:flex-col gap-2 2xl:gap-5 max-[600px]:h-auto h-[339px] lg:h-[403px] 2xl:h-[620px] overflow-hidden">
+                        <div className="flex max-[600px]:flex-col gap-2 2xl:gap-5 max-[600px]:h-auto h-[339px] lg:h-[403px] 2xl:h-[620px]">
                             <div className={activeGallery[0].className}>
                                 <img
                                     src={activeGallery[0].src}
@@ -203,7 +205,8 @@ export const NewsCardInfoModal = () => {
                                         />
                                     ))}
                                     {activeGallery.length > 4 && (
-                                        <div
+                                        <button
+                                            onClick={() => setGalleryExpanded(true)}
                                             className="w-full h-full flex items-center justify-center border border-[#1414141F] cursor-pointer
                             relative overflow-hidden
                             before:absolute before:inset-0 before:bg-[#691C32] before:opacity-0
@@ -212,11 +215,69 @@ export const NewsCardInfoModal = () => {
                                             <span className="text-2xl font-medium text-[#1D1D1D] relative z-10 hover:text-[#691C32] transition-colors duration-300">
                                                 {activeGallery.length - 4}+
                                             </span>
-                                        </div>
+                                        </button>
                                     )}
                                 </div>
                             )}
                         </div>
+                    </div>
+                )}
+
+                {/* Expanded Gallery Modal */}
+                {galleryExpanded && (
+                    <div
+                        className="fixed inset-0 bg-black/90 z-[100000] flex items-center justify-center p-4"
+                        onClick={() => setGalleryExpanded(false)}
+                    >
+                        <button
+                            onClick={() => setGalleryExpanded(false)}
+                            className="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center cursor-pointer hover:bg-white/20 transition-colors z-10"
+                        >
+                            <img src={close} alt="" className="w-6 h-6 invert" />
+                        </button>
+
+                        <div
+                            className="w-full max-w-6xl h-full max-h-[90vh] overflow-y-auto"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 2xl:gap-5 p-4">
+                                {activeGallery.map((image, index) => (
+                                    <div
+                                        key={index}
+                                        className="aspect-square cursor-pointer hover:opacity-80 transition-opacity"
+                                        onClick={() => setSelectedImage(image.src)}
+                                    >
+                                        <img
+                                            src={image.src}
+                                            alt=""
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {/* Fullscreen Image Modal */}
+                {selectedImage && (
+                    <div
+                        className="fixed inset-0 bg-black/95 z-[100001] flex items-center justify-center"
+                        onClick={() => setSelectedImage(null)}
+                    >
+                        <button
+                            onClick={() => setSelectedImage(null)}
+                            className="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center cursor-pointer hover:bg-white/20 transition-colors z-10"
+                        >
+                            <img src={close} alt="" className="w-6 h-6 invert" />
+                        </button>
+
+                        <img
+                            src={selectedImage}
+                            alt=""
+                            className="max-w-full max-h-full w-auto h-auto object-contain"
+                            onClick={(e) => e.stopPropagation()}
+                        />
                     </div>
                 )}
                 </div>
