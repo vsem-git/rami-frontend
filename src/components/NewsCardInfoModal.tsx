@@ -130,8 +130,8 @@ export const NewsCardInfoModal = () => {
                     )}
 
                     {activeMainTexts.length > 0 && (
-                        <div className="w-full flex justify-start lg:justify-end mt-12 md:mt-16 xl:mt-20">
-                            <div className="w-full max-w-full lg:max-w-[520px] text-base text-[#1D1D1D] uppercase font-suisse font-semibold space-y-8 leading-[170%] max-[600px]:space-y-5 max-[600px]:text-xs">
+                        <div className="w-full flex justify-start mt-12 md:mt-16 xl:mt-20">
+                            <div className="w-full max-w-[520px] text-base text-[#1D1D1D] uppercase font-suisse font-semibold space-y-8 leading-[170%] max-[600px]:space-y-5 max-[600px]:text-xs">
                                 {activeMainTexts.map((text, index) => (
                                     <p key={index}>{text}</p>
                                 ))}
@@ -166,8 +166,8 @@ export const NewsCardInfoModal = () => {
                         </div>
 
                         {activeSecondaryTexts.length > 0 && (
-                            <div className="w-full flex justify-start lg:justify-end mt-12">
-                                <div className="w-full max-w-full lg:max-w-[510px] text-base text-[#1D1D1D] uppercase font-suisse font-semibold space-y-8 leading-[170%] max-[600px]:space-y-5 max-[600px]:text-xs">
+                            <div className="w-full flex justify-start mt-12">
+                                <div className="w-full max-w-[510px] text-base text-[#1D1D1D] uppercase font-suisse font-semibold space-y-8 leading-[170%] max-[600px]:space-y-5 max-[600px]:text-xs">
                                     {activeSecondaryTexts.map((text, index) => (
                                         <p key={index}>{text}</p>
                                     ))}
