@@ -28,7 +28,7 @@ import {
 
 const MAX_FILE_BYTES = 50 * 1024 * 1024; // 50 MB (videos can be large)
 
-const DIRECTIONS_OPTIONS = [
+const DEFAULT_DIRECTIONS_OPTIONS = [
     "Пересадка волос",
     "Ринопластика",
     "Пластика лица",
@@ -391,13 +391,24 @@ export const DoctorsPanel = ({ isOpen, onClose }: DoctorsPanelProps) => {
     const [deleting, setDeleting] = useState<string | null>(null);
     // uploading state per field key
     const [uploading, setUploading] = useState<Record<string, boolean>>({});
+    // Available directions (default + custom from all doctors)
+    const [directionsOptions, setDirectionsOptions] = useState<string[]>(DEFAULT_DIRECTIONS_OPTIONS);
+    const [newDirection, setNewDirection] = useState("");
 
     const scrollRef = useRef<HTMLDivElement>(null);
 
     const loadDoctors = useCallback(async () => {
         setLoading(true);
         try {
-            setItems(await fetchAllDoctors());
+            const docs = await fetchAllDoctors();
+            setItems(docs);
+            
+            // Собираем все уникальные направления из всех врачей
+            const allDirections = new Set<string>(DEFAULT_DIRECTIONS_OPTIONS);
+            docs.forEach((doc) => {
+                doc.directions?.forEach((dir) => allDirections.add(dir));
+            });
+            setDirectionsOptions(Array.from(allDirections));
         } finally {
             setLoading(false);
         }
@@ -598,6 +609,27 @@ export const DoctorsPanel = ({ isOpen, onClose }: DoctorsPanelProps) => {
                 ? f.directions.filter((d) => d !== dir)
                 : [...f.directions, dir],
         }));
+
+    const addNewDirection = () => {
+        const trimmed = newDirection.trim();
+        if (trimmed && !form.directions.includes(trimmed)) {
+            setForm((f) => ({
+                ...f,
+                directions: [...f.directions, trimmed],
+            }));
+            if (!directionsOptions.includes(trimmed)) {
+                setDirectionsOptions((prev) => [...prev, trimmed]);
+            }
+            setNewDirection("");
+        }
+    };
+
+    const handleNewDirectionKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            addNewDirection();
+        }
+    };
 
     // ── Render ────────────────────────────────────────────────────────────────
 
@@ -856,8 +888,8 @@ export const DoctorsPanel = ({ isOpen, onClose }: DoctorsPanelProps) => {
                                 </Field>
 
                                 <Field label="Направления">
-                                    <div className="flex flex-wrap gap-1.5">
-                                        {DIRECTIONS_OPTIONS.map((dir) => (
+                                    <div className="flex flex-wrap gap-1.5 mb-3">
+                                        {directionsOptions.map((dir) => (
                                             <button
                                                 key={dir}
                                                 type="button"
@@ -872,6 +904,36 @@ export const DoctorsPanel = ({ isOpen, onClose }: DoctorsPanelProps) => {
                                             </button>
                                         ))}
                                     </div>
+                                    <div className="flex gap-1 items-center">
+                                        <input
+                                            className={inputCls}
+                                            placeholder="Введите новое направление"
+                                            value={newDirection}
+                                            onChange={(e) => setNewDirection(e.target.value)}
+                                            onKeyDown={handleNewDirectionKeyDown}
+                                        />
+                                        <button
+                                            type="button"
+                                            onClick={addNewDirection}
+                                            className="shrink-0 w-9 h-9 flex items-center justify-center border border-black/12 rounded-md bg-white hover:border-[#691C32]/40 hover:text-[#691C32] text-black/40 transition-colors cursor-pointer"
+                                            title="Добавить направление"
+                                        >
+                                            <svg
+                                                width="13"
+                                                height="13"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                strokeWidth="2.5"
+                                            >
+                                                <line x1="12" y1="5" x2="12" y2="19" />
+                                                <line x1="5" y1="12" x2="19" y2="12" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <p className="text-[9px] text-black/30">
+                                        Нажмите Enter или кнопку + для добавления
+                                    </p>
                                 </Field>
 
                                 <div className="grid grid-cols-2 gap-2">

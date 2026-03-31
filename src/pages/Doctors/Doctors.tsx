@@ -94,6 +94,7 @@ const Doctors: React.FC = () => {
     const [clickedCards, setClickedCards] = useState<Set<number>>(new Set());
     const [doctorsData, setDoctorsData] = useState<Doctor[]>([]);
     const [tabs, setTabs] = useState<Tab[]>(BASE_TABS);
+    const [visibleCount, setVisibleCount] = useState(6); // Показываем по 6 врачей
     const SecondAnimationBlockRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -116,8 +117,14 @@ const Doctors: React.FC = () => {
             );
 
             setTabs([...BASE_TABS, ...directionTabs]);
+            setVisibleCount(6); // Сбрасываем при загрузке
         });
     }, []);
+
+    // Сбрасываем видимое количество при смене таба
+    useEffect(() => {
+        setVisibleCount(6);
+    }, [activeTab]);
 
     const toggleCard = useCallback((index: number) => {
         setClickedCards((prev) => {
@@ -128,8 +135,8 @@ const Doctors: React.FC = () => {
     }, []);
 
     // Фильтрация врачей по выбранному направлению
-    const displayedDoctors = activeTab === 0 
-        ? doctorsData 
+    const displayedDoctors = activeTab === 0
+        ? doctorsData
         : doctorsData.filter((doctor) => {
               const selectedTab = tabs.find((t) => t.id === activeTab);
               if (!selectedTab) return false;
@@ -137,6 +144,15 @@ const Doctors: React.FC = () => {
                   (dir) => dir.toUpperCase() === selectedTab.label
               );
           });
+
+    // Ограничиваем количество видимых врачей
+    const visibleDoctors = displayedDoctors.slice(0, visibleCount);
+
+    const hasMore = visibleCount < displayedDoctors.length;
+
+    const handleShowMore = () => {
+        setVisibleCount((prev) => prev + 6);
+    };
 
     const chunkArray = (array: any[], size = 2) => {
         const result = [];
@@ -218,7 +234,7 @@ const Doctors: React.FC = () => {
                 <div>
                     <div className="mx-auto flex max-w-[1280px] flex-col gap-10 md:gap-20">
                         {" "}
-                        {chunkArray(displayedDoctors).map((chunk, index) => {
+                        {chunkArray(visibleDoctors).map((chunk, index) => {
                             const doc1 = chunk[0];
                             const doc2 = chunk[1];
 
@@ -279,14 +295,19 @@ const Doctors: React.FC = () => {
                 </div>
 
                 <div className="flex items-center justify-center pt-20">
-                    <button className="flex items-center 2xl:text-base text-xs gap-3 group cursor-pointer">
-                        <span className="font-semibold leading-[155%] uppercase relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:transition-all after:duration-300 after:bg-[#1D1D1D] group-hover:after:w-full">
-                            Показать ещё
-                        </span>
-                        <div className="p-3 bg-[#691C32] rounded-full aspect-square">
-                            <ArrowIcon className="text-white" />
-                        </div>
-                    </button>
+                    {hasMore && (
+                        <button
+                            onClick={handleShowMore}
+                            className="flex items-center 2xl:text-base text-xs gap-3 group cursor-pointer"
+                        >
+                            <span className="font-semibold leading-[155%] uppercase relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:transition-all after:duration-300 after:bg-[#1D1D1D] group-hover:after:w-full">
+                                Показать ещё
+                            </span>
+                            <div className="p-3 bg-[#691C32] rounded-full aspect-square">
+                                <ArrowIcon className="text-white" />
+                            </div>
+                        </button>
+                    )}
                 </div>
             </div>
             <SecondAnimationBlock
