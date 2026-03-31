@@ -60,8 +60,8 @@ export const Dropdown = ({
             </button>
 
             <div
-                className={`absolute top-full left-0 mt-1 z-50 bg-white border border-[#1D1D1D]/10 min-w-full
-                overflow-hidden transition-all duration-300 ease-out origin-top
+                className={`absolute top-full left-0 mt-1 z-50 bg-white border border-[#1D1D1D]/10 min-w-full max-h-64 overflow-y-auto
+                transition-all duration-300 ease-out origin-top
                 ${open ? "opacity-100 scale-y-100 pointer-events-auto" : "opacity-0 scale-y-95 pointer-events-none"}`}
             >
                 {options.map((opt, i) => (

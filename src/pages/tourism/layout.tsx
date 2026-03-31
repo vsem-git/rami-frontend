@@ -22,7 +22,6 @@ const LayoutContent = () => {
         <>
             <ContactPopUp />
             <HeaderUpdate useWhiteText={true} isRelative />
-            <NewsCardInfoModal />
 
             <TourismPanel
                 tourismData={dataTourism.modal}
@@ -34,6 +33,8 @@ const LayoutContent = () => {
                 <Outlet />
                 <Footer />
             </ScrollSmoother>
+
+            <NewsCardInfoModal />
         </>
     );
 };

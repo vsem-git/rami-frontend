@@ -1,9 +1,9 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { CardNews } from "./components/CardNews";
 import { usePopup } from "../../components/PopupContext";
 import { Button } from "../../components/ui/Button";
 import { Dropdown } from "../../components/ui/Dropdown";
-import { newsData } from "../../shared/data/news";
+import { fetchAllNews, type NewsItem } from "../../services/news";
 
 const DIRECTIONS = ["все", "мероприятие", "услуга", "врач"];
 const MONTHS_ORDER = [
@@ -24,30 +24,35 @@ const MONTHS_ORDER = [
 export const News = () => {
     const { openPopup } = usePopup();
 
+    const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
     const [filterDate, setFilterDate] = useState("все");
     const [filterAuthor, setFilterAuthor] = useState("все");
     const [filterDirection, setFilterDirection] = useState("все");
     const [visibleCount, setVisibleCount] = useState(6);
 
-    const authors = useMemo(() => {
-        const unique = [
-            ...new Set(newsData.map((n) => n.author).filter(Boolean)),
-        ];
-        return ["все", ...unique];
+    useEffect(() => {
+        fetchAllNews().then(setNewsItems);
     }, []);
 
+    const authors = useMemo(() => {
+        const unique = [
+            ...new Set(newsItems.map((n) => n.author).filter(Boolean)),
+        ];
+        return ["все", ...unique];
+    }, [newsItems]);
+
     const months = useMemo(() => {
-        const unique = [...new Set(newsData.map((n) => n.month.toLowerCase()))];
+        const unique = [...new Set(newsItems.map((n) => n.month.toLowerCase()))];
         return [
             "все",
             ...unique.sort(
                 (a, b) => MONTHS_ORDER.indexOf(b) - MONTHS_ORDER.indexOf(a),
             ),
         ];
-    }, []);
+    }, [newsItems]);
 
     const filtered = useMemo(() => {
-        return newsData.filter((n) => {
+        return newsItems.filter((n) => {
             const matchDate =
                 filterDate === "все" || n.month.toLowerCase() === filterDate;
             const matchAuthor =
@@ -56,9 +61,9 @@ export const News = () => {
                 filterDirection === "все" || n.direction === filterDirection;
             return matchDate && matchAuthor && matchDir;
         });
-    }, [filterDate, filterAuthor, filterDirection]);
+    }, [filterDate, filterAuthor, filterDirection, newsItems]);
 
-    const handleCardClick = (news: (typeof newsData)[0]) => {
+    const handleCardClick = (news: NewsItem) => {
         openPopup("newsCardInfo", { news });
     };
 

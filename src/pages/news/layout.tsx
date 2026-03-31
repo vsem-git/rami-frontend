@@ -11,12 +11,13 @@ const LayoutContent = () => {
         <>
             <ContactPopUp />
             <HeaderUpdate useWhiteText={false} isRelative={true} />
-            <NewsCardInfoModal />
 
             <ScrollSmoother>
                 <Outlet />
                 <Footer />
             </ScrollSmoother>
+
+            <NewsCardInfoModal />
         </>
     );
 };
