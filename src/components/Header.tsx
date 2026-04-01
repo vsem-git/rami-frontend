@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useContentContext } from "../contexts/ContentContext";
+import { useNavMenu } from "../contexts/NavMenuContext";
 import { useHeader } from "./HeaderContext";
 import { MenuHeader } from "./MenuHeader";
 import { usePopup } from "./PopupContext";
@@ -19,6 +20,9 @@ interface HeaderProps {
 const Header = ({ useWhiteText }: HeaderProps) => {
     const { headerColor, setHeaderColor } = useHeader();
     const { getContent } = useContentContext();
+    const { menuData } = useNavMenu();
+    const { pathname } = useLocation();
+    const isBurgerHidden = menuData.burgerHiddenPages.includes(pathname);
     const headerRef = useRef<HTMLDivElement>(null);
     const logoRef = useRef<HTMLDivElement>(null);
     const visitRef = useRef<HTMLDivElement>(null);
@@ -28,7 +32,7 @@ const Header = ({ useWhiteText }: HeaderProps) => {
     const menuButtonRef = useRef<HTMLDivElement>(null);
     const bottomLineRef = useRef<HTMLDivElement>(null);
     const { openPopup } = usePopup();
-    const location = useLocation();
+    const location = { pathname };
 
     const currentColor = useWhiteText ? "#ffffff" : headerColor || "#000000";
 
@@ -96,7 +100,7 @@ const Header = ({ useWhiteText }: HeaderProps) => {
             <div
                 ref={menuButtonRef}
                 onClick={toggleMenu}
-                className="relative menuheader item flex font-semibold gap-4 items-center h-fit group cursor-pointer z-[999] opacity-0 md:pointer-events-none"
+                className={`relative menuheader item flex font-semibold gap-4 items-center h-fit group cursor-pointer z-[999] ${isBurgerHidden ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
             >
                 <div className="flex flex-col gap-1">
                     <div

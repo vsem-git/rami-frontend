@@ -24,6 +24,8 @@ const Layout = () => {
 								src='/reabilitation-screen/reabilitation.webp'
 								className='mobile-reabilitation-image fixed z-[1] md:hidden sm:w-[55%] max-h-[100%] -bottom-[8%] -left-[2%]  object-contain'
 								width={770}
+                                data-content-hint="reabilitation.mobile.image"
+                                data-content-hint-type="image"
 							/>
 							<div className='marquee-reabilitation md:hidden z-10 text-white inline-flex pointer-events-none whitespace-nowrap text-[64px] md:text-[96px] 2xl:text-[130px] mix-blend-difference absolute bottom-0 left-0 w-full'>
 								<span className='px-8'>РЕАБИЛИТАЦИЯ</span>

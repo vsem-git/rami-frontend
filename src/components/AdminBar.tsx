@@ -4,6 +4,7 @@ import { ContentPanel } from "./ContentPanel";
 import { DoctorsPanel } from "./DoctorsPanel";
 import { NewsPanel } from "./NewsPanel";
 import { SeoPanel } from "./SeoPanel";
+import { NavigationPanel } from "./NavigationPanel";
 
 // ── Floating labels overlay ───────────────────────────────────────────────────
 
@@ -16,6 +17,7 @@ export const AdminBar = () => {
     const [isContentOpen, setIsContentOpen] = useState(false);
     const [isNewsOpen, setIsNewsOpen] = useState(false);
     const [isDoctorsOpen, setIsDoctorsOpen] = useState(false);
+    const [isNavigationOpen, setIsNavigationOpen] = useState(false);
     const [collapsed, setCollapsed] = useState(false);
     const [hintsVisible, setHintsVisible] = useState(true);
     const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
@@ -207,6 +209,13 @@ export const AdminBar = () => {
                             Врачи
                         </button>
 
+                        <button
+                            onClick={() => setIsNavigationOpen(true)}
+                            className="text-[10px] text-[#1D1D1D]/70 hover:text-[#691C32] uppercase tracking-widest transition-colors cursor-pointer px-2 py-1 hover:bg-black/4 rounded"
+                        >
+                            Навигация
+                        </button>
+
                         {/* Hints toggle */}
                         <button
                             onClick={() => {
@@ -253,6 +262,7 @@ export const AdminBar = () => {
             <SeoPanel isOpen={isSeoOpen} onClose={() => setIsSeoOpen(false)} />
             <NewsPanel isOpen={isNewsOpen} onClose={() => setIsNewsOpen(false)} />
             <DoctorsPanel isOpen={isDoctorsOpen} onClose={() => setIsDoctorsOpen(false)} />
+            <NavigationPanel isOpen={isNavigationOpen} onClose={() => setIsNavigationOpen(false)} />
         </>
     );
 };

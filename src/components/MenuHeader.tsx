@@ -1,21 +1,22 @@
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import {
-    footerLinks,
-    mainMenuLinks,
-    patientLinks1,
-    patientLinks2,
-} from "../shared/data/header";
+import { useNavMenu } from "../contexts/NavMenuContext";
 
 interface MenuHeaderProps {
     isOpen: boolean;
 }
 
 export const MenuHeader = ({ isOpen }: MenuHeaderProps) => {
+    const { menuData } = useNavMenu();
     const menuRef = useRef<HTMLDivElement>(null);
     const patientBlockRef = useRef<HTMLDivElement>(null);
     const [isPatientOpen, setIsPatientOpen] = useState(false);
+
+    const mainMenuLinks = menuData.mainMenu.filter((i) => i.enabled).map((i) => [i.label, i.link]);
+    const patientLinks1 = menuData.patientLinks1.filter((i) => i.enabled).map((i) => [i.label, i.link]);
+    const patientLinks2 = menuData.patientLinks2.filter((i) => i.enabled).map((i) => [i.label, i.link]);
+    const footerLinks = menuData.footerLinks.filter((i) => i.enabled).map((i) => [i.label, i.link]);
 
     useEffect(() => {
         if (!menuRef.current) return;

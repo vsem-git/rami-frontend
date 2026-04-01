@@ -52,7 +52,8 @@ export const WelcomeApartments: React.FC = () => {
                 ref={defaultContentRef}
                 className="relative z-20 min-h-auto md:min-h-screen flex flex-col justify-end text-[#1D1D1D] md:text-white px-5"
             >
-                <h1 className="text-2xl/[125%] sm:text-3xl/[125%] md:text-5xl/[125%] xl:text-7xl/[125%] 2xl:text-[88px]/[114%] font-normal uppercase">
+                <h1 className="text-2xl/[125%] sm:text-3xl/[125%] md:text-5xl/[125%] xl:text-7xl/[125%] 2xl:text-[88px]/[114%] font-normal uppercase"
+                    data-content-hint="apartments.welcome.title">
                     МЕДИЦИНСКИЕ АПАРТАМЕНТЫ
                 </h1>
             </div>

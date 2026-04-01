@@ -58,10 +58,12 @@ export const WelcomeOperationRooms: React.FC<{ nextPhotoRef: any }> = ({
 					className='w-full relative z-20 flex justify-between items-end flex-wrap text-white px-5 pb-10 md:hidden'
 				>
 					<div>
-						<h3 className='text-[15px] md:text-base leading-[130%] uppercase tracking-widest mb-2 font-light'>
+						<h3 className='text-[15px] md:text-base leading-[130%] uppercase tracking-widest mb-2 font-light'
+                            data-content-hint="operationrooms.welcome.subtitle">
 							MEDICAL VISUAL SYSTEMS
 						</h3>
-						<h1 className='text-[24px]/[125%] sm:text-[44px]/[125%] xl:text-[72px]/[125%] 2xl:text-[88px]/[125%] font-normal uppercase'>
+						<h1 className='text-[24px]/[125%] sm:text-[44px]/[125%] xl:text-[72px]/[125%] 2xl:text-[88px]/[125%] font-normal uppercase'
+                            data-content-hint="operationrooms.welcome.title">
 							УМНЫЕ ОПЕРАЦИОННЫЕ
 						</h1>
 					</div>

@@ -5,6 +5,7 @@ import { useHeader } from './HeaderContext'
 import { MenuHeader } from './MenuHeader'
 import { usePopup } from './PopupContext'
 import UnderlinedText from './UnderlinedText/UnderlinedText'
+import { useNavMenu } from '../contexts/NavMenuContext'
 
 interface HeaderUpdateProps {
 	useWhiteText?: boolean
@@ -17,6 +18,8 @@ const HeaderUpdate = ({
 }: HeaderUpdateProps) => {
 	const { pathname } = useLocation()
 	const { headerColor } = useHeader()
+	const { menuData } = useNavMenu()
+	const isBurgerHidden = menuData.burgerHiddenPages.includes(pathname)
 	const headerRef = useRef<HTMLDivElement>(null)
 	const logoRef = useRef(null)
 	const menuButtonRef = useRef(null)
@@ -107,7 +110,7 @@ const HeaderUpdate = ({
 				ref={menuButtonRef}
 				onClick={toggleMenu}
 				className={`relative menuheader item flex font-semibold gap-4 items-center h-fit group cursor-pointer z-[999] ${
-					pathname === '/patient'
+					isBurgerHidden
 						? 'opacity-0 pointer-events-none'
 						: 'opacity-100'
 				}`}

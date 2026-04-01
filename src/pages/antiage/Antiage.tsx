@@ -96,6 +96,7 @@ export const Antiage = () => {
 							pointer-events-none
 							z-20
 						"
+                        data-content-hint="antiage.mobile.title"
                     >
                         стратегия управления возрастом
                     </h1>
@@ -124,7 +125,7 @@ export const Antiage = () => {
                 className="
 					hidden md:block text-[24px]  xl:text-[28px] 2xl:text-[40px] font-normal uppercase whitespace-nowrap
 					absolute top-[40%] left-[15%] 2xl:left-[20%]
-					text-[#FFFFFF99] 
+					text-[#FFFFFF99]
 					opacity-0 -translate-x-20 text_anti-age1
 				"
             >
@@ -138,7 +139,7 @@ export const Antiage = () => {
 					hidden md:block text-[24px]  lg:text-[36px] 2xl:text-[64px]  font-normal uppercase whitespace-nowrap
 					absolute top-[23%] text-lg_anti
 					text-[#FFFFFF4D]
-					opacity-0 scale-50 
+					opacity-0 scale-50
 				"
             >
                 гормоны
@@ -148,7 +149,7 @@ export const Antiage = () => {
                 className="
 					hidden md:block text-[18px] xl:text-[24px] 2xl:text-[32px]/[125%] leading-[125%] font-normal uppercase whitespace-nowrap
 					absolute top-[60%] xl:top-[55%] 2xl:top-[60%] left-[25vw] 2xl:left-[30vw]
-					text-[#FFFFFFBF] 
+					text-[#FFFFFFBF]
 					opacity-0 -translate-x-20 text_anti-age2
 				"
             >
@@ -163,7 +164,7 @@ export const Antiage = () => {
     2xl:text-[28px] leading-[125%]
     font-normal uppercase whitespace-nowrap
     absolute bottom-[25%] 2xl:bottom-[20%] left-[19%] lg:left-[36%] 2xl:left-[41%]
-    text-[#FFFFFFBF] 
+    text-[#FFFFFFBF]
     opacity-0 -translate-x-0 text_anti-age3
   "
             >

@@ -11,6 +11,7 @@ import { ContentHintSync } from "./components/ContentHintSync";
 import { ContentProvider } from "./contexts/ContentContext";
 import { EditingProvider } from "./contexts/EditingContext";
 import { EditingPanel } from "./components/EditingPanel";
+import { NavMenuProvider } from "./contexts/NavMenuContext";
 
 // import UnderConstruction from "./UnderConstruction";
 //
@@ -40,12 +41,14 @@ createRoot(document.getElementById("root")!).render(
         <AdminProvider>
             <ContentProvider>
                 <EditingProvider>
-                    <AdminBar />
-                    <ContentHintSync />
-                    <EditingPanel />
-                    <Suspense fallback={null}>
-                        <RouterProvider router={router} />
-                    </Suspense>
+                    <NavMenuProvider>
+                        <AdminBar />
+                        <ContentHintSync />
+                        <EditingPanel />
+                        <Suspense fallback={null}>
+                            <RouterProvider router={router} />
+                        </Suspense>
+                    </NavMenuProvider>
                 </EditingProvider>
             </ContentProvider>
         </AdminProvider>

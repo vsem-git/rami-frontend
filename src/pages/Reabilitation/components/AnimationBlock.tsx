@@ -442,6 +442,8 @@ const AnimationBlock = () => {
 				ref={imageRef}
 				className='hidden md:block absolute w-1/2 max-h-[100%] bottom-[0%] md:-bottom-[10%] xl:-bottom-[15%] left-[1%] object-contain'
 				width={770}
+                data-content-hint="reabilitation.desktop.image"
+                data-content-hint-type="image"
 			/>
 			<div
 				ref={marqueeRef}

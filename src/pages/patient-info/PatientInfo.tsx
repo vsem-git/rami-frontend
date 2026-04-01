@@ -26,7 +26,8 @@ export const PatientInfo = () => {
 	if (!id) {
 		return (
 			<div className='w-full h-auto pt-[120px] sm:pt-[140px] xl:pt-[210px] max-w-[720px] xl:max-w-[1080px] mx-auto mb-20 px-4'>
-				<h1 className='text-xl sm:text-2xl lg:text-[28px] xl:text-[44px] leading-[125%] text-[#1D1D1D] uppercase'>
+				<h1 className='text-xl sm:text-2xl lg:text-[28px] xl:text-[44px] leading-[125%] text-[#1D1D1D] uppercase'
+                    data-content-hint="patient.notfound">
 					Документ не найден
 				</h1>
 			</div>
@@ -86,21 +87,23 @@ export const PatientInfo = () => {
 
 	return (
 		<div className='w-full h-auto pt-[120px] sm:pt-[140px] xl:pt-[210px] max-w-[720px] xl:max-w-[1080px] mx-auto mb-20 px-4'>
-			<h1 className='text-xl sm:text-2xl lg:text-[28px] xl:text-[44px] leading-[125%] text-[#1D1D1D] uppercase'>
+			<h1 className='text-xl sm:text-2xl lg:text-[28px] xl:text-[44px] leading-[125%] text-[#1D1D1D] uppercase'
+                data-content-hint={`patient.${id}.title`}>
 				{selectionData.title}
 			</h1>
 
 			{selectionData.data.map((section, sectionIndex) => (
 				<div key={section.id || sectionIndex}>
 					{id !== 'license' && section.title && (
-						<h3 className='text-base md:text-xl text-[#1D1D1D] font-semibold uppercase my-8'>
+						<h3 className='text-base md:text-xl text-[#1D1D1D] font-semibold uppercase my-8'
+                            data-content-hint={`patient.${id}.section.${sectionIndex}.title`}>
 							{section.title}
 						</h3>
 					)}
 
 					<div className='text-[11px] sm:text-sm md:text-lg text-[#1D1D1D] uppercase space-y-4 md:space-y-8 mt-12 md:mt-16'>
 						{section.content.map((paragraph, index) => (
-							<p key={index}>{paragraph}</p>
+							<p key={index} data-content-hint={`patient.${id}.section.${sectionIndex}.content.${index}`}>{paragraph}</p>
 						))}
 					</div>
 

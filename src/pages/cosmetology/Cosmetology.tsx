@@ -3,6 +3,7 @@ import { usePopup } from "../../components/PopupContext";
 import { COSMETOLOGY } from "../../shared/data/cosmetology";
 import { useCosmetologyAnimation } from "./animations/useCosmetologyAnimation";
 import { useMobileTextAnimation } from "./animations/useMobileTextAnimation";
+import { EditableMenu } from "../../components/EditableMenu";
 
 interface CosmetologyItem {
     id: number;
@@ -11,18 +12,22 @@ interface CosmetologyItem {
 
 const featuresLeft = [
     {
+        id: 1,
         label: "ИНЪЕКЦИОННАЯ КОСМЕТОЛОГИЯ",
         popup: "injection-modal",
     },
     {
+        id: 2,
         label: "АППАРАТНАЯ КОСМЕТОЛОГИЯ",
         popup: "instrumental-modal",
     },
     {
+        id: 3,
         label: "НИТЕВОЙ ЛИФТИНГ",
         popup: "lifting-modal",
     },
     {
+        id: 4,
         label: "УХОДОВЫЕ ПРОЦЕДУРЫ",
         popup: "care-modal",
     },
@@ -121,6 +126,7 @@ export const Cosmetology = () => {
 							pointer-events-none
 							z-20
 						"
+                        data-content-hint="cosmetology.mobile.title"
                     >
                         ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ
                     </h1>
@@ -133,35 +139,17 @@ export const Cosmetology = () => {
 						bg-no-repeat bg-cover scale-[1] sm:scale-[1.4]
 						bg-[-17rem_0rem] sm:bg-[-13rem_8rem]
 					"
+                    data-content-hint="cosmetology.mobile.bg"
+                    data-content-hint-type="image"
                 />
 
                 <div className="relative z-10 h-full flex flex-col items-start sm:items-end justify-end sm:justify-center pb-8 px-4 gap-16">
-                    {/* {isMobile && (
-						<>
-							<div className='space-y-6 text-white mt-24'>
-								{firstBlock.content}
-							</div>
-						</>
-					)} */}
-
-                    <ul className="flex flex-col gap-3 mr-0 smx:mr-3">
-                        {featuresLeft.map((item, i) => (
-                            <li
-                                key={i}
-                                onClick={() => handleOpenModal(item.popup)}
-                                className="flex items-center gap-4 cursor-pointer uppercase"
-                            >
-                                <span className="text-white transition-all duration-300">
-                                    0{i + 1}
-                                </span>
-
-                                <span className="text-sm 2xl:text-base text-white font-normal leading-none relative">
-                                    {item.label}
-                                    <span className="absolute left-0 bottom-0 h-[1px] bg-white w-0 transition-all duration-300 group-hover:w-full"></span>
-                                </span>
-                            </li>
-                        ))}
-                    </ul>
+                    <EditableMenu
+                        items={featuresLeft}
+                        pageKey="cosmetology"
+                        onPopupOpen={handleOpenModal}
+                        className="mr-0 smx:mr-3"
+                    />
                 </div>
             </div>
 
@@ -173,6 +161,8 @@ export const Cosmetology = () => {
 					bg-no-repeat bg-cover
 					scale-[1.4] md:scale-[.6]  lg:scale-[1] cosmetology-bg_image
 				"
+                data-content-hint="cosmetology.bg.image"
+                data-content-hint-type="image"
             />
 
             <div className="hidden md:flex items-center justify-end h-full w-full pr-10 2xl:pr-20 2xl:pr-[110px]">
