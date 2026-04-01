@@ -62,13 +62,20 @@ export const Antiage = () => {
         <div
             ref={sectionRef}
             className='w-full h-auto md:h-[105vh] relative overflow-hidden bg-[#1D1D1D] md:bg-[url("/antiage-screen/anti-age.png")] bg-no-repeat bg-cover '
+            data-content-hint="antiage.bg.desktop"
+            data-content-hint-type="image"
         >
             <div
                 ref={specialBackgroundRef}
                 className="absolute top-0 left-0 min-w-[2000px] h-full bg-[url('/antiage-screen/anti-age.png')] bg-no-repeat bg-cover   will-change-transform -z-20 hidden md:block"
+                data-content-hint="antiage.bg.desktop.special"
+                data-content-hint-type="image"
             />
 
-            <div className='w-full h-[800px] sm:h-[740px] relative md:hidden bg-[#0c0807] overflow-hidden bg-[url("/antiage-screen/bg-mobile.png")] sm:bg-[url("/antiage-screen/anti-age.png")] bg-no-repeat bg-cover bg-[55%_0%] sm:bg-center'>
+            <div className='w-full h-[800px] sm:h-[740px] relative md:hidden bg-[#0c0807] overflow-hidden bg-[url("/antiage-screen/bg-mobile.png")] sm:bg-[url("/antiage-screen/anti-age.png")] bg-no-repeat bg-cover bg-[55%_0%] sm:bg-center'
+                data-content-hint="antiage.bg.mobile"
+                data-content-hint-type="image"
+            >
                 <div
                     className="
         absolute left-[-120px] bottom-[-5.5rem] hidden sm:block  h-auto aspect-[3/4] will-change-transform
@@ -206,16 +213,16 @@ export const Antiage = () => {
                     className="absolute -bottom-5 lg:bottom-5 right-0 w-full overflow-hidden mix-blend-difference text-white"
                 >
                     <div className="marquee-cosmetology flex whitespace-nowrap text-[clamp(3rem,8vw,10rem)] font-normal uppercase mix-blend-difference leading-[125%]">
-                        <span className="px-4 md:px-6 xl:px-8">
+                        <span className="px-4 md:px-6 xl:px-8" data-content-hint="antiage.marquee.text">
                             стратегия управления возрастом
                         </span>
-                        <span className="px-4 md:px-6 xl:px-8">
+                        <span className="px-4 md:px-6 xl:px-8" data-content-hint="antiage.marquee.text">
                             стратегия управления возрастом
                         </span>
-                        <span className="px-4 md:px-6 xl:px-8">
+                        <span className="px-4 md:px-6 xl:px-8" data-content-hint="antiage.marquee.text">
                             стратегия управления возрастом
                         </span>
-                        <span className="px-4 md:px-6 xl:px-8">
+                        <span className="px-4 md:px-6 xl:px-8" data-content-hint="antiage.marquee.text">
                             стратегия управления возрастом
                         </span>
                     </div>
