@@ -52,10 +52,12 @@ const Intimpopup = () => {
 						: 'translate-y-full sm:translate-y-0 sm:translate-x-full'
 				}`}
 			>
-				<h2 className='text-white uppercase text-[24px] 2xl:text-[36px] mb-4'>
+				<h2 className='text-white uppercase text-[24px] 2xl:text-[36px] mb-4'
+                    data-content-hint="plastic.popup.intim.title">
 					Интимная пластика
 				</h2>
-				<p className='text-[#FFFFFF99] text-[12px] 2xl:text-[18px] mb-8 md:max-w-none uppercase'>
+				<p className='text-[#FFFFFF99] text-[12px] 2xl:text-[18px] mb-8 md:max-w-none uppercase'
+                    data-content-hint="plastic.popup.intim.description">
 					Комплекс хирургических и нехирургических (инъекционных, лазерных,
 					нитевых) процедур направлен на устранение функциональных проблем
 					женской мочеполовой системы, коррекцию возрастных изменений и

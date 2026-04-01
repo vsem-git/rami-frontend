@@ -218,6 +218,8 @@ const AnimationBlock = () => {
                 <div
                     ref={imageRef}
                     className="absolute md:-bottom-10 left-0 w-[100%] aspect-[4096/2777] bg-[url('/plasticbg.webp')] [background-position:15%_bottom] bg-no-repeat bg-cover min-h-dvh md:bg-contain sm:bg-bottom"
+                    data-content-hint="plastic.bg.image"
+                    data-content-hint-type="image"
                 >
                     <div className="absolute inset-0 bg-black/30"></div>
                     <div className="md:hidden absolute bottom-4 left-4 flex items-center w-fit gap-3">
@@ -251,16 +253,16 @@ const AnimationBlock = () => {
                 ref={runningStroke}
                 className="marquee flex pointer-events-none whitespace-nowrap text-[64px] md:text-[96px] 2xl:text-[130px] mix-blend-difference absolute top-[calc(100dvh-96px-80px)] sm:top-[96px] md:top-[122px] left-0 w-full"
             >
-                <span className="px-8">ПЛАСТИЧЕСКАЯ ХИРУРГИЯ</span>
-                <span className="px-8">ПЛАСТИЧЕСКАЯ ХИРУРГИЯ</span>
-                <span className="px-8">ПЛАСТИЧЕСКАЯ ХИРУРГИЯ</span>
-                <span className="px-8">ПЛАСТИЧЕСКАЯ ХИРУРГИЯ</span>
+                <span className="px-8" data-content-hint="plastic.marquee.text">ПЛАСТИЧЕСКАЯ ХИРУРГИЯ</span>
+                <span className="px-8" data-content-hint="plastic.marquee.text">ПЛАСТИЧЕСКАЯ ХИРУРГИЯ</span>
+                <span className="px-8" data-content-hint="plastic.marquee.text">ПЛАСТИЧЕСКАЯ ХИРУРГИЯ</span>
+                <span className="px-8" data-content-hint="plastic.marquee.text">ПЛАСТИЧЕСКАЯ ХИРУРГИЯ</span>
             </div>
             <div
                 ref={firstText}
                 className="md:absolute md:scale-50 text-xs sm:ml-auto md:ml-0 2xl:text-lg md:opacity-0 h-dvh right-0 z-10 flex flex-col gap-4 xl:p-[80px] 2xl:p-[115px] uppercase justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] md:px-[32px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
             >
-                <p className="mt-30">
+                <p className="mt-30" data-content-hint="plastic.firsttext.intro">
                     «Plastikos» в переводе с греческого языка означает
                     «создавать форму», на латыни «plasticus» — ваяющий,
                     формирующий. Команда пластических хирургов RAMICLINIC
@@ -270,7 +272,7 @@ const AnimationBlock = () => {
                     собой анатомических областях.
                 </p>
 
-                <p>
+                <p data-content-hint="plastic.firsttext.outro">
                     Современные пластические операции не только продлевают
                     молодость, но и меняют качество жизни наших пациентов, давая
                     возможность ежедневно наслаждаться эстетическим
@@ -282,7 +284,7 @@ const AnimationBlock = () => {
                 id="services"
                 className="md:absolute md:scale-50 mt-30 sm:mt-0 text-xs sm:ml-auto md:ml-0 2xl:text-lg md:opacity-0 pt-[122px]  h-[calc(100dvh-122px)] right-0 z-10 flex flex-col gap-8 xl:p-[80px] 2xl:p-[115px] uppercase justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
             >
-                <p className="text-[20px] uppercase">
+                <p className="text-[20px] uppercase" data-content-hint="plastic.services.title">
                     Услуги пластической хирургии
                 </p>
                 <div className="border-t border-[#FFFFFF26] text-[11px]">
@@ -290,7 +292,7 @@ const AnimationBlock = () => {
                         onClick={() => openPopup("hairpopup")}
                         className="py-4 flex justify-between items-center border-b border-[#FFFFFF26]"
                     >
-                        <div className="font-semibold">Пересадка волос</div>
+                        <div className="font-semibold" data-content-hint="plastic.services.hair">Пересадка волос</div>
                         <svg
                             width="16"
                             height="17"
@@ -310,7 +312,7 @@ const AnimationBlock = () => {
                         onClick={() => openPopup("correctionpopup")}
                         className="py-4 flex justify-between items-center border-b border-[#FFFFFF26]"
                     >
-                        <div className="font-semibold">
+                        <div className="font-semibold" data-content-hint="plastic.services.correction">
                             Коррекция шрамов и рубцов
                         </div>
                         <svg
@@ -332,7 +334,7 @@ const AnimationBlock = () => {
                         onClick={() => openPopup("plasticpopup")}
                         className="py-4 flex justify-between items-center border-b border-[#FFFFFF26]"
                     >
-                        <div className="font-semibold">пластика лица</div>
+                        <div className="font-semibold" data-content-hint="plastic.services.face">пластика лица</div>
                         <svg
                             width="16"
                             height="17"
@@ -352,7 +354,7 @@ const AnimationBlock = () => {
                         onClick={() => openPopup("breastpopup")}
                         className="py-4 flex justify-between items-center border-b border-[#FFFFFF26]"
                     >
-                        <div className="font-semibold">Грудь</div>
+                        <div className="font-semibold" data-content-hint="plastic.services.breast">Грудь</div>
                         <svg
                             width="16"
                             height="17"
@@ -372,7 +374,7 @@ const AnimationBlock = () => {
                         onClick={() => openPopup("intimpopup")}
                         className="py-4 flex justify-between items-center border-b border-[#FFFFFF26]"
                     >
-                        <div className="font-semibold">Интимная пластика</div>
+                        <div className="font-semibold" data-content-hint="plastic.services.intim">Интимная пластика</div>
                         <svg
                             width="16"
                             height="17"
@@ -414,48 +416,58 @@ const AnimationBlock = () => {
                 ref={secondText}
                 className="md:absolute md:scale-50 md:opacity-0  sm:ml-auto md:ml-0 h-dvh right-0 z-10 flex flex-col  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
             >
-                <div className="mb-8 2xl:mb-10 text-sm 2xl:text-[21px]">
+                <div className="mb-8 2xl:mb-10 text-sm 2xl:text-[21px]" data-content-hint="plastic.secondtext.intro">
                     Сегодня в операционном портфеле RAMICLINIC RESIDENCE
                     представлены все виды пластической хирургии:
                 </div>
                 <div>
                     <div className="grid grid-cols-[40px_1fr] 2xl:grid-cols-[48px_1fr] gap-3 2xl:gap-6 items-center mb-2 2xl:mb-4">
-                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[10px] md:text-[11px] rounded-full">
+                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[10px] md:text-[11px] rounded-full"
+                            data-content-hint="plastic.secondtext.item1.number">
                             01
                         </div>
-                        <div className="2xl:text-lg font-medium uppercase text-[11px] md:text-xs">
+                        <div className="2xl:text-lg font-medium uppercase text-[11px] md:text-xs"
+                            data-content-hint="plastic.secondtext.item1.label">
                             Реконструктивные операции
                         </div>
                     </div>
                     <div className="grid grid-cols-[40px_1fr] 2xl:grid-cols-[48px_1fr] gap-3 2xl:gap-6 items-center mb-2 2xl:mb-4">
-                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[10px] md:text-[11px] rounded-full">
+                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[10px] md:text-[11px] rounded-full"
+                            data-content-hint="plastic.secondtext.item2.number">
                             02
                         </div>
-                        <div className="2xl:text-lg font-medium uppercase text-[11px] md:text-xs">
+                        <div className="2xl:text-lg font-medium uppercase text-[11px] md:text-xs"
+                            data-content-hint="plastic.secondtext.item2.label">
                             Эстетические операции
                         </div>
                     </div>
                     <div className="grid grid-cols-[40px_1fr] 2xl:grid-cols-[48px_1fr] gap-3 2xl:gap-6 items-center mb-2 2xl:mb-4">
-                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[10px] md:text-[11px] rounded-full">
+                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[10px] md:text-[11px] rounded-full"
+                            data-content-hint="plastic.secondtext.item3.number">
                             03
                         </div>
-                        <div className="2xl:text-lg font-medium uppercase text-[11px] md:text-xs">
+                        <div className="2xl:text-lg font-medium uppercase text-[11px] md:text-xs"
+                            data-content-hint="plastic.secondtext.item3.label">
                             Онкопластические операции
                         </div>
                     </div>
                     <div className="grid grid-cols-[40px_1fr] 2xl:grid-cols-[48px_1fr] gap-3 2xl:gap-6 items-center mb-2 2xl:mb-4">
-                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[10px] md:text-[11px] rounded-full">
+                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[10px] md:text-[11px] rounded-full"
+                            data-content-hint="plastic.secondtext.item4.number">
                             04
                         </div>
-                        <div className="2xl:text-lg font-medium uppercase text-[11px] md:text-xs">
+                        <div className="2xl:text-lg font-medium uppercase text-[11px] md:text-xs"
+                            data-content-hint="plastic.secondtext.item4.label">
                             Повторные операции
                         </div>
                     </div>
                     <div className="grid grid-cols-[40px_1fr] 2xl:grid-cols-[48px_1fr] gap-3 2xl:gap-6 items-center mb-2 2xl:mb-4">
-                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[10px] md:text-[11px] rounded-full">
+                        <div className="aspect-square bg-[#FFFFFF1A] flex justify-center items-center 2xl:text-sm text-[10px] md:text-[11px] rounded-full"
+                            data-content-hint="plastic.secondtext.item5.number">
                             05
                         </div>
-                        <div className="2xl:text-lg font-medium uppercase text-[11px] md:text-xs">
+                        <div className="2xl:text-lg font-medium uppercase text-[11px] md:text-xs"
+                            data-content-hint="plastic.secondtext.item5.label">
                             Мужская пластика
                         </div>
                     </div>
@@ -465,10 +477,12 @@ const AnimationBlock = () => {
                 ref={thirdText}
                 className="md:absolute md:scale-50 md:opacity-0 h-dvh  sm:ml-auto md:ml-0 right-0 z-10 flex flex-col  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
             >
-                <p className="text-lg md:text-[20px] 2xl:text-[28px] mb-6">
+                <p className="text-lg md:text-[20px] 2xl:text-[28px] mb-6"
+                    data-content-hint="plastic.thirdtext.title">
                     Наш подход
                 </p>
-                <p className="text-[13px] md:text-[14px] 2xl:text-[21px]">
+                <p className="text-[13px] md:text-[14px] 2xl:text-[21px]"
+                    data-content-hint="plastic.thirdtext.description">
                     Выбор оптимальной тактики и стратегии эстетического
                     преображения в RAMICLINIC RESIDENCE происходит на первой
                     встрече с пластическим хирургом и решение принимается вместе
@@ -479,7 +493,8 @@ const AnimationBlock = () => {
                 ref={fourthText}
                 className="md:absolute md:scale-50 md:opacity-0  sm:ml-auto md:ml-0 h-[calc(100dvh/1.25)] md:h-dvh right-0 z-10 flex flex-col  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
             >
-                <p className="text-sm md:text-[18px] 2xl:text-[20px] mb-10">
+                <p className="text-sm md:text-[18px] 2xl:text-[20px] mb-10"
+                    data-content-hint="plastic.fourthtext.description">
                     Используя данные генетического паспорта кожи и наш подход к
                     антиэйдж-сопровождению пациент получает подробную
                     персонализированную «дорожную карту», где находятся все

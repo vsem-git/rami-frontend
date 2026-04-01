@@ -52,10 +52,12 @@ const RinoPopup = () => {
 						: 'translate-y-full sm:translate-y-0 sm:translate-x-full'
 				}`}
 			>
-				<h2 className='text-white uppercase text-[24px] 2xl:text-[36px] mb-4'>
+				<h2 className='text-white uppercase text-[24px] 2xl:text-[36px] mb-4'
+                    data-content-hint="plastic.popup.rino.title">
 					Ринопластика
 				</h2>
-				<p className='text-[#FFFFFF99] text-[12px] 2xl:text-[18px] mb-8 md:max-w-none uppercase'>
+				<p className='text-[#FFFFFF99] text-[12px] 2xl:text-[18px] mb-8 md:max-w-none uppercase'
+                    data-content-hint="plastic.popup.rino.description">
 					Это корректировочная операция по улучшению эстетики и функциональных
 					параметров носа. Современные техники ринопластики гарантируют
 					безупречный результат при минимальной инвазивности методов. В процессе

@@ -52,10 +52,12 @@ const Breastpopup = () => {
                         : "translate-y-full sm:translate-y-0 sm:translate-x-full"
                 }`}
             >
-                <h2 className="text-white uppercase text-[24px] 2xl:text-[36px] mb-4">
+                <h2 className="text-white uppercase text-[24px] 2xl:text-[36px] mb-4"
+                    data-content-hint="plastic.popup.breast.title">
                     Грудь
                 </h2>
-                <p className="text-[#FFFFFF99] text-[12px] 2xl:text-[18px] mb-8 md:max-w-none uppercase">
+                <p className="text-[#FFFFFF99] text-[12px] 2xl:text-[18px] mb-8 md:max-w-none uppercase"
+                    data-content-hint="plastic.popup.breast.description">
                     Молочные железы – это зона повышенного внимания. И как
                     важнейшая часть женского здоровья, требующая регулярной
                     заботы. И – как символ женственности и красоты. Хирургия

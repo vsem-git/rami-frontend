@@ -52,10 +52,12 @@ const Bodypopup = () => {
                         : "translate-y-full sm:translate-y-0 sm:translate-x-full"
                 }`}
             >
-                <h2 className="text-white uppercase text-[24px] 2xl:text-[36px] mb-4">
+                <h2 className="text-white uppercase text-[24px] 2xl:text-[36px] mb-4"
+                    data-content-hint="plastic.popup.body.title">
                     Тело
                 </h2>
-                <p className="text-[#FFFFFF99] text-[12px] 2xl:text-[18px] mb-8 md:max-w-none uppercase">
+                <p className="text-[#FFFFFF99] text-[12px] 2xl:text-[18px] mb-8 md:max-w-none uppercase"
+                    data-content-hint="plastic.popup.body.description">
                     Чувствовать свое тело – значит чувствовать жизнь. Радоваться
                     своему телу – значит быть счастливым. Операции по телу
                     направлены на улучшение и гармонизацию внешних форм,
