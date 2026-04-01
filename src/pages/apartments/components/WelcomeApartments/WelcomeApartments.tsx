@@ -30,11 +30,15 @@ export const WelcomeApartments: React.FC = () => {
                     className="relative w-full h-full md:absolute inset-0 bg-cover bg-center bg-[url('/apartments-screen/bg.webp')] flex items-end justify-center"
                     style={{ backgroundPosition: "50% 8%" }}
                     role="img"
+                    data-content-hint="apartments.welcome.bg"
+                    data-content-hint-type="image"
                 >
                     <div
                         className="block md:hidden w-[299px] h-[299px] bg-cover bg-center bg-[url('/doctor-screen/serb1.webp')]"
                         style={{ backgroundPosition: "50% 10%" }}
                         aria-hidden="true"
+                        data-content-hint="apartments.welcome.bg.mobile"
+                        data-content-hint-type="image"
                     />
                 </div>
             </div>

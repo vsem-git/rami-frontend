@@ -18,14 +18,18 @@ export const TelemedicineApartments = () => {
 				src={img}
 				alt={title}
 				className='w-full h-auto aspect-[1/1] object-cover'
+                data-content-hint={`apartments.telemedicine.${id}.image`}
+                data-content-hint-type="image"
 			/>
 			<div className='flex items-center gap-8'>
-				<h2 className='text-[80px] sm:text-[120px] lg:text-[160px] leading-[105%] text-[#B59158] uppercase mt-[-4rem]'>
+				<h2 className='text-[80px] sm:text-[120px] lg:text-[160px] leading-[105%] text-[#B59158] uppercase mt-[-4rem]'
+                    data-content-hint={`apartments.telemedicine.${id}.number`}>
 					{id}
 				</h2>
 				<h3
 					className={`text-sm sm:text-base 2xl:text-[21px] leading-[155%] text-white uppercase
 						${id === '03' ? 'mt-5' : 'mt-0'}`}
+                    data-content-hint={`apartments.telemedicine.${id}.title`}
 				>
 					{title}
 				</h3>
@@ -35,8 +39,8 @@ export const TelemedicineApartments = () => {
 
 	return (
 		<div className='relative w-full bg-[#1D1D1D] px-20 2xl:px-[120px] py-[220px] flex justify-between overflow-hidden gap-20 xl:gap-[160px]'>
-			<img src='/pattern1.svg' alt='' className='absolute right-0 top-0' />
-			<img src='/pattern2.svg' alt='' className='absolute left-0 -top-32' />
+			<img src='/pattern1.svg' alt='' className='absolute right-0 top-0' data-content-hint="apartments.telemedicine.pattern1" data-content-hint-type="image" />
+			<img src='/pattern2.svg' alt='' className='absolute left-0 -top-32' data-content-hint="apartments.telemedicine.pattern2" data-content-hint-type="image" />
 
 			<div className='relative z-10 flex flex-col gap-24'>
 				{col1.map(card => (
