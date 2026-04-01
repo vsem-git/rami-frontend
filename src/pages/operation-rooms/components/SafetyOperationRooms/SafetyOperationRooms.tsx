@@ -84,9 +84,12 @@ export const SafetyOperationRooms = () => {
                             src="/operation-rooms/bg1.webp"
                             alt=""
                             className="w-full h-full object-cover"
+                            data-content-hint="operation-rooms.safety.bg"
+                            data-content-hint-type="image"
                         />
                         <div className="absolute inset-0 bg-[#1D1D1D80]" />
-                        <h2 className="absolute left-[6%] top-[20%] text-[24px] text-white leading-[125%] uppercase">
+                        <h2 className="absolute left-[6%] top-[20%] text-[24px] text-white leading-[125%] uppercase"
+                            data-content-hint="operation-rooms.safety.title">
                             Абсолютная <br />
                             безопасность
                         </h2>
@@ -94,20 +97,24 @@ export const SafetyOperationRooms = () => {
 
                     <div className="p-4 space-y-8">
                         <div className="space-y-2">
-                            <h4 className="text-xs text-[#B59158] leading-[155%] uppercase">
+                            <h4 className="text-xs text-[#B59158] leading-[155%] uppercase"
+                                data-content-hint="operation-rooms.safety.item1.number">
                                 01
                             </h4>
-                            <p className="text-sm text-[#1D1D1D] leading-[155%] uppercase">
+                            <p className="text-sm text-[#1D1D1D] leading-[155%] uppercase"
+                                data-content-hint="operation-rooms.safety.item1.description">
                                 Герметичные операционные с ИИ, управляемые
                                 голосом
                             </p>
                         </div>
 
                         <div className="space-y-2">
-                            <h4 className="text-xs text-[#B59158] leading-[155%] uppercase">
+                            <h4 className="text-xs text-[#B59158] leading-[155%] uppercase"
+                                data-content-hint="operation-rooms.safety.item2.number">
                                 02
                             </h4>
-                            <p className="text-sm text-[#1D1D1D] leading-[155%] uppercase">
+                            <p className="text-sm text-[#1D1D1D] leading-[155%] uppercase"
+                                data-content-hint="operation-rooms.safety.item2.description">
                                 Централизованное стерилизационное отделение
                             </p>
                         </div>
@@ -117,47 +124,59 @@ export const SafetyOperationRooms = () => {
                                 src="/operation-rooms/card5.webp"
                                 alt=""
                                 className="w-1/2 aspect-[3/4] object-cover"
+                                data-content-hint="operation-rooms.safety.image1"
+                                data-content-hint-type="image"
                             />
                             <img
                                 src="/operation-rooms/card4.webp"
                                 alt=""
                                 className="w-1/2 aspect-[3/4] object-cover"
+                                data-content-hint="operation-rooms.safety.image2"
+                                data-content-hint-type="image"
                             />
                         </div>
 
                         <div className="space-y-2">
-                            <h4 className="text-xs text-[#B59158] leading-[155%] uppercase">
+                            <h4 className="text-xs text-[#B59158] leading-[155%] uppercase"
+                                data-content-hint="operation-rooms.safety.item3.number">
                                 03
                             </h4>
-                            <p className="text-sm text-[#1D1D1D] leading-[155%] uppercase">
+                            <p className="text-sm text-[#1D1D1D] leading-[155%] uppercase"
+                                data-content-hint="operation-rooms.safety.item3.description">
                                 Ламинарные потоки как гарантия абсолютной
                                 стерильности
                             </p>
                         </div>
 
                         <div className="space-y-2">
-                            <h4 className="text-xs text-[#B59158] leading-[155%] uppercase">
+                            <h4 className="text-xs text-[#B59158] leading-[155%] uppercase"
+                                data-content-hint="operation-rooms.safety.item4.number">
                                 04
                             </h4>
-                            <p className="text-sm text-[#1D1D1D] leading-[155%] uppercase">
+                            <p className="text-sm text-[#1D1D1D] leading-[155%] uppercase"
+                                data-content-hint="operation-rooms.safety.item4.description">
                                 Мобильные операционные столы экстра-класса
                             </p>
                         </div>
 
                         <div className="space-y-2">
-                            <h4 className="text-xs text-[#B59158] leading-[155%] uppercase">
+                            <h4 className="text-xs text-[#B59158] leading-[155%] uppercase"
+                                data-content-hint="operation-rooms.safety.item5.number">
                                 05
                             </h4>
-                            <p className="text-sm text-[#1D1D1D] leading-[155%] uppercase">
+                            <p className="text-sm text-[#1D1D1D] leading-[155%] uppercase"
+                                data-content-hint="operation-rooms.safety.item5.description">
                                 Безопасное интраоперационное ведение пациента
                             </p>
                         </div>
 
                         <div className="space-y-2">
-                            <h4 className="text-xs text-[#B59158] leading-[155%] uppercase">
+                            <h4 className="text-xs text-[#B59158] leading-[155%] uppercase"
+                                data-content-hint="operation-rooms.safety.item6.number">
                                 06
                             </h4>
-                            <p className="text-sm text-[#1D1D1D] leading-[155%] uppercase">
+                            <p className="text-sm text-[#1D1D1D] leading-[155%] uppercase"
+                                data-content-hint="operation-rooms.safety.item6.description">
                                 Бесконтактная система доступа в операционный
                                 блок
                             </p>
@@ -180,10 +199,13 @@ export const SafetyOperationRooms = () => {
                         src="/operation-rooms/bg1.webp"
                         alt=""
                         className="w-full h-full object-cover"
+                        data-content-hint="operation-rooms.safety.desktop.bg"
+                        data-content-hint-type="image"
                     />
                     <div className="absolute inset-0 bg-[#1D1D1D80]" />
 
-                    <h2 className="absolute left-[6%] top-[20%] text-[24px] xl:text-[36px] text-white leading-[125%] uppercase">
+                    <h2 className="absolute left-[6%] top-[20%] text-[24px] xl:text-[36px] text-white leading-[125%] uppercase"
+                        data-content-hint="operation-rooms.safety.desktop.title">
                         Абсолютная <br />
                         безопасность
                     </h2>
@@ -193,24 +215,30 @@ export const SafetyOperationRooms = () => {
                     src="/operation-rooms/acr.webp"
                     alt=""
                     className="absolute top-[0rem] left-[60rem] xl:left-[83rem] w-[576px] xl:w-[1094px] h-[240px] xl:h-[456px] opacity-30"
+                    data-content-hint="operation-rooms.safety.desktop.acr"
+                    data-content-hint-type="image"
                 />
 
                 <div className="relative h-full">
                     <div className="absolute top-[200px] left-16 w-[320px] xl:w-[420px] space-y-3 xl:space-y-4">
-                        <h4 className="text-xs xl:text-[18px] text-[#B59158] leading-[155%] uppercase">
+                        <h4 className="text-xs xl:text-[18px] text-[#B59158] leading-[155%] uppercase"
+                            data-content-hint="operation-rooms.safety.desktop.item1.number">
                             01
                         </h4>
-                        <p className="text-sm xl:text-[21px] text-[#1D1D1D] leading-[155%] uppercase">
+                        <p className="text-sm xl:text-[21px] text-[#1D1D1D] leading-[155%] uppercase"
+                            data-content-hint="operation-rooms.safety.desktop.item1.description">
                             Герметичные операционные с ИИ, управляемые голосом
                         </p>
                     </div>
 
                     <div className="absolute bottom-5 left-[15rem] flex gap-10">
                         <div className="min-w-[320px] xl:min-w-[420px] space-y-4 mt-0">
-                            <h4 className="text-xs xl:text-[18px] text-[#B59158] leading-[155%] uppercase">
+                            <h4 className="text-xs xl:text-[18px] text-[#B59158] leading-[155%] uppercase"
+                                data-content-hint="operation-rooms.safety.desktop.item2.number">
                                 02
                             </h4>
-                            <p className="text-sm xl:text-[21px] text-[#1D1D1D] leading-[155%] uppercase">
+                            <p className="text-sm xl:text-[21px] text-[#1D1D1D] leading-[155%] uppercase"
+                                data-content-hint="operation-rooms.safety.desktop.item2.description">
                                 Централизованное стерилизационное отделение
                             </p>
                         </div>
@@ -220,28 +248,36 @@ export const SafetyOperationRooms = () => {
                                 src="/operation-rooms/card5.webp"
                                 alt=""
                                 className="w-[23vw] xl:w-[450px] aspect-[3/4] shrink-0 object-cover"
+                                data-content-hint="operation-rooms.safety.desktop.image1"
+                                data-content-hint-type="image"
                             />
                             <img
                                 src="/operation-rooms/card4.webp"
                                 alt=""
                                 className="w-[23vw] xl:w-[450px] aspect-[3/4] shrink-0 object-cover"
+                                data-content-hint="operation-rooms.safety.desktop.image2"
+                                data-content-hint-type="image"
                             />
                         </div>
 
                         <div className="min-w-[320px] xl:min-w-[420px] space-y-4 mt-20">
-                            <h4 className="text-xs xl:text-[18px] text-[#B59158] leading-[155%] uppercase">
+                            <h4 className="text-xs xl:text-[18px] text-[#B59158] leading-[155%] uppercase"
+                                data-content-hint="operation-rooms.safety.desktop.item4.number">
                                 04
                             </h4>
-                            <p className="text-sm xl:text-[21px] text-[#1D1D1D] leading-[155%] uppercase">
+                            <p className="text-sm xl:text-[21px] text-[#1D1D1D] leading-[155%] uppercase"
+                                data-content-hint="operation-rooms.safety.desktop.item4.description">
                                 Мобильные операционные столы экстра-класса
                             </p>
                         </div>
 
                         <div className="absolute top-[-15rem] left-[56rem] xl:left-[88rem] w-[320px] xl:w-[420px] space-y-4">
-                            <h4 className="text-xs xl:text-[18px] text-[#B59158] leading-[155%] uppercase">
+                            <h4 className="text-xs xl:text-[18px] text-[#B59158] leading-[155%] uppercase"
+                                data-content-hint="operation-rooms.safety.desktop.item3.number">
                                 03
                             </h4>
-                            <p className="text-sm xl:text-[21px] text-[#1D1D1D] leading-[155%] uppercase">
+                            <p className="text-sm xl:text-[21px] text-[#1D1D1D] leading-[155%] uppercase"
+                                data-content-hint="operation-rooms.safety.desktop.item3.description">
                                 Ламинарные потоки как гарантия абсолютной
                                 стерильности
                             </p>

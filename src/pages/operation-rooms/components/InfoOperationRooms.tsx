@@ -56,16 +56,20 @@ export const InfoOperationRooms = () => {
         >
             <div className="relative w-[70%] xl:w-[65%] 2xl:w-[70%] h-size_image-stack overflow-hidden">
                 <div className="image-stack">
-                    <img src="/operation-rooms/key-image.webp" alt="" />
+                    <img src="/operation-rooms/key-image.webp" alt="" data-content-hint="operation-rooms.info.image1" data-content-hint-type="image" />
                     <img
                         src="/operation-rooms/key-image.webp"
                         alt=""
                         ref={image2Ref}
+                        data-content-hint="operation-rooms.info.image2"
+                        data-content-hint-type="image"
                     />
                     <img
                         src="/operation-rooms/key-image.webp"
                         alt=""
                         ref={image3Ref}
+                        data-content-hint="operation-rooms.info.image3"
+                        data-content-hint-type="image"
                     />
                 </div>
             </div>
@@ -74,27 +78,31 @@ export const InfoOperationRooms = () => {
                 ref={textRef}
                 className="relative z-10 w-full sm:w-[427px] 2xl:w-[620px] flex flex-col  px-4 md:px-0 pr-0 md:pr-4 mb-16 md:mb-0"
             >
-                <h2 className="text-[20px] 2xl:text-[28px] text-[#1D1D1D] leading-[130%] uppercase">
+                <h2 className="text-[20px] 2xl:text-[28px] text-[#1D1D1D] leading-[130%] uppercase" data-content-hint="operation-rooms.info.title">
                     Быстрая и комфортная <br />
                     реабилитация
                 </h2>
 
                 <div className="space-y-6">
                     <div className="mt-12 xl:mt-16">
-                        <span className="text-xs 2xl:text-[18px] text-[#B59158] leading-[155%] uppercase">
+                        <span className="text-xs 2xl:text-[18px] text-[#B59158] leading-[155%] uppercase"
+                            data-content-hint="operation-rooms.info.item1.number">
                             01
                         </span>
-                        <p className="text-sm 2xl:text-[21px] text-[#1D1D1D] leading-[155%] uppercase mt-3 2xl:mt-4">
+                        <p className="text-sm 2xl:text-[21px] text-[#1D1D1D] leading-[155%] uppercase mt-3 2xl:mt-4"
+                            data-content-hint="operation-rooms.info.item1.description">
                             Использование современных возможностей эстетической
                             медицины, которая тесно связана с послеоперационной
                             реабилитацией
                         </p>
                     </div>
                     <div>
-                        <span className="text-xs 2xl:text-[18px] text-[#B59158] leading-[155%] uppercase">
+                        <span className="text-xs 2xl:text-[18px] text-[#B59158] leading-[155%] uppercase"
+                            data-content-hint="operation-rooms.info.item2.number">
                             02
                         </span>
-                        <p className="text-sm 2xl:text-[21px] text-[#1D1D1D] leading-[155%] uppercase mt-3 2xl:mt-4">
+                        <p className="text-sm 2xl:text-[21px] text-[#1D1D1D] leading-[155%] uppercase mt-3 2xl:mt-4"
+                            data-content-hint="operation-rooms.info.item2.description">
                             Косметические кресла-трансформеры с плавным
                             перемещением пациента в горизонтальное положение и
                             автоматическими манипуляторами для мытья головы и

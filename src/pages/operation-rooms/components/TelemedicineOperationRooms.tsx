@@ -57,6 +57,8 @@ export const TelemedicineOperationRooms = () => {
                 src={img}
                 alt={title}
                 className="w-full h-[360px] md:h-[480px] xl:h-[600px] 2xl:h-[800px] aspect-[1/1] object-cover"
+                data-content-hint={`operation-rooms.telemedicine.${id}.image1`}
+                data-content-hint-type="image"
             />
 
             <img
@@ -73,6 +75,8 @@ export const TelemedicineOperationRooms = () => {
                     filter: "grayscale(100%) brightness(1) contrast(1)",
                     willChange: "transform",
                 }}
+                data-content-hint={`operation-rooms.telemedicine.${id}.image2`}
+                data-content-hint-type="image"
             />
 
             <div className="flex items-center justify-between gap-6">
@@ -83,11 +87,13 @@ export const TelemedicineOperationRooms = () => {
                             ? "mt-[-8rem] xl:mt-[-7rem] 2xl:mt-[-9rem]"
                             : "mt-[-7rem] xl:mt-[-5.5rem] 2xl:mt-[-7rem]"
                     }`}
+                    data-content-hint={`operation-rooms.telemedicine.${id}.number`}
                 >
                     {id}
                 </h2>
                 <h3
                     className={`text-[13px] md:text-sm xl:text-base 2xl:text-[21px] leading-[155%] text-[#1D1D1D] uppercase max-w-full md:max-w-[330px] xl:max-w-[350px] 2xl:max-w-[500px] mt-6 md:mt-8`}
+                    data-content-hint={`operation-rooms.telemedicine.${id}.title`}
                 >
                     {title}
                 </h3>

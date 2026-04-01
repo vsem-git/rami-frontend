@@ -52,6 +52,8 @@ export const WelcomeOperationRooms: React.FC<{ nextPhotoRef: any }> = ({
 						"linear-gradient(180deg, rgba(29,29,29,0.7) 0%, rgba(29,29,29,0.3) 50%, rgba(29,29,29,0.7) 100%), url('/operation-rooms/bg1.webp')",
 					filter: 'grayscale(100%) brightness(1.2) contrast(1.05)',
 				}}
+                data-content-hint="operation-rooms.welcome.bg"
+                data-content-hint-type="image"
 			>
 				<div
 					ref={defaultContentRef}
