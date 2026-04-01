@@ -5,13 +5,14 @@ export const Patient = () => {
 	return (
 		<div className=''>
 			<div className='w-full max-w-[890px] flex flex-col mx-auto pt-[2rem] lg:pt-[4rem] px-4 lg:px-0'>
-				<h2 className='text-xl sm:text-4xl md:text-[44px] uppercase text-[#1D1D1D] tracking-[3px] sm:tracking-[6px]'>
+				<h2 className='text-xl sm:text-4xl md:text-[44px] uppercase text-[#1D1D1D] tracking-[3px] sm:tracking-[6px]'
+                    data-content-hint="patient.main.title">
 					{patientData.title}
 				</h2>
 
 				<div className='text-[11px] sm:text-sm md:text-lg text-[#1D1D1D] uppercase space-y-4 md:space-y-8 mt-12 md:mt-16'>
 					{patientData.info.map((text, index) => (
-						<p key={index}>{text}</p>
+						<p key={index} data-content-hint={`patient.main.info.${index}`}>{text}</p>
 					))}
 				</div>
 
@@ -81,16 +82,19 @@ export const Patient = () => {
 				</div>
 
 				<div className='mt-24 max-w-[870px]'>
-					<h3 className='text-base md:text-xl text-[#1D1D1D] font-bold uppercase'>
+					<h3 className='text-base md:text-xl text-[#1D1D1D] font-bold uppercase'
+                        data-content-hint="patient.appointment.title">
 						{patientData.appointment.title}
 					</h3>
-					<p className='text-[11px] sm:text-sm md:text-lg text-[#1D1D1D] uppercase mt-4 sm:mt-8'>
+					<p className='text-[11px] sm:text-sm md:text-lg text-[#1D1D1D] uppercase mt-4 sm:mt-8'
+                        data-content-hint="patient.appointment.text">
 						{patientData.appointment.text}
 					</p>
 				</div>
 
 				<div className='mt-24'>
-					<h3 className='text-base md:text-xl text-[#1D1D1D] font-bold uppercase mb-4 md:mb-7'>
+					<h3 className='text-base md:text-xl text-[#1D1D1D] font-bold uppercase mb-4 md:mb-7'
+                        data-content-hint="patient.pricelist.title">
 						{patientData.priceList.title}
 					</h3>
 					<a
@@ -105,7 +109,8 @@ export const Patient = () => {
 							className='mt-1 transition-all duration-300 group-hover:scale-110 group-hover:brightness-0 group-hover:invert-[0.2] w-6 md:w-8'
 						/>
 						<div className='w-full mt-1.75'>
-							<h3 className='text-[10px] sm:text-sm md:text-base text-[#1D1D1D] uppercase font-semibold leading-[155%] transition-all duration-300 group-hover:translate-x-1'>
+							<h3 className='text-[10px] sm:text-sm md:text-base text-[#1D1D1D] uppercase font-semibold leading-[155%] transition-all duration-300 group-hover:translate-x-1'
+                                data-content-hint="patient.pricelist.document">
 								{patientData.priceList.document}
 							</h3>
 							<div className='w-full h-px bg-[#1D1D1D26] mt-1' />
@@ -114,7 +119,8 @@ export const Patient = () => {
 				</div>
 
 				<div className='mt-24'>
-					<h3 className='text-base md:text-xl text-[#1D1D1D] font-bold uppercase mb-4 md:mb-8'>
+					<h3 className='text-base md:text-xl text-[#1D1D1D] font-bold uppercase mb-4 md:mb-8'
+                        data-content-hint="patient.vacancies.title">
 						{patientData.vacancies.title}
 					</h3>
 					<button className='flex items-center gap-4 mt-4 cursor-pointer group'>
@@ -136,11 +142,13 @@ export const Patient = () => {
 				className='w-full mt-14 bg-[#691C32] pb-[100px] px-4 lg:px-0'
 			>
 				<div className='w-full max-w-[890px] flex flex-col mx-auto pt-16 md:pt-[114px]'>
-					<h3 className='text-base md:text-[11px] sm:text-sm md:text-lg text-white font-bold uppercase'>
+					<h3 className='text-base md:text-[11px] sm:text-sm md:text-lg text-white font-bold uppercase'
+                        data-content-hint="patient.reference.title">
 						{patientData.referenceInfo.title}
 					</h3>
 
-					<h4 className='text-[11px] sm:text-sm md:text-lg text-white font-bold uppercase mt-4 md:mt-8'>
+					<h4 className='text-[11px] sm:text-sm md:text-lg text-white font-bold uppercase mt-4 md:mt-8'
+                        data-content-hint="patient.reference.address.title">
 						{patientData.referenceInfo.postalAddress.title}
 					</h4>
 
@@ -150,15 +158,17 @@ export const Patient = () => {
 							dangerouslySetInnerHTML={{
 								__html: patientData.referenceInfo.postalAddress.content,
 							}}
+                            data-content-hint="patient.reference.address.content"
 						/>
 
-						<p className='mt-4 md:mt-8 mb-2 md:mb-4'>
+						<p className='mt-4 md:mt-8 mb-2 md:mb-4'
+                            data-content-hint="patient.reference.address.requisitesTitle">
 							{patientData.referenceInfo.postalAddress.requisitesTitle}
 						</p>
 
 						<div className='space-y-2'>
 							{patientData.referenceInfo.requisites.map((item, index) => (
-								<p key={index}>
+								<p key={index} data-content-hint={`patient.reference.requisites.${index}`}>
 									<b>{item.key}</b> {item.value}
 								</p>
 							))}
@@ -166,10 +176,12 @@ export const Patient = () => {
 					</div>
 
 					<div className='mt-24'>
-						<h3 className='text-base md:text-xl text-white font-bold uppercase'>
+						<h3 className='text-base md:text-xl text-white font-bold uppercase'
+                            data-content-hint="patient.license.title">
 							{patientData.license.title}
 						</h3>
-						<p className='text-[11px] sm:text-sm md:text-lg text-white uppercase mt-8 leading-[155%] mb-4'>
+						<p className='text-[11px] sm:text-sm md:text-lg text-white uppercase mt-8 leading-[155%] mb-4'
+                            data-content-hint="patient.license.description">
 							{patientData.license.description}
 						</p>
 
@@ -184,7 +196,8 @@ export const Patient = () => {
 								className='mt-1 filter brightness-0 invert-[1] transition-all duration-300 group-hover:scale-110 w-6 md:w-8 '
 							/>
 							<div className='mt-1.75'>
-								<h3 className='text-[10px] sm:text-sm md:text-base text-white uppercase font-semibold leading-[155%] max-w-[852px] transition-all duration-300 group-hover:translate-x-1'>
+								<h3 className='text-[10px] sm:text-sm md:text-base text-white uppercase font-semibold leading-[155%] max-w-[852px] transition-all duration-300 group-hover:translate-x-1'
+                                    data-content-hint="patient.license.text">
 									{patientData.license.text}
 								</h3>
 								<div className='w-full h-px bg-[#FFFFFF26] mt-1 transition-all duration-300 group-hover:bg-white group-hover:opacity-70' />
@@ -209,7 +222,8 @@ export const Patient = () => {
 										className='mt-1 filter brightness-0 invert-[1] transition-all duration-300 group-hover:scale-110 w-6 md:w-8'
 									/>
 									<div className='w-full mt-1.75'>
-										<h3 className='text-[10px] sm:text-sm md:text-base text-white uppercase font-semibold leading-[155%] transition-all duration-300 group-hover:translate-x-1'>
+										<h3 className='text-[10px] sm:text-sm md:text-base text-white uppercase font-semibold leading-[155%] transition-all duration-300 group-hover:translate-x-1'
+                                            data-content-hint={`patient.documents.${index}.name`}>
 											{doc.name}
 										</h3>
 										<div className='w-full h-px bg-[#FFFFFF26] mt-1 transition-all duration-300 group-hover:bg-white group-hover:opacity-70' />
@@ -220,12 +234,13 @@ export const Patient = () => {
 					</div>
 
 					<div className='w-full mt-24'>
-						<h3 className='text-base md:text-xl text-white font-bold uppercase mb-4 md:mb-8'>
+						<h3 className='text-base md:text-xl text-white font-bold uppercase mb-4 md:mb-8'
+                            data-content-hint="patient.management.title">
 							{patientData.managementStructure.title}
 						</h3>
 						<div className='text-[11px] sm:text-sm md:text-lg text-white uppercase leading-[155%] space-y-2 md:space-y-4'>
 							{patientData.managementStructure.items.map((item, index) => (
-								<p key={index}>
+								<p key={index} data-content-hint={`patient.management.items.${index}`}>
 									<b>{item.position}</b> {item.name}
 								</p>
 							))}
@@ -233,12 +248,13 @@ export const Patient = () => {
 					</div>
 
 					<div className='w-full mt-24'>
-						<h3 className='text-base md:text-xl text-white font-bold uppercase mb-4 md:mb-8'>
+						<h3 className='text-base md:text-xl text-white font-bold uppercase mb-4 md:mb-8'
+                            data-content-hint="patient.schedule.title">
 							{patientData.receptionSchedule.title}
 						</h3>
 						<div className='text-[11px] sm:text-sm md:text-lg text-white uppercase leading-[155%] space-y-4'>
 							{patientData.receptionSchedule.items.map((item, index) => (
-								<p key={index} dangerouslySetInnerHTML={{ __html: item }} />
+								<p key={index} dangerouslySetInnerHTML={{ __html: item }} data-content-hint={`patient.schedule.items.${index}`} />
 							))}
 						</div>
 					</div>
@@ -247,13 +263,14 @@ export const Patient = () => {
 
 			<div className='w-full bg-[#1D1D1D] pb-16 md:pb-[100px] px-4 lg:px-0'>
 				<div className='w-full max-w-[890px] flex flex-col mx-auto pt-16 md:pt-[114px]'>
-					<h3 className='text-base md:text-xl text-white font-bold uppercase'>
+					<h3 className='text-base md:text-xl text-white font-bold uppercase'
+                        data-content-hint="patient.controlling.title">
 						{patientData.controllingOrganizations.title}
 					</h3>
 
 					<div className='text-[11px] sm:text-sm md:text-lg text-white uppercase leading-[155%] space-y-4 mt-8 '>
 						{patientData.controllingOrganizations.items.map((org, index) => (
-							<p key={index} className={org.maxWidth}>
+							<p key={index} className={org.maxWidth} data-content-hint={`patient.controlling.items.${index}`}>
 								<b>{org.name}</b> Адрес: {org.address}{' '}
 								{org.name.includes('Комитет') ? 'Единая' : 'Тел. / факс'}:{' '}
 								{org.phone}
@@ -261,7 +278,8 @@ export const Patient = () => {
 						))}
 					</div>
 
-					<h3 className='text-base md:text-xl text-white font-bold uppercase mt-24 max-w-[850px]'>
+					<h3 className='text-base md:text-xl text-white font-bold uppercase mt-24 max-w-[850px]'
+                        data-content-hint="patient.useful.title">
 						{patientData.usefulInfo.title}
 					</h3>
 
@@ -280,7 +298,8 @@ export const Patient = () => {
 									className='mt-1 filter brightness-0 invert-[1] transition-all duration-300 group-hover:scale-110 w-6 md:w-8'
 								/>
 								<div className='w-full mt-1.75'>
-									<h3 className='text-[10px] sm:text-sm md:text-base text-white uppercase font-semibold leading-[155%] transition-all duration-300 group-hover:translate-x-1'>
+									<h3 className='text-[10px] sm:text-sm md:text-base text-white uppercase font-semibold leading-[155%] transition-all duration-300 group-hover:translate-x-1'
+                                        data-content-hint={`patient.useful.documents.${index}.name`}>
 										{doc.name}
 									</h3>
 									<div className='w-full h-px bg-[#FFFFFF26] mt-1 transition-all duration-300 group-hover:bg-white group-hover:opacity-70' />
