@@ -246,7 +246,11 @@ export const AboutHistory = () => {
             ref={sectionRef}
             className="relative w-full h-screen min-h-screen overflow-hidden"
         >
-            <div className="absolute inset-0 w-full h-full bg-[url('/about/2.webp')] bg-no-repeat bg-cover bg-[25%_-28vw] md:bg-[20%_-15vw] lg:bg-[7vw_-15vw] xl:bg-[15vw_-12vw] 2xl:bg-[15vw_160%] scale-[2] md:scale-[1.6] lg:scale-[1.7] xl:scale-[2] max-[600px]:bg-[0%_-28vw]" />
+            <div 
+                className="absolute inset-0 w-full h-full bg-[url('/about/2.webp')] bg-no-repeat bg-cover bg-[25%_-28vw] md:bg-[20%_-15vw] lg:bg-[7vw_-15vw] xl:bg-[15vw_-12vw] 2xl:bg-[15vw_160%] scale-[2] md:scale-[1.6] lg:scale-[1.7] xl:scale-[2] max-[600px]:bg-[0%_-28vw]"
+                data-content-hint="about.history.bg"
+                data-content-hint-type="image"
+            />
             <div
                 className="absolute inset-0 w-full h-full z-[1]"
                 style={{ backgroundColor: "#1D1D1D1A" }}
@@ -255,7 +259,8 @@ export const AboutHistory = () => {
             <div className="absolute top-1/2 left-1/2 -translate-1/2 w-[700px] md:w-[750px] lg:w-[900px] xl:w-[1000px] 2xl:w-[1187px] h-[700px] md:h-[750px] lg:h-[900px] xl:h-[1000px] 2xl:h-[1187px] rounded-full border-2 border-[#EAE6E04D] max-[600px]:hidden" />
 
             <div className="relative z-10 items-center justify-between p-6 max-[600px]:flex hidden">
-                <h4 className="max-[500px]:text-xs text-base text-[#EAE6E0] uppercase font-medium max-[500px]:max-w-[20px] leading-[20px]">
+                <h4 className="max-[500px]:text-xs text-base text-[#EAE6E0] uppercase font-medium max-[500px]:max-w-[20px] leading-[20px]"
+                    data-content-hint="about.history.title">
                     История компании
                 </h4>
 

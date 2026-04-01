@@ -5,6 +5,8 @@ export const AboutInfo = () => {
                 src="about/Group 630.webp"
                 alt=""
                 className="absolute w-full"
+                data-content-hint="about.info.bg1"
+                data-content-hint-type="image"
             />
 
             <div className="w-full relative z-20 max-[600px]:pt-22  pt-[130px] md:pt-[150px] xl:pt-[15rem] px-4 md:pl-[100px] xl:pl-[112px] 2xl:pl-[17rem]">
@@ -17,11 +19,15 @@ export const AboutInfo = () => {
                         src="about/image 110.webp"
                         alt=""
                         className="absolute top-1/2 -translate-y-1/2 ml-[-4rem] xl:ml-[-5rem] 2xl:ml-[-10rem] w-[126px] xl:w-[134px] xl:w-[171px] 2xl:w-[254px] max-[500px]:w-[97px] max-[500px]:top-[-0.3rem] max-[500px]:right-4"
+                        data-content-hint="about.info.image1"
+                        data-content-hint-type="image"
                     />
                     <img
                         src="about/image 108.webp"
                         alt=""
                         className="max-[500px]:w-full w-[364px] md:w-[387px] xl:w-[497px] 2xl:w-[738px] max-[500px]:h-[350px] object-cover"
+                        data-content-hint="about.info.image2"
+                        data-content-hint-type="image"
                     />
                 </div>
             </div>
@@ -30,16 +36,22 @@ export const AboutInfo = () => {
                 src="about/in.webp"
                 alt=""
                 className="absolute z-10 left-[-1rem] top-[65%] md:top-[66%] xl:top-[59%] 2xl:top-[55%] -translate-y-1/2 max-[500px]:hidden"
+                data-content-hint="about.info.in"
+                data-content-hint-type="image"
             />
             <img
                 src="about/Group 630 (1).png"
                 alt=""
                 className="absolute top-0 left-0 w-full"
+                data-content-hint="about.info.bg2"
+                data-content-hint-type="image"
             />
             <img
                 src="about/филосовия (1).png"
                 alt=""
                 className="absolute z-10 w-full left-0 max-[500px]:top-[37%] hidden max-[500px]:block"
+                data-content-hint="about.info.philosophy"
+                data-content-hint-type="image"
             />
         </div>
     );

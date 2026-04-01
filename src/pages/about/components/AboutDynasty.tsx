@@ -12,6 +12,8 @@ export const AboutDynasty = () => {
                         src="about/10.webp"
                         alt=""
                         className="max-[700px]:w-[328px] w-[389px] lg:w-[470px] xl:w-[662px] h-[483px] lg:h-[583px] xl:h-[820px] object-cover max-[700px]:h-[405px] "
+                        data-content-hint="about.dynasty.image1"
+                        data-content-hint-type="image"
                     />
                 </div>
 
@@ -20,6 +22,8 @@ export const AboutDynasty = () => {
                         src="Frame 300.svg"
                         alt=""
                         className=" w-[40px] lg:w-[64px] h-[40px] lg:h-[64px]"
+                        data-content-hint="about.dynasty.signature"
+                        data-content-hint-type="image"
                     />
                     <div className="w-full max-w-[314px] xl:max-w-[425px]">
                         <div className="w-full flex justify-center mt-8 lg:mt-15">
@@ -37,6 +41,8 @@ export const AboutDynasty = () => {
                                 src="about/11.webp"
                                 alt=""
                                 className="w-[137px] md:w-[162px] lg:w-[198px] xl:w-[286px]"
+                                data-content-hint="about.dynasty.image2"
+                                data-content-hint-type="image"
                             />
                         </div>
                     </div>
@@ -52,17 +58,23 @@ export const AboutDynasty = () => {
                 src="about/12.webp"
                 alt=""
                 className="relative z-30 w-full mt-[10rem] xl:mt-[240px] 2xl:mt-[330px] shrink-0 max-[991px]:hidden"
+                data-content-hint="about.dynasty.image3"
+                data-content-hint-type="image"
             />
 
             <img
                 src="about/локация (3).png"
                 alt=""
                 className="relative z-30 w-full shrink-0 max-[600px]:hidden mt-[10rem] block lg:hidden"
+                data-content-hint="about.dynasty.location1"
+                data-content-hint-type="image"
             />
             <img
                 src="about/локация (4).png"
                 alt=""
                 className="relative z-30 w-full shrink-0 max-[600px]:mt-12 mt-[10rem] hidden max-[600px]:block"
+                data-content-hint="about.dynasty.location2"
+                data-content-hint-type="image"
             />
 
             <div className="absolute z-30 top-[54%] md:top-[49.5%] xl:top-[46.5%] 2xl:top-[43%] right-4 md:right-6 lg:right-12 max-[700px]:top-[52.5%] max-[600px]:hidden">
@@ -74,6 +86,8 @@ export const AboutDynasty = () => {
                     src="about/14.webp"
                     alt=""
                     className="w-[217px] h-[218px] object-cover"
+                    data-content-hint="about.dynasty.image4"
+                    data-content-hint-type="image"
                 />
 
                 <p className="text-xs 2xl:text-base text-[#1D1D1D] uppercase font-suisse font-semibold text-center max-w-[420px]" data-content-hint="about.dynasty.mansion-text">Особняк Дмитрия Львовича Бенкендорфа – отставного штабс-капитана лейб-гвардии Измайловского полка – в 1910 году построил архитектор Э.А. Густавсон. В ходе реконструкции в историческое здание интегрирована медицина высоких технологий</p>

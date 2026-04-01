@@ -13,13 +13,17 @@ export const CardAboutHistory = ({ data }: CardAboutHistoryProps) => {
                 src={data.image}
                 alt=""
                 className="w-full h-[200px] xl:h-[280px] 2xl:h-[320px] object-cover"
+                data-content-hint={`about.history.card.${data.year}.image`}
+                data-content-hint-type="image"
             />
             <div className='h-[310px] flex flex-col justify-between'>
                 <div className="flex justify-between mt-5 text-[#89685C]">
-                    <h3 className="text-[40px] 2xl:text-[56px] uppercase leading-none">
+                    <h3 className="text-[40px] 2xl:text-[56px] uppercase leading-none"
+                        data-content-hint={`about.history.card.${data.year}.year`}>
                         {data.year}
                     </h3>
-                    <span className="text-xs uppercase leading-none pt-2 font-suisse">
+                    <span className="text-xs uppercase leading-none pt-2 font-suisse"
+                        data-content-hint="about.history.card.year.label">
                         год
                     </span>
                 </div>
@@ -33,6 +37,7 @@ export const CardAboutHistory = ({ data }: CardAboutHistoryProps) => {
                                     ? "max-w-[450px] leading-[22px]"
                                     : "leading-[22px]"
                             }
+                            data-content-hint={`about.history.card.${data.year}.desc.${index}`}
                         >
                             {text}
                         </p>

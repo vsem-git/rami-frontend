@@ -4,6 +4,8 @@ export const WelcomeAbout = () => {
             <div
                 className="absolute inset-0 bg-no-repeat bg-cover bg-position-[0_120%] md:bg-position-[0_80%] lg:bg-position-[0_60%] xl:bg-position-[40%] 2xl:bg-position-[0_90%] bg-[url('/about/1.webp')] scale-130 md:scale-110 lg:scale-100 max-[600px]:bg-position-[0_80%] max-[500px]:bg-position-[0_-5rem] max-[500px]:scale-170"
                 style={{ filter: "grayscale(100%)" }}
+                data-content-hint="about.welcome.bg"
+                data-content-hint-type="image"
             ></div>
 
             <div
