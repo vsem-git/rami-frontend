@@ -902,7 +902,7 @@ const AnimationBlock = () => {
                 ref={firstText}
                 className="md:absolute md:scale-50 text-xs sm:ml-auto md:ml-0 2xl:text-lg md:opacity-0 h-dvh right-0 z-10 flex flex-col gap-4 xl:p-[80px] 2xl:p-[115px] uppercase justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] md:px-[32px] lg:max-w-[420px] xl:max-w-[555px] 2xl:max-w-[800px]"
             >
-                <p className="mt-[120px] sm:mt-0">
+                <p className="mt-[120px] sm:mt-0" data-content-hint="getting-ready.firsttext.description">
                     Еще до того, как будут проводиться пластические операции, мы
                     составляем детальный прогноз реакций организма на
                     хирургическое вмешательство, опираясь на результаты
@@ -916,7 +916,7 @@ const AnimationBlock = () => {
                 ref={secondText}
                 className="md:absolute md:scale-50 md:opacity-0 text-xs  sm:ml-auto md:ml-0 h-dvh right-0 z-10 flex flex-col  xl:p-[80px] 2xl:p-[115px] 2xl:text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
             >
-                <p className="mt-[120px] sm:mt-0">
+                <p className="mt-[120px] sm:mt-0" data-content-hint="getting-ready.secondtext.description">
                     Составление{" "}
                     <span className="font-bold">
                         программы подготовки к пластической операции
@@ -930,7 +930,7 @@ const AnimationBlock = () => {
                 ref={thirdText}
                 className="md:absolute md:scale-50 md:opacity-0 h-dvh  sm:ml-auto md:ml-0 right-0 z-10 flex flex-col  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[550px] 2xl:max-w-[790px]"
             >
-                <p className="text-[12px] 2xl:text-lg mt-[120px] sm:mt-0">
+                <p className="text-[12px] 2xl:text-lg mt-[120px] sm:mt-0" data-content-hint="getting-ready.thirdtext.description">
                     С первого до последнего шага корреляция между внешними и
                     внутренними процессами каждого пациента находится под
                     пристальным контролем уникального антиэйдж-специалиста,
@@ -946,7 +946,7 @@ const AnimationBlock = () => {
                 ref={fourthText}
                 className="md:absolute md:scale-50 md:opacity-0  sm:ml-auto md:ml-0 h-[calc(100dvh/1.25)] md:h-dvh right-0 z-10 flex flex-col  xl:p-[80px] 2xl:p-[115px] text-lg uppercase mt-30 sm:mt-0 justify-start sm:justify-center w-full sm:max-w-[400px] px-[16px] lg:max-w-[420px] xl:max-w-[560px] 2xl:max-w-[800px]"
             >
-                <p className="text-xs 2xl:text-lg mb-10 mt-[120px] sm:mt-0">
+                <p className="text-xs 2xl:text-lg mb-10 mt-[120px] sm:mt-0" data-content-hint="getting-ready.fourthtext.description">
                     Это уникальный подход, который можно назвать{" "}
                     <span className="font-bold">роскошью</span>, доступной
                     только для пациентов Клиники-резиденции RAMICLINIC
@@ -1001,11 +1001,13 @@ const AnimationBlock = () => {
                 ref={fifthText}
             >
                 <div className="sm:mt-0 grid grid-cols-[40px_auto] xl:grid-cols-[48px_auto] gap-4">
-                    <div className="bg-[#FFFFFF1A] text-[10px] md:text-[11px] 2xl:text-sm w-full flex items-center justify-center aspect-square rounded-full">
+                    <div className="bg-[#FFFFFF1A] text-[10px] md:text-[11px] 2xl:text-sm w-full flex items-center justify-center aspect-square rounded-full"
+                        data-content-hint="getting-ready.fifthtext.item1.number">
                         01
                     </div>
                     <div className="mt-[10px] xl:mt-[14px] 2xl:mt-2">
-                        <p className="text-[15px] md:text-[16px] 2xl:text-[24px] mb-[16px] 2xl:mb-[24px]">
+                        <p className="text-[15px] md:text-[16px] 2xl:text-[24px] mb-[16px] 2xl:mb-[24px]"
+                            data-content-hint="getting-ready.fifthtext.item1.title">
                             СОБСТВЕННАЯ ЛАБОРАТОРИЯ
                         </p>
                         <div className="flex flex-col gap-2 text-[11px] md:text-xs 2xl:text-[18px]">
@@ -1026,7 +1028,7 @@ const AnimationBlock = () => {
                                         fill-opacity="0.5"
                                     />
                                 </svg>
-                                <span>Новейшее высокоточное оборудование</span>
+                                <span data-content-hint="getting-ready.fifthtext.item1.desc1">Новейшее высокоточное оборудование</span>
                             </div>
                             <div className="grid grid-cols-[5px_auto] gap-2">
                                 <svg
@@ -1045,7 +1047,7 @@ const AnimationBlock = () => {
                                         fill-opacity="0.5"
                                     />
                                 </svg>
-                                <span>
+                                <span data-content-hint="getting-ready.fifthtext.item1.desc2">
                                     Комплекс предоперационных исследований
                                 </span>
                             </div>
@@ -1066,7 +1068,7 @@ const AnimationBlock = () => {
                                         fill-opacity="0.5"
                                     />
                                 </svg>
-                                <span>
+                                <span data-content-hint="getting-ready.fifthtext.item1.desc3">
                                     Анализы в режиме Cito с готовностью
                                     результатов в течение 30–60 минут
                                 </span>
@@ -1080,11 +1082,13 @@ const AnimationBlock = () => {
                 ref={sixthText}
             >
                 <div className="sm:mt-0 grid grid-cols-[40px_auto] xl:grid-cols-[48px_auto] gap-4">
-                    <div className="bg-[#FFFFFF1A] text-[10px] md:text-[11px] 2xl:text-sm w-full flex items-center justify-center aspect-square rounded-full">
+                    <div className="bg-[#FFFFFF1A] text-[10px] md:text-[11px] 2xl:text-sm w-full flex items-center justify-center aspect-square rounded-full"
+                        data-content-hint="getting-ready.sixthtext.item2.number">
                         02
                     </div>
                     <div className="mt-[10px] xl:mt-[14px] 2xl:mt-2">
-                        <p className="text-[15px] md:text-[16px] 2xl:text-[24px] mb-[16px] 2xl:mb-[24px]">
+                        <p className="text-[15px] md:text-[16px] 2xl:text-[24px] mb-[16px] 2xl:mb-[24px]"
+                            data-content-hint="getting-ready.sixthtext.item2.title">
                             ДИАГНОСТИЧЕСКОЕ ОБОРУДОВАНИЕ
                         </p>
                         <div className="flex flex-col gap-2 text-[11px] md:text-xs 2xl:text-[18px]">
@@ -1159,15 +1163,18 @@ const AnimationBlock = () => {
                 ref={seventhText}
             >
                 <div className="sm:mt-0 grid grid-cols-[40px_auto] xl:grid-cols-[48px_auto] gap-4">
-                    <div className="bg-[#FFFFFF1A] text-[10px] md:text-[11px] 2xl:text-sm w-full flex items-center justify-center aspect-square rounded-full">
+                    <div className="bg-[#FFFFFF1A] text-[10px] md:text-[11px] 2xl:text-sm w-full flex items-center justify-center aspect-square rounded-full"
+                        data-content-hint="getting-ready.seventhtext.item3.number">
                         03
                     </div>
                     <div className="mt-[10px] xl:mt-[14px] 2xl:mt-2">
-                        <p className="text-[15px] md:text-[16px] 2xl:text-[24px] mb-[16px] 2xl:mb-[24px]">
+                        <p className="text-[15px] md:text-[16px] 2xl:text-[24px] mb-[16px] 2xl:mb-[24px]"
+                            data-content-hint="getting-ready.seventhtext.item3.title">
                             ВОЗДУШНО-КИСЛОРОДНАЯ ГИПЕРБАРИЧЕСКАЯ БАРОКАМЕРА
                             НОВОГО ПОКОЛЕНИЯ
                         </p>
-                        <p className="text-[12px] 2xl:text-lg">
+                        <p className="text-[12px] 2xl:text-lg"
+                            data-content-hint="getting-ready.seventhtext.item3.description">
                             <span className="font-bold">
                                 ГИПЕРБАРИЧЕСКАЯ ОКСИГЕНАЦИЯ
                             </span>{" "}
@@ -1185,11 +1192,13 @@ const AnimationBlock = () => {
                 ref={eighthText}
             >
                 <div className="sm:mt-0 grid grid-cols-[40px_auto] xl:grid-cols-[48px_auto] gap-4">
-                    <div className="bg-[#FFFFFF1A] text-[10px] md:text-[11px] 2xl:text-sm w-full flex items-center justify-center aspect-square rounded-full">
+                    <div className="bg-[#FFFFFF1A] text-[10px] md:text-[11px] 2xl:text-sm w-full flex items-center justify-center aspect-square rounded-full"
+                        data-content-hint="getting-ready.eighthtext.item4.number">
                         04
                     </div>
                     <div className="mt-[10px] xl:mt-[14px] 2xl:mt-2">
-                        <p className="text-[15px] md:text-[16px] 2xl:text-[24px] mb-[16px] 2xl:mb-[24px]">
+                        <p className="text-[15px] md:text-[16px] 2xl:text-[24px] mb-[16px] 2xl:mb-[24px]"
+                            data-content-hint="getting-ready.eighthtext.item4.title">
                             ИНЪЕКЦИОННАЯ КОСМЕТОЛОГИЯ
                         </p>
                         <div className="flex flex-col gap-2 text-[11px] md:text-xs 2xl:text-[18px]">
@@ -1210,7 +1219,7 @@ const AnimationBlock = () => {
                                         fill-opacity="0.5"
                                     />
                                 </svg>
-                                <span>
+                                <span data-content-hint="getting-ready.eighthtext.item4.desc1">
                                     Терапия обогащенной тромбоцитами плазмы PRP
                                     для активации клеточной регенерации
                                 </span>
@@ -1232,7 +1241,7 @@ const AnimationBlock = () => {
                                         fill-opacity="0.5"
                                     />
                                 </svg>
-                                <span>
+                                <span data-content-hint="getting-ready.eighthtext.item4.desc2">
                                     Плацентарная терапия для улучшения
                                     метаболизма клеток
                                 </span>
@@ -1246,11 +1255,13 @@ const AnimationBlock = () => {
                 ref={ninethText}
             >
                 <div className="sm:mt-0 grid grid-cols-[40px_auto] xl:grid-cols-[48px_auto] gap-4">
-                    <div className="bg-[#FFFFFF1A] text-[10px] md:text-[11px] 2xl:text-sm w-full flex items-center justify-center aspect-square rounded-full">
+                    <div className="bg-[#FFFFFF1A] text-[10px] md:text-[11px] 2xl:text-sm w-full flex items-center justify-center aspect-square rounded-full"
+                        data-content-hint="getting-ready.ninethtext.item5.number">
                         05
                     </div>
                     <div className="mt-[10px] xl:mt-[14px] 2xl:mt-2">
-                        <p className="text-[15px] md:text-[16px] 2xl:text-[24px] mb-[16px] 2xl:mb-[24px]">
+                        <p className="text-[15px] md:text-[16px] 2xl:text-[24px] mb-[16px] 2xl:mb-[24px]"
+                            data-content-hint="getting-ready.ninethtext.item5.title">
                             АППАРАТНАЯ КОСМЕТОЛОГИЯ
                         </p>
                         <div className="flex flex-col gap-2 text-[11px] md:text-xs 2xl:text-[18px]">
@@ -1271,7 +1282,7 @@ const AnimationBlock = () => {
                                         fill-opacity="0.5"
                                     />
                                 </svg>
-                                <span>Фототерапия широкополосным светов</span>
+                                <span data-content-hint="getting-ready.ninethtext.item5.desc1">Фототерапия широкополосным светов</span>
                             </div>
                             <div className="grid grid-cols-[5px_auto] gap-2">
                                 <svg
@@ -1290,7 +1301,7 @@ const AnimationBlock = () => {
                                         fill-opacity="0.5"
                                     />
                                 </svg>
-                                <span>
+                                <span data-content-hint="getting-ready.ninethtext.item5.desc2">
                                     Высокочастотная ультразвуковая терапия
                                 </span>
                             </div>
@@ -1311,7 +1322,7 @@ const AnimationBlock = () => {
                                         fill-opacity="0.5"
                                     />
                                 </svg>
-                                <span>Микротоковая терапия</span>
+                                <span data-content-hint="getting-ready.ninethtext.item5.desc3">Микротоковая терапия</span>
                             </div>
                             <div className="grid grid-cols-[5px_auto] gap-2">
                                 <svg
@@ -1330,7 +1341,7 @@ const AnimationBlock = () => {
                                         fill-opacity="0.5"
                                     />
                                 </svg>
-                                <span>Радиочастотная физиотерапия</span>
+                                <span data-content-hint="getting-ready.ninethtext.item5.desc4">Радиочастотная физиотерапия</span>
                             </div>
                         </div>
                     </div>
@@ -1342,14 +1353,17 @@ const AnimationBlock = () => {
                 ref={tenthText}
             >
                 <div className="sm:mt-0 grid grid-cols-[40px_auto] xl:grid-cols-[48px_auto] gap-4">
-                    <div className="bg-[#FFFFFF1A] text-[10px] md:text-[11px] 2xl:text-sm w-full flex items-center justify-center aspect-square rounded-full">
+                    <div className="bg-[#FFFFFF1A] text-[10px] md:text-[11px] 2xl:text-sm w-full flex items-center justify-center aspect-square rounded-full"
+                        data-content-hint="getting-ready.tenthtext.item6.number">
                         06
                     </div>
                     <div className="mt-[10px] xl:mt-[14px] 2xl:mt-2">
-                        <p className="text-[15px] md:text-[16px] 2xl:text-[24px] mb-[16px] 2xl:mb-[24px]">
+                        <p className="text-[15px] md:text-[16px] 2xl:text-[24px] mb-[16px] 2xl:mb-[24px]"
+                            data-content-hint="getting-ready.tenthtext.item6.title">
                             ИСПОЛЬЗОВАНИЕ ПРЕМИАЛЬНОЙ КОСМЕЦЕВТИКИ
                         </p>
-                        <p className="text-[12px] 2xl:text-lg">
+                        <p className="text-[12px] 2xl:text-lg"
+                            data-content-hint="getting-ready.tenthtext.item6.description">
                             с доказанной эффективностью
                         </p>
                     </div>
