@@ -217,16 +217,16 @@ export const Cosmetology = () => {
                     ref={textRef}
                 >
                     <div className="marquee-cosmetology flex whitespace-nowrap text-[clamp(3rem,8vw,10rem)] font-normal uppercase mix-blend-difference leading-[125%]">
-                        <span className="px-4 md:px-6 xl:px-8">
+                        <span className="px-4 md:px-6 xl:px-8" data-content-hint="cosmetology.marquee.text">
                             ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ
                         </span>
-                        <span className="px-4 md:px-6 xl:px-8">
+                        <span className="px-4 md:px-6 xl:px-8" data-content-hint="cosmetology.marquee.text">
                             ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ
                         </span>
-                        <span className="px-4 md:px-6 xl:px-8">
+                        <span className="px-4 md:px-6 xl:px-8" data-content-hint="cosmetology.marquee.text">
                             ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ
                         </span>
-                        <span className="px-4 md:px-6 xl:px-8">
+                        <span className="px-4 md:px-6 xl:px-8" data-content-hint="cosmetology.marquee.text">
                             ИНТЕЛЛЕКТУАЛЬНАЯ КОСМЕТОЛОГИЯ
                         </span>
                     </div>

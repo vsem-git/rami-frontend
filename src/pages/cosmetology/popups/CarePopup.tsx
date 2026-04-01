@@ -66,10 +66,12 @@ export const CarePopup = () => {
                     </svg>
                 </button>
 
-                <h2 className="text-white uppercase text-[24px] 2xl:text-[36px] mb-4">
+                <h2 className="text-white uppercase text-[24px] 2xl:text-[36px] mb-4"
+                    data-content-hint="cosmetology.popup.care.title">
                     УХОДОВЫЕ ПРОЦЕДУРЫ
                 </h2>
-                <p className="text-[#FFFFFF99] text-[12px] 2xl:text-[18px] mb-8 md:max-w-none uppercase">
+                <p className="text-[#FFFFFF99] text-[12px] 2xl:text-[18px] mb-8 md:max-w-none uppercase"
+                    data-content-hint="cosmetology.popup.care.description">
                     Уходовые процедуры направлены, прежде всего, на поддержание
                     здоровья кожи. Комплексный эффект достигается благодаря
                     синергии работы косметолога и самостоятельного домашнего

@@ -75,7 +75,7 @@ export const News = () => {
 
     return (
         <div className="relative w-full flex flex-col px-4 md:px-6 xl:px-12 pt-[7rem] md:pt-[9rem] 2xl:pt-[13rem] gap-4 sm:gap-6">
-            <h1 className="relative z-10 text-[32px] sm:text-[44px] md:text-[64px] xl:text-[88px] 2xl:text-[110px] font-normal uppercase text-[#1D1D1D]">
+            <h1 data-content-hint="news.header.title" className="relative z-10 text-[32px] sm:text-[44px] md:text-[64px] xl:text-[88px] 2xl:text-[110px] font-normal uppercase text-[#1D1D1D]">
                 Новости
             </h1>
 
@@ -128,7 +128,7 @@ export const News = () => {
                     </div>
 
                     {filtered.length === 0 ? (
-                        <div className="w-full py-20 text-center text-[#1D1D1D]/40 text-sm uppercase font-semibold">
+                        <div data-content-hint="news.empty-state.message" className="w-full py-20 text-center text-[#1D1D1D]/40 text-sm uppercase font-semibold">
                             Ничего не найдено
                         </div>
                     ) : (
@@ -160,11 +160,13 @@ export const News = () => {
             </div>
 
             <img
+                data-content-hint="news.decoration.vector-left" data-content-hint-type="image"
                 src="/Vector (2).png"
                 alt=""
                 className="absolute top-0 left-0 z-0 hidden 2xl:block"
             />
             <img
+                data-content-hint="news.decoration.vector-right" data-content-hint-type="image"
                 src="news/Vector (15).png"
                 alt=""
                 className="absolute top-0 right-0 block 2xl:hidden w-[182px] sm:w-[298px] md:w-[479px] xl:w-auto"

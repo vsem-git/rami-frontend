@@ -66,10 +66,12 @@ export const InjectionPopup = () => {
                     </svg>
                 </button>
 
-                <h2 className="text-white uppercase text-[24px] 2xl:text-[36px] mb-4">
+                <h2 className="text-white uppercase text-[24px] 2xl:text-[36px] mb-4"
+                    data-content-hint="cosmetology.popup.injection.title">
                     ИНЪЕКЦИОННАЯ КОСМЕТОЛОГИЯ
                 </h2>
-                <p className="text-[#FFFFFF99] text-[12px] 2xl:text-[18px] mb-8 md:max-w-none uppercase">
+                <p className="text-[#FFFFFF99] text-[12px] 2xl:text-[18px] mb-8 md:max-w-none uppercase"
+                    data-content-hint="cosmetology.popup.injection.description">
                     Инъекционная косметология применяется на этапах подготовки
                     кожи к операции, реабилитации после и как самостоятельное
                     направление эстетической медицины, цель которой –

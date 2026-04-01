@@ -193,7 +193,7 @@ export const Patient = () => {
 					</div>
 
 					<div className='w-full mt-24'>
-						<h3 className='text-base md:text-xl text-white font-bold uppercase mb-4 md:mb-6'>
+						<h3 data-content-hint="patient.documents-section.heading" className='text-base md:text-xl text-white font-bold uppercase mb-4 md:mb-6'>
 							документы
 						</h3>
 						<div className='space-y-2'>

@@ -117,6 +117,7 @@ export const Antiage = () => {
 					absolute -z-10 top-[11rem] left-[20%]
 					text-[#1D1D1D4D]  text_anti-age0
 				"
+                data-content-hint="antiage.hero.label"
             >
                 Антиэйдж
             </h2>

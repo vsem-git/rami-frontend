@@ -66,10 +66,12 @@ export const LiftingPopup = () => {
                     </svg>
                 </button>
 
-                <h2 className="text-white uppercase text-[24px] 2xl:text-[36px] mb-4">
+                <h2 className="text-white uppercase text-[24px] 2xl:text-[36px] mb-4"
+                    data-content-hint="cosmetology.popup.lifting.title">
                     НИТЕВОЙ ЛИФТИНГ
                 </h2>
-                <p className="text-[#FFFFFF99] text-[12px] 2xl:text-[18px] mb-8 md:max-w-none uppercase">
+                <p className="text-[#FFFFFF99] text-[12px] 2xl:text-[18px] mb-8 md:max-w-none uppercase"
+                    data-content-hint="cosmetology.popup.lifting.description">
                     Тонкая, деликатная подтяжка с помощью нитей – это быстрый и
                     глубокий лифтинг-эффект, формирование дополнительного
                     каркаса для ослабших тканей, восстановление естественных
