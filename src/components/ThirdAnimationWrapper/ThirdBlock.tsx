@@ -1,7 +1,10 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { useContentContext } from "../../contexts/ContentContext";
+import { EditableImage } from "../EditableImage";
+import { EditableText } from "../EditableText";
 import { useHeader } from "../HeaderContext";
 import ThirdAnimationBlock from "./ThirdAnimationBlock/ThirdAnimationBlock";
 
@@ -41,24 +44,12 @@ const defaultCardsData: CardsData = {
             number: "03",
             alt: "card",
         },
-        {
-            image: "/card2.webp",
-            title: "Умные операционные",
-            number: "02",
-            alt: "card",
-        },
     ],
     rightColumn: [
         {
             image: "/card2.webp",
             title: "Умные операционные",
             number: "02",
-            alt: "card",
-        },
-        {
-            image: "/card3.webp",
-            title: "Привилегированный сервис",
-            number: "03",
             alt: "card",
         },
         {
@@ -338,27 +329,59 @@ const ThirdAndSecondAnimation = ({
         });
     });
 
+    const { registerField } = useContentContext();
+
+    useEffect(() => {
+        registerField("facility-01-image", "/card1.webp", "image");
+        registerField("facility-01-title", "Изысканная среда обитания", "text");
+        registerField("facility-01-number", "01", "text");
+        registerField("facility-02-image", "/card2.webp", "image");
+        registerField("facility-02-title", "Умные операционные", "text");
+        registerField("facility-02-number", "02", "text");
+        registerField("facility-03-image", "/card3.webp", "image");
+        registerField("facility-03-title", "Привилегированный сервис", "text");
+        registerField("facility-03-number", "03", "text");
+        registerField("facility-04-image", "/telishevsky.webp", "image");
+        registerField("facility-04-title", "Безопасность", "text");
+        registerField("facility-04-number", "04", "text");
+    }, [registerField]);
+
     const renderCard = (
         card: CardItem,
         index: number,
         column: "left" | "right",
-    ) => (
-        <div key={`${column}-${index}`}>
-            <div>
-                <img
-                    src={card.image}
-                    alt={card.alt || "card"}
-                    width={776}
-                    height={436}
-                    className="aspect-[776/436]"
-                />
+    ) => {
+        const num = card.number;
+
+        return (
+            <div key={`${column}-${index}`}>
+                <div>
+                    <EditableImage
+                        id={`facility-${num}-image`}
+                        fallback={card.image}
+                        alt={card.alt || "card"}
+                        width={776}
+                        height={436}
+                        className="aspect-[776/436]"
+                    />
+                </div>
+                <div className="flex justify-between pt-4 2xl:pt-6 text-[16px] 2xl:text-[24px] leading-[130%]">
+                    <EditableText
+                        id={`facility-${num}-title`}
+                        fallback={card.title}
+                        tag="span"
+                        className="uppercase"
+                    />
+                    <EditableText
+                        id={`facility-${num}-number`}
+                        fallback={card.number}
+                        tag="span"
+                        className="text-[#1D1D1D80]"
+                    />
+                </div>
             </div>
-            <div className="flex justify-between pt-4 2xl:pt-6 text-[16px] 2xl:text-[24px] leading-[130%]">
-                <span className="uppercase">{card.title}</span>
-                <span className="text-[#1D1D1D80]">{card.number}</span>
-            </div>
-        </div>
-    );
+        );
+    };
 
     return (
         <div className="relative" ref={containerRef}>

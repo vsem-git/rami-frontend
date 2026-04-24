@@ -28,6 +28,10 @@ export default defineConfig({
                   staticDir: path.resolve(configDir, "dist"),
                   outputDir: path.resolve(configDir, "dist"),
                   routes: prerenderRoutes,
+                  rendererOptions: {
+                      renderAfterDocumentEvent: "seo-ready",
+                      timeout: 15000,
+                  },
               }),
           ]
         : [reactPlugin, tailwindcss()],

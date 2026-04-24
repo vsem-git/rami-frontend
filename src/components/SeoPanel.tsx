@@ -21,6 +21,7 @@ const setLink = (selector: string, href: string) => {
 };
 
 type Tab = "basic" | "social" | "advanced";
+type Mode = "page" | "global";
 
 const TAB_LABELS: Record<Tab, string> = {
     basic: "Основное",
@@ -31,6 +32,7 @@ const TAB_LABELS: Record<Tab, string> = {
 export const SeoPanel = ({ isOpen, onClose }: SeoPanelProps) => {
     const { getContent, saveContent } = useContentContext();
     const [pageKey, setPageKey] = useState(() => pathToKey(window.location.pathname));
+    const [mode, setMode] = useState<Mode>("page");
     const [tab, setTab] = useState<Tab>("basic");
     const [saving, setSaving] = useState(false);
     const [saved, setSaved] = useState(false);
@@ -41,25 +43,29 @@ export const SeoPanel = ({ isOpen, onClose }: SeoPanelProps) => {
     useEffect(() => {
         if (isOpen) {
             setPageKey(pathToKey(window.location.pathname));
+            setMode("page");
             setSaved(false);
             setTab("basic");
         }
     }, [isOpen]);
+
+    const activeKey = mode === "global" ? "global" : pageKey;
 
     useEffect(() => {
         if (isOpen) setTimeout(() => titleRef.current?.focus(), 320);
     }, [isOpen]);
 
     const ids = {
-        title: `seo.${pageKey}.title`,
-        description: `seo.${pageKey}.description`,
-        ogTitle: `seo.${pageKey}.og_title`,
-        ogDescription: `seo.${pageKey}.og_description`,
-        ogImage: `seo.${pageKey}.og_image`,
-        ogType: `seo.${pageKey}.og_type`,
-        canonical: `seo.${pageKey}.canonical`,
-        robots: `seo.${pageKey}.robots`,
-        keywords: `seo.${pageKey}.keywords`,
+        title:       `seo.${activeKey}.${mode === "global" ? "title_template" : "title"}`,
+        description: `seo.${activeKey}.description`,
+        ogTitle:     `seo.${activeKey}.og_title`,
+        ogDescription:`seo.${activeKey}.og_description`,
+        ogImage:     `seo.${activeKey}.og_image`,
+        ogType:      `seo.${activeKey}.og_type`,
+        canonical:   `seo.${activeKey}.${mode === "global" ? "canonical_base" : "canonical"}`,
+        robots:      `seo.${activeKey}.robots`,
+        keywords:    `seo.${activeKey}.keywords`,
+        siteName:    `seo.global.site_name`,
     };
 
     const [f, setF] = useState({
@@ -72,29 +78,31 @@ export const SeoPanel = ({ isOpen, onClose }: SeoPanelProps) => {
         canonical: "",
         robots: "index, follow",
         keywords: "",
+        siteName: "",
     });
 
     useEffect(() => {
         setF({
-            title: getContent(ids.title, ""),
-            description: getContent(ids.description, ""),
-            ogTitle: getContent(ids.ogTitle, ""),
-            ogDescription: getContent(ids.ogDescription, ""),
-            ogImage: getContent(ids.ogImage, ""),
-            ogType: getContent(ids.ogType, "website"),
-            canonical: getContent(ids.canonical, ""),
-            robots: getContent(ids.robots, "index, follow"),
-            keywords: getContent(ids.keywords, ""),
+            title:        getContent(ids.title, ""),
+            description:  getContent(ids.description, ""),
+            ogTitle:      getContent(ids.ogTitle, ""),
+            ogDescription:getContent(ids.ogDescription, ""),
+            ogImage:      getContent(ids.ogImage, ""),
+            ogType:       getContent(ids.ogType, "website"),
+            canonical:    getContent(ids.canonical, ""),
+            robots:       getContent(ids.robots, "index, follow"),
+            keywords:     getContent(ids.keywords, ""),
+            siteName:     getContent(ids.siteName, ""),
         });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [pageKey, isOpen]);
+    }, [pageKey, mode, isOpen]);
 
     const set = (key: keyof typeof f) => (v: string) => setF((prev) => ({ ...prev, [key]: v }));
 
     const handleImageUpload = async (file: File) => {
         setUploading(true);
         try {
-            const { url } = await uploadMedia(file, `seo-og-${pageKey}`, `seo.${pageKey}`);
+            const { url } = await uploadMedia(file, `seo-og-${activeKey}`, `seo.${activeKey}`);
             set("ogImage")(url);
         } catch (e) {
             console.error("Upload failed", e);
@@ -172,15 +180,40 @@ export const SeoPanel = ({ isOpen, onClose }: SeoPanelProps) => {
                             <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
                         </svg>
                         <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#1D1D1D]">SEO</span>
-                        <span className="font-mono text-[10px] text-black/30 bg-black/5 px-1.5 py-0.5 rounded">
-                            /{pageKey === "home" ? "" : pageKey.replace(/\./g, "/")}
-                        </span>
                     </div>
-                    <button onClick={onClose} className="w-7 h-7 flex items-center justify-center text-black/35 hover:text-black/70 transition-colors cursor-pointer">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                            <path d="M18 6 6 18M6 6l12 12" />
-                        </svg>
-                    </button>
+                    <div className="flex items-center gap-1">
+                        {/* Mode toggle */}
+                        <div className="flex bg-black/5 rounded p-0.5 gap-0.5">
+                            <button
+                                onClick={() => setMode("page")}
+                                className={[
+                                    "px-2 py-1 text-[9px] font-semibold uppercase tracking-wider rounded transition-colors cursor-pointer",
+                                    mode === "page" ? "bg-white text-[#691C32] shadow-sm" : "text-black/40 hover:text-black/60",
+                                ].join(" ")}
+                            >
+                                Страница
+                            </button>
+                            <button
+                                onClick={() => setMode("global")}
+                                className={[
+                                    "px-2 py-1 text-[9px] font-semibold uppercase tracking-wider rounded transition-colors cursor-pointer",
+                                    mode === "global" ? "bg-white text-[#691C32] shadow-sm" : "text-black/40 hover:text-black/60",
+                                ].join(" ")}
+                            >
+                                Глобальные
+                            </button>
+                        </div>
+                        {mode === "page" && (
+                            <span className="font-mono text-[10px] text-black/30 bg-black/5 px-1.5 py-0.5 rounded">
+                                /{pageKey === "home" ? "" : pageKey.replace(/\./g, "/")}
+                            </span>
+                        )}
+                        <button onClick={onClose} className="w-7 h-7 flex items-center justify-center text-black/35 hover:text-black/70 transition-colors cursor-pointer ml-1">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                                <path d="M18 6 6 18M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
 
                 {/* Tabs */}
@@ -222,13 +255,13 @@ export const SeoPanel = ({ isOpen, onClose }: SeoPanelProps) => {
                             </div>
 
                             <SeoField
-                                label="Title"
-                                hint={{ min: 50, max: 60 }}
+                                label={mode === "global" ? "Title Template" : "Title"}
+                                hint={mode === "global" ? "используй %s для заголовка страницы" : { min: 50, max: 60 }}
                                 value={f.title}
                                 onChange={set("title")}
                                 inputRef={titleRef}
                                 maxLength={120}
-                                placeholder="RAMI Clinic — пластическая хирургия в СПб"
+                                placeholder={mode === "global" ? "%s | RAMI Clinic" : "RAMI Clinic — пластическая хирургия в СПб"}
                             />
                             <SeoField
                                 label="Description"
@@ -350,6 +383,14 @@ export const SeoPanel = ({ isOpen, onClose }: SeoPanelProps) => {
                                     <option value="profile">profile</option>
                                 </select>
                             </div>
+
+                            <SeoField
+                                label="Site Name"
+                                hint="og:site_name — название сайта"
+                                value={f.siteName}
+                                onChange={set("siteName")}
+                                placeholder="RAMI Clinic"
+                            />
                         </div>
                     )}
 
@@ -357,10 +398,11 @@ export const SeoPanel = ({ isOpen, onClose }: SeoPanelProps) => {
                     {tab === "advanced" && (
                         <div className="px-5 py-5 flex flex-col gap-5">
                             <SeoField
-                                label="Canonical URL"
+                                label={mode === "global" ? "Base URL сайта" : "Canonical URL"}
+                                hint={mode === "global" ? "используется для автогенерации canonical" : undefined}
                                 value={f.canonical}
                                 onChange={set("canonical")}
-                                placeholder={window.location.href}
+                                placeholder={mode === "global" ? "https://ramiclinic-residence.ru" : window.location.href}
                             />
 
                             <div className="flex flex-col gap-1.5">

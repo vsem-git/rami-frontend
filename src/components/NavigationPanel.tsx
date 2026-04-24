@@ -13,7 +13,8 @@ const SECTIONS: { key: keyof Omit<NavMenuData, 'burgerHiddenPages'>; label: stri
     { key: 'mainMenu',      label: 'Главное меню' },
     { key: 'patientLinks1', label: 'Пациентам — левая колонка' },
     { key: 'patientLinks2', label: 'Пациентам — правая колонка' },
-    { key: 'footerLinks',   label: 'Нижние ссылки' },
+    { key: 'footerLinks',   label: 'Нижние ссылки (бургер)' },
+    { key: 'footerMenuLinks', label: 'Ссылки футера' },
 ];
 
 export const NavigationPanel = ({ isOpen, onClose }: NavigationPanelProps) => {

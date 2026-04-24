@@ -8,6 +8,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { AdminProvider } from "./contexts/AdminContext";
 import { AdminBar } from "./components/AdminBar";
 import { ContentHintSync } from "./components/ContentHintSync";
+import { SeoHeadSync } from "./components/SeoHeadSync";
 import { ContentProvider } from "./contexts/ContentContext";
 import { EditingProvider } from "./contexts/EditingContext";
 import { EditingPanel } from "./components/EditingPanel";
@@ -44,6 +45,7 @@ createRoot(document.getElementById("root")!).render(
                     <NavMenuProvider>
                         <AdminBar />
                         <ContentHintSync />
+                        <SeoHeadSync />
                         <EditingPanel />
                         <Suspense fallback={null}>
                             <RouterProvider router={router} />

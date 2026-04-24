@@ -1,6 +1,7 @@
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
 import type { NavMenuData, NavMenuItem } from '../shared/types/navMenu';
 import { defaultNavMenuData } from '../shared/types/navMenu';
+import pb from '../services/pocketbase';
 
 interface NavMenuContextType {
     menuData: NavMenuData;
@@ -14,12 +15,12 @@ interface NavMenuContextType {
 
 type SectionKey = keyof Omit<NavMenuData, 'burgerHiddenPages'>;
 
-const SECTION_KEYS: SectionKey[] = ['mainMenu', 'patientLinks1', 'patientLinks2', 'footerLinks'];
+const SECTION_KEYS: SectionKey[] = ['mainMenu', 'patientLinks1', 'patientLinks2', 'footerLinks', 'footerMenuLinks'];
 
 const NavMenuContext = createContext<NavMenuContextType | undefined>(undefined);
 
-// v2 — old key had invalid/empty data; new key guarantees a clean start
 const STORAGE_KEY = 'navMenuData_v3';
+const PB_KEY = 'main';
 
 const isValid = (d: unknown): d is NavMenuData => {
     if (!d || typeof d !== 'object') return false;
@@ -30,7 +31,7 @@ const isValid = (d: unknown): d is NavMenuData => {
     );
 };
 
-const load = (): NavMenuData => {
+const loadLocal = (): NavMenuData => {
     try {
         const raw = localStorage.getItem(STORAGE_KEY);
         if (raw) {
@@ -41,23 +42,58 @@ const load = (): NavMenuData => {
     return defaultNavMenuData;
 };
 
-const save = (data: NavMenuData) => {
+const saveLocal = (data: NavMenuData) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 };
 
-// Returns the section array from prev, falling back to default if prev is stale/empty
 const safeSection = (prev: NavMenuData, key: SectionKey): NavMenuItem[] => {
     const arr = prev[key];
     return Array.isArray(arr) && arr.length > 0 ? arr : defaultNavMenuData[key];
 };
 
 export const NavMenuProvider = ({ children }: { children: ReactNode }) => {
-    const [menuData, setMenuDataState] = useState<NavMenuData>(load);
+    const [menuData, setMenuDataState] = useState<NavMenuData>(loadLocal);
+    const pbRecordId = useRef<string | null>(null);
+
+    // Load from PocketBase on mount, override local state if found
+    useEffect(() => {
+        pb.collection('navigation')
+            .getFirstListItem(`key="${PB_KEY}"`)
+            .then((record) => {
+                pbRecordId.current = record.id;
+                try {
+                    const parsed = JSON.parse(record.data as string);
+                    if (isValid(parsed)) {
+                        setMenuDataState(parsed);
+                        saveLocal(parsed);
+                    }
+                } catch {}
+            })
+            .catch(() => {
+                // Record not yet in DB — will be created on first save
+            });
+    }, []);
+
+    // Persist to localStorage + PocketBase
+    const persist = useCallback((data: NavMenuData) => {
+        saveLocal(data);
+        const json = JSON.stringify(data);
+        if (pbRecordId.current) {
+            pb.collection('navigation')
+                .update(pbRecordId.current, { data: json })
+                .catch(console.error);
+        } else {
+            pb.collection('navigation')
+                .create({ key: PB_KEY, data: json })
+                .then((r) => { pbRecordId.current = r.id; })
+                .catch(console.error);
+        }
+    }, []);
 
     const setMenuData = useCallback((data: NavMenuData) => {
         setMenuDataState(data);
-        save(data);
-    }, []);
+        persist(data);
+    }, [persist]);
 
     const updateItem = useCallback((section: SectionKey, id: number, updates: Partial<NavMenuItem>) => {
         setMenuDataState((prev) => {
@@ -67,10 +103,10 @@ export const NavMenuProvider = ({ children }: { children: ReactNode }) => {
                     item.id === id ? { ...item, ...updates } : item
                 ),
             };
-            save(updated);
+            persist(updated);
             return updated;
         });
-    }, []);
+    }, [persist]);
 
     const toggleItem = useCallback((section: SectionKey, id: number) => {
         setMenuDataState((prev) => {
@@ -80,10 +116,10 @@ export const NavMenuProvider = ({ children }: { children: ReactNode }) => {
                     item.id === id ? { ...item, enabled: !item.enabled } : item
                 ),
             };
-            save(updated);
+            persist(updated);
             return updated;
         });
-    }, []);
+    }, [persist]);
 
     const addItem = useCallback((section: SectionKey) => {
         setMenuDataState((prev) => {
@@ -93,10 +129,10 @@ export const NavMenuProvider = ({ children }: { children: ReactNode }) => {
                 ...prev,
                 [section]: [...items, { id: maxId + 1, label: 'Новый пункт', link: '/', enabled: true }],
             };
-            save(updated);
+            persist(updated);
             return updated;
         });
-    }, []);
+    }, [persist]);
 
     const deleteItem = useCallback((section: SectionKey, id: number) => {
         setMenuDataState((prev) => {
@@ -104,20 +140,19 @@ export const NavMenuProvider = ({ children }: { children: ReactNode }) => {
                 ...prev,
                 [section]: safeSection(prev, section).filter((item) => item.id !== id),
             };
-            save(updated);
+            persist(updated);
             return updated;
         });
-    }, []);
+    }, [persist]);
 
     const setBurgerHiddenPages = useCallback((pages: string[]) => {
         setMenuDataState((prev) => {
             const updated = { ...prev, burgerHiddenPages: pages };
-            save(updated);
+            persist(updated);
             return updated;
         });
-    }, []);
+    }, [persist]);
 
-    // If in-memory state is stale (HMR), expose defaultNavMenuData to consumers
     const exposedData = isValid(menuData) ? menuData : defaultNavMenuData;
 
     return (

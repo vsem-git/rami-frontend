@@ -14,6 +14,8 @@ export interface NavMenuData {
     patientLinks2: NavMenuItem[];
     /** Нижние ссылки в бургере */
     footerLinks: NavMenuItem[];
+    /** Ссылки в футере */
+    footerMenuLinks: NavMenuItem[];
     /** Маршруты, на которых бургер-кнопка СКРЫТА */
     burgerHiddenPages: string[];
 }
@@ -49,6 +51,13 @@ export const defaultNavMenuData: NavMenuData = {
         { id: 31, label: "Контакты", link: "/contacts", enabled: true },
         { id: 32, label: "Пациентам", link: "/patient", enabled: true },
         { id: 33, label: "Документы", link: "/documents", enabled: true },
+    ],
+    /** Ссылки в футере */
+    footerMenuLinks: [
+        { id: 40, label: "Блог", link: "/", enabled: true },
+        { id: 41, label: "Пациентам", link: "/patient", enabled: true },
+        { id: 42, label: "Лицензия", link: "/Выписка_из_реестра.pdf", enabled: true },
+        { id: 43, label: "Политика конфиденциальности", link: "/privacy-policy", enabled: true },
     ],
     /** Страницы, на которых бургер скрыт */
     burgerHiddenPages: [],

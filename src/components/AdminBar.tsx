@@ -5,6 +5,7 @@ import { DoctorsPanel } from "./DoctorsPanel";
 import { NewsPanel } from "./NewsPanel";
 import { SeoPanel } from "./SeoPanel";
 import { NavigationPanel } from "./NavigationPanel";
+import { RebuildButton } from "./RebuildButton";
 
 // ── Floating labels overlay ───────────────────────────────────────────────────
 
@@ -239,6 +240,8 @@ export const AdminBar = () => {
                                 )}
                             </svg>
                         </button>
+
+                        <RebuildButton />
 
                         <span className="flex-1" />
 
